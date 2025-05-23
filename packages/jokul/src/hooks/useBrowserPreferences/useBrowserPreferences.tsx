@@ -1,5 +1,5 @@
-import { Reducer, useEffect, useReducer, useState } from "react";
-import { ColorScheme } from "../../core/types.js";
+import { type Reducer, useEffect, useReducer, useState } from "react";
+import type { ColorScheme } from "../../core/types.js";
 import {
     addMediaQueryListener,
     getInitialMediaQueryMatch,

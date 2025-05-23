@@ -1,8 +1,11 @@
-import {
+import React from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React from "react";
+import grass400 from "/img/grass-400.jpg";
+import grass800 from "/img/grass-800.jpg";
+import grassThumbnail from "/img/grass-thumbnail.jpg";
 import { Image } from "../../../image/Image.js";
 import { SuccessTag } from "../../../tag/Tag.js";
 import { Card } from "../../Card.js";
@@ -10,12 +13,9 @@ import { CardImage } from "../../CardImage.js";
 import {
     CARD_PADDINGS,
     CARD_VARIANTS,
-    CardPadding,
-    CardVariant,
+    type CardPadding,
+    type CardVariant,
 } from "../../types.js";
-import grass400 from "/img/grass-400.jpg";
-import grass800 from "/img/grass-800.jpg";
-import grassThumbnail from "/img/grass-thumbnail.jpg";
 
 const imageProps = {
     src: grass400,

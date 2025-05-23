@@ -1,8 +1,13 @@
-import React, { ChangeEventHandler, Fragment, useId, useMemo } from "react";
+import React, {
+    type ChangeEventHandler,
+    Fragment,
+    useId,
+    useMemo,
+} from "react";
 import { FieldGroup } from "../../input-group/FieldGroup.js";
 import { useFollowUpContext } from "../followup/followupContext.js";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
-import { FeedbackOption, QuestionProps } from "../types.js";
+import type { FeedbackOption, QuestionProps } from "../types.js";
 import { defaultOptions, getSmiley } from "./smileyUtils.js";
 
 const isNotInScale = (option: FeedbackOption) =>

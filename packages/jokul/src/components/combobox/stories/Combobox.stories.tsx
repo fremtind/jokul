@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Combobox as ComboboxComponent } from "../Combobox.js";
 import "../styles/_index.scss";
-import { ComboboxValuePair } from "../../combobox/types.js";
 import React from "react";
+import type { ComboboxValuePair } from "../../combobox/types.js";
 
 const meta = {
     title: "Komponenter/Combobox",

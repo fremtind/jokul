@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import React, { ReactNode, useEffect, useState } from "react";
-import { Density } from "../../../core/types.js";
+import React, { type ReactNode, useEffect, useState } from "react";
+import type { Density } from "../../../core/types.js";
 import { useAnimatedDetails } from "../../../hooks/useAnimatedDetails/useAnimatedDetails.js";
-import { UseAnimatedHeightOptions } from "../../../hooks/useAnimatedHeight/types.js";
-import { Expander, ExpanderProps } from "./Expander.js";
+import type { UseAnimatedHeightOptions } from "../../../hooks/useAnimatedHeight/types.js";
+import { Expander, type ExpanderProps } from "./Expander.js";
 
 export interface ExpandSectionProps {
     /**

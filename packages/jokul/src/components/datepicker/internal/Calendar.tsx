@@ -6,19 +6,19 @@ import React, {
     useRef,
 } from "react";
 import { flushSync } from "react-dom";
-import { Density } from "../../../core/types.js";
+import type { Density } from "../../../core/types.js";
 import { useId } from "../../../hooks/useId/useId.js";
 import { Button } from "../../button/Button.js";
 import { ArrowLeftIcon } from "../../icon/icons/ArrowLeftIcon.js";
 import { ArrowRightIcon } from "../../icon/icons/ArrowRightIcon.js";
 import { ChevronDownIcon } from "../../icon/icons/ChevronDownIcon.js";
-import { YearsToShow } from "../types.js";
+import type { YearsToShow } from "../types.js";
 import { calendarInitializer, calendarReducer } from "./calendarReducer.js";
-import { useCalendar, UseCalendarProps } from "./useCalendar.js";
+import { type UseCalendarProps, useCalendar } from "./useCalendar.js";
 import {
-    addMonth,
-    DateInfo,
     DEFAULT_YEARS_TO_SHOW,
+    type DateInfo,
+    addMonth,
     getInitialDateShown,
     getMonthSelectOptions,
     getYearSelectOptions,
@@ -148,7 +148,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                 buttons.forEach((el, i) => {
                     const newNodeKey = i + offsetDiff;
 
-                    if (el == e) {
+                    if (el === e) {
                         if (
                             newNodeKey <= buttons.length - 1 &&
                             newNodeKey >= 0
@@ -225,14 +225,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                     }
                 });
             },
-            [
-                handleOffsetChanged,
-                calendarPaddingRef,
-                offset,
-                calendars,
-                maxDate,
-                minDate,
-            ],
+            [handleOffsetChanged, offset, calendars, maxDate, minDate],
         );
 
         const handleArrowNavigation = useCallback(

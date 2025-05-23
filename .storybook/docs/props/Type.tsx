@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { StrictInputType } from "storybook/internal/types";
+import type { FC } from "react";
+import type { StrictInputType } from "storybook/internal/types";
 
 type Props = {
     details: StrictInputType;
@@ -8,8 +8,11 @@ type Props = {
 export const Type: FC<Props> = ({ details }) => {
     if (details.options) {
         return `'${details.options.join("' | '")}'`;
-    } else if (details.type?.name === "other") {
+    }
+
+    if (details.type?.name === "other") {
         return details.type?.value;
     }
+
     return details.type?.name;
 };

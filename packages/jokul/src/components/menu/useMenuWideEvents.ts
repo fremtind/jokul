@@ -1,4 +1,4 @@
-import { FloatingTreeType } from "@floating-ui/react";
+import type { FloatingTreeType } from "@floating-ui/react";
 import { useEffect, useState } from "react";
 
 export const useMenuWideEvents = (
@@ -36,7 +36,7 @@ export const useMenuWideEvents = (
             tree.events.off("click", handleTreeClick);
             tree.events.off("menuopen", onSubMenuOpen);
         };
-    }, [tree, nodeId, parentId, setIsOpen]);
+    }, [tree, nodeId, parentId]);
 
     useEffect(() => {
         if (isOpen && tree) {
@@ -47,6 +47,7 @@ export const useMenuWideEvents = (
     // Determine if "hover" logic can run based on the modality of input. This
     // prevents unwanted focus synchronization as menus open and close with
     // keyboard navigation and the cursor is resting on the menu.
+    // biome-ignore lint/correctness/useExhaustiveDependencies:
     useEffect(() => {
         function onPointerMove({ pointerType }: PointerEvent) {
             if (pointerType !== "touch") {

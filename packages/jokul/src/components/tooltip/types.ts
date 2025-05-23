@@ -1,5 +1,5 @@
-import { type Placement } from "@floating-ui/react";
-import { HTMLProps, type ReactNode } from "react";
+import type { Placement } from "@floating-ui/react";
+import type { HTMLProps, ReactNode } from "react";
 
 export interface PopupTipProps
     extends Omit<TooltipProps, "triggerOn" | "children"> {

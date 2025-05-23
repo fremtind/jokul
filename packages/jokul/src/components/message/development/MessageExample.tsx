@@ -1,8 +1,8 @@
-import {
+import React, { useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { useState } from "react";
 import { NavLink } from "../../nav-link/NavLink.js";
 import {
     ErrorMessage,
@@ -53,7 +53,9 @@ export const MessageExample: React.FC<ExampleComponentProps> = ({
           }
         : undefined;
     return (
+        // biome-ignore lint/a11y/useValidAriaRole: Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
         <C
+            role="none presentation"
             fullWidth={boolValues?.["Full width"]}
             title={
                 !boolValues?.["No title"]
@@ -62,8 +64,6 @@ export const MessageExample: React.FC<ExampleComponentProps> = ({
             }
             dismissed={dismissed}
             dismissAction={dismissAction}
-            // Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
-            role="none presentation"
         >
             <p>
                 Hei, jeg er en melding av typen {choiceValues?.["Variant"]} med{" "}

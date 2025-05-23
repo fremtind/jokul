@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { forwardRef, useEffect } from "react";
 import { useTableContext } from "./tableContext.js";
 import { TableSectionContextProvider } from "./tableSectionContext.js";
-import { TableHeadProps } from "./types.js";
+import type { TableHeadProps } from "./types.js";
 
 const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
     ({ className, srOnly, sticky = false, ...rest }, ref) => {

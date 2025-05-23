@@ -1,15 +1,15 @@
-import {
+import React, { type FC, useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC, useState } from "react";
 import { formatKontonummer } from "../../../utilities/formatters/kontonummer/formatKontonummer.js";
 import { Button } from "../../button/Button.js";
 import { CopyIcon } from "../../icon/index.js";
 import { Tooltip } from "../Tooltip.js";
 import { TooltipContent } from "../TooltipContent.js";
 import { TooltipTrigger } from "../TooltipTrigger.js";
-import { TooltipPlacement } from "../types.js";
+import type { TooltipPlacement } from "../types.js";
 import { getPlacement } from "./getPlacement.js";
 
 export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
@@ -17,7 +17,7 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
         choiceValues?.["Plassering"],
     );
     const delay = choiceValues?.["Forsinkelse (ms)"]
-        ? parseInt(choiceValues?.["Forsinkelse (ms)"])
+        ? Number.parseInt(choiceValues?.["Forsinkelse (ms)"])
         : undefined;
     const [copied, setCopied] = useState(false);
     const kontonummer = "16024454979";

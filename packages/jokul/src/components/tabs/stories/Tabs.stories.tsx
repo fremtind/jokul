@@ -33,7 +33,7 @@ type Story = StoryObj<typeof meta>;
 export const TabsStory: Story = {
     name: "Tabs",
     args: {
-        children: <p></p>,
+        children: <p />,
     },
     render: (args) => (
         <div style={{ maxWidth: "300px" }}>

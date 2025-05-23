@@ -1,13 +1,17 @@
 import {
-    Dispatch,
-    FormEvent,
-    SetStateAction,
+    type Dispatch,
+    type FormEvent,
+    type SetStateAction,
     useCallback,
     useEffect,
     useRef,
     useState,
 } from "react";
-import { FeedbackAnswer, FeedbackOption, FollowupQuestion } from "../types.js";
+import type {
+    FeedbackAnswer,
+    FeedbackOption,
+    FollowupQuestion,
+} from "../types.js";
 
 type CurrentValue =
     | FeedbackOption<string | number>

@@ -1,10 +1,11 @@
 import {
-    autoUpdate,
-    flip,
     FloatingFocusManager,
     FloatingPortal,
+    type ReferenceElement,
+    type VirtualElement,
+    autoUpdate,
+    flip,
     offset,
-    ReferenceElement,
     shift,
     useClick,
     useDismiss,
@@ -14,12 +15,11 @@ import {
     useInteractions,
     useMergeRefs,
     useRole,
-    VirtualElement,
 } from "@floating-ui/react";
 import clsx from "clsx";
 import * as React from "react";
 import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
-import { PopoverOptions } from "./types.js";
+import type { PopoverOptions } from "./types.js";
 
 const usePopover = ({
     open: _open,

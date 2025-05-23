@@ -3,7 +3,7 @@ import { useId } from "../../hooks/useId/useId.js";
 import { SupportLabel } from "../input-group/SupportLabel.js";
 import { BaseRadioButton } from "./BaseRadioButton.js";
 import { useRadioGroupContext } from "./radioGroupContext.js";
-import { RadioButtonProps } from "./types.js";
+import type { RadioButtonProps } from "./types.js";
 
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     (props, ref) => {
@@ -25,8 +25,8 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
                         typeof checked !== "undefined"
                             ? checked
                             : typeof selectedValue !== "undefined"
-                            ? value === selectedValue
-                            : undefined
+                              ? value === selectedValue
+                              : undefined
                     }
                     value={value}
                     aria-describedby={helpLabel ? supportId : undefined}

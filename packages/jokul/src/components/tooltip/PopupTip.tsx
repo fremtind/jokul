@@ -4,7 +4,7 @@ import { QuestionIcon } from "../icon/icons/QuestionIcon.js";
 import { Tooltip } from "./Tooltip.js";
 import { TooltipContent } from "./TooltipContent.js";
 import { TooltipTrigger } from "./TooltipTrigger.js";
-import { PopupTipProps } from "./types.js";
+import type { PopupTipProps } from "./types.js";
 
 export const PopupTip: FC<PopupTipProps> = ({
     content,
@@ -31,7 +31,7 @@ export const PopupTip: FC<PopupTipProps> = ({
             </TooltipTrigger>
 
             <TooltipContent data-ispopup={true}>
-                {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+                {/* biome-ignore lint/a11y/noNoninteractiveTabindex: */}
                 <div className="jkl-popuptip__content-wrapper" tabIndex={0}>
                     {content}
                 </div>

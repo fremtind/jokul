@@ -1,12 +1,12 @@
 import { renderHook } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
-import { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../core/types.js";
 import {
     CookieConsentProvider,
     useInternalState,
 } from "./CookieConsentContext.js";
-import { Consent, ConsentState } from "./types.js";
+import type { Consent, ConsentState } from "./types.js";
 
 const generateConsent = (
     marketing: ConsentState,

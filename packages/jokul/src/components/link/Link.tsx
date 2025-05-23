@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
 import React, { useId } from "react";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
-import { LinkProps } from "./types.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { LinkProps } from "./types.js";
 
 type LinkComponent = <ElementType extends React.ElementType = "a">(
     props: LinkProps<ElementType>,

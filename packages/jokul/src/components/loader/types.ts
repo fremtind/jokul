@@ -1,5 +1,5 @@
-import { AriaRole, HTMLProps, ReactNode } from "react";
-import { Density } from "../../core/types.js";
+import type { AriaRole, HTMLProps, ReactNode } from "react";
+import type { Density } from "../../core/types.js";
 export type LoaderVariant = "small" | "medium" | "large";
 
 export interface LoaderProps {

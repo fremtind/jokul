@@ -1,8 +1,8 @@
-import {
+import React, { useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { useState } from "react";
 import { NavLink } from "../../nav-link/NavLink.js";
 import {
     ErrorSystemMessage,
@@ -54,7 +54,7 @@ export const SystemMessageExample: React.FC<ExampleComponentProps> = ({
         : undefined;
 
     return (
-        // Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
+        // biome-ignore lint/a11y/useValidAriaRole: Role beregnes vanligvis av komponenten, men er overstyrt her i eksempelet for å unngå at beskjeden leses opp utenfor konteksten av eksempelet.
         <C
             dismissed={dismissed}
             dismissAction={dismissAction}

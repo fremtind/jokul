@@ -1,5 +1,5 @@
 import React, { forwardRef, useId } from "react";
-import { FileInputFile } from "../types.js";
+import type { FileInputFile } from "../types.js";
 import { useFileInputContext } from "./fileInputContext.js";
 import { validateFile } from "./validateFile.js";
 
@@ -15,7 +15,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
 
         const defaultId = useId();
 
-        const maxSizeDescriptionId = id + "-description";
+        const maxSizeDescriptionId = `${id}-description`;
         const descriptor = multiple ? "filer" : "fil";
 
         const context = useFileInputContext();

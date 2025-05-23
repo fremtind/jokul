@@ -1,5 +1,5 @@
-import { TextareaHTMLAttributes } from "react";
-import { InputGroupProps } from "../input-group/types.js";
+import type { TextareaHTMLAttributes } from "react";
+import type { InputGroupProps } from "../input-group/types.js";
 
 export type Counter = {
     /** Antall tegn før telleren når maksimum og vi viser en feilmelding */

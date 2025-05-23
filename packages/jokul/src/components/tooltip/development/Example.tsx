@@ -1,5 +1,5 @@
-import { DevExample } from "utils/dev-example/DevExample.js";
 import React from "react";
+import { DevExample } from "utils/dev-example/DevExample.js";
 import { PopupTipExample } from "./PopupTipExample.js";
 import { TooltipExample, tooltipExampleKnobs } from "./TooltipExample.js";
 

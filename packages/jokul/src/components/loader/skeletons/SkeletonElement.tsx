@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { SkeletonElementProps } from "../types.js";
+import type { SkeletonElementProps } from "../types.js";
 
 export const SkeletonElement = ({
     shape = "rect",

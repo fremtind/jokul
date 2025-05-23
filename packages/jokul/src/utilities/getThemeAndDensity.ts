@@ -13,7 +13,7 @@ export const getThemeAndDensity = (
     // Sett theme til dark hvis bakgrunnsfargen er mørkere enn 50% av hvit
     // dette gir oss slingringsmonn i tilfelle verdien av Jøkuls bakgrunnsfarge endres
     const theme =
-        parseInt(
+        Number.parseInt(
             computedStyles
                 .getPropertyValue("--jkl-background-color")
                 .replace("#", ""),

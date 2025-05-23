@@ -27,7 +27,7 @@ export function validateFile(
         };
     }
 
-    if (typeof maxSizeBytes != "undefined" && file.size > maxSizeBytes) {
+    if (typeof maxSizeBytes !== "undefined" && file.size > maxSizeBytes) {
         return {
             type: "TOO_LARGE",
             message: `Filen er ${formatBytes(

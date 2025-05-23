@@ -1,10 +1,10 @@
-import {
+import type {
     ChangeEventHandler,
     FocusEventHandler,
     InputHTMLAttributes,
     ReactNode,
 } from "react";
-import { DataTestAutoId, Density } from "../../core/types.js";
+import type { DataTestAutoId, Density } from "../../core/types.js";
 
 export interface CheckboxProps
     extends DataTestAutoId,

@@ -1,5 +1,5 @@
 import React, { useState, type CSSProperties, type FC, useEffect } from "react";
-import { CountdownProps } from "./types.js";
+import type { CountdownProps } from "./types.js";
 
 export const Countdown: FC<CountdownProps> = ({
     className,
@@ -21,7 +21,7 @@ export const Countdown: FC<CountdownProps> = ({
                 setRemainingSeconds((sec) => sec - 1);
             }
         }, 1000);
-    }, [isPaused, from, remainingSeconds, setRemainingSeconds]);
+    }, [isPaused, remainingSeconds]);
 
     return (
         <div

@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { FieldGroup } from "../input-group/FieldGroup.js";
 import { RadioGroupContextProvider } from "./radioGroupContext.js";
-import { RadioButtonGroupProps } from "./types.js";
+import type { RadioButtonGroupProps } from "./types.js";
 
 export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
     const {

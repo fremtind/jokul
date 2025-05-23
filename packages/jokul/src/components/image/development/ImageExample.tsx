@@ -1,11 +1,11 @@
-import { ExampleComponentProps } from "utils/dev-example/index.js";
 import React, { useState } from "react";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { Image } from "../Image.js";
 import "./style.scss";
-import dog1200 from "/img/dog-1200.jpg";
-import dog1920 from "/img/dog-1920.jpg";
 import dog400 from "/img/dog-400.jpg";
 import dog800 from "/img/dog-800.jpg";
+import dog1200 from "/img/dog-1200.jpg";
+import dog1920 from "/img/dog-1920.jpg";
 import thumbnail from "/img/thumbnail.jpg";
 
 const responsiveImage = {
@@ -41,6 +41,7 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({
                 , still inn komponenten og trykk på last bilde.
             </p>
             <button
+                type="button"
                 className="jkl-spacing-xl--bottom jkl-button jkl-button--secondary"
                 data-testid="load-image-button"
                 onClick={() => {

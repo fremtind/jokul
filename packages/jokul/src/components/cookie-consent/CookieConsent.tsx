@@ -1,4 +1,4 @@
-import React, { FormEventHandler, useEffect, useId } from "react";
+import React, { type FormEventHandler, useEffect, useId } from "react";
 import ReactDOM from "react-dom";
 import { SecondaryButton } from "../button/Button.js";
 import {
@@ -12,12 +12,12 @@ import {
 } from "../modal/Modal.js";
 import { useModal } from "../modal/useModal.js";
 import { useInternalState } from "./CookieConsentContext.js";
+import { RequirementCheckbox } from "./RequirementCheckbox.js";
 import {
     convertBooleanConsentObjectToConsentObject,
     setConsentCookie,
 } from "./cookieConsentUtils.js";
-import { RequirementCheckbox } from "./RequirementCheckbox.js";
-import { AcceptConsentCallback, Consent } from "./types.js";
+import type { AcceptConsentCallback, Consent } from "./types.js";
 
 export interface CookieConsentProps {
     blocking?: boolean;

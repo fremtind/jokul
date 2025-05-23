@@ -12,7 +12,7 @@ import {
 } from "./index.js";
 
 describe("List", () => {
-    it(`UnorderedList and ListItem should render as expected`, () => {
+    it("UnorderedList and ListItem should render as expected", () => {
         render(
             <UnorderedList>
                 <ListItem>Kibogiedo</ListItem>
@@ -25,7 +25,7 @@ describe("List", () => {
         expect(screen.getByText("Omocebig")).toBeInTheDocument();
     });
 
-    it(`OrderedList and ListItem should render as expected`, () => {
+    it("OrderedList and ListItem should render as expected", () => {
         render(
             <OrderedList>
                 <ListItem>Kibogiedo</ListItem>
@@ -38,7 +38,7 @@ describe("List", () => {
         expect(screen.getByText("Omocebig")).toBeInTheDocument();
     });
 
-    it(`List gets the passed className`, () => {
+    it("List gets the passed className", () => {
         render(
             <UnorderedList className="jkl-body">
                 <ListItem>Kibogiedo</ListItem>
@@ -48,7 +48,7 @@ describe("List", () => {
         expect(screen.getByTestId("jkl-list")).toHaveClass("jkl-body");
     });
 
-    it(`ListItem gets the passed className`, () => {
+    it("ListItem gets the passed className", () => {
         render(
             <UnorderedList>
                 <ListItem className="jkl-body">Kibogiedo</ListItem>
@@ -57,7 +57,7 @@ describe("List", () => {
         expect(screen.getByTestId("jkl-list-item")).toHaveClass("jkl-body");
     });
 
-    it(`Nested lists should render all elements as expected`, () => {
+    it("Nested lists should render all elements as expected", () => {
         render(
             <UnorderedList>
                 <ListItem>Kibogiedo</ListItem>

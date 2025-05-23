@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, useCallback } from "react";
-import { PolymorphicRef } from "../../utilities/index.js";
-import { NavTabProps } from "./types.js";
+import type { PolymorphicRef } from "../../utilities/index.js";
+import type { NavTabProps } from "./types.js";
 
 type NavTabComponent = <ElementType extends React.ElementType = "a">(
     props: NavTabProps<ElementType>,

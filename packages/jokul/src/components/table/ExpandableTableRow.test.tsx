@@ -1,4 +1,4 @@
-import { act, render, RenderOptions } from "@testing-library/react";
+import { type RenderOptions, act, render } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React, { useState } from "react";
 import { describe, expect, it } from "vitest";
@@ -110,6 +110,7 @@ describe("ExpandableTableRow", () => {
             return (
                 <>
                     <button
+                        type="button"
                         data-testid="controller"
                         onClick={() => setIsOpen((value) => !value)}
                     >

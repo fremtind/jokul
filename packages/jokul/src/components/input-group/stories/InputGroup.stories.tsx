@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { BaseTextInput } from "../../text-input/BaseTextInput.js";
 import { InputGroup } from "../InputGroup.js";

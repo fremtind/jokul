@@ -1,8 +1,8 @@
-import {
+import React, { type FC, useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC, useState } from "react";
 import type { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { DatePicker } from "../DatePicker.js";
@@ -28,14 +28,12 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({
     boolValues,
     choiceValues,
 }) => {
-    const helpLabel =
-        boolValues && boolValues["Med hjelpetekst"]
-            ? "Du vil være forsikret fra denne datoen"
-            : undefined;
-    const errorLabel =
-        boolValues && boolValues["Med feil"]
-            ? "Du kan ikke velge en dato som har vært"
-            : undefined;
+    const helpLabel = boolValues?.["Med hjelpetekst"]
+        ? "Du vil være forsikret fra denne datoen"
+        : undefined;
+    const errorLabel = boolValues?.["Med feil"]
+        ? "Du kan ikke velge en dato som har vært"
+        : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
 
     const tooltip = boolValues?.["Med tooltip"] ? (

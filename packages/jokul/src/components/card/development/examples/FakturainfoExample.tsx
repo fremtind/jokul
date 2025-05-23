@@ -1,16 +1,16 @@
-import {
+import React from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React from "react";
 import { formatValuta } from "../../../../utilities/formatters/valuta/formatValuta.js";
 import { ErrorTag } from "../../../tag/Tag.js";
 import { Card } from "../../Card.js";
 import {
     CARD_PADDINGS,
     CARD_VARIANTS,
-    CardPadding,
-    CardVariant,
+    type CardPadding,
+    type CardVariant,
 } from "../../types.js";
 
 export const FakturainfoExample = ({

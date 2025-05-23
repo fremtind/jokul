@@ -18,15 +18,15 @@ describe("formatFodselsnummer", () => {
     });
 
     it("does not format a 10 digit number", () => {
-        expect(formatFodselsnummer("0106510020")).toEqual(`0106510020`);
+        expect(formatFodselsnummer("0106510020")).toEqual("0106510020");
     });
 
     it("does not format a 12 digit number", () => {
-        expect(formatFodselsnummer("010651002034")).toEqual(`010651002034`);
+        expect(formatFodselsnummer("010651002034")).toEqual("010651002034");
     });
 
     it("does not format a string containing letters", () => {
-        expect(formatFodselsnummer("0106heisann")).toEqual(`0106heisann`);
+        expect(formatFodselsnummer("0106heisann")).toEqual("0106heisann");
     });
 });
 
@@ -51,17 +51,17 @@ describe("formatFodselsnummer with partial option", () => {
 
     it("does not format a 6 digit number", () => {
         expect(formatFodselsnummer("010651002034", { partial: true })).toEqual(
-            `010651002034`,
+            "010651002034",
         );
     });
 
     it("does not format a 12 digit number", () => {
         expect(formatFodselsnummer("010651002034", { partial: true })).toEqual(
-            `010651002034`,
+            "010651002034",
         );
     });
 
     it("does not format a string containing letters", () => {
-        expect(formatFodselsnummer("0106heisann")).toEqual(`0106heisann`);
+        expect(formatFodselsnummer("0106heisann")).toEqual("0106heisann");
     });
 });

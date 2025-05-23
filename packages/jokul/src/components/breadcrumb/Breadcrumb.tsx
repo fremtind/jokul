@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { BreadcrumbItemProps, BreadcrumbProps } from "./types.js";
+import type { BreadcrumbItemProps, BreadcrumbProps } from "./types.js";
 
 export const Breadcrumb = ({
     className,

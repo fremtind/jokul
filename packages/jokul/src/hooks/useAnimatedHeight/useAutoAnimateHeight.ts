@@ -1,6 +1,12 @@
-import { RefObject, useCallback, useEffect, useRef, useState } from "react";
+import {
+    type RefObject,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
+} from "react";
 import tokens from "../../core/tokens.js";
-import { type Easing, type Timing } from "../../core/types.js";
+import type { Easing, Timing } from "../../core/types.js";
 import { useBrowserPreferences } from "../useBrowserPreferences/useBrowserPreferences.js";
 import { usePreviousValue } from "../usePreviousValue/usePreviousValue.js";
 
@@ -111,6 +117,7 @@ export function useAutoAnimatedHeight<T extends HTMLElement = HTMLElement>(
         prefersReducedMotion,
     ]);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: Vi vil trige med trigger
     useEffect(() => {
         runAnimation();
     }, [trigger, runAnimation]);
@@ -138,7 +145,7 @@ export function useAutoAnimatedHeight<T extends HTMLElement = HTMLElement>(
             r1 && cancelAnimationFrame(r1);
             r2 && cancelAnimationFrame(r2);
         };
-    }, [raf1, raf2]);
+    }, []);
 
     return elementRef;
 }

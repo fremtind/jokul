@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import type { WithOptionalChildren } from "../../../core/types.js";
-import { FileInputFileState } from "../types.js";
+import type { FileInputFileState } from "../types.js";
 
 export interface ThumbnailProps extends WithOptionalChildren {
     fileName: string;

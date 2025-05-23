@@ -1,9 +1,14 @@
-import React, { ChangeEventHandler, useEffect, useMemo, useRef } from "react";
+import React, {
+    type ChangeEventHandler,
+    useEffect,
+    useMemo,
+    useRef,
+} from "react";
 import { TextArea } from "../../text-area/TextArea.js";
 import { useFeedbackContext } from "../feedbackContext.js";
 import { useFollowUpContext } from "../followup/followupContext.js";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";
-import { FeedbackAnswer, QuestionProps } from "../types.js";
+import type { FeedbackAnswer, QuestionProps } from "../types.js";
 
 export const TextQuestion: React.FC<QuestionProps> = ({
     label,
@@ -21,7 +26,7 @@ export const TextQuestion: React.FC<QuestionProps> = ({
         if (autoFocus && ref.current) {
             ref.current.focus();
         }
-    }, [autoFocus, ref]);
+    }, [autoFocus]);
 
     const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
         const value: FeedbackAnswer = {

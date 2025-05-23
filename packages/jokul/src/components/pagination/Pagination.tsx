@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import React, { useEffect } from "react";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { IconButton } from "../icon-button/IconButton.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
-import { IconButton } from "../icon-button/IconButton.js";
 import { PageButton } from "./PageButton.js";
-import { PaginationProps } from "./types.js";
+import type { PaginationProps } from "./types.js";
 
 type PaginationComponent = <ElementType extends React.ElementType = "nav">(
     props: PaginationProps<ElementType>,

@@ -10,7 +10,7 @@ React-komponentene våre er er den raskeste og enkleste måten å ta i bruk Jøk
 
 For å starte utviklingsserveren for Jøkul lokalt må du først ha installert:
 
--   [Node]-versjonen definert i [`.nvmrc`](./.nvmrc), gjerne via [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm).
+-   [Node](https://nodejs.org/en)-versjonen definert i [`.nvmrc`](./.nvmrc), gjerne via [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm).
 -   [pnpm](https://pnpm.io/installation#using-corepack), gjerne via `corepack` eller `npm`.
     -   På de nye Fremtind-Macene kan det hende at du må installere `corepack` via Homebrew for at det skal fungere ordentlig: Installer med `brew install corepack`, og gjør klar med `corepack install` inne i Jøkul-mappa.
 
@@ -18,20 +18,26 @@ Så, etter å ha klonet repoet:
 
 -   `pnpm boot`
 -   `pnpm dev`
--   Åpne [localhost:8000](http://localhost:8000)
+-   Åpne [localhost:3000](http://localhost:3000)
+
+### Oppsett av linting og formatering
+
+Vi bruker verktøyet [Biome](https://biomejs.dev/) for både formatering og linting av koden i prosjektet. Linting og formatering skjer automatisk ved commit, men vi anbefaler også at du setter opp IDEen din til å bruke Biome så den ikke krangler med våre innstillinger.
+
+Det finnes plugins for både [VSCode](https://marketplace.visualstudio.com/items?itemName=biomejs.biome) og [IntelliJ](https://plugins.jetbrains.com/plugin/22761-biome), som må installeres for å få funksjonaliteten i editoren. Etter å ha installert plugin-en må du fortelle editoren at den skal bruke Biome for formatering og linting.
+
+#### Oppsett av Biome i VSCode
+
+Etter å ha installert plugin-en, åpne innstillingene og søk på `format`. Velg Biome under valget "Editor: Default Formatter". **NB!** vi anbefaler at du gjør dette under "Workspace", siden de fleste andre prosjekter bruker Prettier for formatering.
+<img width="581" alt="Skjermbilde 2025-05-23 kl  10 08 09" src="https://github.com/user-attachments/assets/4f85b67b-5590-43f8-ab33-8549f3c92c40" />
+
+Deretter kan du søke etter `eslint` og fjerne avkrysningen ved "Eslint: Enable", for å unngå at Eslint krangler med Biome. Sørg også for at "Eslint > Format: Enable" er skrudd av. Disse endringene bør også gjøres under "Workspace".
+<img width="374" alt="Skjermbilde 2025-05-23 kl  10 10 41" src="https://github.com/user-attachments/assets/ec33a8a7-f305-450b-b15f-33756de53527" />
 
 ### Tips under utvikling
 
 -   Kjør `pnpm reboot` om du kommer tilbake til Jøkul-prosjektet etter en stund, eller noe ikke fungerer som du forventer.
 -   Om du opplever feil fra `nx`, prøv `pnpm dlx nx reset` og kjør kommandoen på nytt.
--   `pnpm dev` har live reloading for _portalen_, ikke kildekoden til pakkene. Kjør `pnpm build` for pakken du endrer, så oppdaterer portalen seg.
--   Hver pakke har sin egen devserver bak `pnpm dev` om du skal jobbe på noe isolert, og ikke trenger hele portalen.
-
-**Kjapt om `pnpm dev` i pakkene**
-
-For å teste server-side rendering har vi det problemet at serverdelen må restarte for at første render skal bli oppdatert med det nyeste. Vi bruker nodemon for å restarte denne automatisk ved endringer.
-
-En ulempe med det er at hvis du har _to_ devservere kjørende vil du få et nytt portnummer på én av de hver gang. Du kan komme deg rundt det problemet ved å sette PORT-miljøvariabelen til noe annet enn 1234. For eksempel `PORT=1235 pnpm dev`.
 
 ### Bruk av pakkene
 

@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
-import { calculatePercentage, ProgressBar } from "./ProgressBar.js";
+import { ProgressBar, calculatePercentage } from "./ProgressBar.js";
 
 const defaultProps = {
     "aria-valuenow": 50,

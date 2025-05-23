@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { useCallback, useRef } from "react";
-import { TabListProps } from "./types.js";
+import type { TabListProps } from "./types.js";
 
 export interface InjectedProps {
     activeIndex: number;

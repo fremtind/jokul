@@ -1,8 +1,8 @@
 import { Flex } from "@fremtind/jokul/components/flex";
 import { Link } from "@fremtind/jokul/components/link";
+import styles from "./SiteHeader.module.scss";
 import { HamburgerButton } from "./menu/HamburgerButton";
 import { MenuItemList } from "./menu/MenuItemList";
-import styles from "./SiteHeader.module.scss";
 
 export const SiteHeader = async () => {
     const menuId = "global-menu";
@@ -28,11 +28,7 @@ export const SiteHeader = async () => {
                 <HamburgerButton menuId={menuId} />
             </Flex>
 
-            <nav
-                role="navigation"
-                aria-label="Hovednavigasjon"
-                className={styles.menu}
-            >
+            <nav aria-label="Hovednavigasjon" className={styles.menu}>
                 <MenuItemList />
             </nav>
         </Flex>

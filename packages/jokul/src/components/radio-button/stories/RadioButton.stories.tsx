@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { RadioButton as RadioButtonComponent } from "../RadioButton.js";
 import "../styles/_index.scss";
 

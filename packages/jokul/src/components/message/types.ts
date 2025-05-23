@@ -1,5 +1,5 @@
-import { AriaRole } from "react";
-import { Density, WithChildren } from "../../core/types.js";
+import type { AriaRole } from "react";
+import type { Density, WithChildren } from "../../core/types.js";
 
 export interface MessageProps extends WithChildren {
     id?: string;

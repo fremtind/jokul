@@ -1,6 +1,6 @@
 import React, {
-    ChangeEvent,
-    ForwardedRef,
+    type ChangeEvent,
+    type ForwardedRef,
     forwardRef,
     useCallback,
     useContext,
@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { BasePanel } from "../../shared/input-panel/BasePanel.js";
 import { context } from "./radioPanelContext.js";
-import { RadioPanelProps } from "./types.js";
+import type { RadioPanelProps } from "./types.js";
 
 export const RadioPanel = forwardRef(function RadioPanel(
     {
@@ -38,6 +38,9 @@ export const RadioPanel = forwardRef(function RadioPanel(
         [onChange, onValueChange, value],
     );
 
+    // We never want to rerun this effect. Changing the default value after the
+    // input control is first mounted should not cause any updates
+    // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
     useEffect(() => {
         if (defaultChecked) {
             if (!onValueChange) {
@@ -47,8 +50,6 @@ export const RadioPanel = forwardRef(function RadioPanel(
             }
             onValueChange(value);
         }
-        // We never want to rerun this effect. Changing the default value after the
-        // input control is first mounted should not cause any updates
         /* eslint-disable-next-line react-hooks/exhaustive-deps */
     }, []);
 

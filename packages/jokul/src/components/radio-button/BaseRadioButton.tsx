@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
-import { BaseRadioButtonProps } from "./types.js";
+import type { BaseRadioButtonProps } from "./types.js";
 
 export const BaseRadioButton = forwardRef<
     HTMLInputElement,

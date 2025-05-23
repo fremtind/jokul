@@ -1,11 +1,11 @@
-import {
+import React, { type FC, useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC, useState } from "react";
-import { type LabelVariant } from "../../input-group/types.js";
+import type { LabelVariant } from "../../input-group/types.js";
 import { Combobox } from "../Combobox.js";
-import { ComboboxValuePair } from "../types.js";
+import type { ComboboxValuePair } from "../types.js";
 
 export const comboboxExampleKnobs: ExampleKnobsProps = {
     boolProps: [
@@ -73,20 +73,16 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({
         Array<ComboboxValuePair>
     >([]);
 
-    const errorLabel =
-        boolValues && boolValues["Med feil"]
-            ? "Du må velge sykdommer, for eksempel A090 og A150."
-            : undefined;
-    const helpLabel =
-        boolValues && boolValues["Med hjelpetekst"]
-            ? "Med sykdommer mener vi for eksempel A090 og A150."
-            : undefined;
-    const noMatchingOption =
-        boolValues && boolValues["Med empty state"]
-            ? "Ingen valg matcher søket"
-            : undefined;
-    const hasTagHover =
-        boolValues && boolValues["Med tagHover"] ? true : undefined;
+    const errorLabel = boolValues?.["Med feil"]
+        ? "Du må velge sykdommer, for eksempel A090 og A150."
+        : undefined;
+    const helpLabel = boolValues?.["Med hjelpetekst"]
+        ? "Med sykdommer mener vi for eksempel A090 og A150."
+        : undefined;
+    const noMatchingOption = boolValues?.["Med empty state"]
+        ? "Ingen valg matcher søket"
+        : undefined;
+    const hasTagHover = boolValues?.["Med tagHover"] ? true : undefined;
 
     return (
         <Combobox
@@ -122,18 +118,18 @@ export const comboboxExampleCode = ({
     placeholder="Søk"
     variant="${choiceValues?.["Variant"]}"
     helpLabel=${
-        !!boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : `{undefined}`
+        boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : "{undefined}"
     }
     errorLabel=${
-        !!boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : `{undefined}`
+        boolValues?.["Med feil"] ? `"Beskrivende feilmelding"` : "{undefined}"
     }
     label="Velg sykdommer"
     noMatchingOption=${
-        !!boolValues?.["Med empty state"]
+        boolValues?.["Med empty state"]
             ? `"Ingen valg matcher søket"`
-            : `{undefined}`
+            : "{undefined}"
     }
-    hasTagHover=${!!boolValues?.["Med tagHover"] ? `{true}` : `{undefined}`}
+    hasTagHover=${boolValues?.["Med tagHover"] ? "{true}" : "{undefined}"}
     items={[
         { value: "a080", label: "A080 - Rotavirusenteritt", tagLabel: "A080" },
         { value: "a081", label: "A081 - Akutt gastroenteritt som skyldes norovirus", tagLabel: "A081" },

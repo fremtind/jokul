@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { type FC } from "react";
+import { IconButton } from "../icon-button/IconButton.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import { SearchIcon } from "../icon/icons/SearchIcon.js";
-import { IconButton } from "../icon-button/IconButton.js";
 
 interface Props {
     clearSelection: () => void;

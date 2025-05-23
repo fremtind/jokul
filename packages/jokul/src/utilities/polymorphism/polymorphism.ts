@@ -14,6 +14,9 @@ type PropsToOmit<
 
 export type PolymorphicProps<
     ElementType extends React.ElementType,
+    // Vi er nødt til å defaulte til {} her for å sikre at komponenten
+    // faktisk forventer props
+    // biome-ignore lint/complexity/noBannedTypes:
     Props = {},
 > = React.PropsWithChildren<Props & ElementTypeProp<ElementType>> &
     Omit<
@@ -27,6 +30,9 @@ export type PolymorphicRef<ElementType extends React.ElementType> =
 
 export type PolymorphicPropsWithRef<
     ElementType extends React.ElementType,
+    // Vi er nødt til å defaulte til {} her for å sikre at komponenten
+    // faktisk forventer props
+    // biome-ignore lint/complexity/noBannedTypes:
     Props = {},
 > = PolymorphicProps<ElementType, Props> & {
     ref?: PolymorphicRef<ElementType>;

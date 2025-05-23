@@ -1,8 +1,8 @@
-import {
+import React, { type ComponentPropsWithRef, type FC, forwardRef } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { ComponentPropsWithRef, FC, forwardRef } from "react";
 import { Button } from "../../button/Button.js";
 import { ChevronDownIcon, ErrorIcon } from "../../icon/index.js";
 import { Menu } from "../Menu.js";
@@ -31,7 +31,7 @@ export const MenuExample: FC<ExampleComponentProps> = ({
 
     /* Force a re-render whenever theme or density changes */
     const key =
-        displayValues?.theme || "none" + displayValues?.density || "none";
+        displayValues?.theme || `none${displayValues?.density}` || "none";
 
     const CustomLink = forwardRef<
         HTMLAnchorElement,

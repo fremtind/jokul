@@ -1,5 +1,5 @@
-import { CSSProperties, FieldsetHTMLAttributes, type ReactNode } from "react";
-import {
+import type { CSSProperties, FieldsetHTMLAttributes, ReactNode } from "react";
+import type {
     DataTestAutoId,
     Density,
     WithChildren,

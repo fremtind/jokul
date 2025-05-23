@@ -1,11 +1,11 @@
-import {
+import React, { type ChangeEvent, type FC, useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { ChangeEvent, FC, useState } from "react";
-import { CloseIcon } from "../../icon/index.js";
 import { IconButton } from "../../icon-button/IconButton.js";
-import { LabelVariant } from "../../input-group/types.js";
+import { CloseIcon } from "../../icon/index.js";
+import type { LabelVariant } from "../../input-group/types.js";
 import { Link } from "../../link/Link.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { TextInput } from "../TextInput.js";

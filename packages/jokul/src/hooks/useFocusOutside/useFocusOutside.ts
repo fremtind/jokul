@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from "react";
+import { type RefObject, useEffect } from "react";
 
 /**
  * Hook for å lytte etter fokus utenfor et element. Nyttig dersom flere fokuserbare elementer samspiller i en komponent.
@@ -17,12 +17,10 @@ export function useFocusOutside(
 
     useEffect(() => {
         if (ref) {
-            document &&
-                document.addEventListener("focusin", handleFocusOutside);
+            document?.addEventListener("focusin", handleFocusOutside);
         }
         return () => {
-            document &&
-                document.removeEventListener("focusin", handleFocusOutside);
+            document?.removeEventListener("focusin", handleFocusOutside);
         };
     });
 }

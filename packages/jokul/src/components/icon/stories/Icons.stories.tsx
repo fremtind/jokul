@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
 import { TextInput } from "../../text-input/TextInput.js";
+import { Icon } from "../Icon.js";
 import { IconExample } from "../development/internal/IconExample.js";
 import { IconsExampleGrid } from "../development/internal/IconsExampleGrid.js";
-import { Icon } from "../Icon.js";
 import {
     ArrowDownIcon,
     ArrowLeftIcon,

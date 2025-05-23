@@ -1,4 +1,4 @@
-import { render, RenderOptions } from "@testing-library/react";
+import { type RenderOptions, render } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import { axe } from "jest-axe";
 import React from "react";

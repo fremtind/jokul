@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { PortableTextTypeComponentProps } from "next-sanity";
+import type { PortableTextTypeComponentProps } from "next-sanity";
 import { LivePreview } from "./LivePreview";
 
 export const PATH_SEPARATOR = "_";

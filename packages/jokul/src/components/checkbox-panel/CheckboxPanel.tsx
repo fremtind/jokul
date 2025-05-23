@@ -1,12 +1,12 @@
 import React, {
-    ChangeEvent,
-    ForwardedRef,
+    type ChangeEvent,
+    type ForwardedRef,
     forwardRef,
     useCallback,
     useState,
 } from "react";
 import { BasePanel } from "../../shared/input-panel/BasePanel.js";
-import { CheckboxPanelProps } from "./types.js";
+import type { CheckboxPanelProps } from "./types.js";
 
 export const CheckboxPanel = forwardRef(function CheckboxPanel(
     {
@@ -27,7 +27,7 @@ export const CheckboxPanel = forwardRef(function CheckboxPanel(
             onChange?.(e);
             setIsChecked(e.target.checked);
         },
-        [onChange, setIsChecked],
+        [onChange],
     );
 
     const isControlled = typeof checked !== "undefined";

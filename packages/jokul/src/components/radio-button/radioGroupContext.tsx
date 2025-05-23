@@ -1,5 +1,9 @@
-import React, { createContext, useContext, ChangeEventHandler } from "react";
-import { Density, WithChildren } from "../../core/types.js";
+import React, {
+    createContext,
+    useContext,
+    type ChangeEventHandler,
+} from "react";
+import type { Density, WithChildren } from "../../core/types.js";
 
 type RadioGroupContext = {
     name: string | undefined;

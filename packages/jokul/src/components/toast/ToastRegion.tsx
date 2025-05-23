@@ -1,14 +1,14 @@
 import { type AriaToastRegionProps, useToastRegion } from "@react-aria/toast";
 import {
-    useToastQueue,
+    type ToastQueue,
     type ToastState,
-    ToastQueue,
+    useToastQueue,
 } from "@react-stately/toast";
 import clsx from "clsx";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Toast } from "./Toast.js";
-import { ToastContent } from "./types.js";
+import type { ToastContent } from "./types.js";
 
 interface ToastRegionProps<T extends ToastContent = ToastContent>
     extends AriaToastRegionProps {
@@ -21,8 +21,8 @@ function Region<T extends ToastContent>({
     state,
     ...props
 }: ToastRegionProps<T>) {
-    let ref = React.useRef(null);
-    let { regionProps } = useToastRegion(props, state, ref);
+    const ref = React.useRef(null);
+    const { regionProps } = useToastRegion(props, state, ref);
 
     return (
         <div

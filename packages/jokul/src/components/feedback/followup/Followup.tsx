@@ -1,12 +1,12 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { type FC, useEffect, useRef, useState } from "react";
 import {
     PrimaryButton,
     SecondaryButton,
     TertiaryButton,
 } from "../../button/Button.js";
-import { useFeedbackContext } from "../feedbackContext.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
-import { FollowupProps } from "../types.js";
+import { useFeedbackContext } from "../feedbackContext.js";
+import type { FollowupProps } from "../types.js";
 import { getQuestionFromType } from "../utils.js";
 import { FollowUpProvider } from "./followupContext.js";
 import { useFollowup } from "./useFollowup.js";
@@ -38,7 +38,7 @@ export const Followup: FC<FollowupProps> = ({
         if (step.number === 0) {
             return;
         }
-        focusRef.current && focusRef.current.focus();
+        focusRef.current?.focus();
     }, [step]);
 
     useEffect(() => {

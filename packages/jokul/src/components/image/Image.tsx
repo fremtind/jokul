@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import { useElementDimensions } from "../../hooks/useElementDimensions/useElementDimensions.js";
-import { ImageProps } from "./types.js";
+import type { ImageProps } from "./types.js";
 import { useImageLoadingStatus } from "./useImageLoadingStatus.js";
 
 export const Image: FC<ImageProps> = ({
@@ -27,6 +27,7 @@ export const Image: FC<ImageProps> = ({
                 alt={alt}
                 src={placeholder || imageProperties.src}
             />
+            {/* biome-ignore lint/a11y/useAltText: Den har da vitterlig en alt-attributt? */}
             <img
                 alt={alt}
                 className="jkl-image__image"

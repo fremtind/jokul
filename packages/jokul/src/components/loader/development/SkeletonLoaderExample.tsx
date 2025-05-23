@@ -1,8 +1,8 @@
-import {
+import React, { type FC } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC } from "react";
 import { SkeletonAnimation } from "../skeletons/SkeletonAnimation.js";
 import { SkeletonButton } from "../skeletons/SkeletonButton.js";
 import { SkeletonCheckboxGroup } from "../skeletons/SkeletonCheckboxGroup.js";
@@ -20,9 +20,8 @@ export const knobs: ExampleKnobsProps = {};
 
 export const SkeletonLoaderExample: FC<ExampleComponentProps> = () => {
     return (
-        <SkeletonAnimation
-            role="none presentation" // Kun for eksempelet, ellers blir det mange alerts på siden
-        >
+        // biome-ignore lint/a11y/useValidAriaRole: Kun for eksempelet, ellers blir det mange alerts på siden
+        <SkeletonAnimation role="none presentation">
             <div style={{ display: "flex", flexDirection: "column", gap: 40 }}>
                 <SkeletonElement width={350} height={32} />
                 <SkeletonInput />

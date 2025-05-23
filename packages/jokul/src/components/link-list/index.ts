@@ -1,9 +1,9 @@
 export { LinkList } from "./LinkList.js";
 
-export {
-    type LinkListProps,
-    type UnorderedLinkListProps,
-    type OrderedLinkListProps,
-    type LinkComponent,
-    type ItemProps,
+export type {
+    LinkListProps,
+    UnorderedLinkListProps,
+    OrderedLinkListProps,
+    LinkComponent,
+    ItemProps,
 } from "./types.js";

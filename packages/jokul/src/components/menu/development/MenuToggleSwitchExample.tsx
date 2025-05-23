@@ -1,12 +1,12 @@
-import {
+import React, { useCallback, useRef, useState, type FC } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { useCallback, useRef, useState, type FC } from "react";
-import { ColorScheme } from "../../../core/types.js";
+import type { ColorScheme } from "../../../core/types.js";
 import { useBrowserPreferences } from "../../../hooks/useBrowserPreferences/useBrowserPreferences.js";
-import { DotsIcon } from "../../icon/index.js";
 import { IconButton } from "../../icon-button/IconButton.js";
+import { DotsIcon } from "../../icon/index.js";
 import { Tooltip } from "../../tooltip/Tooltip.js";
 import { TooltipContent } from "../../tooltip/TooltipContent.js";
 import { TooltipTrigger } from "../../tooltip/TooltipTrigger.js";
@@ -35,27 +35,24 @@ export const MenuToggleSwitchExample: FC<ExampleComponentProps> = ({
     const [colorScheme, setColorScheme] = useState(pref.prefersColorScheme);
 
     const bodyRef = useRef<HTMLDivElement>(null);
-    const handleSetColorScheme = useCallback(
-        (scheme: ColorScheme) => {
+    const handleSetColorScheme = useCallback((scheme: ColorScheme) => {
+        if (!bodyRef.current) {
+            return;
+        }
+        setColorScheme(scheme);
+        // @ts-ignore Ikke stabilt i alle nettlesere ennå: https://caniuse.com/view-transitions
+        if (!document.startViewTransition) {
+            bodyRef.current.dataset.theme = scheme;
+            return;
+        }
+        // @ts-ignore Ikke stabilt i alle nettlesere ennå: https://caniuse.com/view-transitions
+        document.startViewTransition(() => {
             if (!bodyRef.current) {
                 return;
             }
-            setColorScheme(scheme);
-            // @ts-ignore Ikke stabilt i alle nettlesere ennå: https://caniuse.com/view-transitions
-            if (!document.startViewTransition) {
-                bodyRef.current.dataset.theme = scheme;
-                return;
-            }
-            // @ts-ignore Ikke stabilt i alle nettlesere ennå: https://caniuse.com/view-transitions
-            document.startViewTransition(() => {
-                if (!bodyRef.current) {
-                    return;
-                }
-                bodyRef.current.dataset.theme = scheme;
-            });
-        },
-        [setColorScheme],
-    );
+            bodyRef.current.dataset.theme = scheme;
+        });
+    }, []);
 
     return (
         <div

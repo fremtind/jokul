@@ -5,9 +5,9 @@ import React, {
     useCallback,
 } from "react";
 import { useAriaLiveRegion } from "../../hooks/useAriaLiveRegion/useAriaLiveRegion.js";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { Loader } from "../loader/Loader.js";
-import { ButtonComponent, ButtonProps } from "./types.js";
+import type { ButtonComponent, ButtonProps } from "./types.js";
 
 export const Button = React.forwardRef(function Button<
     ElementType extends React.ElementType = "button",
@@ -62,11 +62,11 @@ export const Button = React.forwardRef(function Button<
                 target.getBoundingClientRect().y;
             target.style.setProperty(
                 "--jkl-touch-xcoord",
-                Xcoord.toFixed(1) + "px",
+                `${Xcoord.toFixed(1)}px`,
             );
             target.style.setProperty(
                 "--jkl-touch-ycoord",
-                Ycoord.toFixed(1) + "px",
+                `${Ycoord.toFixed(1)}px`,
             );
             target.classList.add("jkl-button--pressed");
         }
@@ -80,7 +80,7 @@ export const Button = React.forwardRef(function Button<
             {...ariaLive}
             data-loading={showLoader}
             data-density={density}
-            className={cn("jkl-button", "jkl-button--" + variant, className)}
+            className={cn("jkl-button", `jkl-button--${variant}`, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}
             onTouchStart={(event) => {
                 onTouchStart?.(event);

@@ -10,7 +10,7 @@ const path = require("path");
 const prompt = require("prompt");
 
 const runLinker = async () => {
-    let projectPath = process.argv[2];
+    const projectPath = process.argv[2];
 
     if (!projectPath) {
         prompt.start();

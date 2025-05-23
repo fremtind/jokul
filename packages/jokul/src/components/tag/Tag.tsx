@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import React, { FC } from "react";
-import { TagProps } from "./types.js";
+import React, { type FC } from "react";
+import type { TagProps } from "./types.js";
 
 type Variant = "info" | "error" | "warning" | "success";
 

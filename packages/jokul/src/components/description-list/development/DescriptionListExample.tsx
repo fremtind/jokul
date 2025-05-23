@@ -1,8 +1,8 @@
 import React from "react";
 import {
     DescriptionDetail as DD,
-    DescriptionList,
     DescriptionTerm as DT,
+    DescriptionList,
 } from "../DescriptionList.js";
 
 export const DescriptionListExample: React.FC = () => {

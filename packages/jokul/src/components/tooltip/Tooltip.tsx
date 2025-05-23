@@ -13,9 +13,15 @@ import {
     useInteractions,
     useRole,
 } from "@floating-ui/react";
-import React, { FC, createContext, useContext, useRef, useState } from "react";
-import { type WithChildren } from "../../core/types.js";
-import { TooltipProps } from "./types.js";
+import React, {
+    type FC,
+    createContext,
+    useContext,
+    useRef,
+    useState,
+} from "react";
+import type { WithChildren } from "../../core/types.js";
+import type { TooltipProps } from "./types.js";
 
 type UseTooltipReturn = {
     triggerOn: NonNullable<TooltipProps["triggerOn"]>;
@@ -39,8 +45,9 @@ const useTooltip = ({
     const [isOpen, setOpen] = useState(initialOpen);
     const arrowElement = useRef<SVGSVGElement>(null);
     const description = useRef<HTMLElement | null>(null);
-    const setDescription = (element: HTMLElement | null) =>
-        (description.current = element);
+    const setDescription = (element: HTMLElement | null) => {
+        description.current = element;
+    };
 
     const data = useFloating({
         open: isOpen,

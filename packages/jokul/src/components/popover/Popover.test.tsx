@@ -122,7 +122,7 @@ describe("Popover", () => {
             <Popover modal={true}>
                 <Popover.Trigger>Open Popover</Popover.Trigger>
                 <Popover.Content data-testid="popover-id">
-                    <button>Focusable Element</button>
+                    <button type="button">Focusable Element</button>
                 </Popover.Content>
             </Popover>,
         );

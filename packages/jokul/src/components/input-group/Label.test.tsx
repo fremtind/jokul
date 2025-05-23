@@ -3,18 +3,18 @@ import React from "react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import { Label } from "./Label.js";
-import { LabelVariant } from "./types.js";
+import type { LabelVariant } from "./types.js";
 
 describe("Label", () => {
     const variants: LabelVariant[] = ["small", "medium", "large"];
-    variants.forEach((variant) => {
+    for (const variant of variants) {
         it(`renders the expected class for variant ${variant}`, () => {
             const { getByText } = render(
                 <Label variant={variant}>Hello</Label>,
             );
             expect(getByText("Hello")).toHaveClass(`jkl-label--${variant}`);
         });
-    });
+    }
 
     it("renders the expected result for compact", () => {
         const { getByText } = render(<Label density="compact">Hello</Label>);

@@ -1,10 +1,10 @@
 import clsx from "clsx";
 import React, {
     Children,
-    ComponentPropsWithRef,
-    ForwardedRef,
+    type ComponentPropsWithRef,
+    type ForwardedRef,
     forwardRef,
-    ReactNode,
+    type ReactNode,
     useId,
 } from "react";
 import { useAutoAnimatedHeight } from "../../hooks/useAnimatedHeight/useAutoAnimateHeight.js";

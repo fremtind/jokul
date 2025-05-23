@@ -1,7 +1,7 @@
 "use client";
 
 import * as components from "@fremtind/jokul/components";
-import React, { FC } from "react";
+import React, { type FC } from "react";
 import {
     LiveEditor as ReactLiveEditor,
     LiveError as ReactLiveError,

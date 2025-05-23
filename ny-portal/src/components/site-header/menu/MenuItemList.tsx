@@ -1,9 +1,9 @@
-import clsx from "clsx";
-import styles from "../SiteHeader.module.scss";
-import { MenuItem } from "./MenuItem";
 import { client } from "@/sanity/client";
 import { blogPostsQuery } from "@/sanity/queries/blog";
 import { componentsQuery } from "@/sanity/queries/component";
+import clsx from "clsx";
+import styles from "../SiteHeader.module.scss";
+import { MenuItem } from "./MenuItem";
 
 export const MenuItemList = async () => {
     const components = await client.fetch(componentsQuery);

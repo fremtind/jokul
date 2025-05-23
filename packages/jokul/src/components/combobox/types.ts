@@ -1,7 +1,7 @@
-import { ChangeEvent } from "react";
-import { Density } from "../../core/types.js";
-import { ValuePair } from "../../utilities/valuePair.js";
-import { InputGroupProps, LabelProps } from "../input-group/types.js";
+import type { ChangeEvent } from "react";
+import type { Density } from "../../core/types.js";
+import type { ValuePair } from "../../utilities/valuePair.js";
+import type { InputGroupProps, LabelProps } from "../input-group/types.js";
 
 export type ComboboxValuePair = ValuePair & {
     tagLabel?: string;

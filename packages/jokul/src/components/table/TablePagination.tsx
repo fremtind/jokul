@@ -8,20 +8,23 @@ import React, {
     type MouseEventHandler,
 } from "react";
 import { useId } from "../../hooks/useId/useId.js";
+import { IconButton } from "../icon-button/IconButton.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
-import { IconButton } from "../icon-button/IconButton.js";
 import { NativeSelect } from "../select/NativeSelect.js";
 import { TextInput } from "../text-input/TextInput.js";
 import { useTableContext } from "./tableContext.js";
-import { TablePaginationProps } from "./types.js";
+import type { TablePaginationProps } from "./types.js";
 
 function clamp(min: number, num: number, max: number): number {
     if (num < min) {
         return min;
-    } else if (num > max) {
+    }
+
+    if (num > max) {
         return max;
     }
+
     return num;
 }
 
@@ -63,13 +66,13 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
         const onPageClick: MouseEventHandler<HTMLButtonElement> = useCallback(
             (e) => {
                 const toPage = Number.parseInt(
-                    e.currentTarget.dataset["number"] as string,
+                    e.currentTarget.dataset.number as string,
                 );
                 onChange(e, toPage, currentPage);
                 setCurrentPage(toPage);
                 setPagePickerValue(String(toPage + 1));
             },
-            [onChange, setCurrentPage, currentPage],
+            [onChange, currentPage],
         );
 
         const [pagePickerValue, setPagePickerValue] = useState(
@@ -92,13 +95,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                     return;
                 }
             },
-            [
-                onChange,
-                setPagePickerValue,
-                setCurrentPage,
-                currentPage,
-                numberOfPages,
-            ],
+            [onChange, currentPage, numberOfPages],
         );
 
         const onPrevious: MouseEventHandler<HTMLButtonElement> = useCallback(
@@ -113,7 +110,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                 setCurrentPage(toPage);
                 setPagePickerValue(String(toPage + 1));
             },
-            [onChange, setCurrentPage, currentPage],
+            [onChange, currentPage],
         );
 
         const onNext: MouseEventHandler<HTMLButtonElement> = useCallback(
@@ -128,7 +125,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                 setCurrentPage(toPage);
                 setPagePickerValue(String(toPage + 1));
             },
-            [onChange, setCurrentPage, numberOfPages, currentPage],
+            [onChange, numberOfPages, currentPage],
         );
 
         return (

@@ -26,17 +26,17 @@ const types = [
 ];
 
 describe("System messages", () => {
-    [messageWithStyles, messageWitoutStyles].forEach((messageStyleProps) => {
-        types.map(([name, E]) => {
-            it(name + " should render message content", () => {
+    for (const messageStyleProps of [messageWithStyles, messageWitoutStyles]) {
+        for (const [name, E] of types) {
+            it(`${name} should render message content`, () => {
                 render(<E {...messageStyleProps}>content</E>);
                 screen.getByText("content");
             });
-        });
-    });
-    [messageWithStyles].forEach((messageStyleProps) => {
-        types.map(([name, E]) => {
-            it(name + " should take css properties", () => {
+        }
+    }
+    for (const messageStyleProps of [messageWithStyles]) {
+        for (const [name, E] of types) {
+            it(`${name} should take css properties`, () => {
                 render(<E {...messageStyleProps}>content</E>);
                 expect(
                     screen.getByTestId("system-message-content"),
@@ -47,22 +47,18 @@ describe("System messages", () => {
                     `max-width: ${messageStyleProps.maxContentWidth}`,
                 );
             });
-        });
-    });
-    [messageWitoutStyles].forEach((messageStyleProps) => {
-        types.map(([name, E]) => {
-            it(
-                name +
-                    " should not add style attribute if styles are undefined",
-                () => {
-                    render(<E {...messageStyleProps}>content</E>);
-                    expect(
-                        screen.getByTestId("system-message-content"),
-                    ).not.toHaveAttribute("style");
-                },
-            );
-        });
-    });
+        }
+    }
+    for (const messageStyleProps of [messageWitoutStyles]) {
+        for (const [name, E] of types) {
+            it(`${name} should not add style attribute if styles are undefined`, () => {
+                render(<E {...messageStyleProps}>content</E>);
+                expect(
+                    screen.getByTestId("system-message-content"),
+                ).not.toHaveAttribute("style");
+            });
+        }
+    }
 });
 
 describe("a11y", () => {

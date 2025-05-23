@@ -3,7 +3,7 @@ import React, { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { Label } from "./Label.js";
 import { SupportLabel } from "./SupportLabel.js";
-import { InputGroupProps, InputProps } from "./types.js";
+import type { InputGroupProps, InputProps } from "./types.js";
 
 export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
     (props, ref) => {
@@ -32,14 +32,14 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
         const supportTextType = errorLabel
             ? "error"
             : helpLabel
-            ? "help"
-            : undefined;
+              ? "help"
+              : undefined;
 
         const describedBy = supportText ? supportId : undefined;
 
         const inputProps: InputProps = {
             "aria-describedby": describedBy,
-            "aria-invalid": Boolean(errorLabel) ? true : undefined,
+            "aria-invalid": errorLabel ? true : undefined,
             id: uid,
         };
 
@@ -81,7 +81,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                             <span style={{ whiteSpace: "normal" }}>
                                 {label}
                             </span>
-                            {`\u00A0`}
+                            {"\u00A0"}
                             {tooltip}
                         </>
                     ) : (

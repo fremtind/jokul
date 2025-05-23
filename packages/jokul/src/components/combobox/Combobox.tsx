@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, {
-    FC,
-    FocusEvent,
-    KeyboardEvent,
-    MouseEvent,
+    type FC,
+    type FocusEvent,
+    type KeyboardEvent,
+    type MouseEvent,
     useCallback,
     useEffect,
     useMemo,
@@ -13,16 +13,16 @@ import React, {
 import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
-import { ValuePair } from "../../utilities/valuePair.js";
+import type { ValuePair } from "../../utilities/valuePair.js";
 import { Chip } from "../chip/Chip.js";
-import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
-import { CheckIcon } from "../icon/icons/CheckIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
+import { CheckIcon } from "../icon/icons/CheckIcon.js";
+import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup } from "../input-group/InputGroup.js";
 import { Tooltip } from "../tooltip/Tooltip.js";
 import { TooltipContent } from "../tooltip/TooltipContent.js";
 import { TooltipTrigger } from "../tooltip/TooltipTrigger.js";
-import { ComboboxProps, ComboboxValuePair } from "./types.js";
+import type { ComboboxProps, ComboboxValuePair } from "./types.js";
 
 export function getComboboxValuePair(
     item: string | ComboboxValuePair,
@@ -82,9 +82,9 @@ export const Combobox: FC<ComboboxProps> = ({
     const isSelected = (option: ValuePair) => {
         if (!selectedValue) {
             return false;
-        } else {
-            return selectedValue.some((value) => value.value === option.value);
         }
+
+        return selectedValue.some((value) => value.value === option.value);
     };
 
     // Fjerne ett eller flere valg
@@ -102,7 +102,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 | React.KeyboardEvent<HTMLInputElement>,
             option: string,
         ) => {
-            let newValue = removeOption(option);
+            const newValue = removeOption(option);
             setSelectedValue(newValue);
             onChange({
                 type: "change",
@@ -114,7 +114,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 setMarked(false);
             }
         },
-        [removeOption, setSelectedValue, onChange, name, setMarked],
+        [removeOption, onChange, name],
     );
 
     // Håndtere valgt verdi i listen
@@ -135,7 +135,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 target: { name, value: option, selectedOptions: newValue },
             });
         },
-        [selectedValue, setSelectedValue, onChange, name, removeOption, items],
+        [selectedValue, onChange, name, removeOption, items],
     );
 
     // Funksjon for søk
@@ -186,7 +186,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 window.removeEventListener("keydown", handleEscape);
             }
         };
-    }, [setShowMenu, showMenu]);
+    }, [showMenu]);
 
     // Fokushåndtering
     const handleFocusPlacement = useCallback((isOpen: boolean) => {
@@ -234,9 +234,9 @@ export const Combobox: FC<ComboboxProps> = ({
             >,
         ) => {
             const componentRootElement = componentRootElementRef.current;
-            const nextFocusIsInsideComponent =
-                componentRootElement &&
-                componentRootElement.contains(e.relatedTarget as Node);
+            const nextFocusIsInsideComponent = componentRootElement?.contains(
+                e.relatedTarget as Node,
+            );
             if (!nextFocusIsInsideComponent) {
                 setSearchValue("");
 
@@ -349,7 +349,7 @@ export const Combobox: FC<ComboboxProps> = ({
                 }
             }
         },
-        [setShowMenu, dropdownRef],
+        [dropdownRef],
     );
 
     const hasSelection = selectedValue.length >= 1;
@@ -449,6 +449,7 @@ export const Combobox: FC<ComboboxProps> = ({
 
                     <div
                         className="jkl-combobox__menu"
+                        // biome-ignore lint/a11y/useSemanticElements: Dette er en reimplementering av en liste
                         role="listbox"
                         ref={dropdownRef}
                         id={listId}
@@ -465,6 +466,7 @@ export const Combobox: FC<ComboboxProps> = ({
                                 type="button"
                                 id={`${listId}__${option.value}`}
                                 aria-selected={isSelected(option)}
+                                // biome-ignore lint/a11y/useSemanticElements: Dette er en reimplementering av en liste
                                 role="option"
                                 value={option.value}
                                 onBlur={handleBlur}
@@ -522,7 +524,6 @@ export const Combobox: FC<ComboboxProps> = ({
                             },${label}`}
                             aria-expanded={showMenu}
                             aria-controls={listId}
-                            role="button"
                             onClick={() => setShowMenu((previous) => !previous)}
                             onMouseDown={(e) => {
                                 e.preventDefault();

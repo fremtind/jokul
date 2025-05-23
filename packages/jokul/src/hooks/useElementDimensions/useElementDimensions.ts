@@ -1,4 +1,4 @@
-import { RefObject, useEffect, useMemo, useRef, useState } from "react";
+import { type RefObject, useEffect, useMemo, useRef, useState } from "react";
 
 // TODO: Denne er sikkert nyttig flere steder enn her!
 // eslint-disable-next-line

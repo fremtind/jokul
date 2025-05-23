@@ -1,10 +1,10 @@
-import { act, render, RenderOptions } from "@testing-library/react";
+import { type RenderOptions, act, render } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React, { useState } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 import { Combobox } from "./Combobox.js";
-import { ComboboxValuePair } from "./types.js";
+import type { ComboboxValuePair } from "./types.js";
 
 // https://github.com/testing-library/user-event/issues/1146
 // @ts-ignore typecheck liker ikke at default muligens ikke finnes

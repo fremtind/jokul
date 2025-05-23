@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import "../styles/_index.scss";
 import { ModalOverlay as ModalOverlayComponent } from "../Modal.js";
-import { ModalInstance } from "../useModal.js";
+import type { ModalInstance } from "../useModal.js";
 
 interface ExtendedModalComponentProps {
     dialogRef: React.RefCallback<ModalInstance>;

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { TextArea as TextAreaComponent } from "../TextArea.js";
 import "../styles/_index.scss";
 

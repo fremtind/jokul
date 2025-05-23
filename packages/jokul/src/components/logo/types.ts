@@ -1,5 +1,5 @@
-import { CSSProperties } from "react";
-import { WithChildren } from "../../core/types.js";
+import type { CSSProperties } from "react";
+import type { WithChildren } from "../../core/types.js";
 
 export interface LogoProps {
     className?: string;

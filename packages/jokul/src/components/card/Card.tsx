@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React from "react";
-import { AsChildProps } from "../../utilities/polymorphism/as-child.js";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { SlotComponent } from "../../utilities/polymorphism/SlotComponent.js";
-import { CardProps } from "./types.js";
+import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { CardProps } from "./types.js";
 
 type CardComponent = <ElementType extends React.ElementType = "div">(
     props: CardProps<ElementType> & AsChildProps,

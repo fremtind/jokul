@@ -1,13 +1,13 @@
-import {
+import React, { type FC } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC } from "react";
 import { Link } from "../../link/Link.js";
 import { BaseTextInput } from "../../text-input/BaseTextInput.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { InputGroup } from "../InputGroup.js";
-import { LabelVariant } from "../types.js";
+import type { LabelVariant } from "../types.js";
 
 export const inputGroupExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],

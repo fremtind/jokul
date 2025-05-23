@@ -1,5 +1,5 @@
-import { A11yDialogConfig, A11yDialogProps } from "react-a11y-dialog";
-import { WithOptionalChildren } from "../../core/types.js";
+import type { A11yDialogConfig, A11yDialogProps } from "react-a11y-dialog";
+import type { WithOptionalChildren } from "../../core/types.js";
 
 export interface UseModalOptions
     extends Omit<A11yDialogProps, "id" | "closeButtonPosition"> {

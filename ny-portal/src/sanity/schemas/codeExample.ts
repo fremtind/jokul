@@ -1,4 +1,4 @@
-import { defineType, defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 import { CodeExampleInput } from "../components/CodeExampleInput";
 
 export const codeExample = defineType({

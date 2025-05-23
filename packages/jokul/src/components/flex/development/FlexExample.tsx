@@ -1,12 +1,12 @@
-import {
+import React, { type CSSProperties, type FC } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { CSSProperties, FC } from "react";
 import tokens from "../../../core/tokens.js";
 import { Card } from "../../card/Card.js";
 import { Flex } from "../Flex.js";
-import { FlexDirection, GapValue } from "../types.js";
+import type { FlexDirection, GapValue } from "../types.js";
 
 export const flexExampleKnobs: ExampleKnobsProps = {
     boolProps: ["wrap"],
@@ -19,21 +19,21 @@ export const flexExampleKnobs: ExampleKnobsProps = {
         {
             name: "gap",
             values: Object.keys(tokens.spacing).sort(
-                (a, b) => parseInt(a) - parseInt(b),
+                (a, b) => Number.parseInt(a) - Number.parseInt(b),
             ),
             defaultValue: 0,
         },
         {
             name: "rowGap",
             values: Object.keys(tokens.spacing).sort(
-                (a, b) => parseInt(a) - parseInt(b),
+                (a, b) => Number.parseInt(a) - Number.parseInt(b),
             ),
             defaultValue: 0,
         },
         {
             name: "colGap",
             values: Object.keys(tokens.spacing).sort(
-                (a, b) => parseInt(a) - parseInt(b),
+                (a, b) => Number.parseInt(a) - Number.parseInt(b),
             ),
             defaultValue: 0,
         },
@@ -58,15 +58,15 @@ export const FlexExample: FC<ExampleComponentProps> = ({
     const gap =
         choiceValues?.["gap"] === "0"
             ? undefined
-            : (parseInt(choiceValues?.["gap"] || "0") as GapValue);
+            : (Number.parseInt(choiceValues?.["gap"] || "0") as GapValue);
     const colGap =
         choiceValues?.["colGap"] === "0"
             ? undefined
-            : (parseInt(choiceValues?.["colGap"] || "0") as GapValue);
+            : (Number.parseInt(choiceValues?.["colGap"] || "0") as GapValue);
     const rowGap =
         choiceValues?.["rowGap"] === "0"
             ? undefined
-            : (parseInt(choiceValues?.["rowGap"] || "0") as GapValue);
+            : (Number.parseInt(choiceValues?.["rowGap"] || "0") as GapValue);
 
     return (
         <Flex

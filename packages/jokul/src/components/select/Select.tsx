@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import React, {
-    CSSProperties,
-    FocusEvent,
+    type CSSProperties,
+    type FocusEvent,
     forwardRef,
-    KeyboardEvent,
-    MouseEvent,
-    RefObject,
+    type KeyboardEvent,
+    type MouseEvent,
+    type RefObject,
     useCallback,
     useEffect,
     useMemo,
@@ -16,12 +16,12 @@ import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeig
 import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
-import { getValuePair, ValuePair } from "../../utilities/valuePair.js";
+import { type ValuePair, getValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup } from "../input-group/InputGroup.js";
 import type { PopupTipProps } from "../tooltip/types.js";
 import { focusSelected, toLower } from "./select-utils.js";
-import { SelectProps } from "./types.js";
+import type { SelectProps } from "./types.js";
 
 const noop = () => {
     return;
@@ -138,7 +138,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     setSelectedValue(instance.value);
                 }
             },
-            [selectRef, forwardedSelectRef],
+            [forwardedSelectRef],
         );
 
         const previousValue = usePreviousValue(value);
@@ -151,7 +151,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             } else {
                 setSelectedValue(value);
             }
-        }, [setSelectedValue, value, previousValue, valueIsInItems]);
+        }, [value, previousValue, valueIsInItems]);
 
         const selectOption = useCallback(
             (item: Option) => {
@@ -161,7 +161,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 toggleListVisibility();
                 buttonRef.current?.focus();
             },
-            [setSearchValue, setSelectedValue, toggleListVisibility],
+            [toggleListVisibility],
         );
 
         // La komponenten rendre <select> med den valgte verdien før onChange trigges, slik at
@@ -241,14 +241,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             }
             focusInsideRef.current = false;
             setShown(false);
-        }, [
-            onBlur,
-            setSearchValue,
-            setShown,
-            isSearchable,
-            name,
-            selectedValue,
-        ]);
+        }, [onBlur, isSearchable, name, selectedValue]);
 
         const handleBlur = useCallback(
             (e: FocusEvent<HTMLButtonElement | HTMLInputElement>) => {
@@ -257,8 +250,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 // https://github.com/facebook/react/issues/2011
                 // This might be fixed in react 17. Se issue above.
                 const nextFocusIsInsideComponent =
-                    componentRootElement &&
-                    componentRootElement.contains(e.relatedTarget as Node);
+                    componentRootElement?.contains(e.relatedTarget as Node);
                 if (!nextFocusIsInsideComponent) {
                     close();
                 }
@@ -298,8 +290,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 showSearchInputField ? searchField?.focus() : button?.focus();
             });
             select?.addEventListener("blur", function (this, ev) {
-                componentRootElement &&
-                    componentRootElement.contains(ev.relatedTarget as Node) &&
+                componentRootElement?.contains(ev.relatedTarget as Node) &&
                     ev.preventDefault();
             });
 
@@ -310,10 +301,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                         : button?.focus();
                 });
                 select?.removeEventListener("blur", function (this, ev) {
-                    componentRootElement &&
-                        componentRootElement.contains(
-                            ev.relatedTarget as Node,
-                        ) &&
+                    componentRootElement?.contains(ev.relatedTarget as Node) &&
                         ev.preventDefault();
                 });
             };
@@ -338,7 +326,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     setShown(false);
                 }
             },
-            [setShown, dropdownIsShown],
+            [dropdownIsShown],
         );
 
         // onKeyDown to stop ArrowDown from scrolling the page
@@ -376,13 +364,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     e.stopPropagation();
                 }
             },
-            [
-                setShown,
-                dropdownRef,
-                selectedValue,
-                isSearchable,
-                dropdownIsShown,
-            ],
+            [dropdownRef, selectedValue, isSearchable, dropdownIsShown],
         );
 
         // onKeyDown so this Tab listener isn't triggered by tabbing from search field to option
@@ -415,7 +397,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     }
                 }
             },
-            [setShown, dropdownRef],
+            [dropdownRef],
         );
 
         // Add support for closing the dropdown with Escape like native select. Unfortunately, Escape does not trigger the button onKeyDown.
@@ -433,7 +415,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     window.removeEventListener("keydown", handleEscape);
                 }
             };
-        }, [setShown, dropdownIsShown]);
+        }, [dropdownIsShown]);
 
         return (
             <>
@@ -447,7 +429,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     value={selectedValue}
                     onChange={noop} // React complains unless we give an onChange handler. This is technically a read-only field, but readOnly isn't an option here.
                 >
-                    <option value=""></option>{" "}
+                    <option value="" />{" "}
                     {/* Tom option må være et valg, ellers vil <select> alltid ha en value */}
                     {visibleItems.map((item) => (
                         <option
@@ -491,7 +473,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     id={isSearchable ? searchInputId : buttonId}
                     style={
                         {
-                            ["--jkl-select-max-shown-options"]: maxShownOptions,
+                            "--jkl-select-max-shown-options": maxShownOptions,
                             ...style,
                         } as CSSProperties
                     }
@@ -582,6 +564,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             <div
                                 id={listId}
                                 ref={dropdownRef}
+                                // biome-ignore lint/a11y/useSemanticElements: Vi reimplementerer select
                                 role="listbox"
                                 className="jkl-select__options-menu"
                                 hidden={
@@ -611,6 +594,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                             aria-selected={
                                                 item.value === selectedValue
                                             }
+                                            // biome-ignore lint/a11y/useSemanticElements: Vi reimplementerer select
                                             role="option"
                                             value={item.value}
                                             data-testautoid={`jkl-select__option-${i}`}

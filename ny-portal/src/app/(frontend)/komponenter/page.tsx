@@ -1,8 +1,8 @@
+import { client } from "@/sanity/client";
+import { componentsQuery } from "@/sanity/queries/component";
 import { ComponentCard } from "./ComponentCard";
 import { ComponentGallery } from "./ComponentGallery";
 import styles from "./komponenter.module.scss";
-import { client } from "@/sanity/client";
-import { componentsQuery } from "@/sanity/queries/component";
 
 export default async function Components() {
     const components = await client.fetch(componentsQuery);

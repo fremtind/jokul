@@ -2,7 +2,7 @@ import { type RefObject, useCallback, useEffect, useRef } from "react";
 import tokens from "../../core/tokens.js";
 import { useBrowserPreferences } from "../useBrowserPreferences/useBrowserPreferences.js";
 import { usePreviousValue } from "../usePreviousValue/usePreviousValue.js";
-import { UseAnimatedHeightOptions } from "./types.js";
+import type { UseAnimatedHeightOptions } from "./types.js";
 
 const defaultEasing = "standard";
 const defaultTiming = "productive";
@@ -23,9 +23,9 @@ function collapseElement<T extends HTMLElement>(
     raf1.current = requestAnimationFrame(() => {
         // Hent kollapset høyde
         element.style.removeProperty("transition");
-        element.dataset["expanded"] = "false";
+        element.dataset.expanded = "false";
         const collapsedHeight = element.getBoundingClientRect().height;
-        element.dataset["expanded"] = "true";
+        element.dataset.expanded = "true";
 
         // Sett høyde tilbake til utvidet høyde
         element.style.setProperty("height", `${expandedHeight}px`);
@@ -35,7 +35,7 @@ function collapseElement<T extends HTMLElement>(
             // Sett høyde til kollapset høyde og start transition
             element.style.setProperty("transition", transition);
             element.style.setProperty("height", `${collapsedHeight}px`);
-            element.dataset["expanded"] = "false";
+            element.dataset.expanded = "false";
         });
     });
 }
@@ -56,7 +56,7 @@ function expandElement<T extends HTMLElement>(
     raf1.current = requestAnimationFrame(() => {
         // Hent utvidet høyde
         element.style.removeProperty("transition");
-        element.dataset["expanded"] = "false";
+        element.dataset.expanded = "false";
         const collapsedHeight = element.getBoundingClientRect().height;
 
         // Sett høyde tilbake til kollapset høyde
@@ -67,7 +67,7 @@ function expandElement<T extends HTMLElement>(
             // Sett høyde til utvidet høyde  og start transition
             element.style.setProperty("transition", transition);
             element.style.setProperty("height", `${expandedHeight}px`);
-            element.dataset["expanded"] = "true";
+            element.dataset.expanded = "true";
         });
     });
 }
@@ -114,7 +114,7 @@ export function useAnimatedHeightBetween<T extends HTMLElement>(
 
         if (wasExpanded === undefined) {
             // Første render
-            element.dataset["expanded"] = isExpanded ? "true" : "false";
+            element.dataset.expanded = isExpanded ? "true" : "false";
         }
 
         if ((!isExpanded && !wasExpanded) || (isExpanded && wasExpanded)) {
@@ -126,7 +126,7 @@ export function useAnimatedHeightBetween<T extends HTMLElement>(
 
         if (prefersReducedMotion) {
             element.removeAttribute("style");
-            element.dataset["expanded"] = isExpanded ? "true" : "false";
+            element.dataset.expanded = isExpanded ? "true" : "false";
             options?.onTransitionEnd?.(isExpanded, elementRef); // make sure to call callback when animation is off
             return;
         }
@@ -138,10 +138,12 @@ export function useAnimatedHeightBetween<T extends HTMLElement>(
         }
     }, [wasExpanded, isExpanded, options, prefersReducedMotion, transition]);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies: Vi trigger med isExpanded
     useEffect(() => {
         runAnimation();
     }, [isExpanded, runAnimation]);
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies:
     useEffect(() => {
         const element = elementRef.current;
         if (element) {
@@ -156,7 +158,6 @@ export function useAnimatedHeightBetween<T extends HTMLElement>(
                 );
             }
         };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [isExpanded]);
 
     useEffect(() => {
@@ -166,7 +167,7 @@ export function useAnimatedHeightBetween<T extends HTMLElement>(
             r1 && cancelAnimationFrame(r1);
             r2 && cancelAnimationFrame(r2);
         };
-    }, [raf1, raf2]);
+    }, []);
 
     return [elementRef, runAnimation];
 }

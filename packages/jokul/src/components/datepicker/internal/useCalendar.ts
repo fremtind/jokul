@@ -24,14 +24,14 @@
 import { startOfDay } from "date-fns";
 import React, { useState } from "react";
 import {
-    composeEventHandlers,
-    subtractMonth,
+    type CalendarMonth,
+    type DateInfo,
     addMonth,
+    composeEventHandlers,
+    getCalendars,
     isBackDisabled,
     isForwardDisabled,
-    getCalendars,
-    DateInfo,
-    CalendarMonth,
+    subtractMonth,
 } from "./utils.js";
 
 function isOffsetControlled(propOffset: number | undefined): boolean {

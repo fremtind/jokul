@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import { IconButton } from "../icon-button/IconButton.js";
-import { IconButtonProps } from "../icon-button/types.js";
-import {
+import type { IconButtonProps } from "../icon-button/types.js";
+import { CloseIcon } from "../icon/icons/CloseIcon.js";
+import type {
     BaseModalProps,
     ModalConfig,
     ModalOverlayProps,

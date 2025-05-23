@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { InputGroup } from "../input-group/InputGroup.js";
 import { BaseTextArea } from "./BaseTextArea.js";
-import { TextAreaProps } from "./types.js";
+import type { TextAreaProps } from "./types.js";
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     (props, ref) => {

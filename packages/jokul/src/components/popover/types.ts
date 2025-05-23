@@ -1,8 +1,8 @@
-import {
+import type {
     ReferenceType,
+    UseFloatingOptions,
     useClick,
     useDismiss,
-    UseFloatingOptions,
     useFocus,
     useHover,
     useRole,

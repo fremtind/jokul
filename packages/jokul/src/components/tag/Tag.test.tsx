@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it } from "vitest";
-import { Tag, SuccessTag, ErrorTag, WarningTag, InfoTag } from "./Tag.js";
+import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "./Tag.js";
 
 describe("Tag", () => {
     it("skal rendre en standard tag", () => {

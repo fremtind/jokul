@@ -1,8 +1,8 @@
-import {
+import React, { type FC } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC } from "react";
 import { Link } from "../Link.js";
 
 export const knobs: ExampleKnobsProps = {

@@ -1,5 +1,8 @@
 import { unicode } from "../../constants/index.js";
-import { formatNumber, FormatNumberOptions } from "../util/formatNumber.js";
+import {
+    type FormatNumberOptions,
+    formatNumber,
+} from "../util/formatNumber.js";
 import { parseNumber } from "../util/parseNumber.js";
 
 interface FormatValutaOptions extends FormatNumberOptions {
@@ -30,7 +33,7 @@ export function formatValuta(
     options?: FormatValutaOptions,
 ) {
     const number = parseNumber(input);
-    if (isNaN(number)) {
+    if (Number.isNaN(number)) {
         return input.toString();
     }
 

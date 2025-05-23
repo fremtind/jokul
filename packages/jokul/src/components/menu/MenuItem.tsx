@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 import { OpenInNewIcon } from "../icon/icons/OpenInNewIcon.js";
-import { MenuItemProps } from "./types.js";
+import type { MenuItemProps } from "./types.js";
 
 type MenuItemComponent = <ElementType extends React.ElementType = "button">(
     props: MenuItemProps<ElementType>,

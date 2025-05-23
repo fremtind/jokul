@@ -1,5 +1,5 @@
 import React from "react";
-import { SkeletonButtonProps } from "../types.js";
+import type { SkeletonButtonProps } from "../types.js";
 import { SkeletonElement } from "./SkeletonElement.js";
 
 export const SkeletonButton = ({

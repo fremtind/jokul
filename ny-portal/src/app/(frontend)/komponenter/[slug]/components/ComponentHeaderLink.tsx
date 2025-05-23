@@ -6,7 +6,7 @@ import {
     TooltipContent,
     TooltipTrigger,
 } from "@fremtind/jokul/components/tooltip";
-import { ReactElement } from "react";
+import type { ReactElement } from "react";
 
 type ComponentHeaderLinkProps = {
     name: string;

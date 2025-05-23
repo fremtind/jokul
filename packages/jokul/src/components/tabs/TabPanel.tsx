@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { TabPanelProps } from "./types.js";
+import type { TabPanelProps } from "./types.js";
 
 /**
  * Konteiner for innhold i et tabbet brukergrensesnitt. Ikke funksjonell utenfor et Tabs element.

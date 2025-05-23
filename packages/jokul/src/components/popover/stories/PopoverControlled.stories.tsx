@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
 import { Button } from "../../button/Button.js";
 import { Popover as PopoverComponent } from "../Popover.js";

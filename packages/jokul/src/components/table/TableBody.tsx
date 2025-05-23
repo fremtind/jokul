@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext.js";
-import { TableBodyProps } from "./types.js";
+import type { TableBodyProps } from "./types.js";
 
 const TableBody = forwardRef<HTMLTableSectionElement, TableBodyProps>(
     (props, ref) => {

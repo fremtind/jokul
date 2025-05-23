@@ -4,7 +4,7 @@ import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeig
 import { useId } from "../../hooks/useId/useId.js";
 import { ExpandableTableRowController } from "./ExpandableTableRowController.js";
 import { TableRow } from "./TableRow.js";
-import {
+import type {
     ExpandableTableRowControllerProps,
     ExpandableTableRowProps,
 } from "./types.js";
@@ -32,7 +32,7 @@ const ExpandableTableRow = forwardRef<
         setIsOpen(isOpenProp);
     }, [isOpenProp]);
 
-    const [animationRef] = useAnimatedHeight<HTMLDivElement>(isOpen, {
+    const [animationRef] = useAnimatedHeight<HTMLFieldSetElement>(isOpen, {
         timing: "expressive",
     });
 
@@ -79,7 +79,7 @@ const ExpandableTableRow = forwardRef<
                         React.isValidElement<ExpandableTableRowControllerProps>(
                             child,
                         ) &&
-                        child.type == ExpandableTableRowController
+                        child.type === ExpandableTableRowController
                     ) {
                         return React.cloneElement<ExpandableTableRowControllerProps>(
                             child,
@@ -90,9 +90,9 @@ const ExpandableTableRow = forwardRef<
                                 id: expandableTableRowControllerId,
                             },
                         );
-                    } else {
-                        return child;
                     }
+
+                    return child;
                 })}
             </TableRow>
             {/*
@@ -101,16 +101,15 @@ const ExpandableTableRow = forwardRef<
             */}
             <tr aria-hidden={!isOpen}>
                 <td colSpan={colSpan}>
-                    <div
+                    <fieldset
                         ref={animationRef}
                         className={childWrapperClassName}
                         id={tableRowId}
                         aria-labelledby={expandableTableRowControllerId}
                         hidden={!isOpen}
-                        role="group"
                     >
                         {expandedChildren}
-                    </div>
+                    </fieldset>
                 </td>
             </tr>
         </>

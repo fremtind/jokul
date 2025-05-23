@@ -71,9 +71,7 @@ export const SkeletonStory: Story = {
         ),
     },
     render: (args) => (
-        <SkeletonAnimation
-            {...args}
-            role="none presentation" // Kun for eksempelet, ellers blir det mange alerts på siden
-        />
+        // biome-ignore lint/a11y/useValidAriaRole: // Kun for eksempelet, ellers blir det mange alerts på siden
+        <SkeletonAnimation {...args} role="none presentation" />
     ),
 };

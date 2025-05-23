@@ -6,7 +6,7 @@ import React, {
     useRef,
 } from "react";
 import { useId } from "../../hooks/useId/useId.js";
-import { CheckboxProps } from "./types.js";
+import type { CheckboxProps } from "./types.js";
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     (props, ref) => {
@@ -24,7 +24,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         } = props;
 
         const inputRef = useRef<HTMLInputElement>(null);
-        useImperativeHandle(ref, () => inputRef.current!, []);
+        useImperativeHandle(
+            ref,
+            () => inputRef.current as HTMLInputElement,
+            [],
+        );
 
         const inputId = useId(id || "jkl-checkbox", { generateSuffix: !id });
 

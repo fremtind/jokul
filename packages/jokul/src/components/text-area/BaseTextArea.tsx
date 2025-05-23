@@ -1,5 +1,5 @@
 import React, {
-    ChangeEvent,
+    type ChangeEvent,
     type FocusEvent,
     forwardRef,
     type RefObject,
@@ -7,7 +7,7 @@ import React, {
     useRef,
     useState,
 } from "react";
-import { BaseTextAreaProps } from "./types.js";
+import type { BaseTextAreaProps } from "./types.js";
 
 export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
     (props, ref) => {
@@ -29,11 +29,13 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         const [counterCurrent, setCounterCurrent] = useState(() => {
             if (typeof value === "undefined") {
                 return 0;
-            } else if (typeof value === "number") {
-                return String(value).length;
-            } else {
-                return value.length;
             }
+
+            if (typeof value === "number") {
+                return String(value).length;
+            }
+
+            return value.length;
         });
         const [textAreaFocused, setTextAreaFocused] = useState(false);
         const internalRef = useRef<HTMLTextAreaElement>(null);

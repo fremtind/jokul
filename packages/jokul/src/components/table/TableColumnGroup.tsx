@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import { TableColumnGroupProps } from "./types.js";
+import type { TableColumnGroupProps } from "./types.js";
 
 const TableColumnGroup = forwardRef<HTMLTableColElement, TableColumnGroupProps>(
     (props, ref) => {

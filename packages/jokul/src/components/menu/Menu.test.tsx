@@ -1,10 +1,10 @@
-import { act, render, RenderOptions } from "@testing-library/react";
+import { type RenderOptions, act, render } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
-import { DotsIcon } from "../icon/index.js";
 import { IconButton } from "../icon-button/IconButton.js";
+import { DotsIcon } from "../icon/index.js";
 import { Menu } from "./Menu.js";
 import { MenuDivider } from "./MenuDivider.js";
 import { MenuItem } from "./MenuItem.js";

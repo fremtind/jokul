@@ -1,4 +1,4 @@
-import { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../core/types.js";
 
 export interface DescriptionListProps extends WithChildren {
     className?: string;

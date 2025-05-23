@@ -21,34 +21,34 @@ export default function App() {
             info: (msg) =>
                 setLog([
                     ...log,
-                    <Text>
+                    <Text key={msg}>
                         [{new Date().toLocaleString()}]: {msg}
                     </Text>,
                 ]),
             warn: (msg) =>
                 setLog([
                     ...log,
-                    <Text color="yellow">
+                    <Text key={msg} color="yellow">
                         [{new Date().toLocaleString()}]: {msg}
                     </Text>,
                 ]),
             warnOnce: (msg) =>
                 setLog([
                     ...log,
-                    <Text color="yellow">
+                    <Text key={msg} color="yellow">
                         [{new Date().toLocaleString()}]: {msg}
                     </Text>,
                 ]),
             error: (msg) =>
                 setLog([
                     ...log,
-                    <Text color="red">
+                    <Text key={msg} color="red">
                         [{new Date().toLocaleString()}]: {msg}
                     </Text>,
                 ]),
             clearScreen: () => setLog([]),
         };
-    }, [setLog, log]);
+    }, [log]);
 
     useEffect(() => {
         glob("**/development/Example.tsx").then((result) => {

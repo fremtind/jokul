@@ -12,17 +12,17 @@ describe("formatKortnummer", () => {
     });
 
     it("does not format 15 digit numbers", () => {
-        expect(formatKortnummer("545762389823411")).toEqual(`545762389823411`);
+        expect(formatKortnummer("545762389823411")).toEqual("545762389823411");
     });
 
     it("does not format 17 digit numbers", () => {
         expect(formatKortnummer("54576238982341134")).toEqual(
-            `54576238982341134`,
+            "54576238982341134",
         );
     });
 
     it("does not format a string containing letters", () => {
-        expect(formatKortnummer("5457heisann")).toEqual(`5457heisann`);
+        expect(formatKortnummer("5457heisann")).toEqual("5457heisann");
     });
 });
 

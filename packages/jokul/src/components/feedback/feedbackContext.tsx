@@ -1,6 +1,6 @@
-import React, { createContext, FC, useContext } from "react";
-import { WithChildren } from "../../core/types.js";
-import { BaseTextAreaProps } from "../text-area/types.js";
+import React, { createContext, type FC, useContext } from "react";
+import type { WithChildren } from "../../core/types.js";
+import type { BaseTextAreaProps } from "../text-area/types.js";
 
 type FeedbackContext = {
     feedbackSubmitted: boolean;

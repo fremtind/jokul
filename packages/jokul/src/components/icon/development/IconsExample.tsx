@@ -1,8 +1,8 @@
-import {
+import React, { useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { useState } from "react";
 import { TextInput } from "../../text-input/TextInput.js";
 import {
     ArrowDownIcon,
@@ -38,7 +38,7 @@ import {
     TrashCanIcon,
     WarningIcon,
 } from "../index.js";
-import { IconVariant } from "../types.js";
+import type { IconVariant } from "../types.js";
 import { IconExample } from "./internal/IconExample.js";
 import { IconsExampleGrid } from "./internal/IconsExampleGrid.js";
 

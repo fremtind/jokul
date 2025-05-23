@@ -3,7 +3,7 @@ import React, { type FC } from "react";
 import { ErrorIcon } from "../icon/icons/ErrorIcon.js";
 import { SuccessIcon } from "../icon/icons/SuccessIcon.js";
 import { WarningIcon } from "../icon/icons/WarningIcon.js";
-import { SupportLabelProps } from "./types.js";
+import type { SupportLabelProps } from "./types.js";
 
 export const SupportLabel: FC<SupportLabelProps> = ({
     id,

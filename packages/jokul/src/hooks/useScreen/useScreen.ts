@@ -5,12 +5,17 @@ import {
     getInitialMediaQueryMatch,
     removeMediaQueryListener,
 } from "../mediaQueryUtils.js";
-import { ScreenAction, ActionType, reducer, ScreenState } from "./state.js";
+import {
+    ActionType,
+    type ScreenAction,
+    type ScreenState,
+    reducer,
+} from "./state.js";
 
 const { breakpoint } = tokens;
 
 const breakpointsAsNumber = (breakpoint: string): number =>
-    parseInt(breakpoint.replace("px", ""));
+    Number.parseInt(breakpoint.replace("px", ""));
 
 const MEDIA_RULES: Record<keyof ScreenState, string> = {
     isSmallDevice: `(max-width: ${
@@ -53,13 +58,15 @@ export const useScreen = (): ScreenState => {
 
     useEffect(() => {
         setHasMounted(true);
-        Object.entries(MEDIA_RULES)
-            .map(([key, rule]) => [key, getInitialMediaQueryMatch(rule)])
-            .forEach(([key, value]) => {
-                if (value) {
-                    deviceDispatch(createAction(key as keyof ScreenState));
-                }
-            });
+        const initialMatches = Object.entries(MEDIA_RULES).map(
+            ([key, rule]) => [key, getInitialMediaQueryMatch(rule)],
+        );
+
+        for (const [key, value] of initialMatches) {
+            if (value) {
+                deviceDispatch(createAction(key as keyof ScreenState));
+            }
+        }
     }, []);
 
     const createListener = useCallback(
@@ -81,17 +88,17 @@ export const useScreen = (): ScreenState => {
             [MediaQueryList, (e: MediaQueryListEvent) => void]
         > = [];
 
-        Object.entries(MEDIA_RULES).forEach(([key, rule]) => {
+        for (const [key, rule] of Object.entries(MEDIA_RULES)) {
             const queryList = window.matchMedia(rule);
             const listener = createListener(key as keyof ScreenState);
             eventListenerPairs.push([queryList, listener]);
             addMediaQueryListener(queryList, listener);
-        });
+        }
 
         return () => {
-            eventListenerPairs.forEach(([queryList, listener]) =>
-                removeMediaQueryListener(queryList, listener),
-            );
+            for (const [queryList, listener] of eventListenerPairs) {
+                removeMediaQueryListener(queryList, listener);
+            }
         };
     }, [createListener, hasMounted]);
 

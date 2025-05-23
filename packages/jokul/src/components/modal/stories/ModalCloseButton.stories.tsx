@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import "../styles/_index.scss";
 import React from "react";
-import { CloseIcon } from "../../icon/icons/CloseIcon.js";
 import { IconButton } from "../../icon-button/IconButton.js";
+import { CloseIcon } from "../../icon/icons/CloseIcon.js";
 import { ModalCloseButton as ModalCloseButtonComponent } from "../Modal.js";
 
 const meta = {

@@ -1,10 +1,10 @@
-import {
-    ExampleComponentProps,
-    ExampleKnobsProps,
-    useExampleContext,
-} from "utils/dev-example/index.js";
 import React, { useEffect, type FC } from "react";
 import ReactDOM from "react-dom";
+import {
+    type ExampleComponentProps,
+    type ExampleKnobsProps,
+    useExampleContext,
+} from "utils/dev-example/index.js";
 import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
 import {
     Modal,
@@ -16,7 +16,7 @@ import {
     ModalOverlay,
     ModalTitle,
 } from "../Modal.js";
-import { ModalInstance, useModal } from "../useModal.js";
+import { type ModalInstance, useModal } from "../useModal.js";
 
 export const dialogExampleKnobs: ExampleKnobsProps = {};
 

@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from "react";
+import { type RefObject, useEffect } from "react";
 
 /**
  * Lar deg sette opp en tastaturlytter på et element.
@@ -12,6 +12,7 @@ export function useKeyListener(
     fn: (event: KeyboardEvent) => void,
 ): void {
     if (typeof keys === "string") {
+        // biome-ignore lint/style/noParameterAssign: Dette er helt greit å forstå
         keys = [keys];
     }
     function handleKeyDown(event: KeyboardEvent) {
@@ -22,7 +23,7 @@ export function useKeyListener(
     }
 
     useEffect(() => {
-        const element = ref && ref.current;
+        const element = ref?.current;
         if (element) {
             element.addEventListener("keydown", handleKeyDown);
         }

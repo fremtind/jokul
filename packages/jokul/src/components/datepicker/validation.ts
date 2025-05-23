@@ -1,4 +1,4 @@
-import { ComparisonOptions } from "./types.js";
+import type { ComparisonOptions } from "./types.js";
 import { parseDateString } from "./utils.js";
 
 export function isCorrectFormat(value: string | undefined): boolean {

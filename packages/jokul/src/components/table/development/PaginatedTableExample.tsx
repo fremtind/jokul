@@ -1,8 +1,8 @@
-import {
+import React, { type FC, useRef, useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC, useRef, useState } from "react";
 import {
     Table,
     TableBody,

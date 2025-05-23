@@ -1,8 +1,8 @@
-import { ExampleComponentProps } from "utils/dev-example/index.js";
-import React, { FC } from "react";
+import React, { type FC } from "react";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { Feedback } from "../Feedback.js";
 import { PRESETS } from "../presets.js";
-import { FollowupQuestion } from "../types.js";
+import type { FollowupQuestion } from "../types.js";
 
 const followupQuestions: FollowupQuestion[] = [
     {

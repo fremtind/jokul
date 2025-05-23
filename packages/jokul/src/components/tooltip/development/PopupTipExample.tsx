@@ -1,8 +1,8 @@
-import { ExampleComponentProps } from "utils/dev-example/index.js";
-import React, { FC } from "react";
+import React, { type FC } from "react";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { formatValuta } from "../../../utilities/formatters/valuta/formatValuta.js";
 import { PopupTip } from "../PopupTip.js";
-import { TooltipPlacement } from "../types.js";
+import type { TooltipPlacement } from "../types.js";
 import { getPlacement } from "./getPlacement.js";
 
 export const PopupTipExample: FC<ExampleComponentProps> = ({

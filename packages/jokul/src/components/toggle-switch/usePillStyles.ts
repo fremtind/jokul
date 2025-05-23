@@ -1,6 +1,11 @@
-import { RefObject, useCallback, useEffect, useMemo, useState } from "react";
+import {
+    type RefObject,
+    useCallback,
+    useEffect,
+    useMemo,
+    useState,
+} from "react";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function throttle<R, A extends any[]>(fn: (...args: A) => R) {
     let wait = false;
 
@@ -27,7 +32,7 @@ export const usePillStyles = (
     const [distance, setDistance] = useState(0);
 
     const setStyles = useCallback(() => {
-        if (ref.current && ref.current.parentElement) {
+        if (ref.current?.parentElement) {
             setWidth(ref.current.clientWidth);
 
             const translateDistance = shouldTransform

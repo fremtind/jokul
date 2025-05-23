@@ -1,9 +1,9 @@
-import {
+import React, { type FC, useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC, useState } from "react";
-import { LabelVariant } from "../../input-group/types.js";
+import type { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { NativeSelect } from "../NativeSelect.js";
 import { Select } from "../Select.js";
@@ -50,7 +50,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({
     boolValues,
     choiceValues,
 }) => {
-    const isNativeSelect = boolValues && boolValues["Native"];
+    const isNativeSelect = boolValues?.["Native"];
     const C = isNativeSelect ? NativeSelect : Select;
 
     const values = [
@@ -73,16 +73,14 @@ export const SelectExample: FC<ExampleComponentProps> = ({
     ];
     const [value, setValue] = useState<string>("");
 
-    const errorLabel =
-        boolValues && boolValues["Med feil"]
-            ? "Du må velge merket til telefonen, for eksempel Apple."
-            : undefined;
-    const helpLabel =
-        boolValues && boolValues["Med hjelpetekst"]
-            ? "Med merke mener vi for eksempel Apple eller Samsung."
-            : undefined;
+    const errorLabel = boolValues?.["Med feil"]
+        ? "Du må velge merket til telefonen, for eksempel Apple."
+        : undefined;
+    const helpLabel = boolValues?.["Med hjelpetekst"]
+        ? "Med merke mener vi for eksempel Apple eller Samsung."
+        : undefined;
     const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
-    const searchAble = boolValues && boolValues["Med søk"];
+    const searchAble = boolValues?.["Med søk"];
     const maxChoices = getMaxChoices(choiceValues?.["Maks. viste valg"]);
 
     const tooltip = boolValues?.["Med tooltip"] ? (
@@ -113,9 +111,9 @@ export const SelectExample: FC<ExampleComponentProps> = ({
                     ? (filter, item) => {
                           if (typeof item === "object") {
                               return item.value.includes(filter);
-                          } else {
-                              return item.includes(item);
                           }
+
+                          return item.includes(item);
                       }
                     : undefined
             }

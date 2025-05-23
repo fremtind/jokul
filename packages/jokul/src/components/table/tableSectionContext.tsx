@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import {
+import type {
     TableSectionContext,
     TableSectionContextProviderProps,
 } from "./types.js";

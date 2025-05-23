@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import React, { forwardRef, useId } from "react";
 import { FieldGroup } from "../../components/input-group/FieldGroup.js";
-import { type Density } from "../../core/types.js";
-import { FieldGroupProps } from "../input-group/types.js";
+import type { Density } from "../../core/types.js";
+import type { FieldGroupProps } from "../input-group/types.js";
 import { Dropzone } from "./internal/Dropzone.js";
-import { FileInputContextProvider } from "./internal/fileInputContext.js";
 import { Input } from "./internal/Input.js";
 import { MaxSize } from "./internal/MaxSize.js";
-import { FileInputFile } from "./types.js";
+import { FileInputContextProvider } from "./internal/fileInputContext.js";
+import type { FileInputFile } from "./types.js";
 
 export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
     className?: string;

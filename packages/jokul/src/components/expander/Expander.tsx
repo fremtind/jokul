@@ -5,11 +5,11 @@ import React, {
     useImperativeHandle,
     useRef,
 } from "react";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ChevronDownIcon } from "../icon/icons/ChevronDownIcon.js";
 import { ChevronUpIcon } from "../icon/index.js";
 import { ExpanderContext } from "./context.js";
-import {
+import type {
     ExpandableContext,
     ExpanderComponent,
     ExpanderProps,
@@ -37,14 +37,14 @@ export const Expander = React.forwardRef(function Expander<
     } = useContext<ExpandableContext>(ExpanderContext);
 
     const internalRef = useRef<HTMLElement>();
-    useImperativeHandle(ref, () => internalRef.current, [internalRef]);
+    useImperativeHandle(ref, () => internalRef.current, []);
 
     const isOpen = controlledOpen || contextOpen;
 
     const Chevron = expandDirection === "up" ? ChevronUpIcon : ChevronDownIcon;
 
     useEffect(() => {
-        const observer = new ResizeObserver(function () {
+        const observer = new ResizeObserver(() => {
             // Default to 64 if the height can not be read because that is
             // the height of the default summary element. In a custom component
             // this means that the focus ring might be slightly misaligned but

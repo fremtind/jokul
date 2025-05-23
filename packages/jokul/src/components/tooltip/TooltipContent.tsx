@@ -7,13 +7,13 @@ import {
     useTransitionStyles,
 } from "@floating-ui/react";
 import clsx from "clsx";
-import React, { HTMLProps, forwardRef } from "react";
+import React, { type HTMLProps, forwardRef } from "react";
 import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
 import { useTooltipContext } from "./Tooltip.js";
 
-function getTranslation(side: Side, value: number = 0) {
+function getTranslation(side: Side, value = 0) {
     switch (side) {
         case "top":
             return `0 ${value}px`;

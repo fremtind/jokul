@@ -3,7 +3,7 @@ import React, { type MouseEventHandler, forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
-import { ToggleChangeHandler, ToggleSwitchProps } from "./types.js";
+import type { ToggleChangeHandler, ToggleSwitchProps } from "./types.js";
 
 export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
     (

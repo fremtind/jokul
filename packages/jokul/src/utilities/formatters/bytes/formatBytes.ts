@@ -1,5 +1,8 @@
 import { unicode } from "../../constants/index.js";
-import { formatNumber, FormatNumberOptions } from "../util/formatNumber.js";
+import {
+    type FormatNumberOptions,
+    formatNumber,
+} from "../util/formatNumber.js";
 
 /**
  * Formater et antall bytes som en lesbar verdi med enten KB eller MB som enhet.
@@ -16,10 +19,10 @@ export function formatBytes(
             maximumFractionDigits: 1,
             ...options,
         })}${unicode.nbsp}MB`;
-    } else {
-        return `${formatNumber(bytes / 1000, {
-            maximumFractionDigits: 2,
-            ...options,
-        })}${unicode.nbsp}KB`;
     }
+
+    return `${formatNumber(bytes / 1000, {
+        maximumFractionDigits: 2,
+        ...options,
+    })}${unicode.nbsp}KB`;
 }

@@ -1,12 +1,12 @@
-import React, { FC, useState } from "react";
-import {
+import React, { type FC, useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
 import { PrimaryButton, SecondaryButton } from "../../button/Button.js";
 import { Flex } from "../../flex/Flex.js";
-import { ToastContent, ToastProvider, useToast } from "../index.js";
-import { ToastOptions } from "../types.js";
+import { type ToastContent, ToastProvider, useToast } from "../index.js";
+import type { ToastOptions } from "../types.js";
 
 export const toastExampleKnobs: ExampleKnobsProps = {
     boolProps: [],
@@ -72,7 +72,13 @@ function ToastUsageExample() {
             >
                 Vis toast i kontekst
             </PrimaryButton>
-            <SecondaryButton onClick={() => keys.forEach((key) => close(key))}>
+            <SecondaryButton
+                onClick={() => {
+                    for (const key of keys) {
+                        close(key);
+                    }
+                }}
+            >
                 Lukk alle åpne toasts
             </SecondaryButton>
         </Flex>

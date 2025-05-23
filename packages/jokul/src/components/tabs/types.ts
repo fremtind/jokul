@@ -1,5 +1,5 @@
-import { Density, WithChildren } from "../../core/types.js";
-import { PolymorphicPropsWithRef } from "../../utilities/index.js";
+import type { Density, WithChildren } from "../../core/types.js";
+import type { PolymorphicPropsWithRef } from "../../utilities/index.js";
 
 export type NavTabProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
@@ -14,7 +14,7 @@ export type NavTabProps<ElementType extends React.ElementType> =
             onBeforeKeyboardNavigation?: (
                 from: HTMLAnchorElement,
                 to: HTMLAnchorElement,
-            ) => boolean | void;
+            ) => boolean | undefined;
         }
     >;
 

@@ -5,4 +5,4 @@ export {
     type ExpandSectionProps,
 } from "./deprecated/ExpandSection.js";
 
-export { type ExpandablePanelProps, type ExpanderProps } from "./types.js";
+export type { ExpandablePanelProps, ExpanderProps } from "./types.js";

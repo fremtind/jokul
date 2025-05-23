@@ -1,4 +1,4 @@
-import { CSSProperties } from "react";
+import type { CSSProperties } from "react";
 import { NEW_SPACING_STEPS, SPACING_STEPS, isOldSpacingStep } from "./types.js";
 import type { BasePadding, PaddingShorthand, SpacingStep } from "./types.js";
 
@@ -9,9 +9,9 @@ function getSpacingIndex(
     const value = spacingStep || fallback;
     if (isOldSpacingStep(value)) {
         return SPACING_STEPS.indexOf(value);
-    } else {
-        return NEW_SPACING_STEPS.indexOf(value);
     }
+
+    return NEW_SPACING_STEPS.indexOf(value);
 }
 
 export function getPaddingStyles(

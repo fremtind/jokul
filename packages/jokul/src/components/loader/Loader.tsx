@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import { LoaderProps } from "./types.js";
+import type { LoaderProps } from "./types.js";
 import { useDelayedRender } from "./useDelayedRender.js";
 
 export const Loader = ({

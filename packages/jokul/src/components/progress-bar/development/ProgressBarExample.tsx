@@ -1,7 +1,7 @@
-import { ExampleKnobsProps } from "utils/dev-example/index.js";
-import React, { FC, useState } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "../../icon/index.js";
+import React, { type FC, useState } from "react";
+import type { ExampleKnobsProps } from "utils/dev-example/index.js";
 import { IconButton } from "../../icon-button/IconButton.js";
+import { ChevronLeftIcon, ChevronRightIcon } from "../../icon/index.js";
 import { ProgressBar } from "../ProgressBar.js";
 
 export const progressBarExampleKnobs: ExampleKnobsProps = {};
@@ -34,7 +34,9 @@ export const ProgressBarExample: FC = () => {
                     min="0"
                     max="100"
                     value={val}
-                    onChange={(e) => setVal(parseInt(e.target.value, 10))}
+                    onChange={(e) =>
+                        setVal(Number.parseInt(e.target.value, 10))
+                    }
                 />
                 <IconButton
                     onClick={() => setVal(val + 10 > 100 ? 100 : val + 10)}

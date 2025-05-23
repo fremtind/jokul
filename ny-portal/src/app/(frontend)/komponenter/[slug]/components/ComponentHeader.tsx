@@ -1,9 +1,9 @@
 "use client";
 
+import { Card } from "@fremtind/jokul";
 import { Flex } from "@fremtind/jokul/components/flex";
 import styles from "../component.module.scss";
 import { ComponentHeaderLink } from "./ComponentHeaderLink";
-import { Card } from "@fremtind/jokul";
 
 type ComponentHeaderProps = {
     links?: {

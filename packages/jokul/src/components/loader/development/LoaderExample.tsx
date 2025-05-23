@@ -1,10 +1,10 @@
-import {
+import React, { type FC } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC } from "react";
 import { Loader } from "../Loader.js";
-import { LoaderVariant } from "../types.js";
+import type { LoaderVariant } from "../types.js";
 
 export const knobs: ExampleKnobsProps = {
     choiceProps: [
@@ -20,8 +20,9 @@ export const LoaderExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
     return (
         <div className="jkl-loader-example">
             <div>
+                {/* biome-ignore lint/a11y/useValidAriaRole: Kun for eksempelet, ellers blir det mange alerts på siden */}
                 <Loader
-                    role="none presentation" // Kun for eksempelet, ellers blir det mange alerts på siden
+                    role="none presentation"
                     variant={
                         String(
                             choiceValues?.["Variant"],

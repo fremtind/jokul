@@ -1,9 +1,12 @@
 import clsx from "clsx";
 import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
-import { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
-import { ExpanderContext } from "./context.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ExpandablePanelContent } from "./ExpandablePanelContent.js";
-import { ExpandablePanelComponent, ExpandablePanelProps } from "./types.js";
+import { ExpanderContext } from "./context.js";
+import type {
+    ExpandablePanelComponent,
+    ExpandablePanelProps,
+} from "./types.js";
 
 export const ExpandablePanel = Object.assign(
     React.forwardRef(function ExpandablePanel<
@@ -30,7 +33,7 @@ export const ExpandablePanel = Object.assign(
         const [expanderHeight, setExpanderHeight] = useState(0);
 
         const internalRef = useRef<HTMLDetailsElement>();
-        useImperativeHandle(ref, () => internalRef.current, [internalRef]);
+        useImperativeHandle(ref, () => internalRef.current, []);
 
         const El = as;
         const isControlled = typeof controlledOpen !== "undefined";
@@ -66,7 +69,7 @@ export const ExpandablePanel = Object.assign(
                     "toggle",
                     callback as EventListener,
                 );
-        }, [setContentIsVisible, setUncontrolledOpen]);
+        }, []);
 
         return (
             <div className="jkl-expandable__wrapper">
@@ -76,7 +79,7 @@ export const ExpandablePanel = Object.assign(
                     {...{ inert: "true" }}
                     className="jkl-expandable__focus-container"
                     style={{ height: expanderHeight }}
-                ></div>
+                />
                 <El
                     ref={internalRef}
                     data-testid={"jkl-expand-section"}

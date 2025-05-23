@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { useEffect, useRef, useState } from "react";
-import { NavTabsProps } from "./types.js";
+import type { NavTabsProps } from "./types.js";
 
 export const NavTabs = ({
     "aria-label": ariaLabel,
@@ -25,6 +25,7 @@ export const NavTabs = ({
         },
     );
 
+    // biome-ignore lint/correctness/useExhaustiveDependencies:
     useEffect(() => {
         if (tablistRef.current) {
             setTabsRect(tablistRef.current.getBoundingClientRect());

@@ -6,7 +6,7 @@ import { InfoIcon } from "../icon/icons/InfoIcon.js";
 import { SuccessIcon } from "../icon/icons/SuccessIcon.js";
 import { WarningIcon } from "../icon/icons/WarningIcon.js";
 import { DismissButton } from "./DismissButton.js";
-import { MessageProps } from "./types.js";
+import type { MessageProps } from "./types.js";
 
 type messageTypes = "info" | "error" | "success" | "warning";
 
@@ -55,7 +55,7 @@ function messageFactory(messageType: messageTypes) {
                 ref={ref}
                 className={clsx(
                     "jkl-message",
-                    "jkl-message--" + messageType,
+                    `jkl-message--${messageType}`,
                     className,
                     {
                         "jkl-message--full": fullWidth,

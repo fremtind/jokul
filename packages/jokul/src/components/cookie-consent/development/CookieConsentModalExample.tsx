@@ -1,8 +1,8 @@
-import {
+import React, { type FC, useEffect, useState } from "react";
+import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import React, { FC, useEffect, useState } from "react";
 import { TertiaryButton } from "../../button/Button.js";
 import { CookieConsent } from "../CookieConsent.js";
 import {
@@ -64,7 +64,7 @@ export const CookieConsentModalExample: FC<ExampleComponentProps> = ({
             name: "demo-consent-cookie",
         });
         setHasResetCookie(true);
-    }, [setHasResetCookie, boolValues]);
+    }, []);
 
     if (!hasResetCookie) {
         return null;
