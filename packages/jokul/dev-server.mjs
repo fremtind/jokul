@@ -122,6 +122,7 @@ export default function App() {
                     <Text>Choose a component from the list below</Text>
                     <Text>Filter: {filterString}</Text>
                     <SelectInput
+                        limit={10}
                         items={components.filter((component) =>
                             component.label.startsWith(filterString),
                         )}
