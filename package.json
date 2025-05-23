@@ -25,7 +25,7 @@
         "serve:server": "node server.js",
         "serve:portal": "pnpm --filter \"ny-portal\" start",
         "serve": "run-p serve:*",
-        "boot": "pnpm install && husky install && pnpm build",
+        "boot": "pnpm install && pnpm prepare && pnpm build",
         "reboot": "pnpm clean && pnpm boot",
         "integration:ci": "playwright test",
         "integration:interactive": "playwright test --ui",
@@ -147,8 +147,7 @@
     ],
     "lint-staged": {
         "*.{scss,css,html,json,md,mdx,ts,tsx,js,jsx}": [
-            "pnpm biome format --write",
-            "pnpm biome lint --write"
+            "pnpm biome check --write"
         ],
         "!(*integration).{png,jpg,jpeg}": ["node scripts/preoptimize-images"],
         "*.{scss,css}": [
