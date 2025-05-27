@@ -1,9 +1,5 @@
 import cn from "clsx";
-import React, {
-    type ButtonHTMLAttributes,
-    type TouchEvent,
-    useCallback,
-} from "react";
+import React, { type ButtonHTMLAttributes } from "react";
 import { useAriaLiveRegion } from "../../hooks/useAriaLiveRegion/useAriaLiveRegion.js";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { Loader } from "../loader/Loader.js";
@@ -42,36 +38,6 @@ export const Button = React.forwardRef(function Button<
         );
     }
 
-    const removeButtonAnimation = (element: HTMLElement) => {
-        if (element.classList.contains("jkl-button--pressed")) {
-            element.classList.remove("jkl-button--pressed");
-            element.style.removeProperty("--jkl-touch-xcoord");
-            element.style.removeProperty("--jkl-touch-ycoord");
-        }
-    };
-
-    const handleTouch = useCallback((event: TouchEvent<HTMLButtonElement>) => {
-        const target = event.target as HTMLButtonElement;
-
-        if (target && !target.disabled && event.targetTouches.length) {
-            const Xcoord =
-                event.targetTouches[0].clientX -
-                target.getBoundingClientRect().x;
-            const Ycoord =
-                event.targetTouches[0].clientY -
-                target.getBoundingClientRect().y;
-            target.style.setProperty(
-                "--jkl-touch-xcoord",
-                `${Xcoord.toFixed(1)}px`,
-            );
-            target.style.setProperty(
-                "--jkl-touch-ycoord",
-                `${Ycoord.toFixed(1)}px`,
-            );
-            target.classList.add("jkl-button--pressed");
-        }
-    }, []);
-
     const ariaLive = useAriaLiveRegion(loader?.showLoader);
     const showLoader = Boolean(children) && Boolean(loader?.showLoader);
 
@@ -82,14 +48,6 @@ export const Button = React.forwardRef(function Button<
             data-density={density}
             className={cn("jkl-button", `jkl-button--${variant}`, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}
-            onTouchStart={(event) => {
-                onTouchStart?.(event);
-                handleTouch(event);
-            }}
-            onAnimationEnd={(event) => {
-                onAnimationEnd?.(event);
-                removeButtonAnimation(event.target as HTMLElement);
-            }}
             {...rest}
             ref={ref}
         >
