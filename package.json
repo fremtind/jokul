@@ -150,7 +150,6 @@
         "*.{scss,css,html,json,md,mdx,ts,tsx,js,jsx}": [
             "pnpm biome check --write"
         ],
-        "!(*integration).{png,jpg,jpeg}": ["node scripts/preoptimize-images"],
         "*.{scss,css}": [
             "stylelint --fix --config=packages/stylelint-config-jkl/index.js"
         ]
