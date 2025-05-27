@@ -15,14 +15,10 @@ dist/
 .idea/
 .iml
 .DS_Store
-cypress/videos
-.yarnrc
 .stylelintcache
-.turbo
 .nx
 **/public/fonts
 **/vite.build.config.mjs.timestamp-*
-!portalen/**
 test-results/
 playwright-report/
 storybook-static/
