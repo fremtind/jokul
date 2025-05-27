@@ -2,9 +2,6 @@
 @use "sass:string";
 @use "../../../core/jkl";
 
-$_grow-animation-name: button-grow-#{string.unique-id()};
-$_fade-animation-name: button-fade-#{string.unique-id()};
-
 @include jkl.comfortable-density-variables {
     --jkl-button-padding-block: #{jkl.$unit-10};
     --jkl-button-padding-text: #{jkl.$unit-30};
@@ -34,34 +31,6 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
         --jkl-button-font-size: #{jkl.$typography-small-base-font-size};
         --jkl-button-line-height: #{jkl.$typography-small-base-line-height};
         --jkl-button-icon-weight: #{jkl.$icon-weight-bold};
-    }
-}
-
-// Custom variabler, definert slik at de kan animeres
-
-// Egenskaper for touch-effekt
-@property --jkl-button-flash-radius {
-    syntax: "<length-percentage>";
-    initial-value: 0%;
-    inherits: false;
-}
-
-@property --jkl-button-flash-opacity {
-    syntax: "<number>";
-    initial-value: 0;
-    inherits: false;
-}
-
-// Definer animasjoner for touch-effekt
-@keyframes #{$_fade-animation-name} {
-    from {
-        --jkl-button-flash-opacity: 0.5;
-    }
-}
-
-@keyframes #{$_grow-animation-name} {
-    to {
-        --jkl-button-flash-radius: 150%;
     }
 }
 
@@ -155,12 +124,7 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
     }
 
     &:hover {
-        background-color: color(from currentColor sRGB r g b / 0.15);
-    }
-
-    &.jkl-button--pressed {
-        animation-name: #{$_fade-animation-name},
-        #{$_grow-animation-name};
+        background-color: color-mix(in srgb, var(--background-color), var(--text-color) 15%);
     }
 
     &--primary,
@@ -172,10 +136,6 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
     &--primary {
         --background-color: var(--jkl-color-background-action);
         --text-color: var(--jkl-color-text-on-action);
-
-        &:hover {
-            background-color: color(from var(--background-color) sRGB r g b / 0.85);
-        }
     }
 
     &--secondary {
