@@ -4,7 +4,7 @@ import { defineConfig, devices } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-    testMatch: "packages/jokul/**/integration/*.spec.ts",
+    testMatch: "**/*.spec.ts",
     fullyParallel: true,
     /* Fail the build on CI if you accidentally left test.only in the source code. */
     forbidOnly: !!process.env.CI,
@@ -25,9 +25,6 @@ export default defineConfig({
             maxDiffPixelRatio: 0.01,
         },
     },
-
-    snapshotPathTemplate:
-        ".{/testFileDir}/__screenshots__/{testName}-{arg}.png",
 
     projects: [
         {
