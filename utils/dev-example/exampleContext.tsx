@@ -3,7 +3,7 @@ import type {
     ColorScheme,
     Density,
     WithChildren,
-} from "../../packages/jokul/src/core";
+} from "../../packages/jokul/src/core/types.js";
 
 type ExampleContext = {
     density: Density;
