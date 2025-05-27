@@ -25,3 +25,4 @@ cypress/videos
 test-results/
 playwright-report/
 storybook-static/
+build-storybook.log

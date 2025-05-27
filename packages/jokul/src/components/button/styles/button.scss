@@ -39,13 +39,6 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
 
 // Custom variabler, definert slik at de kan animeres
 
-// Egenskap for hover-effekt
-@property --hover-opacity {
-    syntax: "<number>";
-    initial-value: 0;
-    inherits: false;
-}
-
 // Egenskaper for touch-effekt
 @property --jkl-button-flash-radius {
     syntax: "<length-percentage>";
@@ -86,25 +79,7 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
 
     cursor: pointer;
     user-select: none;
-    background:
-        // Lag 1: heldekkende "gradient" for hovereffekt
-        linear-gradient(
-            color(from var(--text-color) sRGB r g b / var(--hover-opacity)) 100%,
-            transparent 100%
-        ),
-        // Lag 2: touch-effekt
-        radial-gradient(
-                circle at var(--jkl-touch-xcoord, 50%)
-                    var(--jkl-touch-ycoord, 50%),
-                color(
-                        from var(--text-color) sRGB r g b /
-                            var(--jkl-button-flash-opacity)
-                    )
-                    calc(var(--jkl-button-flash-radius) - 1px),
-                transparent var(--jkl-button-flash-radius, 0%)
-            ),
-        // Lag 3: faktisk bakgrunnsfarge
-        var(--background-color);
+    background: var(--background-color);
     color: var(--text-color);
     border: unset;
     text-decoration: none;
@@ -118,7 +93,7 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
     max-width: 100%;
     animation: a 0.3s linear;
 
-    @include jkl.motion("standard", "productive", --hover-opacity);
+    @include jkl.motion("standard", "productive", background-color);
 
     &:has(.jkl-icon:first-child) {
         padding-inline-start: var(--jkl-button-padding-icon);
@@ -179,7 +154,7 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
     }
 
     &:hover {
-        --hover-opacity: 0.15;
+        background-color: color(from currentColor sRGB r g b / 0.15);
     }
 
     &.jkl-button--pressed {
@@ -195,6 +170,12 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
     &--primary {
         --background-color: var(--jkl-color-background-action);
         --text-color: var(--jkl-color-text-on-action);
+
+        &:hover {
+            background-color: color(
+                from var(--background-color) sRGB r g b / 0.85
+            );
+        }
     }
 
     &--secondary {
