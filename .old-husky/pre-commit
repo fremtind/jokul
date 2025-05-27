@@ -1,8 +1,0 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-if [ "$CI" = "true" ]; then
-  echo "Skipping lint-staged on CI"
-else
-  pnpm lint-staged
-fi
