@@ -2,6 +2,7 @@
     "name": "@fremtind/jkl",
     "private": true,
     "version": "2.0.0-alpha.0",
+    "type": "module",
     "scripts": {
         "clean": "git clean -xfd",
         "build": "lerna run build",

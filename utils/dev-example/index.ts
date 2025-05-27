@@ -1,8 +1,8 @@
-import type { ColorScheme, Density } from "../../packages/jokul/src/core/types";
+import type { ColorScheme, Density } from "../../packages/jokul/src/core/types.js";
 
-export { ComponentExample } from "./ComponentExample";
-export { DevExample } from "./DevExample";
-export { useExampleContext } from "./exampleContext";
+export { ComponentExample } from "./ComponentExample.js";
+export { DevExample } from "./DevExample.js";
+export { useExampleContext } from "./exampleContext.js";
 
 export interface Dictionary<T> {
     [key: string]: T;
