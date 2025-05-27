@@ -1,24 +1,24 @@
 import React, { type FC, useEffect, useMemo, useState } from "react";
-import { Checkbox } from "../../packages/jokul/src/components/checkbox";
-import { FieldGroup } from "../../packages/jokul/src/components/input-group";
+import { Checkbox } from "../../packages/jokul/src/components/checkbox/index.js";
+import { FieldGroup } from "../../packages/jokul/src/components/input-group/index.js";
 import {
     RadioButton,
     RadioButtonGroup,
-} from "../../packages/jokul/src/components/radio-button";
-import { Select } from "../../packages/jokul/src/components/select";
-import type { ColorScheme, Density } from "../../packages/jokul/src/core";
-import { useId, useLocalStorage } from "../../packages/jokul/src/hooks";
+} from "../../packages/jokul/src/components/radio-button/index.js";
+import { Select } from "../../packages/jokul/src/components/select/index.js";
+import type { ColorScheme, Density } from "../../packages/jokul/src/core/types.js";
+import { useId, useLocalStorage } from "../../packages/jokul/src/hooks/index.js";
 import type {
     BoolProp,
     ChoiceProp,
     CodeExample,
     Dictionary,
     ExampleComponentProps,
-} from "./";
-import { CodeBlock } from "./CodeBlock";
-import { CodeSection } from "./CodeSection";
-import { ExampleContextProvider } from "./exampleContext";
-import { hyphenate } from "./internal/hypenate";
+} from "./index.js";
+import { CodeBlock } from "./CodeBlock/index.js";
+import { CodeSection } from "./CodeSection.js";
+import { ExampleContextProvider } from "./exampleContext.js";
+import { hyphenate } from "./internal/hypenate.js";
 
 export interface Props {
     component: FC<ExampleComponentProps>;

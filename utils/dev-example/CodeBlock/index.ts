@@ -1,2 +1,1 @@
-export type { CodeBlockProps } from "./CodeBlock";
-export { CodeBlock } from "./CodeBlock";
+export { type CodeBlockProps, CodeBlock } from "./CodeBlock.js";

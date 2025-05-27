@@ -4,8 +4,8 @@ import type {
     ChoiceProp,
     CodeExample,
     ExampleComponentProps,
-} from "./";
-import { ExampleBase } from "./ExampleBase";
+} from "./index.js";
+import { ExampleBase } from "./ExampleBase.js";
 
 export interface Props {
     component: FC<ExampleComponentProps>;
