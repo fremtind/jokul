@@ -3,14 +3,6 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [8.0.7](https://github.com/fremtind/jokul/compare/@fremtind/stylelint-config-jkl@8.0.6...@fremtind/stylelint-config-jkl@8.0.7) (2025-05-28)
-
-**Note:** Version bump only for package @fremtind/stylelint-config-jkl
-
-
-
-
-
 ## 8.0.5 (2025-01-08)
 
 ### Bug Fixes
