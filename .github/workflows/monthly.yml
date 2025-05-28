@@ -26,7 +26,7 @@ jobs:
                       🧑‍💻 Kjør `pnpm update -r` på rotnivå i prosjektet.
                       🧑‍💻 Kjør `pnpm outdated -r` på rotnivå i prosjektet.
 
-                      Output fra `pnpm outdated` vil vise deg hvilke pakker som trenger å oppdateres manuelt, men også noen som ikke _kan_ oppdateres. Noen ganger har vi avhengigheter som trenger en eldre majorversjon av en pakke, for eksempel `gatsby` som trenger en eldre `mdx-js` og `got`.
+                      Output fra `pnpm outdated` vil vise deg hvilke pakker som trenger å oppdateres manuelt, men også noen som ikke _kan_ oppdateres. Noen ganger har vi avhengigheter som trenger en eldre majorversjon av en pakke.
 
                       Du kan sannsynligvis trygt ignorere `overrides` med mindre noe brekker senere.
 
