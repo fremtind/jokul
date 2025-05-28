@@ -33,11 +33,14 @@ jobs:
                   git config --global user.email 'fremtind-bot@users.noreply.github.com'
                   git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
 
+            - name: Disable Husky during versioning
+              run: echo "HUSKY=0" >> $GITHUB_ENV
+
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
               with:
                   run_install: |
-                      - args: [--global, lerna-clean-changelogs-cli@^2.0.18]
+                      - args: [--global, lerna-clean-changelogs-cli@^4.0.0]
 
             - name: Setup Node
               uses: actions/setup-node@v3
