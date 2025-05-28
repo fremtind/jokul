@@ -86,6 +86,7 @@ jobs:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   GITHUB_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  HUSKY: 0
 
             - name: Switch registry
               if: steps.lerna_changed.outcome == 'success'

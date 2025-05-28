@@ -33,7 +33,8 @@
         "integration:ci": "playwright test",
         "integration:interactive": "playwright test --ui",
         "integration:axe": "playwright test -g axe",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build",
+        "prepare": "husky || true"
     },
     "packageManager": "pnpm@7.32.2",
     "pnpm": {
