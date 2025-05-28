@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/stylelint-config-jkl",
-    "version": "8.0.6",
+    "version": "8.0.7",
     "description": "Styleint configuration for Jøkul",
     "keywords": ["stylelint", "jøkul", "fremtind"],
     "publishConfig": {
