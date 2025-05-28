@@ -648,5 +648,6 @@
     },
     "babel": {
         "presets": ["@babel/preset-react"]
-    }
+    },
+    "gitHead": "2728cf20df66dd1c647cdffb49aab5365433abdb"
 }
