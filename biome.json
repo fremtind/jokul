@@ -1,7 +1,7 @@
 {
     "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
     "vcs": { "enabled": true, "clientKind": "git", "useIgnoreFile": true },
-    "files": { "ignoreUnknown": false, "ignore": [] },
+    "files": { "ignoreUnknown": false, "ignore": ["**/build/*"] },
     "formatter": {
         "enabled": true,
         "useEditorconfig": true,
@@ -13,7 +13,6 @@
         "attributePosition": "auto",
         "bracketSpacing": true,
         "ignore": [
-            "**/build/",
             "**/dist/",
             "**/public/",
             "**/.cache/",
@@ -21,8 +20,7 @@
             "**/tsconfig.json",
             "**/tsconfig-for-declarations.json",
             "**/pnpm-lock.yaml",
-            "packages/jokul/dev-server.js",
-            "ny-portal/src/app/(payload)/**/*"
+            "packages/jokul/dev-server.js"
         ]
     },
     "organizeImports": { "enabled": true },
@@ -44,8 +42,8 @@
         "ignore": [
             "actions/",
             "scripts/",
-            "ny-portal/src/sanity/types.ts",
-            "ny-portal/src/sanity/extract.json"
+            "portal/src/sanity/types.ts",
+            "portal/src/sanity/extract.json"
         ]
     },
     "javascript": {
