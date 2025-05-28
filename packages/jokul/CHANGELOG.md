@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.65.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.64.2...@fremtind/jokul@0.65.0) (2025-05-28)
+
+
+### Bug Fixes
+
+* fiks feil som gjør at button hopper i GUI ([fda5101](https://github.com/fremtind/jokul/commit/fda5101ae271740e4addf812421daab9d0d275ae))
+
+
+### Features
+
+* slett gammel portal relaterte filer ([9e5d3e5](https://github.com/fremtind/jokul/commit/9e5d3e56ea35bfa4b6aeb9a868229f4cd36c7dff))
+
+
+
+
+
 # [0.64.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.63.0...@fremtind/jokul@0.64.0) (2025-05-22)
 
 ### Features
