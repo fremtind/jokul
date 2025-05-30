@@ -16,6 +16,7 @@
     &__input {
         padding: var(--jkl-text-input-padding);
         width: 100%;
+
         @include shared.input-styles;
 
         &--align-right {

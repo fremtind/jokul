@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
-
 @use "calendar";
 @use "calendar-navigation";
 @use "calendar-navigation-dropdown";
@@ -10,6 +9,7 @@
 @include jkl.light-mode-variables {
     --jkl-datepicker-focus-color: #{jkl.$color-granitt};
 }
+
 @include jkl.dark-mode-variables {
     --jkl-datepicker-focus-color: #{jkl.$color-snohvit};
 }

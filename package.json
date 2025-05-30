@@ -147,8 +147,8 @@
         "not op_mini all"
     ],
     "lint-staged": {
-        "*.{scss,css,html,json,md,mdx,ts,tsx,js,jsx}": [
-            "pnpm biome check --write"
+        "*.{html,json,md,mdx,ts,tsx,js,jsx}": [
+            "pnpm biome check --write --no-errors-on-unmatched"
         ],
         "*.{scss,css}": [
             "stylelint --fix --config=packages/stylelint-config-jkl/index.mjs"

@@ -84,6 +84,7 @@ $_focus-ring-width: jkl.rem(2px);
         :not(.jkl-table-head)
         > &.jkl-table-row--expandable {
         transition-property: border, padding;
+
         @include jkl.motion;
 
         &.jkl-table-row--expanded {
@@ -105,6 +106,7 @@ $_focus-ring-width: jkl.rem(2px);
         /* stylelint-disable-next-line selector-max-specificity -- selector needs to nest itself to select sub tables with the same properties */
         & + tr & {
             transition-property: border;
+
             @include jkl.motion;
         }
 
@@ -185,6 +187,7 @@ $_focus-ring-width: jkl.rem(2px);
 
 .jkl-expandable-table-row__expanded-row {
     display: none;
+
     @include jkl.motion("exit", "expressive");
     transition-property: height;
 

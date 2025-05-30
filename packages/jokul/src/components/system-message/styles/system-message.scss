@@ -16,6 +16,7 @@ $_dismiss-hover-color: jkl.$color-stein;
             18px
         )} -#{jkl.rem(6.5px)} auto;
     --jkl-system-message-message-margin: 0 #{jkl.$spacing-m};
+
     @include jkl.declare-font-variables("jkl-system-message-message", "body");
 }
 
@@ -28,6 +29,7 @@ $_dismiss-hover-color: jkl.$color-stein;
             6px
         )} -#{jkl.rem(4.5px)} auto;
     --jkl-system-message-message-margin: 0 #{jkl.$spacing-s};
+
     @include jkl.declare-font-variables("jkl-system-message-message", "small");
 }
 
@@ -87,6 +89,7 @@ $_dismiss-hover-color: jkl.$color-stein;
         }
 
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+
         @include jkl.forced-colors-mode {
             background-color: ButtonFace;
         }
@@ -95,6 +98,7 @@ $_dismiss-hover-color: jkl.$color-stein;
 
         &:hover {
             color: $_dismiss-hover-color;
+
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         }
 

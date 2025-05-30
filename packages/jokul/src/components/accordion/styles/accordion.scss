@@ -11,6 +11,7 @@
         var(--jkl-spacing-16);
     --jkl-accordion-icon-opsz: 24;
     --jkl-accordion-icon-size: 1.5rem;
+
     @include jkl.declare-font-variables("title", "body");
     @include jkl.declare-font-variables("content", "body");
 
@@ -33,6 +34,7 @@
     --jkl-accordion-content-padding: var(--jkl-spacing-8);
     --jkl-accordion-icon-opsz: 20;
     --jkl-accordion-icon-size: 1.25rem;
+
     @include jkl.declare-font-variables("title", "small");
     @include jkl.declare-font-variables("content", "small");
 }

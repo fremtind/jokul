@@ -123,6 +123,7 @@
 
         .jkl-expander__chevron {
             transform: rotate(-0.5turn);
+
             @include jkl.motion("standard", "snappy");
         }
     }

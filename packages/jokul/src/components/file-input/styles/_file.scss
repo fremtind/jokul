@@ -45,7 +45,7 @@
         background-color: var(--jkl-color-background-container-high);
         padding: var(--jkl-file-padding);
         border-radius: jkl.rem(2px);
-        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.05);
+        box-shadow: 0 0 5px 0 rgb(0 0 0 / 5%);
         color: var(--text-color);
 
         &--error {

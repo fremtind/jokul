@@ -4,6 +4,7 @@
 @include jkl.light-mode-variables {
     --jkl-summary-table-border-color: #{jkl.$color-granitt};
 }
+
 @include jkl.dark-mode-variables {
     --jkl-summary-table-border-color: #{jkl.$color-svaberg};
 }
@@ -11,7 +12,7 @@
 .jkl-summary-table {
     display: flex;
     flex-direction: column;
-    word-break: break-word;
+    overflow-wrap: anywhere;
     width: 100%;
 
     tr {

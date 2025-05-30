@@ -38,6 +38,7 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
         border: 1px solid;
         border-color: var(--checkbox-box-color);
         background-color: var(--checkbox-background-color);
+
         @include jkl.motion;
         transition-property: background-color;
 
@@ -64,6 +65,7 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
             border-top-width: 0;
 
             opacity: 0;
+
             @include jkl.motion;
             transition-property: opacity, border-color;
 

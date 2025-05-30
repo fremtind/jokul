@@ -2,6 +2,7 @@
 
 @include jkl.comfortable-density-variables {
     --jkl-info-card-content-wrapper-gap: #{jkl.$spacing-m};
+
     @include jkl.declare-font-variables("jkl-info-card-title", "heading-2");
     @include jkl.declare-font-variables("jkl-info-card-content", "body");
 }
@@ -11,6 +12,7 @@
     --jkl-info-card-title-font-size: var(--jkl-heading-4-font-size);
     --jkl-info-card-title-line-height: var(--jkl-heading-4-line-height);
     --jkl-info-card-title-font-weight: #{jkl.$typography-weight-normal};
+
     @include jkl.declare-font-variables("jkl-info-card-content", "small");
 }
 
