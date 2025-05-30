@@ -2,11 +2,7 @@ import type { PolymorphicRef } from "@fremtind/jkl-core";
 import { Loader } from "@fremtind/jkl-loader-react";
 import { useAriaLiveRegion } from "@fremtind/jkl-react-hooks";
 import cn from "classnames";
-import React, {
-    ButtonHTMLAttributes,
-    type TouchEvent,
-    useCallback,
-} from "react";
+import React, { ButtonHTMLAttributes } from "react";
 import type { ButtonComponent, ButtonProps } from "./types";
 
 export const Button = React.forwardRef(function Button<
@@ -42,42 +38,6 @@ export const Button = React.forwardRef(function Button<
         );
     }
 
-    const removeButtonAnimation = (element: HTMLElement) => {
-        if (element.classList.contains("jkl-button--pressed")) {
-            element.classList.remove("jkl-button--pressed");
-            element.style.removeProperty("--jkl-touch-xcoord");
-            element.style.removeProperty("--jkl-touch-ycoord");
-        }
-    };
-
-    const handleTouch = useCallback((event: TouchEvent<HTMLButtonElement>) => {
-        const target = event.target as HTMLButtonElement;
-
-        if (target && !target.disabled && event.targetTouches.length) {
-            const Xcoord =
-                event.targetTouches[0].clientX -
-                target.getBoundingClientRect().x;
-            const Ycoord =
-                event.targetTouches[0].clientY -
-                target.getBoundingClientRect().y;
-            target.style.setProperty(
-                "--jkl-touch-xcoord",
-                Xcoord.toFixed(1) + "px",
-            );
-            target.style.setProperty(
-                "--jkl-touch-ycoord",
-                Ycoord.toFixed(1) + "px",
-            );
-            target.classList.add("jkl-button--pressed");
-
-            setTimeout(() => {
-                target.classList.remove("jkl-button--pressed");
-                target.style.removeProperty("--jkl-touch-xcoord");
-                target.style.removeProperty("--jkl-touch-ycoord");
-            }, 400);
-        }
-    }, []);
-
     const ariaLive = useAriaLiveRegion(loader?.showLoader);
     const showLoader = Boolean(children) && Boolean(loader?.showLoader);
 
@@ -88,14 +48,6 @@ export const Button = React.forwardRef(function Button<
             data-density={density}
             className={cn("jkl-button", "jkl-button--" + variant, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}
-            onTouchStart={(event) => {
-                onTouchStart?.(event);
-                handleTouch(event);
-            }}
-            onAnimationEnd={(event) => {
-                onAnimationEnd?.(event);
-                removeButtonAnimation(event.target as HTMLElement);
-            }}
             {...rest}
             ref={ref}
         >

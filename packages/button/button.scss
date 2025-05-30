@@ -2,9 +2,6 @@
 @use "sass:string";
 @use "@fremtind/jkl-core/jkl";
 
-$_grow-animation-name: button-grow-#{string.unique-id()};
-$_fade-animation-name: button-fade-#{string.unique-id()};
-
 @include jkl.comfortable-density-variables {
     --jkl-button-padding-block: #{jkl.$spacing-8};
     --jkl-button-padding-text: #{jkl.$spacing-24};
@@ -37,40 +34,6 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
     }
 }
 
-// Custom variabler, definert slik at de kan animeres
-
-// Egenskap for hover-effekt
-@property --hover-opacity {
-    syntax: "<number>";
-    initial-value: 0;
-    inherits: false;
-}
-
-// Egenskaper for touch-effekt
-@property --jkl-button-flash-radius {
-    syntax: "<length-percentage>";
-    initial-value: 0%;
-    inherits: false;
-}
-@property --jkl-button-flash-opacity {
-    syntax: "<number>";
-    initial-value: 0;
-    inherits: false;
-}
-
-// Definer animasjoner for touch-effekt
-@keyframes #{$_fade-animation-name} {
-    from {
-        --jkl-button-flash-opacity: 0.5;
-    }
-}
-
-@keyframes #{$_grow-animation-name} {
-    to {
-        --jkl-button-flash-radius: 150%;
-    }
-}
-
 .jkl-button {
     --jkl-icon-weight: var(--jkl-button-icon-weight, initial);
     --text-color: var(--jkl-color-text-default);
@@ -86,25 +49,7 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
 
     cursor: pointer;
     user-select: none;
-    background:
-        // Lag 1: heldekkende "gradient" for hovereffekt
-        linear-gradient(
-            color(from var(--text-color) sRGB r g b / var(--hover-opacity)) 100%,
-            transparent 100%
-        ),
-        // Lag 2: touch-effekt
-        radial-gradient(
-                circle at var(--jkl-touch-xcoord, 50%)
-                    var(--jkl-touch-ycoord, 50%),
-                color(
-                        from var(--text-color) sRGB r g b /
-                            var(--jkl-button-flash-opacity)
-                    )
-                    calc(var(--jkl-button-flash-radius) - 1px),
-                transparent var(--jkl-button-flash-radius, 0%)
-            ),
-        // Lag 3: faktisk bakgrunnsfarge
-        var(--background-color);
+    background: var(--background-color);
     color: var(--text-color);
     border: unset;
     text-decoration: none;
@@ -117,7 +62,7 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
     overflow: hidden;
     max-width: 100%;
 
-    @include jkl.motion("standard", "productive", --hover-opacity);
+    @include jkl.motion("standard", "productive", background-color);
 
     &:has(.jkl-icon:first-child) {
         padding-inline-start: var(--jkl-button-padding-icon);
@@ -178,11 +123,7 @@ $_fade-animation-name: button-fade-#{string.unique-id()};
     }
 
     &:hover {
-        --hover-opacity: 0.15;
-    }
-
-    &.jkl-button--pressed {
-        animation-name: #{$_fade-animation-name}, #{$_grow-animation-name};
+        background-color: color-mix(in sRGB, var(--background-color), var(--text-color) 15%);
     }
 
     &--primary,
