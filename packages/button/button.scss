@@ -123,12 +123,7 @@
     }
 
     &:hover {
-        background-color: color-mix(in srgb, var(--background-color), var(--text-color) 15%);
-    }
-
-    &.jkl-button--pressed {
-        animation-name: #{$_fade-animation-name},
-        #{$_grow-animation-name};
+        background-color: color-mix(in sRGB, var(--background-color), var(--text-color) 15%);
     }
 
     &--primary,
