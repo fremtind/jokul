@@ -101,6 +101,7 @@ $_dismiss-hover-color: jkl.$color-stein;
 
         @include jkl.reset-outline;
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+
         @include jkl.forced-colors-mode {
             background-color: ButtonFace;
         }
@@ -119,6 +120,7 @@ $_dismiss-hover-color: jkl.$color-stein;
 
         &:hover {
             color: $_dismiss-hover-color;
+
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         }
 

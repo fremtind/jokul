@@ -13,6 +13,7 @@
 
     &__select {
         appearance: none;
+
         @include jkl.text-style("small") {
             font-weight: jkl.$typography-weight-bold;
         }

@@ -97,8 +97,8 @@
         width: 100%;
 
         transition-property: color, border-color, box-shadow;
-        @include jkl.motion;
 
+        @include jkl.motion;
         @include jkl.use-font-variables("jkl-select");
 
         &--active-value {
@@ -153,8 +153,8 @@
 
         transform: translateY(-50%);
         transition-property: transform, color;
-        @include jkl.motion;
 
+        @include jkl.motion;
         @include jkl.forced-colors-svg-fallback(
             $stroke: CanvasText,
             $fill: CanvasText
@@ -186,6 +186,7 @@
         );
 
         transition-property: height;
+
         @include jkl.motion;
     }
 
@@ -225,6 +226,7 @@
             color: var(--jkl-color-text-subdued);
             display: block;
             width: 100%;
+
             @include jkl.text-style("small");
         }
     }
@@ -289,6 +291,7 @@
             &:focus {
                 border-top: 1px solid SelectedItem;
                 border-bottom: 1px solid SelectedItem;
+
                 @include jkl.no-grow-bold;
             }
         }

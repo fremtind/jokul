@@ -4,6 +4,6 @@
 .jkl-popover {
     padding: var(--popover-padding, 0);
     z-index: jkl.$z-index--floating;
-    box-shadow: 0 4px 20px 0 rgba(49, 48, 48, 0.2);
+    box-shadow: 0 4px 20px 0 rgb(49 48 48 / 20%);
     background-color: var(--jkl-color-background-container-high);
 }

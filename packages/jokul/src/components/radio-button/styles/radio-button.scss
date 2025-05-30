@@ -167,6 +167,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         background-color: var(--background-color);
 
         transition-property: background-color, outline;
+
         @include jkl.motion;
 
         /* Inner dot */
@@ -185,6 +186,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             background-color: var(--dot-color);
 
             transition-property: transform;
+
             @include jkl.motion;
         }
 

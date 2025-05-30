@@ -3,12 +3,14 @@
 @include jkl.comfortable-density-variables {
     --jkl-menu-item-height: #{jkl.rem(48px)};
     --jkl-menu-item-padding: #{jkl.$unit-10} #{jkl.$unit-30};
+
     @include jkl.declare-font-variables("jkl-menu-item", "body");
 }
 
 @include jkl.compact-density-variables {
     --jkl-menu-item-height: jkl.rem(32px);
     --jkl-menu-item-padding: #{jkl.$unit-05} #{jkl.$unit-15};
+
     @include jkl.declare-font-variables("jkl-menu-item", "small");
 }
 
@@ -22,6 +24,7 @@
 
     box-sizing: border-box;
     user-select: none;
+
     @include jkl.use-font-variables("jkl-menu-item");
     display: flex;
     align-items: center;

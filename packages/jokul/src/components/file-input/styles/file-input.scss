@@ -36,6 +36,7 @@
         flex-direction: column;
         flex-wrap: nowrap;
         gap: var(--jkl-file-input-dropzone-gap);
+
         @include jkl.motion("standard", "productive");
         transition-property: background-color;
         background-color: var(--background-color);
@@ -48,6 +49,7 @@
 
         &__drag-text {
             @include jkl.use-font-variables("jkl-file-input-drag");
+
             @include jkl.small-device {
                 display: none;
             }

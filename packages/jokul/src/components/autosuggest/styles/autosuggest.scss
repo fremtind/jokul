@@ -108,6 +108,7 @@
         background-color: inherit;
         min-height: var(--jkl-autosuggest-option-height);
         text-align: left;
+
         @include jkl.motion;
         transition-property: color, background-color;
         position: relative;
