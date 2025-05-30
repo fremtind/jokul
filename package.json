@@ -4,7 +4,7 @@
     "version": "2.0.0-alpha.0",
     "scripts": {
         "clean": "git clean -xfd",
-        "build": "lerna run build",
+        "build": "lerna run --scope @fremtind/jkl-* build",
         "build:docs": "lerna run build:docs",
         "commit": "git-cz",
         "cosign": "git-cz -S",
@@ -17,7 +17,7 @@
         "lint:fix": "pnpm lint:eslint --fix && pnpm lint:stylelint --fix",
         "ci:test": "run-p test lint:eslint lint:stylelint typecheck",
         "ci:changed": "lerna changed --parseable --loglevel error",
-        "test": "run-p test:unit test:jokul",
+        "test": "pnpm test:unit",
         "test:unit": "jest --testMatch '**/*.test.+(ts|tsx|js)'",
         "test:jokul": "pnpm --filter \"@fremtind/jokul\" test",
         "test:watch": "jest --watch",

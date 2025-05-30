@@ -1,5 +1,6 @@
 {
-    "packages": ["packages/*", "portal"],
+    "packages": ["packages/*"],
+    "ignore": "@fremtind/jokul",
     "version": "independent",
     "npmClient": "pnpm",
     "command": {
@@ -8,7 +9,7 @@
             "registry": "https://registry.npmjs.org/",
             "access": "public",
             "npmClient": "pnpm",
-            "allowBranch": ["main", "release", "alpha-*", "pre-1.0"],
+            "allowBranch": ["pre-1.0"],
             "ignoreChanges": [
                 ".eslintrc",
                 ".prettierrc",
