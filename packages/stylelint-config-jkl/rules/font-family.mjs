@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     "font-family-no-duplicate-names": [
         true,
         {

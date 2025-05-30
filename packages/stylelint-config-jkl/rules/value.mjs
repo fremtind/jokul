@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     "value-keyword-case": [
         "lower",
         {
@@ -14,6 +14,7 @@ module.exports = {
                 "ButtonFace",
                 "ButtonText",
             ],
+            ignoreFunctions: ["color", "color-mix"],
         },
     ],
     "value-no-vendor-prefix": true,

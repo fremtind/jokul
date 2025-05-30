@@ -1,4 +1,4 @@
-module.exports = {
+export default {
     "max-nesting-depth": 5,
     "media-feature-name-no-vendor-prefix": true,
     "no-descending-specificity": null,
