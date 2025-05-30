@@ -2,7 +2,7 @@
 @use "sass:map";
 @use "../jkl";
 @use "../jkl/typography";
-@use ".";
+@use "." as styles;
 
 /* Used by menu to figure out if it should render a compact or comfortable view */
 @include jkl.comfortable-density-variables {
