@@ -93,6 +93,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
 .jkl-combobox {
     position: relative;
+
     @include jkl.reset-outline;
 
     & .jkl-combobox__option:focus {
@@ -109,6 +110,7 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         border-radius: jkl.rem(3px);
         border: jkl.rem(1px) solid var(--jkl-combobox-border-color);
         box-shadow: 0 0 0 jkl.rem(1px) transparent;
+
         @include jkl.motion;
         transition-property: color, border-color, box-shadow;
 

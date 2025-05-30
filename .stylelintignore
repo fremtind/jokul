@@ -1,0 +1,3 @@
+packages/**/build/
+packages/jokul/styles/
+storybook-static/

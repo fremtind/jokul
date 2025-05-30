@@ -1,6 +1,5 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
-
 @use "./toggle-slider";
 
 @include jkl.comfortable-density-variables {
@@ -47,7 +46,6 @@
     touch-action: none; // Forhindrer at siden flytter på seg når man drar i toggle
 
     @include jkl.use-font-variables("jkl-toggle");
-
     @include jkl.reset-outline;
 
     @include jkl.forced-colors-mode {

@@ -25,6 +25,7 @@
     width: 100%;
     padding: jkl.$spacing-s;
     max-width: min(#{jkl.rem(750px)}, 50vw);
+
     @include jkl.text-style("small");
 
     @include jkl.small-device {
@@ -42,6 +43,7 @@
         color: var(--language-tag-text-color);
         text-transform: uppercase;
         content: attr(data-language);
+
         @include jkl.use-font-family("Fremtind Grotesk");
         @include jkl.text-style("small");
     }

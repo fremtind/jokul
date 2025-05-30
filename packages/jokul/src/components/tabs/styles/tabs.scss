@@ -7,6 +7,7 @@
     --jkl-tab-padding-inline-end: var(--jkl-unit-50);
 
     @include jkl.declare-font-variables("jkl-tab", "body");
+
     @include jkl.small-device {
         --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-30)
             var(--jkl-unit-15) var(--jkl-unit-02);
@@ -63,6 +64,7 @@
             inset-block-start: calc(anchor(end) - 2px);
             inset-inline-start: calc(anchor(--active-tab start));
             background-color: var(--indicator-color);
+
             @include jkl.motion("standard", "lazy");
         }
     }
@@ -93,6 +95,7 @@
 
     &[aria-selected="true"] {
         anchor-name: --active-tab;
+
         @include jkl.no-grow-bold;
 
         @supports not (position-anchor: --active-tab) {
@@ -106,6 +109,7 @@
                 inset-block-end: 0;
                 inset-inline-start: 0;
                 background-color: var(--indicator-color);
+
                 @include jkl.motion("standard", "lazy");
             }
         }

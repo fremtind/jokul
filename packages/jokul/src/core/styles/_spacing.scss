@@ -6,9 +6,11 @@
 
 @function get-class-name($spacing-combination) {
     $class-name: "jkl-spacing";
+
     @each $spacing in $spacing-combination {
         $class-name: "#{$class-name}-#{$spacing}";
     }
+
     @return $class-name;
 }
 

@@ -32,6 +32,7 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         background-color: var(--radio-ring-color);
 
         transition-property: background-color, outline;
+
         @include jkl.motion;
 
         /* The dot */
@@ -50,6 +51,7 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             background-color: var(--radio-dot-color);
 
             transition-property: transform;
+
             @include jkl.motion;
         }
 

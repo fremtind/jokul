@@ -77,6 +77,7 @@
 
     &__example-options-header {
         margin-bottom: jkl.$spacing-s;
+
         @include jkl.text-style("small");
 
         &:not(:first-child) {
@@ -89,6 +90,7 @@
 
         & .jkl-label.jkl-label--small {
             color: jkl.$color-fjellgra;
+
             @include jkl.text-style("small");
         }
     }
