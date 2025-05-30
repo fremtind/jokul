@@ -96,6 +96,7 @@
 
             .description {
                 grid-row: 2 / 3;
+
                 @include jkl.text-style("small");
             }
         }

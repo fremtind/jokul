@@ -86,7 +86,7 @@ $_action-button-focus-position--compact: 0;
         --text-color: var(--jkl-color-text-on-alert);
         // Vi har ingen god måte å få tak i kun light mode-versjon av subdued
         // så vi bruker tekstfargen med litt gjennomsiktighet
-        --placeholder-color: color(from currentColor sRGB r g b / 0.75);
+        --placeholder-color: color(from currentColor sRGB r g b / 75%);
     }
 
     &:hover,

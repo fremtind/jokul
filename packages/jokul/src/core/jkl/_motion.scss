@@ -56,6 +56,7 @@ $_timings: (
 @mixin motion($name: "standard", $mode: "productive", $properties...) {
     transition-timing-function: easing($name);
     transition-duration: timing($mode);
+
     @if list.length($properties) > 0 {
         transition-property: $properties;
     }

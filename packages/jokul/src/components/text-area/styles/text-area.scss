@@ -23,6 +23,7 @@
 
         @include jkl.motion;
         transition-property: height, min-height, max-height, padding;
+
         @include shared.input-styles;
     }
 
@@ -71,6 +72,7 @@
             &-count {
                 padding: var(--jkl-text-input-padding);
                 color: var(--text-color);
+
                 @include jkl.text-style("small");
             }
 
@@ -87,6 +89,7 @@
                     height: $progress-bar-height;
                     background-color: var(--border-color);
                     transition-property: width;
+
                     @include jkl.motion("standard", "lazy");
                 }
             }

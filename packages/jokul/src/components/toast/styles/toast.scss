@@ -82,6 +82,7 @@
     &__icon {
         grid-area: icon;
         margin-right: jkl.$unit-15;
+
         @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
     }
 
@@ -97,6 +98,7 @@
 
     &__title {
         margin: 0 0 jkl.$unit-05 0;
+
         @include jkl.text-style("heading-4");
 
         & ~ .jkl-toast__message {
@@ -115,7 +117,9 @@
         cursor: pointer;
 
         color: inherit;
+
         @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+
         @include jkl.forced-colors-mode {
             background-color: ButtonFace;
         }
