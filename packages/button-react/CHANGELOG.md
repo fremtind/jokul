@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 15.2.33 (2025-05-30)
+
+### Bug Fixes
+
+- fiks safari bug som gjør at GUI hopper ([322b8b9](https://github.com/fremtind/jokul/commit/322b8b9e5e91cdcb9ea215d4daafaadaea63e740))
+
 ## 15.2.20 (2025-01-08)
 
 ### Bug Fixes
