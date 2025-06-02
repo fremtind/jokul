@@ -1,12 +1,7 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
 .globalHeader {
-    padding-block-start: clamp(
-        var(--jkl-spacing-24),
-        1.2143rem + 1.4286vw,
-        var(--jkl-spacing-40)
-    );
-    padding-inline: var(--jkl-spacing-4);
+    margin-block-end: var(--jkl-spacing-16);
 
     div.banner {
         width: 100%;
@@ -14,7 +9,7 @@
         .logo {
             @include jkl.text-style("heading-2");
 
-            > span {
+            >span {
                 text-decoration: none;
                 border: 0;
             }
@@ -29,7 +24,7 @@
         width: 100%;
         height: 100%;
 
-        ul.list {
+        ul {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -37,53 +32,52 @@
             padding-block-end: var(--jkl-spacing-64);
 
             li {
-                padding: var(--jkl-spacing-4);
+                padding-inline-start: 0;
+                margin: 0;
+
+                li a {
+                    padding-inline-start: var(--jkl-spacing-40);
+                }
+
+                a {
+                    box-sizing: border-box;
+                    width: 100%;
+                    display: block;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    padding-block: clamp(var(--jkl-spacing-8),
+                            1.25rem + -1.25vw,
+                            var(--jkl-spacing-12));
+                    padding-inline-end: var(--jkl-spacing-12);
+
+                    &:hover {
+                        background-color: var(--jkl-color-background-interactive-hover);
+                    }
+
+                    &.active {
+                        background-color: var(--jkl-color-background-interactive-selected);
+                    }
+
+                    &:hover,
+                    &.active {
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            top: 0;
+                            left: 0;
+                            position: absolute;
+                            height: 100%;
+                            width: 4px;
+                            background-color: var(--jkl-color-border-action);
+                        }
+                    }
+                }
             }
 
-            li.hasChildren {
-                .pageLink {
+            >li {
+                a {
                     padding-inline-start: var(--jkl-spacing-24);
-                }
-            }
-
-            a.pageLink {
-                box-sizing: border-box;
-                padding-inline-start: var(--jkl-spacing-40);
-                width: 100%;
-                display: block;
-                border-radius: 4px;
-                overflow: hidden;
-                padding-block: clamp(
-                    var(--jkl-spacing-4),
-                    1.25rem + -1.25vw,
-                    var(--jkl-spacing-12)
-                );
-
-                &:hover {
-                    background-color: var(
-                        --jkl-color-background-interactive-hover
-                    );
-                }
-            }
-
-            a.active {
-                background-color: var(
-                    --jkl-color-background-interactive-selected
-                );
-            }
-
-            a.pageLink:hover,
-            a.active {
-                position: relative;
-
-                &::before {
-                    content: "";
-                    top: 0;
-                    left: 0;
-                    position: absolute;
-                    height: 100%;
-                    width: 4px;
-                    background-color: var(--jkl-color-border-action);
                 }
             }
         }
@@ -102,13 +96,8 @@
         height: 100vh;
         top: 0;
         left: 0;
-        padding-block: clamp(
-                var(--jkl-spacing-24),
-                1.2143rem + 1.4286vw,
-                var(--jkl-spacing-40)
-            )
-            0;
         box-sizing: border-box;
+        padding: jkl.$spacing-24 jkl.$spacing-16;
 
         &::after {
             content: "";
@@ -121,13 +110,8 @@
             background-color: var(--jkl-color-background-page);
         }
 
-        > * {
+        >* {
             box-sizing: border-box;
-            padding-inline: clamp(
-                var(--jkl-spacing-16),
-                0.1429rem + 4.2857vw,
-                var(--jkl-spacing-64)
-            );
             z-index: 2;
         }
 
@@ -135,16 +119,20 @@
             display: block;
             overflow-y: auto;
         }
+
+        @media (width >=940px) {
+            width: unset;
+        }
     }
 
-    @media (width >= 940px) {
-        width: 250px;
+    @media (width >=940px) {
+        min-width: 250px;
         height: 100vh;
         position: sticky;
         top: 0;
         overflow-y: auto;
         box-sizing: border-box;
-        padding-block-start: 0;
+        padding: jkl.$spacing-40;
 
         &:has(.menuButton[aria-expanded="true"]) {
             position: sticky;

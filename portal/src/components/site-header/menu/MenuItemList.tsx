@@ -40,18 +40,20 @@ export const MenuItemList = async () => {
                 )}
             >
                 <MenuItem href={"/komponenter"}>Komponenter</MenuItem>
-            </li>
-            {components.map((component) => {
-                const { slug, name } = component;
+                <ul aria-label="Komponenter">
+                    {components.map((component) => {
+                        const { slug, name } = component;
 
-                return (
-                    <li key={name} className={clsx("jkl-list__item")}>
-                        <MenuItem href={`/komponenter/${slug?.current}`}>
-                            {name}
-                        </MenuItem>
-                    </li>
-                );
-            })}
+                        return (
+                            <li key={name} className={clsx("jkl-list__item")}>
+                                <MenuItem href={`/komponenter/${slug?.current}`}>
+                                    {name}
+                                </MenuItem>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </li>
         </ul>
     );
 };
