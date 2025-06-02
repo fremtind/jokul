@@ -11,7 +11,7 @@
     "dependencies": {
         "@fremtind/jkl-accordion-react": "^13.0.14",
         "@fremtind/jkl-breadcrumb-react": "^5.0.39",
-        "@fremtind/jkl-button-react": "^15.2.32",
+        "@fremtind/jkl-button-react": "^15.2.33",
         "@fremtind/jkl-card-react": "^13.0.59",
         "@fremtind/jkl-checkbox-react": "^12.0.15",
         "@fremtind/jkl-chip-react": "^1.0.18",
