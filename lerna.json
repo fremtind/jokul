@@ -1,5 +1,5 @@
 {
-    "packages": ["packages/*"],
+    "packages": ["packages/*", "portal"],
     "ignore": "@fremtind/jokul",
     "version": "independent",
     "npmClient": "pnpm",
