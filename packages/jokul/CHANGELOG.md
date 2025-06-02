@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.66.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.66.1...@fremtind/jokul@0.66.2) (2025-06-02)
+
+### Bug Fixes
+
+- gi namespace til importerte stiler i core ([de56bbf](https://github.com/fremtind/jokul/commit/de56bbf05ad61bac325ffd5c21f15e29c830a7f8))
+
 # [0.66.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.64.2...@fremtind/jokul@0.66.0) (2025-05-28)
 
 ### Bug Fixes
