@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react tooltip component",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/tooltip-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/tooltip-react",
     "keywords": [
         "tooltip",
         "jøkul",

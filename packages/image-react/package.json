@@ -19,7 +19,7 @@
     "files": [
         "build"
     ],
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/image-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/image-react",
     "license": "MIT",
     "types": "./build/index.d.ts",
     "main": "./build/cjs/index.js",

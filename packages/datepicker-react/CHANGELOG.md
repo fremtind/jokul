@@ -162,14 +162,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### BREAKING CHANGES
 
 -   Du må importere CSS for
-    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+    [input-group](https://github.com/fremtind/jokul/tree/pre-1.0/packages/input-group).
 -   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
 -   Du må importere CSS for
-    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+    [input-group](https://github.com/fremtind/jokul/tree/pre-1.0/packages/input-group).
 -   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
 -   `BaseInputField` er erstattet av `BaseTextInput`.
 -   Du må importere CSS for
-    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+    [input-group](https://github.com/fremtind/jokul/tree/pre-1.0/packages/input-group).
 
 ## 12.0.32 (2022-12-23)
 

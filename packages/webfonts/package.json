@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Web fonts for Jøkul design system",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/webfonts",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/webfonts",
     "keywords": [
         "fremtind",
         "jøkul",

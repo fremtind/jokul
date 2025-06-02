@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react input-group",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/input-group-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/input-group-react",
     "keywords": [
         "jøkul",
         "fremtind"

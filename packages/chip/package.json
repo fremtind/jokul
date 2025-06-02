@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul style for chip",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/chip",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/chip",
     "keywords": [
         "jøkul",
         "fremtind"

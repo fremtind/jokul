@@ -30,7 +30,7 @@ export const GitHubLinks: FC<Props> = ({ react, scss, versions }) => {
         return null;
     }
     const pkgLink = (pkgName: string) =>
-        `https://github.com/fremtind/jokul/tree/main/packages/${pkgName}`;
+        `https://github.com/fremtind/jokul/tree/pre-1.0/packages/${pkgName}`;
 
     return (
         <p className="jkl-portal-github-links">

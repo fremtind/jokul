@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react toast",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/toast-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/toast-react",
     "keywords": [
         "jøkul",
         "fremtind"

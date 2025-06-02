@@ -121,7 +121,7 @@ It is replaced with a new `counter` prop. To migrate your code, replace
 -   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
 -   `BaseInputField` er erstattet av `BaseTextInput`.
 -   Du må importere CSS for
-    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+    [input-group](https://github.com/fremtind/jokul/tree/pre-1.0/packages/input-group).
 
 ## 14.1.8 (2022-11-22)
 

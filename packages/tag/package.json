@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul style for tags",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/tag",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/tag",
     "keywords": [
         "tag",
         "tags",

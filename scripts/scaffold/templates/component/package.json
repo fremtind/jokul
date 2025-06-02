@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul style for scaffold",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/scaffold",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/scaffold",
     "keywords": [
         "jøkul",
         "fremtind"
