@@ -2,13 +2,27 @@
 
 import { Flex } from "@fremtind/jokul/components/flex";
 import { Link } from "@fremtind/jokul/components/link";
-import styles from "../component.module.scss";
+import { getURL } from "next/dist/shared/lib/utils";
+import styles from "../app/(frontend)/komponenter/[slug]/component.module.scss";
 
 type ComponentFooterProps = {
-    name: string;
+    name?: string;
 };
 
-export const ComponentFooter = ({ name }: ComponentFooterProps) => {
+export const PageFooter = ({ name }: ComponentFooterProps) => {
+    if (!name) {
+        return (
+            <Flex as="footer" gap={24} wrap className={styles.footer}>
+                <Link
+                    external
+                    href="https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BInnspill+til+innhold%5D%3A"
+                >
+                    Innspill til innholdet
+                </Link>
+            </Flex>
+        );
+    }
+
     return (
         <Flex as="footer" gap={24} wrap className={styles.footer}>
             <Link

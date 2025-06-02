@@ -1,10 +1,10 @@
+import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { client } from "@/sanity/client";
 import { componentBySlugQuery } from "@/sanity/queries/component";
 import clsx from "clsx";
 import styles from "./component.module.scss";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
-import { ComponentFooter } from "./components/ComponentFooter";
 import { ComponentHeader } from "./components/ComponentHeader";
 
 type Props = {
@@ -45,7 +45,7 @@ export default async function Page({ params }: Props) {
                             <PortableText
                                 blocks={component.documentation_article}
                             />
-                            <ComponentFooter name={component.name} />
+                            <PageFooter name={component.name} />
                         </>
                     ) : (
                         <ComponentEmptyState name={component.name} />
