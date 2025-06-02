@@ -6,8 +6,17 @@ import {
     RadioButtonGroup,
 } from "../../packages/jokul/src/components/radio-button/index.js";
 import { Select } from "../../packages/jokul/src/components/select/index.js";
-import type { ColorScheme, Density } from "../../packages/jokul/src/core/types.js";
-import { useId, useLocalStorage } from "../../packages/jokul/src/hooks/index.js";
+import type {
+    ColorScheme,
+    Density,
+} from "../../packages/jokul/src/core/types.js";
+import {
+    useId,
+    useLocalStorage,
+} from "../../packages/jokul/src/hooks/index.js";
+import { CodeBlock } from "./CodeBlock/index.js";
+import { CodeSection } from "./CodeSection.js";
+import { ExampleContextProvider } from "./exampleContext.js";
 import type {
     BoolProp,
     ChoiceProp,
@@ -15,9 +24,6 @@ import type {
     Dictionary,
     ExampleComponentProps,
 } from "./index.js";
-import { CodeBlock } from "./CodeBlock/index.js";
-import { CodeSection } from "./CodeSection.js";
-import { ExampleContextProvider } from "./exampleContext.js";
 import { hyphenate } from "./internal/hypenate.js";
 
 export interface Props {
@@ -110,6 +116,7 @@ export const ExampleBase: FC<Props> = ({
                 type="button"
                 id="screenshot-mode-toggle"
                 hidden={true}
+                aria-label="Toggle screenshot mode"
                 onClick={() => setScreenshotMode(!screenshotMode)}
             />
             <div className="mb-64">

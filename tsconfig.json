@@ -11,6 +11,7 @@
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
         "jsx": "preserve",
+        "verbatimModuleSyntax": true,
         "strict": true,
         "noUnusedLocals": true,
         "noImplicitReturns": true,
