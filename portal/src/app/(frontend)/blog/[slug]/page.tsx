@@ -1,3 +1,4 @@
+import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { client } from "@/sanity/client";
 import { blogPostBySlugQuery } from "@/sanity/queries/blog";
@@ -34,6 +35,7 @@ export default async function BlogPostPage({ params }: Props) {
                 {blogPost.article ? (
                     <PortableText blocks={blogPost.article} />
                 ) : null}
+                <PageFooter />
             </div>
         </article>
     );
