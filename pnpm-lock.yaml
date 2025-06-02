@@ -222,77 +222,6 @@ importers:
       '@types/js-yaml': 4.0.9
       '@types/micromatch': 4.0.9
 
-  portal:
-    specifiers:
-      '@eslint/eslintrc': ^3.3.1
-      '@fremtind/jokul': workspace:*
-      '@mdx-js/loader': ^3.1.0
-      '@mdx-js/react': ^2.3.0
-      '@next/mdx': ^15.3.1
-      '@portabletext/react': ^3.2.1
-      '@portabletext/types': ^2.0.13
-      '@sanity/client': ^6.29.0
-      '@sanity/icons': ^3.7.0
-      '@sanity/image-url': ^1.1.0
-      '@sanity/locale-nb-no': ^1.1.19
-      '@sanity/ui': ^2.15.13
-      '@sanity/vision': ^3.86.1
-      '@types/mdx': ^2.0.13
-      '@types/node': ^22.14.1
-      '@types/react': 18.3.1
-      '@types/react-dom': 18.3.1
-      clsx: ^2.1.1
-      cross-env: ^7.0.3
-      dompurify: ^3.2.5
-      eslint: ^9.25.1
-      eslint-config-next: 15.3.1
-      graphql: ^16.8.1
-      next: 15.3.1
-      next-sanity: ^9.10.2
-      prettier: ^3.5.3
-      react: 18.3.1
-      react-dom: 18.3.1
-      react-live: ^4.1.8
-      sanity: ^3.86.1
-      sharp: 0.33.5
-      styled-components: ^6.1.17
-      typescript: ^5.8.3
-    dependencies:
-      '@fremtind/jokul': link:../packages/jokul
-      '@mdx-js/loader': 3.1.0
-      '@mdx-js/react': 2.3.0_react@18.3.1
-      '@next/mdx': 15.3.1_bkjeya7tld6moapcbnjitwp45y
-      '@portabletext/react': 3.2.1_react@18.3.1
-      '@portabletext/types': 2.0.13
-      '@sanity/client': 6.29.0
-      '@sanity/icons': 3.7.0_react@18.3.1
-      '@sanity/image-url': 1.1.0
-      '@sanity/locale-nb-no': 1.1.19_sanity@3.86.1
-      '@sanity/ui': 2.15.13_jeltxlejatkzol7vsnhmqesxje
-      '@sanity/vision': 3.86.1_jeltxlejatkzol7vsnhmqesxje
-      '@types/mdx': 2.0.13
-      clsx: 2.1.1
-      cross-env: 7.0.3
-      dompurify: 3.2.5
-      graphql: 16.10.0
-      next: 15.3.1_nnrd3gsncyragczmpvfhocinkq
-      next-sanity: 9.10.2_wblapu7hqb4aajsv5er7cpxhiq
-      react: 18.3.1
-      react-dom: 18.3.1_react@18.3.1
-      react-live: 4.1.8_nnrd3gsncyragczmpvfhocinkq
-      sanity: 3.86.1_auzxpjqgwiuw3jwkbpkeo4l7wy
-      sharp: 0.33.5
-      styled-components: 6.1.17_nnrd3gsncyragczmpvfhocinkq
-    devDependencies:
-      '@eslint/eslintrc': 3.3.1
-      '@types/node': 22.14.1
-      '@types/react': 18.3.1
-      '@types/react-dom': 18.3.1
-      eslint: 9.25.1
-      eslint-config-next: 15.3.1_d7vjj5abcazjyswdijhe6rzxw4
-      prettier: 3.5.3
-      typescript: 5.8.3
-
   packages/jokul:
     specifiers:
       '@babel/cli': ^7.26.4
@@ -385,6 +314,77 @@ importers:
       stylelint-config-standard-scss: 9.0.0_stylelint@15.11.0
     devDependencies:
       stylelint: 15.11.0
+
+  portal:
+    specifiers:
+      '@eslint/eslintrc': ^3.3.1
+      '@fremtind/jokul': workspace:*
+      '@mdx-js/loader': ^3.1.0
+      '@mdx-js/react': ^2.3.0
+      '@next/mdx': ^15.3.1
+      '@portabletext/react': ^3.2.1
+      '@portabletext/types': ^2.0.13
+      '@sanity/client': ^6.29.0
+      '@sanity/icons': ^3.7.0
+      '@sanity/image-url': ^1.1.0
+      '@sanity/locale-nb-no': ^1.1.19
+      '@sanity/ui': ^2.15.13
+      '@sanity/vision': ^3.86.1
+      '@types/mdx': ^2.0.13
+      '@types/node': ^22.14.1
+      '@types/react': 18.3.1
+      '@types/react-dom': 18.3.1
+      clsx: ^2.1.1
+      cross-env: ^7.0.3
+      dompurify: ^3.2.5
+      eslint: ^9.25.1
+      eslint-config-next: 15.3.1
+      graphql: ^16.8.1
+      next: 15.3.1
+      next-sanity: ^9.10.2
+      prettier: ^3.5.3
+      react: 18.3.1
+      react-dom: 18.3.1
+      react-live: ^4.1.8
+      sanity: ^3.86.1
+      sharp: 0.33.5
+      styled-components: ^6.1.17
+      typescript: ^5.8.3
+    dependencies:
+      '@fremtind/jokul': link:../packages/jokul
+      '@mdx-js/loader': 3.1.0
+      '@mdx-js/react': 2.3.0_react@18.3.1
+      '@next/mdx': 15.3.1_bkjeya7tld6moapcbnjitwp45y
+      '@portabletext/react': 3.2.1_react@18.3.1
+      '@portabletext/types': 2.0.13
+      '@sanity/client': 6.29.0
+      '@sanity/icons': 3.7.0_react@18.3.1
+      '@sanity/image-url': 1.1.0
+      '@sanity/locale-nb-no': 1.1.19_sanity@3.86.1
+      '@sanity/ui': 2.15.13_jeltxlejatkzol7vsnhmqesxje
+      '@sanity/vision': 3.86.1_jeltxlejatkzol7vsnhmqesxje
+      '@types/mdx': 2.0.13
+      clsx: 2.1.1
+      cross-env: 7.0.3
+      dompurify: 3.2.5
+      graphql: 16.10.0
+      next: 15.3.1_nnrd3gsncyragczmpvfhocinkq
+      next-sanity: 9.10.2_wblapu7hqb4aajsv5er7cpxhiq
+      react: 18.3.1
+      react-dom: 18.3.1_react@18.3.1
+      react-live: 4.1.8_nnrd3gsncyragczmpvfhocinkq
+      sanity: 3.86.1_auzxpjqgwiuw3jwkbpkeo4l7wy
+      sharp: 0.33.5
+      styled-components: 6.1.17_nnrd3gsncyragczmpvfhocinkq
+    devDependencies:
+      '@eslint/eslintrc': 3.3.1
+      '@types/node': 22.14.1
+      '@types/react': 18.3.1
+      '@types/react-dom': 18.3.1
+      eslint: 9.25.1
+      eslint-config-next: 15.3.1_d7vjj5abcazjyswdijhe6rzxw4
+      prettier: 3.5.3
+      typescript: 5.8.3
 
 packages:
 
