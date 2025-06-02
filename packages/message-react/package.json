@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react message components",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/message-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/message-react",
     "keywords": [
         "messagebox",
         "message",

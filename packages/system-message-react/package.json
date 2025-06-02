@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul system message components",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/system-message-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/system-message-react",
     "keywords": [
         "jøkul",
         "fremtind",

@@ -263,7 +263,7 @@ Wrap de i en div om du trenger.
 -   -   `variant` er fjernet. Bruk `labelProps={{ variant }}` i stedet.
 -   `BaseInputField` er erstattet av `BaseTextInput`.
 -   Du må importere CSS for
-    [input-group](https://github.com/fremtind/jokul/tree/main/packages/input-group).
+    [input-group](https://github.com/fremtind/jokul/tree/pre-1.0/packages/input-group).
 
 ## [16.4.1](https://github.com/fremtind/jokul/compare/@fremtind/portal@16.4.0...@fremtind/portal@16.4.1) (2022-12-08)
 

@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react file-input",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/file-input-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/file-input-react",
     "keywords": [
         "jøkul",
         "fremtind"

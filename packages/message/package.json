@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul message style",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/message",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/message",
     "keywords": [
         "message",
         "jøkul",

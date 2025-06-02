@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Icons in Jøkul style",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/icons-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/icons-react",
     "keywords": [
         "icons",
         "react",

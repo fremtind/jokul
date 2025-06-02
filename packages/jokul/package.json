@@ -6,7 +6,7 @@
         "access": "public"
     },
     "description": "Jøkul monopakke",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/jokul",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/jokul",
     "keywords": [],
     "license": "MIT",
     "sideEffects": [

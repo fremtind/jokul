@@ -79,7 +79,7 @@ Med andre ord, gjør `{...rest}` **før** props som ikke skal kunne endres av br
 
 ### Context over drilling
 
-I pakker hvor vi har flere komponenter som jobber sammen, for eksempel i [packages/table](https://github.com/fremtind/jokul/tree/main/packages/table), kan det skje at en _parent component_ ønsker å sette props på noen av sine _children_. I disse tilfellene skal det brukes [Context](https://reactjs.org/docs/context.html).
+I pakker hvor vi har flere komponenter som jobber sammen, for eksempel i [packages/table](https://github.com/fremtind/jokul/tree/pre-1.0/packages/table), kan det skje at en _parent component_ ønsker å sette props på noen av sine _children_. I disse tilfellene skal det brukes [Context](https://reactjs.org/docs/context.html).
 
 Det **skal ikke** finnes props i en komponent sin typedefinisjon som settes automatisk av en annen komponent over den i komponenttreet. Dette er for å unngå forvirring hvor en utvikler setter en sånn prop til noe i sin kode, men opplever at den overskrives av Jøkul.
 

@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul React tag component",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/tag-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/tag-react",
     "keywords": [
         "tag",
         "tags",

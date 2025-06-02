@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul style for loaders",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/loader",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/loader",
     "keywords": [
         "loader",
         "jøkul",

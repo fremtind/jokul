@@ -5,7 +5,7 @@
         "access": "public"
     },
     "description": "Jøkul react expandable",
-    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/expandable-react",
+    "homepage": "https://github.com/fremtind/jokul/tree/pre-1.0/packages/expandable-react",
     "keywords": [
         "jøkul",
         "fremtind"
