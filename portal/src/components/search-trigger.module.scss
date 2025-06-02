@@ -2,6 +2,7 @@
 
 .searchTrigger {
   --inline-margin: var(--jkl-spacing-16);
+
   @include jkl.reset-outline;
 
   color: inherit;

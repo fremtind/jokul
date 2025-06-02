@@ -70,8 +70,7 @@
         "@chromatic-com/storybook": "^3.2.4",
         "@commitlint/cli": "^17.8.1",
         "@commitlint/config-conventional": "^17.8.1",
-        "@fremtind/browserslist-config-jkl": "^2.0.1",
-        "@fremtind/stylelint-config-jkl": "^8.0.4",
+        "@fremtind/stylelint-config-jkl": "workspace:*",
         "@playwright/test": "^1.51.1",
         "@storybook/addon-a11y": "^8.5.3",
         "@storybook/addon-essentials": "^8.5.3",
@@ -135,7 +134,7 @@
         "rimraf": "^6.0.1",
         "sass": "^1.83.1",
         "storybook": "^8.6.7",
-        "stylelint": "^15.11.0",
+        "stylelint": "^16.20.0",
         "tiny-glob": "^0.2.9",
         "typescript": "^5.7.2",
         "vite": "^5.4.11",
@@ -148,12 +147,15 @@
         "not op_mini all"
     ],
     "lint-staged": {
-        "*.{scss,css,html,json,md,mdx,ts,tsx,js,jsx}": [
-            "pnpm biome check --write"
+        "*.{html,json,md,mdx,ts,tsx,js,jsx}": [
+            "pnpm biome check --write --no-errors-on-unmatched"
         ],
         "*.{scss,css}": [
-            "stylelint --fix --config=packages/stylelint-config-jkl/index.js"
+            "stylelint --fix --config=packages/stylelint-config-jkl/index.mjs"
         ]
+    },
+    "stylelint": {
+        "extends": "./packages/stylelint-config-jkl/index.mjs"
     },
     "eslintConfig": {
         "extends": ["plugin:storybook/recommended"]

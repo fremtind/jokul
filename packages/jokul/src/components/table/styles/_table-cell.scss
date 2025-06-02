@@ -44,6 +44,7 @@
     @mixin _responsive-table-header {
         content: attr(data-th);
         display: block;
+
         @include jkl.text-style("heading-5");
     }
 

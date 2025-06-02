@@ -205,6 +205,7 @@ $positions: (top, bottom, left, right);
             @include _single-spacing(list.nth($steps, 2), $position);
         }
     }
+
     @if list.length($steps) > 2 {
         @include screens.from-large-device {
             @include _single-spacing(list.nth($steps, 3), $position);

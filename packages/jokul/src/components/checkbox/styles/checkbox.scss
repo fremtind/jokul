@@ -158,6 +158,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         border: 1px solid;
         border-color: var(--box-color);
         background-color: var(--background-color);
+
         @include jkl.motion;
         transition-property: background-color;
 
@@ -186,6 +187,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             border-top-width: 0;
 
             opacity: 0;
+
             @include jkl.motion;
             transition-property: opacity, border-color;
 
@@ -212,6 +214,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             border-bottom: solid var(--thickness) var(--check-color);
 
             opacity: 0;
+
             @include jkl.motion;
             transition-property: opacity, border-color;
 

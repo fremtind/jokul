@@ -83,6 +83,7 @@
 
     &__slider {
         display: flex;
+
         @include jkl.motion(standard, expressive);
         transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
         transition-property: transform;
