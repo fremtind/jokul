@@ -13,7 +13,7 @@
         "linker": "node scripts/linker.js",
         "lint": "run-p \"lint:eslint\" \"lint:stylelint\"",
         "lint:eslint": "eslint '**/*.{js,jsx,ts,tsx}'",
-        "lint:stylelint": "stylelint --config=packages/stylelint-config-jkl/index.js '**/*.scss'",
+        "lint:stylelint": "stylelint '**/*.scss'",
         "lint:fix": "pnpm lint:eslint --fix && pnpm lint:stylelint --fix",
         "ci:test": "run-p test lint:eslint lint:stylelint typecheck",
         "ci:changed": "lerna changed --parseable --loglevel error",
@@ -76,7 +76,7 @@
         "@commitlint/cli": "^17.8.1",
         "@commitlint/config-conventional": "^17.8.1",
         "@fremtind/browserslist-config-jkl": "^2.0.1",
-        "@fremtind/stylelint-config-jkl": "^8.0.4",
+        "@fremtind/stylelint-config-jkl": "8.0.4",
         "@playwright/test": "^1.51.1",
         "@storybook/addon-a11y": "^8.5.3",
         "@storybook/addon-essentials": "^8.5.3",
@@ -171,14 +171,16 @@
             "node scripts/preoptimize-images"
         ],
         "*.{scss,css}": [
-            "stylelint --fix --config=packages/stylelint-config-jkl/index.js"
+            "stylelint --fix"
         ],
         "*.{ts,tsx,js,jsx}": [
             "eslint --fix"
         ]
     },
     "stylelint": {
-        "extends": "@fremtind/stylelint-config-jkl"
+        "extends": [
+            "@fremtind/stylelint-config-jkl"
+        ]
     },
     "eslintConfig": {
         "extends": [
