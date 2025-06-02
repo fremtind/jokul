@@ -35,7 +35,8 @@
             "performance": { "noAccumulatingSpread": "warn" },
             "style": {
                 "noImplicitBoolean": "off",
-                "noParameterAssign": "warn"
+                "noParameterAssign": "warn",
+                "useImportType": "error"
             },
             "suspicious": { "noExplicitAny": "warn", "noArrayIndexKey": "warn" }
         },

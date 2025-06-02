@@ -1,4 +1,7 @@
-import type { ColorScheme, Density } from "../../packages/jokul/src/core/types.js";
+import type {
+    ColorScheme,
+    Density,
+} from "../../packages/jokul/src/core/types.js";
 
 export { ComponentExample } from "./ComponentExample.js";
 export { DevExample } from "./DevExample.js";

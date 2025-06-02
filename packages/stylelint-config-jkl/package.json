@@ -2,20 +2,14 @@
     "name": "@fremtind/stylelint-config-jkl",
     "version": "8.0.8",
     "description": "Styleint configuration for Jøkul",
-    "keywords": [
-        "stylelint",
-        "jøkul",
-        "fremtind"
-    ],
+    "keywords": ["stylelint", "jøkul", "fremtind"],
     "publishConfig": {
         "access": "public"
     },
     "homepage": "https://github.com/fremtind/jokul/tree/main/packages/stylelint-config-jkl",
     "license": "MIT",
     "main": "index.js",
-    "files": [
-        "rules/"
-    ],
+    "files": ["rules/"],
     "scripts": {
         "clean": "git clean -xfd",
         "lint": "stylelint --config=index.js 'examples/**/*.{css,scss,sass}' --cache",
