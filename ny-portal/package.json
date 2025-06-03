@@ -16,7 +16,7 @@
         "typegen": "sanity schema extract --path=src/sanity/extract.json && sanity typegen generate"
     },
     "dependencies": {
-        "@fremtind/jokul": "workspace:*",
+        "@fremtind/jokul": "^0.66.2",
         "@mdx-js/loader": "^3.1.0",
         "@mdx-js/react": "^2.3.0",
         "@next/mdx": "^15.3.1",
