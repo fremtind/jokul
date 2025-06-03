@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-expand-button",
-    "version": "7.1.20",
+    "version": "7.1.21",
     "publishConfig": {
         "access": "public"
     },
@@ -23,7 +23,7 @@
         "dev": "echo \"Error: run dev from expand-button-react\" && exit 1"
     },
     "dependencies": {
-        "@fremtind/jkl-core": "^14.10.5"
+        "@fremtind/jkl-core": "^14.10.6"
     },
     "repository": {
         "type": "git",
