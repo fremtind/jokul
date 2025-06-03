@@ -11,9 +11,7 @@ export const BlogHeader = ({ name, description }: BlogHeaderProps) => {
         <Flex
             as="header"
             className={styles.header}
-            justifyContent="space-between"
         >
-            <div>
                 {name && (
                     <h1 className={styles.name} lang="en">
                         {name}
@@ -22,7 +20,6 @@ export const BlogHeader = ({ name, description }: BlogHeaderProps) => {
                 {description && (
                     <p className={styles.short_description}>{description}</p>
                 )}
-            </div>
         </Flex>
     );
 };

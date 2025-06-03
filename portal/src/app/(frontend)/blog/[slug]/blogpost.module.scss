@@ -4,29 +4,19 @@
 .wrapper {
     box-sizing: border-box;
     width: 100%;
-    padding-inline: var(--jkl-spacing-16);
     container-type: inline-size;
-
-    @media (min-width: #{jkl.$breakpoint-large}) {
-        padding-inline: var(--jkl-spacing-104);
-    }
 }
 
 .header {
-    padding: var(--jkl-unit-50) var(--jkl-unit-30);
     flex-direction: column;
-    gap: jkl.$spacing-24;
+    margin-block: var(--jkl-unit-20) var(--jkl-spacing-24);
+
+    @media (width >= 940px) {
+        margin-block: var(--jkl-unit-90) var(--jkl-unit-80);
+    }
 
     @container (min-width: 70rch) {
         flex-direction: row;
-    }
-
-    @media (min-width: #{jkl.$breakpoint-medium}) {
-        padding: var(--jkl-unit-50);
-    }
-
-    @media (min-width: #{jkl.$breakpoint-large}) {
-        padding: var(--jkl-unit-130);
     }
 
     .name {
