@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.67.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.66.2...@fremtind/jokul@0.67.0) (2025-06-03)
+
+### Features
+
+- eksponér props fra toast ([e93a756](https://github.com/fremtind/jokul/commit/e93a7563b734689798fe6ad2b6f8d653d8ef6c4b))
+- eksponer toastprops interfacet fra toast ([98c8452](https://github.com/fremtind/jokul/commit/98c8452aecc7d5783b6672d81a5f308eb38d5117))
+
 ## [0.66.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.66.1...@fremtind/jokul@0.66.2) (2025-06-02)
 
 ### Bug Fixes
