@@ -157,8 +157,6 @@ jobs:
 
             - name: Changesets Release
               uses: changesets/action@v1
-              with: 
-                  publish: pnpm publish -r --access public
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
