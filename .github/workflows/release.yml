@@ -134,3 +134,36 @@ jobs:
             - run: gh api --method POST /repos/fremtind/jokul/merges -F base='external-contributions' -F head='main' # do a server-side merge using GitHub API https://cli.github.com/manual/gh_api and https://docs.github.com/en/rest/reference/repos#merging
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    changesets-release:
+        name: Create Release Pull Request
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            packages: write
+            pull-requests: write
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v3
+
+            - name: Setup Node
+              uses: actions/checkout@v3
+              with:
+                  node-version: 18
+                  cache: pnpm
+
+            - name: Install Dependencies
+              run: pnpm install --frozen-lockfile
+
+            - name: Changesets Release
+              uses: changesets/action@v1
+              with: 
+                  publish: pnpm publish -r --access public
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                
+
+
+
+
