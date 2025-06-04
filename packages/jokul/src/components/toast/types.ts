@@ -9,9 +9,15 @@ export type ToastContent =
       }
     | string;
 
+type ToastActionProps = {
+    label: string;
+    onClick: () => void;
+};
+
 export type ToastOptions = Omit<StatelyToastOptions, "timeout"> & {
     variant?: "info" | "success" | "warning" | "error";
     timeout?: number | null | "off";
+    action?: ToastActionProps;
 };
 
 export type ToastContext = {

@@ -1,8 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import React, {useState} from "react";
-import {Button} from "../../button/index.js";
-import {Toast as ToastComponent, type ToastProps} from "../Toast.js";
-import {ToastProvider, useToast} from "../toastContext.js";
+import type { Meta, StoryObj } from "@storybook/react";
+import React, { useState } from "react";
+import { Button } from "../../button/index.js";
+import { Toast as ToastComponent, type ToastProps } from "../Toast.js";
+import { ToastProvider, useToast } from "../toastContext.js";
 
 import "../styles/_index.scss";
 import "../../button/styles/_index.scss";
@@ -12,13 +12,14 @@ const meta = {
     component: ToastComponent,
     tags: ["autodocs"],
     argTypes: {
-        state: {table: {disable: true}},
+        state: { table: { disable: true } },
         toast: {
             name: "eksempel",
             description:
                 "Obs: Dette er en forenklet versjon av 'toast'-propen for å vise variantene.",
             options: [
                 "Med timeout",
+                "Med handling",
                 "Info",
                 "Error",
                 "Success",
@@ -26,6 +27,15 @@ const meta = {
                 "Uten variant",
             ],
             mapping: {
+                "Med handling": {
+                    content: "Søknad sendt",
+                    key: "",
+                    variant: "success",
+                    action: {
+                        label: "Lukk",
+                        onClick: () => {},
+                    },
+                },
                 "Med timeout": {
                     content: "Søknad sendt",
                     key: "",
@@ -79,7 +89,7 @@ const meta = {
             remove: () => "",
             resumeAll: () => "",
             visibleToasts: [
-                {content: "Hei verden", key: Date.now().toString()},
+                { content: "Hei verden", key: Date.now().toString() },
             ],
         },
         toast: {
@@ -97,10 +107,10 @@ type ToastStory = StoryObj<typeof meta>;
 
 export const ToastInContext: ToastStory = {
     render: (args) => {
-        const example: ToastProps<any> = {...args};
+        const example: ToastProps<any> = { ...args };
 
         function ToastUsageExample() {
-            const {add} = useToast();
+            const { add } = useToast();
             const [keys, setKeys] = useState<string[]>([]);
 
             return (
@@ -120,7 +130,7 @@ export const ToastInContext: ToastStory = {
 
         return (
             <ToastProvider>
-                <ToastUsageExample/>
+                <ToastUsageExample />
             </ToastProvider>
         );
     },
