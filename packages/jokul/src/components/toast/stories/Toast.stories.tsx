@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import "../styles/_index.scss";
 import { Toast as ToastComponent } from "../Toast.js";
+import "../../button/styles/button.scss";
 
 const meta = {
     title: "Komponenter/Toast",
@@ -52,9 +53,13 @@ const meta = {
             ],
         },
         toast: {
-            content: "Hei verden",
+            content: "Saken går til automatisk behandling",
             key: "",
             variant: "info",
+            action: {
+                label: "Lukk",
+                onClick: () => {},
+            },
         },
     },
 } satisfies Meta<typeof ToastComponent>;
