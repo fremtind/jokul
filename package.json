@@ -137,7 +137,7 @@
         "storybook": "^8.6.7",
         "stylelint": "^16.20.0",
         "tiny-glob": "^0.2.9",
-        "typescript": "^5.7.2",
+        "typescript": "^5.8.3",
         "vite": "^5.4.11",
         "vite-plugin-dts": "^3.9.1"
     },
