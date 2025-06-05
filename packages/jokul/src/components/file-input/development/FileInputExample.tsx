@@ -1,19 +1,10 @@
-import React, { type FC, useEffect, useState } from "react";
-import type {
-    CodeExample,
-    ExampleComponentProps,
-    ExampleKnobsProps,
-} from "utils/dev-example/index.js";
-import type { SupportLabelType } from "../../../components/input-group/types.js";
-import { ProgressBar } from "../../../components/progress-bar/ProgressBar.js";
-import { formatBytes } from "../../../utilities/formatters/bytes/formatBytes.js";
-import { PrimaryButton } from "../../button/Button.js";
-import {
-    File,
-    FileInput,
-    type FileInputFile,
-    type FileInputFileState,
-} from "../index.js";
+import React, {type FC, useEffect, useState} from "react";
+import type {CodeExample, ExampleComponentProps, ExampleKnobsProps,} from "utils/dev-example/index.js";
+import type {SupportLabelType} from "../../../components/input-group/types.js";
+import {ProgressBar} from "../../../components/progress-bar/ProgressBar.js";
+import {formatBytes} from "../../../utilities/formatters/bytes/formatBytes.js";
+import {PrimaryButton} from "../../button/Button.js";
+import {File, FileInput, type FileInputFile, type FileState,} from "../index.js";
 import iconBytes from "./iconBytes.js";
 
 export const fileInputExampleKnobs: ExampleKnobsProps = {
@@ -75,7 +66,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                 file: new window.File(iconBytes, "symbol_round_black.png", {
                     type: "image/png",
                 }),
-                state: "SELECTED",
+                state: "loading",
                 uploadProgress: 0,
             },
         ]);
@@ -101,11 +92,11 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                 {files.map(({ state, file, validation }, index) => {
                     let label: string | undefined = undefined;
                     let labelType: SupportLabelType | undefined = undefined;
-                    let demoState: FileInputFileState = state;
+                    let demoState: FileState = state;
 
                     const isUploading =
                         Boolean(boolValues?.["Laster opp"]) ||
-                        state === "UPLOADING";
+                        state === "uploading";
 
                     if (
                         Boolean(boolValues?.["Med valideringsfeil"]) ||
@@ -117,18 +108,18 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                         } støttes ikke`;
                     } else if (
                         Boolean(boolValues?.["Lastet opp"]) ||
-                        state === "UPLOAD_SUCCESS"
+                        state === "success"
                     ) {
                         labelType = "success";
                         label = "Lastet opp";
-                        demoState = "UPLOAD_SUCCESS";
+                        demoState = "success";
                     } else if (
                         Boolean(boolValues?.["Med feil"]) ||
-                        state === "UPLOAD_ERROR"
+                        state === "error"
                     ) {
                         labelType = "error";
                         label = "Filen lot seg ikke laste opp";
-                        demoState = "UPLOAD_ERROR";
+                        demoState = "error";
                     } else if (validation?.type === "TOO_LARGE") {
                         labelType = "error";
                         label = `Filen er større enn ${formatBytes(
@@ -136,7 +127,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                         )} og kan ikke lastes opp`;
                     } else if (isUploading) {
                         label = "Laster opp…";
-                        demoState = "UPLOADING";
+                        demoState = "uploading";
                     }
 
                     return (
@@ -176,7 +167,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                 onClick={async () => {
                     const toUpload = files.filter(
                         (fileState) =>
-                            fileState.state === "SELECTED" &&
+                            fileState.state === "success" &&
                             typeof fileState.validation === "undefined",
                     );
 
@@ -191,7 +182,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                                             fileToUpload.file.name
                                                 ? {
                                                       ...file,
-                                                      state: "UPLOAD_SUCCESS",
+                                                    state: "success",
                                                   }
                                                 : file,
                                         ),
@@ -205,7 +196,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                         toUpload.includes(file)
                             ? {
                                   ...file,
-                                  state: "UPLOADING" as FileInputFileState,
+                                state: "uploading" as FileState,
                               }
                             : file,
                     );

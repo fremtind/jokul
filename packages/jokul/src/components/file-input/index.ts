@@ -3,6 +3,6 @@ export { FileInput, type FileInputProps } from "./FileInput.js";
 export type {
     FileInputFile,
     FileInputFileValidation,
-    FileInputFileState,
+    FileState,
 } from "./types.js";
 export { upload } from "./utils.js";
