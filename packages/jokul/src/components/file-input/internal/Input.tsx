@@ -1,7 +1,7 @@
-import React, { forwardRef, useId } from "react";
-import type { FileInputFile } from "../types.js";
-import { useFileInputContext } from "./fileInputContext.js";
-import { validateFile } from "./validateFile.js";
+import React, {forwardRef, useId} from "react";
+import type {FileInputFile} from "../types.js";
+import {useFileInputContext} from "./fileInputContext.js";
+import {validateFile} from "./validateFile.js";
 
 interface FileInputProps {
     id?: string;
@@ -56,7 +56,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                                 [...e.target.files].map<FileInputFile>(
                                     (file) => ({
                                         file,
-                                        state: "SELECTED",
+                                        state: "success",
                                         validation: validateFile(
                                             file,
                                             accept,

@@ -3,15 +3,18 @@ export interface FileInputFileValidation {
     message: string;
 }
 
-export type FileInputFileState =
-    | "SELECTED"
-    | "UPLOADING"
-    | "UPLOAD_ERROR"
-    | "UPLOAD_SUCCESS";
+export type FileState =
+    | "uploading"
+    | "error"
+    | "success"
+    | "loading"
+    | "downloading";
 
 export interface FileInputFile {
     file: File;
     validation?: FileInputFileValidation;
-    state: FileInputFileState;
+    state: FileState;
     uploadProgress: number;
 }
+
+export type FileStyles = "list" | "card";
