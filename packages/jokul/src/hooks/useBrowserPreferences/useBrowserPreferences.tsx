@@ -12,23 +12,23 @@ type BrowserPreferences = {
     forcedColors: boolean;
 };
 
-enum ActionType {
-    PrefersColorScheme = "COLOR_SCHEME_CHANGED",
-    PrefersReducedMotion = "REDUCED_MOTION_CHANGED",
-    ForcedColors = "FORCED_COLORS_CHANGED",
-}
+const ActionType = {
+    PrefersColorScheme: "COLOR_SCHEME_CHANGED",
+    PrefersReducedMotion: "REDUCED_MOTION_CHANGED",
+    ForcedColors: "FORCED_COLORS_CHANGED",
+} as const;
 
 type Action =
     | {
-          type: ActionType.PrefersColorScheme;
+          type: typeof ActionType.PrefersColorScheme;
           value: ColorScheme;
       }
     | {
-          type: ActionType.PrefersReducedMotion;
+          type: typeof ActionType.PrefersReducedMotion;
           value: boolean;
       }
     | {
-          type: ActionType.ForcedColors;
+          type: typeof ActionType.ForcedColors;
           value: boolean;
       };
 

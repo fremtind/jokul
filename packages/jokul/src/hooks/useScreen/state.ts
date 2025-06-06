@@ -7,13 +7,13 @@ export interface ScreenState {
     isPortrait: boolean;
 }
 
-export enum ActionType {
-    orientation = "ORIENTATION_CHANGED",
-    deviceSize = "DEVICE_SIZE_CHANGED",
-}
+export const ActionType = {
+    orientation: "ORIENTATION_CHANGED",
+    deviceSize: "DEVICE_SIZE_CHANGED",
+} as const;
 
 export interface ScreenAction {
-    type: ActionType;
+    type: (typeof ActionType)[keyof typeof ActionType];
     property: keyof ScreenState;
 }
 
