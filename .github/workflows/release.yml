@@ -156,12 +156,7 @@ jobs:
               run: pnpm install --frozen-lockfile
 
             - name: Changesets Release
-              uses: changesets/action@v1
+              uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-                
-
-
-
-
