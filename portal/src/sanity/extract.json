@@ -1336,6 +1336,26 @@
                 },
                 "optional": true
             },
+            "status": {
+                "type": "objectAttribute",
+                "value": {
+                    "type": "array",
+                    "of": {
+                        "type": "string"
+                    }
+                },
+                "optional": true
+            },
+            "keywords": {
+                "type": "objectAttribute",
+                "value": {
+                    "type": "array",
+                    "of": {
+                        "type": "string"
+                    }
+                },
+                "optional": true
+            },
             "external_links": {
                 "type": "objectAttribute",
                 "value": {
