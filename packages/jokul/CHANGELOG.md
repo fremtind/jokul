@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.68.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.67.0...@fremtind/jokul@0.68.0) (2025-06-11)
+
+### Features
+
+- toast har fått en ny prop (action) etter behov for å kunne knytte en handling til toast. ([fbbc9f3](https://github.com/fremtind/jokul/commit/fbbc9f307cce41be2c9610d691f9a2a592685999)), closes [#4679](https://github.com/fremtind/jokul/issues/4679)
+
 # [0.67.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.66.2...@fremtind/jokul@0.67.0) (2025-06-03)
 
 ### Features
