@@ -411,65 +411,12 @@ export type AllSanitySchemaTypes =
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/blog.ts
 // Variable: blogPostsQuery
-// Query: *[_type == "jokul_blog_post"]{    name,    slug,    article[]{    ...,        linkCard[]{            ...,            }        }    }
+// Query: *[_type == "jokul_blog_post"]{        name,        slug,        short_description,        "date": _createdAt,    } | order(_createdAt desc)
 export type BlogPostsQueryResult = Array<{
     name: string | null;
     slug: Slug | null;
-    article: Array<
-        | {
-              children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-              }>;
-              style?:
-                  | "blockquote"
-                  | "h1"
-                  | "h2"
-                  | "h3"
-                  | "h4"
-                  | "h5"
-                  | "h6"
-                  | "normal";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-              linkCard: null;
-          }
-        | {
-              asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              _type: "image";
-              _key: string;
-              linkCard: null;
-          }
-        | {
-              _key: string;
-              _type: "jokul_linkCard";
-              external_links?: Array<{
-                  title?: string;
-                  description?: string;
-                  url?: string;
-                  _type: "link";
-                  _key: string;
-              }>;
-              linkCard: null;
-          }
-    > | null;
+    short_description: string | null;
+    date: string;
 }>;
 // Variable: blogPostBySlugQuery
 // Query: *[_type == "jokul_blog_post" && slug.current == $slug][0]
@@ -857,7 +804,7 @@ export type ComponentCardQueryResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
     interface SanityQueries {
-        '*[_type == "jokul_blog_post"]{\n    name,\n    slug,\n    article[]{\n    ...,\n        linkCard[]{\n            ...,\n            }\n        }\n    }': BlogPostsQueryResult;
+        '*[_type == "jokul_blog_post"]{\n        name,\n        slug,\n        short_description,\n        "date": _createdAt,\n    } | order(_createdAt desc)': BlogPostsQueryResult;
         '*[_type == "jokul_blog_post" && slug.current == $slug][0]': BlogPostBySlugQueryResult;
         '*[_type == "jokul_blog_post" && slug.current == "kom-i-gang"][0]': KomIGangQueryResult;
         '*[_type == "jokul_component"]{\n    name,\n    slug,\n    "imageUrl": image.asset->url,\n    documentation_article[]{\n    ...,\n        ikke_bruk[]{\n        ...,\n            ikke_bruk_punkt[]{\n            ...,\n                markDefs[]{\n                    _type == "internalLink" => {\n                        "slug": @.reference->slug\n                        }\n                    }\n                }\n            }\n        }\n    } | order(name)': ComponentsQueryResult;

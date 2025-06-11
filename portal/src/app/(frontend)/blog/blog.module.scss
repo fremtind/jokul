@@ -1,0 +1,27 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.articleGallery {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45ch, 1fr));
+    column-gap: clamp(var(--jkl-unit-10),
+            0.4038rem + 0.3846vw,
+            var(--jkl-unit-15));
+
+    /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+    row-gap: clamp(var(--jkl-unit-30),
+            1.1154rem + 1.5385vw,
+            var(--jkl-unit-50));
+}
+
+.articleCard {
+    max-width: 45ch;
+
+    .date {
+        color: var(--jkl-color-text-subdued);
+        
+        @include jkl.text-style("small");
+    }
+}
