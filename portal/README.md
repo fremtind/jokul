@@ -26,10 +26,14 @@ Dokumentasjonen inneholder utstrakt bruk av kjørbare eksempler for komponentene
 
 For å kjøre opp prosjektet lokalt for utvikling må du kjøre opp både portalen (som inkluderer grensesnittet for CMSet) og Storybook dersom du vil se eksemplene i portalen. Husk å sette opp en `.env`-fil med verdier for variablene som er satt opp i [`.env.example`](./.env.example)
 
-1. kjør `pnpm storybook` på rot i repoet
-2. kjør `pnpm dev` i denne mappen
+1. kjør `pnpm dev:portal` på rot i repoet for å starte Storybook og portalen
 
-Portalen vil være tilgjengelig på [`localhost:3000`](http://localhost:3000), og du kommer til grensesnittet for CMSet på [`localhost:3000/studio`](http://localhost:3000/studio)
+Alternativt:
+
+1. kjør `pnpm dev` på rot i repoet for å starte Storybook
+2. kjør `pnpm dev` i denne mappen for å starte portalen
+
+Portalen vil være tilgjengelig på [`localhost:3333`](http://localhost:3333), og du kommer til grensesnittet for CMSet på [`localhost:3333/studio`](http://localhost:3333/studio)
 Du kan også gå rett til Storybook på [`localhost:6007`](http://localhost:6007)
 
 ## Kodestruktur
