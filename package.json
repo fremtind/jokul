@@ -67,6 +67,7 @@
     "devDependencies": {
         "@axe-core/playwright": "^4.10.1",
         "@biomejs/biome": "1.9.4",
+        "@changesets/cli": "^2.29.4",
         "@chromatic-com/storybook": "^3.2.4",
         "@commitlint/cli": "^17.8.1",
         "@commitlint/config-conventional": "^17.8.1",
@@ -136,7 +137,7 @@
         "storybook": "^8.6.7",
         "stylelint": "^16.20.0",
         "tiny-glob": "^0.2.9",
-        "typescript": "^5.7.2",
+        "typescript": "^5.8.3",
         "vite": "^5.4.11",
         "vite-plugin-dts": "^3.9.1"
     },

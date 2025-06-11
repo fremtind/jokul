@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import "../styles/_index.scss";
 import { Toast as ToastComponent } from "../Toast.js";
+import "../../button/styles/button.scss";
 
 const meta = {
     title: "Komponenter/Toast",
@@ -14,9 +15,13 @@ const meta = {
             options: ["Info", "Error", "Success", "Warning", "Ingen"],
             mapping: {
                 Info: {
-                    content: "Hei verden",
+                    content: "Utkastet er slettet",
                     key: "",
                     variant: "info",
+                    action: {
+                        label: "Angre",
+                        onClick: () => {},
+                    },
                 },
                 Error: {
                     content: "Hei verden",

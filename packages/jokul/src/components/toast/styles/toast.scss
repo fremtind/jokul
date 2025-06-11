@@ -90,6 +90,10 @@
         grid-area: content;
     }
 
+    &__action {
+        margin-top: jkl.$spacing-12;
+    }
+
     &__message {
         margin-top: jkl.rem(
             -2px

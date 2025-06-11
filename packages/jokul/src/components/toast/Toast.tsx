@@ -1,16 +1,17 @@
-import {type AriaToastProps, useToast} from "@react-aria/toast";
-import type {QueuedToast, ToastState} from "@react-stately/toast";
+import { type AriaToastProps, useToast } from "@react-aria/toast";
+import type { QueuedToast, ToastState } from "@react-stately/toast";
 import clsx from "clsx";
-import React, {useEffect, useRef} from "react";
-import {useBrowserPreferences} from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
-import {Countdown} from "../countdown/Countdown.js";
-import {IconButton} from "../icon-button/IconButton.js";
-import {CloseIcon} from "../icon/icons/CloseIcon.js";
-import {ErrorIcon} from "../icon/icons/ErrorIcon.js";
-import {InfoIcon} from "../icon/icons/InfoIcon.js";
-import {SuccessIcon} from "../icon/icons/SuccessIcon.js";
-import {WarningIcon} from "../icon/icons/WarningIcon.js";
-import type {ToastContent, ToastOptions} from "./types.js";
+import React, { useEffect, useRef } from "react";
+import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
+import { Button } from "../button/Button.js";
+import { Countdown } from "../countdown/Countdown.js";
+import { IconButton } from "../icon-button/IconButton.js";
+import { CloseIcon } from "../icon/icons/CloseIcon.js";
+import { ErrorIcon } from "../icon/icons/ErrorIcon.js";
+import { InfoIcon } from "../icon/icons/InfoIcon.js";
+import { SuccessIcon } from "../icon/icons/SuccessIcon.js";
+import { WarningIcon } from "../icon/icons/WarningIcon.js";
+import type { ToastContent, ToastOptions } from "./types.js";
 
 export interface ToastProps<T extends ToastContent> extends AriaToastProps<T> {
     className?: string;
@@ -102,6 +103,17 @@ export function Toast<T extends ToastContent>({
             <div {...titleProps} className="jkl-toast__content">
                 {title && <p className="jkl-toast__title">{title}</p>}
                 <p className="jkl-toast__message">{content}</p>
+                {props.toast.action && (
+                    <div className="jkl-toast__action">
+                        <Button
+                            variant="secondary"
+                            density="compact"
+                            onClick={props.toast.action.onClick}
+                        >
+                            {props.toast.action.label}
+                        </Button>
+                    </div>
+                )}
             </div>
             <IconButton
                 data-theme={!props.toast.variant ? undefined : "light"}
