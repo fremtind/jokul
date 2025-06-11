@@ -1,422 +1,590 @@
 {
-    "files": ["README.md"],
-    "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-green.svg?style=flat-rounded)](#contributors)",
-    "imageSize": 100,
-    "commit": false,
-    "contributors": [
-        {
-            "login": "piofinn",
-            "name": "Pio Rasch-Halvorsen",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/25739615?v=4",
-            "profile": "https://github.com/piofinn",
-            "contributions": ["code", "review", "doc", "bug"]
-        },
-        {
-            "login": "gbrownlee",
-            "name": "Glenn A. Brownlee",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/888229?v=4",
-            "profile": "https://github.com/gbrownlee",
-            "contributions": ["projectManagement", "eventOrganizing", "bug"]
-        },
-        {
-            "login": "lfbergee",
-            "name": "Leiv Fredrik Berge",
-            "avatar_url": "https://avatars0.githubusercontent.com/u/46530368?v=4",
-            "profile": "https://github.com/lfbergee",
-            "contributions": ["code", "doc", "infra", "review"]
-        },
-        {
-            "login": "Saegrov",
-            "name": "Simen Sægrov",
-            "avatar_url": "https://avatars2.githubusercontent.com/u/124469?v=4",
-            "profile": "https://github.com/Saegrov",
-            "contributions": ["code", "review", "bug"]
-        },
-        {
-            "login": "Steinop",
-            "name": "Steinop",
-            "avatar_url": "https://avatars3.githubusercontent.com/u/51952891?v=4",
-            "profile": "https://github.com/Steinop",
-            "contributions": ["design"]
-        },
-        {
-            "login": "ambientconflict",
-            "name": "ambientconflict",
-            "avatar_url": "https://avatars2.githubusercontent.com/u/32671873?v=4",
-            "profile": "https://github.com/ambientconflict",
-            "contributions": ["code"]
-        },
-        {
-            "login": "nicolhag",
-            "name": "Nicolai Hagen",
-            "avatar_url": "https://avatars3.githubusercontent.com/u/7604910?v=4",
-            "profile": "https://github.com/nicolhag",
-            "contributions": ["code"]
-        },
-        {
-            "login": "stianlik",
-            "name": "Stian Liknes",
-            "avatar_url": "https://avatars0.githubusercontent.com/u/410251?v=4",
-            "profile": "https://github.com/stianlik",
-            "contributions": ["code"]
-        },
-        {
-            "login": "hhannestad",
-            "name": "hhannestad",
-            "avatar_url": "https://avatars3.githubusercontent.com/u/51953832?v=4",
-            "profile": "https://github.com/hhannestad",
-            "contributions": ["design"]
-        },
-        {
-            "login": "idalower",
-            "name": "idalower",
-            "avatar_url": "https://avatars2.githubusercontent.com/u/47539074?v=4",
-            "profile": "https://github.com/idalower",
-            "contributions": ["doc"]
-        },
-        {
-            "login": "Gorild",
-            "name": "Gorild",
-            "avatar_url": "https://avatars3.githubusercontent.com/u/51953080?v=4",
-            "profile": "https://github.com/Gorild",
-            "contributions": ["doc", "review"]
-        },
-        {
-            "login": "Mikkelinski",
-            "name": "Mikkel Blytt",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/8458054?v=4",
-            "profile": "https://github.com/Mikkelinski",
-            "contributions": ["design", "doc"]
-        },
-        {
-            "login": "Martinvks",
-            "name": "Martinvks",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/5469666?v=4",
-            "profile": "https://github.com/Martinvks",
-            "contributions": ["code"]
-        },
-        {
-            "login": "42tte",
-            "name": "Kristoffer Nordström",
-            "avatar_url": "https://avatars0.githubusercontent.com/u/8436510?v=4",
-            "profile": "https://github.com/42tte",
-            "contributions": ["code"]
-        },
-        {
-            "login": "frisol97",
-            "name": "Frida Thorkildsen Solhaug",
-            "avatar_url": "https://avatars3.githubusercontent.com/u/51901763?v=4",
-            "profile": "https://github.com/frisol97",
-            "contributions": ["code", "review"]
-        },
-        {
-            "login": "vegardsoerlie",
-            "name": "Vegard Sørlie",
-            "avatar_url": "https://avatars2.githubusercontent.com/u/14551408?v=4",
-            "profile": "https://github.com/vegardsoerlie",
-            "contributions": ["code", "bug"]
-        },
-        {
-            "login": "BjornBakke",
-            "name": "Bjørn Ole Bakke",
-            "avatar_url": "https://avatars3.githubusercontent.com/u/1997921?v=4",
-            "profile": "http://eniro.com",
-            "contributions": ["code"]
-        },
-        {
-            "login": "almli",
-            "name": "almli",
-            "avatar_url": "https://avatars2.githubusercontent.com/u/818715?v=4",
-            "profile": "https://github.com/almli",
-            "contributions": ["code"]
-        },
-        {
-            "login": "thomasrognes",
-            "name": "Thomas Rognes",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/33520517?v=4",
-            "profile": "https://thomasrognes.github.io/",
-            "contributions": ["code"]
-        },
-        {
-            "login": "sigvehag",
-            "name": "Sigve Hagesæter",
-            "avatar_url": "https://avatars0.githubusercontent.com/u/37373812?v=4",
-            "profile": "https://github.com/sigvehag",
-            "contributions": ["bug"]
-        },
-        {
-            "login": "EspenSmith",
-            "name": "EspenSmith",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/58692206?v=4",
-            "profile": "https://github.com/EspenSmith",
-            "contributions": ["ideas"]
-        },
-        {
-            "login": "Murstam",
-            "name": "Murstam",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/47025023?v=4",
-            "profile": "https://github.com/Murstam",
-            "contributions": ["design"]
-        },
-        {
-            "login": "fremtind-bot",
-            "name": "fremtind-bot",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/57256715?v=4",
-            "profile": "https://github.com/fremtind-bot",
-            "contributions": ["doc"]
-        },
-        {
-            "login": "joms",
-            "name": "Jo Emil Holen",
-            "avatar_url": "https://avatars2.githubusercontent.com/u/537060?v=4",
-            "profile": "https://github.com/joms",
-            "contributions": ["code", "doc", "bug", "blog", "review"]
-        },
-        {
-            "login": "eduardodir",
-            "name": "eduardodir",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/56429532?v=4",
-            "profile": "https://www.linkedin.com/in/eduardoir",
-            "contributions": ["code"]
-        },
-        {
-            "login": "SercanSercan",
-            "name": "Sercan Leylek",
-            "avatar_url": "https://avatars2.githubusercontent.com/u/50489699?v=4",
-            "profile": "https://storksnestblog.wordpress.com",
-            "contributions": ["code", "blog", "bug"]
-        },
-        {
-            "login": "CamillaDahlstroem",
-            "name": "CamillaDahlstroem",
-            "avatar_url": "https://avatars2.githubusercontent.com/u/11536996?v=4",
-            "profile": "https://github.com/CamillaDahlstroem",
-            "contributions": ["design"]
-        },
-        {
-            "login": "Mikaila94",
-            "name": "Mikail Arslan",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/10635523?v=4",
-            "profile": "https://github.com/Mikaila94",
-            "contributions": ["code", "infra"]
-        },
-        {
-            "login": "Fridaks",
-            "name": "Fridaks",
-            "avatar_url": "https://avatars1.githubusercontent.com/u/72193934?v=4",
-            "profile": "https://github.com/Fridaks",
-            "contributions": ["code"]
-        },
-        {
-            "login": "larsare",
-            "name": "Lars-Are Gudmundsen",
-            "avatar_url": "https://avatars.githubusercontent.com/u/2777720?v=4",
-            "profile": "https://github.com/larsare",
-            "contributions": ["code"]
-        },
-        {
-            "login": "AudunBerdal",
-            "name": "Audun Berdal",
-            "avatar_url": "https://avatars.githubusercontent.com/u/57794116?v=4",
-            "profile": "http://audunberdal.no",
-            "contributions": ["code", "doc"]
-        },
-        {
-            "login": "fremtind-tony",
-            "name": "fremtind-tony",
-            "avatar_url": "https://avatars.githubusercontent.com/u/54317847?v=4",
-            "profile": "https://github.com/fremtind-tony",
-            "contributions": ["doc"]
-        },
-        {
-            "login": "jarledb",
-            "name": "Jarle Berentzen",
-            "avatar_url": "https://avatars.githubusercontent.com/u/835878?v=4",
-            "profile": "https://github.com/jarledb",
-            "contributions": ["code"]
-        },
-        {
-            "login": "stormoen",
-            "name": "stormoen",
-            "avatar_url": "https://avatars.githubusercontent.com/u/64519175?v=4",
-            "profile": "https://github.com/Stormoen",
-            "contributions": ["design"]
-        },
-        {
-            "login": "kennidenni",
-            "name": "Kenneth Apeland",
-            "avatar_url": "https://avatars.githubusercontent.com/u/31621649?v=4",
-            "profile": "https://github.com/kennidenni",
-            "contributions": ["code", "blog", "bug", "review"]
-        },
-        {
-            "login": "henrikhermansen",
-            "name": "Henrik Hermansen",
-            "avatar_url": "https://avatars.githubusercontent.com/u/435037?v=4",
-            "profile": "https://github.com/henrikhermansen",
-            "contributions": ["code"]
-        },
-        {
-            "login": "BjorneOmaFremtind",
-            "name": "Bjørne Oma",
-            "avatar_url": "https://avatars.githubusercontent.com/u/89779105?v=4",
-            "profile": "https://github.com/BjorneOmaFremtind",
-            "contributions": ["code", "bug", "review"]
-        },
-        {
-            "login": "wkillerud",
-            "name": "William Killerud",
-            "avatar_url": "https://avatars.githubusercontent.com/u/1223410?v=4",
-            "profile": "https://wllm.no",
-            "contributions": ["doc", "infra", "code", "bug", "blog"]
-        },
-        {
-            "login": "espkva",
-            "name": "Espen Kvalvik",
-            "avatar_url": "https://avatars.githubusercontent.com/u/1224929?v=4",
-            "profile": "https://github.com/espkva",
-            "contributions": ["code", "bug"]
-        },
-        {
-            "login": "adriandersen",
-            "name": "Adrian Andersen",
-            "avatar_url": "https://avatars.githubusercontent.com/u/31202534?v=4",
-            "profile": "https://github.com/adriandersen",
-            "contributions": ["infra"]
-        },
-        {
-            "login": "kathta",
-            "name": "Kathrine ",
-            "avatar_url": "https://avatars.githubusercontent.com/u/9533278?v=4",
-            "profile": "https://github.com/kathta",
-            "contributions": ["design"]
-        },
-        {
-            "login": "tomef96",
-            "name": "Tom ",
-            "avatar_url": "https://avatars.githubusercontent.com/u/31108801?v=4",
-            "profile": "https://github.com/tomef96",
-            "contributions": ["code", "bug"]
-        },
-        {
-            "login": "hjellek",
-            "name": "Knut Eirik Leira Hjelle",
-            "avatar_url": "https://avatars.githubusercontent.com/u/1640160?v=4",
-            "profile": "https://github.com/hjellek",
-            "contributions": ["bug", "code"]
-        },
-        {
-            "login": "karimarkhus",
-            "name": "karimarkhus",
-            "avatar_url": "https://avatars.githubusercontent.com/u/91268511?v=4",
-            "profile": "https://github.com/karimarkhus",
-            "contributions": ["bug", "design"]
-        },
-        {
-            "login": "HavardPede",
-            "name": "Håvard Pedersen",
-            "avatar_url": "https://avatars.githubusercontent.com/u/30959515?v=4",
-            "profile": "https://github.com/HavardPede",
-            "contributions": ["bug", "code", "review"]
-        },
-        {
-            "login": "onordbo",
-            "name": "Øyvind Nordbø",
-            "avatar_url": "https://avatars.githubusercontent.com/u/4263132?v=4",
-            "profile": "http://oyvind.co",
-            "contributions": ["design"]
-        },
-        {
-            "login": "daa1",
-            "name": "David Aasterud",
-            "avatar_url": "https://avatars.githubusercontent.com/u/353737?v=4",
-            "profile": "https://github.com/daa1",
-            "contributions": ["bug", "code"]
-        },
-        {
-            "login": "matssom",
-            "name": "Mats Sommervold",
-            "avatar_url": "https://avatars.githubusercontent.com/u/26466585?v=4",
-            "profile": "https://matssom.com",
-            "contributions": ["doc"]
-        },
-        {
-            "login": "Chrihenn",
-            "name": "Christopher T. Hennum",
-            "avatar_url": "https://avatars.githubusercontent.com/u/25311543?v=4",
-            "profile": "https://github.com/Chrihenn",
-            "contributions": ["bug", "code"]
-        },
-        {
-            "login": "mariusingjer",
-            "name": "Marius Ingjer",
-            "avatar_url": "https://avatars.githubusercontent.com/u/65291983?v=4",
-            "profile": "https://github.com/mariusingjer",
-            "contributions": ["bug"]
-        },
-        {
-            "login": "paulinfrancis",
-            "name": "Francis Paulin",
-            "avatar_url": "https://avatars.githubusercontent.com/u/2670325?v=4",
-            "profile": "https://github.com/paulinfrancis",
-            "contributions": ["code"]
-        },
-        {
-            "login": "hegebjo",
-            "name": "hegebjo",
-            "avatar_url": "https://avatars.githubusercontent.com/u/111281400?v=4",
-            "profile": "https://github.com/hegebjo",
-            "contributions": ["code"]
-        },
-        {
-            "login": "matrund",
-            "name": "Mathias Rundgreen",
-            "avatar_url": "https://avatars.githubusercontent.com/u/55445268?v=4",
-            "profile": "https://github.com/matrund",
-            "contributions": ["bug"]
-        },
-        {
-            "login": "fremtindelise",
-            "name": "Elise Brenna",
-            "avatar_url": "https://avatars.githubusercontent.com/u/117173936?v=4",
-            "profile": "https://github.com/fremtindelise",
-            "contributions": ["code"]
-        },
-        {
-            "login": "maciejost",
-            "name": "maciejost",
-            "avatar_url": "https://avatars.githubusercontent.com/u/30048523?v=4",
-            "profile": "https://github.com/maciejost",
-            "contributions": ["code"]
-        },
-        {
-            "login": "sigrande",
-            "name": "sigrande",
-            "avatar_url": "https://avatars.githubusercontent.com/u/122461187?v=4",
-            "profile": "https://github.com/sigrande",
-            "contributions": ["bug", "code"]
-        },
-        {
-            "login": "markusleitvoll",
-            "name": "markusleitvoll",
-            "avatar_url": "https://avatars.githubusercontent.com/u/61907991?v=4",
-            "profile": "https://github.com/markusleitvoll",
-            "contributions": ["bug"]
-        },
-        {
-            "login": "glennbarosen",
-            "name": "Glenn Arnold Barosen",
-            "avatar_url": "https://avatars.githubusercontent.com/u/42523289?v=4",
-            "profile": "http://glennbarosen.com",
-            "contributions": ["ideas", "review"]
-        }
-    ],
-    "contributorsPerLine": 7,
-    "projectName": "jokul",
-    "projectOwner": "fremtind",
-    "repoType": "github",
-    "repoHost": "https://github.com",
-    "skipCi": false,
-    "commitConvention": "angular",
-    "commitType": "docs"
+  "files": [
+    "README.md"
+  ],
+  "badgeTemplate": "[![All Contributors](https://img.shields.io/badge/all_contributors-<%= contributors.length %>-green.svg?style=flat-rounded)](#contributors)",
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "piofinn",
+      "name": "Pio Rasch-Halvorsen",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/25739615?v=4",
+      "profile": "https://github.com/piofinn",
+      "contributions": [
+        "code",
+        "review",
+        "doc",
+        "bug"
+      ]
+    },
+    {
+      "login": "gbrownlee",
+      "name": "Glenn A. Brownlee",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/888229?v=4",
+      "profile": "https://github.com/gbrownlee",
+      "contributions": [
+        "projectManagement",
+        "eventOrganizing",
+        "bug"
+      ]
+    },
+    {
+      "login": "lfbergee",
+      "name": "Leiv Fredrik Berge",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/46530368?v=4",
+      "profile": "https://github.com/lfbergee",
+      "contributions": [
+        "code",
+        "doc",
+        "infra",
+        "review"
+      ]
+    },
+    {
+      "login": "Saegrov",
+      "name": "Simen Sægrov",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/124469?v=4",
+      "profile": "https://github.com/Saegrov",
+      "contributions": [
+        "code",
+        "review",
+        "bug"
+      ]
+    },
+    {
+      "login": "Steinop",
+      "name": "Steinop",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51952891?v=4",
+      "profile": "https://github.com/Steinop",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "ambientconflict",
+      "name": "ambientconflict",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/32671873?v=4",
+      "profile": "https://github.com/ambientconflict",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "nicolhag",
+      "name": "Nicolai Hagen",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/7604910?v=4",
+      "profile": "https://github.com/nicolhag",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "stianlik",
+      "name": "Stian Liknes",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/410251?v=4",
+      "profile": "https://github.com/stianlik",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "hhannestad",
+      "name": "hhannestad",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51953832?v=4",
+      "profile": "https://github.com/hhannestad",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "idalower",
+      "name": "idalower",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/47539074?v=4",
+      "profile": "https://github.com/idalower",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Gorild",
+      "name": "Gorild",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51953080?v=4",
+      "profile": "https://github.com/Gorild",
+      "contributions": [
+        "doc",
+        "review"
+      ]
+    },
+    {
+      "login": "Mikkelinski",
+      "name": "Mikkel Blytt",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/8458054?v=4",
+      "profile": "https://github.com/Mikkelinski",
+      "contributions": [
+        "design",
+        "doc"
+      ]
+    },
+    {
+      "login": "Martinvks",
+      "name": "Martinvks",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5469666?v=4",
+      "profile": "https://github.com/Martinvks",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "42tte",
+      "name": "Kristoffer Nordström",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/8436510?v=4",
+      "profile": "https://github.com/42tte",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "frisol97",
+      "name": "Frida Thorkildsen Solhaug",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/51901763?v=4",
+      "profile": "https://github.com/frisol97",
+      "contributions": [
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "vegardsoerlie",
+      "name": "Vegard Sørlie",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/14551408?v=4",
+      "profile": "https://github.com/vegardsoerlie",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "BjornBakke",
+      "name": "Bjørn Ole Bakke",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/1997921?v=4",
+      "profile": "http://eniro.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "almli",
+      "name": "almli",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/818715?v=4",
+      "profile": "https://github.com/almli",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "thomasrognes",
+      "name": "Thomas Rognes",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/33520517?v=4",
+      "profile": "https://thomasrognes.github.io/",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "sigvehag",
+      "name": "Sigve Hagesæter",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/37373812?v=4",
+      "profile": "https://github.com/sigvehag",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "EspenSmith",
+      "name": "EspenSmith",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/58692206?v=4",
+      "profile": "https://github.com/EspenSmith",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "Murstam",
+      "name": "Murstam",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/47025023?v=4",
+      "profile": "https://github.com/Murstam",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "fremtind-bot",
+      "name": "fremtind-bot",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/57256715?v=4",
+      "profile": "https://github.com/fremtind-bot",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "joms",
+      "name": "Jo Emil Holen",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/537060?v=4",
+      "profile": "https://github.com/joms",
+      "contributions": [
+        "code",
+        "doc",
+        "bug",
+        "blog",
+        "review"
+      ]
+    },
+    {
+      "login": "eduardodir",
+      "name": "eduardodir",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/56429532?v=4",
+      "profile": "https://www.linkedin.com/in/eduardoir",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "SercanSercan",
+      "name": "Sercan Leylek",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/50489699?v=4",
+      "profile": "https://storksnestblog.wordpress.com",
+      "contributions": [
+        "code",
+        "blog",
+        "bug"
+      ]
+    },
+    {
+      "login": "CamillaDahlstroem",
+      "name": "CamillaDahlstroem",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/11536996?v=4",
+      "profile": "https://github.com/CamillaDahlstroem",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "Mikaila94",
+      "name": "Mikail Arslan",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/10635523?v=4",
+      "profile": "https://github.com/Mikaila94",
+      "contributions": [
+        "code",
+        "infra"
+      ]
+    },
+    {
+      "login": "Fridaks",
+      "name": "Fridaks",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/72193934?v=4",
+      "profile": "https://github.com/Fridaks",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "larsare",
+      "name": "Lars-Are Gudmundsen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2777720?v=4",
+      "profile": "https://github.com/larsare",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "AudunBerdal",
+      "name": "Audun Berdal",
+      "avatar_url": "https://avatars.githubusercontent.com/u/57794116?v=4",
+      "profile": "http://audunberdal.no",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    },
+    {
+      "login": "fremtind-tony",
+      "name": "fremtind-tony",
+      "avatar_url": "https://avatars.githubusercontent.com/u/54317847?v=4",
+      "profile": "https://github.com/fremtind-tony",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "jarledb",
+      "name": "Jarle Berentzen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/835878?v=4",
+      "profile": "https://github.com/jarledb",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "stormoen",
+      "name": "stormoen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/64519175?v=4",
+      "profile": "https://github.com/Stormoen",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "kennidenni",
+      "name": "Kenneth Apeland",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31621649?v=4",
+      "profile": "https://github.com/kennidenni",
+      "contributions": [
+        "code",
+        "blog",
+        "bug",
+        "review"
+      ]
+    },
+    {
+      "login": "henrikhermansen",
+      "name": "Henrik Hermansen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/435037?v=4",
+      "profile": "https://github.com/henrikhermansen",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "BjorneOmaFremtind",
+      "name": "Bjørne Oma",
+      "avatar_url": "https://avatars.githubusercontent.com/u/89779105?v=4",
+      "profile": "https://github.com/BjorneOmaFremtind",
+      "contributions": [
+        "code",
+        "bug",
+        "review"
+      ]
+    },
+    {
+      "login": "wkillerud",
+      "name": "William Killerud",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1223410?v=4",
+      "profile": "https://wllm.no",
+      "contributions": [
+        "doc",
+        "infra",
+        "code",
+        "bug",
+        "blog"
+      ]
+    },
+    {
+      "login": "espkva",
+      "name": "Espen Kvalvik",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1224929?v=4",
+      "profile": "https://github.com/espkva",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "adriandersen",
+      "name": "Adrian Andersen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31202534?v=4",
+      "profile": "https://github.com/adriandersen",
+      "contributions": [
+        "infra"
+      ]
+    },
+    {
+      "login": "kathta",
+      "name": "Kathrine ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9533278?v=4",
+      "profile": "https://github.com/kathta",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "tomef96",
+      "name": "Tom ",
+      "avatar_url": "https://avatars.githubusercontent.com/u/31108801?v=4",
+      "profile": "https://github.com/tomef96",
+      "contributions": [
+        "code",
+        "bug"
+      ]
+    },
+    {
+      "login": "hjellek",
+      "name": "Knut Eirik Leira Hjelle",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1640160?v=4",
+      "profile": "https://github.com/hjellek",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "karimarkhus",
+      "name": "karimarkhus",
+      "avatar_url": "https://avatars.githubusercontent.com/u/91268511?v=4",
+      "profile": "https://github.com/karimarkhus",
+      "contributions": [
+        "bug",
+        "design"
+      ]
+    },
+    {
+      "login": "HavardPede",
+      "name": "Håvard Pedersen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30959515?v=4",
+      "profile": "https://github.com/HavardPede",
+      "contributions": [
+        "bug",
+        "code",
+        "review"
+      ]
+    },
+    {
+      "login": "onordbo",
+      "name": "Øyvind Nordbø",
+      "avatar_url": "https://avatars.githubusercontent.com/u/4263132?v=4",
+      "profile": "http://oyvind.co",
+      "contributions": [
+        "design"
+      ]
+    },
+    {
+      "login": "daa1",
+      "name": "David Aasterud",
+      "avatar_url": "https://avatars.githubusercontent.com/u/353737?v=4",
+      "profile": "https://github.com/daa1",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "matssom",
+      "name": "Mats Sommervold",
+      "avatar_url": "https://avatars.githubusercontent.com/u/26466585?v=4",
+      "profile": "https://matssom.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Chrihenn",
+      "name": "Christopher T. Hennum",
+      "avatar_url": "https://avatars.githubusercontent.com/u/25311543?v=4",
+      "profile": "https://github.com/Chrihenn",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "mariusingjer",
+      "name": "Marius Ingjer",
+      "avatar_url": "https://avatars.githubusercontent.com/u/65291983?v=4",
+      "profile": "https://github.com/mariusingjer",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "paulinfrancis",
+      "name": "Francis Paulin",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2670325?v=4",
+      "profile": "https://github.com/paulinfrancis",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "hegebjo",
+      "name": "hegebjo",
+      "avatar_url": "https://avatars.githubusercontent.com/u/111281400?v=4",
+      "profile": "https://github.com/hegebjo",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "matrund",
+      "name": "Mathias Rundgreen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/55445268?v=4",
+      "profile": "https://github.com/matrund",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "fremtindelise",
+      "name": "Elise Brenna",
+      "avatar_url": "https://avatars.githubusercontent.com/u/117173936?v=4",
+      "profile": "https://github.com/fremtindelise",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "maciejost",
+      "name": "maciejost",
+      "avatar_url": "https://avatars.githubusercontent.com/u/30048523?v=4",
+      "profile": "https://github.com/maciejost",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "sigrande",
+      "name": "sigrande",
+      "avatar_url": "https://avatars.githubusercontent.com/u/122461187?v=4",
+      "profile": "https://github.com/sigrande",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "markusleitvoll",
+      "name": "markusleitvoll",
+      "avatar_url": "https://avatars.githubusercontent.com/u/61907991?v=4",
+      "profile": "https://github.com/markusleitvoll",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "glennbarosen",
+      "name": "Glenn Arnold Barosen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/42523289?v=4",
+      "profile": "http://glennbarosen.com",
+      "contributions": [
+        "ideas",
+        "review"
+      ]
+    },
+    {
+      "login": "kristianulv23",
+      "name": "Kristian Ulvund",
+      "avatar_url": "https://avatars.githubusercontent.com/u/37188217?v=4",
+      "profile": "https://github.com/kristianulv23",
+      "contributions": [
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "jokul",
+  "projectOwner": "fremtind",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": false,
+  "commitConvention": "angular",
+  "commitType": "docs"
 }
