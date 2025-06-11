@@ -18,6 +18,7 @@ export const MenuItemList = async () => {
                     key={komIGang.slug.current}
                     className={clsx(
                         "jkl-list__item",
+                        styles.separateItem,
                         styles.listHeading,
                         styles.hasChildren,
                     )}
@@ -27,6 +28,17 @@ export const MenuItemList = async () => {
                     </MenuItem>
                 </li>
             )}
+
+            <li
+                className={clsx(
+                    "jkl-list__item",
+                    styles.separateItem,
+                    styles.listHeading,
+                    styles.hasChildren,
+                )}
+            >
+                <MenuItem href={"/blog"}>Artikler</MenuItem>
+            </li>
 
             <li
                 className={clsx(
