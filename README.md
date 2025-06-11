@@ -4,7 +4,7 @@
 
 Jøkul gir deg ferdige React-komponenter samt CSS- og SCSS-stilark for de grunnleggende komponentene og designmønstrene til Fremtind. De følger Fremtinds designprinsipper.
 
-React-komponentene våre er er den raskeste og enkleste måten å ta i bruk Jøkul. CSSen er tilgjengelig som separate pakker, så om du ikke bruker React kan du fremdeles bruke Jøkul.
+React-komponentene våre er den raskeste og enkleste måten å ta i bruk Jøkul. Alle komponenter og stilark leveres nå som én konsolidert pakke: `@fremtind/jokul`. CSSen er tilgjengelig som separate stilark, så om du ikke bruker React kan du fremdeles bruke Jøkul.
 
 ## Kom i gang
 
@@ -14,11 +14,12 @@ For å starte utviklingsserveren for Jøkul lokalt må du først ha installert:
 -   [pnpm](https://pnpm.io/installation#using-corepack), gjerne via `corepack` eller `npm`.
     -   På de nye Fremtind-Macene kan det hende at du må installere `corepack` via Homebrew for at det skal fungere ordentlig: Installer med `brew install corepack`, og gjør klar med `corepack install` inne i Jøkul-mappa.
 
-Så, etter å ha klonet repoet:
+## Oppstart og utvikling
 
--   `pnpm boot`
--   `pnpm dev`
--   Åpne [localhost:3000](http://localhost:3000)
+For å komme i gang med Jøkul-prosjektet, klon repoet og installer avhengighetene:
+
+-   Kjør `pnpm i` på rot i repoet for å installere avhengighetene.
+-   Kjør `pnpm dev` for å starte utviklingsserveren.
 
 ### Oppsett av linting og formatering
 
@@ -43,56 +44,7 @@ Deretter kan du søke etter `eslint` og fjerne avkrysningen ved "Eslint: Enable"
 
 ### Bruk av pakkene
 
-Vi har en egen guide som hjelper deg med å [komme i gang](https://jokul.fremtind.no/kom-i-gang/introduksjon/) som ny bruker av Jøkul.
-
-Du kan bruke Jøkul på to måter:
-
-1. Bruke React-komponenter og stilark.
-2. Ta inn kun stilark.
-
-Komponentpakkene inneholder alt som trengs, inkludert avhengigheter til andre Jøkul-pakker.
-
-**NB!** Selv om komponentpakkene inneholder alle avhengigheter må du selv sørge for å importere stilpakken i koden din. Dette er fordi vi ikke vil legge for harde føringer på utviklerverktøy, for eksempel kreve Webpack.
-
-#### Eksempel på bruk av React-pakker
-
-Installer React-pakken, for eksempel `npm i @fremtind/jkl-button-react`. Den sørger for å laste ned CSS-pakken, men du må selv sørge for at CSSen faktisk blir brukt i prosjektet ditt.
-
-```tsx
-import { PrimaryButton } from "@fremtind/jkl-button-react";
-import "@fremtind/jkl-button/button.min.css"; // husk å importere stilarket
-...
-<PrimaryButton onClick={doStuff}>Cool</PrimaryButton>
-...
-```
-
-Noen ganger må du også importere stilarkene til avhengigheter av komponenten du skal bruke. Et eksempel er [pakken for tabeller](./packages/table-react/), hvor du trenger CSSen til en annen pakke hvis du skal lage ekspanderbare tabellrader. Sjekk README-fila i hver enkelt React-pakke for å se hva den trenger.
-
-#### Eksempel på bruk av stilark-pakker
-
-Hvis du ikke vil bruke React-komponentene kan du bruke stilarkene direkte. Pakkene med stilark publiseres både med ferdig kompilert og prefikset CSS i minifisert og uminifisert variant, i tillegg til SCSS-kildekoden.
-
-`npm i @fremtind/jkl-button`
-
-```tsx
-import "@fremtind/jkl-button/button.min.css";
-...
-<button className="jkl-button jkl-button--primary" onClick={doStuff}>Cool</button>
-...
-```
-
-Hvis prosjektet ditt også bruker SCSS kan du hente stiler via samme filnavn som CSSen. I tillegg har `@fremtind/jkl-core` en modul med mixins, variabler og funksjoner som brukes internt i Jøkul. Disse kan være nyttige også i ditt eget prosjekt.
-
-```scss
-@use "@fremtind/jkl-core/jkl"; // ⬅️ Mixins, variabler og funksjoner
-@use "@fremtind/jkl-core/core"; // Stilene som kompileres til @fremtind/jkl-core/core.css
-@use "@fremtind/jkl-button/button"; // Stilene som kompileres til @fremtind/jkl-button/button.css
-// osv.
-```
-
-### Bruk kjernen til å lage egne komponenter i Jøkul-drakt
-
-Om du skal bygge komponenter for Fremtind, utover de som finnes i Jøkul, bør du bruke variablene fra [@fremtind/jkl-core](./packages/core/). Det sørger for at farger, sperring, typografisk skala og liknende holder seg oppdatert mot endringer i designsystemet.
+Vi har en egen guide som hjelper deg med å [komme i gang](https://github.com/fremtind/jokul/tree/main/packages/jokul#fremtindjokul) som ny bruker av Jøkul.
 
 ## Dokumentasjon
 
@@ -107,37 +59,6 @@ I [dokumentasjonen](https://jokul.fremtind.no/) finner du:
 ## Code of Conduct
 
 Jøkul er et åpent og positivt felleskap der alle skal føle seg velkommen. Gjør deg kjent med [våre etiske regler for bidragsytere](./CODE_OF_CONDUCT.md) før du deltar med bidrag.
-
-## Særtilfeller og kjente problemer
-
-### Multi-root workspaces for Jøkul
-
-**Merk:** Følgende feil ser ut til å kun påvirke de som bruker Visual Studio Code. Bruker du et annet IDE, skal det ikke være nødvendig å følge denne veiledningen.
-
-### Bakgrunn
-
-Prosjektet bruker [Multi-root Workspaces](https://code.visualstudio.com/docs/editor/workspaces#_multiroot-workspaces) i Visual Studio Code for å håndtere unike innstillinger for flere mapper i samme arbeidsområde. Ved å sette opp multi-root workspaces kan vi spesifisere konfigurasjoner som er tilpasset hver enkelt mappes krav, som spesifikke TypeScript-versjoner.
-
-### Formål
-
-I prosjektet fungerer `portalen`-mappen som et eget PNPM-workspace og krever **TypeScript versjon 5.4.5** for å være kompatibel med **Payload CMS v2**. Dette oppsettet sikrer korrekt IntelliSense-støtte og konsekvent funksjonalitet spesielt for `portalen`, uten å påvirke TypeScript-versjonen i hovedarbeidsområdet. Mer om dette behovet kan leses i denne [GitHub-saken](https://github.com/payloadcms/payload/issues/6799#issuecomment-2224211446).
-
-### Konfigurasjon
-
-Multi-root workspaces er lagret i en JSON-fil (`jokul.code-workspace`) med følgende relevante innstillinger:
-
--   **Mapper**:
-    -   `.` (hovedprosjektkatalogen - jokul)
-    -   `portalen` (selvstendig arbeidsområde innenfor prosjektet)
--   **TypeScript-versjon**:
-    -   `portalen`-mappen har en spesifikk TypeScript-versjonsbane: `"typescript.tsdk": "portalen/node_modules/typescript/lib"`. Dette peker Visual Studio Code til TypeScript 5.4.5 innenfor `portalen`, mens hovedarbeidsområdet kan operere uavhengig.
-
-### Bruksanvisning
-
-For å åpne multi-root workspaces og sikre riktig TypeScript-konfigurasjon:
-
-1. Åpne terminalen.
-2. Kjør følgende kommando i jokul: `code jokul.code-workspace`
 
 ## Lisens
 
