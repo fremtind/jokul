@@ -9,7 +9,7 @@
         .logo {
             @include jkl.text-style("heading-2");
 
-            >span {
+            > span {
                 text-decoration: none;
                 border: 0;
             }
@@ -35,6 +35,11 @@
                 padding-inline-start: 0;
                 margin: 0;
 
+                // Legg til litt margin over neste element for separate menypunkter
+                &.separateItem + * {
+                    margin-block-start: var(--jkl-spacing-4);
+                }
+
                 li a {
                     padding-inline-start: var(--jkl-spacing-40);
                 }
@@ -45,37 +50,41 @@
                     display: block;
                     border-radius: 4px;
                     overflow: hidden;
-                    padding-block: clamp(var(--jkl-spacing-8),
-                            1.25rem + -1.25vw,
-                            var(--jkl-spacing-12));
+                    padding-block: clamp(
+                        var(--jkl-spacing-8),
+                        1.25rem + -1.25vw,
+                        var(--jkl-spacing-12)
+                    );
                     padding-inline-end: var(--jkl-spacing-12);
 
                     &:hover {
-                        background-color: var(--jkl-color-background-interactive-hover);
-                    }
-
-                    &.active {
-                        background-color: var(--jkl-color-background-interactive-selected);
-                    }
-
-                    &:hover,
-                    &.active {
+                        background-color: var(
+                            --jkl-color-background-interactive-hover
+                        );
                         position: relative;
+                    }
 
-                        &::before {
-                            content: "";
-                            top: 0;
-                            left: 0;
-                            position: absolute;
-                            height: 100%;
-                            width: 4px;
-                            background-color: var(--jkl-color-border-action);
-                        }
+                    &.active {
+                        background-color: var(
+                            --jkl-color-background-interactive-selected
+                        );
+                        position: relative;
+                    }
+
+                    &:hover::before,
+                    &.active::before {
+                        content: "";
+                        top: 0;
+                        left: 0;
+                        position: absolute;
+                        height: 100%;
+                        width: 4px;
+                        background-color: var(--jkl-color-border-action);
                     }
                 }
             }
 
-            >li {
+            > li {
                 a {
                     padding-inline-start: var(--jkl-spacing-24);
                 }
@@ -110,7 +119,7 @@
             background-color: var(--jkl-color-background-page);
         }
 
-        >* {
+        > * {
             box-sizing: border-box;
             z-index: 2;
         }
@@ -120,12 +129,12 @@
             overflow-y: auto;
         }
 
-        @media (width >=940px) {
+        @media (width >= 940px) {
             width: unset;
         }
     }
 
-    @media (width >=940px) {
+    @media (width >= 940px) {
         min-width: 250px;
         height: 100vh;
         position: sticky;
