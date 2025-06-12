@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.68.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.68.1...@fremtind/jokul@0.68.2) (2025-06-12)
+
+### Bug Fixes
+
+- oklch farge tokens ([223e457](https://github.com/fremtind/jokul/commit/223e457328414946d7ca5948e14a5a88389dc07e))
+
 # [0.68.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.67.0...@fremtind/jokul@0.68.0) (2025-06-11)
 
 ### Features
