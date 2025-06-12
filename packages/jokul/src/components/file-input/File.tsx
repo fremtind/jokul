@@ -1,17 +1,13 @@
 import clsx from "clsx";
-import React, {
-    type ComponentProps,
-    type FC,
-    type MouseEvent,
-    useId,
-} from "react";
-import { IconButton } from "../../components/icon-button/IconButton.js";
-import { SuccessIcon, TrashCanIcon } from "../../components/icon/index.js";
-import { SupportLabel } from "../../components/input-group/SupportLabel.js";
-import { formatBytes } from "../../utilities/formatters/bytes/formatBytes.js";
-import { Thumbnail } from "./internal/Thumbnail.js";
-import { useFileInputContext } from "./internal/fileInputContext.js";
-import type { FileInputFileState } from "./types.js";
+import React, {type ComponentProps, type FC, type MouseEvent, useId,} from "react";
+import {Icon, TrashCanIcon} from "../../components/icon/index.js";
+import {SupportLabel} from "../../components/input-group/SupportLabel.js";
+import {formatBytes} from "../../utilities/index.js";
+import {Button} from "../button/index.js";
+import {Link} from "../link/index.js";
+import {Thumbnail} from "./internal/Thumbnail.js";
+import {useFileInputContext} from "./internal/fileInputContext.js";
+import type {FileState, FileStyles} from "./types.js";
 
 export type FileProps = {
     fileName: string;
@@ -19,10 +15,14 @@ export type FileProps = {
     fileSize: number;
     path?: string;
     file?: File;
+    state?: FileState;
     supportLabel?: string;
+    /*
+     * @deprecated bruk state
+     * */
     supportLabelType?: "help" | "error" | "warning" | "success";
-    state?: FileInputFileState;
     onRemove?: (e: MouseEvent<HTMLButtonElement>) => void;
+    style?: FileStyles;
 };
 
 export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
@@ -38,6 +38,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
         supportLabelType,
         state,
         onRemove,
+        style = "list",
         ...rest
     } = props;
 
@@ -46,80 +47,75 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
 
     const context = useFileInputContext();
 
-    const Component = path ? "a" : "div";
+    const hasError = supportLabelType === "error" || state === "error";
+    const isLoading =
+        state === "downloading" || state === "uploading" || state === "loading";
 
-    const hasErrorOrWarning =
-        supportLabelType === "error" || supportLabelType === "warning";
-    const hasSuccess = supportLabelType === "success";
-
-    const renderFeedbackElement = () => {
-        if (!hasErrorOrWarning && !hasSuccess) {
-            return (
-                <SupportLabel
-                    className="jkl-file__support-label jkl-body"
-                    id={supportId}
-                    label={supportLabel}
-                    labelType={supportLabelType}
-                />
-            );
-        }
-
-        if (hasSuccess)
-            return (
-                <SuccessIcon
-                    variant="small"
-                    aria-label="Filen ble lastet opp uten feil"
-                    aria-hidden={false}
-                />
-            );
-
-        return null;
-    };
+    console.log(file);
 
     const fileComponent = (
-        <div id={id} className={clsx(className, "jkl-file")} {...rest}>
-            <Component
-                className={clsx("jkl-file__content", {
-                    "jkl-file__content--error": supportLabelType === "error",
-                    "jkl-file__content--warning":
-                        supportLabelType === "warning",
-                })}
-                href={path}
-                target={path ? "_blank" : undefined}
-            >
+        <div
+            id={id}
+            className={clsx(className, `jkl-file--${style}--${state}`)}
+            {...rest}
+        >
+            <div className="jkl-file__content">
                 <Thumbnail
                     fileName={fileName}
                     fileType={fileType}
                     file={file}
                     path={path}
-                    state={state}
                 >
                     {children}
                 </Thumbnail>
-                <div>
-                    <p className="jkl-file__name">{fileName}</p>
-                    <p className="jkl-file__description">
-                        <span>{formatBytes(fileSize)}</span>
-                        {renderFeedbackElement()}
-                    </p>
-                    {supportLabel && hasErrorOrWarning && (
-                        <SupportLabel
-                            className="jkl-file__support-label"
-                            id={supportId}
-                            label={supportLabel}
-                            labelType={supportLabelType}
-                        />
-                    )}
-                </div>
-            </Component>
-            {onRemove && (
-                <IconButton
-                    className="jkl-file__delete"
-                    onClick={onRemove}
-                    title={`Fjern ${fileName}`}
-                >
-                    <TrashCanIcon />
-                </IconButton>
+                <p className="jkl-file__name">
+                    <Link
+                        href={path}
+                        title={`Last ned ${fileName}`}
+                        aria-label={`Last ned ${fileName}`}
+                        download={fileName}
+                    >
+                        <span className="jkl-file__size">
+                            {fileName} ({formatBytes(fileSize)})
+                        </span>
+                    </Link>
+                </p>
+                {/*<p className="jkl-file__description">{formatBytes(fileSize)}</p>*/}
+                {isLoading && (
+                    <Button
+                        variant={"ghost"}
+                        className="jkl-file__button"
+                        title={`Laster ${fileName}`}
+                        icon={<Icon>progress_activity</Icon>}
+                        disabled
+                    />
+                )}
+                {!isLoading && onRemove && (
+                    <Button
+                        variant={"ghost"}
+                        className="jkl-file__button"
+                        onClick={onRemove}
+                        title={`Slett ${fileName}`}
+                        icon={<TrashCanIcon/>}
+                    />
+                )}
+                {!isLoading && !onRemove && (
+                    <Button
+                        variant={"ghost"}
+                        className="jkl-file__button"
+                        onClick={() => window.open(path)}
+                        title={`Slett ${fileName}`}
+                        icon={<Icon>download</Icon>}
+                    />
+                )}
+            </div>
+            {supportLabel && hasError && (
+                <SupportLabel
+                    className="jkl-file__support-label"
+                    id={supportId}
+                    label={supportLabel || "Feil"}
+                    labelType={"error"}
+                />
             )}
         </div>
     );

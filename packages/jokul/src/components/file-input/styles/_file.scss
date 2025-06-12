@@ -2,175 +2,124 @@
 @use "../../../core/jkl/colors";
 
 @include jkl.comfortable-density-variables {
+    --jkl-file-padding: 8px;
+    --jkl-file-thumbnail-size: 40px;
+    --jkl-file-gap: 4px 12px;
+    --jkl-file-font-size: #{jkl.rem(20px)};
+    --jkl-file-line-height: #{jkl.$unit-40};
+    --jkl-border-radius: 2px;
+    --jkl-button-size: 44px;
+}
+
+/*@include jkl.compact-density-variables {
     --jkl-file-padding: #{jkl.$unit-30};
     --jkl-file-thumbnail-size: #{jkl.$unit-80};
     --jkl-file-gap: #{jkl.$unit-20};
     --jkl-file-font-size: #{jkl.rem(20px)};
     --jkl-file-line-height: #{jkl.$unit-40};
-}
+}*/
 
-@include jkl.compact-density-variables {
-    --jkl-file-padding: #{jkl.$spacing-12};
-    --jkl-file-thumbnail-size: #{jkl.rem(44px)};
-    --jkl-file-gap: #{jkl.$unit-10};
-    --jkl-file-font-size: #{jkl.$unit-20};
-    --jkl-file-line-height: #{jkl.$unit-30};
-}
+[class*="jkl-file"] {
+    --bg-color: transparent;
+    --bg-color-thumb: var(--jkl-color-background-container-low);
+    --border-color: var(--jkl-color-border-separator);
+    --border: 1px solid var(--border-color);
 
-.jkl-file {
-    --text-color: var(--jkl-color-text-default);
 
-    @include jkl.motion(
-        "standard",
-        "snappy",
-        background-color,
-        border-color,
-        color
-    );
+    .jkl-file__content {
+        @include jkl.motion("entrance", "expressive", background);
 
-    color: var(--jkl-color-text-default);
-    margin: 0;
-    min-width: jkl.rem(240px);
-
-    display: flex;
-    flex-flow: nowrap row;
-
-    @include jkl.text-style("small");
-    @include jkl.reset-outline;
-
-    &__content {
-        display: flex;
-        flex-basis: 100%;
-        gap: 1em;
-        background-color: var(--jkl-color-background-container-high);
+        align-items: center;
+        justify-content: start;
+        gap: var(--jkl-file-gap);
+        background: var(--bg-color);
         padding: var(--jkl-file-padding);
-        border-radius: jkl.rem(2px);
-        box-shadow: 0 0 5px 0 rgb(0 0 0 / 5%);
-        color: var(--text-color);
+        border-radius: var(--jkl-border-radius);
+        border: var(--border);
+        display: grid;
+        box-sizing: border-box;
+        position: relative;
+        grid-template-columns: var(--jkl-file-thumbnail-size) 1fr auto;
 
-        &--error {
-            background-color: var(--jkl-color-background-alert-error);
+        grid-template-areas:
+            "image name button";
+    }
+
+    .jkl-file__thumbnail {
+        grid-area: image;
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 1;
+        height: 100%;
+        width: 100%;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        &--warning {
-            background-color: var(--jkl-color-background-alert-warning);
+        &:not(:has(img)) {
+            background: var(--jkl-color-background-container-low);
+            text-transform: uppercase;
         }
+    }
 
-        &--error,
-        &--warning {
-            --text-color: var(--jkl-color-text-on-alert);
+    .jkl-file__name {
+        grid-area: name;
+        word-break: break-all;
+        @include jkl.text-style("small");
+    }
 
-            .jkl-form-support-label {
-                --color: var(--jkl-color-text-on-alert);
+    .jkl-file__button {
+        grid-area: button;
+        aspect-ratio: 1;
+    }
+
+    &[class*="card"] {
+        --jkl-border-radius: 4px;
+        --jkl-file-gap: 12px 12px;
+
+        .jkl-file__content {
+            grid-template-rows: 120px auto;
+            grid-template-columns: 1fr auto;
+            grid-template-areas:
+                    "image image"
+                    "name button";
+
+            button {
+                place-self: end;
             }
         }
     }
 
-    &__content:not(div) {
-        cursor: pointer;
-        text-decoration: none;
-        color: var(--jkl-color-text-default);
-
-        &:hover ~ .jkl-file__description {
-            @include jkl.no-grow-bold;
+    &[class*="error"] {
+        .jkl-file__content {
+            --bg-color: var(--jkl-color-functional-error);
         }
 
-        &:focus-visible {
-            @include jkl.focus-outline($offset: 0);
-        }
-
-        @include jkl.forced-colors-mode {
-            outline: revert;
-            border: jkl.rem(2px) solid LinkText;
+        &,
+        a,
+        a:hover:not(:focus),
+        span,
+        button {
+            --text-color: var(--jkl-color-text-on-alert);
+            --link-color: var(--text-color);
         }
     }
 
-    &__delete.jkl-icon-button {
-        padding: 0 var(--jkl-unit-30);
-        align-items: stretch;
+    &[class*="loading"] {
+        .jkl-icon {
+            animation: linear 2s infinite rotate;
 
-        @include jkl.reset-outline;
+            @keyframes rotate {
+                to {
+                    rotate: 360deg;
+                }
+            }
 
-        &:focus-visible {
-            @include jkl.focus-outline($offset: 0);
         }
-
-        &:hover {
-            background-color: var(--jkl-color-background-interactive-hover);
-        }
-    }
-
-    &__thumbnail-wrapper {
-        position: relative;
-
-        & > :nth-child(2) {
-            position: absolute;
-            inset: 0;
-            margin: auto;
-            width: 80%;
-        }
-    }
-
-    &__thumbnail {
-        width: var(--jkl-file-thumbnail-size);
-        height: var(--jkl-file-thumbnail-size);
-        flex: 0 0 var(--jkl-file-thumbnail-size);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        object-fit: contain;
-        opacity: 1;
-        border-radius: jkl.rem(4px);
-        color: var(--jkl-color-text-subdued);
-
-        @include jkl.motion;
-        transition-property: opacity;
-
-        &--selected {
-            opacity: 0.7;
-        }
-
-        &--uploading {
-            opacity: 0.4;
-        }
-    }
-
-    &__thumbnail:not(img) {
-        background: var(--jkl-color-background-container-low);
-    }
-
-    &__file-info {
-        display: flex;
-        flex-direction: column;
-        flex: 1 1 auto;
-        overflow-wrap: break-word;
-        gap: var(--jkl-unit-10);
-    }
-
-    &__title {
-        @include jkl.text-style("heading-5");
-        overflow-wrap: anywhere;
-    }
-
-    &__name,
-    &__description {
-        font-size: var(--jkl-file-font-size);
-        line-height: var(--jkl-file-line-height);
-    }
-
-    &__name {
-        font-weight: #{jkl.$typography-weight-bold};
-    }
-
-    &__description {
-        display: flex;
-        flex-wrap: nowrap;
-        gap: jkl.$unit-15;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    &__support-label {
-        margin: 0;
     }
 }
