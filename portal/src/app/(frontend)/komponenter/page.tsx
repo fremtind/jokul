@@ -1,11 +1,11 @@
-import { client } from "@/sanity/client";
+import { sanityFetch } from "@/sanity/live";
 import { componentsQuery } from "@/sanity/queries/component";
 import { ComponentCard } from "./ComponentCard";
 import { ComponentGallery } from "./ComponentGallery";
 import styles from "./komponenter.module.scss";
 
 export default async function Components() {
-    const components = await client.fetch(componentsQuery);
+    const { data: components } = await sanityFetch({ query: componentsQuery });
 
     if (!components) {
         return (
