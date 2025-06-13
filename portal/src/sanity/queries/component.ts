@@ -29,7 +29,7 @@ export const componentBySlugQuery =
                     }
                 },
                 ikke_bruk[]{
-                    bruk_punkt[] {
+                    ikke_bruk_punkt[] {
                         ...,
                         markDefs[] {
                             _type == "componentPageLink" => {
