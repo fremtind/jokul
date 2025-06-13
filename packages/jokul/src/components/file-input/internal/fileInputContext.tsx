@@ -1,16 +1,16 @@
-import React, { createContext, useContext } from "react";
-import type { WithChildren } from "../../../core/types.js";
-import type { FileInputFile } from "../types.js";
+import React, {createContext, useContext} from "react";
+import type {WithChildren} from "../../../core/types.js";
+import type {FileCard} from "../../file/types.js";
 
 type FileInputContext = {
     accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
     maxSizeBytes?: number;
-    files: FileInputFile[];
+    files: FileCard[];
     onChange: (
         e:
             | React.ChangeEvent<HTMLInputElement>
             | React.DragEvent<HTMLDivElement>,
-        files: FileInputFile[],
+        files: FileCard[],
     ) => void;
 };
 

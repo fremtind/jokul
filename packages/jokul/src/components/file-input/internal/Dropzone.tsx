@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import React, { forwardRef, useState } from "react";
-import type { WithChildren } from "../../../core/types.js";
-import type { FileInputFile } from "../types.js";
-import { useFileInputContext } from "./fileInputContext.js";
-import { validateFile } from "./validateFile.js";
+import React, {forwardRef, useState} from "react";
+import type {WithChildren} from "../../../core/types.js";
+import {validateFile} from "../../file/internal/validateFile.js";
+import type {FileCard} from "../../file/types.js";
+import {useFileInputContext} from "./fileInputContext.js";
 
 interface DropzoneProps extends WithChildren {}
 
@@ -43,18 +43,16 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(
                     if (e.dataTransfer.files) {
                         onChange(
                             e,
-                            [...e.dataTransfer.files].map<FileInputFile>(
-                                (file) => ({
+                            [...e.dataTransfer.files].map<FileCard>((file) => ({
+                                file,
+                                state: undefined,
+                                validation: validateFile(
                                     file,
-                                    state: "SELECTED",
-                                    validation: validateFile(
-                                        file,
-                                        accept,
-                                        maxSizeBytes,
-                                    ),
-                                    uploadProgress: 0,
-                                }),
-                            ),
+                                    accept,
+                                    maxSizeBytes,
+                                ),
+                                uploadProgress: 0,
+                            })),
                         );
                     }
                 }}
