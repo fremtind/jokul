@@ -6,6 +6,7 @@ import type { TypedObject } from "@portabletext/types";
 import type { FC } from "react";
 import { KortFortalt } from "./kort-fortalt/KortFortalt";
 import { LinkCard } from "./link-card/LinkCard";
+import { ComponentPageLink } from "./link/ComponentPageLink";
 import { Link } from "./link/Link";
 import { ListItem, OrderedList, UnorderedList } from "./list";
 import { Storybook } from "./storybook-story/Storybook";
@@ -35,6 +36,7 @@ export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
         },
         marks: {
             link: Link,
+            componentPageLink: ComponentPageLink,
             internalLink: ({ value, children }) => {
                 const { slug = {} } = value;
                 const href = `/${slug.current}`;

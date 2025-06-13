@@ -1,6 +1,6 @@
 import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
-import { client } from "@/sanity/client";
+import { sanityFetch } from "@/sanity/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
 import clsx from "clsx";
 import styles from "./component.module.scss";
@@ -14,7 +14,10 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
     const slug = (await params).slug;
 
-    const component = await client.fetch(componentBySlugQuery, { slug });
+    const { data: component } = await sanityFetch({
+        query: componentBySlugQuery,
+        params: { slug },
+    });
 
     return { title: component?.name || "Jøkul" };
 }
@@ -22,7 +25,10 @@ export async function generateMetadata({ params }: Props) {
 export default async function Page({ params }: Props) {
     const slug = (await params).slug;
 
-    const component = await client.fetch(componentBySlugQuery, { slug });
+    const { data: component } = await sanityFetch({
+        query: componentBySlugQuery,
+        params: { slug },
+    });
 
     if (!component) return null;
 
