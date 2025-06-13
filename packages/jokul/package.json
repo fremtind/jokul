@@ -9,15 +9,8 @@
     "homepage": "https://github.com/fremtind/jokul/tree/main/packages/jokul",
     "keywords": [],
     "license": "MIT",
-    "sideEffects": [
-        "*.css",
-        "*.scss"
-    ],
-    "files": [
-        "./build",
-        "./styles",
-        "./src/fonts"
-    ],
+    "sideEffects": ["*.css", "*.scss"],
+    "files": ["./build", "./styles", "./src/fonts"],
     "main": "./build/cjs/index.cjs",
     "exports": {
         ".": {
@@ -44,7 +37,6 @@
         "./styles/core": "./styles/core/core.scss",
         "./styles/core/jkl": "./styles/core/jkl/_index.scss",
         "./styles/fonts": "./styles/fonts/_index.scss",
-        "./styles/vind": "./styles/vind/_index.scss",
         "./styles": "./styles/styles.scss",
         "./styles/*": "./styles/*",
         "./tailwind": {
@@ -658,9 +650,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "babel": {
-        "presets": [
-            "@babel/preset-react"
-        ]
+        "presets": ["@babel/preset-react"]
     },
     "gitHead": "2728cf20df66dd1c647cdffb49aab5365433abdb"
 }

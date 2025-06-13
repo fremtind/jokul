@@ -27,15 +27,27 @@ export const FakturainfoExample = ({
             padding={padding}
             variant={type}
         >
-            <a href="#test" className="flex gap-x-40">
-                <div className="flex flex-column gap-4">
+            <a href="#test" style={{ display: "flex", gap: "40px" }}>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "4px",
+                    }}
+                >
                     <p className="jkl-heading-2">
                         {formatValuta(18856)}
                         <span aria-hidden> →</span>
                     </p>
                     <p className="jkl-body">Frist 20.03.2023</p>
                 </div>
-                <div className="flex flex-column gap-12">
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "12px",
+                    }}
+                >
                     <ErrorTag>Ubetalt</ErrorTag>
                     <p className="jkl-body">Purring</p>
                 </div>
