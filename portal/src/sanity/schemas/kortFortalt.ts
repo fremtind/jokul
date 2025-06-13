@@ -1,10 +1,6 @@
-import {
-    CheckmarkCircleIcon,
-    CloseCircleIcon,
-    LinkIcon,
-    ListIcon,
-} from "@sanity/icons";
+import { CheckmarkCircleIcon, CloseCircleIcon, ListIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
+import { componentPageLink } from "./links/componentPageLink";
 
 export const kortFortalt = defineType({
     name: "jokul_componentKortFortalt",
@@ -35,44 +31,24 @@ export const kortFortalt = defineType({
             name: "bruk",
             title: "Bruk [komponent]:",
             type: "array",
-            icon: CheckmarkCircleIcon,
             of: [
                 {
                     type: "object",
+                    title: "Punkt",
                     icon: CheckmarkCircleIcon,
                     fields: [
                         {
-                            type: "array",
                             name: "bruk_punkt",
                             title: "Punkt",
-                            icon: CheckmarkCircleIcon,
                             description:
                                 "Skriv punktet som løpende tekst fra overskriften. Hold punktet kort.",
+                            type: "array",
                             of: [
                                 {
                                     type: "block",
                                     marks: {
                                         decorators: [],
-                                        annotations: [
-                                            {
-                                                name: "internalLink",
-                                                type: "object",
-                                                title: "Link til alternativ",
-                                                icon: LinkIcon,
-                                                fields: [
-                                                    {
-                                                        name: "reference",
-                                                        type: "reference",
-                                                        title: "Reference",
-                                                        to: [
-                                                            {
-                                                                type: "jokul_component",
-                                                            },
-                                                        ],
-                                                    },
-                                                ],
-                                            },
-                                        ],
+                                        annotations: [componentPageLink],
                                     },
                                     styles: [],
                                     lists: [],
@@ -87,44 +63,24 @@ export const kortFortalt = defineType({
             name: "ikke_bruk",
             title: "Ikke bruk [komponent]:",
             type: "array",
-            icon: CloseCircleIcon,
             of: [
                 {
                     type: "object",
+                    title: "Punkt",
                     icon: CloseCircleIcon,
                     fields: [
                         {
-                            type: "array",
                             name: "ikke_bruk_punkt",
                             title: "Punkt",
-                            icon: CloseCircleIcon,
                             description:
-                                "Skriv punktet som løpende tekst fra overskriften.",
+                                "Skriv punktet som løpende tekst fra overskriften. Hold punktet kort.",
+                            type: "array",
                             of: [
                                 {
                                     type: "block",
                                     marks: {
                                         decorators: [],
-                                        annotations: [
-                                            {
-                                                name: "internalLink",
-                                                type: "object",
-                                                title: "Link til alternativ",
-                                                icon: LinkIcon,
-                                                fields: [
-                                                    {
-                                                        name: "reference",
-                                                        type: "reference",
-                                                        title: "Reference",
-                                                        to: [
-                                                            {
-                                                                type: "jokul_component",
-                                                            },
-                                                        ],
-                                                    },
-                                                ],
-                                            },
-                                        ],
+                                        annotations: [componentPageLink],
                                     },
                                     styles: [],
                                     lists: [],
