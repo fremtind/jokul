@@ -2,8 +2,17 @@ import { Link as JokulLink } from "@fremtind/jokul/components/link";
 import type { PortableTextMarkComponentProps } from "next-sanity";
 import NextLink from "next/link";
 
-type LinkProps = PortableTextMarkComponentProps<any>;
+type LinkProps = PortableTextMarkComponentProps<{
+    _type: "link";
+    href: string;
+}>;
 
-export const Link = ({ value }: LinkProps) => {
-    return <JokulLink as={NextLink} href={value.href} />;
+export const Link = ({ value, children }: LinkProps) => {
+    return value?.href ? (
+        <JokulLink as={NextLink} href={value.href}>
+            {children}
+        </JokulLink>
+    ) : (
+        children
+    );
 };
