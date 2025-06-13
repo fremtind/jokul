@@ -1,4 +1,4 @@
-import { client } from "@/sanity/client";
+import { sanityFetch } from "@/sanity/live";
 import { blogPostsQuery } from "@/sanity/queries/blog";
 import { ArticleCard } from "./ArticleCard";
 import { BlogHeader } from "./[slug]/components/BlogHeader";
@@ -6,7 +6,7 @@ import { BlogHeader } from "./[slug]/components/BlogHeader";
 import styles from "./blog.module.scss";
 
 export default async function BlogPage() {
-    const posts = await client.fetch(blogPostsQuery);
+    const { data: posts } = await sanityFetch({ query: blogPostsQuery });
 
     if (!posts) return null;
 

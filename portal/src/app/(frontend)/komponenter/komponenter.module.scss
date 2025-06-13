@@ -2,12 +2,12 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
 .pageTitle {
+    margin-block: var(--jkl-unit-20) var(--jkl-spacing-24);
+    
     @include jkl.text-style("title") {
         font-size: clamp(2.25rem, 1.8673rem + 1.6327vw, 3.5rem);
         line-height: 1.1;
     }
-
-    margin-block: var(--jkl-unit-20) var(--jkl-spacing-24);
 
     @media (width >=940px) {
         margin-block: var(--jkl-unit-90) var(--jkl-unit-80);
@@ -103,8 +103,9 @@
     }
 
     .name {
-        @include jkl.text-style("heading-4");
         margin: 0;
+        
+        @include jkl.text-style("heading-4");
     }
 
     .description {

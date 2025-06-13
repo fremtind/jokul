@@ -1,6 +1,7 @@
 import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { client } from "@/sanity/client";
+import { sanityFetch } from "@/sanity/live";
 import { blogPostBySlugQuery } from "@/sanity/queries/blog";
 import clsx from "clsx";
 import styles from "./blogpost.module.scss";
@@ -13,7 +14,10 @@ type Props = {
 export async function generateMetadata({ params }: Props) {
     const slug = (await params).slug;
 
-    const blogPost = await client.fetch(blogPostBySlugQuery, { slug });
+    const { data: blogPost } = await sanityFetch({
+        query: blogPostBySlugQuery,
+        params: { slug },
+    });
 
     return { title: blogPost?.name || "Blogg" };
 }
