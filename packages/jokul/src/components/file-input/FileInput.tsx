@@ -1,13 +1,13 @@
 import clsx from "clsx";
-import React, { forwardRef, useId } from "react";
-import { FieldGroup } from "../../components/input-group/FieldGroup.js";
-import type { Density } from "../../core/types.js";
-import type { FieldGroupProps } from "../input-group/types.js";
-import { Dropzone } from "./internal/Dropzone.js";
-import { Input } from "./internal/Input.js";
-import { MaxSize } from "./internal/MaxSize.js";
-import { FileInputContextProvider } from "./internal/fileInputContext.js";
-import type { FileInputFile } from "./types.js";
+import React, {forwardRef, useId} from "react";
+import {FieldGroup} from "../../components/input-group/FieldGroup.js";
+import type {Density} from "../../core/types.js";
+import type {FileCard} from "../file/types.js";
+import type {FieldGroupProps} from "../input-group/types.js";
+import {Dropzone} from "./internal/Dropzone.js";
+import {Input} from "./internal/Input.js";
+import {MaxSize} from "./internal/MaxSize.js";
+import {FileInputContextProvider} from "./internal/fileInputContext.js";
 
 export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
     className?: string;
@@ -26,13 +26,13 @@ export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
      * @default true
      */
     multiple?: boolean;
-    value: FileInputFile[];
+    value: FileCard[];
     variant?: "flexible" | "small";
     onChange: (
         e:
             | React.ChangeEvent<HTMLInputElement>
             | React.DragEvent<HTMLDivElement>,
-        files: FileInputFile[],
+        files: FileCard[],
     ) => void;
 }
 
