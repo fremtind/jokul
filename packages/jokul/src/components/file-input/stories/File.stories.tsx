@@ -1,9 +1,8 @@
 import type {Meta, StoryObj} from "@storybook/react";
 import React from "react";
 import "../styles/_index.scss";
-import {IconButton} from "../../icon-button/index.js";
+import {Button} from "../../button/index.js";
 import {File} from "../File.js";
-import {Thumbnail} from "../internal/Thumbnail.js";
 import fileBytes from "./fileBytes.js";
 
 const file = new window.File(fileBytes, "symbol_round_black.png", {
@@ -13,7 +12,7 @@ const file = new window.File(fileBytes, "symbol_round_black.png", {
 const meta = {
     title: "Komponenter/FileInput/File",
     component: File,
-    subcomponents: {Thumbnail, IconButton},
+    subcomponents: {Button},
     parameters: {
         layout: "centered",
     },
@@ -31,5 +30,5 @@ export const FileStory: Story = {
         fileSize: file.size,
         file,
     },
-    render: (args) => <File {...args} />,
+    render: (args) => <File {...args} onRemove={() => "e"}/>,
 };
