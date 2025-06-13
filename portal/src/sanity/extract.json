@@ -494,7 +494,7 @@
                                                         "of": {
                                                             "type": "object",
                                                             "attributes": {
-                                                                "reference": {
+                                                                "component": {
                                                                     "type": "objectAttribute",
                                                                     "value": {
                                                                         "type": "object",
@@ -528,7 +528,7 @@
                                                                     "type": "objectAttribute",
                                                                     "value": {
                                                                         "type": "string",
-                                                                        "value": "internalLink"
+                                                                        "value": "componentPageLink"
                                                                     }
                                                                 }
                                                             },
@@ -682,7 +682,7 @@
                                                         "of": {
                                                             "type": "object",
                                                             "attributes": {
-                                                                "reference": {
+                                                                "component": {
                                                                     "type": "objectAttribute",
                                                                     "value": {
                                                                         "type": "object",
@@ -716,7 +716,7 @@
                                                                     "type": "objectAttribute",
                                                                     "value": {
                                                                         "type": "string",
-                                                                        "value": "internalLink"
+                                                                        "value": "componentPageLink"
                                                                     }
                                                                 }
                                                             },
