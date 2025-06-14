@@ -82,7 +82,14 @@ const ExampleChipWrapper: React.FC<ExampleComponentProps> = ({
     }, [inputDismissed]);
 
     return (
-        <div className="flex flex-wrap gap-12" style={{ maxWidth: "500px" }}>
+        <div
+            style={{
+                maxWidth: "500px",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "12px",
+            }}
+        >
             {variant === "filter"
                 ? chipFilterOptions.map((option, index) => (
                       <Chip

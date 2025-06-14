@@ -119,7 +119,7 @@ export const ExampleBase: FC<Props> = ({
                 aria-label="Toggle screenshot mode"
                 onClick={() => setScreenshotMode(!screenshotMode)}
             />
-            <div className="mb-64">
+            <div className="jkl-spacing-64--bottom">
                 <section
                     className={`jkl-portal-component-example ${
                         isWide ? "jkl-portal-component-example--is-wide" : ""
@@ -190,7 +190,7 @@ export const ExampleBase: FC<Props> = ({
                                             ([key, value]) =>
                                                 choices[key].length < 4 ? (
                                                     <RadioButtonGroup
-                                                        className="mt-8"
+                                                        className="jkl-spacing-8--top"
                                                         name={`${uid}-${hyphenate(
                                                             key,
                                                         )}`}
@@ -227,7 +227,7 @@ export const ExampleBase: FC<Props> = ({
                                                     </RadioButtonGroup>
                                                 ) : (
                                                     <Select
-                                                        className="mt-8"
+                                                        className="jkl-spacing-8--top"
                                                         value={value}
                                                         onChange={(e) =>
                                                             setChoiceValue(
@@ -276,7 +276,7 @@ export const ExampleBase: FC<Props> = ({
                                 </RadioButtonGroup>
                                 {noDensity ? null : (
                                     <RadioButtonGroup
-                                        className="mt-8"
+                                        className="jkl-spacing-8--top"
                                         name={`${uid}-density`}
                                         legend="Tetthet"
                                         value={density}
@@ -306,7 +306,7 @@ export const ExampleBase: FC<Props> = ({
                     </aside>
                 </section>
                 {hasMounted && codeExample && (
-                    <CodeSection className="mt-16">
+                    <CodeSection className="jkl-spacing-16--top">
                         <CodeBlock language="tsx">
                             {typeof codeExample === "string"
                                 ? codeExample.trim()

@@ -7,7 +7,6 @@
 -   [Hooks](#hooks)
 -   [Utilities](#utilities)
 -   [Tailwind](#tailwind)
--   [Vind](#vind)
 
 ## Migrering til `@fremtind/jokul`
 
@@ -243,17 +242,3 @@ I tillegg finnes verdier for fontvekt og -størrelse, og for linjehøyder fra sk
 ```html
 <p>Dette er <em class="font-bold">veldig</em> viktig</p>
 ```
-
-### Skjermstørrelser
-
-Preset-et kommer med tre breakpoints, `sm`, `md` og `lg`. Vi oppfordrer til å legge til egne breakpoints, eller overskrive disse, der det gir mening for din applikasjon.
-
-## Vind
-
-Vi tilbyr også et Tailwind-aktig sett av hjelpeklasser for Jøkul via
-
-```scss
-@use "@fremtind/jokul/styles/vind";
-```
-
-Dette inkluderer hjelpeklasser for typografi, spacing, layout, og mer; men uten kompileringssteget fra Tailwind.
