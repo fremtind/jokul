@@ -9,15 +9,8 @@
     "homepage": "https://github.com/fremtind/jokul/tree/main/packages/jokul",
     "keywords": [],
     "license": "MIT",
-    "sideEffects": [
-        "*.css",
-        "*.scss"
-    ],
-    "files": [
-        "./build",
-        "./styles",
-        "./src/fonts"
-    ],
+    "sideEffects": ["*.css", "*.scss"],
+    "files": ["./build", "./styles", "./src/fonts"],
     "main": "./build/cjs/index.cjs",
     "exports": {
         ".": {
@@ -603,7 +596,7 @@
         "test": "vitest --config vite.test.config.mjs"
     },
     "dependencies": {
-        "@types/react": "18.3.3",
+        "@types/react": "^18.3.3",
         "downshift": "^7.6.2",
         "match-sorter": "^6.3.4",
         "react": "^18.3.1",
@@ -646,6 +639,10 @@
         "vitest": "^2.1.8",
         "vitest-axe": "^0.1.0"
     },
+    "peerDependencies": {
+        "react": "^18.3.1 || ^19.0.0",
+        "react-dom": "^18.3.1 || ^19.0.0"
+    },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
@@ -654,9 +651,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "babel": {
-        "presets": [
-            "@babel/preset-react"
-        ]
+        "presets": ["@babel/preset-react"]
     },
     "gitHead": "2728cf20df66dd1c647cdffb49aab5365433abdb"
 }
