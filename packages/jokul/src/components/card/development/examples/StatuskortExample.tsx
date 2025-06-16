@@ -38,12 +38,23 @@ export const StatuskortExample = ({
             clickable={!!boolValues?.["Clickable"]}
             padding={padding}
             variant={type}
-            style={{ maxWidth: "350px" }}
-            className="flex flex-column gap-24 items-start"
+            style={{
+                maxWidth: "350px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "24px",
+                alignItems: "flex-start",
+            }}
         >
             <CardImage as={Image} placement="top" {...imageProps} />
             <SuccessTag>Behandles</SuccessTag>
-            <div className="flex flex-column gap-4">
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "4px",
+                }}
+            >
                 <p className="jkl-heading-2">
                     Behandlings- og veterinærutgifter
                     <span aria-hidden> →</span>

@@ -27,13 +27,6 @@ For basis stilene i core
 + @use "@fremtind/jokul/styles/core/core";
 ```
 
-Dersom man bruker hjelpeklasser fra Jokul Vind
-
-```diff
-- @use "@fremtind/jkl-core/vind";
-+ @use "@fremtind/jokul/styles/vind";
-```
-
 Hvis man bruker Link/NavLink komponentene i løsningen må imports også endres for disse
 siden de ikke lenger er en del av core
 
