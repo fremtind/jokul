@@ -22,7 +22,7 @@ const transformTokens = (token) => {
 
 StyleDictionary.registerFormat({
     name: "javascript/esm",
-    formatter: ({ dictionary, file, platform = {} }) => {
+    format: async ({ dictionary, file, platform = {} }) => {
         const { prefix } = platform;
         const tokens = prefix
             ? { [prefix]: dictionary.tokens }
@@ -57,7 +57,7 @@ const formatValueAsScssVar = (originalValue) => {
 
 StyleDictionary.registerFormat({
     name: "css/variables-ref-scss",
-    formatter: ({ dictionary, file, platform }) => {
+    format: async ({ dictionary, file, platform }) => {
         let output = `${StyleDictionary.formatHelpers.fileHeader({ file })}@use "../jkl";\n\n`;
         const { prefix } = platform;
 
@@ -143,12 +143,12 @@ ${colorVariables.map(formatProperty).join("\n")}`;
 
 StyleDictionary.registerFormat({
     name: "scss/vars",
-    formatter: variableFormatter("sass"),
+    format: variableFormatter("sass"),
 });
 
 StyleDictionary.registerFormat({
     name: "less/vars",
-    formatter: variableFormatter("less"),
+    format: variableFormatter("less"),
 });
 
 StyleDictionary.registerFilter({
@@ -263,7 +263,7 @@ const lessStyleDictionary = StyleDictionary.extend({
 
 StyleDictionary.registerFormat({
     name: "tailwindcss/colors",
-    formatter: ({ dictionary, file, platform }) => {
+    format: async ({ dictionary, file, platform }) => {
         const { prefix } = platform;
 
         let output = StyleDictionary.formatHelpers.fileHeader({ file });
@@ -311,7 +311,7 @@ const tailwindPreset = StyleDictionary.extend({
     },
 });
 
-tailwindPreset.buildAllPlatforms();
-myStyleDictionary.buildAllPlatforms();
-lessStyleDictionary.buildAllPlatforms();
-legacyDictionary.buildAllPlatforms();
+await tailwindPreset.buildAllPlatforms();
+await myStyleDictionary.buildAllPlatforms();
+await lessStyleDictionary.buildAllPlatforms();
+await legacyDictionary.buildAllPlatforms();
