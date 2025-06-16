@@ -623,7 +623,7 @@
         "glob": "^11.0.3",
         "ink": "^5.1.0",
         "ink-select-input": "^6.0.0",
-        "jsdom": "^25.0.1",
+        "jsdom": "^26.1.0",
         "nanoid": "^5.1.5",
         "postcss": "^8.5.6",
         "react-hook-form": "^7.58.0",
