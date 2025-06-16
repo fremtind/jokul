@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../../button/Button.js";
 import { Popover as PopoverComponent } from "../Popover.js";
 import "../../button/styles/_index.scss";
@@ -21,10 +21,15 @@ type Story = StoryObj<typeof PopoverComponent>;
 type PopoverProps = React.ComponentProps<typeof PopoverComponent>;
 
 const PopoverControlledComponent = (args: PopoverProps) => {
-    const [open, setOpen] = useState(false);
+    const { open: openArg, ...props } = args;
+    const [open, setOpen] = useState(openArg);
+
+    useEffect(() => {
+        setOpen(openArg);
+    }, [openArg]);
 
     return (
-        <PopoverComponent {...args} open={open} onOpenChange={setOpen}>
+        <PopoverComponent {...props} open={open} onOpenChange={setOpen}>
             <PopoverComponent.Trigger
                 onClick={() => setOpen(!open)}
                 aria-expanded={open}
