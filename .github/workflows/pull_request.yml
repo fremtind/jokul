@@ -6,10 +6,9 @@ on:
     merge_group:
         types: [checks_requested]
 
-run-name: Bygg og test ${{ github.event_name == 'merge_group' && github.event.merge_group.head_commit.message || github.event.pull_request.title }}
+run-name: Bygg og test ${{ github.event_name == 'pull_request' && github.event.pull_request.title || github.ref_name }}
 
 env:
-    PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
     PREFIX_PATHS: true
 
 jobs:
@@ -17,7 +16,10 @@ jobs:
         name: Sjekk for endringer og bygg pakker
         if: ${{ !contains(github.event.sender.login, 'fremtind-bot') }}
         outputs:
-            preview: ${{ steps.changes.outputs.preview }}
+            jokul: ${{ steps.changes.outputs.jokul }}
+            components: ${{ steps.changes.outputs.components }}
+            stories: ${{ steps.changes.outputs.stories }}
+            changeset: ${{ steps.changes.outputs.preview }}
             testlint: ${{ steps.changes.outputs.testlint }}
         runs-on: ubuntu-latest
         permissions:
@@ -34,6 +36,20 @@ jobs:
               id: changes
               with:
                   filters: |
+                      jokul:
+                        - "**/packages/jokul/src/**/*.scss"
+                        - "**/packages/jokul/src/**/!(*.stories|*.test|*.d).ts"
+                        - "**/packages/jokul/src/**/!(*.stories|*.test).tsx"
+                      components:
+                        - "**/packages/jokul/src/components/**/*.scss"
+                        - "**/packages/jokul/src/components/**/!(*.stories|*.test|*.d).ts"
+                        - "**/packages/jokul/src/components/**/!(*.stories|*.test).tsx"
+                      stories:
+                        - ".storybook/**/*.(ts|tsx|scss|html)"
+                        - ".storybook-public/**/*"
+                        - "**/packages/jokul/src/components/**/*.stories.tsx"
+                      changeset:
+                        - ".changeset/!(README).md"
                       testlint:
                         - "**/*.js"
                         - "**/*.scss"
@@ -41,12 +57,27 @@ jobs:
                         - "**/*.tsx"
                         - "**/vite.test.config.mjs"
                         - "pnpm-lock.yaml"
-                      preview:
-                        - "packages/jokul/src/**/*.scss"
-                        - "packages/jokul/src/**/!(*.d|*.test).ts"
-                        - "packages/jokul/src/**/!(*.test).tsx"
-                        - "pnpm-lock.yaml"
 
+            - name: Remind about documentation
+              if: (steps.changes.outputs.jokul == 'true' && steps.changes.outputs.changeset == 'false') || (steps.changes.outputs.components == 'true' && steps.changes.outputs.stories == 'false')
+              uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+              with:
+                  header: reminders
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                  message: |
+                        Hei, @${{ github.event.sender.login }}! Takk for at du bidrar til Jøkul! 🙌
+                        For å sørge for god dokumentasjon og brukeropplevelse er det fint om du husker å gjøre disse tingene:
+                        
+                        - [ ] **Test endringene dine** ♿️
+                          Sørg for å teste endringene dine for både responsivitet og universell utforming (tastaturnavigasjon, skjermleser, etc.).
+                        ${{ steps.changes.outputs.changeset == 'false' && '- [ ] **Skriv endringslogg** 📝
+                          Sørg for at du har dokumentert endringene i et [changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) hvis de skal føre til en ny release av `@fremtind/jokul`.' }}
+                        ${{ steps.changes.outputs.components == 'true' && steps.changes.outputs.stories == 'false' &&  '- [ ] **Oppdater eller lag nye stories** 📚
+                          Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere eller legge til [Storybook-stories](https://storybook.js.org/docs/get-started/whats-a-story) for dette i komponenten(e).
+                        - [ ] **Oppdater informasjon i Sanity** 📖
+                          Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere informasjonen om komponenten(e) i Sanity.' }}
+
+                        Hvis du lurer på hvordan du kommer i gang med noe av dette, er det bare å spørre oss i Jøkul-teamet om hjelp! Tagg oss i en kommentar her, eller spør oss [på Teams](https://teams.microsoft.com/l/channel/19%3Adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%20Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0).
 
             - name: Setup pnpm
               if: steps.changes.outputs.has_matches == 'true' || github.event_name == 'merge_group'
@@ -127,8 +158,10 @@ jobs:
     preview:
         name: Publiser forhåndsvisning
         needs: [build]
-        if: github.event_name != 'merge_group' && needs.build.outputs.preview == 'true'
+        if: github.event_name != 'merge_group' && (needs.build.outputs.components == 'true' || needs.build.outputs.stories == 'true')
         runs-on: ubuntu-latest
+        env:
+            PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
         permissions:
             actions: write
             contents: read
