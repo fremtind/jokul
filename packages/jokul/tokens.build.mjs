@@ -1,6 +1,11 @@
 import { camelCase } from "change-case";
 import { format } from "prettier";
 import StyleDictionary from "style-dictionary";
+import {
+    fileHeader,
+    formattedVariables,
+    usesReferences,
+} from "style-dictionary/utils";
 
 const transformTokens = (token) => {
     if (!token || typeof token !== "object") {
@@ -28,21 +33,21 @@ StyleDictionary.registerFormat({
             ? { [prefix]: dictionary.tokens }
             : dictionary.tokens;
 
-        const output = `${StyleDictionary.formatHelpers.fileHeader({ file })}export default \n${JSON.stringify(
+        const output = `${await fileHeader({ file })}export default \n${JSON.stringify(
             transformTokens(tokens),
             null,
             2,
         )}\n`;
 
         // return prettified
-        return format(output, {
-            semi: true,
-            trailingComma: "all",
-            singleQuote: false,
-            printWidth: 120,
-            tabWidth: 4,
-            arrowParens: "always",
-        });
+        // return format(output, {
+        //     semi: true,
+        //     trailingComma: "all",
+        //     singleQuote: false,
+        //     printWidth: 120,
+        //     tabWidth: 4,
+        //     arrowParens: "always",
+        // });
     },
 });
 
@@ -58,7 +63,7 @@ const formatValueAsScssVar = (originalValue) => {
 StyleDictionary.registerFormat({
     name: "css/variables-ref-scss",
     format: async ({ dictionary, file, platform }) => {
-        let output = `${StyleDictionary.formatHelpers.fileHeader({ file })}@use "../jkl";\n\n`;
+        let output = `${await fileHeader({ file })}@use "../jkl";\n\n`;
         const { prefix } = platform;
 
         // Light mode
@@ -66,7 +71,7 @@ StyleDictionary.registerFormat({
         output += dictionary.allTokens
             .filter((token) => token.path.includes("light"))
             .map((token) => {
-                const value = dictionary.usesReference(token.original.value)
+                const value = usesReferences(token.original.value)
                     ? formatValueAsScssVar(token.original.value)
                     : token.value;
                 const name = [
@@ -86,7 +91,7 @@ StyleDictionary.registerFormat({
         output += dictionary.allTokens
             .filter((token) => token.path.includes("dark"))
             .map((token) => {
-                const value = dictionary.usesReference(token.original.value)
+                const value = usesReferences(token.original.value)
                     ? formatValueAsScssVar(token.original.value)
                     : token.value;
                 const name = [
@@ -105,10 +110,9 @@ StyleDictionary.registerFormat({
     },
 });
 
-const { formattedVariables, fileHeader } = StyleDictionary.formatHelpers;
 const variableFormatter =
     (format = "sass") =>
-    ({ dictionary, file }) => {
+    async ({ dictionary, file }) => {
         const variableDenotion = format === "sass" ? "$" : "@";
         const formatProperty = (token) => {
             const path = token.path
@@ -131,7 +135,7 @@ const variableFormatter =
                 !token.filePath.includes("legacy"),
         );
 
-        return `${fileHeader({ file })}
+        return `${await fileHeader({ file })}
 ${formattedVariables({
     dictionary: { ...dictionary, allTokens: otherVariables },
     format: format,
@@ -153,7 +157,7 @@ StyleDictionary.registerFormat({
 
 StyleDictionary.registerFilter({
     name: "isBaseVariable",
-    matcher: (token) => {
+    filter: (token) => {
         const baseCategories = [
             "brand",
             "functional",
@@ -167,13 +171,13 @@ StyleDictionary.registerFilter({
 
 StyleDictionary.registerFilter({
     name: "isNotBaseVariable",
-    matcher: (token) => {
+    filter: (token) => {
         const baseCategories = ["brand", "functional", "spacing", "typography"];
         return !token.path.some((word) => baseCategories.includes(word));
     },
 });
 
-const legacyDictionary = StyleDictionary.extend({
+const legacyDictionary = new StyleDictionary({
     source: ["src/core/tokens/legacy/*.json"],
     platforms: {
         scss: {
@@ -200,11 +204,11 @@ const legacyDictionary = StyleDictionary.extend({
     },
 });
 
-const myStyleDictionary = StyleDictionary.extend({
-    source: ["src/core/tokens/**/*.json"],
+const myStyleDictionary = new StyleDictionary({
+    source: ["src/core/tokens/**/!(reference.*).json"],
     platforms: {
         ts: {
-            transforms: ["name/cti/camel"],
+            transforms: ["name/camel"],
             buildPath: "./src/core/",
             files: [
                 {
@@ -245,8 +249,8 @@ const myStyleDictionary = StyleDictionary.extend({
     },
 });
 
-const lessStyleDictionary = StyleDictionary.extend({
-    source: ["src/core/tokens/**/*.json"],
+const lessStyleDictionary = new StyleDictionary({
+    source: ["src/core/tokens/**/!(reference.*).json"],
     platforms: {
         less: {
             transformGroup: "less",
@@ -266,7 +270,7 @@ StyleDictionary.registerFormat({
     format: async ({ dictionary, file, platform }) => {
         const { prefix } = platform;
 
-        let output = StyleDictionary.formatHelpers.fileHeader({ file });
+        let output = await fileHeader({ file });
 
         output += "const colors = {\n    ";
         output += dictionary.allTokens
@@ -295,11 +299,11 @@ StyleDictionary.registerFormat({
     },
 });
 
-const tailwindPreset = StyleDictionary.extend({
+const tailwindPreset = new StyleDictionary({
     source: ["src/core/tokens/**/*.json"],
     platforms: {
         tailwind: {
-            buildPath: "src/core/tailwind/",
+            buildPath: "src/tailwind/",
             prefix: "jkl",
             files: [
                 {
