@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jokul",
-    "version": "0.68.2",
+    "version": "0.68.3",
     "type": "module",
     "publishConfig": {
         "access": "public"
@@ -9,8 +9,15 @@
     "homepage": "https://github.com/fremtind/jokul/tree/main/packages/jokul",
     "keywords": [],
     "license": "MIT",
-    "sideEffects": ["*.css", "*.scss"],
-    "files": ["./build", "./styles", "./src/fonts"],
+    "sideEffects": [
+        "*.css",
+        "*.scss"
+    ],
+    "files": [
+        "./build",
+        "./styles",
+        "./src/fonts"
+    ],
     "main": "./build/cjs/index.cjs",
     "exports": {
         ".": {
@@ -651,7 +658,9 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "babel": {
-        "presets": ["@babel/preset-react"]
+        "presets": [
+            "@babel/preset-react"
+        ]
     },
     "gitHead": "2728cf20df66dd1c647cdffb49aab5365433abdb"
 }
