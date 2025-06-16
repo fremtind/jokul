@@ -34,6 +34,7 @@ describe("Popover", () => {
     it("should render when open is controlled", () => {
         render(
             <Popover open={true}>
+                <Popover.Trigger>Open Popover</Popover.Trigger>
                 <Popover.Content data-testid="popover-id">
                     Content
                 </Popover.Content>
@@ -46,6 +47,7 @@ describe("Popover", () => {
     it("should not render when open is controlled and set to false", () => {
         render(
             <Popover open={false}>
+                <Popover.Trigger>Open Popover</Popover.Trigger>
                 <Popover.Content data-testid="popover-id">
                     Content
                 </Popover.Content>
