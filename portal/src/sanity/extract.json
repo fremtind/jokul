@@ -1271,6 +1271,21 @@
                                         }
                                     }
                                 }
+                            },
+                            {
+                                "type": "object",
+                                "attributes": {
+                                    "_key": {
+                                        "type": "objectAttribute",
+                                        "value": {
+                                            "type": "string"
+                                        }
+                                    }
+                                },
+                                "rest": {
+                                    "type": "inline",
+                                    "name": "jokul_codeBlock"
+                                }
                             }
                         ]
                     }
