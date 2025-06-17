@@ -40,6 +40,7 @@ export const blogPost = defineType({
                 { type: "block" },
                 { type: "jokul_linkCard" },
                 { type: "image" },
+                { type: "jokul_codeBlock" },
             ],
         }),
     ],
