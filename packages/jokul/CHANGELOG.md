@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.68.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.68.4...@fremtind/jokul@0.68.5) (2025-06-17)
+
+### Bug Fixes
+
+- oppdater byggscript og tokens for farger og typografi ([d54b952](https://github.com/fremtind/jokul/commit/d54b952af173769b43232248a0ed79b87f1638eb))
+
 ## [0.68.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.68.1...@fremtind/jokul@0.68.2) (2025-06-12)
 
 ### Bug Fixes
