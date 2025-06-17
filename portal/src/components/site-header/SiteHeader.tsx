@@ -1,5 +1,6 @@
 import { Flex } from "@fremtind/jokul/components/flex";
 import { Link } from "@fremtind/jokul/components/link";
+import BetaTag from "../BetaTag";
 import styles from "./SiteHeader.module.scss";
 import { HamburgerButton } from "./menu/HamburgerButton";
 import { MenuItemList } from "./menu/MenuItemList";
@@ -20,11 +21,12 @@ export const SiteHeader = async () => {
                 justifyContent="space-between"
                 className={styles.banner}
             >
-                <p>
+                <Flex as="p" gap={8} alignItems="center">
                     <Link href="/" className={styles.logo}>
                         Jøkul
                     </Link>
-                </p>
+                    <BetaTag />
+                </Flex>
                 <HamburgerButton menuId={menuId} />
             </Flex>
 
