@@ -3,149 +3,185 @@
         "background": {
             "page": {
                 "light": {
-                    "value": "{color.brand.sand.value}"
+                    "value": "{color.brand.sand}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 }
             },
             "page-variant": {
                 "light": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 }
             },
             "container": {
                 "light": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.skifer.value}"
+                    "value": "{color.brand.skifer}",
+                    "type": "color"
                 }
             },
             "container-low": {
                 "light": {
-                    "value": "{color.brand.dis.value}"
+                    "value": "{color.brand.dis}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.svart.value}"
+                    "value": "{color.brand.svart}",
+                    "type": "color"
                 }
             },
             "container-high": {
                 "light": {
-                    "value": "{color.brand.hvit.value}"
+                    "value": "{color.brand.hvit}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.skifer.value}"
+                    "value": "{color.brand.skifer}",
+                    "type": "color"
                 }
             },
             "container-inverted": {
                 "light": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 }
             },
             "container-subdued": {
                 "light": {
-                    "value": "{color.brand.svaberg.value}"
+                    "value": "{color.brand.svaberg}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.stein.value}"
+                    "value": "{color.brand.stein}",
+                    "type": "color"
                 }
             },
             "input": {
                 "base": {
                     "light": {
-                        "value": "transparent"
+                        "value": "transparent",
+                        "type": "color"
                     },
                     "dark": {
-                        "value": "transparent"
+                        "value": "transparent",
+                        "type": "color"
                     }
                 },
                 "focus": {
                     "light": {
-                        "value": "{color.brand.hvit.value}"
+                        "value": "{color.brand.hvit}",
+                        "type": "color"
                     },
                     "dark": {
-                        "value": "{color.brand.skifer.value}"
+                        "value": "{color.brand.skifer}",
+                        "type": "color"
                     }
                 }
             },
             "action": {
                 "light": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 }
             },
             "interactive": {
                 "light": {
-                    "value": "transparent"
+                    "value": "transparent",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "transparent"
+                    "value": "transparent",
+                    "type": "color"
                 }
             },
             "interactive-hover": {
                 "light": {
-                    "value": "{color.brand.dis.value}"
+                    "value": "{color.brand.dis}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.fjellgra.value}"
+                    "value": "{color.brand.fjellgra}",
+                    "type": "color"
                 }
             },
             "interactive-selected": {
                 "light": {
-                    "value": "{color.brand.varde.value}"
+                    "value": "{color.brand.varde}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.stein.value}"
+                    "value": "{color.brand.stein}",
+                    "type": "color"
                 }
             },
             "alert": {
                 "neutral": {
                     "light": {
-                        "value": "{color.brand.varde.value}"
+                        "value": "{color.brand.varde}",
+                        "type": "color"
                     },
                     "dark": {
-                        "value": "{color.brand.varde.value}"
+                        "value": "{color.brand.varde}",
+                        "type": "color"
                     }
                 },
                 "info": {
                     "light": {
-                        "value": "{color.functional.info.value}"
+                        "value": "{color.functional.info}",
+                        "type": "color"
                     },
                     "dark": {
-                        "value": "{color.functional.info-dark.value}"
+                        "value": "{color.functional.info-dark}",
+                        "type": "color"
                     }
                 },
                 "success": {
                     "light": {
-                        "value": "{color.functional.success.value}"
+                        "value": "{color.functional.success}",
+                        "type": "color"
                     },
                     "dark": {
-                        "value": "{color.functional.success-dark.value}"
+                        "value": "{color.functional.success-dark}",
+                        "type": "color"
                     }
                 },
                 "warning": {
                     "light": {
-                        "value": "{color.functional.warning.value}"
+                        "value": "{color.functional.warning}",
+                        "type": "color"
                     },
                     "dark": {
-                        "value": "{color.functional.warning-dark.value}"
+                        "value": "{color.functional.warning-dark}",
+                        "type": "color"
                     }
                 },
                 "error": {
                     "light": {
-                        "value": "{color.functional.error.value}"
+                        "value": "{color.functional.error}",
+                        "type": "color"
                     },
                     "dark": {
-                        "value": "{color.functional.error-dark.value}"
+                        "value": "{color.functional.error-dark}",
+                        "type": "color"
                     }
                 }
             }
@@ -153,124 +189,154 @@
         "text": {
             "default": {
                 "light": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 }
             },
             "subdued": {
                 "light": {
-                    "value": "{color.brand.stein.value}"
+                    "value": "{color.brand.stein}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.svaberg.value}"
+                    "value": "{color.brand.svaberg}",
+                    "type": "color"
                 }
             },
             "inverted": {
                 "light": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 }
             },
             "on-action": {
                 "light": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 }
             },
             "interactive": {
                 "light": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 }
             },
             "interactive-hover": {
                 "light": {
-                    "value": "{color.brand.stein.value}"
+                    "value": "{color.brand.stein}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.svaberg.value}"
+                    "value": "{color.brand.svaberg}",
+                    "type": "color"
                 }
             },
             "on-alert": {
                 "light": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 }
             },
             "on-alert-subdued": {
                 "light": {
-                    "value": "{color.brand.fjellgra.value}"
+                    "value": "{color.brand.fjellgra}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.fjellgra.value}"
+                    "value": "{color.brand.fjellgra}",
+                    "type": "color"
                 }
             }
         },
         "border": {
             "action": {
                 "light": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 }
             },
             "input": {
                 "light": {
-                    "value": "{color.brand.stein.value}"
+                    "value": "{color.brand.stein}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.svaberg.value}"
+                    "value": "{color.brand.svaberg}",
+                    "type": "color"
                 }
             },
             "input-focus": {
                 "light": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 }
             },
             "separator": {
                 "light": {
-                    "value": "{color.brand.svaberg.value}"
+                    "value": "{color.brand.svaberg}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.stein.value}"
+                    "value": "{color.brand.stein}",
+                    "type": "color"
                 }
             },
             "separator-strong": {
                 "light": {
-                    "value": "{color.brand.stein.value}"
+                    "value": "{color.brand.stein}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.svaberg.value}"
+                    "value": "{color.brand.svaberg}",
+                    "type": "color"
                 }
             },
             "separator-hover": {
                 "light": {
-                    "value": "{color.brand.granitt.value}"
+                    "value": "{color.brand.granitt}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.snohvit.value}"
+                    "value": "{color.brand.snohvit}",
+                    "type": "color"
                 }
             },
             "subdued": {
                 "light": {
-                    "value": "{color.brand.svaberg.value}"
+                    "value": "{color.brand.svaberg}",
+                    "type": "color"
                 },
                 "dark": {
-                    "value": "{color.brand.stein.value}"
+                    "value": "{color.brand.stein}",
+                    "type": "color"
                 }
             }
         }
