@@ -9,15 +9,8 @@
     "homepage": "https://github.com/fremtind/jokul/tree/main/packages/jokul",
     "keywords": [],
     "license": "MIT",
-    "sideEffects": [
-        "*.css",
-        "*.scss"
-    ],
-    "files": [
-        "./build",
-        "./styles",
-        "./src/fonts"
-    ],
+    "sideEffects": ["*.css", "*.scss"],
+    "files": ["./build", "./styles", "./src/fonts"],
     "main": "./build/cjs/index.cjs",
     "exports": {
         ".": {
@@ -602,11 +595,8 @@
         "test": "vitest --config vite.test.config.mjs"
     },
     "dependencies": {
-        "@types/react": "18.3.1",
         "downshift": "^7.6.2",
-        "match-sorter": "^6.3.4",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1"
+        "match-sorter": "^6.3.4"
     },
     "optionalDependencies": {
         "@floating-ui/react": "0.24.1 - 0.27",
@@ -620,6 +610,7 @@
         "@babel/cli": "^7.27.2",
         "@babel/preset-react": "^7.27.1",
         "@rollup/plugin-terser": "^0.4.4",
+        "@types/react": "18.3.1",
         "@vitejs/plugin-react": "^4.5.2",
         "@vitejs/plugin-react-swc": "^3.10.2",
         "autoprefixer": "^10.4.21",
@@ -633,6 +624,8 @@
         "jsdom": "^26.1.0",
         "nanoid": "^5.1.5",
         "postcss": "^8.5.6",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
         "react-hook-form": "^7.58.0",
         "react-is": "^18.3.1",
         "rollup-plugin-node-externals": "^8.0.0",
@@ -657,9 +650,7 @@
         "url": "https://github.com/fremtind/jokul/issues"
     },
     "babel": {
-        "presets": [
-            "@babel/preset-react"
-        ]
+        "presets": ["@babel/preset-react"]
     },
     "gitHead": "2728cf20df66dd1c647cdffb49aab5365433abdb"
 }
