@@ -262,11 +262,8 @@ importers:
       vitest: ^3.2.3
       vitest-axe: ^0.1.0
     dependencies:
-      '@types/react': 18.3.1
       downshift: 7.6.2_react@18.3.1
       match-sorter: 6.4.0
-      react: 18.3.1
-      react-dom: 18.3.1_react@18.3.1
     optionalDependencies:
       '@floating-ui/react': 0.26.28_nnrd3gsncyragczmpvfhocinkq
       '@react-aria/toast': 3.0.0-beta.18_nnrd3gsncyragczmpvfhocinkq
@@ -278,6 +275,7 @@ importers:
       '@babel/cli': 7.27.2
       '@babel/preset-react': 7.27.1
       '@rollup/plugin-terser': 0.4.4
+      '@types/react': 18.3.1
       '@vitejs/plugin-react': 4.5.2_vite@6.3.5
       '@vitejs/plugin-react-swc': 3.10.2_vite@6.3.5
       autoprefixer: 10.4.21_postcss@8.5.6
@@ -291,6 +289,8 @@ importers:
       jsdom: 26.1.0
       nanoid: 5.1.5
       postcss: 8.5.6
+      react: 18.3.1
+      react-dom: 18.3.1_react@18.3.1
       react-hook-form: 7.58.0_react@18.3.1
       react-is: 18.3.1
       rollup-plugin-node-externals: 8.0.0
