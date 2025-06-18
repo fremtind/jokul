@@ -1,24 +1,12 @@
 import clsx from "clsx";
-import React, {type ComponentProps, type FC, type MouseEvent, useId,} from "react";
+import React, {type ComponentProps, type FC, useId} from "react";
 import {formatBytes} from "../../utilities/index.js";
 import {Button} from "../button/index.js";
 import {useFileInputContext} from "../file-input/internal/fileInputContext.js";
 import {TrashCanIcon} from "../icon/index.js";
 import {SupportLabel} from "../input-group/index.js";
 import {Link} from "../link/index.js";
-import type {FileStates} from "./types.js";
-
-export type FileProps = {
-    fileName: string;
-    fileType: string;
-    fileSize: number;
-    path?: string;
-    file?: File;
-    state?: FileStates;
-    errorLabel?: string;
-    onRemove?: (e: MouseEvent<HTMLButtonElement>) => void;
-    variant?: "list" | "card";
-};
+import type {FileProps} from "./types.js";
 
 export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
     const {
@@ -79,7 +67,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
                 {onRemove && (
                     <Button
                         variant={"ghost"}
-                        className="jkl-file__content__delete"
+                        className="jkl-file__content__button"
                         onClick={onRemove}
                         title={`Fjern ${fileName}`}
                         icon={<TrashCanIcon/>}

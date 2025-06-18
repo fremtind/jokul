@@ -1,13 +1,13 @@
-export interface FileValidation {
-    type: "TOO_LARGE" | "WRONG_TYPE";
-    message: string;
-}
+import type {MouseEvent} from "react";
 
-export type FileStates = undefined | "error" | "loading";
-
-export interface FileCard {
-    file: File;
-    validation?: FileValidation;
-    state: FileStates;
-    uploadProgress: number;
-}
+export type FileProps = {
+    fileName: string;
+    fileType: string;
+    fileSize: number;
+    path?: string;
+    errorLabel?: string;
+    state?: "error" | "loading";
+    variant?: "list" | "card";
+    file?: File;
+    onRemove?: (e: MouseEvent<HTMLButtonElement>) => void;
+};

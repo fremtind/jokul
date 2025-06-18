@@ -1,11 +1,11 @@
 import {formatBytes} from "../../../utilities/formatters/bytes/formatBytes.js";
-import type {FileValidation} from "../index.js";
+import type {UploadedFile} from "../types.js";
 
-export function validateFile(
+export function validateFileInputFiles(
     file: File,
     accept = "",
     maxSizeBytes?: number,
-): FileValidation | undefined {
+): UploadedFile["validation"] | undefined {
     const acceptStrings = accept
         .split(",")
         .map((s) => s.toLowerCase())

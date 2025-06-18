@@ -1,7 +1,7 @@
 import React, {forwardRef, useId} from "react";
-import {validateFile} from "../../file/internal/validateFile.js";
-import type {FileCard} from "../../file/types.js";
+import type {UploadedFile} from "../types.js";
 import {useFileInputContext} from "./fileInputContext.js";
+import {validateFileInputFiles} from "./validateFileInputFiles.js";
 
 interface FileInputProps {
     id?: string;
@@ -53,16 +53,18 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                         if (e.target.files) {
                             onChange(
                                 e,
-                                [...e.target.files].map<FileCard>((file) => ({
-                                    file,
-                                    state: undefined,
-                                    validation: validateFile(
+                                [...e.target.files].map<UploadedFile>(
+                                    (file) => ({
                                         file,
-                                        accept,
-                                        maxSizeBytes,
-                                    ),
-                                    uploadProgress: 0,
-                                })),
+                                        state: undefined,
+                                        validation: validateFileInputFiles(
+                                            file,
+                                            accept,
+                                            maxSizeBytes,
+                                        ),
+                                        uploadProgress: 0,
+                                    }),
+                                ),
                             );
                         }
                     }}
