@@ -1,40 +1,11 @@
 import clsx from "clsx";
 import React, {forwardRef, useId} from "react";
 import {FieldGroup} from "../../components/input-group/FieldGroup.js";
-import type {Density} from "../../core/types.js";
-import type {FileCard} from "../file/types.js";
-import type {FieldGroupProps} from "../input-group/types.js";
 import {Dropzone} from "./internal/Dropzone.js";
 import {Input} from "./internal/Input.js";
 import {MaxSize} from "./internal/MaxSize.js";
 import {FileInputContextProvider} from "./internal/fileInputContext.js";
-
-export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
-    className?: string;
-    id?: string;
-    density?: Density;
-    /**
-     * En string som begrenser hvilke filtyper som kan velges.
-     *
-     * Flere filtyper kan defineres som en kommaseparert liste.
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
-     */
-    accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
-    maxSizeBytes?: number;
-    /**
-     * @default true
-     */
-    multiple?: boolean;
-    value: FileCard[];
-    variant?: "flexible" | "small";
-    onChange: (
-        e:
-            | React.ChangeEvent<HTMLInputElement>
-            | React.DragEvent<HTMLDivElement>,
-        files: FileCard[],
-    ) => void;
-}
+import type {FileInputProps} from "./types.js";
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
     (props, ref) => {

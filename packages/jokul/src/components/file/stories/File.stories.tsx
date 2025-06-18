@@ -3,14 +3,7 @@ import React from "react";
 import "../../file-input/styles/_index.scss";
 import {Button} from "../../button/index.js";
 import {Flex} from "../../flex/index.js";
-import {
-    SkeletonButton,
-    SkeletonElement,
-    SkeletonInput,
-    SkeletonTable,
-    SkeletonTableHeader,
-    SkeletonTableRow,
-} from "../../loader/index.js";
+import {SkeletonElement, SkeletonTable, SkeletonTableHeader, SkeletonTableRow,} from "../../loader/index.js";
 import {File} from "../File.js";
 
 import * as url from "./cow.jpg";
@@ -56,106 +49,66 @@ export const FileListStory: Story = {
     name: "Eksempel:: File List",
     render: (args) => {
         return (
-            <div
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
-                    gridTemplateRows: "1lh auto",
-                    width: "100dvw",
-                    height: "95dvh",
-                    maxWidth: "90ch",
-                    marginInline: "auto",
-                    padding: "2ch",
-                    gap: "2lh 40px",
-                    boxSizing: "border-box",
-                    overflow: "auto",
-                }}
-            >
-                <h1
-                    className={"jkl-heading-1"}
-                    style={{gridColumn: "1 / -1"}}
-                >
-                    Søknad om Reiseforsikring
-                </h1>
-                <Flex
-                    gap={32}
-                    direction={"column"}
+            <Flex direction={"column"} gap={16}>
+                <div
                     style={{
                         background:
                             "var(--jkl-color-background-container-high)",
-                        height: "100%",
+                        maxHeight: "80%",
                         width: "100%",
                         padding: "1lh 3ch",
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "2ch",
                         boxSizing: "border-box",
+                        overflow: "hidden",
                     }}
                 >
-                    <h2 className={"jkl-heading-2"}>Steg 2 av 3</h2>
-                    <Flex style={{flex: 1}} gap={32} direction={"column"}>
-                        <SkeletonInput/>
-                        <SkeletonInput/>
-                        <SkeletonInput/>
-                        <SkeletonInput/>
-                    </Flex>
-                    <Flex gap={12}>
-                        <SkeletonButton width={120}/>
-                        <SkeletonButton width={120}/>
-                    </Flex>
-                </Flex>
-                <Flex direction={"column"} gap={16}>
-                    <div
-                        style={{
-                            background:
-                                "var(--jkl-color-background-container-high)",
-                            maxHeight: "80%",
-                            width: "100%",
-                            padding: "1lh 3ch",
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "2ch",
-                            boxSizing: "border-box",
-                            overflow: "hidden",
-                        }}
-                    >
-                        <h2 className={"jkl-heading-2"}>Oppsummering</h2>
-                        <SkeletonTable>
-                            <SkeletonTableHeader>
-                                <SkeletonElement height={20} width={60}/>
-                                <SkeletonElement height={20} width={240}/>
-                                <SkeletonElement height={20} width={90}/>
-                            </SkeletonTableHeader>
-                            <SkeletonTableRow>
-                                <SkeletonElement height={20} width={60}/>
-                                <SkeletonElement height={20} width={240}/>
-                                <SkeletonElement height={20} width={90}/>
-                            </SkeletonTableRow>
-                            <SkeletonTableRow>
-                                <SkeletonElement height={20} width={60}/>
-                                <SkeletonElement height={20} width={240}/>
-                                <SkeletonElement height={20} width={90}/>
-                            </SkeletonTableRow>
-                            <SkeletonTableRow>
-                                <SkeletonElement height={20} width={60}/>
-                                <SkeletonElement height={20} width={240}/>
-                                <SkeletonElement height={20} width={90}/>
-                            </SkeletonTableRow>
-                        </SkeletonTable>
-                    </div>
+                    <h2 className={"jkl-heading-2"}>Oppsummering</h2>
+                    <SkeletonTable>
+                        <SkeletonTableHeader>
+                            <SkeletonElement height={20} width={60}/>
+                            <SkeletonElement height={20} width={240}/>
+                            <SkeletonElement height={20} width={90}/>
+                        </SkeletonTableHeader>
+                        <SkeletonTableRow>
+                            <SkeletonElement height={20} width={60}/>
+                            <SkeletonElement height={20} width={240}/>
+                            <SkeletonElement height={20} width={90}/>
+                        </SkeletonTableRow>
+                        <SkeletonTableRow>
+                            <SkeletonElement height={20} width={60}/>
+                            <SkeletonElement height={20} width={240}/>
+                            <SkeletonElement height={20} width={90}/>
+                        </SkeletonTableRow>
+                        <SkeletonTableRow>
+                            <SkeletonElement height={20} width={60}/>
+                            <SkeletonElement height={20} width={240}/>
+                            <SkeletonElement height={20} width={90}/>
+                        </SkeletonTableRow>
+                    </SkeletonTable>
+                </div>
 
-                    <div
-                        style={{
-                            display: "grid",
-                            gap: "12px",
-                            gridTemplateColumns:
-                                args.variant === "list"
-                                    ? "1fr"
-                                    : "repeat(2, 1fr)",
-                        }}
-                    >
-                        <File {...args} />
-                        <File {...args} />
-                    </div>
-                </Flex>
-            </div>
+                <div
+                    style={{
+                        display: "grid",
+                        gap: "12px",
+                        gridTemplateColumns:
+                            args.variant === "list" ? "1fr" : "repeat(2, 1fr)",
+                    }}
+                >
+                    <File
+                        {...args}
+                        fileName={"Dekningsoversikt (IPID).pdf"}
+                        fileType={"PDF"}
+                    />
+                    <File
+                        {...args}
+                        fileName={"Avtaledokument.pdf"}
+                        fileType={"PDF"}
+                    />
+                </div>
+            </Flex>
         );
     },
 };

@@ -3,10 +3,10 @@ import React, {useState} from "react";
 import "../styles/_index.scss";
 import {Button, PrimaryButton} from "../../button/index.js";
 import {File} from "../../file/File.js";
-import type {FileCard} from "../../file/types.js";
 import {FileInput} from "../FileInput.js";
 import {Dropzone} from "../internal/Dropzone.js";
 import {MaxSize} from "../internal/MaxSize.js";
+import type {UploadedFile} from "../types.js";
 
 const meta = {
     title: "Komponenter/File/FileInput",
@@ -36,7 +36,7 @@ export const FileInputStory: Story = {
         maxSizeBytes: 8_000_000,
     },
     render: (args) => {
-        const [files, setFiles] = useState<FileCard[]>([]);
+        const [files, setFiles] = useState<UploadedFile[]>([]);
 
         return (
             <div>
