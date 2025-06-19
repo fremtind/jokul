@@ -57,8 +57,11 @@ jobs:
               uses: actions/setup-node@v3
               with:
                 registry-url: "https://npm.pkg.github.com"
-                # Defaults to the user or organization that owns the workflow file
                 scope: "@fremtind"
+
+            - name: Tilbakestill endringer i .npmrc
+              # Unngår å få feil ved publisering pga. unclean git status
+              run: git checkout .npmrc
                 
             - name: Reinstaller pakker etter actions/setup-node
               if: steps.changesets.outputs.published == 'true'
