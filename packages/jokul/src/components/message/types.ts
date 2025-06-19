@@ -1,18 +1,13 @@
-import type { AriaRole } from "react";
-import type { Density, WithChildren } from "../../core/types.js";
+import type { Density } from "../../core/types.js";
 
-export interface MessageProps extends WithChildren {
-    id?: string;
-    title?: string;
+export interface MessageProps extends React.ComponentPropsWithoutRef<"div"> {
     fullWidth?: boolean;
     density?: Density;
-    className?: string;
     dismissed?: boolean;
     dismissAction?: {
         handleDismiss: () => void;
         buttonTitle?: string;
     };
-    role?: AriaRole;
 }
 
 export interface FormErrorMessageProps {
