@@ -8,136 +8,12 @@ on:
 run-name: Publiser endrede pakker. Siste commit er ${{ github.event.head_commit.message }}
 
 jobs:
-    build-and-publish:
-        name: Build and publish
-        runs-on: ubuntu-latest
-        if: ${{ !contains(github.event.head_commit.message, '[ci skip release]') }}
-        permissions:
-            actions: write
-            contents: write
-            packages: write
-            deployments: write
-        steps:
-            - name: Checkout branch
-              uses: actions/checkout@v3
-              with:
-                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
-                  fetch-depth: "0" # fetch entire git history
-
-            - name: Fetch version tags
-              run: git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-
-            - name: Configure CI Git User
-              run: |
-                  git config --global user.name '@fremtind-bot'
-                  git config --global user.email 'fremtind-bot@users.noreply.github.com'
-                  git remote set-url origin https://fremtind-bot:$BOT_PUBLISH_TOKEN@github.com/fremtind/jokul
-
-            - name: Disable Husky during versioning
-              run: echo "HUSKY=0" >> $GITHUB_ENV
-
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
-              with:
-                  run_install: |
-                      - args: [--global, lerna-clean-changelogs-cli@^4.0.0]
-
-            - name: Setup Node
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-                  cache: "pnpm"
-
-            - name: Install Packages
-              run: |
-                  pnpm install --frozen-lockfile
-
-            - name: Monorepo Runner Cache
-              uses: actions/cache@v3
-              id: nx-cache
-              with:
-                  path: .nx
-                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
-
-            - name: Try logout
-              continue-on-error: true
-              run: npm logout
-
-            - name: Verify release is needed
-              id: lerna_changed
-              continue-on-error: true
-              run: pnpm version:check
-
-            - name: Authenticate with Registry
-              if: steps.lerna_changed.outcome == 'success'
-              run: |
-                  echo "registry=http://registry.npmjs.org/" >> .npmrc
-                  echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-                  npm whoami
-              env:
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-            - name: Publish packages to NPM
-              if: steps.lerna_changed.outcome == 'success' # only run if there are changes to publish
-              run: pnpm release --yes
-              env:
-                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
-                  GITHUB_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-                  HUSKY: 0
-
-            - name: Switch registry
-              if: steps.lerna_changed.outcome == 'success'
-              uses: actions/setup-node@v3
-              with:
-                  registry-url: "https://npm.pkg.github.com"
-                  # Defaults to the user or organization that owns the workflow file
-                  scope: "@fremtind"
-
-            - name: Clear uncommitted changes
-              if: steps.lerna_changed.outcome == 'success'
-              run: git checkout .npmrc
-
-            - name: Reinstall packages after running actions/setup-node
-              run: pnpm install --frozen-lockfile
-
-            - name: Publish packages to GitHub Packages
-              if: steps.lerna_changed.outcome == 'success'
-              run: pnpm release-gh --yes
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Restore registry
-              if: steps.lerna_changed.outcome == 'success'
-              uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-                  cache: "pnpm"
-
-            - name: Restore workspace
-              if: steps.lerna_changed.outcome == 'success'
-              run: |
-                  pnpm install --frozen-lockfile
-
-            - name: Build packages if needed
-              if: steps.lerna_changed.outcome != 'success'
-              run: pnpm build
-
-    main-to-external:
-        name: Merge main to external-contributions
-        runs-on: ubuntu-latest
-        permissions:
-            contents: write
-        steps:
-            - run: gh api --method POST /repos/fremtind/jokul/merges -F base='external-contributions' -F head='main' # do a server-side merge using GitHub API https://cli.github.com/manual/gh_api and https://docs.github.com/en/rest/reference/repos#merging
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
     changesets-release:
-        name: Create Release Pull Request
+        name: Versjoner eller publiser pakker med Changesets
         runs-on: ubuntu-latest
+        outputs:
+            published: ${{ steps.changesets.outputs.published }}
+            publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
         permissions:
             contents: write
             packages: write
@@ -152,14 +28,70 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v3
               with:
-                  node-version: 18
+                  node-version: 22
                   cache: pnpm
 
-            - name: Install Dependencies
+            - name: Installer avhengigheter
               run: pnpm install --frozen-lockfile
 
-            - name: Changesets Release
+            - name: Versjonering eller publisering med Changesets
+              id: changesets
               uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
+              with:
+                  publish: "pnpm build"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+
+            - name: Bytt registry til GitHub Packages
+              if: steps.changesets.outputs.published == 'true'
+              uses: actions/setup-node@v3
+              with:
+                registry-url: "https://npm.pkg.github.com"
+                # Defaults to the user or organization that owns the workflow file
+                scope: "@fremtind"
+                
+            - name: Reinstaller pakker etter actions/setup-node
+              if: steps.changesets.outputs.published == 'true'
+              run: pnpm install --frozen-lockfile
+            
+            - name: Publiser pakker til GitHub Packages
+              if: steps.changesets.outputs.published == 'true'
+              run: pnpm -r publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    notify-release:
+        name: Gi beskjed om publiserte pakker
+        runs-on: ubuntu-latest
+        needs: [changesets-release]
+        if: needs.changesets-release.outputs.published == 'true'
+        steps:
+          - name: Hent informasjon om commit
+            id: commit-info
+            run: |
+              echo "committer_name=$(git log -1 --pretty=format:'%an')" >> $GITHUB_OUTPUT
+              echo "committer_email=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_OUTPUT
+
+          - name: Teams notification
+            uses: fremtind/action-teams-notification@v2
+            with:
+              webhook-url: ${{ secrets.TEAMS_WEBHOOK_URL }}
+              mention: |
+                ${{ steps.commit-info.outputs.committer_name }}
+                ${{ steps.commit-info.outputs.committer_email }}
+              message: |
+                %NAME%
+                ${{ needs.changesets-release.outputs.publishedPackages.length }} pakker ble publisert fra ${{ github.repository }}
+
+
+    main-to-external:
+        name: Merge main to external-contributions
+        needs: [changesets-release]
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+        steps:
+            - run: gh api --method POST /repos/fremtind/jokul/merges -F base='external-contributions' -F head='main' # do a server-side merge using GitHub API https://cli.github.com/manual/gh_api and https://docs.github.com/en/rest/reference/repos#merging
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
