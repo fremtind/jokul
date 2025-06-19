@@ -3,7 +3,7 @@ import { type RefObject, useEffect } from "react";
 type ValueOf<T> = T[keyof T];
 
 export interface ScrollIntoViewProps {
-    ref: RefObject<ValueOf<HTMLElementTagNameMap>>;
+    ref: RefObject<ValueOf<HTMLElementTagNameMap> | null> | null;
     timeout?: number;
     autoScroll?: boolean;
     options?: ScrollIntoViewOptions;

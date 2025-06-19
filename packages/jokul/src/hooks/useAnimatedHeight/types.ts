@@ -13,7 +13,7 @@ export interface UseAnimatedHeightOptions<T extends HTMLElement = HTMLElement> {
      * @default "productive"
      */
     timing?: Timing;
-    onTransitionStart?: (isOpening: boolean, ref: RefObject<T>) => void;
+    onTransitionStart?: (isOpening: boolean, ref: RefObject<T | null>) => void;
     /**
      * Kalles rett etter at elementet har fått display: block; i stedet for hidden;
      * Nyttig om du må flytte fokus inn i elementet og ikke vil vente til animasjonen er ferdig.
@@ -22,6 +22,6 @@ export interface UseAnimatedHeightOptions<T extends HTMLElement = HTMLElement> {
      *
      * `isOpen` er alltid `true`. Det sendes som første parameter for å ha lik funksjonssignatur som `onTransitionEnd`.
      */
-    onFirstVisible?: (isOpen: boolean, ref: RefObject<T>) => void;
-    onTransitionEnd?: (isOpen: boolean, ref: RefObject<T>) => void;
+    onFirstVisible?: (isOpen: boolean, ref: RefObject<T | null>) => void;
+    onTransitionEnd?: (isOpen: boolean, ref: RefObject<T | null>) => void;
 }

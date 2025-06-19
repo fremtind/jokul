@@ -197,7 +197,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const buttonRef = useRef<HTMLButtonElement>(null);
 
         const handleFocusPlacement = useCallback(
-            (isOpen: boolean, ref: RefObject<HTMLElement>) => {
+            (isOpen: boolean, ref: RefObject<HTMLElement | null>) => {
                 if (isOpen && !isSearchable) {
                     const listElement = ref.current;
                     if (listElement) {

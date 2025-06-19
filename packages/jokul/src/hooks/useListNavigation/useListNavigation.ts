@@ -21,7 +21,7 @@ interface EventDetails extends ListDetails {
 }
 type UseListNavigationProps<T> = {
     /** Ref til et element med rollen `listbox` */
-    ref: RefObject<T>;
+    ref: RefObject<T | null>;
 };
 
 export function useListNavigation<T extends HTMLElement>({

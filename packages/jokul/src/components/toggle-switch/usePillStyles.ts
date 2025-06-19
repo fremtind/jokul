@@ -24,7 +24,7 @@ function throttle<R, A extends any[]>(fn: (...args: A) => R) {
 }
 
 export const usePillStyles = (
-    ref: RefObject<HTMLLabelElement>,
+    ref: RefObject<HTMLLabelElement | null>,
     shouldTransform: boolean,
     dependencies: unknown[],
 ) => {
