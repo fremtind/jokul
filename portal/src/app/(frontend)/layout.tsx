@@ -1,14 +1,18 @@
+import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { TabListener } from "@/components/TabListener";
 import { SiteHeader } from "@/components/site-header/SiteHeader";
 import Link from "next/link";
 
 import "./global.scss";
+import { SanityLive } from "@/sanity/lib/live";
+import { VisualEditing } from "next-sanity";
+import { draftMode } from "next/headers";
 
 interface Props {
     children: React.ReactNode;
 }
 
-export default function PortalLayout({ children }: Props) {
+export default async function PortalLayout({ children }: Props) {
     return (
         <html lang="no" className="jkl">
             <body>
@@ -24,6 +28,13 @@ export default function PortalLayout({ children }: Props) {
                     <SiteHeader />
                     <main>{children}</main>
                 </div>
+                <SanityLive />
+                {(await draftMode()).isEnabled && (
+                    <>
+                        <DisableDraftMode />
+                        <VisualEditing />
+                    </>
+                )}
             </body>
         </html>
     );

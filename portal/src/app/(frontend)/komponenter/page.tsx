@@ -1,4 +1,4 @@
-import { sanityFetch } from "@/sanity/live";
+import { sanityFetch } from "@/sanity/lib/live";
 import { componentsQuery } from "@/sanity/queries/component";
 import { ComponentCard } from "./ComponentCard";
 import { ComponentGallery } from "./ComponentGallery";
