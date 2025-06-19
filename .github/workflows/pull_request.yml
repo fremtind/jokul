@@ -12,28 +12,28 @@ env:
     PREFIX_PATHS: true
 
 jobs:
-    build:
-        name: Sjekk for endringer og bygg pakker
-        if: ${{ !contains(github.event.sender.login, 'fremtind-bot') }}
-        outputs:
-            jokul: ${{ steps.changes.outputs.jokul }}
-            components: ${{ steps.changes.outputs.components }}
-            stories: ${{ steps.changes.outputs.stories }}
-            changeset: ${{ steps.changes.outputs.preview }}
-            testlint: ${{ steps.changes.outputs.testlint }}
-        runs-on: ubuntu-latest
-        permissions:
-            actions: write
-            contents: read
-            pull-requests: write
-        steps:
+    changes:
+      name: Sjekk for endringer
+      runs-on: ubuntu-latest
+      permissions:
+          actions: write
+          contents: read
+      outputs:
+        jokul: ${{ steps.code_changes.outputs.jokul }}
+        components: ${{ steps.code_changes.outputs.components }}
+        testlint: ${{ steps.code_changes.outputs.general }}
+        code_changes: ${{ steps.code_changes.outputs.has_matches }}
+        stories: ${{ steps.documentation.outputs.stories }}
+        changeset: ${{ steps.documentation.outputs.preview }}
+        documentation: ${{ steps.documentation.outputs.has_matches }}
+      steps:
             - name: Checkout
               uses: actions/checkout@v3
 
-            - name: Check for changes that require extra verification
+            - name: Se etter kodeendringer
               if: ${{ github.event_name != 'merge_group' }}
               uses: ./actions/paths-filter
-              id: changes
+              id: code_changes
               with:
                   filters: |
                       jokul:
@@ -44,22 +44,31 @@ jobs:
                         - "**/packages/jokul/src/components/**/*.scss"
                         - "**/packages/jokul/src/components/**/!(*.stories|*.test|*.d).ts"
                         - "**/packages/jokul/src/components/**/!(*.stories|*.test).tsx"
-                      stories:
-                        - ".storybook/**/*.(ts|tsx|scss|html)"
-                        - ".storybook-public/**/*"
-                        - "**/packages/jokul/src/components/**/*.stories.tsx"
-                      changeset:
-                        - ".changeset/!(README).md"
-                      testlint:
+                      general:
                         - "**/*.js"
                         - "**/*.scss"
                         - "**/*.ts"
                         - "**/*.tsx"
                         - "**/vite.test.config.mjs"
                         - "pnpm-lock.yaml"
-
-            - name: Remind about documentation
-              if: (steps.changes.outputs.jokul == 'true' && steps.changes.outputs.changeset == 'false') || (steps.changes.outputs.components == 'true' && steps.changes.outputs.stories == 'false')
+              
+            - name: Se etter dokumentasjonsendringer
+              if: ${{ github.event_name != 'merge_group' }}
+              uses: ./actions/paths-filter
+              id: documentation
+              with:
+                  filters: |
+                      stories:
+                        - ".storybook/**/*.(ts|tsx|scss|html)"
+                        - ".storybook-public/**/*"
+                        - "**/packages/jokul/src/components/**/*.stories.tsx"
+                      changeset:
+                        - ".changeset/!(README).md"
+              
+            - name: Minn om dokumentasjon
+              # Dette legger til en kommentar i PRen hvis det er endringer i pakkene uten at det er lagt til
+              # et changeset eller stories, avhengig av hva som er endret.
+              if: (steps.code_changes.outputs.jokul == 'true' && steps.documentation.outputs.changeset == 'false') || (steps.code_changes.outputs.components == 'true' && steps.documentation.outputs.stories == 'false')
               uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
               with:
                   header: reminders
@@ -70,56 +79,19 @@ jobs:
                         
                         - [ ] **Test endringene dine** ♿️
                           Sørg for å teste endringene dine for både responsivitet og universell utforming (tastaturnavigasjon, skjermleser, etc.).
-                        ${{ steps.changes.outputs.changeset == 'false' && '- [ ] **Skriv endringslogg** 📝
+                        ${{ steps.documentation.outputs.changeset == 'false' && '- [ ] **Skriv endringslogg** 📝
                           Sørg for at du har dokumentert endringene i et [changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) hvis de skal føre til en ny release av `@fremtind/jokul`.' }}
-                        ${{ steps.changes.outputs.components == 'true' && steps.changes.outputs.stories == 'false' &&  '- [ ] **Oppdater eller lag nye stories** 📚
+                        ${{ steps.code_changes.outputs.components == 'true' && steps.code_changes.outputs.stories == 'false' &&  '- [ ] **Oppdater eller lag nye stories** 📚
                           Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere eller legge til [Storybook-stories](https://storybook.js.org/docs/get-started/whats-a-story) for dette i komponenten(e).
                         - [ ] **Oppdater informasjon i Sanity** 📖
                           Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere informasjonen om komponenten(e) i Sanity.' }}
 
                         Hvis du lurer på hvordan du kommer i gang med noe av dette, er det bare å spørre oss i Jøkul-teamet om hjelp! Tagg oss i en kommentar her, eller spør oss [på Teams](https://teams.microsoft.com/l/channel/19%3Adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%20Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0).
 
-            - name: Setup pnpm
-              if: steps.changes.outputs.has_matches == 'true' || github.event_name == 'merge_group'
-              uses: pnpm/action-setup@v4
-
-            - name: Setup Node
-              uses: actions/setup-node@v3
-              if: steps.changes.outputs.has_matches == 'true' || github.event_name == 'merge_group'
-              with:
-                  node-version: 22
-                  cache: "pnpm"
-
-            - name: Restore Monorepo Runner Cache
-              if: github.event_name == 'merge_group'
-              uses: actions/cache/restore@v3
-              with:
-                  path: .nx
-                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
-
-            - name: Cache Monorepo Runner
-              if: github.event_name == 'pull_request' && steps.changes.outputs.has_matches == 'true'
-              uses: actions/cache@v3
-              with:
-                  path: .nx
-                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
-
-            - name: Install dependencies
-              if: steps.changes.outputs.has_matches == 'true' || github.event_name == 'merge_group'
-              run: pnpm install
-
-            - name: Build packages
-              if: steps.changes.outputs.has_matches == 'true' || github.event_name == 'merge_group'
-              run: pnpm build
 
     testlint:
         name: Kjør tester og linting
-        needs: [build]
-        if: github.event_name == 'merge_group' || (needs.build.outputs.testlint == 'true' && !contains(github.event.sender.login, 'fremtind-bot'))
+        needs: changes
         runs-on: ubuntu-latest
         permissions:
             actions: read
@@ -137,8 +109,22 @@ jobs:
                   node-version: 22
                   cache: "pnpm"
 
+            - name: "Ingen endringer i kode, hopp over"
+              if: needs.changes.outputs.code_changes == 'false'
+              run: echo "Ingen endringer i kode, hopper over tester og linting."
+
             - name: Restore Monorepo Runner Cache
+              if: needs.changes.outputs.code_changes == 'true'
               uses: actions/cache/restore@v3
+              with:
+                  path: .nx
+                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+                  restore-keys: |
+                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
+
+            - name: Cache Monorepo Runner
+              if: needs.changes.outputs.code_changes == 'true'
+              uses: actions/cache@v3
               with:
                   path: .nx
                   key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
@@ -147,18 +133,21 @@ jobs:
 
               # Steget må være med, men vil være cachet
             - name: Install dependencies
+              if: needs.changes.outputs.code_changes == 'true'
               run: pnpm install
-
+            
             - name: Build packages
+              if: needs.changes.outputs.code_changes == 'true'
               run: pnpm build
 
             - name: Lint and test
+              if: needs.changes.outputs.code_changes == 'true'
               run: pnpm ci:test
 
     preview:
         name: Publiser forhåndsvisning
-        needs: [build]
-        if: github.event_name != 'merge_group' && (needs.build.outputs.components == 'true' || needs.build.outputs.stories == 'true')
+        needs: changes
+        if: github.event_name != 'merge_group' && (needs.changes.outputs.components == 'true' || needs.changes.outputs.stories == 'true')
         runs-on: ubuntu-latest
         env:
             PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
