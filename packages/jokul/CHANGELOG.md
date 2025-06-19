@@ -1,5 +1,35 @@
 # Change Log
 
+## 0.70.0
+
+### Minor Changes
+
+- 63439d2: Message med støtte for flere native HTML-props
+- 9ffa3d0: Flyttet react avhengigheter fra dependencies til devDependencies
+- 7c8c519: Toast har fått mulighet for å også være tilknyttet en handling. På bakgrunn av dette har den en ny prop (action) som har label og onClick. Action er begrenset til å være en secondary-knapp.
+- 519d837: Jøkul er oppdatert med støtte for React 19, noe som gjør det mulig for flere utviklingsteam å ta det i bruk.
+- 3cc9320: Vi har oppdatert typescript internt til versjon 5.8 for å kunne håndheve at typene våre skal kunne fjernes uten å måtte konvertere kode. Dette gjør det enklere å kompilere koden, og gjøre det teoretisk mulig å kjøre koden direkte i node uten transpilering til ren javascript.
+
+  Dette skal ikke føre til breaking changes for deg som bruker Jøkul, men gi oss gjerne beskjed dersom det er forskjeller i hvordan typescript 5.8 håndterer typer og hvordan din versjon gjør det.
+
+- 3cace7e: BREAKING CHANGE: Fjernet Vind utility-klassesystem
+
+  - Fjernet Vind utility-klasser (margin, padding, typografi, flex utilities)
+  - Erstattet Vind-klasserefaranser med Jøkul spacing-klasser i utviklingseksempler
+  - Migrasjon: Bruk Tailwind utilities eller eksisterende Jøkul spacing-klasser i stedet for Vind-klasser
+
+### Patch Changes
+
+- faffc80: Vi har oppdatert avhengigheter i Jøkul-pakken. Der du som bruker av pakken må installere avhengighetene selv, har vi kun utvidet spennet av versjoner du kan bruke til å inkludere siste major-versjon. Dette gjelder følgende pakker:
+
+  - @floating-ui/react
+  - @react-aria/toast
+  - @react-stately/toast
+  - date-fns
+  - react-a11y-dialog
+
+  Du kan altså nå fint oppdatere disse pakkene hvis du bruker dem andre steder i prosjektet ditt, uten at det blir konflikter med Jøkul-komponentene som bruker dem. Du kan også fint fortsette å bruke versjonen du har fra før!
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
@@ -103,7 +133,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### BREAKING CHANGES
 
 - `component`-propen er fjernet og erstattet med `as`-propen, som gir bedre typesikkerhet og autocompletion
-basert på komponenten du sender inn.
+  basert på komponenten du sender inn.
 - `componentProps` er fjernet. Istedenfor får du autocompletion for de propsene som er gyldige for akkurat den komponenten du har valgt med `as`-propen.
 
 # [0.60.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.59.0...@fremtind/jokul@0.60.0) (2025-05-05)
@@ -133,7 +163,7 @@ basert på komponenten du sender inn.
 ### BREAKING CHANGES
 
 - Fikser opp i layout issue i CheckListItem-komponenten. Når tekst i et listepunkt gikk over flere
-linjer, startet de påfølgende linjene feilaktig helt til venstre (under ikonet).
+  linjer, startet de påfølgende linjene feilaktig helt til venstre (under ikonet).
 
 ## [0.57.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.6...@fremtind/jokul@0.57.7) (2025-04-07)
 
@@ -291,7 +321,7 @@ linjer, startet de påfølgende linjene feilaktig helt til venstre (under ikonet
 ### BREAKING CHANGES
 
 - TextArea er ikke lenger en del av TextInput mappa og har fått sin egen
-import-sti
+  import-sti
 
 ```diff
 - import { TextArea } from "@fremtind/jokul/components/text-input"
@@ -628,9 +658,9 @@ import-sti
 ### BREAKING CHANGES
 
 - Prop `isExpanded` er endret til `open`
-Prop `expandDirection` er fjernet
-Prop `density` er fjernet, styr dette med `data-density` HTML attributet
-Prop `hideLabel` er fjernet, wrap heller children i `ScreenReaderOnly`
+  Prop `expandDirection` er fjernet
+  Prop `density` er fjernet, styr dette med `data-density` HTML attributet
+  Prop `hideLabel` er fjernet, wrap heller children i `ScreenReaderOnly`
 
 ## 0.35.1 (2024-11-27)
 
@@ -688,7 +718,7 @@ Prop `hideLabel` er fjernet, wrap heller children i `ScreenReaderOnly`
 ### BREAKING CHANGES
 
 - For å få et tooltip i Autosuggest må du nå sende inn et PopupTip til prop-en tooltip. Prop-en
-tooltipProps finnes ikke lenger.
+  tooltipProps finnes ikke lenger.
 - Fjernet tooltipProp og lagt til tooltip i FieldGroup.tsx.
 - Fjernet tooltipProp og lagt til tooltip i InputGroup.
 
@@ -918,7 +948,7 @@ tooltipProps finnes ikke lenger.
 ### BREAKING CHANGES
 
 - Stiler må nå importeres fra f.eks. @fremtind/jokul/styles/components/card i stedet for bare
-@fremtind/jokul/styles/card
+  @fremtind/jokul/styles/card
 
 ## [0.23.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.23.3...@fremtind/jokul@0.23.4) (2024-10-24)
 
