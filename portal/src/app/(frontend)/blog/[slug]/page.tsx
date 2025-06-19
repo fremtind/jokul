@@ -1,7 +1,7 @@
 import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
-import { client } from "@/sanity/client";
-import { sanityFetch } from "@/sanity/live";
+import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/live";
 import { blogPostBySlugQuery } from "@/sanity/queries/blog";
 import clsx from "clsx";
 import styles from "./blogpost.module.scss";

@@ -1,4 +1,4 @@
-import { sanityFetch } from "@/sanity/live";
+import { sanityFetch } from "@/sanity/lib/live";
 import { blogPostsQuery } from "@/sanity/queries/blog";
 import { ArticleCard } from "./ArticleCard";
 import { BlogHeader } from "./[slug]/components/BlogHeader";
