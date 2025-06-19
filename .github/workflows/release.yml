@@ -34,6 +34,14 @@ jobs:
             - name: Installer avhengigheter
               run: pnpm install --frozen-lockfile
 
+            - name: Autentiser mot NPM
+              run: |
+                  echo "registry=http://registry.npmjs.org/" >> .npmrc
+                  echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
+                  npm whoami
+              env:
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
             - name: Versjonering eller publisering med Changesets
               id: changesets
               uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
@@ -41,8 +49,8 @@ jobs:
                   publish: "pnpm release"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
-                  NODE_AUTH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Bytt registry til GitHub Packages
               if: steps.changesets.outputs.published == 'true'
