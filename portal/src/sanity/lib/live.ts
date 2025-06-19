@@ -1,10 +1,6 @@
-import { client } from "@/sanity/client";
+import { client } from "@/sanity/lib/client";
+import { token } from "@/sanity/lib/token";
 import { defineLive } from "next-sanity";
-
-const token = process.env.SANITY_API_READ_TOKEN;
-if (!token) {
-    throw new Error("Missing SANITY_API_READ_TOKEN");
-}
 
 export const { sanityFetch, SanityLive } = defineLive({
     client,

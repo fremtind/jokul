@@ -1,6 +1,6 @@
 import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
-import { sanityFetch } from "@/sanity/live";
+import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
 import clsx from "clsx";
 import styles from "./component.module.scss";

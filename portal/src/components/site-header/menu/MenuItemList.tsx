@@ -1,4 +1,4 @@
-import { client } from "@/sanity/client";
+import { client } from "@/sanity/lib/client";
 import { blogPostsQuery, komIGangQuery } from "@/sanity/queries/blog";
 import { componentsQuery } from "@/sanity/queries/component";
 import clsx from "clsx";
