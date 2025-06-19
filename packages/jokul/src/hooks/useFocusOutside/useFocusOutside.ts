@@ -6,7 +6,7 @@ import { type RefObject, useEffect } from "react";
  * @param fn Funksjon som kalles når fokus flyttes utenfor elementet
  */
 export function useFocusOutside(
-    ref: RefObject<HTMLElement> | null,
+    ref: RefObject<HTMLElement | null> | null,
     fn: () => void,
 ): void {
     function handleFocusOutside(event: FocusEvent) {

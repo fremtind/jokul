@@ -6,7 +6,7 @@ import { type RefObject, useEffect } from "react";
  * @param fn Callback-funksjon som kalles når det klikkes utenfor elementet.
  */
 export function useClickOutside(
-    ref: RefObject<HTMLElement> | null,
+    ref: RefObject<HTMLElement | null> | null,
     fn: () => void,
 ): void {
     function handleClickOutside(event: MouseEvent) {

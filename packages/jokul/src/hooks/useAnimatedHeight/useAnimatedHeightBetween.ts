@@ -8,7 +8,7 @@ const defaultEasing = "standard";
 const defaultTiming = "productive";
 
 function collapseElement<T extends HTMLElement>(
-    elementRef: RefObject<T>,
+    elementRef: RefObject<T | null>,
     transition: string,
     raf1: React.MutableRefObject<number | undefined>,
     raf2: React.MutableRefObject<number | undefined>,
@@ -41,7 +41,7 @@ function collapseElement<T extends HTMLElement>(
 }
 
 function expandElement<T extends HTMLElement>(
-    elementRef: RefObject<T>,
+    elementRef: RefObject<T | null>,
     transition: string,
     raf1: React.MutableRefObject<number | undefined>,
     raf2: React.MutableRefObject<number | undefined>,
