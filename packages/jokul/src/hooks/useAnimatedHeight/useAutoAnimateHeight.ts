@@ -20,8 +20,8 @@ export type UseAutoAnimatedHeightOptions<T extends HTMLElement> = {
      * @default "expressive"
      */
     timing?: Timing;
-    onTransitionStart?: (ref: RefObject<T>) => void;
-    onTransitionEnd?: (ref: RefObject<T>) => void;
+    onTransitionStart?: (ref: RefObject<T | null>) => void;
+    onTransitionEnd?: (ref: RefObject<T | null>) => void;
 };
 
 /**

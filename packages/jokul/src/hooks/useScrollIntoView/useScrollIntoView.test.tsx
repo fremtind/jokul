@@ -7,7 +7,7 @@ const expectAfterWait = (timeout: number, expectFn: () => void) =>
     new Promise((resolve) => setTimeout(() => resolve(expectFn()), timeout));
 
 const scrollIntoView = vi.fn();
-const ref: RefObject<HTMLElement> = {
+const ref: RefObject<HTMLElement | null> = {
     // @ts-ignore:: its a test, we dont need all 200some props
     current: {
         scrollIntoView,

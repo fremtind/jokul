@@ -11,7 +11,7 @@ const hasWindowWithMutationObserver = () =>
  * @param config Parametere til observereren. Se https://developer.mozilla.org/en-US/docs/Web/API/MutationObserverInit#properties for mer info.
  */
 export const useMutationObserver = (
-    targetRef: RefObject<HTMLElement>,
+    targetRef: RefObject<HTMLElement | null>,
     onObservation: MutationCallback,
     config?: Partial<MutationObserverInit>,
 ): void => {

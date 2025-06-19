@@ -7,7 +7,7 @@ import { type RefObject, useEffect } from "react";
  * @param fn Funksjon som kalles når en tastetrykk observeres
  */
 export function useKeyListener(
-    ref: RefObject<HTMLElement> | null,
+    ref: RefObject<HTMLElement | null> | null,
     keys: string[] | string | null,
     fn: (event: KeyboardEvent) => void,
 ): void {

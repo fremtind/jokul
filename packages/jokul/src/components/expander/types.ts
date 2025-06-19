@@ -47,11 +47,11 @@ export type ExpandableContext = {
     onToggle: () => void;
     onTransitionStart: (
         isOpening: boolean,
-        ref: RefObject<HTMLElement | HTMLDetailsElement>,
+        ref: RefObject<HTMLElement | HTMLDetailsElement | null>,
     ) => void;
     onTransitionEnd: (
         isOpen: boolean,
-        ref: RefObject<HTMLElement | HTMLDetailsElement>,
+        ref: RefObject<HTMLElement | HTMLDetailsElement | null>,
     ) => void;
     setExpanderHeight: (height: number) => void;
 };
