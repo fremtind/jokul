@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.69.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.68.6...@fremtind/jokul@0.69.0) (2025-06-19)
+
+### Features
+
+- Message med støtte for flere native HTML-props ([f0af345](https://github.com/fremtind/jokul/commit/f0af345ac6b441b498fb675f6a0b2e1c4ceb60ca))
+
 ## [0.68.5](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.68.4...@fremtind/jokul@0.68.5) (2025-06-17)
 
 ### Bug Fixes
