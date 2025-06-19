@@ -1,6 +1,6 @@
 import type { Density } from "../../core/types.js";
 
-export interface MessageProps extends React.ComponentPropsWithRef<"div"> {
+export interface MessageProps extends React.ComponentPropsWithoutRef<"div"> {
     fullWidth?: boolean;
     density?: Density;
     dismissed?: boolean;
