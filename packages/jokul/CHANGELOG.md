@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.69.2
+
+### Patch Changes
+
+- c89ebef: Kun et versjonshopp for å synkronisere versjoner etter ny releaseflyt
+
 ## 0.69.1
 
 ### Patch Changes
