@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.69.1
+
+### Patch Changes
+
+- 27b0912: Hooks: For å sørge for bedre kompatibilitet med React 19 har vi oppdatert typene for alle hooks og komponenter som tar inn en `ref` til en komponent. Du vil nå ikke lenger få feilmelding om at `RefObject<HTMLElement | null> is not assignable to RefObject<HTMLElement>`.
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
@@ -103,7 +109,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### BREAKING CHANGES
 
 - `component`-propen er fjernet og erstattet med `as`-propen, som gir bedre typesikkerhet og autocompletion
-basert på komponenten du sender inn.
+  basert på komponenten du sender inn.
 - `componentProps` er fjernet. Istedenfor får du autocompletion for de propsene som er gyldige for akkurat den komponenten du har valgt med `as`-propen.
 
 # [0.60.0](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.59.0...@fremtind/jokul@0.60.0) (2025-05-05)
@@ -133,7 +139,7 @@ basert på komponenten du sender inn.
 ### BREAKING CHANGES
 
 - Fikser opp i layout issue i CheckListItem-komponenten. Når tekst i et listepunkt gikk over flere
-linjer, startet de påfølgende linjene feilaktig helt til venstre (under ikonet).
+  linjer, startet de påfølgende linjene feilaktig helt til venstre (under ikonet).
 
 ## [0.57.7](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.57.6...@fremtind/jokul@0.57.7) (2025-04-07)
 
@@ -291,7 +297,7 @@ linjer, startet de påfølgende linjene feilaktig helt til venstre (under ikonet
 ### BREAKING CHANGES
 
 - TextArea er ikke lenger en del av TextInput mappa og har fått sin egen
-import-sti
+  import-sti
 
 ```diff
 - import { TextArea } from "@fremtind/jokul/components/text-input"
@@ -628,9 +634,9 @@ import-sti
 ### BREAKING CHANGES
 
 - Prop `isExpanded` er endret til `open`
-Prop `expandDirection` er fjernet
-Prop `density` er fjernet, styr dette med `data-density` HTML attributet
-Prop `hideLabel` er fjernet, wrap heller children i `ScreenReaderOnly`
+  Prop `expandDirection` er fjernet
+  Prop `density` er fjernet, styr dette med `data-density` HTML attributet
+  Prop `hideLabel` er fjernet, wrap heller children i `ScreenReaderOnly`
 
 ## 0.35.1 (2024-11-27)
 
@@ -688,7 +694,7 @@ Prop `hideLabel` er fjernet, wrap heller children i `ScreenReaderOnly`
 ### BREAKING CHANGES
 
 - For å få et tooltip i Autosuggest må du nå sende inn et PopupTip til prop-en tooltip. Prop-en
-tooltipProps finnes ikke lenger.
+  tooltipProps finnes ikke lenger.
 - Fjernet tooltipProp og lagt til tooltip i FieldGroup.tsx.
 - Fjernet tooltipProp og lagt til tooltip i InputGroup.
 
@@ -918,7 +924,7 @@ tooltipProps finnes ikke lenger.
 ### BREAKING CHANGES
 
 - Stiler må nå importeres fra f.eks. @fremtind/jokul/styles/components/card i stedet for bare
-@fremtind/jokul/styles/card
+  @fremtind/jokul/styles/card
 
 ## [0.23.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.23.3...@fremtind/jokul@0.23.4) (2024-10-24)
 
