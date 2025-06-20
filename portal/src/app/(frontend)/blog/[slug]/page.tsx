@@ -1,6 +1,5 @@
 import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
-import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
 import { blogPostBySlugQuery } from "@/sanity/queries/blog";
 import clsx from "clsx";
@@ -25,7 +24,10 @@ export async function generateMetadata({ params }: Props) {
 export default async function BlogPostPage({ params }: Props) {
     const slug = (await params).slug;
 
-    const blogPost = await client.fetch(blogPostBySlugQuery, { slug });
+    const { data: blogPost } = await sanityFetch({
+        query: blogPostBySlugQuery,
+        params: { slug },
+    });
 
     if (!blogPost) return null;
 
