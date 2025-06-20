@@ -1,5 +1,5 @@
 @use "../../../core/jkl";
-@use "./file";
+@use "../../file/styles";
 
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-file-input-drag", "heading-2");

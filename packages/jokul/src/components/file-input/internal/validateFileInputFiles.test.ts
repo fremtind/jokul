@@ -1,7 +1,7 @@
-import { describe, expect, it } from "vitest";
-import { validateFile } from "./validateFile.js";
+import {describe, expect, it} from "vitest";
+import {validateFileInputFiles} from "./validateFileInputFiles.js";
 
-describe("validateFile", () => {
+describe("validateFileInputFiles", () => {
     it("should pass when file is of an expected format and size", () => {
         const file = new File(["asdf"], "test.txt", {
             type: "text/plain",
@@ -9,7 +9,9 @@ describe("validateFile", () => {
         const accept = "text/plain";
         const maxSizeBytes = 100_000_000;
 
-        expect(validateFile(file, accept, maxSizeBytes)).toEqual(undefined);
+        expect(validateFileInputFiles(file, accept, maxSizeBytes)).toEqual(
+            undefined,
+        );
     });
 
     it("should pass when no restrictions are set", () => {
@@ -17,7 +19,7 @@ describe("validateFile", () => {
             type: "text/plain",
         });
 
-        expect(validateFile(file)).toEqual(undefined);
+        expect(validateFileInputFiles(file)).toEqual(undefined);
     });
 
     it("should fail when file is too big", () => {
@@ -27,7 +29,7 @@ describe("validateFile", () => {
         const accept = "text/plain";
         const maxSizeBytes = 1;
 
-        const result = validateFile(file, accept, maxSizeBytes);
+        const result = validateFileInputFiles(file, accept, maxSizeBytes);
         expect(result).toBeTruthy();
         expect(result?.type).toBe("TOO_LARGE");
         expect(result?.message).toMatch(/men kan maksimalt være/);
@@ -40,7 +42,7 @@ describe("validateFile", () => {
         const accept = "image/*";
         const maxSizeBytes = 100_000_000;
 
-        const result = validateFile(file, accept, maxSizeBytes);
+        const result = validateFileInputFiles(file, accept, maxSizeBytes);
         expect(result).toBeTruthy();
         expect(result?.type).toBe("WRONG_TYPE");
         expect(result?.message).toMatch(/Filtypen/);
@@ -53,7 +55,7 @@ describe("validateFile", () => {
         });
         const accept = "txt,exe";
 
-        const result = validateFile(file, accept);
+        const result = validateFileInputFiles(file, accept);
 
         expect(result).toBeUndefined();
     });

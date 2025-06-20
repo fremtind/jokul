@@ -244,6 +244,17 @@
                 "default": "./build/cjs/components/feedback/index.cjs"
             }
         },
+        "./styles/components/file": "./styles/components/file/_index.scss",
+        "./components/file": {
+            "import": {
+                "types": "./build/es/components/file/index.d.ts",
+                "default": "./build/es/components/file/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/file/index.d.cts",
+                "default": "./build/cjs/components/file/index.cjs"
+            }
+        },
         "./styles/components/file-input": "./styles/components/file-input/_index.scss",
         "./components/file-input": {
             "import": {

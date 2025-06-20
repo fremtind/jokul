@@ -1,40 +1,11 @@
 import clsx from "clsx";
-import React, { forwardRef, useId } from "react";
-import { FieldGroup } from "../../components/input-group/FieldGroup.js";
-import type { Density } from "../../core/types.js";
-import type { FieldGroupProps } from "../input-group/types.js";
-import { Dropzone } from "./internal/Dropzone.js";
-import { Input } from "./internal/Input.js";
-import { MaxSize } from "./internal/MaxSize.js";
-import { FileInputContextProvider } from "./internal/fileInputContext.js";
-import type { FileInputFile } from "./types.js";
-
-export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
-    className?: string;
-    id?: string;
-    density?: Density;
-    /**
-     * En string som begrenser hvilke filtyper som kan velges.
-     *
-     * Flere filtyper kan defineres som en kommaseparert liste.
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
-     */
-    accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
-    maxSizeBytes?: number;
-    /**
-     * @default true
-     */
-    multiple?: boolean;
-    value: FileInputFile[];
-    variant?: "flexible" | "small";
-    onChange: (
-        e:
-            | React.ChangeEvent<HTMLInputElement>
-            | React.DragEvent<HTMLDivElement>,
-        files: FileInputFile[],
-    ) => void;
-}
+import React, {forwardRef, useId} from "react";
+import {FieldGroup} from "../../components/input-group/FieldGroup.js";
+import {Dropzone} from "./internal/Dropzone.js";
+import {Input} from "./internal/Input.js";
+import {MaxSize} from "./internal/MaxSize.js";
+import {FileInputContextProvider} from "./internal/fileInputContext.js";
+import type {FileInputProps} from "./types.js";
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
     (props, ref) => {
