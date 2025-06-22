@@ -1,0 +1,33 @@
+.jkl-switcher {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap, var(--jkl-unit-20));
+    padding: var(--padding, 0);
+
+    > * {
+      flex-grow: 1;
+      
+      flex-basis: calc((var(--treshold, 65ch) - 100%) * 999);
+    }
+
+    &[data-max-elements="2"] {
+      > :nth-last-child(n + 3),
+      > :nth-last-child(n + 3) ~ * {
+        flex-basis: 100%;
+      }
+    }
+
+    &[data-max-elements="3"] {
+      > :nth-last-child(n + 4),
+      > :nth-last-child(n + 4) ~ * {
+        flex-basis: 100%;
+      }
+    }
+
+    &[data-max-elements="4"] {
+      > :nth-last-child(n + 5),
+      > :nth-last-child(n + 5) ~ * {
+        flex-basis: 100%;
+      }
+    }
+  }
