@@ -1,0 +1,71 @@
+@use "../../../core/jkl";
+
+.jkl-prose {
+    > * + * {
+        margin-block-start: var(--jkl-unit-30);
+    }
+
+    p {
+        @include jkl.text-style("body");
+
+        &:empty {
+            display: none;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        &:not(:first-child) {
+            margin-block-start: var(--jkl-unit-50);
+
+            @include jkl.from-medium-device {
+                margin-block-start: var(--jkl-unit-80);
+            }
+        }
+    }
+
+    h2,
+    h3,
+    h4,
+    h5 {
+        & + * {
+            margin-block-start: var(--jkl-unit-15);
+        }
+    }
+
+    h1 {
+        @include jkl.text-style("title");
+    }
+
+    h2 {
+        @include jkl.text-style("heading-2");
+    }
+
+    h3 {
+        @include jkl.text-style("heading-3");
+    }
+
+    h4 {
+        @include jkl.text-style("heading-4");
+    }
+
+    h5 {
+        @include jkl.text-style("heading-5");
+    }
+
+    code,
+    samp {
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
+    }
+
+    code {
+        display: inline-block;
+        background-color: var(--jkl-color-background-container-low);
+        font-size: 0.9em;
+        padding: 0 var(--jkl-unit-10);
+        border-radius: jkl.rem(2px);
+    }
+}
