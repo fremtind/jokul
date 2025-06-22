@@ -1,0 +1,1 @@
+.jkl-column{box-sizing:content-box;margin-inline:auto;max-inline-size:var(--content-width, 70ch);padding-inline:var(--gutter, var(--jkl-unit-20))}.jkl-column[data-position=left]{margin-inline:0 auto}.jkl-column[data-center-within=true]{display:flex;flex-direction:column;align-items:center}
