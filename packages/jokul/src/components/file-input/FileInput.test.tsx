@@ -1,9 +1,11 @@
-import { type RenderOptions, render } from "@testing-library/react";
+import {render, type RenderOptions} from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
+import {axe} from "jest-axe";
 import React from "react";
-import { describe, expect, it, vi } from "vitest";
-import { File, FileInput, type FileInputFile } from "./index.js";
+import {describe, expect, it, vi} from "vitest";
+import {File} from "../file/index.js";
+import {FileInput} from "./index.js";
+import type {UploadedFile} from "./types.js";
 
 // https://github.com/testing-library/user-event/issues/1146
 // @ts-ignore typecheck liker ikke at default muligens ikke finnes
@@ -17,7 +19,7 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
 }
 
 describe("FileInput", () => {
-    const files: FileInputFile[] = [];
+    const files: UploadedFile[] = [];
 
     it("should render", () => {
         const onChange = vi.fn();

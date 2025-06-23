@@ -1,5 +1,5 @@
-import { TestHelper } from "utils/playwright/TestHelper.mjs";
-import { test } from "utils/playwright/base.mjs";
+import {TestHelper} from "utils/playwright/TestHelper.mjs";
+import {test} from "utils/playwright/base.mjs";
 
 let helper: TestHelper;
 
@@ -19,7 +19,7 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots({ focusElement: ".jkl-file__delete" });
+    await helper.snapshots();
 });
 
 test("renders correctly in small mode", async () => {

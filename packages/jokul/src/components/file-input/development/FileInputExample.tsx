@@ -1,20 +1,11 @@
-import React, { type FC, useEffect, useState } from "react";
-import type {
-    CodeExample,
-    ExampleComponentProps,
-    ExampleKnobsProps,
-} from "utils/dev-example/index.js";
-import type { SupportLabelType } from "../../../components/input-group/types.js";
-import { ProgressBar } from "../../../components/progress-bar/ProgressBar.js";
-import { formatBytes } from "../../../utilities/formatters/bytes/formatBytes.js";
-import { PrimaryButton } from "../../button/Button.js";
-import {
-    File,
-    FileInput,
-    type FileInputFile,
-    type FileInputFileState,
-} from "../index.js";
-import iconBytes from "./iconBytes.js";
+import React, {type FC, useState} from "react";
+import type {CodeExample, ExampleComponentProps, ExampleKnobsProps,} from "utils/dev-example/index.js";
+import {formatBytes} from "../../../utilities/formatters/bytes/formatBytes.js";
+import {PrimaryButton} from "../../button/Button.js";
+import {File} from "../../file/index.js";
+import type {FileProps} from "../../file/types.js";
+import {FileInput} from "../FileInput.js";
+import type {UploadedFile} from "../types.js";
 
 export const fileInputExampleKnobs: ExampleKnobsProps = {
     boolProps: [
@@ -33,53 +24,11 @@ export const fileInputExampleKnobs: ExampleKnobsProps = {
     ],
 };
 
-const FakeProgressBar: FC = () => {
-    const [hasMounted, setHasMounted] = useState(false);
-    useEffect(() => {
-        setHasMounted(true);
-    }, []);
-
-    const [progress, setProgress] = useState(0);
-    useEffect(() => {
-        setTimeout(() => {
-            setProgress((p) => (p < 100 ? p + 1 : p));
-        }, 20);
-    }, []);
-
-    const isTestMode =
-        hasMounted && window.location.search === "?mode=e2e"
-            ? "e2e"
-            : undefined;
-
-    return <ProgressBar aria-valuenow={isTestMode ? 50 : progress} />;
-};
-
 export const FileInputExample: FC<ExampleComponentProps> = ({
-    boolValues,
-    choiceValues,
-}) => {
-    const [files, setFiles] = useState<FileInputFile[]>([]);
-
-    const [hasMounted, setHasMounted] = useState(false);
-    useEffect(() => {
-        setHasMounted(true);
-    }, []);
-
-    useEffect(() => {
-        if (!hasMounted) {
-            return;
-        }
-        // File er ikke tilgjengelig server-side
-        setFiles([
-            {
-                file: new window.File(iconBytes, "symbol_round_black.png", {
-                    type: "image/png",
-                }),
-                state: "SELECTED",
-                uploadProgress: 0,
-            },
-        ]);
-    }, [hasMounted]);
+                                                                boolValues,
+                                                                choiceValues,
+                                                            }) => {
+    const [files, setFiles] = useState<UploadedFile[]>([]);
 
     const maxSizeBytes = 8_000_000;
 
@@ -88,7 +37,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
             <FileInput
                 id="file-input-example"
                 legend="Vedlegg"
-                labelProps={{ variant: "medium" }}
+                labelProps={{variant: "medium"}}
                 className="jkl-spacing-16-24--bottom"
                 accept="image/*,.pdf"
                 maxSizeBytes={maxSizeBytes}
@@ -98,45 +47,37 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                     setFiles((currentFiles) => [...currentFiles, ...newFiles]);
                 }}
             >
-                {files.map(({ state, file, validation }, index) => {
+                {files.map(({state, file, validation}, index) => {
                     let label: string | undefined = undefined;
-                    let labelType: SupportLabelType | undefined = undefined;
-                    let demoState: FileInputFileState = state;
+                    let demoState: FileProps["state"] = undefined;
 
                     const isUploading =
                         Boolean(boolValues?.["Laster opp"]) ||
-                        state === "UPLOADING";
+                        state === "loading";
 
                     if (
                         Boolean(boolValues?.["Med valideringsfeil"]) ||
                         validation?.type === "WRONG_TYPE"
                     ) {
-                        labelType = "warning";
                         label = `Filtypen ${
                             file.name?.split(".")[1] || ""
                         } støttes ikke`;
-                    } else if (
-                        Boolean(boolValues?.["Lastet opp"]) ||
-                        state === "UPLOAD_SUCCESS"
-                    ) {
-                        labelType = "success";
+                    } else if (Boolean(boolValues?.["Lastet opp"]) || !state) {
                         label = "Lastet opp";
-                        demoState = "UPLOAD_SUCCESS";
+                        !demoState;
                     } else if (
                         Boolean(boolValues?.["Med feil"]) ||
-                        state === "UPLOAD_ERROR"
+                        state === "error"
                     ) {
-                        labelType = "error";
                         label = "Filen lot seg ikke laste opp";
-                        demoState = "UPLOAD_ERROR";
+                        demoState = "error";
                     } else if (validation?.type === "TOO_LARGE") {
-                        labelType = "error";
                         label = `Filen er større enn ${formatBytes(
                             maxSizeBytes,
                         )} og kan ikke lastes opp`;
                     } else if (isUploading) {
                         label = "Laster opp…";
-                        demoState = "UPLOADING";
+                        demoState = "loading";
                     }
 
                     return (
@@ -152,21 +93,11 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                             }
                             file={file}
                             state={demoState}
-                            supportLabel={label}
-                            supportLabelType={labelType}
+                            errorLabel={label}
                             onRemove={
-                                ["UPLOAD_ERROR", "SELECTED"].includes(state)
-                                    ? () => {
-                                          setFiles([
-                                              ...files.slice(0, index),
-                                              ...files.slice(index + 1),
-                                          ]);
-                                      }
-                                    : undefined
+                                state !== "loading" ? (e) => "" : undefined
                             }
-                        >
-                            {isUploading && <FakeProgressBar />}
-                        </File>
+                        />
                     );
                 })}
             </FileInput>
@@ -176,7 +107,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                 onClick={async () => {
                     const toUpload = files.filter(
                         (fileState) =>
-                            fileState.state === "SELECTED" &&
+                            !fileState.state &&
                             typeof fileState.validation === "undefined",
                     );
 
@@ -190,9 +121,8 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                                             file.file.name ===
                                             fileToUpload.file.name
                                                 ? {
-                                                      ...file,
-                                                      state: "UPLOAD_SUCCESS",
-                                                  }
+                                                    ...file,
+                                                }
                                                 : file,
                                         ),
                                     );
@@ -204,9 +134,9 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                     const newFiles = files.map((file) =>
                         toUpload.includes(file)
                             ? {
-                                  ...file,
-                                  state: "UPLOADING" as FileInputFileState,
-                              }
+                                ...file,
+                                state: "loading" as FileProps["state"],
+                            }
                             : file,
                     );
 
@@ -224,9 +154,9 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
 export default FileInputExample;
 
 export const fileInputExampleCode: CodeExample = ({
-    boolValues,
-    choiceValues,
-}) => `
+                                                      boolValues,
+                                                      choiceValues,
+                                                  }) => `
 // import { File, FileInput, type FileInputFile, upload } from "@fremtind/jkl-file-input-react";
 // import type { SupportLabelType } from "@fremtind/jkl-input-group-react";
 
