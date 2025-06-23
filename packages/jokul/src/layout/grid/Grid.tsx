@@ -37,6 +37,14 @@ type GridComponent = <ElementType extends React.ElementType = "div">(
     props: GridProps<ElementType>,
 ) => React.ReactElement | null;
 
+/**
+ * Grid lar deg vise elementer i et rutenett, der hvert element
+ * tar opp samme bredde. Du kan sette minimumsbredden et
+ * element kan ha, og komponenten vil automatisk tilpasse
+ * antall kolonner basert på bredden til rutenettet. Dette gjør
+ * at du kan vise flere elementer side om side på større
+ * skjermer, og færre elementer på mindre skjermer.
+ */
 export const Grid = React.forwardRef(function Grid<
     ElementType extends React.ElementType = "div",
 >(props: GridProps<ElementType>, ref?: PolymorphicRef<ElementType>) {

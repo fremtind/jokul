@@ -68,20 +68,20 @@ export const Demo: Story = {
                 <div
                     style={{
                         border: "2px dashed var(--jkl-color-border-subdued)",
-                        minWidth: "200px",
+                        width: "200px",
                         paddingInline: tokens.unit[40],
+                        flexGrow: 0,
                     }}
                 >
                     Sidebar
                 </div>
                 <Column as={Prose}>
-                    <h2 className="jkl-heading-2">Lag en commit</h2>
+                    <h2>Lag en commit</h2>
                     <p>
                         For å dokumentere endringer på en måte som automatiserer
                         versjonering og generering av changelogs, bruker vi
                         verktøyet Changesets.
                     </p>
-
                     <p>
                         Changesets lar oss definere nøyaktig hvilke pakker som
                         er påvirket av en endring og hva slags
