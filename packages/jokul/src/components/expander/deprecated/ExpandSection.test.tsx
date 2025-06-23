@@ -73,9 +73,9 @@ describe("Expand", () => {
     it("should trigger onClick handler on click and expand the content", async () => {
         render(<ExpandSectionExample />);
 
-        const button = screen.getByText("Vis den skjulte seksjonen");
+        const expandButton = screen.getByTestId("jkl-old-expander");
         await act(async () => {
-            await userEvent.click(button);
+            await userEvent.click(expandButton);
         });
 
         const contentToggle = screen.getByTestId("jkl-expand-section");
@@ -91,9 +91,9 @@ describe("a11y", () => {
         let results = await axe(container);
         expect(results).toHaveNoViolations();
 
-        const button = screen.getByRole("button");
+        const expandButton = screen.getByTestId("jkl-old-expander");
         await act(async () => {
-            await userEvent.click(button);
+            await userEvent.click(expandButton);
         });
 
         results = await axe(container);
