@@ -30,7 +30,6 @@
         "@sanity/ui": "^2.15.13",
         "@sanity/vision": "^3.86.1",
         "@types/mdx": "^2.0.13",
-        "clsx": "^2.1.1",
         "cross-env": "^7.0.3",
         "dompurify": "^3.2.5",
         "graphql": "^16.8.1",
