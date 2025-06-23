@@ -73,10 +73,14 @@ export const Demo: Story = {
     parameters: {
         layout: "fullscreen",
     },
+    args: {
+        padding: undefined,
+    },
     render: (props) => {
         return (
             <Cover {...props}>
                 <Flex
+                    as="header"
                     wrap
                     gap={16}
                     justifyContent="space-between"
@@ -91,15 +95,14 @@ export const Demo: Story = {
                         <Link href="#">Min side</Link>
                     </Flex>
                 </Flex>
-                <Cover.Content>
+                <Cover.Content as="main">
                     <Column position="center" as={Prose}>
-                        <h1>Velkommen</h1>
+                        <h1>Velkommen 👋</h1>
                         <p>
                             For å dokumentere endringer på en måte som
                             automatiserer versjonering og generering av
                             changelogs, bruker vi verktøyet Changesets.
                         </p>
-
                         <p>
                             Changesets lar oss definere nøyaktig hvilke pakker
                             som er påvirket av en endring og hva slags
@@ -109,6 +112,7 @@ export const Demo: Story = {
                     </Column>
                 </Cover.Content>
                 <Flex
+                    as="footer"
                     direction="column"
                     gap={24}
                     // Vi trenger en (semantisk?) padding-prop for Flex
