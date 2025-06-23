@@ -115,7 +115,8 @@
         "storybook": "^8.6.7",
         "stylelint": "^16.20.0",
         "tiny-glob": "^0.2.9",
-        "typescript": "^5.8.3"
+        "typescript": "^5.8.3",
+        "vite": "^6.3.5"
     },
     "browserslist": [
         ">0.2% in no",
