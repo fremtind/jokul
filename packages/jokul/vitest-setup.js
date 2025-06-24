@@ -1,10 +1,10 @@
-import matchers from "@testing-library/jest-dom/matchers.js";
+import * as matchers from "@testing-library/jest-dom/matchers";
 import { cleanup } from "@testing-library/react";
 import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
-import * as axeMatchers from "vitest-axe/matchers";
+import { toHaveNoViolations } from "jest-axe";
 
 expect.extend(matchers);
-expect.extend(axeMatchers);
+expect.extend(toHaveNoViolations);
 
 const defaultResizeObserver = globalThis.ResizeObserver;
 
