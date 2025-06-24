@@ -28,8 +28,8 @@
         "boot": "pnpm install && pnpm prepare && pnpm build",
         "reboot": "pnpm clean && pnpm boot",
         "integration:new": "playwright test --project=\"Nye integrasjonstester\"",
-        "integration:ci": "playwright test --project=\"Gamle integrasjonstester\"",
-        "integration:interactive": "playwright test --project=\"Gamle integrasjonstester\" --ui",
+        "integration:ci": "playwright test --project=chromium",
+        "integration:interactive": "playwright test --project=chromium --ui",
         "integration:axe": "playwright test -g axe",
         "build-storybook": "storybook build",
         "prepare": "husky || true"
