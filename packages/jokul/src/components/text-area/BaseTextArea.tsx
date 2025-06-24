@@ -42,6 +42,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         const textAreaRef =
             (ref as RefObject<HTMLTextAreaElement>) || internalRef;
 
+        // biome-ignore lint/correctness/useExhaustiveDependencies: counterCurrent trengs for å lytte på tekstendringer i textarea for auto-expand funksjonalitet
         useEffect(() => {
             const textAreaElement = textAreaRef.current;
             if (textAreaElement) {
@@ -57,7 +58,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
                     textAreaElement.style.height = "";
                 }
             }
-        }, [autoExpand, textAreaRef, value, textAreaFocused]);
+        }, [autoExpand, textAreaRef, value, textAreaFocused, counterCurrent]);
 
         function handleOnFocus(e: FocusEvent<HTMLTextAreaElement>) {
             setTextAreaFocused(true);
