@@ -31,7 +31,6 @@ jobs:
               uses: actions/checkout@v3
 
             - name: Se etter kodeendringer
-              if: ${{ github.event_name != 'merge_group' }}
               uses: ./actions/paths-filter
               id: code_changes
               with:
@@ -53,7 +52,6 @@ jobs:
                         - "pnpm-lock.yaml"
               
             - name: Se etter dokumentasjonsendringer
-              if: ${{ github.event_name != 'merge_group' }}
               uses: ./actions/paths-filter
               id: documentation
               with:
@@ -68,7 +66,7 @@ jobs:
             - name: Minn om dokumentasjon
               # Dette legger til en kommentar i PRen hvis det er endringer i pakkene uten at det er lagt til
               # et changeset eller stories, avhengig av hva som er endret.
-              if: (steps.code_changes.outputs.jokul == 'true' && steps.documentation.outputs.changeset == 'false') || (steps.code_changes.outputs.components == 'true' && steps.documentation.outputs.stories == 'false')
+              if: github.event_name != 'merge_group' && (steps.code_changes.outputs.jokul == 'true' && steps.documentation.outputs.changeset == 'false') || (steps.code_changes.outputs.components == 'true' && steps.documentation.outputs.stories == 'false')
               uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
               with:
                   header: reminders
