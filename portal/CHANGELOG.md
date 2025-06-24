@@ -1,5 +1,19 @@
 # portal
 
+## 1.1.0
+
+### Minor Changes
+
+- 9c6aeb9: Vi har implementert Live Preview for Sanity i Jøkul-portalen. Det vil si at du kan forhåndsvise endringene dine mens du gjør dem, rett i Studio!
+
+  Velg "Presentation" helt øverst i skjermbildet i Sanity Studio, naviger deg til siden du vil redigere i forhåndsvisningen, og klikk på innholdet du vil endre. I panelet på høyre side vil du komme rett til feltet der innholdet er definert, og kan fortsette å redigere siden mens du ser forhåndsvisningen oppdatere seg til venstre ✨
+
+### Patch Changes
+
+- 0dd1b41: Portal: Bruk serverside-variabler for Sanity datasett slik at vi kan styre det fra miljø i stedet for i bygg
+- Updated dependencies [60470d5]
+  - @fremtind/jokul@0.70.0
+
 ## 1.0.2
 
 ### Patch Changes
