@@ -27,7 +27,8 @@ export default defineConfig({
 
     projects: [
         {
-            name: "Gamle integrasjonstester",
+            // Denne heter chromium for ikke å endre navn på eksisterende tester
+            name: "chromium",
             testMatch: "packages/jokul/**/integration/*.spec.ts",
             use: { ...devices["Desktop Chrome"] },
             fullyParallel: true,
