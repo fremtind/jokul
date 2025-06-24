@@ -4,7 +4,6 @@ import { defineConfig, devices } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
-    testMatch: "packages/jokul/**/integration/*.spec.ts",
     fullyParallel: true,
     /* Fail the build on CI if you accidentally left test.only in the source code. */
     forbidOnly: !!process.env.CI,
@@ -26,27 +25,21 @@ export default defineConfig({
         },
     },
 
-    snapshotPathTemplate:
-        ".{/testFileDir}/__screenshots__/{testName}-{arg}.png",
-
     projects: [
         {
+            // Denne heter chromium for ikke å endre navn på eksisterende tester
             name: "chromium",
+            testMatch: "packages/jokul/**/integration/*.spec.ts",
+            use: { ...devices["Desktop Chrome"] },
+            fullyParallel: true,
+            snapshotPathTemplate:
+                ".{/testFileDir}/__screenshots__/{testName}-{arg}.png",
+        },
+        {
+            name: "Nye integrasjonstester",
+            testMatch: "visual-regression/visual.spec.ts",
             use: { ...devices["Desktop Chrome"] },
             fullyParallel: true,
         },
-        /*
-        / ** To keep the number of screenshots in git down we only run one browser
-        {
-            name: "firefox",
-            use: { ...devices["Desktop Firefox"] },
-            fullyParallel: true,
-        },
-        {
-            name: "webkit",
-            use: { ...devices["Desktop Safari"] },
-            fullyParallel: true,
-        },
-        */
     ],
 });

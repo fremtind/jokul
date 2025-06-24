@@ -18,6 +18,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Breadcrumb: Story = {
+    tags: ["visual"],
     args: {
         children: [
             <BreadcrumbItem key={0}>

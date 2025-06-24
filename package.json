@@ -27,8 +27,9 @@
         "serve": "run-p serve:*",
         "boot": "pnpm install && pnpm prepare && pnpm build",
         "reboot": "pnpm clean && pnpm boot",
-        "integration:ci": "playwright test",
-        "integration:interactive": "playwright test --ui",
+        "integration:new": "playwright test --project=\"Nye integrasjonstester\"",
+        "integration:ci": "playwright test --project=chromium",
+        "integration:interactive": "playwright test --project=chromium --ui",
         "integration:axe": "playwright test -g axe",
         "build-storybook": "storybook build",
         "prepare": "husky || true"
