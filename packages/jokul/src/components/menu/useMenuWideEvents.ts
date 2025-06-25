@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 export const useMenuWideEvents = (
     tree: FloatingTreeType | null,
-    nodeId: string,
+    nodeId: string | undefined,
     parentId: string | null,
 ): {
     allowHover: boolean;
@@ -24,7 +24,11 @@ export const useMenuWideEvents = (
         }
 
         function onSubMenuOpen(event: { nodeId: string; parentId: string }) {
-            if (event.nodeId !== nodeId && event.parentId === parentId) {
+            if (
+                nodeId &&
+                event.nodeId !== nodeId &&
+                event.parentId === parentId
+            ) {
                 setIsOpen(false);
             }
         }
@@ -39,7 +43,7 @@ export const useMenuWideEvents = (
     }, [tree, nodeId, parentId]);
 
     useEffect(() => {
-        if (isOpen && tree) {
+        if (isOpen && tree && nodeId) {
             tree.events.emit("menuopen", { parentId, nodeId });
         }
     }, [tree, isOpen, nodeId, parentId]);

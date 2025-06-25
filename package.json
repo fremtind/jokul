@@ -14,7 +14,6 @@
         "lint:fix": "biome check --write --reporter=summary",
         "lint:ci": "biome lint --reporter=github",
         "ci:test": "run-p test lint:ci typecheck",
-
         "test": "pnpm --filter \"@fremtind/jokul\" test",
         "release": "pnpm build && changeset publish",
         "dev": "storybook dev -p 6007",
@@ -45,7 +44,6 @@
             "axe-core": "^4.6.3",
             "chokidar": "^3.5.3",
             "glob-stream>glob-parent": "^5.1.2",
-            "nx": "15.4.2",
             "resolve-url-loader>loader-utils": "^1.4.2",
             "sharp": "0.33.5"
         }
@@ -65,6 +63,7 @@
         "@chromatic-com/storybook": "^3.2.4",
         "@commitlint/cli": "^17.8.1",
         "@commitlint/config-conventional": "^17.8.1",
+        "@commitlint/cz-commitlint": "^19.8.1",
         "@fremtind/stylelint-config-jkl": "workspace:*",
         "@playwright/test": "^1.51.1",
         "@storybook/addon-a11y": "^8.5.3",

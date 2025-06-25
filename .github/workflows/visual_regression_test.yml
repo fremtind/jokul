@@ -45,14 +45,6 @@ jobs:
                   node-version: 18
                   cache: "pnpm"
 
-            - name: Restore Monorepo Runner Cache
-              uses: actions/cache/restore@v3
-              with:
-                  path: .nx
-                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
-
             - name: Install dependencies
               run: pnpm install
 
