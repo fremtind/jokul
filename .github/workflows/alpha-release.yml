@@ -33,9 +33,6 @@ jobs:
 
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
-              with:
-                  run_install: |
-                      - args: [--global, lerna-clean-changelogs-cli@^2.0.18]
 
             - name: Setup Node
               uses: actions/setup-node@v3
@@ -61,12 +58,12 @@ jobs:
               run: npm logout
 
             - name: Verify release is needed
-              id: lerna_changed
+              id: changeset_check
               continue-on-error: true
               run: pnpm version:check
 
             - name: Authenticate with Registry
-              if: steps.lerna_changed.outcome == 'success'
+              if: steps.changeset_check.outcome == 'success'
               run: |
                   echo "registry=http://registry.npmjs.org/" >> .npmrc
                   echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
@@ -75,7 +72,7 @@ jobs:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Publish packages to NPM
-              if: steps.lerna_changed.outcome == 'success' # only run if there are changes to publish
+              if: steps.changeset_check.outcome == 'success' # only run if there are changes to publish
               run: pnpm release:alpha --yes
               env:
                   GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
