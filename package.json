@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "clean": "git clean -xfd",
-        "build": "lerna run build",
+        "build": "pnpm --filter=\"@fremtind/jokul\" build",
         "commit": "git-cz",
         "cosign": "git-cz -S",
         "typecheck": "tsc --noEmit",
@@ -14,7 +14,7 @@
         "lint:fix": "biome check --write --reporter=summary",
         "lint:ci": "biome lint --reporter=github",
         "ci:test": "run-p test lint:ci typecheck",
-        "ci:changed": "lerna changed --parseable --loglevel error",
+
         "test": "pnpm --filter \"@fremtind/jokul\" test",
         "release": "pnpm build && changeset publish",
         "dev": "storybook dev -p 6007",
@@ -44,14 +44,10 @@
             "react-is": "18.3.1",
             "axe-core": "^4.6.3",
             "chokidar": "^3.5.3",
-            "cz-lerna-changelog>shelljs": "^0.8.5",
             "glob-stream>glob-parent": "^5.1.2",
             "nx": "15.4.2",
             "resolve-url-loader>loader-utils": "^1.4.2",
             "sharp": "0.33.5"
-        },
-        "patchedDependencies": {
-            "cz-lerna-changelog@2.0.3": "patches/cz-lerna-changelog@2.0.3.patch"
         }
     },
     "dependencies": {
@@ -99,15 +95,12 @@
         "browserslist": "^4.24.3",
         "clsx": "^2.1.1",
         "commitizen": "^4.3.1",
-        "cz-lerna-changelog": "2.0.3",
         "esbuild": "^0.25.5",
         "express": "^4.21.2",
         "express-http-proxy": "^2.1.1",
         "gh-pages": "5.0.0",
         "husky": "^9.1.7",
         "jest-axe": "^7.0.1",
-        "lerna": "7.0.0",
-        "lerna-clean-changelogs-cli": "4.0.9",
         "lint-staged": "^13.3.0",
         "npm-run-all": "^4.1.5",
         "react-syntax-highlighter": "^15.6.1",
