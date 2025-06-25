@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.71.0
+
+### Minor Changes
+
+- 04d9540: streken under lenker er dyttet høyere opp, og linja er nå responsiv til tekststørrelsen
+
+### Patch Changes
+
+- 8a9434b: Fikset en feil der TextArea ikke automatisk utvidet seg når brukeren skrev inn tekst.
+- 43ae6d8: Oppgradert/slettet avhengigheter i monorepo
+
 ## 0.70.0
 
 ### Minor Changes

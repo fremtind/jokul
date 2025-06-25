@@ -1,5 +1,15 @@
 # portal
 
+## 1.1.1
+
+### Patch Changes
+
+- 43ae6d8: Oppgradert/slettet avhengigheter i monorepo
+- Updated dependencies [8a9434b]
+- Updated dependencies [43ae6d8]
+- Updated dependencies [04d9540]
+  - @fremtind/jokul@0.71.0
+
 ## 1.1.0
 
 ### Minor Changes
