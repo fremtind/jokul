@@ -44,15 +44,6 @@ jobs:
               run: |
                   pnpm install --frozen-lockfile
 
-            - name: Monorepo Runner Cache
-              uses: actions/cache@v3
-              id: nx-cache
-              with:
-                  path: .nx
-                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
-
             - name: Try logout
               continue-on-error: true
               run: npm logout
