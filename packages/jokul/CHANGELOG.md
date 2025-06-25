@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.71.1
+
+### Patch Changes
+
+- 79c94c3: fikset type-feil i usemenuwideevents hook
+
 ## 0.71.0
 
 ### Minor Changes
