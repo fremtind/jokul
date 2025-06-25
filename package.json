@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "clean": "git clean -xfd",
-        "build": "pnpm --filter=\"@fremtind/jokul\" build",
+        "build": "pnpm --filter \"@fremtind/*\" -r build",
         "commit": "git-cz",
         "cosign": "git-cz -S",
         "typecheck": "tsc --noEmit",
