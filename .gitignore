@@ -1,5 +1,4 @@
 node_modules/
-lerna-debug.log
 npm-debug.log
 yarn-error.log
 .vscode
@@ -16,7 +15,6 @@ dist/
 .iml
 .DS_Store
 .stylelintcache
-.nx
 **/public/fonts
 **/vite.build.config.mjs.timestamp-*
 test-results/

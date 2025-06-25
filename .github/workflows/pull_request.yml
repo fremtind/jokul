@@ -111,24 +111,6 @@ jobs:
               if: needs.changes.outputs.code_changes == 'false'
               run: echo "Ingen endringer i kode, hopper over tester og linting."
 
-            - name: Restore Monorepo Runner Cache
-              if: needs.changes.outputs.code_changes == 'true'
-              uses: actions/cache/restore@v3
-              with:
-                  path: .nx
-                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
-
-            - name: Cache Monorepo Runner
-              if: needs.changes.outputs.code_changes == 'true'
-              uses: actions/cache@v3
-              with:
-                  path: .nx
-                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
-
               # Steget må være med, men vil være cachet
             - name: Install dependencies
               if: needs.changes.outputs.code_changes == 'true'
@@ -165,14 +147,6 @@ jobs:
               with:
                   node-version: 22
                   cache: "pnpm"
-
-            - name: Restore Monorepo Runner Cache
-              uses: actions/cache/restore@v3
-              with:
-                  path: .nx
-                  key: nx-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
-                  restore-keys: |
-                      nx-${{ hashFiles('pnpm-lock.yaml') }}-
 
               # Steget må være med, men vil være cachet
             - name: Install dependencies
