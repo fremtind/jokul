@@ -1,0 +1,4 @@
+import{j as n}from"./jsx-runtime-D9p_MChh.js";import"./index-CRL2yuNo.js";/* empty css               */import{L as a}from"./Loader-BBBxl9FC.js";import"./_commonjsHelpers-gnU0ypJ3.js";import"./clsx-B-dksMZM.js";import"./useDelayedRender-ClAGw7sE.js";const g={title:"Komponenter/Loader/Loader",component:a,args:{textDescription:"Laster innhold",variant:"large",inline:!1,delay:0,role:"status"},argTypes:{variant:{control:"select"},role:{control:"text"}},tags:["autodocs"]},r={name:"Loader",render:s=>n.jsx(a,{...s})};var e,o,t;r.parameters={...r.parameters,docs:{...(e=r.parameters)==null?void 0:e.docs,source:{originalSource:`{
+  name: "Loader",
+  render: args => <Loader {...args} />
+}`,...(t=(o=r.parameters)==null?void 0:o.docs)==null?void 0:t.source}}};const u=["LoaderStory"];export{r as LoaderStory,u as __namedExportsOrder,g as default};
