@@ -92,6 +92,7 @@
     width: calc(100% + 2 * var(--padding, 0));
     aspect-ratio: var(--image-aspect-ratio, 3/2);
     margin-inline: var(--margin, 0);
+    object-fit: cover;
 
     &--top {
         margin-top: var(--margin, 0);
@@ -99,5 +100,10 @@
 
     &--bottom {
         margin-bottom: var(--margin, 0);
+    }
+
+    &--full {
+        margin-block: var(--margin, 0);
+        height: calc(100% - ( 2 * var(--margin, 0)));
     }
 }

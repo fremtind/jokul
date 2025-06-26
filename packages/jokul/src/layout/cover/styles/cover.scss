@@ -1,0 +1,23 @@
+.jkl-cover {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-block-size: var(--min-height, 100dvh);
+    padding: var(--padding, var(--jkl-unit-20));
+
+    & > :first-child:not(.jkl-cover__content) {
+        margin-block-start: 0;
+    }
+
+    & > :last-child:not(.jkl-cover__content) {
+        margin-block-end: 0;
+    }
+
+    & > .jkl-cover__content {
+        margin-block: auto;
+    }
+
+    & > * {
+        margin-block: var(--spacing, var(--jkl-unit-10));
+    }
+}

@@ -1,0 +1,64 @@
+import type { Meta, StoryObj } from "@storybook/react";
+import { Prose } from "../Prose.jsx";
+
+import "../styles/_index.scss";
+
+const meta = {
+    title: "Layout/Prose",
+    component: Prose,
+    tags: ["autodocs"],
+    argTypes: {
+        ref: {
+            table: { disable: true },
+        },
+        as: {
+            table: { disable: true },
+        },
+        className: {
+            table: { disable: true },
+        },
+        style: {
+            table: { disable: true },
+        },
+    },
+} satisfies Meta<typeof Prose>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Demo: Story = {
+    parameters: {
+        layout: "fullscreen",
+    },
+    render: (props) => {
+        return (
+            <Prose {...props}>
+                <h1>Hvordan skrive dokumentasjon</h1>
+                <p>
+                    For at designsystemet skal fungere må systemdokumentasjonen
+                    være god. Hvis utviklere og designere ikke vet hvilke
+                    muligheter og begrensninger som finnes i systemet, kommer de
+                    til å gjøre feil og dobbeltarbeid.
+                </p>
+                <p>
+                    Vi prøver å levere god dokumentasjon for Jøkul, og vi har
+                    bygd opp rammeverket for dokumentasjon slik at Jøkul har det
+                    som trengs og sånn at vi kan levere en smidig
+                    utvikleropplevelse. Det skal bare være én kilde til sannhet.
+                </p>
+                <h2>Dokumentere endringer</h2>
+                <p>
+                    For å dokumentere endringer på en måte som automatiserer
+                    versjonering og generering av changelogs, bruker vi
+                    verktøyet Changesets.
+                </p>
+                <p>
+                    Changesets lar oss definere nøyaktig hvilke pakker som er
+                    påvirket av en endring og hva slags versjonsoppdatering (
+                    <code>major</code>, <code>minor</code>, eller{" "}
+                    <code>patch</code>) endringen medfører.
+                </p>
+            </Prose>
+        );
+    },
+};
