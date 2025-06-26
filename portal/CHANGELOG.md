@@ -1,5 +1,11 @@
 # portal
 
+## 1.1.3
+
+### Patch Changes
+
+- 6f5d3da: Artiklene i portalen (under punktet "Artikler") vises nå uten omriss, og med litt bedre kontroll over størrelse og avstand mellom hver artikkel i listen.
+
 ## 1.1.2
 
 ### Patch Changes
