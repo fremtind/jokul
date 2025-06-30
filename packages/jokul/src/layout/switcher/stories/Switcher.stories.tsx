@@ -77,15 +77,22 @@ export const Demo: Story = {
     parameters: {
         layout: "fullscreen",
     },
-    render: (props) => {
-        console.log("Switcher props:", props);
-        return (
+    decorators: [
+        (Story) => (
             <div
                 style={{
                     paddingInline: "var(--jkl-unit-90)",
                     paddingBlock: "var(--jkl-unit-130)",
                 }}
             >
+                <Story />
+            </div>
+        ),
+    ],
+    render: (props) => {
+        console.log("Switcher props:", props);
+        return (
+            <>
                 <h2 className="jkl-heading-3 jkl-spacing-24--bottom">
                     Switcher
                 </h2>
@@ -100,13 +107,8 @@ export const Demo: Story = {
                     enn dette, vil alle elementene vises i en kolonne uavhengig
                     av bredde.
                 </p>
-                <Switcher
-                    style={{
-                        border: "1px dashed var(--jkl-color-border-subdued)",
-                    }}
-                    {...props}
-                />
-            </div>
+                <Switcher {...props} />
+            </>
         );
     },
 };
