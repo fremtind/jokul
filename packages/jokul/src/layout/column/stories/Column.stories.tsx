@@ -70,13 +70,20 @@ export const Demo: Story = {
     parameters: {
         layout: "fullscreen",
     },
+    decorators: [
+        (Story) => (
+            <div
+                style={{
+                    paddingBlock: "var(--jkl-unit-130)",
+                }}
+            >
+                <Story />
+            </div>
+        ),
+    ],
     render: (props) => {
         return (
-            <Column
-                as={Prose}
-                {...props}
-                style={{ marginBlock: "var(--jkl-unit-80)" }}
-            >
+            <Column as={Prose} {...props}>
                 <h2 className="jkl-heading-2">Lag en commit</h2>
                 <p>
                     For å dokumentere endringer på en måte som automatiserer

@@ -30,6 +30,18 @@ export const Demo: Story = {
     parameters: {
         layout: "fullscreen",
     },
+    decorators: [
+        (Story) => (
+            <div
+                style={{
+                    paddingInline: "var(--jkl-unit-90)",
+                    paddingBlock: "var(--jkl-unit-130)",
+                }}
+            >
+                <Story />
+            </div>
+        ),
+    ],
     render: (props) => {
         return (
             <Prose {...props}>

@@ -1,11 +1,18 @@
-import React from "react";
 import type { Preview } from "@storybook/react";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
-import { backgroundOptions } from "./backgrounds.js";
-import { densities, densityDecorator, densityGlobal } from "./density.js";
-import { themeDecorator, themeGlobal, themes } from "./theme.js";
+import {
+    backgroundDecorator,
+    backgroundGlobal,
+    backgrounds,
+} from "./decorators/background.js";
+import {
+    densities,
+    densityDecorator,
+    densityGlobal,
+} from "./decorators/density.js";
+import { layoutDecorator, layoutGlobal } from "./decorators/layout.js";
+import { themeDecorator, themeGlobal, themes } from "./decorators/theme.js";
 
-// Styles
 import "../packages/jokul/src/components/card/styles/_index.scss";
 import "./global.scss";
 
@@ -13,26 +20,26 @@ initTabListener();
 
 const preview: Preview = {
     globalTypes: {
+        background: backgroundGlobal,
         theme: themeGlobal,
         density: densityGlobal,
+        layout: layoutGlobal,
     },
     initialGlobals: {
+        background: backgrounds[1], // Standard bakgrunnsfarge
         theme: themes[0], // Automatisk dark/light
         density: densities[0],
-        backgrounds: { value: "pageVariant" },
+        layout: false,
     },
     decorators: [
-        (Story) => (
-            <div style={{ padding: "1em" }}>
-                <Story />
-            </div>
-        ),
+        backgroundDecorator,
         themeDecorator,
         densityDecorator,
+        layoutDecorator,
     ],
     parameters: {
         backgrounds: {
-            options: backgroundOptions,
+            disable: true,
         },
         layout: "centered",
         controls: {

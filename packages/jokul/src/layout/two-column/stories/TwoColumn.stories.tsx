@@ -67,7 +67,6 @@ export const Demo: Story = {
                 {/* TODO: Lag bedre innhold for Sidebar */}
                 <div
                     style={{
-                        border: "2px dashed var(--jkl-color-border-subdued)",
                         width: "200px",
                         paddingInline: tokens.unit[40],
                         flexGrow: 0,

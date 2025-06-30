@@ -1,0 +1,85 @@
+@use "../packages/jokul/src/core/jkl";
+
+@mixin hatch {
+    border: 3px solid color-mix(in srgb, var(--hatch-color) 50%, var(--storybook-background-color));
+    background: repeating-linear-gradient(
+        -45deg,
+        color(from var(--hatch-color) srgb r g b / 25%),
+        color(from var(--hatch-color) srgb r g b / 25%) 2px,
+        var(--storybook-background-color) 2px,
+        var(--storybook-background-color) 16px
+    );
+    position: relative;
+
+    &::after {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: color(from var(--hatch-color) srgb r g b / 50%);
+        color: #fff;
+        padding-inline: var(--jkl-unit-10);
+        font-size: small;
+        font-weight: bold;
+    }
+}
+
+.show-layout {
+    .jkl-column,
+    .jkl-cover,
+    .jkl-flex,
+    .jkl-grid,
+    .jkl-stack,
+    .jkl-switcher,
+    .jkl-two-column {
+        @include hatch;
+    }
+
+    .jkl-column {
+        --hatch-color: rgb(12 124 29);
+
+        &:hover::after {
+            content: "Column";
+        }
+    }
+
+    .jkl-cover {
+        --hatch-color: rgb(0 175 175);
+
+        &:hover::after {
+            content: "Cover";
+        }
+    }
+
+    .jkl-flex {
+        --hatch-color: rgb(244 0 163);
+
+        &:hover::after {
+            content: "Flex";
+        }
+    }
+
+    .jkl-grid {
+        --hatch-color: rgb(194 17 17);
+
+        &:hover::after {
+            content: "Grid";
+        }
+    }
+
+    .jkl-switcher {
+        --hatch-color: rgb(0 89 153);
+
+        &:hover::after {
+            content: "Switcher";
+        }
+    }
+
+    .jkl-two-column {
+        --hatch-color: rgb(107 49 154);
+
+        &:hover::after {
+            content: "TwoColumn";
+        }
+    }
+}

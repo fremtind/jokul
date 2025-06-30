@@ -1,4 +1,4 @@
 @use "../packages/jokul/src/core/styles/core";
-@use "../packages/jokul/src/fonts/styles/webfonts.scss" with (
-    $webfonts-dir: "../packages/jokul/src/fonts"
+@use "../packages/jokul/src/fonts/styles/webfonts" with ($webfonts-dir: "../packages/jokul/src/fonts",
 );
+@use "./layout-hatch";
