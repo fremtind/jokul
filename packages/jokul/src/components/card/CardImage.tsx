@@ -16,7 +16,7 @@ export type CardImageProps<ElementType extends React.ElementType> =
              * skal plasseres. Margin justeres automatisk etter padding i kortet.
              * @default "top"
              */
-            placement?: "top" | "middle" | "bottom";
+            placement?: "top" | "middle" | "bottom" | "full";
         }
     >;
 

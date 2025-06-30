@@ -17,9 +17,9 @@ export const themeGlobal = {
     description: "Fargetema for eksemplet",
     toolbar: {
         title: "Fargetema",
-        icon: "paintbrush",
+        icon: "mirror",
         items: [
-            { title: "Automatisk", value: themes[0], icon: "contrast" },
+            { title: "Automatisk", value: themes[0], icon: "globe" },
             { title: "Lyst", value: themes[1], icon: "sun" },
             { title: "Mørkt", value: themes[2], icon: "moon" },
         ],

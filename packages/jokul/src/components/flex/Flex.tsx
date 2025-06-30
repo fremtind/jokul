@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { type CSSProperties } from "react";
 import tokens from "../../core/tokens.js";
 import { SlotComponent } from "../../utilities/polymorphism/SlotComponent.js";
@@ -10,6 +11,7 @@ export const Flex = React.forwardRef(function Flex<
     const {
         asChild,
         as = "div",
+        className,
         alignContent,
         alignItems,
         children,
@@ -20,6 +22,7 @@ export const Flex = React.forwardRef(function Flex<
         justifyItems,
         rowGap,
         wrap = false,
+        style,
         ...rest
     } = props;
     const Component = asChild ? SlotComponent : as;
@@ -38,7 +41,12 @@ export const Flex = React.forwardRef(function Flex<
     };
 
     return (
-        <Component ref={ref} {...rest} style={{ ...flexStyle, ...rest.style }}>
+        <Component
+            ref={ref}
+            className={clsx("jkl-flex", className)}
+            style={{ ...flexStyle, ...style }}
+            {...rest}
+        >
             {children}
         </Component>
     );

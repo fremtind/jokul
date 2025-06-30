@@ -48,6 +48,9 @@ const meta: Meta<typeof Flex> = {
             control: "select",
             options: Object.keys(tokens.spacing),
         },
+        children: {
+            table: { disable: true },
+        },
     },
 };
 
@@ -72,7 +75,6 @@ export const FlexStory: Story = {
     name: "Flex",
     args: {
         style: {
-            border: "3px dashed var(--jkl-color)",
             padding: "var(--jkl-spacing-24)",
             height: "50vh",
             width: "50vw",
