@@ -1,6 +1,7 @@
 "use client";
 import type { Jokul_linkCard } from "@/sanity/types";
-import { Card, OpenInNewIcon } from "@fremtind/jokul";
+import { Card } from "@fremtind/jokul/components/card";
+import { OpenInNewIcon } from "@fremtind/jokul/components/icon";
 import { Flex } from "@fremtind/jokul/components/flex";
 import type { PortableTextTypeComponentProps } from "@portabletext/react";
 import type { FC } from "react";
