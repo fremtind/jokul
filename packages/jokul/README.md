@@ -20,8 +20,6 @@ Alle Jøkul komponenter installeres fra denne pakka.
 import { Feedback } from "@fremtind/jokul/components/feedback";
 ```
 
-Dette vil være mest effektivt når Node skal finne fram til riktig fil og vil derfor gi raskere kjøretid på bygg og tester.
-
 For en full liste over komponenter kan du kikke i [components-mappa](src/components/)
 
 ## Stilark
@@ -145,13 +143,7 @@ For å få tilgang til mixins vi tilbyr kan du i din .scss fil bruke
 
 ## Hooks
 
-Hooks kan importeres fra roten av pakka
-
-```jsx
-import { useAnimatedDetails, useLocalStorage } from "@fremtind/jokul";
-```
-
-eller via `/hooks`-stien
+Hooks importeres via `/hooks`-stien.
 
 ```jsx
 import { useAnimatedDetails, useLocalStorage } from "@fremtind/jokul/hooks";
@@ -161,13 +153,7 @@ For en full liste over hooks kan du kikke i [hooks-mappa](src/hooks/)
 
 ## Utilities
 
-Utilities kan også hentes fra roten av pakka
-
-```jsx
-import { tabListener, unicode } from "@fremtind/jokul";
-```
-
-Eller via `/utilities`-stien
+Utilities importeres via `/utilities`-stien.
 
 ```jsx
 import { tabListener, unicode } from "@fremtind/jokul/utilities";

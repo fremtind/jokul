@@ -53,7 +53,7 @@ Dersom man bruker TS hjelpeklasser som feks `WithChildren`
 
 ```diff
 - import type { WithChildren } from "@fremtind/jkl-core";
-+ import type { WithChildren } from "@fremtind/jokul/types";
++ import type { WithChildren } from "@fremtind/jokul/core";
 ```
 
 ## Fonter
