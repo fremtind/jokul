@@ -10,7 +10,7 @@ import { ComponentPageLink } from "./link/ComponentPageLink";
 import { Link } from "./link/Link";
 import { ListItem, OrderedList, UnorderedList } from "./list";
 import { Storybook } from "./storybook-story/Storybook";
-import { CodeBlock, InlineCode } from "./typography/Typography";
+import { CodeBlock } from "./typography/Typography";
 
 interface Props {
     blocks: TypedObject[] | null;
@@ -43,7 +43,6 @@ export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
                 console.log(value);
                 return <a href={href}>{children}</a>;
             },
-            code: InlineCode,
         },
     };
 

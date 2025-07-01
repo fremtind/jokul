@@ -5,8 +5,6 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
 body {
-    // Disse brukes kun for utregninger, kalkulatoren brukt er:
-    // https://clamp.vittoretrivi.dev
     --max-width: 1440px;
     --min-width: 320px;
     background-color: var(--jkl-color-background-page);
@@ -34,64 +32,71 @@ main {
 }
 
 .prose {
-    >*+* {
-        margin-block-start: 1.5rem;
-    }
-}
-
-p {
-    @include jkl.text-style("body");
-
-    &:empty {
-        display: none;
-    }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-    &:not(:first-child) {
-        margin-block-start: var(--jkl-unit-60);
+    > * + * {
+        margin-block-start: var(--jkl-unit-30);
     }
 
-    @media (min-width: #{jkl.$breakpoint-large}) {
-        &:not(:first-child) {
-            margin-block-start: var(--jkl-unit-130);
+    p {
+        @include jkl.text-style("body");
+
+        &:empty {
+            display: none;
         }
     }
-}
 
-h1 {
-    @include jkl.text-style("title");
-}
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+        &:not(:first-child) {
+            margin-block-start: var(--jkl-unit-40);
 
-h2 {
-    @include jkl.text-style("heading-2");
-}
-
-h3 {
-    @include jkl.text-style("heading-3");
-
-    &:not(:first-child) {
-        margin-block-start: var(--jkl-unit-130);
+            @include jkl.from-medium-device {
+                margin-block-start: var(--jkl-unit-60);
+            }
+        }
     }
-}
 
-h4 {
-    @include jkl.text-style("heading-4");
-
-    &:not(:first-child) {
-        margin-block-start: 6rem;
+    h2,
+    h3,
+    h4,
+    h5 {
+        & + * {
+            margin-block-start: var(--jkl-unit-10);
+        }
     }
-}
 
-h5 {
-    @include jkl.text-style("heading-5");
-}
+    h1 {
+        @include jkl.text-style("title");
+    }
 
-code,
-samp {
-    @include jkl.use-font-family("Fremtind Grotesk Mono");
+    h2 {
+        @include jkl.text-style("heading-2");
+    }
+
+    h3 {
+        @include jkl.text-style("heading-3");
+    }
+
+    h4 {
+        @include jkl.text-style("heading-4");
+    }
+
+    h5 {
+        @include jkl.text-style("heading-5");
+    }
+
+    code,
+    samp {
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
+    }
+
+    code {
+        display: inline-block;
+        background-color: var(--jkl-color-background-container-low);
+        font-size: 0.9em;
+        padding: 0 var(--jkl-unit-10);
+        border-radius: jkl.rem(2px);
+    }
 }
