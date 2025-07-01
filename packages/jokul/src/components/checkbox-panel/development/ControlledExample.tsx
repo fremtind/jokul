@@ -6,7 +6,7 @@ import type {
 } from "utils/dev-example/index.js";
 import { PrimaryButton } from "../../button/Button.js";
 import { Flex } from "../../flex/Flex.js";
-import { CheckboxPanel } from "../../index.js";
+import { CheckboxPanel } from "../../checkbox-panel/CheckboxPanel.js";
 import { SuccessTag } from "../../tag/Tag.js";
 
 export const knobs: ExampleKnobsProps = {

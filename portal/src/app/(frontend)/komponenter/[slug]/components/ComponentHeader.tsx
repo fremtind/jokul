@@ -1,6 +1,6 @@
 "use client";
 
-import { Card } from "@fremtind/jokul";
+import { Card } from "@fremtind/jokul/components/card";
 import { Flex } from "@fremtind/jokul/components/flex";
 import styles from "../component.module.scss";
 import { ComponentHeaderLink } from "./ComponentHeaderLink";

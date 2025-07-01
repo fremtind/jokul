@@ -46,14 +46,14 @@ Dersom man bruker ScreenReaderOnly må denne importen oppdateres
 
 ```diff
 - import { ScreenReaderOnly } from "@fremtind/jkl-core";
-+ import { ScreenReaderOnly } from "@fremtind/jokul";
++ import { ScreenReaderOnly } from "@fremtind/jokul/components/screen-reader-only";
 ```
 
 Dersom man bruker TS hjelpeklasser som feks `WithChildren`
 
 ```diff
 - import type { WithChildren } from "@fremtind/jkl-core";
-+ import type { WithChildren } from "@fremtind/jokul";
++ import type { WithChildren } from "@fremtind/jokul/types";
 ```
 
 ## Fonter

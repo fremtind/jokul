@@ -2,7 +2,7 @@
 
 -   [Migrering til monopakke](#migrering-til-monopakke)
 -   [React-komponenter](#react-komponenter)
--   [Stilark](stilark)
+-   [Stilark](#stilark)
 -   [Fonter](#fonter)
 -   [Hooks](#hooks)
 -   [Utilities](#utilities)
@@ -14,31 +14,13 @@ Dersom du bruker dagens pakkestruktur med pakker for hver komponent har vi laget
 
 ## React-komponenter
 
-Alle komponentene våre installeres fra denne pakka, enten fra roten
-
-```jsx
-import { CalendarIcon, List, Link, Message, TextInput } from "@fremtind/jokul";
-```
-
-eller fra en felles komponent-mappe
-
-```jsx
-import {
-    CalendarIcon,
-    List,
-    Link,
-    Message,
-    TextInput,
-} from "@fremtind/jokul/components";
-```
-
-eller fra en fullt kvalifisert mappe
+Alle Jøkul komponenter installeres fra denne pakka.
 
 ```jsx
 import { Feedback } from "@fremtind/jokul/components/feedback";
 ```
 
-Det siste vil være mest effektivt når node skal finne fram til riktig fil og vil derfor gi raskere kjøretid på bygg og tester.
+Dette vil være mest effektivt når Node skal finne fram til riktig fil og vil derfor gi raskere kjøretid på bygg og tester.
 
 For en full liste over komponenter kan du kikke i [components-mappa](src/components/)
 
@@ -163,7 +145,7 @@ For å få tilgang til mixins vi tilbyr kan du i din .scss fil bruke
 
 ## Hooks
 
-Akkurat som med komponenter kan disse importeres fra roten
+Hooks kan importeres fra roten av pakka
 
 ```jsx
 import { useAnimatedDetails, useLocalStorage } from "@fremtind/jokul";
@@ -175,11 +157,11 @@ eller via `/hooks`-stien
 import { useAnimatedDetails, useLocalStorage } from "@fremtind/jokul/hooks";
 ```
 
-For en full liste over komponenter kan du kikke i [hooks-mappa](src/hooks/)
+For en full liste over hooks kan du kikke i [hooks-mappa](src/hooks/)
 
 ## Utilities
 
-Du gjettet riktig, disse kan også hentes fra roten av pakka
+Utilities kan også hentes fra roten av pakka
 
 ```jsx
 import { tabListener, unicode } from "@fremtind/jokul";

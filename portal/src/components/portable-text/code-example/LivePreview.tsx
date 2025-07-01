@@ -1,13 +1,13 @@
 "use client";
 
-import * as components from "@fremtind/jokul/components";
-import React, { type FC } from "react";
+import type { FC } from "react";
 import {
     LiveEditor as ReactLiveEditor,
     LiveError as ReactLiveError,
     LivePreview as ReactLivePreview,
     LiveProvider as ReactLiveProvider,
 } from "react-live";
+import { scope } from "./component-scope";
 
 type Props = { code: string; showEditor: boolean };
 
@@ -22,7 +22,7 @@ export const LivePreview: FC<Props> = ({ code, showEditor }) => {
     return (
         <ReactLiveProvider
             code={code}
-            scope={{ ...components, ...React }}
+            scope={scope}
             transformCode={transformCode}
             noInline={true}
         >
