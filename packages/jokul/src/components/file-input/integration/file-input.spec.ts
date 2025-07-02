@@ -1,5 +1,5 @@
-import {TestHelper} from "utils/playwright/TestHelper.mjs";
-import {test} from "utils/playwright/base.mjs";
+import { TestHelper } from "utils/playwright/TestHelper.mjs";
+import { test } from "utils/playwright/base.mjs";
 
 let helper: TestHelper;
 

@@ -1,6 +1,10 @@
 import React from "react";
-import {DevExample} from "utils/dev-example/DevExample.js";
-import {FileInputExample, fileInputExampleCode, fileInputExampleKnobs,} from "./FileInputExample.js";
+import { DevExample } from "utils/dev-example/DevExample.js";
+import {
+    FileInputExample,
+    fileInputExampleCode,
+    fileInputExampleKnobs,
+} from "./FileInputExample.js";
 
 import "../../file-input/styles/file-input.scss";
 import "../../button/styles/button.scss";

@@ -1,6 +1,6 @@
 "use client";
 
-import { ExpandablePanel, Expander } from "@fremtind/jokul/components/expander";
+import { ExpandablePanel, Expander } from "@fremtind/jokul/expander";
 import type { FC } from "react";
 
 export const Props: FC<{ props: string }> = ({ props }) => {

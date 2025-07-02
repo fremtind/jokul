@@ -1,12 +1,12 @@
 import clsx from "clsx";
-import React, {type ComponentProps, type FC, useId} from "react";
-import {formatBytes} from "../../utilities/index.js";
-import {Button} from "../button/index.js";
-import {useFileInputContext} from "../file-input/internal/fileInputContext.js";
-import {TrashCanIcon} from "../icon/index.js";
-import {SupportLabel} from "../input-group/index.js";
-import {Link} from "../link/index.js";
-import type {FileProps} from "./types.js";
+import React, { type ComponentProps, type FC, useId } from "react";
+import { formatBytes } from "../../utilities/index.js";
+import { Button } from "../button/index.js";
+import { useFileInputContext } from "../file-input/internal/fileInputContext.js";
+import { TrashCanIcon } from "../icon/index.js";
+import { SupportLabel } from "../input-group/index.js";
+import { Link } from "../link/index.js";
+import type { FileProps } from "./types.js";
 
 export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
     const {
@@ -45,7 +45,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
                     className="jkl-file__content__thumbnail"
                     data-filetype={fileType}
                 >
-                    <img src={imageSrc || undefined} alt=""/>
+                    <img src={imageSrc || undefined} alt="" />
                 </div>
                 {path ? (
                     <p className="jkl-file__content__name">
@@ -70,7 +70,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
                         className="jkl-file__content__button"
                         onClick={onRemove}
                         title={`Fjern ${fileName}`}
-                        icon={<TrashCanIcon/>}
+                        icon={<TrashCanIcon />}
                     />
                 )}
             </div>

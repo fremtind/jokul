@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardImage } from "@fremtind/jokul";
+import { Card, CardImage } from "@fremtind/jokul/card";
 import styles from "./komponenter.module.scss";
 
 type Props = {

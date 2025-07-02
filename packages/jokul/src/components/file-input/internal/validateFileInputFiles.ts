@@ -1,5 +1,5 @@
-import {formatBytes} from "../../../utilities/formatters/bytes/formatBytes.js";
-import type {UploadedFile} from "../types.js";
+import { formatBytes } from "../../../utilities/formatters/bytes/formatBytes.js";
+import type { UploadedFile } from "../types.js";
 
 export function validateFileInputFiles(
     file: File,

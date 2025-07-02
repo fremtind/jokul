@@ -1,5 +1,5 @@
-import { Flex } from "@fremtind/jokul/components/flex";
-import { Link } from "@fremtind/jokul/components/link";
+import { Flex } from "@fremtind/jokul/flex";
+import { Link } from "@fremtind/jokul/link";
 import BetaTag from "../BetaTag";
 import styles from "./SiteHeader.module.scss";
 import { HamburgerButton } from "./menu/HamburgerButton";

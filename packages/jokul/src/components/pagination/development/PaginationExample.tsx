@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { ScreenReaderOnly } from "../../ScreenReaderOnly.js";
+import { ScreenReaderOnly } from "../../screen-reader-only/ScreenReaderOnly.js";
 import { TextInput } from "../../text-input/TextInput.js";
 import { Pagination } from "../Pagination.js";
 

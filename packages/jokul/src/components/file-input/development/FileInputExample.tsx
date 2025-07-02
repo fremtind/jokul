@@ -1,11 +1,15 @@
-import React, {type FC, useState} from "react";
-import type {CodeExample, ExampleComponentProps, ExampleKnobsProps,} from "utils/dev-example/index.js";
-import {formatBytes} from "../../../utilities/formatters/bytes/formatBytes.js";
-import {PrimaryButton} from "../../button/Button.js";
-import {File} from "../../file/index.js";
-import type {FileProps} from "../../file/types.js";
-import {FileInput} from "../FileInput.js";
-import type {UploadedFile} from "../types.js";
+import React, { type FC, useState } from "react";
+import type {
+    CodeExample,
+    ExampleComponentProps,
+    ExampleKnobsProps,
+} from "utils/dev-example/index.js";
+import { formatBytes } from "../../../utilities/formatters/bytes/formatBytes.js";
+import { PrimaryButton } from "../../button/Button.js";
+import { File } from "../../file/index.js";
+import type { FileProps } from "../../file/types.js";
+import { FileInput } from "../FileInput.js";
+import type { UploadedFile } from "../types.js";
 
 export const fileInputExampleKnobs: ExampleKnobsProps = {
     boolProps: [
@@ -25,9 +29,9 @@ export const fileInputExampleKnobs: ExampleKnobsProps = {
 };
 
 export const FileInputExample: FC<ExampleComponentProps> = ({
-                                                                boolValues,
-                                                                choiceValues,
-                                                            }) => {
+    boolValues,
+    choiceValues,
+}) => {
     const [files, setFiles] = useState<UploadedFile[]>([]);
 
     const maxSizeBytes = 8_000_000;
@@ -37,7 +41,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
             <FileInput
                 id="file-input-example"
                 legend="Vedlegg"
-                labelProps={{variant: "medium"}}
+                labelProps={{ variant: "medium" }}
                 className="jkl-spacing-16-24--bottom"
                 accept="image/*,.pdf"
                 maxSizeBytes={maxSizeBytes}
@@ -47,7 +51,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                     setFiles((currentFiles) => [...currentFiles, ...newFiles]);
                 }}
             >
-                {files.map(({state, file, validation}, index) => {
+                {files.map(({ state, file, validation }, index) => {
                     let label: string | undefined = undefined;
                     let demoState: FileProps["state"] = undefined;
 
@@ -121,8 +125,8 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                                             file.file.name ===
                                             fileToUpload.file.name
                                                 ? {
-                                                    ...file,
-                                                }
+                                                      ...file,
+                                                  }
                                                 : file,
                                         ),
                                     );
@@ -134,9 +138,9 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                     const newFiles = files.map((file) =>
                         toUpload.includes(file)
                             ? {
-                                ...file,
-                                state: "loading" as FileProps["state"],
-                            }
+                                  ...file,
+                                  state: "loading" as FileProps["state"],
+                              }
                             : file,
                     );
 
@@ -154,9 +158,9 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
 export default FileInputExample;
 
 export const fileInputExampleCode: CodeExample = ({
-                                                      boolValues,
-                                                      choiceValues,
-                                                  }) => `
+    boolValues,
+    choiceValues,
+}) => `
 // import { File, FileInput, type FileInputFile, upload } from "@fremtind/jkl-file-input-react";
 // import type { SupportLabelType } from "@fremtind/jkl-input-group-react";
 
