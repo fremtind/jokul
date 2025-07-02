@@ -1,3 +1,7 @@
-export {FileInput} from "./FileInput.js";
+export { FileInput } from "./FileInput.js";
 export { upload } from "./utils.js";
-export type {FileInputProps} from "./types.js";
+export type {
+    FileInputProps,
+    UploadedFile,
+    UploadedFileValidation,
+} from "./types.js";
