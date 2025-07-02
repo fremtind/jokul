@@ -1,4 +1,4 @@
-import { SearchIcon } from "@fremtind/jokul/components/icon";
+import { SearchIcon } from "@fremtind/jokul/icon";
 import cn from "clsx";
 import type { MouseEventHandler } from "react";
 import { KeyboardShortcut } from "./KeyboardShortcut";

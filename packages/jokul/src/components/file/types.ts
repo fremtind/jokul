@@ -1,4 +1,4 @@
-import type {MouseEvent} from "react";
+import type { MouseEvent } from "react";
 
 export type FileProps = {
     fileName: string;

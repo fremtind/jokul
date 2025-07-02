@@ -1,7 +1,7 @@
-import React, {forwardRef, useId} from "react";
-import type {UploadedFile} from "../types.js";
-import {useFileInputContext} from "./fileInputContext.js";
-import {validateFileInputFiles} from "./validateFileInputFiles.js";
+import React, { forwardRef, useId } from "react";
+import type { UploadedFile } from "../types.js";
+import { useFileInputContext } from "./fileInputContext.js";
+import { validateFileInputFiles } from "./validateFileInputFiles.js";
 
 interface FileInputProps {
     id?: string;

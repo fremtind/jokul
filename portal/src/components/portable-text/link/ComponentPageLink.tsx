@@ -1,5 +1,5 @@
 import type { Slug } from "@/sanity/types";
-import { Link } from "@fremtind/jokul/components/link";
+import { Link } from "@fremtind/jokul/link";
 import type { PortableTextMarkComponentProps } from "next-sanity";
 import NextLink from "next/link";
 

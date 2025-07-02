@@ -1,8 +1,8 @@
 "use client";
 
 import type { BlogPostsQueryResult } from "@/sanity/types";
-import { Flex } from "@fremtind/jokul/components/flex";
-import { Link } from "@fremtind/jokul/components/link";
+import { Flex } from "@fremtind/jokul/flex";
+import { Link } from "@fremtind/jokul/link";
 import { formatDate } from "@fremtind/jokul/utilities";
 import NextLink from "next/link";
 

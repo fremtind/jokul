@@ -1,5 +1,5 @@
-import {describe, expect, it} from "vitest";
-import {validateFileInputFiles} from "./validateFileInputFiles.js";
+import { describe, expect, it } from "vitest";
+import { validateFileInputFiles } from "./validateFileInputFiles.js";
 
 describe("validateFileInputFiles", () => {
     it("should pass when file is of an expected format and size", () => {

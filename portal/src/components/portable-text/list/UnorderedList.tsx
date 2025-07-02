@@ -1,4 +1,4 @@
-import { UnorderedList as JokulUnorderedList } from "@fremtind/jokul/components/list";
+import { UnorderedList as JokulUnorderedList } from "@fremtind/jokul/list";
 import type { PortableTextComponentProps } from "@portabletext/react";
 import type { FC } from "react";
 
