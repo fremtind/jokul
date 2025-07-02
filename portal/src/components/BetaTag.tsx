@@ -1,6 +1,6 @@
 "use client";
 
-import { WarningTag } from "@fremtind/jokul/components/tag";
+import { WarningTag } from "@fremtind/jokul/tag";
 
 const BetaTag = () => {
     return <WarningTag>Beta</WarningTag>;

@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@fremtind/jokul/components/button";
-import { Icon } from "@fremtind/jokul/components/icon";
+import { Button } from "@fremtind/jokul/button";
+import { Icon } from "@fremtind/jokul/icon";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import styles from "../SiteHeader.module.scss";

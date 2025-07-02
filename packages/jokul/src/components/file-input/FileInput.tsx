@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import React, {forwardRef, useId} from "react";
-import {FieldGroup} from "../../components/input-group/FieldGroup.js";
-import {Dropzone} from "./internal/Dropzone.js";
-import {Input} from "./internal/Input.js";
-import {MaxSize} from "./internal/MaxSize.js";
-import {FileInputContextProvider} from "./internal/fileInputContext.js";
-import type {FileInputProps} from "./types.js";
+import React, { forwardRef, useId } from "react";
+import { FieldGroup } from "../../components/input-group/FieldGroup.js";
+import { Dropzone } from "./internal/Dropzone.js";
+import { Input } from "./internal/Input.js";
+import { MaxSize } from "./internal/MaxSize.js";
+import { FileInputContextProvider } from "./internal/fileInputContext.js";
+import type { FileInputProps } from "./types.js";
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
     (props, ref) => {

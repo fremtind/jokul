@@ -1,7 +1,7 @@
 import * as matchers from "@testing-library/jest-dom/matchers";
 import { cleanup } from "@testing-library/react";
-import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
 import { toHaveNoViolations } from "jest-axe";
+import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
 
 expect.extend(matchers);
 expect.extend(toHaveNoViolations);

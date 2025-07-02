@@ -1,8 +1,8 @@
 "use client";
 
-import { Flex } from "@fremtind/jokul/components/flex";
-import { Link } from "@fremtind/jokul/components/link";
-import { InfoMessage } from "@fremtind/jokul/components/message";
+import { Flex } from "@fremtind/jokul/flex";
+import { Link } from "@fremtind/jokul/link";
+import { InfoMessage } from "@fremtind/jokul/message";
 
 type ComponentEmptyStateProps = {
     name: string;

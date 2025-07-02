@@ -1,4 +1,4 @@
-import { ListItem as JokulListItem } from "@fremtind/jokul/components/list";
+import { ListItem as JokulListItem } from "@fremtind/jokul/list";
 import type { PortableTextComponentProps } from "@portabletext/react";
 import type { FC } from "react";
 

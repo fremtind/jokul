@@ -1,9 +1,5 @@
 import type { Jokul_componentKortFortalt } from "@/sanity/types";
-import {
-    CheckListItem,
-    CrossListItem,
-    List,
-} from "@fremtind/jokul/components/list";
+import { CheckListItem, CrossListItem, List } from "@fremtind/jokul/list";
 import type { PortableTextTypeComponentProps } from "@portabletext/react";
 import type { FC } from "react";
 import { PortableText } from "../PortableText";

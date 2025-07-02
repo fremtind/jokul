@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@fremtind/jokul/components/button";
+import { Button } from "@fremtind/jokul/button";
 import { useLocalStorage } from "@fremtind/jokul/hooks";
 import clsx from "clsx";
 import styles from "./komponenter.module.scss";

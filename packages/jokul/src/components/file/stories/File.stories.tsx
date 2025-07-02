@@ -1,17 +1,22 @@
-import type {Meta, StoryObj} from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import "../../file-input/styles/_index.scss";
-import {Button} from "../../button/index.js";
-import {Flex} from "../../flex/index.js";
-import {SkeletonElement, SkeletonTable, SkeletonTableHeader, SkeletonTableRow,} from "../../loader/index.js";
-import {File} from "../File.js";
+import { Button } from "../../button/index.js";
+import { Flex } from "../../flex/index.js";
+import {
+    SkeletonElement,
+    SkeletonTable,
+    SkeletonTableHeader,
+    SkeletonTableRow,
+} from "../../loader/index.js";
+import { File } from "../File.js";
 
 import * as url from "./cow.jpg";
 
 const meta = {
     title: "Komponenter/File/File",
     component: File,
-    subcomponents: {Button},
+    subcomponents: { Button },
     parameters: {
         layout: "centered",
     },
@@ -42,7 +47,7 @@ export const FileStory: Story = {
     args: {
         onRemove: () => "",
     },
-    render: (args) => <File {...args} onRemove={() => "e"}/>,
+    render: (args) => <File {...args} onRemove={() => "e"} />,
 };
 
 export const FileListStory: Story = {
@@ -67,24 +72,24 @@ export const FileListStory: Story = {
                     <h2 className={"jkl-heading-2"}>Oppsummering</h2>
                     <SkeletonTable>
                         <SkeletonTableHeader>
-                            <SkeletonElement height={20} width={60}/>
-                            <SkeletonElement height={20} width={240}/>
-                            <SkeletonElement height={20} width={90}/>
+                            <SkeletonElement height={20} width={60} />
+                            <SkeletonElement height={20} width={240} />
+                            <SkeletonElement height={20} width={90} />
                         </SkeletonTableHeader>
                         <SkeletonTableRow>
-                            <SkeletonElement height={20} width={60}/>
-                            <SkeletonElement height={20} width={240}/>
-                            <SkeletonElement height={20} width={90}/>
+                            <SkeletonElement height={20} width={60} />
+                            <SkeletonElement height={20} width={240} />
+                            <SkeletonElement height={20} width={90} />
                         </SkeletonTableRow>
                         <SkeletonTableRow>
-                            <SkeletonElement height={20} width={60}/>
-                            <SkeletonElement height={20} width={240}/>
-                            <SkeletonElement height={20} width={90}/>
+                            <SkeletonElement height={20} width={60} />
+                            <SkeletonElement height={20} width={240} />
+                            <SkeletonElement height={20} width={90} />
                         </SkeletonTableRow>
                         <SkeletonTableRow>
-                            <SkeletonElement height={20} width={60}/>
-                            <SkeletonElement height={20} width={240}/>
-                            <SkeletonElement height={20} width={90}/>
+                            <SkeletonElement height={20} width={60} />
+                            <SkeletonElement height={20} width={240} />
+                            <SkeletonElement height={20} width={90} />
                         </SkeletonTableRow>
                     </SkeletonTable>
                 </div>

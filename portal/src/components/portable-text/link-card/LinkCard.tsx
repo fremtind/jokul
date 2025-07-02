@@ -1,8 +1,8 @@
 "use client";
 import type { Jokul_linkCard } from "@/sanity/types";
-import { Card } from "@fremtind/jokul/components/card";
-import { OpenInNewIcon } from "@fremtind/jokul/components/icon";
-import { Flex } from "@fremtind/jokul/components/flex";
+import { Card } from "@fremtind/jokul/card";
+import { Flex } from "@fremtind/jokul/flex";
+import { OpenInNewIcon } from "@fremtind/jokul/icon";
 import type { PortableTextTypeComponentProps } from "@portabletext/react";
 import type { FC } from "react";
 import styles from "./linkCard.module.scss";

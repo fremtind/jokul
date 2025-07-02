@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "@fremtind/jokul/components/link";
+import { Link } from "@fremtind/jokul/link";
 import { useDraftModeEnvironment } from "next-sanity/hooks";
 
 export function DisableDraftMode() {

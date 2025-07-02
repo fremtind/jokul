@@ -60,7 +60,7 @@
             }
         },
         "./styles/components/accordion": "./styles/components/accordion/_index.scss",
-        "./components/accordion": {
+        "./accordion": {
             "import": {
                 "types": "./build/es/components/accordion/index.d.ts",
                 "default": "./build/es/components/accordion/index.js"
@@ -71,7 +71,7 @@
             }
         },
         "./styles/components/autosuggest": "./styles/components/autosuggest/_index.scss",
-        "./components/autosuggest": {
+        "./autosuggest": {
             "import": {
                 "types": "./build/es/components/autosuggest/index.d.ts",
                 "default": "./build/es/components/autosuggest/index.js"
@@ -82,7 +82,7 @@
             }
         },
         "./styles/components/breadcrumb": "./styles/components/breadcrumb/_index.scss",
-        "./components/breadcrumb": {
+        "./breadcrumb": {
             "import": {
                 "types": "./build/es/components/breadcrumb/index.d.ts",
                 "default": "./build/es/components/breadcrumb/index.js"
@@ -93,7 +93,7 @@
             }
         },
         "./styles/components/button": "./styles/components/button/_index.scss",
-        "./components/button": {
+        "./button": {
             "import": {
                 "types": "./build/es/components/button/index.d.ts",
                 "default": "./build/es/components/button/index.js"
@@ -104,7 +104,7 @@
             }
         },
         "./styles/components/card": "./styles/components/card/_index.scss",
-        "./components/card": {
+        "./card": {
             "import": {
                 "types": "./build/es/components/card/index.d.ts",
                 "default": "./build/es/components/card/index.js"
@@ -115,7 +115,7 @@
             }
         },
         "./styles/components/checkbox": "./styles/components/checkbox/_index.scss",
-        "./components/checkbox": {
+        "./checkbox": {
             "import": {
                 "types": "./build/es/components/checkbox/index.d.ts",
                 "default": "./build/es/components/checkbox/index.js"
@@ -126,7 +126,7 @@
             }
         },
         "./styles/components/checkbox-panel": "./styles/components/checkbox-panel/_index.scss",
-        "./components/checkbox-panel": {
+        "./checkbox-panel": {
             "import": {
                 "types": "./build/es/components/checkbox-panel/index.d.ts",
                 "default": "./build/es/components/checkbox-panel/index.js"
@@ -137,7 +137,7 @@
             }
         },
         "./styles/components/chip": "./styles/components/chip/_index.scss",
-        "./components/chip": {
+        "./chip": {
             "import": {
                 "types": "./build/es/components/chip/index.d.ts",
                 "default": "./build/es/components/chip/index.js"
@@ -148,7 +148,7 @@
             }
         },
         "./styles/components/combobox": "./styles/components/combobox/_index.scss",
-        "./components/combobox": {
+        "./combobox": {
             "import": {
                 "types": "./build/es/components/combobox/index.d.ts",
                 "default": "./build/es/components/combobox/index.js"
@@ -159,7 +159,7 @@
             }
         },
         "./styles/components/cookie-consent": "./styles/components/cookie-consent/_index.scss",
-        "./components/cookie-consent": {
+        "./cookie-consent": {
             "import": {
                 "types": "./build/es/components/cookie-consent/index.d.ts",
                 "default": "./build/es/components/cookie-consent/index.js"
@@ -170,7 +170,7 @@
             }
         },
         "./styles/components/countdown": "./styles/components/countdown/_index.scss",
-        "./components/countdown": {
+        "./countdown": {
             "import": {
                 "types": "./build/es/components/countdown/index.d.ts",
                 "default": "./build/es/components/countdown/index.js"
@@ -181,7 +181,7 @@
             }
         },
         "./styles/components/datepicker": "./styles/components/datepicker/_index.scss",
-        "./components/datepicker": {
+        "./datepicker": {
             "import": {
                 "types": "./build/es/components/datepicker/index.d.ts",
                 "default": "./build/es/components/datepicker/index.js"
@@ -192,7 +192,7 @@
             }
         },
         "./styles/components/description-list": "./styles/components/description-list/_index.scss",
-        "./components/description-list": {
+        "./description-list": {
             "import": {
                 "types": "./build/es/components/description-list/index.d.ts",
                 "default": "./build/es/components/description-list/index.js"
@@ -203,7 +203,7 @@
             }
         },
         "./styles/components/expander": "./styles/components/expander/_index.scss",
-        "./components/expander": {
+        "./expander": {
             "import": {
                 "types": "./build/es/components/expander/index.d.ts",
                 "default": "./build/es/components/expander/index.js"
@@ -214,7 +214,7 @@
             }
         },
         "./styles/components/feedback": "./styles/components/feedback/_index.scss",
-        "./components/feedback": {
+        "./feedback": {
             "import": {
                 "types": "./build/es/components/feedback/index.d.ts",
                 "default": "./build/es/components/feedback/index.js"
@@ -225,7 +225,7 @@
             }
         },
         "./styles/components/file": "./styles/components/file/_index.scss",
-        "./components/file": {
+        "./file": {
             "import": {
                 "types": "./build/es/components/file/index.d.ts",
                 "default": "./build/es/components/file/index.js"
@@ -236,7 +236,7 @@
             }
         },
         "./styles/components/file-input": "./styles/components/file-input/_index.scss",
-        "./components/file-input": {
+        "./file-input": {
             "import": {
                 "types": "./build/es/components/file-input/index.d.ts",
                 "default": "./build/es/components/file-input/index.js"
@@ -247,7 +247,7 @@
             }
         },
         "./styles/components/flex": "./styles/components/flex/_index.scss",
-        "./components/flex": {
+        "./flex": {
             "import": {
                 "types": "./build/es/components/flex/index.d.ts",
                 "default": "./build/es/components/flex/index.js"
@@ -258,7 +258,7 @@
             }
         },
         "./styles/components/icon": "./styles/components/icon/_index.scss",
-        "./components/icon": {
+        "./icon": {
             "import": {
                 "types": "./build/es/components/icon/index.d.ts",
                 "default": "./build/es/components/icon/index.js"
@@ -269,7 +269,7 @@
             }
         },
         "./styles/components/icon-button": "./styles/components/icon-button/_index.scss",
-        "./components/icon-button": {
+        "./icon-button": {
             "import": {
                 "types": "./build/es/components/icon-button/index.d.ts",
                 "default": "./build/es/components/icon-button/index.js"
@@ -280,7 +280,7 @@
             }
         },
         "./styles/components/image": "./styles/components/image/_index.scss",
-        "./components/image": {
+        "./image": {
             "import": {
                 "types": "./build/es/components/image/index.d.ts",
                 "default": "./build/es/components/image/index.js"
@@ -291,7 +291,7 @@
             }
         },
         "./styles/components/input-group": "./styles/components/input-group/_index.scss",
-        "./components/input-group": {
+        "./input-group": {
             "import": {
                 "types": "./build/es/components/input-group/index.d.ts",
                 "default": "./build/es/components/input-group/index.js"
@@ -302,7 +302,7 @@
             }
         },
         "./styles/components/link": "./styles/components/link/_index.scss",
-        "./components/link": {
+        "./link": {
             "import": {
                 "types": "./build/es/components/link/index.d.ts",
                 "default": "./build/es/components/link/index.js"
@@ -313,7 +313,7 @@
             }
         },
         "./styles/components/link-list": "./styles/components/link-list/_index.scss",
-        "./components/link-list": {
+        "./link-list": {
             "import": {
                 "types": "./build/es/components/link-list/index.d.ts",
                 "default": "./build/es/components/link-list/index.js"
@@ -324,7 +324,7 @@
             }
         },
         "./styles/components/list": "./styles/components/list/_index.scss",
-        "./components/list": {
+        "./list": {
             "import": {
                 "types": "./build/es/components/list/index.d.ts",
                 "default": "./build/es/components/list/index.js"
@@ -335,7 +335,7 @@
             }
         },
         "./styles/components/loader": "./styles/components/loader/_index.scss",
-        "./components/loader": {
+        "./loader": {
             "import": {
                 "types": "./build/es/components/loader/index.d.ts",
                 "default": "./build/es/components/loader/index.js"
@@ -346,7 +346,7 @@
             }
         },
         "./styles/components/logo": "./styles/components/logo/_index.scss",
-        "./components/logo": {
+        "./logo": {
             "import": {
                 "types": "./build/es/components/logo/index.d.ts",
                 "default": "./build/es/components/logo/index.js"
@@ -357,7 +357,7 @@
             }
         },
         "./styles/components/menu": "./styles/components/menu/_index.scss",
-        "./components/menu": {
+        "./menu": {
             "import": {
                 "types": "./build/es/components/menu/index.d.ts",
                 "default": "./build/es/components/menu/index.js"
@@ -368,7 +368,7 @@
             }
         },
         "./styles/components/message": "./styles/components/message/_index.scss",
-        "./components/message": {
+        "./message": {
             "import": {
                 "types": "./build/es/components/message/index.d.ts",
                 "default": "./build/es/components/message/index.js"
@@ -379,7 +379,7 @@
             }
         },
         "./styles/components/modal": "./styles/components/modal/_index.scss",
-        "./components/modal": {
+        "./modal": {
             "import": {
                 "types": "./build/es/components/modal/index.d.ts",
                 "default": "./build/es/components/modal/index.js"
@@ -390,7 +390,7 @@
             }
         },
         "./styles/components/nav-link": "./styles/components/nav-link/_index.scss",
-        "./components/nav-link": {
+        "./nav-link": {
             "import": {
                 "types": "./build/es/components/nav-link/index.d.ts",
                 "default": "./build/es/components/nav-link/index.js"
@@ -401,7 +401,7 @@
             }
         },
         "./styles/components/pagination": "./styles/components/pagination/_index.scss",
-        "./components/pagination": {
+        "./pagination": {
             "import": {
                 "types": "./build/es/components/pagination/index.d.ts",
                 "default": "./build/es/components/pagination/index.js"
@@ -412,7 +412,7 @@
             }
         },
         "./styles/components/popover": "./styles/components/popover/_index.scss",
-        "./components/popover": {
+        "./popover": {
             "import": {
                 "types": "./build/es/components/popover/index.d.ts",
                 "default": "./build/es/components/popover/index.js"
@@ -423,7 +423,7 @@
             }
         },
         "./styles/components/progress-bar": "./styles/components/progress-bar/_index.scss",
-        "./components/progress-bar": {
+        "./progress-bar": {
             "import": {
                 "types": "./build/es/components/progress-bar/index.d.ts",
                 "default": "./build/es/components/progress-bar/index.js"
@@ -434,7 +434,7 @@
             }
         },
         "./styles/components/radio-button": "./styles/components/radio-button/_index.scss",
-        "./components/radio-button": {
+        "./radio-button": {
             "import": {
                 "types": "./build/es/components/radio-button/index.d.ts",
                 "default": "./build/es/components/radio-button/index.js"
@@ -445,7 +445,7 @@
             }
         },
         "./styles/components/radio-panel": "./styles/components/radio-panel/_index.scss",
-        "./components/radio-panel": {
+        "./radio-panel": {
             "import": {
                 "types": "./build/es/components/radio-panel/index.d.ts",
                 "default": "./build/es/components/radio-panel/index.js"
@@ -456,7 +456,7 @@
             }
         },
         "./styles/components/select": "./styles/components/select/_index.scss",
-        "./components/select": {
+        "./select": {
             "import": {
                 "types": "./build/es/components/select/index.d.ts",
                 "default": "./build/es/components/select/index.js"
@@ -467,7 +467,7 @@
             }
         },
         "./styles/components/summary-table": "./styles/components/summary-table/_index.scss",
-        "./components/summary-table": {
+        "./summary-table": {
             "import": {
                 "types": "./build/es/components/summary-table/index.d.ts",
                 "default": "./build/es/components/summary-table/index.js"
@@ -478,7 +478,7 @@
             }
         },
         "./styles/components/system-message": "./styles/components/system-message/_index.scss",
-        "./components/system-message": {
+        "./system-message": {
             "import": {
                 "types": "./build/es/components/system-message/index.d.ts",
                 "default": "./build/es/components/system-message/index.js"
@@ -489,7 +489,7 @@
             }
         },
         "./styles/components/table": "./styles/components/table/_index.scss",
-        "./components/table": {
+        "./table": {
             "import": {
                 "types": "./build/es/components/table/index.d.ts",
                 "default": "./build/es/components/table/index.js"
@@ -500,7 +500,7 @@
             }
         },
         "./styles/components/tabs": "./styles/components/tabs/_index.scss",
-        "./components/tabs": {
+        "./tabs": {
             "import": {
                 "types": "./build/es/components/tabs/index.d.ts",
                 "default": "./build/es/components/tabs/index.js"
@@ -511,7 +511,7 @@
             }
         },
         "./styles/components/tag": "./styles/components/tag/_index.scss",
-        "./components/tag": {
+        "./tag": {
             "import": {
                 "types": "./build/es/components/tag/index.d.ts",
                 "default": "./build/es/components/tag/index.js"
@@ -522,7 +522,7 @@
             }
         },
         "./styles/components/text-area": "./styles/components/text-area/_index.scss",
-        "./components/text-area": {
+        "./text-area": {
             "import": {
                 "types": "./build/es/components/text-area/index.d.ts",
                 "default": "./build/es/components/text-area/index.js"
@@ -533,7 +533,7 @@
             }
         },
         "./styles/components/text-input": "./styles/components/text-input/_index.scss",
-        "./components/text-input": {
+        "./text-input": {
             "import": {
                 "types": "./build/es/components/text-input/index.d.ts",
                 "default": "./build/es/components/text-input/index.js"
@@ -544,7 +544,7 @@
             }
         },
         "./styles/components/toast": "./styles/components/toast/_index.scss",
-        "./components/toast": {
+        "./toast": {
             "import": {
                 "types": "./build/es/components/toast/index.d.ts",
                 "default": "./build/es/components/toast/index.js"
@@ -555,7 +555,7 @@
             }
         },
         "./styles/components/toggle-switch": "./styles/components/toggle-switch/_index.scss",
-        "./components/toggle-switch": {
+        "./toggle-switch": {
             "import": {
                 "types": "./build/es/components/toggle-switch/index.d.ts",
                 "default": "./build/es/components/toggle-switch/index.js"
@@ -566,7 +566,7 @@
             }
         },
         "./styles/components/tooltip": "./styles/components/tooltip/_index.scss",
-        "./components/tooltip": {
+        "./tooltip": {
             "import": {
                 "types": "./build/es/components/tooltip/index.d.ts",
                 "default": "./build/es/components/tooltip/index.js"
@@ -576,7 +576,7 @@
                 "default": "./build/cjs/components/tooltip/index.cjs"
             }
         },
-        "./components/screen-reader-only": {
+        "./screen-reader-only": {
             "import": {
                 "types": "./build/es/components/screen-reader-only/index.d.ts",
                 "default": "./build/es/components/screen-reader-only/index.js"

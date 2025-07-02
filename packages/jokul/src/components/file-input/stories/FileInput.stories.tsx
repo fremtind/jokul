@@ -1,17 +1,17 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import React, {useState} from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import React, { useState } from "react";
 import "../styles/_index.scss";
-import {Button, PrimaryButton} from "../../button/index.js";
-import {File} from "../../file/File.js";
-import {FileInput} from "../FileInput.js";
-import {Dropzone} from "../internal/Dropzone.js";
-import {MaxSize} from "../internal/MaxSize.js";
-import type {UploadedFile} from "../types.js";
+import { Button, PrimaryButton } from "../../button/index.js";
+import { File } from "../../file/File.js";
+import { FileInput } from "../FileInput.js";
+import { Dropzone } from "../internal/Dropzone.js";
+import { MaxSize } from "../internal/MaxSize.js";
+import type { UploadedFile } from "../types.js";
 
 const meta = {
     title: "Komponenter/File/FileInput",
     component: FileInput,
-    subcomponents: {File, Dropzone, MaxSize, Button},
+    subcomponents: { File, Dropzone, MaxSize, Button },
     parameters: {
         layout: "centered",
     },
@@ -52,7 +52,7 @@ export const FileInputStory: Story = {
                         ]);
                     }}
                 >
-                    {files.map(({state, file, validation}, index) => {
+                    {files.map(({ state, file, validation }, index) => {
                         return (
                             <File
                                 key={`${file.name}-${index}`}
@@ -81,14 +81,14 @@ export const FileInputStory: Story = {
                         const newFiles = files.map((file) =>
                             toUpload.includes(file)
                                 ? {
-                                    ...file,
-                                }
+                                      ...file,
+                                  }
                                 : file,
                         );
 
                         setFiles(
                             newFiles.map((file) => {
-                                return {...file, state: "loading"};
+                                return { ...file, state: "loading" };
                             }),
                         );
 
