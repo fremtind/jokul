@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.71.2
+
+### Patch Changes
+
+- fb54ec3: Gjør typer for file-input tilgjengelig for konsumenter
+
 ## 0.71.1
 
 ### Patch Changes
