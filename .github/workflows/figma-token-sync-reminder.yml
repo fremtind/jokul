@@ -1,0 +1,30 @@
+name: Månedlig påminnelse - Synkroniser design-tokens
+
+on:
+  schedule:
+    # Kjører hver mandag kl. 09:00
+    - cron: '0 9 * * 1'
+jobs:
+  create_token_issue:
+    name: Opprett påminnelses-issue
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Opprett GitHub Issue
+        uses: imjohnbo/issue-bot@76645b39cda009302cc49d8624af634795e9eab5
+        with:
+          assignees: "zenabii, kristianulv23, piofinn, fremtindelise, lmfaole"
+          rotate-assignees: true
+          close-previous: true
+          labels: "🍱 Plukk og miks"
+          title: "Manuell synkronisering av design tokens"
+          body: |
+            ### På tide med manuell synkronisering av design tokens!
+
+            Dette er en automatisk påminnelse om å synkronisere design tokens fra Figma til kodebasen for Jøkul.
+
+            **Følg prosessen som er beskrevet her:**
+            [Dokumentasjon for Figma Tokens-synkronisering](https://github.com/fremtind/jokul/blob/main/docs/FIGMA_TOKENS_SYNC.md)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
