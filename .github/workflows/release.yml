@@ -26,10 +26,10 @@ jobs:
               uses: pnpm/action-setup@v4
 
             - name: Setup Node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
-                  node-version: 22
-                  cache: pnpm
+                  node-version-file: '.nvmrc'
+                  cache: "pnpm"
 
             - name: Installer avhengigheter
               run: pnpm install --frozen-lockfile
@@ -54,7 +54,7 @@ jobs:
 
             - name: Bytt registry til GitHub Packages
               if: steps.changesets.outputs.published == 'true'
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                 registry-url: "https://npm.pkg.github.com"
                 scope: "@fremtind"

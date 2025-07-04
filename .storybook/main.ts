@@ -1,5 +1,4 @@
 import type { StorybookConfig } from "@storybook/react-vite";
-import vitePluginReact from "@vitejs/plugin-react";
 
 const config: StorybookConfig = {
     stories: ["../packages/jokul/**/*.stories.@(ts|tsx)"],
@@ -21,11 +20,6 @@ const config: StorybookConfig = {
     viteFinal: (config) => {
         return {
             ...config,
-            plugins: [
-                ...(config.plugins || []),
-                // Ensure Vite uses the correct plugin
-                vitePluginReact(),
-            ],
             css: {
                 preprocessorOptions: { scss: { api: "modern" } },
             },
