@@ -102,9 +102,9 @@ jobs:
               uses: pnpm/action-setup@v4
 
             - name: Setup Node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
-                  node-version: 22
+                  node-version-file: '.nvmrc'
                   cache: "pnpm"
 
             - name: "Ingen endringer i kode, hopp over"
@@ -143,9 +143,9 @@ jobs:
               uses: pnpm/action-setup@v4
 
             - name: Setup Node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
-                  node-version: 22
+                  node-version-file: '.nvmrc'
                   cache: "pnpm"
 
               # Steget må være med, men vil være cachet
