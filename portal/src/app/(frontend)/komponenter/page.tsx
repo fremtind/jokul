@@ -1,3 +1,5 @@
+import { cookies } from "next/headers";
+
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentsQuery } from "@/sanity/queries/component";
 import { ComponentCard } from "./ComponentCard";
@@ -6,6 +8,8 @@ import styles from "./komponenter.module.scss";
 
 export default async function Components() {
     const { data: components } = await sanityFetch({ query: componentsQuery });
+
+    const viewMode = (await cookies()).get("componentGalleryViewMode")?.value;
 
     if (!components) {
         return (
@@ -19,7 +23,7 @@ export default async function Components() {
     return (
         <>
             <h1 className={styles.pageTitle}>Komponent&shy;oversikt</h1>
-            <ComponentGallery>
+            <ComponentGallery mode={viewMode}>
                 {components.map((component) => (
                     <li key={component.slug?.current}>
                         <ComponentCard
