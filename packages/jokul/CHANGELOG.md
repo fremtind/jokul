@@ -1,5 +1,35 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- 3406c20: Import av komponenter fra roten av `@fremtind/jokul` er ikke lenger mulig.
+
+  For å fikse dette må alle importer oppdateres til å peke direkte på den spesifikke modulen:
+
+  **FØR:**
+
+  ```typescript
+  import { Card } from "@fremtind/jokul";
+  ```
+
+  **ETTER:**
+
+  ```typescript
+  import { Card } from "@fremtind/jokul/card";
+  ```
+
+  `ScreenReaderOnly`-komponenten er også flyttet og må nå importeres fra `@fremtind/jokul/screen-reader-only`.
+
+### Patch Changes
+
+- 2610a20: Rettet en feil med type-resolution for brukere av `pnpm` workspaces.
+
+  Brukere i `pnpm` workspaces, spesielt de som håndterer flere React-versjoner (f.eks. v18 og v19), opplevde at props for Jøkul-komponenter ble feilaktig resolvet til `any`.
+
+  For å løse dette har vi lagt til `@types/react` i vår `peerDependencies`. Dette følger den offisielle anbefalingen fra [pnpm-dokumentasjonen](https://pnpm.io/typescript#workspace-usage).
+
 ## 0.71.2
 
 ### Patch Changes
