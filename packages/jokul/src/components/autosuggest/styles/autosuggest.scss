@@ -25,21 +25,21 @@
 
     --jkl-autosuggest-menu-padding: 1rem 0.5rem 0;
     --jkl-autosuggest-controller-button-width: auto;
-    --jkl-autosuggest-controller-button-padding: 0 #{jkl.$spacing-s};
+    --jkl-autosuggest-controller-button-padding: 0 #{jkl.$spacing-12};
     --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
-    --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-s};
+    --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-12};
     --jkl-autosuggest-option-height: #{jkl.rem(48px)};
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-autosuggest-item", "small");
 
-    --jkl-autosuggest-menu-padding: #{jkl.$spacing-2xs};
+    --jkl-autosuggest-menu-padding: #{jkl.$spacing-4};
     --jkl-autosuggest-controller-button-width: #{jkl.rem(24px)};
     --jkl-autosuggest-controller-button-padding: 0;
     --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(18px)};
     --jkl-autosuggest-no-hits-message-font-size: var(--jkl-small-font-size);
-    --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-xs};
+    --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-8};
     --jkl-autosuggest-option-height: #{jkl.rem(32px)};
 }
 

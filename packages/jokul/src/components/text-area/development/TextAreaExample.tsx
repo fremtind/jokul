@@ -51,7 +51,7 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({
 
     return (
         <TextArea
-            className="jkl-spacing-xl--top"
+            className="jkl-spacing-40--top"
             label="Beskrivelse"
             name="beskrivelse"
             helpLabel={helpLabel}

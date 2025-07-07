@@ -102,7 +102,7 @@ function BaseAutosuggest<T>({
                                 {leadText && (
                                     <p
                                         className={clsx(
-                                            "jkl-spacing-l--bottom",
+                                            "jkl-spacing-24--bottom",
                                             {
                                                 "jkl-body":
                                                     density !== "compact",

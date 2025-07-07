@@ -3,7 +3,8 @@
 @use "../../../core/jkl";
 
 $_smiley-size: jkl.rem(40px);
-$_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomrom
+$_smileys-max-width: $_smiley-size
+    * 9; // 5 smileys med fire like store mellomrom
 $_show-animation-name: jkl-show-#{string.unique-id()};
 
 @keyframes #{$_show-animation-name} {
@@ -50,7 +51,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     width: 100%;
     max-width: $_smileys-max-width;
     flex-wrap: nowrap;
-    gap: jkl.$spacing-s;
+    gap: jkl.$spacing-12;
 }
 
 .jkl-feedback-smiley-option {
@@ -67,7 +68,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
 
     @include jkl.forced-colors-svg-fallback(
         $stroke: ButtonFace,
-        $fill: ButtonText
+        $fill: ButtonText,
     );
 
     &::before,

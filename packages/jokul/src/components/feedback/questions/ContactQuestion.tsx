@@ -114,11 +114,11 @@ export const ContactQuestion: FC<ContactQuestionProps> = ({
 
     return (
         <form
-            className="jkl-spacing-xl--top"
+            className="jkl-spacing-40--top"
             onSubmit={handleSubmit}
             aria-label={landmarkLabel}
         >
-            <p className="jkl-heading-4 jkl-spacing-xs--bottom">{label}</p>
+            <p className="jkl-heading-4 jkl-spacing-8--bottom">{label}</p>
             {children && (
                 <ChildrenWrapper className="jkl-body">
                     {children}
@@ -127,7 +127,7 @@ export const ContactQuestion: FC<ContactQuestionProps> = ({
 
             <TextInput
                 ref={emailRef}
-                className="jkl-spacing-l--top"
+                className="jkl-spacing-24--top"
                 label="E-post"
                 labelProps={{ variant: "small" }}
                 autoComplete="email"
@@ -139,7 +139,7 @@ export const ContactQuestion: FC<ContactQuestionProps> = ({
             {withPhone && (
                 <TextInput
                     ref={phoneRef}
-                    className="jkl-spacing-l--top"
+                    className="jkl-spacing-24--top"
                     label="Telefonnummer"
                     labelProps={{ variant: "small" }}
                     autoComplete="tel"
@@ -150,8 +150,8 @@ export const ContactQuestion: FC<ContactQuestionProps> = ({
                 />
             )}
 
-            <div className="jkl-spacing-xl--top">
-                <PrimaryButton type="submit" className="jkl-spacing-xl--right">
+            <div className="jkl-spacing-40--top">
+                <PrimaryButton type="submit" className="jkl-spacing-40--right">
                     {sendButtonLabel}
                 </PrimaryButton>
                 <TertiaryButton onClick={() => setNoThanks(true)}>
