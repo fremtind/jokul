@@ -4,56 +4,6 @@
 @use "screens";
 @use "legacy-tokens";
 
-/// Tilsvarer 2px
-/// @deprecated Bruk heller $spacing-2
-/// @type Number
-$spacing-3xs: legacy-tokens.$spacing-2;
-
-/// Tilsvarer 4px
-/// @deprecated Bruk heller $spacing-4
-/// @type Number
-$spacing-2xs: legacy-tokens.$spacing-4;
-
-/// Tilsvarer 8px
-/// @deprecated Bruk heller $spacing-8
-/// @type Number
-$spacing-xs: legacy-tokens.$spacing-8;
-
-/// Tilsvarer 12px
-/// @deprecated Bruk heller $spacing-12
-/// @type Number
-$spacing-s: legacy-tokens.$spacing-12;
-
-/// Tilsvarer 16px
-/// @deprecated Bruk heller $spacing-16
-/// @type Number
-$spacing-m: legacy-tokens.$spacing-16;
-
-/// Tilsvarer 24px
-/// @deprecated Bruk heller $spacing-24
-/// @type Number
-$spacing-l: legacy-tokens.$spacing-24;
-
-/// Tilsvarer 40px
-/// @deprecated Bruk heller $spacing-40
-/// @type Number
-$spacing-xl: legacy-tokens.$spacing-40;
-
-/// Tilsvarer 64px
-/// @deprecated Bruk heller $spacing-64
-/// @type Number
-$spacing-2xl: legacy-tokens.$spacing-64;
-
-/// Tilsvarer 104px
-/// @deprecated Bruk heller $spacing-104
-/// @type Number
-$spacing-3xl: legacy-tokens.$spacing-104;
-
-/// Tilsvarer 168px
-/// @deprecated Bruk heller $spacing-168
-/// @type Number
-$spacing-4xl: legacy-tokens.$spacing-168;
-
 /// Lar deg gjøre oppslag på navnet uten `spacing`-prefix for å få ut rem-verdien
 /// @type Map
 $spacing: (
@@ -68,17 +18,6 @@ $spacing: (
     "64": legacy-tokens.$spacing-64,
     "104": legacy-tokens.$spacing-104,
     "168": legacy-tokens.$spacing-168,
-    // Gamle t-skjortestørrelser for kompatibilitet
-    "3xs": $spacing-3xs,
-    "2xs": $spacing-2xs,
-    "xs": $spacing-xs,
-    "s": $spacing-s,
-    "m": $spacing-m,
-    "l": $spacing-l,
-    "xl": $spacing-xl,
-    "2xl": $spacing-2xl,
-    "3xl": $spacing-3xl,
-    "4xl": $spacing-4xl,
 );
 
 /// Her defineres kombinasjoner av spacinger til bruk i nytteklasser for spacing.
@@ -116,7 +55,7 @@ $combinations: (
     "40" "64" "104",
     "64" "64" "104",
     "64" "104" "168",
-    "104" "104" "168"
+    "104" "104" "168",
 );
 
 /// Posisjoner som kan benyttes for spacing

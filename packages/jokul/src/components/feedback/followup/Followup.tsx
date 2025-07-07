@@ -57,16 +57,16 @@ export const Followup: FC<FollowupProps> = ({
             <FollowUpProvider state={followupState}>
                 {!followupStarted && (
                     <div className="jkl-feedback__fade-in">
-                        <p className="jkl-heading-4 jkl-spacing-xl--top jkl-spacing-xs--bottom">
+                        <p className="jkl-heading-4 jkl-spacing-40--top jkl-spacing-8--bottom">
                             Har du tid til å svare på noen flere spørsmål?
                         </p>
-                        <p className="jkl-body jkl-spacing-xl--bottom">
+                        <p className="jkl-body jkl-spacing-40--bottom">
                             Det tar kun et minutt, og hjelper oss å lage bedre
                             løsninger for deg.
                         </p>
                         <PrimaryButton
                             onClick={() => setFollowupStarted(true)}
-                            className="jkl-spacing-xl--right"
+                            className="jkl-spacing-40--right"
                         >
                             Jeg har tid!
                         </PrimaryButton>
@@ -93,13 +93,13 @@ export const Followup: FC<FollowupProps> = ({
                             autoFocus
                             key={step.number}
                         />
-                        <div className="jkl-spacing-xl--top" aria-live="off">
+                        <div className="jkl-spacing-40--top" aria-live="off">
                             <Button type="submit">
                                 {step.isLast ? "Send inn" : "Neste"}
                             </Button>
                             <TertiaryButton
                                 onClick={handleAbort}
-                                className="jkl-spacing-xl--left"
+                                className="jkl-spacing-40--left"
                             >
                                 Avbryt
                             </TertiaryButton>

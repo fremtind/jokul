@@ -56,7 +56,7 @@ $_slider-rounded: jkl.rem(100px);
     }
 
     &__legend {
-        margin-bottom: jkl.$spacing-xs;
+        margin-bottom: jkl.$spacing-8;
 
         @include jkl.use-font-variables("jkl-slider-legend");
 
@@ -86,7 +86,7 @@ $_slider-rounded: jkl.rem(100px);
         justify-content: center;
         z-index: 1;
         cursor: pointer;
-        padding: jkl.$spacing-3xs jkl.$spacing-m;
+        padding: jkl.$spacing-2 jkl.$spacing-16;
         color: var(--jkl-slider-pill-text);
         -webkit-tap-highlight-color: transparent;
 

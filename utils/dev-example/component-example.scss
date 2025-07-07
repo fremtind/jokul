@@ -14,7 +14,7 @@
     max-width: min(#{jkl.rem(750px)}, 50vw);
 
     @include jkl.small-device {
-        width: calc(100% - #{jkl.$spacing-xl});
+        width: calc(100% - #{jkl.$spacing-40});
         max-width: 100%;
         min-width: initial;
     }
@@ -23,7 +23,7 @@
 .jkl-portal-component-example {
     box-sizing: border-box;
     background-color: var(--component-example-bg);
-    padding: jkl.$spacing-s;
+    padding: jkl.$spacing-12;
     display: flex;
     flex-direction: row;
     max-width: jkl.rem(740px);
@@ -41,15 +41,15 @@
         color: var(--jkl-color);
         background-color: var(--jkl-background-color);
         position: relative;
-        padding: jkl.$spacing-2xl jkl.$spacing-m;
-        scroll-margin-top: jkl.$spacing-4xl;
+        padding: jkl.$spacing-64 jkl.$spacing-16;
+        scroll-margin-top: jkl.$spacing-168;
 
         // Unngå at endring av tittel knekker visuell regresjonstest ved å skjule den
         :not([data-test-mode="e2e"]) &::before {
             color: var(--component-example-header-color);
             position: absolute;
-            top: jkl.$spacing-s;
-            left: jkl.$spacing-m;
+            top: jkl.$spacing-12;
+            left: jkl.$spacing-16;
             content: attr(data-example-text);
 
             @include jkl.text-style("small");
@@ -71,25 +71,25 @@
 
     &__example-options {
         display: block;
-        padding: jkl.$spacing-s jkl.$spacing-l;
+        padding: jkl.$spacing-12 jkl.$spacing-24;
         min-width: jkl.rem(150px);
     }
 
     &__example-options-header {
-        margin-bottom: jkl.$spacing-s;
+        margin-bottom: jkl.$spacing-12;
 
         @include jkl.text-style("small");
 
         &:not(:first-child) {
-            margin-top: jkl.$spacing-l;
+            margin-top: jkl.$spacing-24;
         }
     }
 
     &__choice-option {
-        margin-top: jkl.$spacing-l;
+        margin-top: jkl.$spacing-24;
 
         & .jkl-label.jkl-label--small {
-            color: jkl.$color-fjellgra;
+            color: var(--jkl-color-text-subdued);
 
             @include jkl.text-style("small");
         }
@@ -105,52 +105,7 @@
 
         &__example-options {
             padding: 0;
-            padding-top: jkl.$spacing-s;
-        }
-    }
-}
-
-.jkl-device {
-    overflow: auto hidden;
-    max-width: calc(100vw - 600px);
-    width: 100%;
-
-    &__device {
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        color: jkl.$color-snohvit;
-
-        *[data-theme="dark"] & {
-            color: jkl.$color-granitt;
-        }
-    }
-
-    &-iphone {
-        &__content {
-            height: 812px;
-            width: 375px;
-            border: 1px solid jkl.$color-granitt;
-            overflow: auto;
-        }
-    }
-
-    &-ipad {
-        &__content {
-            height: 833px;
-            width: 1112px;
-            border: 1px solid jkl.$color-granitt;
-            overflow: auto;
-        }
-    }
-
-    &-laptop {
-        &__content {
-            height: 1080px;
-            width: 1920px;
-            border: 1px solid jkl.$color-granitt;
-            overflow: auto;
+            padding-top: jkl.$spacing-12;
         }
     }
 }

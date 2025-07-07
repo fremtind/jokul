@@ -13,7 +13,7 @@ export const ProgressBarExample: FC = () => {
         <div style={{ width: "100%", minWidth: "240px" }}>
             <ProgressBar aria-valuenow={val} />
             <div
-                className="jkl-spacing-l--top"
+                className="jkl-spacing-24--top"
                 style={{
                     display: "flex",
                     flexDirection: "row",

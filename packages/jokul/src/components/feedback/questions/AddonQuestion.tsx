@@ -45,7 +45,7 @@ export const AddonQuestion: React.FC<Props> = ({
                 startOpen
                 rows={4}
                 data-testid="jkl-feedback__open-question"
-                className="jkl-spacing-xl--bottom jkl-spacing-xl--top"
+                className="jkl-spacing-40--bottom jkl-spacing-40--top"
                 label={dynamicLabel}
                 labelProps={{ srOnly: true }}
                 placeholder={dynamicLabel}

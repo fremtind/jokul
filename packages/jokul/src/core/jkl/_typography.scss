@@ -5,86 +5,6 @@
 @use "tokens" as *;
 @use "responsive-units";
 
-/// Tilsvarer 16px
-/// @deprecated Bruk heller $typography-font-size-16
-/// @type Number
-$typography-font-size-1: $typography-font-size-16;
-
-/// Tilsvarer 18px
-/// @deprecated Bruk heller $typography-font-size-18
-/// @type Number
-$typography-font-size-2: $typography-font-size-18;
-
-/// Tilsvarer 20px
-/// @deprecated Bruk heller $typography-font-size-20
-/// @type Number
-$typography-font-size-3: $typography-font-size-20;
-
-/// Tilsvarer 21px
-/// @deprecated Bruk heller $typography-font-size-21
-/// @type Number
-$typography-font-size-4: $typography-font-size-21;
-
-/// Tilsvarer 23px
-/// @deprecated Bruk heller $typography-font-size-23
-/// @type Number
-$typography-font-size-5: $typography-font-size-23;
-
-/// Tilsvarer 25px
-/// @deprecated Bruk heller $typography-font-size-25
-/// @type Number
-$typography-font-size-6: $typography-font-size-25;
-
-/// Tilsvarer 26px
-/// @deprecated Bruk heller $typography-font-size-26
-/// @type Number
-$typography-font-size-7: $typography-font-size-26;
-
-/// Tilsvarer 28px
-/// @deprecated Bruk heller $typography-font-size-28
-/// @type Number
-$typography-font-size-8: $typography-font-size-28;
-
-/// Tilsvarer 36px
-/// @deprecated Bruk heller $typography-font-size-36
-/// @type Number
-$typography-font-size-9: $typography-font-size-36;
-
-/// Tilsvarer 56px
-/// @deprecated Bruk heller $typography-font-size-56
-/// @type Number
-$typography-font-size-10: $typography-font-size-56;
-
-/// Tilsvarer 24px
-/// @deprecated Bruk heller $typography-line-height-24
-/// @type Number
-$typography-line-height-1: $typography-line-height-24;
-
-/// Tilsvarer 28px
-/// @deprecated Bruk heller $typography-line-height-28
-/// @type Number
-$typography-line-height-2: $typography-line-height-28;
-
-/// Tilsvarer 32px
-/// @deprecated Bruk heller $typography-line-height-32
-/// @type Number
-$typography-line-height-3: $typography-line-height-32;
-
-/// Tilsvarer 40px
-/// @deprecated Bruk heller $typography-line-height-40
-/// @type Number
-$typography-line-height-4: $typography-line-height-40;
-
-/// Tilsvarer 44px
-/// @deprecated Bruk heller $typography-line-height-44
-/// @type Number
-$typography-line-height-5: $typography-line-height-44;
-
-/// Tilsvarer 64px
-/// @deprecated Bruk heller $typography-line-height-64
-/// @type Number
-$typography-line-height-6: $typography-line-height-64;
-
 /// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.
 $text-styles: (
     "title": (
@@ -262,16 +182,17 @@ $text-styles: (
             @each $property, $value in map.get($variants, "small-screen") {
                 #{$property}: $value;
             }
+
             @content;
 
             // Styles heading-5 and small are the same size on small and large screens. Skip to generate less CSS.
             @if $style != "small" and $style != "heading-5" {
                 @include screens.from-medium-device {
-                    @each $property,
-                        $value in map.get($variants, "large-screen")
-                    {
+                    @each $property, $value
+                        in map.get($variants, "large-screen") {
                         #{$property}: $value;
                     }
+
                     @content;
                 }
             }
@@ -280,6 +201,7 @@ $text-styles: (
                 @each $property, $value in map.get($variants, $variant) {
                     #{$property}: $value;
                 }
+
                 @content;
             } @else {
                 @error "The text style #{$style} has no variant called #{$variant}. Try one of these: #{map.keys(map.get($new-text-styles, $style))}";
@@ -328,9 +250,7 @@ $text-styles: (
 }
 
 $_valid-font-family-values: (
-    "Fremtind Grotesk",
-    "Fremtind Grotesk Display",
-    "Fremtind Grotesk Mono"
+    "Fremtind Grotesk", "Fremtind Grotesk Display", "Fremtind Grotesk Mono"
 );
 
 /// Hjelper sette riktig remse med fallback-fonts for Fremtind Grotesk, Fremtind Grotesk Display, og Fremtind Grotesk Mono.
@@ -342,13 +262,23 @@ $_valid-font-family-values: (
     }
 
     @if $font == "Fremtind Grotesk Mono" {
-        font-family: "Fremtind Grotesk Mono", "Adjusted Courier New Fallback",
-            -apple-system, BlinkMacSystemFont, monospace;
+        font-family:
+            "Fremtind Grotesk Mono",
+            "Adjusted Courier New Fallback",
+            -apple-system,
+            BlinkMacSystemFont,
+            monospace;
     } @else if $font == "Fremtind Grotesk Display" {
-        font-family: "Fremtind Grotesk Display",
-            "Adjusted Arial Display Fallback", Arial, sans-serif;
+        font-family:
+            "Fremtind Grotesk Display",
+            "Adjusted Arial Display Fallback",
+            Arial,
+            sans-serif;
     } @else {
-        font-family: "Fremtind Grotesk", "Adjusted Arial Fallback", Arial,
+        font-family:
+            "Fremtind Grotesk",
+            "Adjusted Arial Fallback",
+            Arial,
             sans-serif;
     }
 }

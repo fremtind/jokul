@@ -27,19 +27,20 @@ $_focus-ring-width: jkl.rem(2px);
 
     /* stylelint-disable-next-line selector-not-notation */
     :not(.jkl-table-head, .jkl-table-foot) > & {
-        border-top: solid $_border-size transparent; // Unngår vertikal shift ved hover i collapsed mobilvisning
+        border-top: solid $_border-size
+            transparent; // Unngår vertikal shift ved hover i collapsed mobilvisning
 
         &:hover {
             /*
-            * Det er viktig at hover her har double border style i motsetning til default,
-            * ellers vinner ikke border-top "spesifisitetskampen" i border-collapse.
-            * Under testing i Chrome, Firefox og Safari på macOS ble border fremdeles
-            * rendret som solid. ¯\_(ツ)_/¯
-            *
-            * https://stackoverflow.com/a/36239151
-            * https://stackoverflow.com/a/4096554
-            * https://www.w3.org/TR/CSS2/tables.html#border-conflict-resolution
-            */
+             * Det er viktig at hover her har double border style i motsetning til default,
+             * ellers vinner ikke border-top "spesifisitetskampen" i border-collapse.
+             * Under testing i Chrome, Firefox og Safari på macOS ble border fremdeles
+             * rendret som solid. ¯\_(ツ)_/¯
+             *
+             * https://stackoverflow.com/a/36239151
+             * https://stackoverflow.com/a/4096554
+             * https://www.w3.org/TR/CSS2/tables.html#border-conflict-resolution
+             */
             border-top: double $_border-size
                 var(--jkl-table-row-hover-border-color);
             border-bottom: double $_border-size
@@ -62,8 +63,8 @@ $_focus-ring-width: jkl.rem(2px);
     }
 
     @mixin _responsive-table-row {
-        padding-top: jkl.$spacing-s;
-        padding-bottom: jkl.$spacing-s;
+        padding-top: jkl.$spacing-12;
+        padding-bottom: jkl.$spacing-12;
 
         &:first-of-type {
             border-top: solid $_border-size var(--jkl-table-row-border-color);
