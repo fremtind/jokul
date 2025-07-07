@@ -4,17 +4,17 @@
 $_text-input-height: jkl.rem(48px);
 $_text-input-height--mobile: jkl.rem(44px);
 $_text-input-height--compact: jkl.rem(32px);
-$_text-input-vertical-padding: jkl.$spacing-xs;
-$_text-input-vertical-padding--compact: jkl.$spacing-2xs;
-$_text-input-horizontal-padding: jkl.$spacing-s;
-$_text-input-horizontal-padding--compact: jkl.$spacing-xs;
+$_text-input-vertical-padding: jkl.$spacing-8;
+$_text-input-vertical-padding--compact: jkl.$spacing-4;
+$_text-input-horizontal-padding: jkl.$spacing-12;
+$_text-input-horizontal-padding--compact: jkl.$spacing-8;
 
 $_action-button-size: jkl.rem(48px);
 $_action-button-size--mobile: jkl.rem(44px);
 $_action-button-size--compact: jkl.rem(32px);
 $_action-button-icon-size: jkl.rem(20px);
 $_action-button-icon-size--compact: jkl.rem(18px);
-$_action-button-padding: jkl.$spacing-xs 0;
+$_action-button-padding: jkl.$spacing-8 0;
 $_action-button-padding--compact: 0;
 $_action-button-focus-position: jkl.rem(6px);
 $_action-button-focus-position--compact: 0;
@@ -25,8 +25,9 @@ $_action-button-focus-position--compact: 0;
     --jkl-text-input-height: #{$_text-input-height};
     --jkl-text-input-vertical-padding: #{$_text-input-vertical-padding};
     --jkl-text-input-horizontal-padding: #{$_text-input-horizontal-padding};
-    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding)
-        var(--jkl-text-input-horizontal-padding);
+    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding) var(
+        --jkl-text-input-horizontal-padding
+    );
     --jkl-text-input-action-button-size: #{$_action-button-size};
     --jkl-text-input-action-button-icon-size: #{$_action-button-icon-size};
     --jkl-text-input-action-button-padding: #{$_action-button-padding};
@@ -44,8 +45,9 @@ $_action-button-focus-position--compact: 0;
     --jkl-text-input-height: #{$_text-input-height--compact};
     --jkl-text-input-vertical-padding: #{$_text-input-vertical-padding--compact};
     --jkl-text-input-horizontal-padding: #{$_text-input-horizontal-padding--compact};
-    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding)
-        var(--jkl-text-input-horizontal-padding);
+    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding) var(
+        --jkl-text-input-horizontal-padding
+    );
     --jkl-text-input-action-button-size: #{$_action-button-size--compact};
     --jkl-text-input-action-button-icon-size: #{$_action-button-icon-size--compact};
     --jkl-text-input-action-button-padding: #{$_action-button-padding--compact};
@@ -73,7 +75,8 @@ $_action-button-focus-position--compact: 0;
 
     background-color: var(--background-color);
     color: var(--text-color);
-    box-shadow: inset 0 0 0 jkl.rem(1px) var(--border-color),
+    box-shadow:
+        inset 0 0 0 jkl.rem(1px) var(--border-color),
         0 0 0 jkl.rem(1px) transparent;
 
     &:focus-within,
@@ -94,7 +97,8 @@ $_action-button-focus-position--compact: 0;
     &:has([data-focused="true"]) {
         --border-color: var(--jkl-color-border-input-focus);
 
-        box-shadow: inset 0 0 0 jkl.rem(1px) var(--border-color),
+        box-shadow:
+            inset 0 0 0 jkl.rem(1px) var(--border-color),
             0 0 0 jkl.rem(1px) var(--border-color);
 
         @include jkl.forced-colors-mode {

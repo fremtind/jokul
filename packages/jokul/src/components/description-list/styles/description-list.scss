@@ -12,22 +12,22 @@
         overflow-wrap: break-word;
 
         &:not(:first-of-type) {
-            margin-top: jkl.$spacing-xs;
+            margin-top: jkl.$spacing-8;
         }
     }
 
     .jkl-description-list__detail {
-        margin-left: jkl.$spacing-l;
+        margin-left: jkl.$spacing-24;
         grid-column-start: 2;
     }
 
     .jkl-description-list__detail + .jkl-description-list__detail {
-        margin-top: jkl.$spacing-xs;
+        margin-top: jkl.$spacing-8;
     }
 
     .jkl-description-list__term + .jkl-description-list__detail {
         &:not(:first-of-type) {
-            margin-top: jkl.$spacing-xs;
+            margin-top: jkl.$spacing-8;
         }
     }
 }
@@ -35,10 +35,10 @@
 .jkl-description-list {
     &__term {
         font-weight: jkl.$typography-weight-bold;
-        margin-bottom: jkl.$spacing-2xs;
+        margin-bottom: jkl.$spacing-4;
 
         &:not(:first-child) {
-            margin-top: jkl.$spacing-s;
+            margin-top: jkl.$spacing-12;
         }
     }
 
@@ -47,7 +47,7 @@
     }
 
     &__detail + &__detail {
-        margin-top: jkl.$spacing-2xs;
+        margin-top: jkl.$spacing-4;
     }
 
     @include jkl.from-medium-device {

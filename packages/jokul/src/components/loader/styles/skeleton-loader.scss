@@ -81,21 +81,21 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
 .jkl-skeleton-input {
     display: flex;
     flex-direction: column;
-    gap: jkl.$spacing-s;
+    gap: jkl.$spacing-12;
 
     &__checkbox {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        gap: jkl.$spacing-xs;
+        gap: jkl.$spacing-8;
     }
 
     @include jkl.small-device {
-        gap: jkl.$spacing-xs;
+        gap: jkl.$spacing-8;
     }
 
     &--compact::after {
-        gap: jkl.$spacing-xs;
+        gap: jkl.$spacing-8;
     }
 }
 
@@ -112,30 +112,30 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
     }
 
     &__header {
-        padding: jkl.$spacing-s jkl.$spacing-xs;
+        padding: jkl.$spacing-12 jkl.$spacing-8;
     }
 
     &__row {
-        padding: jkl.$spacing-m jkl.$spacing-xs;
+        padding: jkl.$spacing-16 jkl.$spacing-8;
     }
 
     @include jkl.small-device {
         &__header {
-            padding: jkl.$spacing-xs jkl.$spacing-2xs;
+            padding: jkl.$spacing-8 jkl.$spacing-4;
         }
 
         &__row {
-            padding: jkl.$spacing-s jkl.$spacing-2xs;
+            padding: jkl.$spacing-12 jkl.$spacing-4;
         }
     }
 
     &--compact::after {
         &__header {
-            padding: jkl.$spacing-xs jkl.$spacing-2xs;
+            padding: jkl.$spacing-8 jkl.$spacing-4;
         }
 
         &__row {
-            padding: jkl.$spacing-s jkl.$spacing-2xs;
+            padding: jkl.$spacing-12 jkl.$spacing-4;
         }
     }
 

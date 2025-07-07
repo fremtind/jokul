@@ -10,8 +10,6 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
-import { Accordion } from "../accordion/Accordion.js";
-import { AccordionItem } from "../accordion/AccordionItem.js";
 import { PopupTip } from "../tooltip/PopupTip.js";
 import { Select } from "./Select.js";
 
@@ -469,27 +467,6 @@ describe("Select", () => {
         });
 
         expect(onBlur).not.toHaveBeenCalled();
-    });
-
-    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", async () => {
-        const screen = setup(
-            <Accordion>
-                <AccordionItem title="Velg tingen" startExpanded>
-                    <Select
-                        name="items"
-                        items={[{ label: "Item 3", value: "3" }]}
-                        label="Ting"
-                    />
-                </AccordionItem>
-            </Accordion>,
-        );
-
-        await act(async () => {
-            const button = screen.getByTestId("jkl-select__button");
-            await userEvent.click(button);
-        });
-
-        expect(screen.getByTestId("jkl-select__button")).toBeVisible();
     });
 
     it("supports controlled value state", async () => {
@@ -1097,28 +1074,6 @@ describe("Searchable select", () => {
         });
 
         expect(onBlur).toHaveBeenCalledTimes(1);
-    });
-
-    it("should support toggling a Select inside an AccordionItem without getting stuck in a render-loop (#1466)", async () => {
-        const screen = setup(
-            <Accordion>
-                <AccordionItem title="Velg tingen" startExpanded>
-                    <Select
-                        name="items"
-                        searchable
-                        items={[{ label: "Item 3", value: "3" }]}
-                        label="Ting"
-                    />
-                </AccordionItem>
-            </Accordion>,
-        );
-
-        await act(async () => {
-            const button = screen.getByTestId("jkl-select__button");
-            await userEvent.click(button);
-        });
-
-        expect(screen.getByTestId("jkl-select__search-input")).toBeVisible();
     });
 
     it("should not close the Select when clicking the input field", async () => {

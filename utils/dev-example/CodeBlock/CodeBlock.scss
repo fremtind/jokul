@@ -23,13 +23,13 @@
     border: 1px solid var(--code-block-border-color);
     border-radius: jkl.rem(2px);
     width: 100%;
-    padding: jkl.$spacing-s;
+    padding: jkl.$spacing-12;
     max-width: min(#{jkl.rem(750px)}, 50vw);
 
     @include jkl.text-style("small");
 
     @include jkl.small-device {
-        width: calc(100% - #{jkl.$spacing-xl});
+        width: calc(100% - #{jkl.$spacing-40});
         max-width: 100%;
         min-width: initial;
     }
@@ -38,7 +38,7 @@
         position: absolute;
         top: 0;
         right: 0;
-        padding: jkl.$spacing-xs;
+        padding: jkl.$spacing-8;
         background-color: var(--language-tag-bg-color);
         color: var(--language-tag-text-color);
         text-transform: uppercase;
@@ -51,7 +51,7 @@
     &__code {
         @include jkl.use-font-family("Fremtind Grotesk Mono");
         display: block;
-        padding: jkl.$spacing-l jkl.$spacing-m;
+        padding: jkl.$spacing-24 jkl.$spacing-16;
         overflow-x: auto;
     }
 

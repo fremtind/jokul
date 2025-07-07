@@ -53,7 +53,7 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({
     return (
         <div style={{ maxWidth: "400px", width: "100%" }}>
             <Autosuggest
-                className="jkl-spacing-l--top"
+                className="jkl-spacing-24--top"
                 label="Velg land"
                 onInputValueChange={setValue}
                 onChange={setValue}
@@ -104,7 +104,9 @@ export const AutosuggestExample: React.FC<ExampleComponentProps> = ({
                         : undefined
                 }
             />
-            <p className="jkl-body jkl-spacing-m--top">Du har valgt: {value}</p>
+            <p className="jkl-body jkl-spacing-16--top">
+                Du har valgt: {value}
+            </p>
         </div>
     );
 };
@@ -120,7 +122,7 @@ const [value, setValue] = useState("");
 return (
     <div style={{ maxWidth: "400px", width: "100%" }}>
         <Autosuggest
-            className="jkl-spacing-l--top"
+            className="jkl-spacing-24--top"
             label="Velg land med fritekst"
             onInputValueChange={setValue}
             onChange={setValue}

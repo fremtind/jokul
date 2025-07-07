@@ -17,7 +17,7 @@ export const AnimatedIcon: React.FC<AnimatedIconProps> = ({
                 <button
                     type="button"
                     data-density="compact"
-                    className="jkl-button jkl-button--tertiary jkl-spacing-2xl--left"
+                    className="jkl-button jkl-button--tertiary jkl-spacing-64--left"
                     onClick={() => setState(!state)}
                 >
                     Animér <span className="jkl-sr-only">{iconName}</span>

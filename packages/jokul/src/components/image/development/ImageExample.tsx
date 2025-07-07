@@ -23,7 +23,7 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({
 
     return (
         <div className="example-img-wrapper">
-            <p className="jkl-body jkl-spacing-xl--bottom">
+            <p className="jkl-body jkl-spacing-40--bottom">
                 For å se effekten ordentlig,{" "}
                 <a
                     className="jkl-link jkl-link--external"
@@ -42,7 +42,7 @@ export const ImageExample: React.FC<ExampleComponentProps> = ({
             </p>
             <button
                 type="button"
-                className="jkl-spacing-xl--bottom jkl-button jkl-button--secondary"
+                className="jkl-spacing-40--bottom jkl-button jkl-button--secondary"
                 data-testid="load-image-button"
                 onClick={() => {
                     if (!show) {

@@ -40,7 +40,7 @@ const ExampleTagWrapper: React.FC<
     const TagComponent = getTypeOfTag(variant);
 
     return (
-        <TagComponent className="jkl-spacing-2xs--right jkl-spacing-2xs--top">
+        <TagComponent className="jkl-spacing-4--right jkl-spacing-4--top">
             {getTagContent(variant)}
         </TagComponent>
     );
@@ -59,9 +59,9 @@ export const TagExample: FC<ExampleComponentProps> = () => {
 };
 
 export const tagExampleCode = (): string => `
-    <Tag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Emne</Tag>
-    <InfoTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Info Tag</InfoTag>
-    <SuccessTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Success Tag</SuccessTag>
-    <WarningTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Warning Tag</WarningTag>
-    <ErrorTag className="jkl-spacing-2xs--right jkl-spacing-2xs--top">Error Tag</ErrorTag>
+    <Tag className="jkl-spacing-4--right jkl-spacing-4--top">Emne</Tag>
+    <InfoTag className="jkl-spacing-4--right jkl-spacing-4--top">Info Tag</InfoTag>
+    <SuccessTag className="jkl-spacing-4--right jkl-spacing-4--top">Success Tag</SuccessTag>
+    <WarningTag className="jkl-spacing-4--right jkl-spacing-4--top">Warning Tag</WarningTag>
+    <ErrorTag className="jkl-spacing-4--right jkl-spacing-4--top">Error Tag</ErrorTag>
 `;

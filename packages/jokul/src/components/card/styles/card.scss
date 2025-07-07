@@ -1,8 +1,5 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
-@use "info-card";
-@use "nav-card";
-@use "task-card";
 
 .jkl-card {
     --padding-s: var(--jkl-unit-05);

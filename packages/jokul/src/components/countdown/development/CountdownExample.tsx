@@ -13,7 +13,7 @@ export const CountdownExample: FC = () => {
         <div style={{ width: "100%", minWidth: "240px" }}>
             <Countdown key={key} from={5000} isPaused={isPaused} />
             <div
-                className="jkl-spacing-l--top"
+                className="jkl-spacing-24--top"
                 style={{
                     display: "flex",
                     flexDirection: "row",
