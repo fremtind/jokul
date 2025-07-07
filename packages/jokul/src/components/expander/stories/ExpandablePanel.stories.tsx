@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import { Flex } from "../../flex/Flex.js";
+import { Flex } from "../../flex/Flex.jsx";
 import { GreenCheckIcon } from "../../icon/index.js";
-import { ExpandablePanel } from "../ExpandablePanel.js";
-import { ExpandablePanelContent } from "../ExpandablePanelContent.js";
-import { Expander } from "../Expander.js";
+import { ExpandablePanel } from "../ExpandablePanel.jsx";
+import { ExpandablePanelContent } from "../ExpandablePanelContent.jsx";
+import { Expander } from "../Expander.jsx";
 import "../styles/_index.scss";
 
 const meta: Meta = {
