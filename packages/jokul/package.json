@@ -59,17 +59,6 @@
                 "default": "./build/cjs/utilities/index.cjs"
             }
         },
-        "./styles/components/accordion": "./styles/components/accordion/_index.scss",
-        "./accordion": {
-            "import": {
-                "types": "./build/es/components/accordion/index.d.ts",
-                "default": "./build/es/components/accordion/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/accordion/index.d.cts",
-                "default": "./build/cjs/components/accordion/index.cjs"
-            }
-        },
         "./styles/components/autosuggest": "./styles/components/autosuggest/_index.scss",
         "./autosuggest": {
             "import": {
