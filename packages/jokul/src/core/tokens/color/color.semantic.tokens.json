@@ -1,16 +1,6 @@
 {
     "color": {
         "background": {
-            "page": {
-                "light": {
-                    "value": "{color.brand.sand}",
-                    "type": "color"
-                },
-                "dark": {
-                    "value": "{color.brand.granitt}",
-                    "type": "color"
-                }
-            },
             "page-variant": {
                 "light": {
                     "value": "{color.brand.snohvit}",
