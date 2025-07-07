@@ -1,4 +1,3 @@
-import * as accordion from "@fremtind/jokul/accordion";
 import * as autosuggest from "@fremtind/jokul/autosuggest";
 import * as breadcrumb from "@fremtind/jokul/breadcrumb";
 import * as button from "@fremtind/jokul/button";
@@ -48,7 +47,6 @@ import * as toggleSwitch from "@fremtind/jokul/toggle-switch";
 import * as tooltip from "@fremtind/jokul/tooltip";
 
 export const scope = {
-    ...accordion,
     ...autosuggest,
     ...breadcrumb,
     ...button,
