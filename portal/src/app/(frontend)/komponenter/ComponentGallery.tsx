@@ -1,23 +1,30 @@
 "use client";
 
 import { Button } from "@fremtind/jokul/button";
-import { useLocalStorage } from "@fremtind/jokul/hooks";
 import clsx from "clsx";
+import { getCookie, setCookie } from "cookies-next";
+import { useEffect, useState } from "react";
 import styles from "./komponenter.module.scss";
 
 type ComponentGalleryProps = {
+    mode?: string;
     children?: React.ReactNode;
 };
 
-export const ComponentGallery = ({ children }: ComponentGalleryProps) => {
-    const [viewMode, setViewMode] = useLocalStorage(
-        "componentGalleryViewMode",
-        "grid",
+export const ComponentGallery = ({ children, mode }: ComponentGalleryProps) => {
+    const [viewMode, setViewMode] = useState(
+        getCookie("componentGalleryViewMode")?.toString() ?? mode ?? "grid",
     );
 
     const toggleGalleryView = () => {
-        setViewMode(viewMode === "grid" ? "list" : "grid");
+        const newViewMode = viewMode === "grid" ? "list" : "grid";
+        setViewMode(newViewMode);
+        setCookie("componentGalleryViewMode", newViewMode);
     };
+
+    useEffect(() => {
+        setCookie("componentGalleryViewMode", mode);
+    }, [mode]);
 
     return (
         <>
