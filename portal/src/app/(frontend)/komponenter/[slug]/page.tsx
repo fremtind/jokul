@@ -1,4 +1,5 @@
 import { PageFooter } from "@/components/PageFooter";
+import { TableOfContents } from "@/components/TableOfContents";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
@@ -48,6 +49,7 @@ export default async function Page({ params }: Props) {
                 <div className={clsx("prose", styles.wrapper)}>
                     {component.documentation_article ? (
                         <>
+                            <TableOfContents />
                             <PortableText
                                 blocks={component.documentation_article}
                             />

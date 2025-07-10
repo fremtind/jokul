@@ -275,6 +275,7 @@ importers:
       '@sanity/locale-nb-no': ^1.1.19
       '@sanity/ui': ^2.15.13
       '@sanity/vision': ^3.86.1
+      '@sindresorhus/slugify': ^2.2.1
       '@types/mdx': ^2.0.13
       '@types/node': ^22.14.1
       '@types/react': 18.3.1
@@ -308,6 +309,7 @@ importers:
       '@sanity/locale-nb-no': 1.1.19_sanity@3.86.1
       '@sanity/ui': 2.15.13_jeltxlejatkzol7vsnhmqesxje
       '@sanity/vision': 3.86.1_jeltxlejatkzol7vsnhmqesxje
+      '@sindresorhus/slugify': 2.2.1
       '@types/mdx': 2.0.13
       cookies-next: 6.0.0_next@15.3.1+react@18.3.1
       cross-env: 7.0.3
@@ -5917,6 +5919,21 @@ packages:
     resolution: {integrity: sha512-JFHFhF6MqqRE49JDAGX/EPlHwxIukrKMhNwlMoB/wIJBkvu3+ciO335yDYPP3soI01FkhVXWnyNPKEl+EsC4Zw==}
     dev: true
 
+  /@sindresorhus/slugify/2.2.1:
+    resolution: {integrity: sha512-MkngSCRZ8JdSOCHRaYd+D01XhvU3Hjy6MGl06zhOk614hp9EOAp5gIkBeQg7wtmxpitU6eAL4kdiRMcJa2dlrw==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@sindresorhus/transliterate': 1.6.0
+      escape-string-regexp: 5.0.0
+    dev: false
+
+  /@sindresorhus/transliterate/1.6.0:
+    resolution: {integrity: sha512-doH1gimEu3A46VX6aVxpHTeHrytJAG6HgdxntYnCFiIFHEM/ZGpG8KiZGBChchjQmG0XFIBL552kBTjVcMZXwQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      escape-string-regexp: 5.0.0
+    dev: false
+
   /@sinonjs/commons/3.0.0:
     resolution: {integrity: sha512-jXBtWAF4vmdNmZgD5FoKsVLv3rPgDnLgPbU84LIJ3otV44vJlDRokVng5v8NFJdCf/da9legHcKaRuZs4L7faA==}
     dependencies:
@@ -10764,6 +10781,11 @@ packages:
   /escape-string-regexp/4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
+
+  /escape-string-regexp/5.0.0:
+    resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
+    engines: {node: '>=12'}
+    dev: false
 
   /eslint-config-next/15.3.1_d7vjj5abcazjyswdijhe6rzxw4:
     resolution: {integrity: sha512-GnmyVd9TE/Ihe3RrvcafFhXErErtr2jS0JDeCSp3vWvy86AXwHsRBt0E3MqP/m8ACS1ivcsi5uaqjbhsG18qKw==}
