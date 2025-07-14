@@ -4,6 +4,7 @@ import type { PortableTextReactComponents } from "@portabletext/react";
 import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import type { FC } from "react";
+import { ComponentCard } from "./component-card/ComponentCard";
 import { KortFortalt } from "./kort-fortalt/KortFortalt";
 import { LinkCard } from "./link-card/LinkCard";
 import { ComponentPageLink } from "./link/ComponentPageLink";
@@ -21,6 +22,7 @@ const jokulBlockTypes: PortableTextReactComponents["types"] = {
     jokul_componentKortFortalt: KortFortalt,
     jokul_codeBlock: CodeBlock,
     jokul_linkCard: LinkCard,
+    jokul_componentCard: ComponentCard,
 };
 
 export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
