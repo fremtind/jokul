@@ -12,6 +12,16 @@ export const componentBySlugQuery =
         ...,
         documentation_article[]{
             ...,
+            _type == "jokul_componentCard" => {
+                ...,
+                components[]->{
+                    _id,
+                    name,
+                    "slug": slug.current,
+                    image,
+                    imageDark
+                }
+            },
             _type == "jokul_componentKortFortalt" => {
                 ...,
                 bruk[]{
