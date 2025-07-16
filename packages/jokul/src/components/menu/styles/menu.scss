@@ -4,11 +4,11 @@
 @use "menu-divider";
 
 @include jkl.light-mode-variables {
-    --jkl-menu-border: none;
+    --jkl-menu-border-color: transparent;
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-menu-border: 2px solid #{jkl.$color-snohvit};
+    --jkl-menu-border-color: #{jkl.$color-snohvit};
 }
 
 .jkl-menu {
@@ -22,7 +22,7 @@
     flex-wrap: nowrap;
     box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
     border-radius: jkl.rem(2px);
-    border: var(--jkl-menu-border);
+    border: 2px solid var(--jkl-menu-border-color);
     z-index: jkl.$z-index--dropdown;
 
     &:focus-visible {
