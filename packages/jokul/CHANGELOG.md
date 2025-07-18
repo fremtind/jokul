@@ -1,5 +1,45 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- 3406c20: Import av komponenter fra roten av `@fremtind/jokul` er ikke lenger mulig.
+
+  For å fikse dette må alle importer oppdateres til å peke direkte på den spesifikke modulen:
+
+  **FØR:**
+
+  ```typescript
+  import { Card } from "@fremtind/jokul";
+  ```
+
+  **ETTER:**
+
+  ```typescript
+  import { Card } from "@fremtind/jokul/card";
+  ```
+
+  `ScreenReaderOnly`-komponenten er også flyttet og må nå importeres fra `@fremtind/jokul/screen-reader-only`.
+
+- 4ac8c73: BREAKING CHANGE: Fjerner flere komponenter so har vært merket som deprecated lenge, samt spacing-variabler basert på t-skjortestørrelser og tallbaserte typografivariabler.
+
+  - Fjerner komponentene `Accordion` og `AccordionItem`, som har vært merket som deprecated ganske lenge. I stedet for disse komponentene kan man bruke `ExpandablePanel`.
+  - Fjerner komponentene `NavCard`, `InfoCard` og `TaskCard`, som har vært merket som deprecated ganske lenge. I stedet for disse komponentene kan man bygge opp tilsvarende kort ved hjelp av den generelle `Card`-komponenten, `CardImage`-komponenten, og andre Jøkul-komponenter. Se eksemplene i portalen/Storybook for hvordan dette kan gjøres.
+  - Fjerner den utgåtte versjonen av `Expander`, samt `ExpandButton`-komponenten. Nye `Expander` kan brukes i stedet.
+  - Spacingvariabler og hjelpeklasser basert på t-skjortestørrelser (f.eks. `spacing-xl`) er fjernet. Bruk heller variablene på formen `spacing-40` eller den nye `unit`-skalaen.
+  - Gamle, nummererte typografivariabler for størrelse og linjehøyde. Disse bør ikke ha vært i direkte bruk ute i løsningene deres.
+
+### Patch Changes
+
+- e4967c9: La til sys-color-toksen som json. De er ikke generert med style dictionary enda, da vi skal vente med å publisere.
+- 0fc189c: Gjorde om system colors til å peke på ref-colors og ikke brand-colors. Flyttet også sys-colors til egen fil, slik at allerede eksisterende tokens fortsat kan bygges uten problem. Sys-colors er ikke blitt generert enda.
+- 2610a20: Rettet en feil med type-resolution for brukere av `pnpm` workspaces.
+
+  Brukere i `pnpm` workspaces, spesielt de som håndterer flere React-versjoner (f.eks. v18 og v19), opplevde at props for Jøkul-komponenter ble feilaktig resolvet til `any`.
+
+  For å løse dette har vi lagt til `@types/react` i vår `peerDependencies`. Dette følger den offisielle anbefalingen fra [pnpm-dokumentasjonen](https://pnpm.io/typescript#workspace-usage).
+
 ## 0.71.2
 
 ### Patch Changes
