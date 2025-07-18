@@ -79,7 +79,7 @@ jobs:
                           Sørg for å teste endringene dine for både responsivitet og universell utforming (tastaturnavigasjon, skjermleser, etc.).
                         ${{ steps.documentation.outputs.changeset == 'false' && '- [ ] **Skriv endringslogg** 📝
                           Sørg for at du har dokumentert endringene i et [changeset](https://github.com/changesets/changesets/blob/main/docs/adding-a-changeset.md) hvis de skal føre til en ny release av `@fremtind/jokul`.' }}
-                        ${{ steps.code_changes.outputs.components == 'true' && steps.code_changes.outputs.stories == 'false' &&  '- [ ] **Oppdater eller lag nye stories** 📚
+                        ${{ steps.code_changes.outputs.components == 'true' && steps.documentation.outputs.stories == 'false' &&  '- [ ] **Oppdater eller lag nye stories** 📚
                           Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere eller legge til [Storybook-stories](https://storybook.js.org/docs/get-started/whats-a-story) for dette i komponenten(e).
                         - [ ] **Oppdater informasjon i Sanity** 📖
                           Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere informasjonen om komponenten(e) i Sanity.' }}
