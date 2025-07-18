@@ -326,10 +326,10 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             ) {
                 // Fokuser på "neste månded"-knappen
                 document
-                    .querySelectorAll<HTMLButtonElement>(
-                        ".jkl-calendar-navigation__arrow",
-                    )[1]
-                    .focus();
+                    .querySelector<HTMLButtonElement>(
+                        `[data-testid="${id}-forward-button"]`,
+                    )
+                    ?.focus();
             } else if (
                 // Vi er i ferd med å gå til siste måned
                 maxDate &&
@@ -338,12 +338,12 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
             ) {
                 // Fokuser på "forrige månded"-knappen
                 document
-                    .querySelectorAll<HTMLButtonElement>(
-                        ".jkl-calendar-navigation__arrow",
-                    )[0]
-                    .focus();
+                    .querySelector<HTMLButtonElement>(
+                        `[data-testid="${id}-back-button"]`,
+                    )
+                    ?.focus();
             }
-        }, [minDate, maxDate, shownDate]);
+        }, [minDate, maxDate, shownDate, id]);
 
         /// Extended variant events
 
@@ -451,6 +451,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                                     calendars,
                                     onClick: handleGotoEdgeMonth,
                                 })}
+                                data-testid={`${id}-back-button`}
                                 variant="ghost"
                                 icon={<ArrowLeftIcon variant="medium" bold />}
                             />
@@ -460,6 +461,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                                     onClick: handleGotoEdgeMonth,
                                 })}
                                 variant="ghost"
+                                data-testid={`${id}-forward-button`}
                                 icon={<ArrowRightIcon variant="medium" bold />}
                             />
                         </div>
