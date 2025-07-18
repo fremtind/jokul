@@ -74,6 +74,12 @@
             --background-color: var(--jkl-color-background-action);
             --text-color: var(--jkl-color-text-on-action);
             --border-color: var(--text-color);
+
+            @include jkl.forced-colors-mode {
+                forced-color-adjust: none;
+                --background-color: CanvasText;
+                --text-color: Canvas;
+            }
         }
     }
 
