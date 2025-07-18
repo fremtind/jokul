@@ -50,7 +50,8 @@
     }
 
     @include jkl.forced-colors-mode {
-        outline: revert;
-        text-decoration: revert;
+        &:hover:not(:focus) {
+            --link-color: HighLight;
+        }
     }
 }
