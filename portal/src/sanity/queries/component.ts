@@ -12,16 +12,6 @@ export const componentBySlugQuery =
         ...,
         documentation_article[]{
             ...,
-            _type == "jokul_componentCard" => {
-                ...,
-                components[]->{
-                    _id,
-                    name,
-                    "slug": slug.current,
-                    image,
-                    imageDark
-                }
-            },
             _type == "jokul_componentKortFortalt" => {
                 ...,
                 bruk[]{
@@ -53,6 +43,12 @@ export const componentBySlugQuery =
                     }
                 }
             }
+        },
+        related_components {
+            components[]->{
+                name,
+                "slug": slug.current
+            }
         }
     }`);
 
@@ -64,4 +60,5 @@ export const componentCardQuery =
         figma_image,
         image,
         imageDark,
+        related_components
     }[0]`);

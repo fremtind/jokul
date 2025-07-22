@@ -946,66 +946,6 @@
         }
     },
     {
-        "name": "jokul_componentCard",
-        "type": "type",
-        "value": {
-            "type": "object",
-            "attributes": {
-                "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                        "type": "string",
-                        "value": "jokul_componentCard"
-                    }
-                },
-                "components": {
-                    "type": "objectAttribute",
-                    "value": {
-                        "type": "array",
-                        "of": {
-                            "type": "object",
-                            "attributes": {
-                                "_ref": {
-                                    "type": "objectAttribute",
-                                    "value": {
-                                        "type": "string"
-                                    }
-                                },
-                                "_type": {
-                                    "type": "objectAttribute",
-                                    "value": {
-                                        "type": "string",
-                                        "value": "reference"
-                                    }
-                                },
-                                "_weak": {
-                                    "type": "objectAttribute",
-                                    "value": {
-                                        "type": "boolean"
-                                    },
-                                    "optional": true
-                                }
-                            },
-                            "dereferencesTo": "jokul_component",
-                            "rest": {
-                                "type": "object",
-                                "attributes": {
-                                    "_key": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "optional": true
-                }
-            }
-        }
-    },
-    {
         "name": "jokul_blog_post",
         "type": "document",
         "attributes": {
@@ -1951,23 +1891,61 @@
                                     "type": "inline",
                                     "name": "jokul_codeBlock"
                                 }
-                            },
-                            {
-                                "type": "object",
-                                "attributes": {
-                                    "_key": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
-                                "rest": {
-                                    "type": "inline",
-                                    "name": "jokul_componentCard"
-                                }
                             }
                         ]
+                    }
+                },
+                "optional": true
+            },
+            "related_components": {
+                "type": "objectAttribute",
+                "value": {
+                    "type": "object",
+                    "attributes": {
+                        "components": {
+                            "type": "objectAttribute",
+                            "value": {
+                                "type": "array",
+                                "of": {
+                                    "type": "object",
+                                    "attributes": {
+                                        "_ref": {
+                                            "type": "objectAttribute",
+                                            "value": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "_type": {
+                                            "type": "objectAttribute",
+                                            "value": {
+                                                "type": "string",
+                                                "value": "reference"
+                                            }
+                                        },
+                                        "_weak": {
+                                            "type": "objectAttribute",
+                                            "value": {
+                                                "type": "boolean"
+                                            },
+                                            "optional": true
+                                        }
+                                    },
+                                    "dereferencesTo": "jokul_component",
+                                    "rest": {
+                                        "type": "object",
+                                        "attributes": {
+                                            "_key": {
+                                                "type": "objectAttribute",
+                                                "value": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "optional": true
+                        }
                     }
                 },
                 "optional": true
