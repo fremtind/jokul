@@ -38,10 +38,11 @@
     border-radius: 99999px;
     display: inline-flex;
     align-items: center;
+    text-align: initial;
     white-space: nowrap;
     gap: var(--gap, var(--gap-s));
     padding: 0 var(--padding-inline, var(--padding-inline-s));
-    height: var(--height, var(--height-s));
+    min-height: var(--height, var(--height-s));
 
     @include jkl.forced-colors-mode {
         border: 2px none CanvasText;
