@@ -54,13 +54,12 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-combobox", "body");
 
-    --jkl-combobox-button-padding: #{jkl.$unit-10} #{jkl.rem(6px)} #{jkl.$unit-10}
-        /* her har vi en random 6px verdi også*/ #{jkl.$unit-15};
-    --jkl-combobox-button-active-value-padding: #{jkl.$unit-10} #{jkl.rem(6px)}
-        #{jkl.$unit-10} #{jkl.$unit-10};
+    --jkl-combobox-button-padding: #{jkl.$unit-10};
+    --jkl-combobox-button-active-value-padding: #{jkl.$unit-10};
     --jkl-combobox-input-height: #{jkl.rem(48px)};
     --jkl-combobox-actions-right: #{jkl.$unit-10};
-    --jkl-combobox-actions-top: #{jkl.rem(12px)};
+    --jkl-combobox-actions-top: #{jkl.rem(6px)};
+    --jkl-combobox-chips-gap: 4px;
     --jkl-combobox-search-input-padding: var(--jkl-combobox-button-padding);
     --jkl-combobox-native-padding: 0 #{jkl.$unit-50} 0 #{jkl.$unit-10};
     --jkl-combobox-option-padding: #{jkl.$unit-10} #{jkl.$unit-15};
@@ -76,13 +75,12 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-combobox", "small");
 
-    --jkl-combobox-button-padding: #{jkl.$unit-05} #{jkl.rem(30px)} #{jkl.$unit-05}
-        #{jkl.$unit-10};
-    --jkl-combobox-button-active-value-padding: #{jkl.$unit-05} #{jkl.rem(30px)}
-        #{jkl.$unit-05} #{jkl.$unit-10};
+    --jkl-combobox-button-padding: #{jkl.$unit-05};
+    --jkl-combobox-button-active-value-padding: #{jkl.$unit-05} #{jkl.$unit-10};
     --jkl-combobox-input-height: #{jkl.rem(32px)};
     --jkl-combobox-actions-right: #{jkl.rem(0)};
-    --jkl-combobox-actions-top: #{jkl.rem(6px)};
+    --jkl-combobox-actions-top: #{jkl.rem(1px)};
+    --jkl-combobox-chips-gap: 1px;
     --jkl-combobox-search-input-padding: #{jkl.$unit-05} #{jkl.$unit-10};
     --jkl-combobox-native-padding: #{jkl.$unit-30} #{jkl.$unit-05} #{jkl.$unit-05};
     --jkl-combobox-option-padding: #{jkl.$unit-05} #{jkl.$unit-10};
@@ -102,9 +100,10 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
     &__wrapper {
         position: relative;
-        min-width: 7rem;
         max-width: 100%;
         display: flex;
+        gap: 1ch;
+        cursor: pointer;
 
         padding: var(--jkl-combobox-button-padding);
         border-radius: jkl.rem(3px);
@@ -166,7 +165,6 @@ $_combobox-search-input-selection-color--inverted: color.scale(
         align-self: end;
         flex: 1 1 1ch;
         max-height: var(--jkl-combobox-search-input-height);
-        padding-right: var(--jkl-combobox-input-padding);
     }
 
     &__arrow {
@@ -245,21 +243,19 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
     &__actions {
         display: flex;
-        position: absolute;
-        right: var(--jkl-combobox-actions-right);
         gap: jkl.$unit-05;
-        top: var(--jkl-combobox-actions-top);
+        margin-block-start: var(--jkl-combobox-actions-top);
     }
 
     &__chips {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
-        margin-left: -4px;
+        gap: var(--jkl-combobox-chips-gap);
+        width: 100%;
 
         .jkl-chip {
-            margin: 1px 4px;
-            z-index: 1;
+            white-space: break-spaces;
 
             &__marked {
                 border-radius: 6px;
@@ -301,6 +297,10 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     &--menu-open {
         .jkl-combobox__wrapper:hover .jkl-combobox__actions {
             transform: translateY(#{jkl.rem(-3px)});
+        }
+
+        .jkl-combobox__search-input {
+            cursor: text;
         }
     }
 }
