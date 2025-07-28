@@ -30,8 +30,12 @@ export const ExpandablePanelContent: ExpandablePanelContentComponent = ({
     useEffect(() => {
         const node = animationRef.current;
 
-        node?.setAttribute("inert", "true");
-    }, [animationRef]);
+        if (!open) {
+            node?.setAttribute("inert", "true");
+        } else {
+            node?.removeAttribute("inert");
+        }
+    }, [open, animationRef]);
 
     return (
         <div
