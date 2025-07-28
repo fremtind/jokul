@@ -80,7 +80,7 @@ export const ExpandablePanel = Object.assign(
                         Dette unngår typefeil i React 18 og advarsler i React 19.
                         Se: https://github.com/WICG/inert/issues/58
                     */
-                    ref={(node) => node?.setAttribute("inert", "")}
+                    ref={(node) => node?.setAttribute("inert", "true")}
                     className="jkl-expandable__focus-container"
                     style={{ height: expanderHeight }}
                 />
