@@ -1,6 +1,6 @@
+import { ComponentCard } from "@/app/(frontend)/komponenter/ComponentCard";
 import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
-import { RelatedComponents } from "@/components/related-components/RelatedComponents";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
 import clsx from "clsx";
@@ -58,15 +58,14 @@ export default async function Page({ params }: Props) {
                                     <ul className={styles.relatedComponents}>
                                         {component.related_components?.components?.map(
                                             (relatedComponent, index) => (
-                                                <RelatedComponents
-                                                    key={index}
-                                                    component={
-                                                        relatedComponent as {
-                                                            name?: string;
-                                                            slug?: string;
+                                                <li key={index}>
+                                                    <ComponentCard
+                                                        componentSlug={
+                                                            relatedComponent.slug ||
+                                                            ""
                                                         }
-                                                    }
-                                                />
+                                                    />
+                                                </li>
                                             ),
                                         )}
                                     </ul>

@@ -80,13 +80,14 @@
 }
 
 .relatedComponents {
-  display: flex;
-  gap: clamp(var(--jkl-unit-30), 1.1154rem + 1.5385vw, var(--jkl-unit-50)) clamp(
-    var(--jkl-unit-10),
-    0.4038rem + 0.3846vw,
-    var(--jkl-unit-15)
-  );
-  padding-inline-start: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr));
+  gap: clamp(var(--jkl-unit-30),
+  1.1522rem + 1.7391vw,
+  var(--jkl-unit-50));
 }
 
 .footer {
