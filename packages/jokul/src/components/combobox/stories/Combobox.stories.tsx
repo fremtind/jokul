@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Combobox as ComboboxComponent } from "../Combobox.js";
+import type {Meta, StoryObj} from "@storybook/react";
+import {Combobox as ComboboxComponent} from "../Combobox.js";
 import "../styles/_index.scss";
 import React from "react";
-import type { ComboboxValuePair } from "../../combobox/types.js";
+import type {ComboboxValuePair} from "../../combobox/types.js";
 
 const meta = {
     title: "Komponenter/Combobox",
@@ -56,6 +56,13 @@ const items: ComboboxValuePair[] = [
     },
 ];
 
+const itemsNoTagLabel: ComboboxValuePair[] = [
+    {label: "DNB", value: "dnb"},
+    {label: "Sparebank 1", value: "sb1"},
+    {label: "Eika", value: "eik"},
+    {label: "Fremtind", value: "fre"},
+];
+
 export const Combobox: Story = {
     args: {
         items,
@@ -64,7 +71,23 @@ export const Combobox: Story = {
         onChange: () => {},
     },
     decorators: (Story) => (
-        <div style={{ maxWidth: 220 }}>
+        <div>
+            <Story/>
+        </div>
+    ),
+};
+
+export const ComboboxNoTagLabel: Story = {
+    name: "Combobox uten tag label",
+    args: {
+        items: itemsNoTagLabel,
+        label: "Filtrer",
+        name: "filter",
+        onChange: () => {
+        },
+    },
+    decorators: (Story) => (
+        <div>
             <Story />
         </div>
     ),
