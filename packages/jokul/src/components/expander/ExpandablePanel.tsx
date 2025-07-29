@@ -74,9 +74,13 @@ export const ExpandablePanel = Object.assign(
         return (
             <div className="jkl-expandable__wrapper">
                 <div
-                    // React typings don't include inert for some reason,
-                    // but destructuring lets us calm down the TS compiler
-                    {...{ inert: "true" }}
+                    /*
+                        Setter `inert` manuelt for å støtte både React 18 og 19.
+
+                        Dette unngår typefeil i React 18 og advarsler i React 19.
+                        Se: https://github.com/WICG/inert/issues/58
+                    */
+                    ref={(node) => node?.setAttribute("inert", "true")}
                     className="jkl-expandable__focus-container"
                     style={{ height: expanderHeight }}
                 />
