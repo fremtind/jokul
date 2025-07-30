@@ -43,6 +43,12 @@ export const componentBySlugQuery =
                     }
                 }
             }
+        },
+        related_components {
+            components[]->{
+                name,
+                "slug": slug.current
+            }
         }
     }`);
 
@@ -54,4 +60,5 @@ export const componentCardQuery =
         figma_image,
         image,
         imageDark,
+        related_components
     }[0]`);

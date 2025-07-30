@@ -131,5 +131,24 @@ export const component = defineType({
                 { type: "jokul_codeBlock" },
             ],
         }),
+        defineField({
+            name: "related_components",
+            title: "Relaterte komponenter",
+            type: "object",
+            fields: [
+                defineField({
+                    name: "components",
+                    title: "Komponenter",
+                    type: "array",
+                    of: [
+                        {
+                            type: "reference",
+                            name: "component",
+                            to: [{ type: "jokul_component" }],
+                        },
+                    ],
+                }),
+            ],
+        }),
     ],
 });
