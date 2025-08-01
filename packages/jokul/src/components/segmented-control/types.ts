@@ -4,11 +4,11 @@ export type SegmentedControlProps = InputHTMLAttributes<HTMLInputElement> & {
     /**
      * OBS: Bruk en god tittel på valgene, ikke på innholdet det kontrollerer.
      */
-    title: string;
+    legend: string;
     /**
      * Vis eller skjul tittel visuelt. Den er alltid tilgjengelig for skjermlesere.
      */
-    showTitle?: boolean;
+    showLegend?: boolean;
     items: string[];
     /**
      * Hvis du ønsker å separere et enkelt valg kan du det.
