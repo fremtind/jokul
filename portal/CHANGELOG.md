@@ -1,5 +1,51 @@
 # portal
 
+## 1.1.5
+
+### Patch Changes
+
+- 3406c20: Import av komponenter fra roten av `@fremtind/jokul` er ikke lenger mulig.
+
+  For å fikse dette må alle importer oppdateres til å peke direkte på den spesifikke modulen:
+
+  **FØR:**
+
+  ```typescript
+  import { Card } from "@fremtind/jokul";
+  ```
+
+  **ETTER:**
+
+  ```typescript
+  import { Card } from "@fremtind/jokul/card";
+  ```
+
+  `ScreenReaderOnly`-komponenten er også flyttet og må nå importeres fra `@fremtind/jokul/screen-reader-only`.
+
+- b5c52a6: Retter opp i et SSR-problem som forårsaker hydration mismatch og en visuell flimring i komponentgalleri-siden. Problemet stammer fra en konflikt mellom server- og klient-rendret HTML, ettersom serveren ikke har tilgang til `localStorage`.
+
+  Endringene som er gjort løser konflikten ved å bytte fra `localStorage` til `cookies`:
+
+  1.  **Bytter fra localStorage til cookies:**
+      Bruker `cookies-next` biblioteket for å håndtere cookies på klient-siden, som eliminerer problemet med at serveren ikke har tilgang til `localStorage`.
+  2.  **Server-side cookie-lesing:**
+      Hovedsiden (`page.tsx`) leser cookies med Next.js `cookies()` funksjon og sender verdien som `mode` prop til `ComponentGallery`.
+  3.  **klient-side cookie-håndtering:**
+      `ComponentGallery` bruker `getCookie` og `setCookie` fra `cookies-next` for å lese og skrive brukerens valgte visningstype.
+
+- Updated dependencies [3406c20]
+- Updated dependencies [e37cecd]
+- Updated dependencies [4ac8c73]
+- Updated dependencies [01e2b18]
+- Updated dependencies [c3bad0f]
+- Updated dependencies [e4967c9]
+- Updated dependencies [0fc189c]
+- Updated dependencies [a726267]
+- Updated dependencies [e6a6d55]
+- Updated dependencies [2610a20]
+- Updated dependencies [73f2e61]
+  - @fremtind/jokul@1.0.0
+
 ## 1.1.4
 
 ### Patch Changes
