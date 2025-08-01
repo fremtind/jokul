@@ -25,12 +25,13 @@
     }
 
     &--external::after,
-    &[target="_blank"]::after {
+    &[target="_blank"]::after,
+    &[download]::after {
         --jkl-icon-fill: 0;
         --jkl-icon-size: 1em;
         --jkl-icon-opsz: 20;
 
-        content: "\feff\e89e";
+        content: "\feff\e89e" / "(Åpnes i ny fane)";
         margin-block-start: -0.1em;
         padding-inline-start: 0.2em;
         vertical-align: middle;
@@ -40,6 +41,11 @@
         // Trengs for at non breaking space skal ha effekt
         display: inline;
     }
+
+    &[download]::after {
+        content: "\feff\f090" / "(Last ned fil)";
+    }
+
 
     &:hover:not(:focus) {
         --link-color: var(--jkl-color-text-subdued);
