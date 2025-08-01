@@ -1,11 +1,16 @@
-import React, { forwardRef, useId } from "react";
-import type { SegmentedControlProps } from "./types.js";
+import React, {useId} from "react";
+import {RadioButton} from "../radio-button/index.js";
+import type {SegmentedControlProps} from "./types.js";
 
-export const SegmentedControl = forwardRef<
-    HTMLFieldSetElement,
-    SegmentedControlProps
->((props, forwardedSelectRef) => {
-    const { title, items, showTitle = true, seperateItem = 0, ...rest } = props;
+export const SegmentedControl = (props: SegmentedControlProps) => {
+    const {
+        legend,
+        items,
+        showLegend = true,
+        separateItem = 0,
+        ...rest
+    } = props;
+
     const id = useId();
 
     const defaultItem =
@@ -14,40 +19,32 @@ export const SegmentedControl = forwardRef<
         items.indexOf(props.defaultValue);
 
     return (
-        <form className={"jkl-segmented-control"}>
-            <fieldset>
-                <legend
-                    className={`jkl-segmented-control-legend ${!showTitle && "jkl-sr-only"}`}
+        <fieldset className={"jkl-segmented-control"}>
+            <legend
+                className={`jkl-segmented-control-legend ${!showLegend && "jkl-sr-only"}`}
+            >
+                {legend}
+            </legend>
+            {items.map((item, index) => (
+                <RadioButton
+                    {...rest}
+                    key={item}
+                    className={"jkl-segmented-control-item"}
+                    id={`${legend}-${item}`}
+                    value={item}
+                    name={`${legend}-${id}`}
+                    defaultChecked={
+                        index === props.defaultValue || index === defaultItem
+                    }
+                    data-spacing={
+                        separateItem >= 0 ? separateItem === index + 1 : "true"
+                    }
                 >
-                    {title}
-                </legend>
-                {items.map((item, index) => (
-                    <label
-                        key={item}
-                        className={"jkl-segmented-control-item"}
-                        data-spacing={
-                            seperateItem >= 0
-                                ? seperateItem === index + 1
-                                : "true"
-                        }
-                    >
-                        <input
-                            {...rest}
-                            type={"radio"}
-                            id={item}
-                            value={item}
-                            name={id}
-                            defaultChecked={
-                                index === props.defaultValue ||
-                                index === defaultItem
-                            }
-                        />
-                        {item}
-                    </label>
-                ))}
-            </fieldset>
-        </form>
+                    {item}
+                </RadioButton>
+            ))}
+        </fieldset>
     );
-});
+};
 
 SegmentedControl.displayName = "Segmented Control";

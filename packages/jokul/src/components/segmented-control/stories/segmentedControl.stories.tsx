@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import React, { useState } from "react";
-import { Link } from "../../link/index.js";
+import type {Meta, StoryObj} from "@storybook/react";
+import React, {useState} from "react";
+import {Link} from "../../link/index.js";
 import {
     CheckListItem,
     CrossListItem,
     List,
     ListItem,
 } from "../../list/index.js";
-import { SegmentedControl } from "../SegmentedControl.js";
+import {SegmentedControl} from "../SegmentedControl.js";
 
 import "../styles/_index.scss";
 import "../../list/styles/_index.scss";
@@ -26,19 +26,20 @@ export default meta;
 
 type Story = StoryObj<typeof SegmentedControl>;
 
+const themeChoices = ["Auto", "Light", "Dark", "High Contrast"];
+const coverageChoices = ["Vis alt", "Dekker", "Dekker ikke", "Dekkes kanskje"];
+
 export const SegmentedControlStory: Story = {
     name: "Segmented Control",
     args: {
-        title: "Tema",
-        items: ["Auto", "Light", "Dark", "High Contrast"],
-        seperateItem: 1,
-        defaultValue: "Auto",
-        showTitle: true,
+        legend: "Tema",
+        items: themeChoices,
+        separateItem: 1,
     },
     argTypes: {
         defaultValue: {
             control: "select",
-            options: ["Auto", "Light", "Dark", 0, 1, 2],
+            options: [...themeChoices, ...themeChoices.keys()],
         },
     },
     render: (args) => <SegmentedControl {...args} />,
@@ -47,16 +48,16 @@ export const SegmentedControlStory: Story = {
 export const DekningsoversiktStory: Story = {
     name: "Segmented Control: Dekningsoversikt",
     args: {
-        title: "Velg hva som vises",
-        items: ["Vis alt", "Dekker", "Dekker ikke", "Dekker kanskje"],
-        defaultValue: "Dekker",
-        showTitle: false,
-        seperateItem: 1,
+        legend: "Velg hva som vises",
+        items: coverageChoices,
+        defaultValue: coverageChoices[1],
+        showLegend: false,
+        separateItem: 1,
     },
     argTypes: {
         defaultValue: {
             control: "select",
-            options: ["Vis alt", "Dekker", "Dekker ikke", "Dekker kanskje"],
+            options: [...coverageChoices, ...coverageChoices.keys()],
         },
     },
     render: (args) => {
@@ -89,21 +90,38 @@ export const DekningsoversiktStory: Story = {
             </List>
         );
 
+        const links = (
+            <div style={{marginBlockStart: "24px"}}>
+                <p>
+                    På denne siden har vi forenklet teksten om hva forsikringen
+                    dekker og ikke dekker. Du må alltid lese vilkårene i
+                    avtaledokumentet for å få full oversikt.
+                </p>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "12px",
+                    }}
+                >
+                    <Link external={true} href={"#"}>
+                        Fullstendige vilkår (PDF)
+                    </Link>
+                    <Link external={true} href={"#"}>
+                        Standardisert produktinformasjon (PDF)
+                    </Link>
+                </div>
+            </div>
+        );
+
         return (
-            <div
-                style={{
-                    display: "flex",
-                    gap: "40px",
-                    flexDirection: "column",
-                }}
-            >
-                <h2>Dekningsoversikt hund og katt</h2>
+            <>
+                <h2 style={{marginBlockEnd: "24px"}}>
+                    Dekningsoversikt hund og katt
+                </h2>
                 <SegmentedControl
                     {...args}
-                    value={value}
-                    onChange={(e) => {
-                        setValue(e.target.value);
-                    }}
+                    onChange={(e) => setValue(e.target.value)}
                 />
                 <div
                     style={{
@@ -111,112 +129,22 @@ export const DekningsoversiktStory: Story = {
                         display: "flex",
                         gap: "24px",
                         flexDirection: "column",
+                        marginBlockStart: "24px",
                     }}
                 >
-                    {value === "Vis alt" && (
+                    {value === coverageChoices[0] && (
                         <>
                             {dekkesListe}
                             {dekkesIkkeListe}
                             {dekkesKanskjeListe}
-                            <p>
-                                På denne siden har vi forenklet teksten om hva
-                                forsikringen dekker og ikke dekker. Du må alltid
-                                lese vilkårene i avtaledokumentet for å få full
-                                oversikt.
-                            </p>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "12px",
-                                }}
-                            >
-                                <Link external={true} href={"#"}>
-                                    Fullstendige vilkår (PDF)
-                                </Link>
-                                <Link external={true} href={"#"}>
-                                    Standardisert produktinformasjon (PDF)
-                                </Link>
-                            </div>
                         </>
                     )}
-                    {value === "Dekker" && (
-                        <>
-                            {dekkesListe}
-                            <p>
-                                På denne siden har vi forenklet teksten om hva
-                                forsikringen dekker og ikke dekker. Du må alltid
-                                lese vilkårene i avtaledokumentet for å få full
-                                oversikt.
-                            </p>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "12px",
-                                }}
-                            >
-                                <Link external={true} href={"#"}>
-                                    Fullstendige vilkår (PDF)
-                                </Link>
-                                <Link external={true} href={"#"}>
-                                    Standardisert produktinformasjon (PDF)
-                                </Link>
-                            </div>
-                        </>
-                    )}
-                    {value === "Dekker kanskje" && (
-                        <>
-                            {dekkesKanskjeListe}
-                            <p>
-                                På denne siden har vi forenklet teksten om hva
-                                forsikringen dekker og ikke dekker. Du må alltid
-                                lese vilkårene i avtaledokumentet for å få full
-                                oversikt.
-                            </p>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "12px",
-                                }}
-                            >
-                                <Link external={true} href={"#"}>
-                                    Fullstendige vilkår (PDF)
-                                </Link>
-                                <Link external={true} href={"#"}>
-                                    Standardisert produktinformasjon (PDF)
-                                </Link>
-                            </div>
-                        </>
-                    )}
-                    {value === "Dekker ikke" && (
-                        <>
-                            {dekkesIkkeListe}
-                            <p>
-                                På denne siden har vi forenklet teksten om hva
-                                forsikringen dekker og ikke dekker. Du må alltid
-                                lese vilkårene i avtaledokumentet for å få full
-                                oversikt.
-                            </p>
-                            <div
-                                style={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    gap: "12px",
-                                }}
-                            >
-                                <Link external={true} href={"#"}>
-                                    Fullstendige vilkår (PDF)
-                                </Link>
-                                <Link external={true} href={"#"}>
-                                    Standardisert produktinformasjon (PDF)
-                                </Link>
-                            </div>
-                        </>
-                    )}
+                    {value === coverageChoices[1] && dekkesListe}
+                    {value === coverageChoices[2] && dekkesKanskjeListe}
+                    {value === coverageChoices[3] && dekkesIkkeListe}
+                    {links}
                 </div>
-            </div>
+            </>
         );
     },
 };
