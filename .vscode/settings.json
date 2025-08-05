@@ -1,0 +1,10 @@
+{
+    "css.format.spaceAroundSelectorSeparator": true,
+    "scss.format.spaceAroundSelectorSeparator": true,
+
+    "[scss]": {
+        "editor.tabSize": 4,
+        "editor.insertSpaces": true,
+        "editor.formatOnSave": true
+    }
+}

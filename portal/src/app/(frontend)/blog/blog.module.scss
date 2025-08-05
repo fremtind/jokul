@@ -1,20 +1,16 @@
-@use "@fremtind/jokul/styles/core/jkl";
-
 .articleGallery {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+    margin-block-start: var(--jkl-spacing-64);
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr));
+    list-style: none;
+    padding-inline-start: 0;
+    grid-template-columns: repeat(auto-fit, minmax(min(37ch, 100%), 1fr));
     gap: clamp(var(--jkl-unit-30),
             1.1522rem + 1.7391vw,
             var(--jkl-unit-50));
 }
 
-.articleCard {
-    .date {
-        color: var(--jkl-color-text-subdued);
-        
-        @include jkl.text-style("small");
+.articleHeader {
+    > * {
+        margin-block-end: var(--jkl-spacing-24);
     }
 }

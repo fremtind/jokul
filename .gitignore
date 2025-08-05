@@ -1,7 +1,9 @@
 node_modules/
 npm-debug.log
 yarn-error.log
-.vscode
+.vscode/*
+!.vscode/
+!.vscode/settings.json
 .cache
 .parcel-cache
 .yarn/

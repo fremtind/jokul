@@ -2,9 +2,8 @@ import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { blogPostBySlugQuery } from "@/sanity/queries/blog";
-import clsx from "clsx";
-import styles from "./blogpost.module.scss";
-import { BlogHeader } from "./components/BlogHeader";
+
+import styles from "../blog.module.scss";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -31,18 +30,38 @@ export default async function BlogPostPage({ params }: Props) {
 
     if (!blogPost) return null;
 
+    const publishedDate = new Date(blogPost._createdAt).toLocaleString("no", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+    });
+
+    const updatedDate = new Date(blogPost._updatedAt).toLocaleString("no", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+    });
+
+    const dateString =
+        updatedDate !== publishedDate
+            ? `Oppdatert ${updatedDate}`
+            : `Publisert ${publishedDate}`;
+
     return (
-        <article>
-            <BlogHeader
-                name={blogPost.name}
-                description={blogPost.short_description}
-            />
-            <div className={clsx("prose", styles.wrapper)}>
-                {blogPost.article ? (
-                    <PortableText blocks={blogPost.article} />
-                ) : null}
-                <PageFooter />
-            </div>
+        <article className={"prose"}>
+            <header className={styles.articleHeader}>
+                {blogPost.name && (
+                    <h1 className={styles.title}>{blogPost.name}</h1>
+                )}
+                {blogPost.short_description && (
+                    <p>{blogPost.short_description}</p>
+                )}
+                <p className="date">{dateString}</p>
+            </header>
+            {blogPost.article ? (
+                <PortableText blocks={blogPost.article} />
+            ) : null}
+            <PageFooter />
         </article>
     );
 }

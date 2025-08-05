@@ -22,12 +22,10 @@ export const LinkCard: FC<PortableTextTypeComponentProps<Jokul_linkCard>> = ({
                         variant="low"
                         key={link._key || index}
                     >
-                        <a href={link.url}>
+                        <a href={link.url} aria-label={link.title}>
                             <div className={styles.linkCard}>
-                                <div>
-                                    <h4>
-                                        <strong>{link.title}</strong>
-                                    </h4>
+                                <div className={"jkl-heading-4"}>
+                                    <strong>{link.title}</strong>
                                     <OpenInNewIcon />
                                 </div>
 

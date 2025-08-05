@@ -2,8 +2,8 @@
 
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
-import styles from "../component.module.scss";
 import { ComponentHeaderLink } from "./ComponentHeaderLink";
+import styles from "./componentHeader.module.scss";
 
 type ComponentHeaderProps = {
     links?: {

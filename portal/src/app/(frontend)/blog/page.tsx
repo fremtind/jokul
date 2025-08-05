@@ -1,8 +1,6 @@
+import { ArticleCard } from "@/app/(frontend)/blog/components/ArticleCard";
 import { sanityFetch } from "@/sanity/lib/live";
 import { blogPostsQuery } from "@/sanity/queries/blog";
-import { ArticleCard } from "./ArticleCard";
-import { BlogHeader } from "./[slug]/components/BlogHeader";
-
 import styles from "./blog.module.scss";
 
 export default async function BlogPage() {
@@ -10,11 +8,15 @@ export default async function BlogPage() {
 
     if (!posts) return null;
 
+    const sortedPosts = posts.sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    );
+
     return (
         <>
-            <BlogHeader name="Artikler" />
+            <h1 className={"header"}>Artikler</h1>
             <div className={styles.articleGallery}>
-                {posts.map((post) => (
+                {sortedPosts.map((post) => (
                     <ArticleCard key={post.slug?.current} {...post} />
                 ))}
             </div>
