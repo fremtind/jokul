@@ -1,22 +1,24 @@
 @use '@fremtind/jokul/styles/core/jkl';
 
 .codeBlock {
-    position: relative;
     box-sizing: border-box;
-    border: 1px solid var(--jkl-color-border-separator);
     border-radius: jkl.rem(4px);
     width: 100%;
     overflow: hidden;
+    background-color: var(--jkl-color-background-container-low);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    padding: var(--jkl-unit-20);
 
     &[data-language]::before {
-        display: block;
+        width: max-content;
         box-sizing: border-box;
-        padding: var(--jkl-unit-05) var(--jkl-unit-20);
-        background-color: var(--jkl-color-background-container-low);
-        border-block-end: 1px solid var(--jkl-color-border-separator);
+        padding: var(--jkl-unit-05) var(--jkl-unit-10);
+        border-radius: 2px;
+        background-color: var(--jkl-color-background-container);
         text-transform: uppercase;
-        text-align: end;
-        width: 100%;
         content: attr(data-language);
 
         @include jkl.use-font-family("Fremtind Grotesk Mono");
@@ -32,4 +34,5 @@
     display: block;
     overflow-x: auto;
     padding: var(--jkl-unit-20);
+    place-self: start;
 }
