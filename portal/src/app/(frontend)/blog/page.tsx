@@ -6,7 +6,10 @@ import { BlogHeader } from "./[slug]/components/BlogHeader";
 import styles from "./blog.module.scss";
 
 export default async function BlogPage() {
-    const { data: posts } = await sanityFetch({ query: blogPostsQuery });
+    const { data: posts } = await sanityFetch({
+        query: blogPostsQuery,
+        tags: ["jokul_blog_post"],
+    });
 
     if (!posts) return null;
 
