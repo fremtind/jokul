@@ -41,6 +41,7 @@ export const blogPost = defineType({
                 { type: "jokul_linkCard" },
                 { type: "image" },
                 { type: "jokul_codeBlock" },
+                { type: "jokul_storybook" },
             ],
         }),
     ],

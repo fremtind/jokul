@@ -3,39 +3,33 @@ import { defineField, defineType } from "sanity";
 import { StorybookInput } from "../components/StorybookStoryInput";
 export const storybook = defineType({
     name: "jokul_storybook",
-    title: "Eksempler fra Storybook",
+    title: "Eksempel fra Storybook",
     type: "object",
     icon: ComponentIcon,
     fields: [
         defineField({
-            name: "stories",
-            title: "Velg stories",
-            description:
-                "Velg stories fra Storybook. Hvis du velger mer enn én vil man kunne velge blant dem i eksempelvisningen.",
-            type: "array",
-            of: [
-                {
-                    type: "jokul_storybookStory",
-                },
-            ],
+            name: "story",
+            title: "Velg story",
+            description: "Velg story fra Storybook",
+            type: "jokul_storybookStory",
             validation: (Rule) => Rule.required(),
+        }),
+        defineField({
+            name: "code",
+            title: "Eksempelkode",
+            type: "jokul_codeBlock",
+            options: {
+                collapsed: true,
+            },
         }),
     ],
     preview: {
         select: {
-            story0: "stories.0.storyName",
-            story1: "stories.1.storyName",
-            story2: "stories.2.storyName",
-            story3: "stories.3.storyName",
+            title: "story.storyName",
         },
-        prepare({ story0, story1, story2, story3 }) {
-            const stories = [story0, story1, story2].filter(Boolean);
-            const subtitle = stories.length > 1 ? stories.join(", ") : "";
-            const hasMoreStories = Boolean(story3);
-
+        prepare({ title }) {
             return {
-                title: "Storybook-eksempel",
-                subtitle: hasMoreStories ? `${subtitle} og flere` : subtitle,
+                title: title ? title : "Story uten navn",
             };
         },
     },

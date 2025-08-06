@@ -1,29 +1,29 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
 .storybook {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: jkl.rem(1000px);
+    max-width: 100%;
     position: relative;
 
     .story {
-        border: 1px solid jkl.$color-border-separator;
+        border: 1px solid var(--jkl-color-border-separator);
         width: 100%;
+        max-width: 100%;
         aspect-ratio: 16 / 9;
         border-radius: jkl.rem(4px);
-        margin-block-start: jkl.rem(16px);
         resize: vertical;
         min-height: jkl.rem(120px);
         max-height: 100vh;
+        margin: 0;
     }
 
-    .externalLink {
-        flex-grow: 1;
+    .header {
+        position: absolute;
+        inline-size: 100%;
+        box-sizing: border-box;
         display: flex;
-        gap: jkl.$spacing-32;
-        padding: jkl.$spacing-16 0;
+        gap: var(--jkl-unit-20);
+        padding: var(--jkl-unit-20);
         justify-content: space-between;
-        align-items: flex-end;
+        align-items: center;
     }
 }
