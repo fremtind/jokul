@@ -3,6 +3,7 @@
 .storybook {
     display: flex;
     flex-direction: column;
+    min-width: 100%;
     width: 100%;
     max-width: jkl.rem(1000px);
     position: relative;
