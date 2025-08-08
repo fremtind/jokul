@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- 06804df: Add dark box shadow for popover in dark mode
+
 ## 1.0.0
 
 ### Major Changes
