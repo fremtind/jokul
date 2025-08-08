@@ -1,5 +1,18 @@
 # portal
 
+## 1.2.0
+
+### Minor Changes
+
+- d95bea7: Lagt til webhook-basert cache invalidation for umiddelbare bloggoppdateringer i produksjon
+
+  Løser cache-problemer hvor nye Sanity-innlegg ikke viste seg umiddelbart på deployed miljøer ved å implementere automatisk cache revalidation via webhook-integrasjon.
+
+### Patch Changes
+
+- Updated dependencies [06804df]
+  - @fremtind/jokul@1.0.1
+
 ## 1.1.5
 
 ### Patch Changes
