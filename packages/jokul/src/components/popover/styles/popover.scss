@@ -1,9 +1,17 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
+@include jkl.light-mode-variables {
+    --jkl-datepicker-box-shadow: rgb(49 48 48 / 20%);
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-datepicker-box-shadow: rgb(0 0 0 / 50%);
+}
+
 .jkl-popover {
     padding: var(--popover-padding, 0);
     z-index: jkl.$z-index--floating;
-    box-shadow: 0 4px 20px 0 rgb(49 48 48 / 20%);
+    box-shadow: 0 4px 20px 0 var(--jkl-datepicker-box-shadow);
     background-color: var(--jkl-color-background-container-high);
 }
