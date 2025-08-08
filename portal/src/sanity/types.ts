@@ -14,749 +14,658 @@
 
 // Source: schema.json
 export type SanityImagePaletteSwatch = {
-    _type: "sanity.imagePaletteSwatch";
-    background?: string;
-    foreground?: string;
-    population?: number;
-    title?: string;
+  _type: "sanity.imagePaletteSwatch";
+  background?: string;
+  foreground?: string;
+  population?: number;
+  title?: string;
 };
 
 export type SanityImagePalette = {
-    _type: "sanity.imagePalette";
-    darkMuted?: SanityImagePaletteSwatch;
-    lightVibrant?: SanityImagePaletteSwatch;
-    darkVibrant?: SanityImagePaletteSwatch;
-    vibrant?: SanityImagePaletteSwatch;
-    dominant?: SanityImagePaletteSwatch;
-    lightMuted?: SanityImagePaletteSwatch;
-    muted?: SanityImagePaletteSwatch;
+  _type: "sanity.imagePalette";
+  darkMuted?: SanityImagePaletteSwatch;
+  lightVibrant?: SanityImagePaletteSwatch;
+  darkVibrant?: SanityImagePaletteSwatch;
+  vibrant?: SanityImagePaletteSwatch;
+  dominant?: SanityImagePaletteSwatch;
+  lightMuted?: SanityImagePaletteSwatch;
+  muted?: SanityImagePaletteSwatch;
 };
 
 export type SanityImageDimensions = {
-    _type: "sanity.imageDimensions";
-    height?: number;
-    width?: number;
-    aspectRatio?: number;
+  _type: "sanity.imageDimensions";
+  height?: number;
+  width?: number;
+  aspectRatio?: number;
 };
 
 export type SanityFileAsset = {
-    _id: string;
-    _type: "sanity.fileAsset";
-    _createdAt: string;
-    _updatedAt: string;
-    _rev: string;
-    originalFilename?: string;
-    label?: string;
-    title?: string;
-    description?: string;
-    altText?: string;
-    sha1hash?: string;
-    extension?: string;
-    mimeType?: string;
-    size?: number;
-    assetId?: string;
-    uploadId?: string;
-    path?: string;
-    url?: string;
-    source?: SanityAssetSourceData;
+  _id: string;
+  _type: "sanity.fileAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  source?: SanityAssetSourceData;
 };
 
 export type Geopoint = {
-    _type: "geopoint";
-    lat?: number;
-    lng?: number;
-    alt?: number;
+  _type: "geopoint";
+  lat?: number;
+  lng?: number;
+  alt?: number;
 };
 
 export type Jokul_linkCard = {
-    _type: "jokul_linkCard";
-    external_links?: Array<{
-        title?: string;
-        description?: string;
-        url?: string;
-        _type: "link";
-        _key: string;
-    }>;
+  _type: "jokul_linkCard";
+  external_links?: Array<{
+    title?: string;
+    description?: string;
+    url?: string;
+    _type: "link";
+    _key: string;
+  }>;
 };
 
 export type Jokul_componentKortFortalt = {
-    _type: "jokul_componentKortFortalt";
-    bruk?: Array<{
-        bruk_punkt?: Array<{
-            children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-            }>;
-            style?: "normal";
-            listItem?: never;
-            markDefs?: Array<{
-                component?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "jokul_component";
-                };
-                _type: "componentPageLink";
-                _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-        }>;
+  _type: "jokul_componentKortFortalt";
+  bruk?: Array<{
+    bruk_punkt?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
         _key: string;
-    }>;
-    ikke_bruk?: Array<{
-        ikke_bruk_punkt?: Array<{
-            children?: Array<{
-                marks?: Array<string>;
-                text?: string;
-                _type: "span";
-                _key: string;
-            }>;
-            style?: "normal";
-            listItem?: never;
-            markDefs?: Array<{
-                component?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "jokul_component";
-                };
-                _type: "componentPageLink";
-                _key: string;
-            }>;
-            level?: number;
-            _type: "block";
-            _key: string;
-        }>;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        component?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "jokul_component";
+        };
+        _type: "componentPageLink";
         _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
     }>;
-};
-
-export type Jokul_storybookStory = {
-    _type: "jokul_storybookStory";
-    storyId?: string;
-    storyName?: string;
+    _key: string;
+  }>;
+  ikke_bruk?: Array<{
+    ikke_bruk_punkt?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal";
+      listItem?: never;
+      markDefs?: Array<{
+        component?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "jokul_component";
+        };
+        _type: "componentPageLink";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    _key: string;
+  }>;
 };
 
 export type Jokul_storybook = {
-    _type: "jokul_storybook";
-    stories?: Array<
-        {
-            _key: string;
-        } & Jokul_storybookStory
-    >;
+  _type: "jokul_storybook";
+  story?: Jokul_storybookStory;
+  code?: Jokul_codeBlock;
+};
+
+export type Jokul_storybookStory = {
+  _type: "jokul_storybookStory";
+  storyId?: string;
+  storyName?: string;
 };
 
 export type Jokul_codeBlock = {
-    _type: "jokul_codeBlock";
-    code?: string;
-    language?: "scss" | "typescript";
+  _type: "jokul_codeBlock";
+  code?: string;
+  language?: "scss" | "typescript";
 };
 
 export type Jokul_codeExample = {
-    _type: "jokul_codeExample";
-    showEditor?: boolean;
-    codeExample?: string;
+  _type: "jokul_codeExample";
+  showEditor?: boolean;
+  codeExample?: string;
 };
 
 export type Jokul_componentProps = {
-    _type: "jokul_componentProps";
-    componentFolder?: string;
+  _type: "jokul_componentProps";
+  componentFolder?: string;
 };
 
 export type Jokul_blog_post = {
-    _id: string;
-    _type: "jokul_blog_post";
-    _createdAt: string;
-    _updatedAt: string;
-    _rev: string;
-    name?: string;
-    slug?: Slug;
-    short_description?: string;
-    article?: Array<
-        | {
-              children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-              }>;
-              style?:
-                  | "normal"
-                  | "h1"
-                  | "h2"
-                  | "h3"
-                  | "h4"
-                  | "h5"
-                  | "h6"
-                  | "blockquote";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-          }
-        | ({
-              _key: string;
-          } & Jokul_linkCard)
-        | {
-              asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              _type: "image";
-              _key: string;
-          }
-        | ({
-              _key: string;
-          } & Jokul_codeBlock)
-    >;
+  _id: string;
+  _type: "jokul_blog_post";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  short_description?: string;
+  article?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    _key: string;
+  } & Jokul_linkCard | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  } | {
+    _key: string;
+  } & Jokul_codeBlock | {
+    _key: string;
+  } & Jokul_storybook>;
 };
 
 export type Jokul_component = {
-    _id: string;
-    _type: "jokul_component";
-    _createdAt: string;
-    _updatedAt: string;
-    _rev: string;
-    name?: string;
-    slug?: Slug;
-    short_description?: string;
-    status?: Array<string>;
-    keywords?: Array<string>;
-    external_links?: {
-        github_link?: string;
-        figma_link?: string;
-        storybook_link?: string;
+  _id: string;
+  _type: "jokul_component";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  short_description?: string;
+  status?: Array<string>;
+  keywords?: Array<string>;
+  external_links?: {
+    github_link?: string;
+    figma_link?: string;
+    storybook_link?: string;
+  };
+  figma_image?: {
+    light_mode?: string;
+    dark_mode?: string;
+  };
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
-    figma_image?: {
-        light_mode?: string;
-        dark_mode?: string;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  imageDark?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
-    image?: {
-        asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  documentation_article?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
-    imageDark?: {
-        asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
-    };
-    documentation_article?: Array<
-        | {
-              children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-              }>;
-              style?:
-                  | "normal"
-                  | "h1"
-                  | "h2"
-                  | "h3"
-                  | "h4"
-                  | "h5"
-                  | "h6"
-                  | "blockquote";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-          }
-        | {
-              asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              _type: "image";
-              _key: string;
-          }
-        | ({
-              _key: string;
-          } & Jokul_componentProps)
-        | ({
-              _key: string;
-          } & Jokul_componentKortFortalt)
-        | ({
-              _key: string;
-          } & Jokul_codeExample)
-        | ({
-              _key: string;
-          } & Jokul_storybook)
-        | ({
-              _key: string;
-          } & Jokul_codeBlock)
-    >;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  } | {
+    _key: string;
+  } & Jokul_componentProps | {
+    _key: string;
+  } & Jokul_componentKortFortalt | {
+    _key: string;
+  } & Jokul_codeExample | {
+    _key: string;
+  } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_codeBlock>;
 };
 
 export type SanityImageCrop = {
-    _type: "sanity.imageCrop";
-    top?: number;
-    bottom?: number;
-    left?: number;
-    right?: number;
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
 };
 
 export type SanityImageHotspot = {
-    _type: "sanity.imageHotspot";
-    x?: number;
-    y?: number;
-    height?: number;
-    width?: number;
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
 };
 
 export type SanityImageAsset = {
-    _id: string;
-    _type: "sanity.imageAsset";
-    _createdAt: string;
-    _updatedAt: string;
-    _rev: string;
-    originalFilename?: string;
-    label?: string;
-    title?: string;
-    description?: string;
-    altText?: string;
-    sha1hash?: string;
-    extension?: string;
-    mimeType?: string;
-    size?: number;
-    assetId?: string;
-    uploadId?: string;
-    path?: string;
-    url?: string;
-    metadata?: SanityImageMetadata;
-    source?: SanityAssetSourceData;
+  _id: string;
+  _type: "sanity.imageAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  metadata?: SanityImageMetadata;
+  source?: SanityAssetSourceData;
 };
 
 export type SanityAssetSourceData = {
-    _type: "sanity.assetSourceData";
-    name?: string;
-    id?: string;
-    url?: string;
+  _type: "sanity.assetSourceData";
+  name?: string;
+  id?: string;
+  url?: string;
 };
 
 export type SanityImageMetadata = {
-    _type: "sanity.imageMetadata";
-    location?: Geopoint;
-    dimensions?: SanityImageDimensions;
-    palette?: SanityImagePalette;
-    lqip?: string;
-    blurHash?: string;
-    hasAlpha?: boolean;
-    isOpaque?: boolean;
+  _type: "sanity.imageMetadata";
+  location?: Geopoint;
+  dimensions?: SanityImageDimensions;
+  palette?: SanityImagePalette;
+  lqip?: string;
+  blurHash?: string;
+  hasAlpha?: boolean;
+  isOpaque?: boolean;
 };
 
 export type Slug = {
-    _type: "slug";
-    current?: string;
-    source?: string;
+  _type: "slug";
+  current?: string;
+  source?: string;
 };
 
-export type AllSanitySchemaTypes =
-    | SanityImagePaletteSwatch
-    | SanityImagePalette
-    | SanityImageDimensions
-    | SanityFileAsset
-    | Geopoint
-    | Jokul_linkCard
-    | Jokul_componentKortFortalt
-    | Jokul_storybookStory
-    | Jokul_storybook
-    | Jokul_codeBlock
-    | Jokul_codeExample
-    | Jokul_componentProps
-    | Jokul_blog_post
-    | Jokul_component
-    | SanityImageCrop
-    | SanityImageHotspot
-    | SanityImageAsset
-    | SanityAssetSourceData
-    | SanityImageMetadata
-    | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybook | Jokul_storybookStory | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | Jokul_blog_post | Jokul_component | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/blog.ts
 // Variable: blogPostsQuery
 // Query: *[_type == "jokul_blog_post"]{        name,        slug,        short_description,        "date": _createdAt,    } | order(_createdAt desc)
 export type BlogPostsQueryResult = Array<{
-    name: string | null;
-    slug: Slug | null;
-    short_description: string | null;
-    date: string;
+  name: string | null;
+  slug: Slug | null;
+  short_description: string | null;
+  date: string;
 }>;
 // Variable: blogPostBySlugQuery
 // Query: *[_type == "jokul_blog_post" && slug.current == $slug][0]
 export type BlogPostBySlugQueryResult = {
-    _id: string;
-    _type: "jokul_blog_post";
-    _createdAt: string;
-    _updatedAt: string;
-    _rev: string;
-    name?: string;
-    slug?: Slug;
-    short_description?: string;
-    article?: Array<
-        | ({
-              _key: string;
-          } & Jokul_codeBlock)
-        | ({
-              _key: string;
-          } & Jokul_linkCard)
-        | {
-              children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-              }>;
-              style?:
-                  | "blockquote"
-                  | "h1"
-                  | "h2"
-                  | "h3"
-                  | "h4"
-                  | "h5"
-                  | "h6"
-                  | "normal";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-          }
-        | {
-              asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              _type: "image";
-              _key: string;
-          }
-    >;
+  _id: string;
+  _type: "jokul_blog_post";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  short_description?: string;
+  article?: Array<{
+    _key: string;
+  } & Jokul_codeBlock | {
+    _key: string;
+  } & Jokul_linkCard | {
+    _key: string;
+  } & Jokul_storybook | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
 } | null;
 // Variable: komIGangQuery
 // Query: *[_type == "jokul_blog_post" && slug.current == "kom-i-gang"][0]
 export type KomIGangQueryResult = {
-    _id: string;
-    _type: "jokul_blog_post";
-    _createdAt: string;
-    _updatedAt: string;
-    _rev: string;
-    name?: string;
-    slug?: Slug;
-    short_description?: string;
-    article?: Array<
-        | ({
-              _key: string;
-          } & Jokul_codeBlock)
-        | ({
-              _key: string;
-          } & Jokul_linkCard)
-        | {
-              children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-              }>;
-              style?:
-                  | "blockquote"
-                  | "h1"
-                  | "h2"
-                  | "h3"
-                  | "h4"
-                  | "h5"
-                  | "h6"
-                  | "normal";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-          }
-        | {
-              asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              _type: "image";
-              _key: string;
-          }
-    >;
+  _id: string;
+  _type: "jokul_blog_post";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  short_description?: string;
+  article?: Array<{
+    _key: string;
+  } & Jokul_codeBlock | {
+    _key: string;
+  } & Jokul_linkCard | {
+    _key: string;
+  } & Jokul_storybook | {
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
 } | null;
 
 // Source: ./src/sanity/queries/component.ts
 // Variable: componentsQuery
 // Query: *[_type == "jokul_component"]{    name,    slug,    "imageUrl": image.asset->url,    } | order(name)
 export type ComponentsQueryResult = Array<{
-    name: string | null;
-    slug: Slug | null;
-    imageUrl: string | null;
+  name: string | null;
+  slug: Slug | null;
+  imageUrl: string | null;
 }>;
 // Variable: componentBySlugQuery
 // Query: *[_type == "jokul_component" && slug.current == $slug][0] {        ...,        documentation_article[]{            ...,            _type == "jokul_componentKortFortalt" => {                ...,                bruk[]{                    bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    slug                                }                            }                        }                    }                },                ikke_bruk[]{                    ikke_bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    slug                                }                            }                        }                    }                }            }        }    }
 export type ComponentBySlugQueryResult = {
-    _id: string;
-    _type: "jokul_component";
-    _createdAt: string;
-    _updatedAt: string;
-    _rev: string;
-    name?: string;
-    slug?: Slug;
-    short_description?: string;
-    status?: Array<string>;
-    keywords?: Array<string>;
-    external_links?: {
-        github_link?: string;
-        figma_link?: string;
-        storybook_link?: string;
+  _id: string;
+  _type: "jokul_component";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  slug?: Slug;
+  short_description?: string;
+  status?: Array<string>;
+  keywords?: Array<string>;
+  external_links?: {
+    github_link?: string;
+    figma_link?: string;
+    storybook_link?: string;
+  };
+  figma_image?: {
+    light_mode?: string;
+    dark_mode?: string;
+  };
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
-    figma_image?: {
-        light_mode?: string;
-        dark_mode?: string;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  imageDark?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
-    image?: {
-        asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  documentation_article: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "normal";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
-    imageDark?: {
-        asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
-    };
-    documentation_article: Array<
-        | {
-              children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-              }>;
-              style?:
-                  | "blockquote"
-                  | "h1"
-                  | "h2"
-                  | "h3"
-                  | "h4"
-                  | "h5"
-                  | "h6"
-                  | "normal";
-              listItem?: "bullet" | "number";
-              markDefs?: Array<{
-                  href?: string;
-                  _type: "link";
-                  _key: string;
-              }>;
-              level?: number;
-              _type: "block";
-              _key: string;
-          }
-        | {
-              asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              _type: "image";
-              _key: string;
-          }
-        | {
-              _key: string;
-              _type: "jokul_codeBlock";
-              code?: string;
-              language?: "scss" | "typescript";
-          }
-        | {
-              _key: string;
-              _type: "jokul_codeExample";
-              showEditor?: boolean;
-              codeExample?: string;
-          }
-        | {
-              _key: string;
-              _type: "jokul_componentKortFortalt";
-              bruk: Array<{
-                  bruk_punkt: Array<{
-                      children?: Array<{
-                          marks?: Array<string>;
-                          text?: string;
-                          _type: "span";
-                          _key: string;
-                      }>;
-                      style?: "normal";
-                      listItem?: never;
-                      markDefs: Array<{
-                          component: {
-                              name: string | null;
-                              slug: Slug | null;
-                          } | null;
-                          _type: "componentPageLink";
-                          _key: string;
-                      }> | null;
-                      level?: number;
-                      _type: "block";
-                      _key: string;
-                  }> | null;
-              }> | null;
-              ikke_bruk: Array<{
-                  ikke_bruk_punkt: Array<{
-                      children?: Array<{
-                          marks?: Array<string>;
-                          text?: string;
-                          _type: "span";
-                          _key: string;
-                      }>;
-                      style?: "normal";
-                      listItem?: never;
-                      markDefs: Array<{
-                          component: {
-                              name: string | null;
-                              slug: Slug | null;
-                          } | null;
-                          _type: "componentPageLink";
-                          _key: string;
-                      }> | null;
-                      level?: number;
-                      _type: "block";
-                      _key: string;
-                  }> | null;
-              }> | null;
-          }
-        | {
-              _key: string;
-              _type: "jokul_componentProps";
-              componentFolder?: string;
-          }
-        | {
-              _key: string;
-              _type: "jokul_storybook";
-              stories?: Array<
-                  {
-                      _key: string;
-                  } & Jokul_storybookStory
-              >;
-          }
-    > | null;
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  } | {
+    _key: string;
+    _type: "jokul_codeBlock";
+    code?: string;
+    language?: "scss" | "typescript";
+  } | {
+    _key: string;
+    _type: "jokul_codeExample";
+    showEditor?: boolean;
+    codeExample?: string;
+  } | {
+    _key: string;
+    _type: "jokul_componentKortFortalt";
+    bruk: Array<{
+      bruk_punkt: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs: Array<{
+          component: {
+            name: string | null;
+            slug: Slug | null;
+          } | null;
+          _type: "componentPageLink";
+          _key: string;
+        }> | null;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+    }> | null;
+    ikke_bruk: Array<{
+      ikke_bruk_punkt: Array<{
+        children?: Array<{
+          marks?: Array<string>;
+          text?: string;
+          _type: "span";
+          _key: string;
+        }>;
+        style?: "normal";
+        listItem?: never;
+        markDefs: Array<{
+          component: {
+            name: string | null;
+            slug: Slug | null;
+          } | null;
+          _type: "componentPageLink";
+          _key: string;
+        }> | null;
+        level?: number;
+        _type: "block";
+        _key: string;
+      }> | null;
+    }> | null;
+  } | {
+    _key: string;
+    _type: "jokul_componentProps";
+    componentFolder?: string;
+  } | {
+    _key: string;
+    _type: "jokul_storybook";
+    story?: Jokul_storybookStory;
+    code?: Jokul_codeBlock;
+  }> | null;
 } | null;
 // Variable: componentCardQuery
 // Query: *[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug] {        name,        short_description,        "slug": slug.current,        figma_image,        image,        imageDark,    }[0]
 export type ComponentCardQueryResult = {
-    name: string | null;
-    short_description: string | null;
-    slug: string | null;
-    figma_image: {
-        light_mode?: string;
-        dark_mode?: string;
-    } | null;
-    image: {
-        asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
-    } | null;
-    imageDark: {
-        asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
-    } | null;
+  name: string | null;
+  short_description: string | null;
+  slug: string | null;
+  figma_image: {
+    light_mode?: string;
+    dark_mode?: string;
+  } | null;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  imageDark: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
 } | null;
 
 // Query TypeMap
 import "@sanity/client";
 declare module "@sanity/client" {
-    interface SanityQueries {
-        '*[_type == "jokul_blog_post"]{\n        name,\n        slug,\n        short_description,\n        "date": _createdAt,\n    } | order(_createdAt desc)': BlogPostsQueryResult;
-        '*[_type == "jokul_blog_post" && slug.current == $slug][0]': BlogPostBySlugQueryResult;
-        '*[_type == "jokul_blog_post" && slug.current == "kom-i-gang"][0]': KomIGangQueryResult;
-        '*[_type == "jokul_component"]{\n    name,\n    slug,\n    "imageUrl": image.asset->url,\n    \n} | order(name)': ComponentsQueryResult;
-        '*[_type == "jokul_component" && slug.current == $slug][0] {\n        ...,\n        documentation_article[]{\n            ...,\n            _type == "jokul_componentKortFortalt" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == "componentPageLink" => {\n                                ...,\n                                component->{\n                                    name,\n                                    slug\n                                }\n                            }\n                        }\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == "componentPageLink" => {\n                                ...,\n                                component->{\n                                    name,\n                                    slug\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }': ComponentBySlugQueryResult;
-        '*[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug] {\n        name,\n        short_description,\n        "slug": slug.current,\n        figma_image,\n        image,\n        imageDark,\n    }[0]': ComponentCardQueryResult;
-    }
+  interface SanityQueries {
+    "*[_type == \"jokul_blog_post\"]{\n        name,\n        slug,\n        short_description,\n        \"date\": _createdAt,\n    } | order(_createdAt desc)": BlogPostsQueryResult;
+    "*[_type == \"jokul_blog_post\" && slug.current == $slug][0]": BlogPostBySlugQueryResult;
+    "*[_type == \"jokul_blog_post\" && slug.current == \"kom-i-gang\"][0]": KomIGangQueryResult;
+    "*[_type == \"jokul_component\"]{\n    name,\n    slug,\n    \"imageUrl\": image.asset->url,\n    \n} | order(name)": ComponentsQueryResult;
+    "*[_type == \"jokul_component\" && slug.current == $slug][0] {\n        ...,\n        documentation_article[]{\n            ...,\n            _type == \"jokul_componentKortFortalt\" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    slug\n                                }\n                            }\n                        }\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    slug\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        }\n    }": ComponentBySlugQueryResult;
+    "*[_type == \"jokul_component\" && defined(slug.current) && slug.current == $componentSlug] {\n        name,\n        short_description,\n        \"slug\": slug.current,\n        figma_image,\n        image,\n        imageDark,\n    }[0]": ComponentCardQueryResult;
+  }
 }
