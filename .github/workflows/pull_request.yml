@@ -2,9 +2,9 @@ name: Pull request
 
 on:
     pull_request:
-        branches: ["main"]
+        branches: [ "main" ]
     merge_group:
-        types: [checks_requested]
+        types: [ checks_requested ]
 
 run-name: Bygg og test ${{ github.event_name == 'pull_request' && github.event.pull_request.title || github.ref_name }}
 
@@ -13,65 +13,65 @@ env:
 
 jobs:
     changes:
-      name: Sjekk for endringer
-      runs-on: ubuntu-latest
-      permissions:
-          actions: write
-          contents: read
-      outputs:
-        jokul: ${{ steps.code_changes.outputs.jokul }}
-        components: ${{ steps.code_changes.outputs.components }}
-        testlint: ${{ steps.code_changes.outputs.general }}
-        code_changes: ${{ steps.code_changes.outputs.has_matches }}
-        stories: ${{ steps.documentation.outputs.stories }}
-        changeset: ${{ steps.documentation.outputs.preview }}
-        documentation: ${{ steps.documentation.outputs.has_matches }}
-      steps:
-            - name: Checkout
-              uses: actions/checkout@v3
+        name: Sjekk for endringer
+        runs-on: ubuntu-latest
+        permissions:
+            actions: write
+            contents: read
+        outputs:
+            jokul: ${{ steps.code_changes.outputs.jokul }}
+            components: ${{ steps.code_changes.outputs.components }}
+            testlint: ${{ steps.code_changes.outputs.general }}
+            code_changes: ${{ steps.code_changes.outputs.has_matches }}
+            stories: ${{ steps.documentation.outputs.stories }}
+            changeset: ${{ steps.documentation.outputs.preview }}
+            documentation: ${{ steps.documentation.outputs.has_matches }}
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v3
 
-            - name: Se etter kodeendringer
-              uses: ./actions/paths-filter
-              id: code_changes
-              with:
-                  filters: |
-                      jokul:
-                        - "**/packages/jokul/src/**/*.scss"
-                        - "**/packages/jokul/src/**/!(*.stories|*.test|*.d).ts"
-                        - "**/packages/jokul/src/**/!(*.stories|*.test).tsx"
-                      components:
-                        - "**/packages/jokul/src/components/**/*.scss"
-                        - "**/packages/jokul/src/components/**/!(*.stories|*.test|*.d).ts"
-                        - "**/packages/jokul/src/components/**/!(*.stories|*.test).tsx"
-                      general:
-                        - "**/*.js"
-                        - "**/*.scss"
-                        - "**/*.ts"
-                        - "**/*.tsx"
-                        - "**/vite.test.config.mjs"
-                        - "pnpm-lock.yaml"
-              
-            - name: Se etter dokumentasjonsendringer
-              uses: ./actions/paths-filter
-              id: documentation
-              with:
-                  filters: |
-                      stories:
-                        - ".storybook/**/*.(ts|tsx|scss|html)"
-                        - ".storybook-public/**/*"
-                        - "**/packages/jokul/src/components/**/*.stories.tsx"
-                      changeset:
-                        - ".changeset/!(README).md"
-              
-            - name: Minn om dokumentasjon
-              # Dette legger til en kommentar i PRen hvis det er endringer i pakkene uten at det er lagt til
-              # et changeset eller stories, avhengig av hva som er endret.
-              if: github.event_name != 'merge_group' && (steps.code_changes.outputs.jokul == 'true' && steps.documentation.outputs.changeset == 'false') || (steps.code_changes.outputs.components == 'true' && steps.documentation.outputs.stories == 'false')
-              uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
-              with:
-                  header: reminders
-                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
-                  message: |
+            -   name: Se etter kodeendringer
+                uses: ./actions/paths-filter
+                id: code_changes
+                with:
+                    filters: |
+                        jokul:
+                          - "packages/jokul/src/**/*.scss"
+                          - "packages/jokul/src/**/!(*.stories|*.test|*.d).ts"
+                          - "packages/jokul/src/**/!(*.stories|*.test).tsx"
+                        components:
+                          - "packages/jokul/src/components/**/*.scss"
+                          - "packages/jokul/src/components/**/!(*.stories|*.test|*.d).ts"
+                          - "packages/jokul/src/components/**/!(*.stories|*.test).tsx"
+                        general:
+                          - "*.js"
+                          - "*.scss"
+                          - "*.ts"
+                          - "*.tsx"
+                          - "vite.test.config.mjs"
+                          - "pnpm-lock.yaml"
+
+            -   name: Se etter dokumentasjonsendringer
+                uses: ./actions/paths-filter
+                id: documentation
+                with:
+                    filters: |
+                        stories:
+                          - ".storybook/**/*.(ts|tsx|scss|html)"
+                          - ".storybook-public/**/*"
+                          - "packages/jokul/src/components/**/*.stories.tsx"
+                        changeset:
+                          - ".changeset/!(README).md"
+
+            -   name: Minn om dokumentasjon
+                # Dette legger til en kommentar i PRen hvis det er endringer i pakkene uten at det er lagt til
+                # et changeset eller stories, avhengig av hva som er endret.
+                if: github.event_name != 'merge_group' && (steps.code_changes.outputs.jokul == 'true' && steps.documentation.outputs.changeset == 'false') || (steps.code_changes.outputs.components == 'true' && steps.documentation.outputs.stories == 'false')
+                uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+                with:
+                    header: reminders
+                    GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                    message: |
                         Hei, @${{ github.event.sender.login }}! Takk for at du bidrar til Jøkul! 🙌
                         For å sørge for god dokumentasjon og brukeropplevelse er det fint om du husker å gjøre disse tingene:
                         
@@ -83,9 +83,9 @@ jobs:
                           Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere eller legge til [Storybook-stories](https://storybook.js.org/docs/get-started/whats-a-story) for dette i komponenten(e).
                         - [ ] **Oppdater informasjon i Sanity** 📖
                           Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere informasjonen om komponenten(e) i Sanity.' }}
-
+                        
                         Hvis du lurer på hvordan du kommer i gang med noe av dette, er det bare å spørre oss i Jøkul-teamet om hjelp! Tagg oss i en kommentar her, eller spør oss [på Teams](https://teams.microsoft.com/l/channel/19%3Adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%20Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0).
-
+    
 
     testlint:
         name: Kjør tester og linting
@@ -95,34 +95,34 @@ jobs:
             actions: read
             contents: read
         steps:
-            - name: Checkout
-              uses: actions/checkout@v3
+            -   name: Checkout
+                uses: actions/checkout@v3
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
+            -   name: Setup pnpm
+                uses: pnpm/action-setup@v4
 
-            - name: Setup Node
-              uses: actions/setup-node@v4
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: "pnpm"
+            -   name: Setup Node
+                uses: actions/setup-node@v4
+                with:
+                    node-version-file: '.nvmrc'
+                    cache: "pnpm"
 
-            - name: "Ingen endringer i kode, hopp over"
-              if: needs.changes.outputs.code_changes == 'false'
-              run: echo "Ingen endringer i kode, hopper over tester og linting."
+            -   name: "Ingen endringer i kode, hopp over"
+                if: needs.changes.outputs.code_changes == 'false'
+                run: echo "Ingen endringer i kode, hopper over tester og linting."
 
-              # Steget må være med, men vil være cachet
-            - name: Install dependencies
-              if: needs.changes.outputs.code_changes == 'true'
-              run: pnpm install
-            
-            - name: Build packages
-              if: needs.changes.outputs.code_changes == 'true'
-              run: pnpm build
+                # Steget må være med, men vil være cachet
+            -   name: Install dependencies
+                if: needs.changes.outputs.code_changes == 'true'
+                run: pnpm install
 
-            - name: Lint and test
-              if: needs.changes.outputs.code_changes == 'true'
-              run: pnpm ci:test
+            -   name: Build packages
+                if: needs.changes.outputs.code_changes == 'true'
+                run: pnpm build
+
+            -   name: Lint and test
+                if: needs.changes.outputs.code_changes == 'true'
+                run: pnpm ci:test
 
     preview:
         name: Publiser forhåndsvisning
@@ -136,53 +136,53 @@ jobs:
             contents: read
             pull-requests: write
         steps:
-            - name: Checkout
-              uses: actions/checkout@v3
+            -   name: Checkout
+                uses: actions/checkout@v3
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
+            -   name: Setup pnpm
+                uses: pnpm/action-setup@v4
 
-            - name: Setup Node
-              uses: actions/setup-node@v4
-              with:
-                  node-version-file: '.nvmrc'
-                  cache: "pnpm"
+            -   name: Setup Node
+                uses: actions/setup-node@v4
+                with:
+                    node-version-file: '.nvmrc'
+                    cache: "pnpm"
 
-              # Steget må være med, men vil være cachet
-            - name: Install dependencies
-              run: pnpm install
+                # Steget må være med, men vil være cachet
+            -   name: Install dependencies
+                run: pnpm install
 
-            - name: Build packages
-              run: pnpm build
+            -   name: Build packages
+                run: pnpm build
 
-            - name: Add a comment with a link to the preview
-              uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
-              with:
-                  header: preview
-                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
-                  message: |
-                      <span aria-hidden="true">🔄</span> **Gjør klar en forhåndsvisning…**
-                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
+            -   name: Add a comment with a link to the preview
+                uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+                with:
+                    header: preview
+                    GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                    message: |
+                        <span aria-hidden="true">🔄</span> **Gjør klar en forhåndsvisning…**
+                        <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
 
-            - name: Build site
-              run: pnpm build-storybook
+            -   name: Build site
+                run: pnpm build-storybook
 
-            - name: Deploy preview
-              env:
-                  GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
-              run: |
-                  git config user.email "fremtind.designsystem@fremtind.no"
-                  git config user.name "fremtind-bot"
-                  git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
-                  pnpm gh-pages --add --dist storybook-static --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"
+            -   name: Deploy preview
+                env:
+                    GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+                run: |
+                    git config user.email "fremtind.designsystem@fremtind.no"
+                    git config user.name "fremtind-bot"
+                    git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                    pnpm gh-pages --add --dist storybook-static --dest ${{ env.PREVIEW_PATH }} --message "docs: preview #${{ github.event.number }}"
 
-            - name: Add a comment with a link to the preview
-              uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
-              with:
-                  header: preview
-                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
-                  message: |
-                      <span aria-hidden="true">✅</span> Forhåndsvisning: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/
-                      <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
-
-                      Forhåndsvisningen blir tilgjengelig innen et par minutter. Den fjernes automatisk når pull requesten lukkes.
+            -   name: Add a comment with a link to the preview
+                uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+                with:
+                    header: preview
+                    GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                    message: |
+                        <span aria-hidden="true">✅</span> Forhåndsvisning: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/
+                        <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
+                        
+                        Forhåndsvisningen blir tilgjengelig innen et par minutter. Den fjernes automatisk når pull requesten lukkes.
