@@ -10,52 +10,10 @@ type Props = {
     componentSlug: string;
 };
 
-function extractFigmaQueryData(frameLink: string) {
-    const url = new URL(frameLink);
-    const frameId = url.searchParams.get("node-id");
-    const [, , fileId] = url.pathname.split("/");
+const builder = imageUrlBuilder(client);
 
-    return { fileId, frameId };
-}
-
-function generateFigmaImageRequestUrl(frameLink: string) {
-    const { fileId, frameId } = extractFigmaQueryData(frameLink);
-    return `https://api.figma.com/v1/images/${fileId}?ids=${frameId}&format=svg&scale=4`;
-}
-
-const requestOptions: RequestInit = {
-    headers: [["X-FIGMA-TOKEN", process.env.FIGMA_IMAGE_READ_TOKEN || ""]],
-};
-
-function logFetchError(reason: any) {
-    console.error("Feilet under henting av thumbnail fra Figma", reason);
-
-    return undefined;
-}
-
-function fetchFigmaThumbnail(frameLink?: string) {
-    if (!frameLink) {
-        return new Promise(() => undefined);
-    }
-
-    return fetch(generateFigmaImageRequestUrl(frameLink), requestOptions)
-        .then((response) => response.json().then((data) => data.images[0]))
-        .catch(logFetchError);
-}
-
-async function getFigmaImageUrls(figma_image: {
-    light_mode?: string;
-    dark_mode?: string;
-}) {
-    const [lightThumb, darkThumb] = await Promise.all([
-        fetchFigmaThumbnail(figma_image.light_mode),
-        fetchFigmaThumbnail(figma_image.dark_mode),
-    ]);
-
-    return [
-        lightThumb || "/component_placeholder_light.svg",
-        darkThumb || "/component_placeholder_dark.svg",
-    ];
+function urlFor(source?: { asset?: { _ref: string }; _type: string }) {
+    return source?.asset?._ref ? builder.image(source).url() : undefined;
 }
 
 export const ComponentCard = async ({ componentSlug }: Props) => {
@@ -66,12 +24,6 @@ export const ComponentCard = async ({ componentSlug }: Props) => {
     });
 
     if (!component) return null;
-
-    const builder = imageUrlBuilder(client);
-
-    function urlFor(source?: { asset?: { _ref: string }; _type: string }) {
-        return source?.asset?._ref ? builder.image(source).url() : undefined;
-    }
 
     // Bruk placeholderbilde midlertidig, mens vi finner ut av problemene
     // med å hente figma-bilder under bygging av applikasjonen.
