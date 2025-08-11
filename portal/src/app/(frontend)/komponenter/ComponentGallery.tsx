@@ -2,8 +2,8 @@
 
 import { Button } from "@fremtind/jokul/button";
 import clsx from "clsx";
-import { getCookie, setCookie } from "cookies-next";
-import { useEffect, useState } from "react";
+import { setCookie } from "cookies-next";
+import { useState } from "react";
 import styles from "./komponenter.module.scss";
 
 type ComponentGalleryProps = {
@@ -12,19 +12,13 @@ type ComponentGalleryProps = {
 };
 
 export const ComponentGallery = ({ children, mode }: ComponentGalleryProps) => {
-    const [viewMode, setViewMode] = useState(
-        getCookie("componentGalleryViewMode")?.toString() ?? mode ?? "grid",
-    );
+    const [viewMode, setViewMode] = useState(mode || "grid");
 
     const toggleGalleryView = () => {
         const newViewMode = viewMode === "grid" ? "list" : "grid";
         setViewMode(newViewMode);
         setCookie("componentGalleryViewMode", newViewMode);
     };
-
-    useEffect(() => {
-        setCookie("componentGalleryViewMode", mode);
-    }, [mode]);
 
     return (
         <>
