@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props) {
     const { data: component } = await sanityFetch({
         query: componentBySlugQuery,
         params: { slug },
+        requestTag: "component-page",
     });
 
     return { title: component?.name || "Jøkul" };
@@ -29,6 +30,7 @@ export default async function Page({ params }: Props) {
     const { data: component } = await sanityFetch({
         query: componentBySlugQuery,
         params: { slug },
+        requestTag: "component-page",
     });
 
     if (!component) return null;

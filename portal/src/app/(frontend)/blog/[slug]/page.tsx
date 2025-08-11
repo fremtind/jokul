@@ -15,6 +15,7 @@ export async function generateMetadata({ params }: Props) {
     const { data: blogPost } = await sanityFetch({
         query: blogPostBySlugQuery,
         params: { slug },
+        requestTag: "blog-post",
         tags: [`jokul_blog_post:${slug}`],
     });
 
@@ -27,6 +28,7 @@ export default async function BlogPostPage({ params }: Props) {
     const { data: blogPost } = await sanityFetch({
         query: blogPostBySlugQuery,
         params: { slug },
+        requestTag: "blog-post",
         tags: [`jokul_blog_post:${slug}`],
     });
 

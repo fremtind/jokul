@@ -1,4 +1,5 @@
 import { client } from "@/sanity/lib/client";
+import { sanityFetch } from "@/sanity/lib/live";
 import { componentCardQuery } from "@/sanity/queries/component";
 import imageUrlBuilder from "@sanity/image-url";
 import NextLink from "next/link";
@@ -58,8 +59,10 @@ async function getFigmaImageUrls(figma_image: {
 }
 
 export const ComponentCard = async ({ componentSlug }: Props) => {
-    const component = await client.fetch(componentCardQuery, {
-        componentSlug,
+    const { data: component } = await sanityFetch({
+        query: componentCardQuery,
+        requestTag: "component-card",
+        params: { componentSlug },
     });
 
     if (!component) return null;
