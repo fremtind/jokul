@@ -1,15 +1,14 @@
 "use client";
 
-import { Button } from "@fremtind/jokul/button";
-import { useBrowserPreferences } from "@fremtind/jokul/hooks";
-import React, { type ReactNode, useEffect, useState } from "react";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import {Button} from "@fremtind/jokul/button";
+import {useBrowserPreferences} from "@fremtind/jokul/hooks";
+import React, {useEffect, useState} from "react";
+import {PrismLight as SyntaxHighlighter} from "react-syntax-highlighter";
 import scss from "react-syntax-highlighter/dist/esm/languages/prism/scss";
 import tsx from "react-syntax-highlighter/dist/esm/languages/prism/tsx";
 import fremtindTheme from "./fremtindTheme";
 import fremtindThemeDark from "./fremtindThemeDark";
 
-import { renderToStaticMarkup } from "react-dom/server";
 import styles from "./code-block.module.scss";
 
 SyntaxHighlighter.registerLanguage("scss", scss);
@@ -20,8 +19,8 @@ export type CodeBlockProps = {
     language?: string;
 };
 
-export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
-    const { prefersColorScheme } = useBrowserPreferences();
+export const CodeBlock: React.FC<CodeBlockProps> = ({language, children}) => {
+    const {prefersColorScheme} = useBrowserPreferences();
     const [style, setStyle] = useState(fremtindTheme);
 
     useEffect(
@@ -39,8 +38,21 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
     }
 
     return (
-        <div className={styles.codeBlock}>
+        <div className={styles.codeBlock} data-language={language || undefined}>
+            <SyntaxHighlighter
+                className={styles.codeBlockCode}
+                style={style}
+                codeTagProps={{
+                    style: {},
+                    className: styles.codeBlockCode,
+                    tabIndex: 0,
+                }}
+                language={language}
+            >
+                {children.toString()}
+            </SyntaxHighlighter>
             <Button
+                className={styles.copyButton}
                 variant={"primary"}
                 density={"compact"}
                 onClick={(_) => {
@@ -49,20 +61,6 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
             >
                 Kopier
             </Button>
-
-            <SyntaxHighlighter
-                className={styles.codeBlock}
-                style={style}
-                codeTagProps={{
-                    style: {},
-                    className: styles.codeBlockCode,
-                    tabIndex: 0,
-                }}
-                language={language}
-                data-language={language || undefined}
-            >
-                {children.toString()}
-            </SyntaxHighlighter>
         </div>
     );
 };
