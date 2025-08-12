@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.1.0
+
+### Minor Changes
+
+- a7caf53: bedre støtte for nedlastingslenker
+- 1563f3c: ny komponent: segmented control
+
+### Patch Changes
+
+- 06804df: Add dark box shadow for popover in dark mode
+- f62ee78: Primary button has an outline in forced colors mode and all buttons have a hover effect in forced colors mode
+
 ## 1.0.0
 
 ### Major Changes
