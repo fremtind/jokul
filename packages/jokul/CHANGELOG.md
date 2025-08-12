@@ -122,6 +122,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - oppdater byggscript og tokens for farger og typografi ([d54b952](https://github.com/fremtind/jokul/commit/d54b952af173769b43232248a0ed79b87f1638eb))
 
+# [0.68.4](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.68.3...@fremtind/jokul@0.68.4)
+
+### BREAKING CHANGES
+
+Fjernet Vind utility-klasser (margin, padding, typografi, flex utilities)
+Erstattet Vind-klasserefaranser med Jøkul spacing-klasser i utviklingseksempler
+**Migrasjon**: Bruk [Tailwind-pakken vår](https://github.com/fremtind/jokul/blob/main/packages/jokul/README.md#tailwind) eller eksisterende Jøkul spacing-klasser i stedet for Vind-klassene
+
 ## [0.68.2](https://github.com/fremtind/jokul/compare/@fremtind/jokul@0.68.1...@fremtind/jokul@0.68.2) (2025-06-12)
 
 ### Bug Fixes
