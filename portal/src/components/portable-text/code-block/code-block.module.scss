@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: end;
     align-items: end;
-    padding: var(--jkl-unit-20);
+    padding: var(--jkl-unit-20) var(--jkl-unit-20);
 
     &[data-language]::before {
         width: max-content;
@@ -20,19 +20,11 @@
         background-color: var(--jkl-color-background-container);
         text-transform: uppercase;
         content: attr(data-language);
-
         @include jkl.use-font-family("Fremtind Grotesk Mono");
-    }
-
-    html:not([data-mousenavigation]) &:focus-within {
-        box-shadow: 0 0 0 jkl.rem(2px) var(--jkl-color-background-action);
     }
 }
 
 .codeBlockCode {
-    @include jkl.use-font-family("Fremtind Grotesk Mono");
-    display: block;
     overflow-x: auto;
-    padding: var(--jkl-unit-20);
     place-self: start;
 }
