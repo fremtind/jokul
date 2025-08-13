@@ -15,7 +15,7 @@
                 "surface": {
                     "default": {
                         "light": {
-                            "value": "{ref.color.brand.02}",
+                            "value": "{ref.color.brand.92}",
                             "type": "color"
                         },
                         "dark": {
