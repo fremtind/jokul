@@ -82,7 +82,7 @@ export const TooltipContent = forwardRef<
         floatingPortalRef.current =
             context.elements.domReference?.closest<HTMLElement>(
                 "[data-portal]",
-            ) || null;
+            ) || document.body;
     }, [context.elements.domReference]);
 
     return (
