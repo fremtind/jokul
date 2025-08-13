@@ -205,7 +205,7 @@ const legacyDictionary = new StyleDictionary({
 });
 
 const myStyleDictionary = new StyleDictionary({
-    source: ["src/core/tokens/**/!(reference.*).json"],
+    source: ["src/core/tokens/**/*.json"],
     platforms: {
         ts: {
             transforms: ["name/camel"],
@@ -250,7 +250,7 @@ const myStyleDictionary = new StyleDictionary({
 });
 
 const lessStyleDictionary = new StyleDictionary({
-    source: ["src/core/tokens/**/!(reference.*).json"],
+    source: ["src/core/tokens/**/*.json"],
     platforms: {
         less: {
             transformGroup: "less",
