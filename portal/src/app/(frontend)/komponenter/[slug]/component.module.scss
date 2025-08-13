@@ -3,6 +3,8 @@
 .relatedComponents {
     display: flex;
     gap: jkl.$spacing-16;
+    list-style-type: none;
+    padding: 0;
 }
 
 .footer {
