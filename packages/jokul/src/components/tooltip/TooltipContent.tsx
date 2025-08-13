@@ -76,8 +76,17 @@ export const TooltipContent = forwardRef<
         refs.reference.current as HTMLElement,
     );
 
+    const floatingPortalRef = React.useRef<HTMLElement | null>(null);
+
+    React.useEffect(() => {
+        floatingPortalRef.current =
+            context.elements.domReference?.closest<HTMLElement>(
+                "[data-portal]",
+            ) || document.body;
+    }, [context.elements.domReference]);
+
     return (
-        <FloatingPortal>
+        <FloatingPortal root={floatingPortalRef.current}>
             <FloatingFocusManager
                 initialFocus={triggerOn === "click" ? 0 : -1}
                 returnFocus={true}

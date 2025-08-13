@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>;
 export const Tooltip: Story = {
     args: {
         children: <p>Klikk for å kopiere til utklippstavlen</p>,
-        delay: 2000,
+        delay: 0,
         initialOpen: false,
         placement: "top",
         triggerOn: "hover",
