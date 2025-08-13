@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.1.1
+
+### Patch Changes
+
+- 7bcab64: fikser bug som gjorde at tooltip ikke vistes i modaler
+
 ## 1.1.0
 
 ### Minor Changes
