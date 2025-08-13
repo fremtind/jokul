@@ -222,39 +222,12 @@ export type Jokul_component = {
   short_description?: string;
   status?: Array<string>;
   keywords?: Array<string>;
-  external_links?: {
-    github_link?: string;
-    figma_link?: string;
-    storybook_link?: string;
-  };
-  figma_image?: {
-    light_mode?: string;
-    dark_mode?: string;
-  };
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  imageDark?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
+  considerations?: Array<{
+    title?: string;
+    description?: string;
+    _type: "consideration";
+    _key: string;
+  }>;
   documentation_article?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -303,6 +276,39 @@ export type Jokul_component = {
       _key: string;
       [internalGroqTypeReferenceTo]?: "jokul_component";
     }>;
+  };
+  external_links?: {
+    github_link?: string;
+    figma_link?: string;
+    storybook_link?: string;
+  };
+  figma_image?: {
+    light_mode?: string;
+    dark_mode?: string;
+  };
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  imageDark?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
   };
 };
 
@@ -498,39 +504,12 @@ export type ComponentBySlugQueryResult = {
   short_description?: string;
   status?: Array<string>;
   keywords?: Array<string>;
-  external_links?: {
-    github_link?: string;
-    figma_link?: string;
-    storybook_link?: string;
-  };
-  figma_image?: {
-    light_mode?: string;
-    dark_mode?: string;
-  };
-  image?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  imageDark?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
+  considerations?: Array<{
+    title?: string;
+    description?: string;
+    _type: "consideration";
+    _key: string;
+  }>;
   documentation_article: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -635,6 +614,39 @@ export type ComponentBySlugQueryResult = {
       slug: string | null;
     }> | null;
   } | null;
+  external_links?: {
+    github_link?: string;
+    figma_link?: string;
+    storybook_link?: string;
+  };
+  figma_image?: {
+    light_mode?: string;
+    dark_mode?: string;
+  };
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  imageDark?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
 } | null;
 // Variable: componentCardQuery
 // Query: *[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug] {        name,        short_description,        "slug": slug.current,        figma_image,        image,        imageDark,        related_components    }[0]
