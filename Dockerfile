@@ -26,8 +26,8 @@ RUN pnpm install --frozen-lockfile
 RUN find . -name 'node_modules' -print0 | tar -cf node_modules.tar --null --files-from -
 
 FROM base AS builder
-ARG SANITY_PROJECT_ID=rppnrdtw
-ARG SANITY_DATASET=test
+ARG NEXT_PUBLIC_SANITY_PROJECT_ID=rppnrdtw
+ARG NEXT_PUBLIC_SANITY_DATASET=test
 ARG NEXT_PUBLIC_STORYBOOK_BASE_URL=/storybook
 
 WORKDIR /app
@@ -37,8 +37,8 @@ RUN tar -xf node_modules.tar
 RUN pnpm --filter "@fremtind/jokul" build
 RUN pnpm build-storybook
 
-ENV SANITY_PROJECT_ID=$SANITY_PROJECT_ID
-ENV SANITY_DATASET=$SANITY_DATASET
+ENV NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID
+ENV NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET
 ENV NEXT_PUBLIC_STORYBOOK_BASE_URL=$NEXT_PUBLIC_STORYBOOK_BASE_URL
 RUN \ 
   --mount=type=secret,id=FIGMA_IMAGE_READ_TOKEN,env=FIGMA_IMAGE_READ_TOKEN \

@@ -1,10 +1,9 @@
-import Studio from "../Studio";
+import { Studio } from "../Studio";
+
+export const dynamic = "force-static";
+
+export { metadata, viewport } from "next-sanity/studio";
 
 export default async function StudioPage() {
-    return (
-        <Studio
-            projectId={process.env.SANITY_PROJECT_ID || ""}
-            dataset={process.env.SANITY_DATASET || "test"}
-        />
-    );
+    return <Studio />;
 }
