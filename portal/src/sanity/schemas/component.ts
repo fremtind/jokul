@@ -42,12 +42,11 @@ export const component = defineType({
         defineField({
             name: "status",
             title: "Status",
-            type: "array",
+            type: "string",
             group: "metadata",
             options: {
-                list: ["deprecated", "alpha", "beta", "stabil"],
+                list: ["deprecated", "under arbeid", "beta", "stabil"],
             },
-            of: [{ type: "string" }],
         }),
         defineField({
             name: "keywords",

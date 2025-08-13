@@ -49,19 +49,38 @@ export const MenuItemList = async () => {
             >
                 <MenuItem href={"/komponenter"}>Komponenter</MenuItem>
                 <ul aria-label="Komponenter">
-                    {components.map((component) => {
-                        const { slug, name } = component;
+                    <li
+                        className={clsx(
+                            "jkl-list__item",
+                            styles.separateItem,
+                            styles.listHeading,
+                            styles.hasChildren,
+                        )}
+                    >
+                        <MenuItem href={"/komponenter/status"}>
+                            Komponentstatus
+                        </MenuItem>
+                    </li>
+                    {components
+                        .filter(
+                            (component) => component.status !== "deprecated",
+                        )
+                        .map((component) => {
+                            const { slug, name } = component;
 
-                        return (
-                            <li key={name} className={clsx("jkl-list__item")}>
-                                <MenuItem
-                                    href={`/komponenter/${slug?.current}`}
+                            return (
+                                <li
+                                    key={name}
+                                    className={clsx("jkl-list__item")}
                                 >
-                                    {name}
-                                </MenuItem>
-                            </li>
-                        );
-                    })}
+                                    <MenuItem
+                                        href={`/komponenter/${slug?.current}`}
+                                    >
+                                        {name}
+                                    </MenuItem>
+                                </li>
+                            );
+                        })}
                 </ul>
             </li>
         </ul>

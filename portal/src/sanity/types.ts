@@ -220,7 +220,7 @@ export type Jokul_component = {
   name?: string;
   slug?: Slug;
   short_description?: string;
-  status?: Array<string>;
+  status?: "deprecated" | "under arbeid" | "beta" | "stabil";
   keywords?: Array<string>;
   considerations?: Array<{
     title?: string;
@@ -485,11 +485,18 @@ export type KomIGangQueryResult = {
 
 // Source: ./src/sanity/queries/component.ts
 // Variable: componentsQuery
-// Query: *[_type == "jokul_component"]{    name,    slug,    "imageUrl": image.asset->url,    } | order(name)
+// Query: *[_type == "jokul_component"]{    name,    slug,    "imageUrl": image.asset->url,    external_links,    _updatedAt,     status} | order(name)
 export type ComponentsQueryResult = Array<{
   name: string | null;
   slug: Slug | null;
   imageUrl: string | null;
+  external_links: {
+    github_link?: string;
+    figma_link?: string;
+    storybook_link?: string;
+  } | null;
+  _updatedAt: string;
+  status: "beta" | "deprecated" | "stabil" | "under arbeid" | null;
 }>;
 // Variable: componentBySlugQuery
 // Query: *[_type == "jokul_component" && slug.current == $slug][0] {        ...,        documentation_article[]{            ...,            _type == "jokul_componentKortFortalt" => {                ...,                bruk[]{                    bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    slug                                }                            }                        }                    }                },                ikke_bruk[]{                    ikke_bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    slug                                }                            }                        }                    }                }            }        },        related_components {            components[]->{                name,                "slug": slug.current            }        }    }
@@ -502,7 +509,7 @@ export type ComponentBySlugQueryResult = {
   name?: string;
   slug?: Slug;
   short_description?: string;
-  status?: Array<string>;
+  status?: "beta" | "deprecated" | "stabil" | "under arbeid";
   keywords?: Array<string>;
   considerations?: Array<{
     title?: string;
@@ -700,7 +707,7 @@ declare module "@sanity/client" {
     "*[_type == \"jokul_blog_post\"]{\n        name,\n        slug,\n        short_description,\n        \"date\": _createdAt,\n    } | order(_createdAt desc)": BlogPostsQueryResult;
     "*[_type == \"jokul_blog_post\" && slug.current == $slug][0]": BlogPostBySlugQueryResult;
     "*[_type == \"jokul_blog_post\" && slug.current == \"kom-i-gang\"][0]": KomIGangQueryResult;
-    "*[_type == \"jokul_component\"]{\n    name,\n    slug,\n    \"imageUrl\": image.asset->url,\n    \n} | order(name)": ComponentsQueryResult;
+    "*[_type == \"jokul_component\"]{\n    name,\n    slug,\n    \"imageUrl\": image.asset->url,\n    external_links,\n    _updatedAt,\n     status\n} | order(name)": ComponentsQueryResult;
     "*[_type == \"jokul_component\" && slug.current == $slug][0] {\n        ...,\n        documentation_article[]{\n            ...,\n            _type == \"jokul_componentKortFortalt\" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    slug\n                                }\n                            }\n                        }\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    slug\n                                }\n                            }\n                        }\n                    }\n                }\n            }\n        },\n        related_components {\n            components[]->{\n                name,\n                \"slug\": slug.current\n            }\n        }\n    }": ComponentBySlugQueryResult;
     "*[_type == \"jokul_component\" && defined(slug.current) && slug.current == $componentSlug] {\n        name,\n        short_description,\n        \"slug\": slug.current,\n        figma_image,\n        image,\n        imageDark,\n        related_components\n    }[0]": ComponentCardQueryResult;
   }

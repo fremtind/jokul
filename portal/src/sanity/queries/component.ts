@@ -4,7 +4,9 @@ export const componentsQuery = defineQuery(`*[_type == "jokul_component"]{
     name,
     slug,
     "imageUrl": image.asset->url,
-    
+    external_links,
+    _updatedAt,
+     status
 } | order(name)`);
 
 export const componentBySlugQuery =
