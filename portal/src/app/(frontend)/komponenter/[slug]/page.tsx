@@ -1,4 +1,5 @@
 import { ComponentCard } from "@/app/(frontend)/komponenter/ComponentCard";
+import { ComponentConsiderations } from "@/app/(frontend)/komponenter/[slug]/components/ComponentConsiderations";
 import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
@@ -49,6 +50,14 @@ export default async function Page({ params }: Props) {
 
             {component.name && (
                 <div className={clsx("prose", styles.wrapper)}>
+                    {component.considerations && (
+                        <>
+                            <h2 className={"jkl-sr-only"}>Ting å tenke på</h2>
+                            <ComponentConsiderations
+                                considerations={component.considerations}
+                            />
+                        </>
+                    )}
                     {component.documentation_article ? (
                         <>
                             <PortableText

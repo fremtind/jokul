@@ -71,7 +71,7 @@ article header {
     > * {
         width: 100%;
 
-        &:not(figure, img, pre, div, section, footer, header) {
+        p {
             max-width: 55ch;
         }
     }
