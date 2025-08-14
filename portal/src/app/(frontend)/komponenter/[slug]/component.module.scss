@@ -1,10 +1,25 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
-.relatedComponents {
+.relatedComponents, .componentConsiderations {
     display: flex;
     gap: jkl.$spacing-16;
     list-style-type: none;
     padding: 0;
+}
+
+.componentConsiderations {
+    max-width: 100%;
+    display: grid;
+    gap: jkl.$spacing-40 jkl.$spacing-24;
+    grid-template-columns: 1fr;
+
+    @container (width > 75ch) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .title {
+        margin-block-end: jkl.$spacing-8;
+    }
 }
 
 .footer {
