@@ -28,7 +28,7 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
                 {STORYBOOK_URL && (
                     <Link
                         as={NextLink}
-                        href={`${STORYBOOK_URL}/iframe.html?id=${story.storyId}`}
+                        href={`${STORYBOOK_URL}/?path=/story/${story.storyId}&globals=backgrounds.value:page;backgrounds.grid:!false`}
                         className={"jkl-link"}
                         external={true}
                     >

@@ -1,13 +1,7 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import React, {useState} from "react";
-import {Link} from "../../link/index.js";
-import {
-    CheckListItem,
-    CrossListItem,
-    List,
-    ListItem,
-} from "../../list/index.js";
-import {SegmentedControl} from "../SegmentedControl.js";
+import type { Meta, StoryObj } from "@storybook/react";
+import React, { useState } from "react";
+import { CheckListItem, CrossListItem, List } from "../../list/index.js";
+import { SegmentedControl } from "../SegmentedControl.js";
 
 import "../styles/_index.scss";
 import "../../list/styles/_index.scss";
@@ -26,8 +20,8 @@ export default meta;
 
 type Story = StoryObj<typeof SegmentedControl>;
 
-const themeChoices = ["Auto", "Light", "Dark", "High Contrast"];
-const coverageChoices = ["Vis alt", "Dekker", "Dekker ikke", "Dekkes kanskje"];
+const themeChoices = ["Auto", "Light", "Dark"];
+const coverageChoices = ["Dekker", "Dekker ikke"];
 
 export const SegmentedControlStory: Story = {
     name: "Segmented Control",
@@ -50,9 +44,9 @@ export const DekningsoversiktStory: Story = {
     args: {
         legend: "Velg hva som vises",
         items: coverageChoices,
-        defaultValue: coverageChoices[1],
+        defaultValue: coverageChoices[0],
         showLegend: false,
-        separateItem: 1,
+        separateItem: 0,
     },
     argTypes: {
         defaultValue: {
@@ -82,43 +76,8 @@ export const DekningsoversiktStory: Story = {
             </List>
         );
 
-        const dekkesKanskjeListe = (
-            <List>
-                <ListItem>
-                    kanskje hunden din stikker av, det dekker vi ikke hehe
-                </ListItem>
-            </List>
-        );
-
-        const links = (
-            <div style={{marginBlockStart: "24px"}}>
-                <p>
-                    På denne siden har vi forenklet teksten om hva forsikringen
-                    dekker og ikke dekker. Du må alltid lese vilkårene i
-                    avtaledokumentet for å få full oversikt.
-                </p>
-                <div
-                    style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        gap: "12px",
-                    }}
-                >
-                    <Link external={true} href={"#"}>
-                        Fullstendige vilkår (PDF)
-                    </Link>
-                    <Link external={true} href={"#"}>
-                        Standardisert produktinformasjon (PDF)
-                    </Link>
-                </div>
-            </div>
-        );
-
         return (
             <>
-                <h2 style={{marginBlockEnd: "24px"}}>
-                    Dekningsoversikt hund og katt
-                </h2>
                 <SegmentedControl
                     {...args}
                     onChange={(e) => setValue(e.target.value)}
@@ -132,17 +91,8 @@ export const DekningsoversiktStory: Story = {
                         marginBlockStart: "24px",
                     }}
                 >
-                    {value === coverageChoices[0] && (
-                        <>
-                            {dekkesListe}
-                            {dekkesIkkeListe}
-                            {dekkesKanskjeListe}
-                        </>
-                    )}
-                    {value === coverageChoices[1] && dekkesListe}
-                    {value === coverageChoices[2] && dekkesKanskjeListe}
-                    {value === coverageChoices[3] && dekkesIkkeListe}
-                    {links}
+                    {value === coverageChoices[0] && dekkesListe}
+                    {value === coverageChoices[1] && dekkesIkkeListe}
                 </div>
             </>
         );
