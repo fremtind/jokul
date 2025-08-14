@@ -1,4 +1,3 @@
-import { SanityLive } from "@/sanity/lib/live";
 import styles from "./komponenter.module.scss";
 
 interface Props {
@@ -6,10 +5,5 @@ interface Props {
 }
 
 export default function PortalLayout({ children }: Props) {
-    return (
-        <div className={styles.componentPage}>
-            <SanityLive />
-            {children}
-        </div>
-    );
+    return <div className={styles.componentPage}>{children}</div>;
 }
