@@ -1363,10 +1363,25 @@
       "status": {
         "type": "objectAttribute",
         "value": {
-          "type": "array",
-          "of": {
-            "type": "string"
-          }
+          "type": "union",
+          "of": [
+            {
+              "type": "string",
+              "value": "deprecated"
+            },
+            {
+              "type": "string",
+              "value": "under arbeid"
+            },
+            {
+              "type": "string",
+              "value": "beta"
+            },
+            {
+              "type": "string",
+              "value": "stabil"
+            }
+          ]
         },
         "optional": true
       },
