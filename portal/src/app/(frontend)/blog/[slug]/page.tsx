@@ -3,6 +3,7 @@ import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { blogPostBySlugQuery } from "@/sanity/queries/blog";
 
+import { logger } from "logger";
 import styles from "../blog.module.scss";
 
 type Props = {
@@ -23,8 +24,9 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-    const slug = (await params).slug;
+    const { slug } = await params;
 
+    const initialTime = performance.now();
     const { data: blogPost } = await sanityFetch({
         query: blogPostBySlugQuery,
         params: { slug },
@@ -32,7 +34,15 @@ export default async function BlogPostPage({ params }: Props) {
         tags: [`jokul_blog_post:${slug}`],
     });
 
-    if (!blogPost) return null;
+    if (!blogPost) {
+        logger.warn("Blog post not found", { slug });
+        return null;
+    }
+
+    logger.info("Fetched blog post", {
+        slug,
+        time: `${Math.round(performance.now() - initialTime)}ms`,
+    });
 
     const publishedDate = new Date(blogPost._createdAt).toLocaleString("no", {
         day: "2-digit",

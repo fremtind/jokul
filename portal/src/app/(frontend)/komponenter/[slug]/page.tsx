@@ -5,6 +5,7 @@ import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
 import clsx from "clsx";
+import { logger } from "logger";
 import styles from "./component.module.scss";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
@@ -14,7 +15,7 @@ type Props = {
 };
 
 export async function generateMetadata({ params }: Props) {
-    const slug = (await params).slug;
+    const { slug } = await params;
 
     const { data: component } = await sanityFetch({
         query: componentBySlugQuery,
@@ -26,15 +27,24 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function Page({ params }: Props) {
-    const slug = (await params).slug;
+    const { slug } = await params;
 
-    const { data: component } = await sanityFetch({
+    const initialTime = performance.now();
+    const { data: component, tags } = await sanityFetch({
         query: componentBySlugQuery,
         params: { slug },
         requestTag: "component-page",
     });
 
-    if (!component) return null;
+    if (!component) {
+        logger.warn("Component not found", { slug });
+        return null;
+    }
+
+    logger.info("Fetched component", {
+        slug,
+        time: `${Math.round(performance.now() - initialTime)}ms`,
+    });
 
     return (
         <article className={styles.article}>
@@ -68,8 +78,8 @@ export default async function Page({ params }: Props) {
                                     <h2>Relaterte komponenter</h2>
                                     <ul className={styles.relatedComponents}>
                                         {component.related_components?.components?.map(
-                                            (relatedComponent, index) => (
-                                                <li key={index}>
+                                            (relatedComponent) => (
+                                                <li key={relatedComponent.slug}>
                                                     <ComponentCard
                                                         componentSlug={
                                                             relatedComponent.slug ||
