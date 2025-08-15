@@ -1,6 +1,16 @@
 import express from "express";
 import proxy from "express-http-proxy";
-import { logger } from "./portal/logger";
+import winston from "winston";
+
+const { combine, timestamp, json } = winston.format;
+
+export const logger = winston.createLogger({
+    format: combine(timestamp(), json()),
+    level: "info",
+    defaultMeta: { service: "jokul-portal" },
+    transports: [new winston.transports.Console()],
+    exceptionHandlers: [new winston.transports.Console()],
+});
 
 const app = express();
 const PORT = 3000;
