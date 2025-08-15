@@ -15,6 +15,7 @@ jobs:
     changes:
         name: Sjekk for endringer
         runs-on: ubuntu-latest
+        if: github.event_name == 'pull_request'
         permissions:
             actions: write
             contents: read
@@ -90,6 +91,9 @@ jobs:
     testlint:
         name: Kjør tester og linting
         needs: changes
+        # Vi vil alltid kjøre denne jobben, men avgjør om tester skal kjøres
+        # ut fra om vi er i merge-køen eller det er endringer i koden.
+        if: ${{ always() }} 
         runs-on: ubuntu-latest
         permissions:
             actions: read
@@ -108,20 +112,20 @@ jobs:
                     cache: "pnpm"
 
             -   name: "Ingen endringer i kode, hopp over"
-                if: needs.changes.outputs.code_changes == 'false'
+                if: github.event_name != 'merge_group' && needs.changes.outputs.code_changes == 'false'
                 run: echo "Ingen endringer i kode, hopper over tester og linting."
 
                 # Steget må være med, men vil være cachet
             -   name: Install dependencies
-                if: needs.changes.outputs.code_changes == 'true'
+                if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
                 run: pnpm install
 
             -   name: Build packages
-                if: needs.changes.outputs.code_changes == 'true'
+                if: github.event_name == 'merge_group'  || needs.changes.outputs.code_changes == 'true'
                 run: pnpm build
 
             -   name: Lint and test
-                if: needs.changes.outputs.code_changes == 'true'
+                if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
                 run: pnpm ci:test
 
     preview:

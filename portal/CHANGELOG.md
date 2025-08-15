@@ -1,5 +1,12 @@
 # portal
 
+## 1.3.0
+
+### Minor Changes
+
+- 9a097de: Legger til serverside-logging i Jøkul-portalen for enklere overvåking av driften.
+  Vi logger alle sidevisninger, pluss status for Express-serveren.
+
 ## 1.2.1
 
 ### Patch Changes
