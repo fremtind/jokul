@@ -1,5 +1,6 @@
 import express from "express";
 import proxy from "express-http-proxy";
+import { logger } from "./portal/logger";
 
 const app = express();
 const PORT = 3000;
@@ -10,5 +11,41 @@ app.use("/storybook", express.static("storybook-static"));
 app.use("/", proxy("localhost:3333/"));
 
 app.listen(PORT, () => {
-    console.log(`Express server listening on port ${PORT}`);
+    logger.info(`Express server listening on port ${PORT}`);
+});
+
+process.on("beforeExit", (code) => {
+    logger.info({
+        message: "Process beforeExit event with code: ",
+        meta: { code },
+    });
+});
+
+process.on("exit", (code) => {
+    logger.info({ message: "Process exit event with code: ", meta: { code } });
+});
+
+process.on("SIGTERM", (code) => {
+    logger.info({
+        message: "Process SIGTERM event with code: ",
+        meta: { code },
+    });
+});
+
+process.on("SIGINT", (code) => {
+    logger.info({
+        message: "Process SIGINT event with code: ",
+        meta: { code },
+    });
+
+    // må kalles eksplisitt da SIGINT stopper håndteringen
+    // https://stackoverflow.com/a/14372355
+    process.exit();
+});
+
+process.on("SIGBREAK", (code) => {
+    logger.info({
+        message: "Process SIGBREAK event with code: ",
+        meta: { code },
+    });
 });
