@@ -23,13 +23,12 @@ import {
     useTransitionStyles,
 } from "@floating-ui/react";
 import clsx from "clsx";
-import React, { forwardRef, useEffect, useRef, useState } from "react";
-import { isForwardRef } from "react-is";
+import React, { forwardRef, useEffect, useRef, useState, useId } from "react";
 import { useBrowserPreferences } from "../../hooks/index.js";
-import { useId } from "../../hooks/useId/useId.js";
 import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
 import type { MenuProps } from "./types.js";
 import { useMenuWideEvents } from "./useMenuWideEvents.js";
+import { SlotComponent } from "../../utilities/index.js";
 
 function getTranslation(side: Side, value = 0) {
     switch (side) {
@@ -61,7 +60,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
             ...triggerProps
         } = props;
 
-        const MenuId = useId("jkl-menu");
+        const MenuId = `"jkl-menu"${useId()}`;
 
         const { prefersReducedMotion } = useBrowserPreferences();
 
@@ -155,23 +154,22 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
 
         return (
             <FloatingNode id={nodeId}>
-                {React.isValidElement(triggerElement) &&
-                (triggerElement.type === "button" ||
-                    isForwardRef(triggerElement))
-                    ? // Dersom trigger-elementet er en knapp, sett riktige egenskaper på det
-                      React.cloneElement(triggerElement, {
-                          ...getReferenceProps({
-                              ...triggerProps,
-                              ref: referenceRef,
-                              role: isNested ? "menuitem" : undefined,
-                              "aria-controls": MenuId,
-                              onClick(event) {
-                                  event.stopPropagation();
-                              },
-                          }),
-                      })
-                    : // Ellers, rendre elementet as-is, uten interaktivitet. Krev en ferdig brukbar button for å åpne menyen.
-                      triggerElement}
+                {React.isValidElement(triggerElement) && (
+                    <SlotComponent
+                        {...getReferenceProps({
+                            ...triggerProps,
+                            ref: referenceRef,
+                            role: isNested ? "menuitem" : undefined,
+                            "aria-controls": MenuId,
+                            // Du trenger ikke lenger en custom onClick for stopPropagation her,
+                            // da mergeProps sannsynligvis kan håndtere sammenslåing av event handlers
+                            // (avhengig av implementasjonen). Men for sikkerhets skyld, behold den
+                            // hvis du ser at events bobler feil.
+                        })}
+                    >
+                        {triggerElement}
+                    </SlotComponent>
+                )}
                 {isMounted && (
                     <FloatingPortal>
                         <FloatingFocusManager
@@ -203,73 +201,77 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                 {React.Children.map(
                                     children,
                                     (child, index) => {
-                                        if (
-                                            React.isValidElement(child) &&
-                                            isForwardRef(child)
-                                        ) {
-                                            return React.cloneElement(
-                                                child,
-                                                getItemProps({
-                                                    ...child.props,
-                                                    tabIndex:
-                                                        activeIndex === index
-                                                            ? 0
-                                                            : -1,
-                                                    role: "menuitem",
-                                                    ref(
-                                                        node: HTMLButtonElement,
-                                                    ) {
-                                                        listItemsRef.current[
+                                        if (React.isValidElement(child)) {
+                                            return (
+                                                <SlotComponent
+                                                    {...getItemProps({
+                                                        ...child.props,
+                                                        tabIndex:
+                                                            activeIndex ===
                                                             index
-                                                        ] = node;
-                                                    },
-                                                    onClick(event) {
-                                                        child.props.onClick?.(
-                                                            event as React.MouseEvent<HTMLButtonElement>,
-                                                        );
-                                                        if (
-                                                            event.defaultPrevented
+                                                                ? 0
+                                                                : -1,
+                                                        role: "menuitem",
+                                                        ref(
+                                                            node: HTMLButtonElement,
                                                         ) {
-                                                            return;
-                                                        }
-                                                        tree?.events.emit(
-                                                            "click",
-                                                        );
-                                                    },
-                                                    onKeyDown(event) {
-                                                        child.props.onKeyDown?.(
-                                                            event,
-                                                        );
-                                                        if (
-                                                            event.defaultPrevented
-                                                        ) {
-                                                            return;
-                                                        }
-                                                        tree?.events.emit(
-                                                            "keydown",
-                                                        );
-                                                        if (
-                                                            event.currentTarget
-                                                                .role ===
-                                                                "menuitemcheckbox" &&
-                                                            event.key ===
-                                                                "Enter"
-                                                        ) {
-                                                            // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
-                                                            setIsOpen(false);
-                                                        }
-                                                    },
-                                                    onMouseEnter() {
-                                                        if (
-                                                            allowHover &&
-                                                            isOpen
-                                                        ) {
-                                                            setActiveIndex(
-                                                                index,
+                                                            listItemsRef.current[
+                                                                index
+                                                            ] = node;
+                                                        },
+                                                        onClick(event) {
+                                                            child.props.onClick?.(
+                                                                event as React.MouseEvent<HTMLButtonElement>,
                                                             );
-                                                        }
-                                                    },
-                                                }),
+                                                            if (
+                                                                event.defaultPrevented
+                                                            ) {
+                                                                return;
+                                                            }
+                                                            tree?.events.emit(
+                                                                "click",
+                                                            );
+                                                        },
+                                                        onKeyDown(event) {
+                                                            child.props.onKeyDown?.(
+                                                                event,
+                                                            );
+                                                            if (
+                                                                event.defaultPrevented
+                                                            ) {
+                                                                return;
+                                                            }
+                                                            tree?.events.emit(
+                                                                "keydown",
+                                                            );
+                                                            if (
+                                                                event
+                                                                    .currentTarget
+                                                                    .role ===
+                                                                    "menuitemcheckbox" &&
+                                                                event.key ===
+                                                                    "Enter"
+                                                            ) {
+                                                                // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
+                                                                setIsOpen(
+                                                                    false,
+                                                                );
+                                                            }
+                                                        },
+                                                        onMouseEnter() {
+                                                            if (
+                                                                allowHover &&
+                                                                isOpen
+                                                            ) {
+                                                                setActiveIndex(
+                                                                    index,
+                                                                );
+                                                            }
+                                                        },
+                                                    })}
+                                                >
+                                                    {child}
+                                                </SlotComponent>
                                             );
                                         }
 
@@ -299,4 +301,5 @@ export const Menu = forwardRef<HTMLButtonElement, MenuProps>((props, ref) => {
 
     return <MenuComponent ref={ref} {...props} />;
 });
+
 Menu.displayName = "Menu";
