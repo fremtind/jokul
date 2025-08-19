@@ -11,7 +11,7 @@ import * as sass from "sass-embedded";
 (async function build() {
     try {
         const sources = await glob("./src/**/[!_]*.scss", {
-            ignore: ["node_modules/**", "**/documentation/**"],
+            ignore: ["node_modules/**", "**/documentation/**", "**/stories/**"],
         });
         const unfilteredSources = await glob("./src/**/*.scss", {
             ignore: ["node_modules/**", "**/documentation/**"],
