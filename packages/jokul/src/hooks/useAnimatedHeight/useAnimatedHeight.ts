@@ -72,6 +72,8 @@ export function useAnimatedHeight<T extends HTMLElement>(
             element.removeAttribute("style");
             if (isOpen) {
                 options?.onFirstVisible?.(isOpen, elementRef);
+            } else {
+                element.style.display = "none";
             }
             options?.onTransitionEnd?.(isOpen, elementRef); // make sure to call callback when animation is off
             return;
