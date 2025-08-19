@@ -161,10 +161,9 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                             ref: referenceRef,
                             role: isNested ? "menuitem" : undefined,
                             "aria-controls": MenuId,
-                            // Du trenger ikke lenger en custom onClick for stopPropagation her,
-                            // da mergeProps sannsynligvis kan håndtere sammenslåing av event handlers
-                            // (avhengig av implementasjonen). Men for sikkerhets skyld, behold den
-                            // hvis du ser at events bobler feil.
+                            onClick(event) {
+                                event.stopPropagation();
+                            },
                         })}
                     >
                         {triggerElement}
