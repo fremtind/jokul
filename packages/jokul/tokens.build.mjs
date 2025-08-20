@@ -71,9 +71,7 @@ StyleDictionary.registerFormat({
         output += dictionary.allTokens
             .filter((token) => token.path.includes("light"))
             .map((token) => {
-                const value = usesReferences(token.original.value)
-                    ? formatValueAsScssVar(token.original.value)
-                    : token.value;
+                const value = token.value;
                 const name = [
                     prefix,
                     ...token.path.filter(
@@ -91,9 +89,7 @@ StyleDictionary.registerFormat({
         output += dictionary.allTokens
             .filter((token) => token.path.includes("dark"))
             .map((token) => {
-                const value = usesReferences(token.original.value)
-                    ? formatValueAsScssVar(token.original.value)
-                    : token.value;
+                const value = token.value;
                 const name = [
                     prefix,
                     ...token.path.filter(
