@@ -19,7 +19,7 @@
         "dev": "storybook dev -p 6007",
         "portal:dev": "pnpm --filter \"portal\" dev",
         "portal:storybook": "storybook dev -p 6007 --no-open",
-        "dev:portal": "run-p portal:*",
+        "dev:portal": "run-p portal:* build-storybook",
         "start": "pnpm --filter \"portal\" start",
         "serve:server": "node server.js",
         "serve:portal": "pnpm --filter \"portal\" start",
