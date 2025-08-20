@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.1.2
+
+### Patch Changes
+
+- 5be6060: Fikser en bug der useAnimatedHeight ikke fungerte når brukeren foretrekker redusert bevegelse
+- 9a4f03d: Endret Menu til å bruke [SlotComponent](https://github.com/fremtind/jokul/blob/main/packages/jokul/src/utilities/polymorphism/SlotComponent.tsx) for en mer robust og pålitelig håndtering av triggerElement.
+
 ## 1.1.1
 
 ### Patch Changes
