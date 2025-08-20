@@ -1,10 +1,8 @@
 /**
- * Do not edit directly
- * Generated on Thu, 09 Jan 2025 11:10:44 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 const colors = {
-    "background-page": "var(--jkl-color-background-page)",
     "background-page-variant": "var(--jkl-color-background-page-variant)",
     "background-container": "var(--jkl-color-background-container)",
     "background-container-low": "var(--jkl-color-background-container-low)",
@@ -41,6 +39,41 @@ const colors = {
     "border-separator-strong": "var(--jkl-color-border-separator-strong)",
     "border-separator-hover": "var(--jkl-color-border-separator-hover)",
     "border-subdued": "var(--jkl-color-border-subdued)",
+    "color-background-page": "var(--jkl-sys-color-background-page)",
+    "color-background-surface-default":
+        "var(--jkl-sys-color-background-surface-default)",
+    "color-background-surface-highlight":
+        "var(--jkl-sys-color-background-surface-highlight)",
+    "color-background-surface-on-surface":
+        "var(--jkl-sys-color-background-surface-on-surface)",
+    "color-background-surface-moderate":
+        "var(--jkl-sys-color-background-surface-moderate)",
+    "color-background-surface-knockout":
+        "var(--jkl-sys-color-background-surface-knockout)",
+    "color-background-surface-error":
+        "var(--jkl-sys-color-background-surface-error)",
+    "color-background-surface-warning":
+        "var(--jkl-sys-color-background-surface-warning)",
+    "color-background-surface-info":
+        "var(--jkl-sys-color-background-surface-info)",
+    "color-background-surface-succes":
+        "var(--jkl-sys-color-background-surface-succes)",
+    "color-background-surface-border-subdued":
+        "var(--jkl-sys-color-background-surface-border-subdued)",
+    "color-background-surface-border-strong":
+        "var(--jkl-sys-color-background-surface-border-strong)",
+    "color-background-surface-border-strongest":
+        "var(--jkl-sys-color-background-surface-border-strongest)",
+    "color-background-surface-border-knockout":
+        "var(--jkl-sys-color-background-surface-border-knockout)",
+    "color-background-surface-border-info":
+        "var(--jkl-sys-color-background-surface-border-info)",
+    "color-background-surface-border-success":
+        "var(--jkl-sys-color-background-surface-border-success)",
+    "color-background-surface-border-error":
+        "var(--jkl-sys-color-background-surface-border-error)",
+    "color-background-surface-border-warning":
+        "var(--jkl-sys-color-background-surface-border-warning)",
 };
 
 export default colors;
