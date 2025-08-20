@@ -23,6 +23,7 @@ export default defineConfig({
             exclude: [
                 "src/**/*.test.{ts,tsx}",
                 "src/**/*.spec.{ts,tsx}",
+                "src/**/*.stories.{ts,tsx}",
                 "src/components/**/development/*",
             ],
             entryRoot: "./src",
@@ -52,7 +53,7 @@ export default defineConfig({
         rollupOptions: {
             input: Object.fromEntries(
                 // https://rollupjs.org/configuration-options/#input
-                globSync("src/**/!(*.test|*.spec).{ts,tsx}")
+                globSync("src/**/!(*.test|*.spec|*.stories).{ts,tsx}")
                     .filter((file) => !file.includes("development/"))
                     .map((file) => [
                         relative(
