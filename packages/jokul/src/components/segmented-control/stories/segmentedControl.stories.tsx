@@ -1,7 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
+
+import { FieldGroup } from "../../input-group/FieldGroup.js";
 import { CheckListItem, CrossListItem, List } from "../../list/index.js";
 import { SegmentedControl } from "../SegmentedControl.js";
+import { SegmentedControlButton } from "../SegmentedControlButton.js";
 
 import "../styles/_index.scss";
 import "../../list/styles/_index.scss";
@@ -10,6 +13,7 @@ import "../../link/styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/SegmentedControl",
     component: SegmentedControl,
+    subcomponents: { FieldGroup, SegmentedControlButton },
     parameters: {
         layout: "centered",
     },
@@ -20,33 +24,13 @@ export default meta;
 
 type Story = StoryObj<typeof SegmentedControl>;
 
-const themeChoices = ["Auto", "Light", "Dark"];
 const coverageChoices = ["Dekker", "Dekker ikke"];
 
-export const SegmentedControlStory: Story = {
+export const DekningsoversiktStory: Story = {
     name: "Segmented Control",
     args: {
-        legend: "Tema",
-        items: themeChoices,
-        separateItem: 1,
-    },
-    argTypes: {
-        defaultValue: {
-            control: "select",
-            options: [...themeChoices, ...themeChoices.keys()],
-        },
-    },
-    render: (args) => <SegmentedControl {...args} />,
-};
-
-export const DekningsoversiktStory: Story = {
-    name: "Segmented Control: Dekningsoversikt",
-    args: {
         legend: "Velg hva som vises",
-        items: coverageChoices,
         defaultValue: coverageChoices[0],
-        showLegend: false,
-        separateItem: 0,
     },
     argTypes: {
         defaultValue: {
@@ -78,10 +62,18 @@ export const DekningsoversiktStory: Story = {
 
         return (
             <>
-                <SegmentedControl
-                    {...args}
-                    onChange={(e) => setValue(e.target.value)}
-                />
+                <SegmentedControl {...args}>
+                    {coverageChoices.map((choice) => (
+                        <SegmentedControlButton
+                            value={choice}
+                            key={choice}
+                            name="temavalg"
+                            onChange={(e) => setValue(e.target.value)}
+                        >
+                            {choice}
+                        </SegmentedControlButton>
+                    ))}
+                </SegmentedControl>
                 <div
                     style={{
                         maxWidth: "60ch",
