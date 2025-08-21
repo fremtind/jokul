@@ -11,7 +11,7 @@
     font-feature-settings: "liga";
     -webkit-font-feature-settings: "liga";
     font-size: var(--jkl-icon-size, #{jkl.rem(24px)});
-    font-weight: var(--jkl-icon-weight, 300);
+    font-weight: var(--jkl-icon-weight, #{jkl.$icon-weight-normal});
     line-height: 1;
     display: inline-block;
     -webkit-font-smoothing: antialiased;
