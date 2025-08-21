@@ -31,8 +31,9 @@
         @include jkl.reset-outline;
 
         & option {
-            color: var(--jkl-select-text-color);
-            background-color: var(--jkl-select-open-background-color);
+            color: var(--jkl-color-text-default);
+            background-color: var(--jkl-color-background-container-high);
+            text-align: left;
         }
 
         &:focus-visible {
