@@ -3,7 +3,7 @@
         "icon": {
             "weight": {
                 "normal": { "value": "300" },
-                "bold": { "value": "500" }
+                "bold": { "value": "400" }
             }
         },
         "typography": {
