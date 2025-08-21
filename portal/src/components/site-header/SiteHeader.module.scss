@@ -3,6 +3,10 @@
 .globalHeader {
     margin-block-end: var(--jkl-spacing-16);
 
+    &:has(+ main) {
+        display: none;
+    }
+
     div.banner {
         width: 100%;
 
@@ -59,14 +63,14 @@
 
                     &:hover {
                         background-color: var(
-                            --jkl-color-background-interactive-hover
+                                --jkl-color-background-interactive-hover
                         );
                         position: relative;
                     }
 
                     &.active {
                         background-color: var(
-                            --jkl-color-background-interactive-selected
+                                --jkl-color-background-interactive-selected
                         );
                         position: relative;
                     }

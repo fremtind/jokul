@@ -3,27 +3,42 @@
 );
 @use "@fremtind/jokul/styles";
 @use "@fremtind/jokul/styles/core/jkl";
+@use "./typewriter.scss";
 
 body {
     --max-width: 1440px;
     --min-width: 320px;
+
     background-color: var(--jkl-color-background-page);
     min-height: 100dvh;
 }
 
 .jkl-portal-layout {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     column-gap: var(--jkl-unit-30);
-    max-width: var(--max-width);
     padding: jkl.$spacing-24 jkl.$spacing-16;
+    height: 100svh;
+
+    &:not(:has(h1.front-page)) {
+        max-width: var(--max-width);
+
+    }
+
 
     @media (width >=940px) {
         padding: 0;
-        flex-direction: row;
+        grid-template-columns: 320px 1fr;
 
         main {
             padding: jkl.$spacing-40;
+            height: 100%;
+            box-sizing: border-box;
+            grid-column: 2;
+
+            &:has(h1.front-page) {
+                grid-column: 1 / -1;
+            }
         }
     }
 }

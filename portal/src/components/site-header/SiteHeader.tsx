@@ -9,13 +9,7 @@ export const SiteHeader = async () => {
     const menuId = "global-menu";
 
     return (
-        <Flex
-            as="header"
-            gap={32}
-            alignItems="center"
-            direction="column"
-            className={styles.globalHeader}
-        >
+        <div className={styles.globalHeader}>
             <Flex
                 gap={24}
                 justifyContent="space-between"
@@ -33,6 +27,6 @@ export const SiteHeader = async () => {
             <nav aria-label="Hovednavigasjon" className={styles.menu}>
                 <MenuItemList />
             </nav>
-        </Flex>
+        </div>
     );
 };

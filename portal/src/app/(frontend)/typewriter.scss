@@ -1,0 +1,78 @@
+.typewriter.front-page {
+    font-size: 12vw;
+    line-height: 1;
+    height: 100%;
+    box-sizing: border-box;
+    align-content: center;
+}
+
+.typewriter {
+    span {
+        width: 0;
+        display: inline-block;
+        overflow: hidden;
+        animation: show-letter .5s forwards;
+
+        &:last-of-type {
+            width: auto;
+            animation: hide-letter .5s forwards;
+        }
+
+        &.space {
+            animation: show-space .5s forwards;
+            height: 0;
+            width: auto;
+        }
+
+        @for $i from 1 through 20 {
+            &:nth-child(#{$i}) {
+                animation-delay: $i * 0.1s;
+            }
+
+            &.space {
+                animation-delay: 1.8s;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+            width: auto;
+
+            &:last-of-type {
+                display: none;
+            }
+        }
+    }
+}
+
+@keyframes show-space {
+    from {
+        display: none;
+    }
+    to {
+        display: block;
+    }
+}
+
+@keyframes show-letter {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    to {
+        width: auto;
+    }
+}
+
+@keyframes hide-letter {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
