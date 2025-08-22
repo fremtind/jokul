@@ -32,7 +32,7 @@ siden de ikke lenger er en del av core
 
 ```diff
 - import { Link, NavLink } from "@fremtind/jkl-core";
-+ import { Link, NavLink } from "@fremtind/jokul/components/link";
++ import { Link, NavLink } from "@fremtind/jokul/link";
 ```
 
 og i tillegg må man nå også spesifikt importere stilene til lenker side de heller ikke
@@ -46,7 +46,7 @@ Dersom man bruker ScreenReaderOnly må denne importen oppdateres
 
 ```diff
 - import { ScreenReaderOnly } from "@fremtind/jkl-core";
-+ import { ScreenReaderOnly } from "@fremtind/jokul/components/screen-reader-only";
++ import { ScreenReaderOnly } from "@fremtind/jokul/screen-reader-only";
 ```
 
 Dersom man bruker TS hjelpeklasser som feks `WithChildren`
@@ -76,7 +76,21 @@ Hvis du sender inn `$webfonts-dir` variabelen er det også her path må oppdater
 
 ## Komponenter
 
-Med noen unntak gjøres dette på samme måte for alle
+Med noen unntak gjøres dette på samme måte for alle:
+
+1. Import av React komponent endres
+```diff
+- import { Feedback } from "@fremtind/jkl-feedback-react";
++ import { Feedback } from "@fremtind/jokul/feedback";
+```
+2. Import av styling endres
+```diff
+- @use "@fremtind/jkl-feedback/feedback";
++ @use "@fremtind/jokul/styles/components/feedback";
+```
+
+Les mer om hvordan du bruker stilark i `@fremtind/jokul` i [README-filen](./README.md#stilark)
+
 
 ### Autosuggest
 
@@ -86,7 +100,7 @@ Import av React komponent endres
 
 ```diff
 - import { Autosuggest } from "@fremtind/jkl-text-input-react";
-+ import { Autosuggest } from "@fremtind/jokul/components/autosuggest";
++ import { Autosuggest } from "@fremtind/jokul/autosuggest";
 ```
 
 Import av styling
@@ -103,7 +117,7 @@ Import av React komponent endres
 
 ```diff
 - import { ExpandButton } from "@fremtind/jkl-expand-button-react";
-+ import { Expander } from "@fremtind/jokul/components/expander";
++ import { Expander } from "@fremtind/jokul/expander";
 ```
 
 Import av styling endres
@@ -129,7 +143,7 @@ Import av React komponent endres
 
 ```diff
 - import { CloseIcon } from "@fremtind/jkl-icons-react";
-+ import { CloseIcon } from "@fremtind/jokul/components/icon";
++ import { CloseIcon } from "@fremtind/jokul/icon";
 ```
 
 Import av styling endres
@@ -138,21 +152,3 @@ Import av styling endres
 - @use "@fremtind/jkl-icons/icons";
 + @use "@fremtind/jokul/styles/components/icon";
 ```
-
-### Røkla
-
-Import av React komponent endres
-
-```diff
-- import { Feedback } from "@fremtind/jkl-feedback-react";
-+ import { Feedback } from "@fremtind/jokul/components/feedback";
-```
-
-Import av styling endres
-
-```diff
-- @use "@fremtind/jkl-feedback/feedback";
-+ @use "@fremtind/jokul/styles/components/feedback";
-```
-
-Les mer om hvordan du bruker stilark i `@fremtind/jokul` i [README-filen](./README.md#stilark)
