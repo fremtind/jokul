@@ -15,7 +15,7 @@ const meta = {
     },
     tags: ["autodocs"],
     args: {
-        //  as: "object",
+        clickable: false,
     },
     argTypes: {
         variant: {
@@ -38,6 +38,7 @@ export const Card: Story = {
 };
 
 export const Fakturainformasjon: Story = {
+    name: "Card med fakturainformasjon",
     args: {
         padding: "m",
         clickable: true,
