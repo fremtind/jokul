@@ -47,14 +47,25 @@
     --jkl-sys-color-background-surface-warning: oklch(90% 0.08 94deg);
     --jkl-sys-color-background-surface-info: oklch(80% 0.09 285deg);
     --jkl-sys-color-background-surface-succes: oklch(80% 0.066 156deg);
-    --jkl-sys-color-background-surface-border-subdued: oklch(80% 0.008 67deg);
-    --jkl-sys-color-background-surface-border-strong: oklch(50% 0.007 67deg);
-    --jkl-sys-color-background-surface-border-strongest: oklch(0% 0.007 64deg);
-    --jkl-sys-color-background-surface-border-knockout: oklch(100% 0.001 67deg);
-    --jkl-sys-color-background-surface-border-info: oklch(70% 0.145 285deg);
-    --jkl-sys-color-background-surface-border-success: oklch(70% 0.089 156deg);
-    --jkl-sys-color-background-surface-border-error: oklch(70% 0.13 16deg);
-    --jkl-sys-color-background-surface-border-warning: oklch(70% 0.1 94deg);
+    --jkl-sys-color-border-subdued: oklch(80% 0.008 67deg);
+    --jkl-sys-color-border-strong: oklch(50% 0.007 67deg);
+    --jkl-sys-color-border-strongest: oklch(0% 0.007 64deg);
+    --jkl-sys-color-border-knockout: oklch(100% 0.001 67deg);
+    --jkl-sys-color-border-info: oklch(70% 0.145 285deg);
+    --jkl-sys-color-border-success: oklch(70% 0.089 156deg);
+    --jkl-sys-color-border-error: oklch(70% 0.13 16deg);
+    --jkl-sys-color-border-warning: oklch(70% 0.1 94deg);
+    --jkl-sys-color-text-default: oklch(0% 0.007 64deg);
+    --jkl-sys-color-text-subdued: oklch(50% 0.007 67deg);
+    --jkl-sys-color-text-knockout: oklch(100% 0.001 67deg);
+    --jkl-sys-color-text-info: oklch(25% 0.056 285deg);
+    --jkl-sys-color-text-info-strong: oklch(50% 0.186 285deg);
+    --jkl-sys-color-text-success: oklch(25% 0.024 156deg);
+    --jkl-sys-color-text-success-strong: oklch(50% 0.106 156deg);
+    --jkl-sys-color-text-error: oklch(25% 0.056 16deg);
+    --jkl-sys-color-text-error-strong: oklch(50% 0.16 16deg);
+    --jkl-sys-color-text-warning: oklch(25% 0.03 94deg);
+    --jkl-sys-color-text-warning-strong: oklch(70% 0.1 94deg);
 }
 
 @include jkl.dark-mode-variables {
@@ -100,12 +111,23 @@
     --jkl-sys-color-background-surface-warning: oklch(45% 0.065 94deg);
     --jkl-sys-color-background-surface-info: oklch(45% 0.169 285deg);
     --jkl-sys-color-background-surface-succes: oklch(45% 0.095 156deg);
-    --jkl-sys-color-background-surface-border-subdued: oklch(50% 0.007 67deg);
-    --jkl-sys-color-background-surface-border-strong: oklch(80% 0.008 67deg);
-    --jkl-sys-color-background-surface-border-strongest: oklch(100% 0.001 67deg);
-    --jkl-sys-color-background-surface-border-knockout: oklch(0% 0.007 64deg);
-    --jkl-sys-color-background-surface-border-info: oklch(60% 0.17 285deg);
-    --jkl-sys-color-background-surface-border-success: oklch(60% 0.1 156deg);
-    --jkl-sys-color-background-surface-border-error: oklch(60% 0.149 16deg);
-    --jkl-sys-color-background-surface-border-warning: oklch(60% 0.09 94deg);
+    --jkl-sys-color-border-subdued: oklch(50% 0.007 67deg);
+    --jkl-sys-color-border-strong: oklch(80% 0.008 67deg);
+    --jkl-sys-color-border-strongest: oklch(100% 0.001 67deg);
+    --jkl-sys-color-border-knockout: oklch(0% 0.007 64deg);
+    --jkl-sys-color-border-info: oklch(60% 0.17 285deg);
+    --jkl-sys-color-border-success: oklch(60% 0.1 156deg);
+    --jkl-sys-color-border-error: oklch(60% 0.149 16deg);
+    --jkl-sys-color-border-warning: oklch(60% 0.09 94deg);
+    --jkl-sys-color-text-default: oklch(100% 0.001 67deg);
+    --jkl-sys-color-text-subdued: oklch(80% 0.008 67deg);
+    --jkl-sys-color-text-knockout: oklch(0% 0.007 64deg);
+    --jkl-sys-color-text-info: oklch(90% 0.034 285deg);
+    --jkl-sys-color-text-info-strong: oklch(70% 0.145 285deg);
+    --jkl-sys-color-text-success: oklch(90% 0.035 156deg);
+    --jkl-sys-color-text-success-strong: oklch(70% 0.089 156deg);
+    --jkl-sys-color-text-error: oklch(90% 0.045 16deg);
+    --jkl-sys-color-text-error-strong: oklch(70% 0.13 16deg);
+    --jkl-sys-color-text-warning: oklch(90% 0.08 94deg);
+    --jkl-sys-color-text-warning-strong: oklch(70% 0.1 94deg);
 }

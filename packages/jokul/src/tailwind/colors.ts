@@ -58,22 +58,25 @@ const colors = {
         "var(--jkl-sys-color-background-surface-info)",
     "color-background-surface-succes":
         "var(--jkl-sys-color-background-surface-succes)",
-    "color-background-surface-border-subdued":
-        "var(--jkl-sys-color-background-surface-border-subdued)",
-    "color-background-surface-border-strong":
-        "var(--jkl-sys-color-background-surface-border-strong)",
-    "color-background-surface-border-strongest":
-        "var(--jkl-sys-color-background-surface-border-strongest)",
-    "color-background-surface-border-knockout":
-        "var(--jkl-sys-color-background-surface-border-knockout)",
-    "color-background-surface-border-info":
-        "var(--jkl-sys-color-background-surface-border-info)",
-    "color-background-surface-border-success":
-        "var(--jkl-sys-color-background-surface-border-success)",
-    "color-background-surface-border-error":
-        "var(--jkl-sys-color-background-surface-border-error)",
-    "color-background-surface-border-warning":
-        "var(--jkl-sys-color-background-surface-border-warning)",
+    "color-border-subdued": "var(--jkl-sys-color-border-subdued)",
+    "color-border-strong": "var(--jkl-sys-color-border-strong)",
+    "color-border-strongest": "var(--jkl-sys-color-border-strongest)",
+    "color-border-knockout": "var(--jkl-sys-color-border-knockout)",
+    "color-border-info": "var(--jkl-sys-color-border-info)",
+    "color-border-success": "var(--jkl-sys-color-border-success)",
+    "color-border-error": "var(--jkl-sys-color-border-error)",
+    "color-border-warning": "var(--jkl-sys-color-border-warning)",
+    "color-text-default": "var(--jkl-sys-color-text-default)",
+    "color-text-subdued": "var(--jkl-sys-color-text-subdued)",
+    "color-text-knockout": "var(--jkl-sys-color-text-knockout)",
+    "color-text-info": "var(--jkl-sys-color-text-info)",
+    "color-text-info-strong": "var(--jkl-sys-color-text-info-strong)",
+    "color-text-success": "var(--jkl-sys-color-text-success)",
+    "color-text-success-strong": "var(--jkl-sys-color-text-success-strong)",
+    "color-text-error": "var(--jkl-sys-color-text-error)",
+    "color-text-error-strong": "var(--jkl-sys-color-text-error-strong)",
+    "color-text-warning": "var(--jkl-sys-color-text-warning)",
+    "color-text-warning-strong": "var(--jkl-sys-color-text-warning-strong)",
 };
 
 export default colors;
