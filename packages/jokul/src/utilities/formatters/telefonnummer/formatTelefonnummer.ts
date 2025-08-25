@@ -7,7 +7,7 @@ export const TELEFONNUMMER_REGEX = {
     fastPartial: /^([2-9]\d)(\d{1,2})?(\d{1,2})?(\d{1,2})?$/,
 };
 
-type FormatTelefonnummerOptions = {
+export type FormatTelefonnummerOptions = {
     partial?: boolean;
     countryCode?: string;
 };

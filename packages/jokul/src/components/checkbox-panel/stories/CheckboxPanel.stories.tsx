@@ -1,58 +1,32 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
-import { Flex } from "../../flex/Flex.js";
-import { SuccessTag } from "../../tag/Tag.js";
-import { CheckboxPanel as CheckboxPanelComponent } from "../CheckboxPanel.js";
+import { CheckboxPanel } from "../CheckboxPanel.js";
 import "../styles/_index.scss";
-import "./styles.scss";
 
 const meta = {
-    title: "Komponenter/CheckboxPanel",
-    component: CheckboxPanelComponent,
+    title: "Komponenter/Checkbox Panel",
+    component: CheckboxPanel,
     parameters: {
         layout: "padded",
     },
     tags: ["autodocs"],
     argTypes: {
-        alwaysOpen: {
-            table: {
-                defaultValue: {
-                    summary: undefined,
-                },
+        extraLabel: {
+            control: {
+                type: "text",
             },
         },
     },
-} satisfies Meta<typeof CheckboxPanelComponent>;
+} satisfies Meta<typeof CheckboxPanel>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const CheckboxPanel: Story = {
+export const Story: Story = {
+    name: "Checkbox Panel",
     args: {
-        label: "Kasko",
-        children: (
-            <p>
-                En forsikring som passer de fleste biler. Dekker det meste av
-                skader, også de du selv er ansvarlig for. Inkluderer Minikasko
-                og Ansvar.
-            </p>
-        ),
-        extraLabel: (
-            <Flex
-                as="span"
-                alignItems="center"
-                justifyContent="flex-end"
-                gap={24}
-                className="input-panel-example__custom-label input-panel-example__custom-label--bold"
-            >
-                <SuccessTag>Anbefalt</SuccessTag>
-                300 kr/mnd
-            </Flex>
-        ),
+        label: "Livsforsikring",
+        children:
+            "Gir dine etterlatte en engangsutbetaling hvis du dør. Pengene kan de for eksempel bruke til å nedbetale lån og tilpasse seg en ny livssituasjon.",
+        alwaysOpen: false,
     },
-    decorators: (Story) => (
-        <div style={{ maxWidth: 580 }}>
-            <Story />
-        </div>
-    ),
 };
