@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.2.0
+
+### Minor Changes
+
+- f09834d: Endrer fontvekten for `bold` ikoner til `400` for å samsvare bedre med fonten vår når den brukes sammen med fet skrift.
+
+### Patch Changes
+
+- 5d3dd20: Fix option colors in select for Chrome on Windows in dark mode
+
 ## 1.1.2
 
 ### Patch Changes
