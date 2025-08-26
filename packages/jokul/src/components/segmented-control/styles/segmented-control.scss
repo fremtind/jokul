@@ -3,7 +3,7 @@
 @use "../../../components/radio-button/styles";
 
 @include jkl.comfortable-density-variables {
-    --jkl-segmented-controls-padding: #{jkl.$unit-02};
+    --jkl-segmented-controls-padding: 0;
     --jkl-segmented-controls-margin: 1.5ch;
 
     @include jkl.declare-font-variables("jkl-segmented-control", "body");
@@ -55,10 +55,25 @@
             z-index: 1;
         }
 
+        &:has(input[data-icon="true"]) {
+            .jkl-radio-button__dot {
+                display: none;
+            }
+
+            .jkl-icon {
+                vertical-align: middle;
+                margin-inline-end: 0.5rch;
+            }
+        }
+
         &:has(input:checked) {
             background-color: var(--jkl-color-background-container-high);
             border-color: var(--jkl-color-border-separator);
             z-index: 1;
+
+            .jkl-icon {
+                --jkl-icon-fill: 1;
+            }
         }
 
         // Kontrollerer border og margin på separerte items + border-radius til neste sibling

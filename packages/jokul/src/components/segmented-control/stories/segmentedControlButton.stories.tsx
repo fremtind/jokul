@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 
+import { Icon } from "../../icon/Icon.js";
 import { FieldGroup } from "../../input-group/FieldGroup.js";
 import { SegmentedControl } from "../SegmentedControl.js";
 import { SegmentedControlButton } from "../SegmentedControlButton.js";
@@ -23,8 +24,6 @@ export default meta;
 
 type Story = StoryObj<typeof SegmentedControlButton>;
 
-const themeChoices = ["Light", "Dark"];
-
 export const SegmentedControlStory: Story = {
     name: "Segmented Control Button",
     args: {
@@ -33,16 +32,25 @@ export const SegmentedControlStory: Story = {
     },
     render: (args) => (
         <SegmentedControl legend="Velg tema">
-            {themeChoices.map((choice) => (
-                <SegmentedControlButton
-                    value={choice}
-                    key={choice}
-                    name="temavalg"
-                >
-                    {choice}
-                </SegmentedControlButton>
-            ))}
-            <SegmentedControlButton {...args} name="temavalg">
+            <SegmentedControlButton
+                value={"light"}
+                name="temavalg"
+                icon={<Icon>light_mode</Icon>}
+            >
+                Light
+            </SegmentedControlButton>
+            <SegmentedControlButton
+                value={"dark"}
+                name="temavalg"
+                icon={<Icon>dark_mode</Icon>}
+            >
+                Dark
+            </SegmentedControlButton>
+            <SegmentedControlButton
+                {...args}
+                name="temavalg"
+                icon={<Icon>routine</Icon>}
+            >
                 {args.value}
             </SegmentedControlButton>
         </SegmentedControl>
