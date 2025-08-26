@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.2.1
+
+### Patch Changes
+
+- a726eca: - Eksporter Segmented Control riktig.
+  - Legger til Props på fieldset og ikke hver radio-knapp i Segmented Control.
+- fd147a1: SystemMessage tar ikke lenger opp høyde etter å ha blitt dismissed
+
 ## 1.2.0
 
 ### Minor Changes
