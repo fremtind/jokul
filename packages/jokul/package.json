@@ -455,6 +455,27 @@
                 "default": "./build/cjs/components/select/index.cjs"
             }
         },
+        "./styles/components/segmented-control": "./styles/components/segmented-control/_index.scss",
+        "./segmented-control": {
+            "import": {
+                "types": "./build/es/components/segmented-control/index.d.ts",
+                "default": "./build/es/components/segmented-control/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/segmented-control/index.d.cts",
+                "default": "./build/cjs/components/segmented-control/index.cjs"
+            }
+        },
+        "./segmented-control-button": {
+            "import": {
+                "types": "./build/es/components/segmented-control/index.d.ts",
+                "default": "./build/es/components/segmented-control/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/segmented-control/index.d.cts",
+                "default": "./build/cjs/components/segmented-control/index.cjs"
+            }
+        },
         "./styles/components/summary-table": "./styles/components/summary-table/_index.scss",
         "./summary-table": {
             "import": {
