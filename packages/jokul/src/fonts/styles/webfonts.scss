@@ -131,7 +131,15 @@ $webfonts-dir: "/fonts" !default;
 
 @font-face {
     font-family: "Fremtind Material Symbols";
-    font-weight: 300 500;
+    font-weight: 300 400;
     font-style: normal;
     src: url("#{$webfonts-dir}/Fremtind-Material-Symbols.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Fremtind Material Symbols Fallback";
+    src: local(courier new);
+    font-weight: 300 400;
+    font-style: normal;
+    size-adjust: 0%;
 }
