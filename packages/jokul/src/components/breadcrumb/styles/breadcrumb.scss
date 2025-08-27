@@ -5,11 +5,11 @@
     a[aria-current] {
         text-decoration: none;
         background-image: none;
-        color: var(--jkl-color-text-interactive);
+        color: jkl.$sys-color-content-default;
 
         &:hover {
             cursor: default;
-            color: var(--jkl-color-text-interactive-hover);
+            color: jkl.$sys-color-content-subdued;
             background-image: none;
         }
     }

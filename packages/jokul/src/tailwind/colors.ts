@@ -66,17 +66,19 @@ const colors = {
     "color-border-success": "var(--jkl-sys-color-border-success)",
     "color-border-error": "var(--jkl-sys-color-border-error)",
     "color-border-warning": "var(--jkl-sys-color-border-warning)",
-    "color-text-default": "var(--jkl-sys-color-text-default)",
-    "color-text-subdued": "var(--jkl-sys-color-text-subdued)",
-    "color-text-knockout": "var(--jkl-sys-color-text-knockout)",
-    "color-text-info": "var(--jkl-sys-color-text-info)",
-    "color-text-info-strong": "var(--jkl-sys-color-text-info-strong)",
-    "color-text-success": "var(--jkl-sys-color-text-success)",
-    "color-text-success-strong": "var(--jkl-sys-color-text-success-strong)",
-    "color-text-error": "var(--jkl-sys-color-text-error)",
-    "color-text-error-strong": "var(--jkl-sys-color-text-error-strong)",
-    "color-text-warning": "var(--jkl-sys-color-text-warning)",
-    "color-text-warning-strong": "var(--jkl-sys-color-text-warning-strong)",
+    "color-content-default": "var(--jkl-sys-color-content-default)",
+    "color-content-subdued": "var(--jkl-sys-color-content-subdued)",
+    "color-content-knockout": "var(--jkl-sys-color-content-knockout)",
+    "color-content-info": "var(--jkl-sys-color-content-info)",
+    "color-content-info-strong": "var(--jkl-sys-color-content-info-strong)",
+    "color-content-success": "var(--jkl-sys-color-content-success)",
+    "color-content-success-strong":
+        "var(--jkl-sys-color-content-success-strong)",
+    "color-content-error": "var(--jkl-sys-color-content-error)",
+    "color-content-error-strong": "var(--jkl-sys-color-content-error-strong)",
+    "color-content-warning": "var(--jkl-sys-color-content-warning)",
+    "color-content-warning-strong":
+        "var(--jkl-sys-color-content-warning-strong)",
 };
 
 export default colors;

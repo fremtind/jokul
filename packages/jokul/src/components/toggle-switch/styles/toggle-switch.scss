@@ -30,7 +30,7 @@
     --indicator-color: var(--jkl-color-background-container-high);
     --knob-border-color: var(--jkl-color-border-action);
     --knob-color: var(--jkl-color-background-container-high);
-    --text-color: var(--jkl-color-text-default);
+    --text-color: #{jkl.$sys-color-content-default};
     --icon-color: var(--jkl-color-text-inverted);
 
     background: transparent;
@@ -58,15 +58,17 @@
         --indicator-color: var(--jkl-color-background-container-inverted);
         --knob-color: var(--jkl-color-text-inverted);
         --knob-position: calc(
-            var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) -
-                var(--switch-padding) * 2
+            var(--jkl-toggle-switch-width) - var(
+                    --jkl-toggle-switch-knob-size
+                ) - var(--switch-padding) *
+                2
         );
     }
 
     &[disabled] {
         cursor: revert;
 
-        --text-color: var(--jkl-color-text-subdued);
+        --text-color: #{jkl.$sys-color-content-subdued};
         --switch-border-color: var(--jkl-color-border-subdued);
         --knob-border-color: var(--jkl-color-border-subdued);
 

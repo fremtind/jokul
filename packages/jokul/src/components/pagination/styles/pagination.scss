@@ -25,10 +25,10 @@ $_button-size: jkl.rem(32px);
     cursor: pointer;
     user-select: none;
     border-radius: jkl.rem(3px);
-    color: jkl.$color-text-interactive;
+    color: jkl.$sys-color-content-subdued;
 
     &:hover:not(:focus) {
-        color: jkl.$color-text-interactive-hover;
+        color: jkl.$sys-color-content-subdued;
     }
 
     &:focus-visible {

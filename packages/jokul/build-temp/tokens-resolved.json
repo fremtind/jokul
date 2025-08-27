@@ -4990,75 +4990,75 @@
                     }
                 }
             },
-            "text": {
+            "content": {
                 "default": {
                     "light": {
-                        "key": "{sys.color.text.default.light}",
-                        "value": "oklch(0% 0.007 64)",
+                        "key": "{sys.color.content.default.light}",
+                        "value": "oklch(10% 0.007 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
                         "isSource": true,
                         "original": {
-                            "value": "{ref.color.brand.0}",
+                            "value": "{ref.color.brand.10}",
                             "type": "color",
-                            "key": "{sys.color.text.default.light}"
+                            "key": "{sys.color.content.default.light}"
                         },
-                        "name": "SysColorTextDefaultLight",
+                        "name": "SysColorContentDefaultLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "default",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "text", "default", "light"]
+                        "path": ["sys", "color", "content", "default", "light"]
                     },
                     "dark": {
-                        "key": "{sys.color.text.default.dark}",
-                        "value": "oklch(100% 0.001 67)",
+                        "key": "{sys.color.content.default.dark}",
+                        "value": "oklch(98% 0.003 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
                         "isSource": true,
                         "original": {
-                            "value": "{ref.color.brand.100}",
+                            "value": "{ref.color.brand.98}",
                             "type": "color",
-                            "key": "{sys.color.text.default.dark}"
+                            "key": "{sys.color.content.default.dark}"
                         },
-                        "name": "SysColorTextDefaultDark",
+                        "name": "SysColorContentDefaultDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "default",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "text", "default", "dark"]
+                        "path": ["sys", "color", "content", "default", "dark"]
                     }
                 },
                 "subdued": {
                     "light": {
-                        "key": "{sys.color.text.subdued.light}",
-                        "value": "oklch(50% 0.007 67)",
+                        "key": "{sys.color.content.subdued.light}",
+                        "value": "oklch(40% 0.007 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
                         "isSource": true,
                         "original": {
-                            "value": "{ref.color.brand.50}",
+                            "value": "{ref.color.brand.40}",
                             "type": "color",
-                            "key": "{sys.color.text.subdued.light}"
+                            "key": "{sys.color.content.subdued.light}"
                         },
-                        "name": "SysColorTextSubduedLight",
+                        "name": "SysColorContentSubduedLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "subdued",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "text", "subdued", "light"]
+                        "path": ["sys", "color", "content", "subdued", "light"]
                     },
                     "dark": {
-                        "key": "{sys.color.text.subdued.dark}",
+                        "key": "{sys.color.content.subdued.dark}",
                         "value": "oklch(80% 0.008 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5066,22 +5066,22 @@
                         "original": {
                             "value": "{ref.color.brand.80}",
                             "type": "color",
-                            "key": "{sys.color.text.subdued.dark}"
+                            "key": "{sys.color.content.subdued.dark}"
                         },
-                        "name": "SysColorTextSubduedDark",
+                        "name": "SysColorContentSubduedDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "subdued",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "text", "subdued", "dark"]
+                        "path": ["sys", "color", "content", "subdued", "dark"]
                     }
                 },
                 "knockout": {
                     "light": {
-                        "key": "{sys.color.text.knockout.light}",
+                        "key": "{sys.color.content.knockout.light}",
                         "value": "oklch(100% 0.001 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5089,20 +5089,20 @@
                         "original": {
                             "value": "{ref.color.brand.100}",
                             "type": "color",
-                            "key": "{sys.color.text.knockout.light}"
+                            "key": "{sys.color.content.knockout.light}"
                         },
-                        "name": "SysColorTextKnockoutLight",
+                        "name": "SysColorContentKnockoutLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "knockout",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "text", "knockout", "light"]
+                        "path": ["sys", "color", "content", "knockout", "light"]
                     },
                     "dark": {
-                        "key": "{sys.color.text.knockout.dark}",
+                        "key": "{sys.color.content.knockout.dark}",
                         "value": "oklch(0% 0.007 64)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5110,22 +5110,22 @@
                         "original": {
                             "value": "{ref.color.brand.0}",
                             "type": "color",
-                            "key": "{sys.color.text.knockout.dark}"
+                            "key": "{sys.color.content.knockout.dark}"
                         },
-                        "name": "SysColorTextKnockoutDark",
+                        "name": "SysColorContentKnockoutDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "knockout",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "text", "knockout", "dark"]
+                        "path": ["sys", "color", "content", "knockout", "dark"]
                     }
                 },
                 "info": {
                     "light": {
-                        "key": "{sys.color.text.info.light}",
+                        "key": "{sys.color.content.info.light}",
                         "value": "oklch(25% 0.056 285)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5133,20 +5133,20 @@
                         "original": {
                             "value": "{ref.color.blue.25}",
                             "type": "color",
-                            "key": "{sys.color.text.info.light}"
+                            "key": "{sys.color.content.info.light}"
                         },
-                        "name": "SysColorTextInfoLight",
+                        "name": "SysColorContentInfoLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "info",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "text", "info", "light"]
+                        "path": ["sys", "color", "content", "info", "light"]
                     },
                     "dark": {
-                        "key": "{sys.color.text.info.dark}",
+                        "key": "{sys.color.content.info.dark}",
                         "value": "oklch(90% 0.034 285)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5154,22 +5154,22 @@
                         "original": {
                             "value": "{ref.color.blue.90}",
                             "type": "color",
-                            "key": "{sys.color.text.info.dark}"
+                            "key": "{sys.color.content.info.dark}"
                         },
-                        "name": "SysColorTextInfoDark",
+                        "name": "SysColorContentInfoDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "info",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "text", "info", "dark"]
+                        "path": ["sys", "color", "content", "info", "dark"]
                     }
                 },
                 "info-strong": {
                     "light": {
-                        "key": "{sys.color.text.info-strong.light}",
+                        "key": "{sys.color.content.info-strong.light}",
                         "value": "oklch(50% 0.186 285)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5177,20 +5177,26 @@
                         "original": {
                             "value": "{ref.color.blue.50}",
                             "type": "color",
-                            "key": "{sys.color.text.info-strong.light}"
+                            "key": "{sys.color.content.info-strong.light}"
                         },
-                        "name": "SysColorTextInfoStrongLight",
+                        "name": "SysColorContentInfoStrongLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "info-strong",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "text", "info-strong", "light"]
+                        "path": [
+                            "sys",
+                            "color",
+                            "content",
+                            "info-strong",
+                            "light"
+                        ]
                     },
                     "dark": {
-                        "key": "{sys.color.text.info-strong.dark}",
+                        "key": "{sys.color.content.info-strong.dark}",
                         "value": "oklch(70% 0.145 285)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5198,22 +5204,28 @@
                         "original": {
                             "value": "{ref.color.blue.70}",
                             "type": "color",
-                            "key": "{sys.color.text.info-strong.dark}"
+                            "key": "{sys.color.content.info-strong.dark}"
                         },
-                        "name": "SysColorTextInfoStrongDark",
+                        "name": "SysColorContentInfoStrongDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "info-strong",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "text", "info-strong", "dark"]
+                        "path": [
+                            "sys",
+                            "color",
+                            "content",
+                            "info-strong",
+                            "dark"
+                        ]
                     }
                 },
                 "success": {
                     "light": {
-                        "key": "{sys.color.text.success.light}",
+                        "key": "{sys.color.content.success.light}",
                         "value": "oklch(25% 0.024 156)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5221,20 +5233,20 @@
                         "original": {
                             "value": "{ref.color.green.25}",
                             "type": "color",
-                            "key": "{sys.color.text.success.light}"
+                            "key": "{sys.color.content.success.light}"
                         },
-                        "name": "SysColorTextSuccessLight",
+                        "name": "SysColorContentSuccessLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "success",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "text", "success", "light"]
+                        "path": ["sys", "color", "content", "success", "light"]
                     },
                     "dark": {
-                        "key": "{sys.color.text.success.dark}",
+                        "key": "{sys.color.content.success.dark}",
                         "value": "oklch(90% 0.035 156)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5242,22 +5254,22 @@
                         "original": {
                             "value": "{ref.color.green.90}",
                             "type": "color",
-                            "key": "{sys.color.text.success.dark}"
+                            "key": "{sys.color.content.success.dark}"
                         },
-                        "name": "SysColorTextSuccessDark",
+                        "name": "SysColorContentSuccessDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "success",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "text", "success", "dark"]
+                        "path": ["sys", "color", "content", "success", "dark"]
                     }
                 },
                 "success-strong": {
                     "light": {
-                        "key": "{sys.color.text.success-strong.light}",
+                        "key": "{sys.color.content.success-strong.light}",
                         "value": "oklch(50% 0.106 156)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5265,26 +5277,26 @@
                         "original": {
                             "value": "{ref.color.green.50}",
                             "type": "color",
-                            "key": "{sys.color.text.success-strong.light}"
+                            "key": "{sys.color.content.success-strong.light}"
                         },
-                        "name": "SysColorTextSuccessStrongLight",
+                        "name": "SysColorContentSuccessStrongLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "success-strong",
                             "state": "light"
                         },
                         "path": [
                             "sys",
                             "color",
-                            "text",
+                            "content",
                             "success-strong",
                             "light"
                         ]
                     },
                     "dark": {
-                        "key": "{sys.color.text.success-strong.dark}",
+                        "key": "{sys.color.content.success-strong.dark}",
                         "value": "oklch(70% 0.089 156)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5292,20 +5304,20 @@
                         "original": {
                             "value": "{ref.color.green.70}",
                             "type": "color",
-                            "key": "{sys.color.text.success-strong.dark}"
+                            "key": "{sys.color.content.success-strong.dark}"
                         },
-                        "name": "SysColorTextSuccessStrongDark",
+                        "name": "SysColorContentSuccessStrongDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "success-strong",
                             "state": "dark"
                         },
                         "path": [
                             "sys",
                             "color",
-                            "text",
+                            "content",
                             "success-strong",
                             "dark"
                         ]
@@ -5313,7 +5325,7 @@
                 },
                 "error": {
                     "light": {
-                        "key": "{sys.color.text.error.light}",
+                        "key": "{sys.color.content.error.light}",
                         "value": "oklch(25% 0.056 16)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5321,20 +5333,20 @@
                         "original": {
                             "value": "{ref.color.red.25}",
                             "type": "color",
-                            "key": "{sys.color.text.error.light}"
+                            "key": "{sys.color.content.error.light}"
                         },
-                        "name": "SysColorTextErrorLight",
+                        "name": "SysColorContentErrorLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "error",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "text", "error", "light"]
+                        "path": ["sys", "color", "content", "error", "light"]
                     },
                     "dark": {
-                        "key": "{sys.color.text.error.dark}",
+                        "key": "{sys.color.content.error.dark}",
                         "value": "oklch(90% 0.045 16)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5342,22 +5354,22 @@
                         "original": {
                             "value": "{ref.color.red.90}",
                             "type": "color",
-                            "key": "{sys.color.text.error.dark}"
+                            "key": "{sys.color.content.error.dark}"
                         },
-                        "name": "SysColorTextErrorDark",
+                        "name": "SysColorContentErrorDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "error",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "text", "error", "dark"]
+                        "path": ["sys", "color", "content", "error", "dark"]
                     }
                 },
                 "error-strong": {
                     "light": {
-                        "key": "{sys.color.text.error-strong.light}",
+                        "key": "{sys.color.content.error-strong.light}",
                         "value": "oklch(50% 0.16 16)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5365,26 +5377,26 @@
                         "original": {
                             "value": "{ref.color.red.50}",
                             "type": "color",
-                            "key": "{sys.color.text.error-strong.light}"
+                            "key": "{sys.color.content.error-strong.light}"
                         },
-                        "name": "SysColorTextErrorStrongLight",
+                        "name": "SysColorContentErrorStrongLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "error-strong",
                             "state": "light"
                         },
                         "path": [
                             "sys",
                             "color",
-                            "text",
+                            "content",
                             "error-strong",
                             "light"
                         ]
                     },
                     "dark": {
-                        "key": "{sys.color.text.error-strong.dark}",
+                        "key": "{sys.color.content.error-strong.dark}",
                         "value": "oklch(70% 0.13 16)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5392,22 +5404,28 @@
                         "original": {
                             "value": "{ref.color.red.70}",
                             "type": "color",
-                            "key": "{sys.color.text.error-strong.dark}"
+                            "key": "{sys.color.content.error-strong.dark}"
                         },
-                        "name": "SysColorTextErrorStrongDark",
+                        "name": "SysColorContentErrorStrongDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "error-strong",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "text", "error-strong", "dark"]
+                        "path": [
+                            "sys",
+                            "color",
+                            "content",
+                            "error-strong",
+                            "dark"
+                        ]
                     }
                 },
                 "warning": {
                     "light": {
-                        "key": "{sys.color.text.warning.light}",
+                        "key": "{sys.color.content.warning.light}",
                         "value": "oklch(25% 0.03 94)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5415,20 +5433,20 @@
                         "original": {
                             "value": "{ref.color.yellow.25}",
                             "type": "color",
-                            "key": "{sys.color.text.warning.light}"
+                            "key": "{sys.color.content.warning.light}"
                         },
-                        "name": "SysColorTextWarningLight",
+                        "name": "SysColorContentWarningLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "warning",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "text", "warning", "light"]
+                        "path": ["sys", "color", "content", "warning", "light"]
                     },
                     "dark": {
-                        "key": "{sys.color.text.warning.dark}",
+                        "key": "{sys.color.content.warning.dark}",
                         "value": "oklch(90% 0.08 94)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5436,22 +5454,22 @@
                         "original": {
                             "value": "{ref.color.yellow.90}",
                             "type": "color",
-                            "key": "{sys.color.text.warning.dark}"
+                            "key": "{sys.color.content.warning.dark}"
                         },
-                        "name": "SysColorTextWarningDark",
+                        "name": "SysColorContentWarningDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "warning",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "text", "warning", "dark"]
+                        "path": ["sys", "color", "content", "warning", "dark"]
                     }
                 },
                 "warning-strong": {
                     "light": {
-                        "key": "{sys.color.text.warning-strong.light}",
+                        "key": "{sys.color.content.warning-strong.light}",
                         "value": "oklch(70% 0.1 94)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5459,26 +5477,26 @@
                         "original": {
                             "value": "{ref.color.yellow.70}",
                             "type": "color",
-                            "key": "{sys.color.text.warning-strong.light}"
+                            "key": "{sys.color.content.warning-strong.light}"
                         },
-                        "name": "SysColorTextWarningStrongLight",
+                        "name": "SysColorContentWarningStrongLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "warning-strong",
                             "state": "light"
                         },
                         "path": [
                             "sys",
                             "color",
-                            "text",
+                            "content",
                             "warning-strong",
                             "light"
                         ]
                     },
                     "dark": {
-                        "key": "{sys.color.text.warning-strong.dark}",
+                        "key": "{sys.color.content.warning-strong.dark}",
                         "value": "oklch(70% 0.1 94)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -5486,20 +5504,20 @@
                         "original": {
                             "value": "{ref.color.yellow.70}",
                             "type": "color",
-                            "key": "{sys.color.text.warning-strong.dark}"
+                            "key": "{sys.color.content.warning-strong.dark}"
                         },
-                        "name": "SysColorTextWarningStrongDark",
+                        "name": "SysColorContentWarningStrongDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
-                            "item": "text",
+                            "item": "content",
                             "subitem": "warning-strong",
                             "state": "dark"
                         },
                         "path": [
                             "sys",
                             "color",
-                            "text",
+                            "content",
                             "warning-strong",
                             "dark"
                         ]

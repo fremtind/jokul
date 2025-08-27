@@ -36,7 +36,7 @@
 }
 
 .jkl-link-list-link {
-    --text-color: var(--jkl-color-text-default);
+    --text-color: #{jkl.$sys-color-content-default};
     --icon-background: transparent;
 
     display: flex;

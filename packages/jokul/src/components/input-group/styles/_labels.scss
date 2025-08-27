@@ -8,8 +8,8 @@
 }
 
 $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.unique-id(
-    
-)};
+
+    )};
 
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-form-support-label", "small");
@@ -28,7 +28,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
 }
 
 .jkl-form-support-label {
-    --color: var(--jkl-color-text-subdued);
+    --color: ${jkl.$sys-color-content-subdued};
 
     @include jkl.use-font-variables("jkl-form-support-label");
     @include jkl.motion("standard", "lazy");
@@ -47,14 +47,14 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
 
         @include jkl.forced-colors-svg-fallback(
             $stroke: CanvasText,
-            $fill: Canvas,
+            $fill: Canvas
         );
     }
 
     &--error,
     &--warning,
     &--success {
-        --color: var(--jkl-color-text-default);
+        --color: #{jkl.$sys-color-content-default};
 
         .jkl-form-support-label__icon {
             animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1)
@@ -89,15 +89,14 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
 
     --jkl-label-small-margin: 0 0 #{$_label-spacing-12mall--compact} 0;
     --jkl-label-medium-margin: 0 0 #{$_label-spacing-16edium--compact} 0;
-    --jkl-label-large-margin: 0 0 #{$_label-spacing-24arge--compact} #{jkl.rem(
-        -1px
-    )};
+    --jkl-label-large-margin: 0 0 #{$_label-spacing-24arge--compact}
+        #{jkl.rem(-1px)};
 }
 
 .jkl-label {
     display: block;
     margin-left: initial;
-    color: var(--jkl-color-text-default);
+    color: jkl.$sys-color-content-default;
 
     &--small {
         @include jkl.use-font-variables("jkl-label-small");

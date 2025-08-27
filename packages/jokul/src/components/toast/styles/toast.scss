@@ -44,7 +44,7 @@
 
 .jkl-toast {
     --background-color: var(--jkl-color-background-container-high);
-    --text-color: var(--jkl-color-text-default);
+    --text-color: #{jkl.$sys-color-content-default};
 
     color: var(--text-color);
     background-color: var(--background-color);
@@ -145,7 +145,7 @@
     &--warning,
     &--error,
     &--success {
-        --text-color: var(--jkl-color-text-on-alert);
+        --text-color: #{jkl.$sys-color-content-default};
     }
 
     &--info {

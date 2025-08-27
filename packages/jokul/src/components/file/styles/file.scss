@@ -20,27 +20,29 @@
 }
 
 .jkl-file {
-    --text-color: var(--jkl-color-text-default);
+    --text-color: #{jkl.$sys-color-content-default};
     --border: 1px solid var(--jkl-color-border-separator);
     --border-radius: 2px;
     --bg: transparent;
 
     &__content {
         @include jkl.motion(
-                        "standard",
-                        "snappy",
-                        background-color,
-                        border-color,
-                        color
+            "standard",
+            "snappy",
+            background-color,
+            border-color,
+            color
         );
 
-        color: var(--jkl-color-text-default);
+        color: jkl.$sys-color-content-default;
         padding: var(--jkl-file-padding);
         border: var(--border);
         border-radius: var(--border-radius);
         background: var(--bg);
         display: grid;
-        grid-template-columns: var(--jkl-file-thumbnail-width) 1fr var(--jkl-file-button-width);
+        grid-template-columns: var(--jkl-file-thumbnail-width) 1fr var(
+                --jkl-file-button-width
+            );
         grid-template-areas: "image text button";
         gap: var(--jkl-file-gap);
         align-items: center;
@@ -49,7 +51,8 @@
         &__name {
             @include jkl.text-style("small");
             grid-area: text;
-            word-break: break-word;
+            word-break: normal;
+            overflow-wrap: anywhere;
 
             &__size {
                 word-break: keep-all;
@@ -86,7 +89,8 @@
                 }
             }
 
-            &::before, &::after {
+            &::before,
+            &::after {
                 position: absolute;
                 z-index: 1;
             }
@@ -101,8 +105,9 @@
         .jkl-file__content {
             grid-template-columns: 1fr var(--jkl-file-button-width);
             grid-template-rows: var(--jkl-file-thumbnail-max-height) auto;
-            grid-template-areas: "image image"
-                                 "text button";
+            grid-template-areas:
+                "image image"
+                "text button";
         }
     }
 
@@ -137,14 +142,18 @@
                 animation: pulse 2500ms linear forwards infinite;
 
                 @keyframes pulse {
-                    from {
+                    0% {
                         transform: var(--scale) rotate(var(--rotation));
                     }
+
                     50% {
-                        transform: var(--scale-end) rotate(calc(var(--rotation) + 0.5turn));
+                        transform: var(--scale-end)
+                            rotate(calc(var(--rotation) + 0.5turn));
                     }
-                    to {
-                        transform: var(--scale) rotate(calc(var(--rotation) + 1turn));
+
+                    100% {
+                        transform: var(--scale)
+                            rotate(calc(var(--rotation) + 1turn));
                     }
                 }
             }
@@ -155,7 +164,11 @@
     &[data-state="error"] {
         --bg: var(--jkl-color-functional-error);
 
-        &, a, a:hover, button, span {
+        &,
+        a,
+        a:hover,
+        button,
+        span {
             --text-color: var(--jkl-color-text-on-alert);
             --link-color: var(--text-color);
             --jkl-color-border-action: currentColor;

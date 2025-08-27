@@ -17,16 +17,16 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
 @include jkl.light-mode-variables {
     --jkl-combobox-border-color: #{jkl.$color-stein};
-    --jkl-combobox-text-color: #{jkl.$color-stein};
+    --jkl-combobox-text-color: #{jkl.$sys-color-content-subdued};
     --jkl-combobox-background-color: transparent;
     --jkl-combobox-open-color: #{jkl.$color-granitt};
     --jkl-combobox-open-background-color: #{jkl.$color-hvit};
     --jkl-combobox-focus-color: #{$_combobox-focus-color};
     --jkl-combobox-error-background-color: #{jkl.$color-feil};
-    --jkl-combobox-error-text-color: #{jkl.$color-stein};
+    --jkl-combobox-error-text-color: #{jkl.$sys-color-content-default};
     --jkl-combobox-hover-option-color: #{jkl.$color-granitt};
     --jkl-combobox-hover-option-background-color: #{jkl.$color-sand};
-    --jkl-combobox-option-description-color: #{jkl.$color-stein};
+    --jkl-combobox-option-description-color: #{jkl.$sys-color-content-subdued};
     --jkl-combobox-search-input-selection-color: #{$_combobox-search-input-selection-color};
     --jkl-combobox-search-input-error-selection-color: #{$_combobox-search-input-selection-color};
     --jkl-combobox-marked-value-border: #{jkl.$color-granitt};
@@ -35,16 +35,16 @@ $_combobox-search-input-selection-color--inverted: color.scale(
 
 @include jkl.dark-mode-variables {
     --jkl-combobox-border-color: #{jkl.$color-svaberg};
-    --jkl-combobox-text-color: #{jkl.$color-svaberg};
+    --jkl-combobox-text-color: #{jkl.$sys-color-content-subdued};
     --jkl-combobox-background-color: transparent;
     --jkl-combobox-open-color: #{jkl.$color-snohvit};
     --jkl-combobox-open-background-color: #{jkl.$color-skifer};
     --jkl-combobox-focus-color: #{$_combobox-focus-color--inverted};
     --jkl-combobox-error-background-color: #{jkl.$color-feil};
-    --jkl-combobox-error-text-color: #{jkl.$color-stein};
+    --jkl-combobox-error-text-color: #{jkl.$sys-color-content-subdued};
     --jkl-combobox-hover-option-color: #{jkl.$color-snohvit};
     --jkl-combobox-hover-option-background-color: #{jkl.$color-fjellgra};
-    --jkl-combobox-option-description-color: #{jkl.$color-dis};
+    --jkl-combobox-option-description-color: #{jkl.$sys-color-content-subdued};
     --jkl-combobox-search-input-selection-color: #{$_combobox-search-input-selection-color--inverted};
     --jkl-combobox-search-input-error-selection-color: #{$_combobox-search-input-selection-color};
     --jkl-combobox-marked-value-border: #{jkl.$color-snohvit};
@@ -82,7 +82,8 @@ $_combobox-search-input-selection-color--inverted: color.scale(
     --jkl-combobox-actions-top: #{jkl.rem(1px)};
     --jkl-combobox-chips-gap: 1px;
     --jkl-combobox-search-input-padding: #{jkl.$unit-05} #{jkl.$unit-10};
-    --jkl-combobox-native-padding: #{jkl.$unit-30} #{jkl.$unit-05} #{jkl.$unit-05};
+    --jkl-combobox-native-padding: #{jkl.$unit-30} #{jkl.$unit-05}
+        #{jkl.$unit-05};
     --jkl-combobox-option-padding: #{jkl.$unit-05} #{jkl.$unit-10};
     --jkl-combobox-option-line-height: 1.5rem;
     --jkl-combobox-input-padding: #{jkl.$unit-15};

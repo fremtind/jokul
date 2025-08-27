@@ -187,20 +187,20 @@
                     }
                 }
             },
-            "text": {
+            "content": {
                 "default": {
                     "light": {
-                        "value": "{ref.color.brand.0}",
+                        "value": "{ref.color.brand.10}",
                         "type": "color"
                     },
                     "dark": {
-                        "value": "{ref.color.brand.100}",
+                        "value": "{ref.color.brand.98}",
                         "type": "color"
                     }
                 },
                 "subdued": {
                     "light": {
-                        "value": "{ref.color.brand.50}",
+                        "value": "{ref.color.brand.40}",
                         "type": "color"
                     },
                     "dark": {
