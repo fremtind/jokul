@@ -11,7 +11,7 @@ type ComponentEmptyStateProps = {
 export const ComponentEmptyState = ({ name }: ComponentEmptyStateProps) => {
     return (
         <InfoMessage title={`${name} mangler fortsatt innhold`}>
-            <Flex as="footer" gap={24} wrap>
+            <Flex as="footer" gap="md" wrap="wrap">
                 <Link
                     external
                     href={`https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BBidra+med+innhold%5D%3A+${name}`}

@@ -45,7 +45,7 @@ const bekledningsliste = [
 export const OrderedListStory: Story = {
     name: "OrderedList",
     render: () => (
-        <Flex gap={24} direction="column">
+        <Flex gap="md" direction="column">
             <h2>Fjellvettreglene</h2>
             <p>
                 Liste fra{" "}
@@ -65,7 +65,7 @@ export const OrderedListStory: Story = {
 export const UnorderedListStory: Story = {
     name: "UnorderedList",
     render: () => (
-        <Flex gap={24} direction="column">
+        <Flex gap="md" direction="column">
             <h2>Pakkeliste (bekledning)</h2>
             <p>
                 Liste fra{" "}

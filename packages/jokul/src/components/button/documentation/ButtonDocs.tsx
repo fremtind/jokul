@@ -16,9 +16,9 @@ export const ButtonExample = () => {
     return (
         <Flex
             direction="column"
-            gap={32}
-            justifyContent="space-between"
-            alignItems="center"
+            gap="lg"
+            justify="space-between"
+            align="center"
         >
             <Button
                 variant="primary"

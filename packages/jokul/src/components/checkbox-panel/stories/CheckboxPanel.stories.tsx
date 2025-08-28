@@ -40,9 +40,9 @@ export const CheckboxPanel: Story = {
         extraLabel: (
             <Flex
                 as="span"
-                alignItems="center"
-                justifyContent="flex-end"
-                gap={24}
+                align="center"
+                justify="end"
+                gap="md"
                 className="input-panel-example__custom-label input-panel-example__custom-label--bold"
             >
                 <SuccessTag>Anbefalt</SuccessTag>
