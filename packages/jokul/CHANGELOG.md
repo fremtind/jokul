@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.3
+
+### Patch Changes
+
+- d3770c2: ExpandablePanel's filled version now has a border in forced-colors mode
+
 ## 1.2.2
 
 ### Patch Changes
