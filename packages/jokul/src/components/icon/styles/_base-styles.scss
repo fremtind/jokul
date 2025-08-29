@@ -5,13 +5,13 @@
 /// av ikoner også der man ikke kan bruke jkl-icon-klassen.
 /// @output Basestiler for Jøkul-ikoner
 @mixin base-styles {
-    font-family: "Fremtind Material Symbols", Arial, Helvetica, sans-serif;
+    font-family: "Fremtind Material Symbols", "Fremtind Material Symbols Fallback", sans-serif;
     font-variation-settings: "FILL" var(--jkl-icon-fill, 0),
         "GRAD" var(--jkl-icon-grade, 0), "opsz" var(--jkl-icon-opsz, 24);
     font-feature-settings: "liga";
     -webkit-font-feature-settings: "liga";
     font-size: var(--jkl-icon-size, #{jkl.rem(24px)});
-    font-weight: var(--jkl-icon-weight, 300);
+    font-weight: var(--jkl-icon-weight, #{jkl.$icon-weight-normal});
     line-height: 1;
     display: inline-block;
     -webkit-font-smoothing: antialiased;

@@ -1,7 +1,7 @@
 "use client";
 
-import { Link } from "@fremtind/jokul/link";
 import { useDraftModeEnvironment } from "next-sanity/hooks";
+import DraftToolbar from "./DraftToolbar";
 
 export function DisableDraftMode() {
     const environment = useDraftModeEnvironment();
@@ -11,5 +11,5 @@ export function DisableDraftMode() {
         return null;
     }
 
-    return <Link href="/api/draft-mode/disable">Disable Draft Mode</Link>;
+    return <DraftToolbar />;
 }

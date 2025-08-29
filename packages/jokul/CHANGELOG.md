@@ -1,5 +1,38 @@
 # Change Log
 
+## 1.2.2
+
+### Patch Changes
+
+- c4363f0: Legg til fallback-font for ikonene.
+
+  Ettersom ikonfonten er stor, og kan ta litt tid å laste inn, har vi lagt til en fallback-font for ikonene der størrelsen er satt til 0%. Uten dette kan man risikere at navnet på ikonet vises som ren tekst før ikonfonten er lastet. Vi anbefaler uansett at man legger inn en `<link rel="preload">` for ikonfonten i løsningen sin, slik at den lastes så raskt som mulig.
+
+## 1.2.1
+
+### Patch Changes
+
+- a726eca: - Eksporter Segmented Control riktig.
+  - Legger til Props på fieldset og ikke hver radio-knapp i Segmented Control.
+- fd147a1: SystemMessage tar ikke lenger opp høyde etter å ha blitt dismissed
+
+## 1.2.0
+
+### Minor Changes
+
+- f09834d: Endrer fontvekten for `bold` ikoner til `400` for å samsvare bedre med fonten vår når den brukes sammen med fet skrift.
+
+### Patch Changes
+
+- 5d3dd20: Fix option colors in select for Chrome on Windows in dark mode
+
+## 1.1.2
+
+### Patch Changes
+
+- 5be6060: Fikser en bug der useAnimatedHeight ikke fungerte når brukeren foretrekker redusert bevegelse
+- 9a4f03d: Endret Menu til å bruke [SlotComponent](https://github.com/fremtind/jokul/blob/main/packages/jokul/src/utilities/polymorphism/SlotComponent.tsx) for en mer robust og pålitelig håndtering av triggerElement.
+
 ## 1.1.1
 
 ### Patch Changes
