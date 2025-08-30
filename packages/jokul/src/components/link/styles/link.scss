@@ -2,7 +2,7 @@
 @use "../../icon/styles/base-styles" as icon;
 
 .jkl-link {
-    --link-color: var(--jkl-color-text-default);
+    --link-color: #{jkl.$sys-color-content-default};
 
     color: var(--link-color);
     outline: none;
@@ -15,7 +15,7 @@
         text-decoration: underline;
         text-underline-offset: 0.08lh;
         text-decoration-thickness: 0.05em;
-        text-decoration-color: rgba(from currentcolor r g b / 0.7);
+        text-decoration-color: rgb(from currentColor r g b / 70%);
     }
 
     &__icon {
@@ -46,9 +46,8 @@
         content: "\feff\f090" / "(Last ned fil)";
     }
 
-
     &:hover:not(:focus) {
-        --link-color: var(--jkl-color-text-subdued);
+        --link-color: #{jkl.$sys-color-content-subdued};
     }
 
     &:focus-visible {

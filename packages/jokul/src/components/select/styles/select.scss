@@ -20,8 +20,8 @@
 @include jkl.comfortable-density-variables {
     --jkl-select-input-height: #{jkl.$unit-60};
     --jkl-select-arrow-right: #{jkl.$unit-10};
-    --jkl-select-button-padding: #{jkl.$unit-10} #{jkl.rem(36px)} #{jkl.$unit-10}
-        #{jkl.$unit-15};
+    --jkl-select-button-padding: #{jkl.$unit-10} #{jkl.rem(36px)}
+        #{jkl.$unit-10} #{jkl.$unit-15};
     --jkl-select-search-input-padding: var(--jkl-select-button-padding);
     --jkl-select-native-padding: 0 #{jkl.$unit-50} 0 #{jkl.$unit-10};
     --jkl-select-option-padding: #{jkl.$unit-10} #{jkl.$unit-15};
@@ -62,7 +62,7 @@
         & option {
             font-weight: normal;
             font-family: sans-serif;
-            color: var(--jkl-color-text-subdued);
+            color: jkl.$sys-color-content-subdued;
             background-color: var(--jkl-color-background-container-high);
         }
     }
@@ -77,7 +77,7 @@
     &__search-input {
         box-sizing: border-box;
         padding: var(--jkl-select-search-input-padding);
-        color: var(--jkl-color-text-subdued);
+        color: jkl.$sys-color-content-subdued;
     }
 
     &__search-input,
@@ -86,7 +86,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         background-color: transparent;
-        color: var(--jkl-color-text-subdued);
+        color: jkl.$sys-color-content-subdued;
         cursor: pointer;
 
         height: var(--jkl-select-input-height);
@@ -102,7 +102,7 @@
         @include jkl.use-font-variables("jkl-select");
 
         &--active-value {
-            color: var(--jkl-color-text-default);
+            color: jkl.$sys-color-content-default;
         }
 
         &:hover {
@@ -149,7 +149,7 @@
         position: absolute;
         right: var(--jkl-select-arrow-right);
         top: 50%;
-        color: var(--jkl-color-text-default);
+        color: jkl.$sys-color-content-default;
 
         transform: translateY(-50%);
         transition-property: transform, color;
@@ -161,7 +161,7 @@
         );
 
         .jkl-select:has([aria-invalid="true"]) & {
-            color: var(--jkl-color-text-on-alert);
+            color: jkl.$sys-color-content-subdued;
         }
     }
 
@@ -218,12 +218,12 @@
         markeres ved hover som normalt. */
         &:focus,
         :not([data-focus="controlled"]) > &:hover {
-            color: var(--jkl-color-text-default);
+            color: jkl.$sys-color-content-default;
             background-color: var(--jkl-color-background-interactive-hover);
         }
 
         &-description {
-            color: var(--jkl-color-text-subdued);
+            color: jkl.$sys-color-content-subdued;
             display: block;
             width: 100%;
 
@@ -259,7 +259,7 @@
         .jkl-select__search-input,
         .jkl-select__button {
             background-color: var(--jkl-color-background-alert-error);
-            color: var(--jkl-color-text-on-alert-subdued);
+            color: jkl.$sys-color-content-subdued;
 
             &--active-value {
                 color: revert;

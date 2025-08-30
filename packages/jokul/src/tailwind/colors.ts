@@ -1,10 +1,8 @@
 /**
- * Do not edit directly
- * Generated on Thu, 09 Jan 2025 11:10:44 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 const colors = {
-    "background-page": "var(--jkl-color-background-page)",
     "background-page-variant": "var(--jkl-color-background-page-variant)",
     "background-container": "var(--jkl-color-background-container)",
     "background-container-low": "var(--jkl-color-background-container-low)",
@@ -41,6 +39,46 @@ const colors = {
     "border-separator-strong": "var(--jkl-color-border-separator-strong)",
     "border-separator-hover": "var(--jkl-color-border-separator-hover)",
     "border-subdued": "var(--jkl-color-border-subdued)",
+    "color-background-page": "var(--jkl-sys-color-background-page)",
+    "color-background-surface-default":
+        "var(--jkl-sys-color-background-surface-default)",
+    "color-background-surface-highlight":
+        "var(--jkl-sys-color-background-surface-highlight)",
+    "color-background-surface-on-surface":
+        "var(--jkl-sys-color-background-surface-on-surface)",
+    "color-background-surface-moderate":
+        "var(--jkl-sys-color-background-surface-moderate)",
+    "color-background-surface-knockout":
+        "var(--jkl-sys-color-background-surface-knockout)",
+    "color-background-surface-error":
+        "var(--jkl-sys-color-background-surface-error)",
+    "color-background-surface-warning":
+        "var(--jkl-sys-color-background-surface-warning)",
+    "color-background-surface-info":
+        "var(--jkl-sys-color-background-surface-info)",
+    "color-background-surface-succes":
+        "var(--jkl-sys-color-background-surface-succes)",
+    "color-border-subdued": "var(--jkl-sys-color-border-subdued)",
+    "color-border-strong": "var(--jkl-sys-color-border-strong)",
+    "color-border-strongest": "var(--jkl-sys-color-border-strongest)",
+    "color-border-knockout": "var(--jkl-sys-color-border-knockout)",
+    "color-border-info": "var(--jkl-sys-color-border-info)",
+    "color-border-success": "var(--jkl-sys-color-border-success)",
+    "color-border-error": "var(--jkl-sys-color-border-error)",
+    "color-border-warning": "var(--jkl-sys-color-border-warning)",
+    "color-content-default": "var(--jkl-sys-color-content-default)",
+    "color-content-subdued": "var(--jkl-sys-color-content-subdued)",
+    "color-content-knockout": "var(--jkl-sys-color-content-knockout)",
+    "color-content-info": "var(--jkl-sys-color-content-info)",
+    "color-content-info-strong": "var(--jkl-sys-color-content-info-strong)",
+    "color-content-success": "var(--jkl-sys-color-content-success)",
+    "color-content-success-strong":
+        "var(--jkl-sys-color-content-success-strong)",
+    "color-content-error": "var(--jkl-sys-color-content-error)",
+    "color-content-error-strong": "var(--jkl-sys-color-content-error-strong)",
+    "color-content-warning": "var(--jkl-sys-color-content-warning)",
+    "color-content-warning-strong":
+        "var(--jkl-sys-color-content-warning-strong)",
 };
 
 export default colors;

@@ -29,7 +29,7 @@
             jkl.$color-functional-success,
             jkl.$color-granitt
         )};
-    --jkl-list-text-color: #{jkl.$color-granitt};
+    --jkl-list-text-color: #{jkl.$sys-color-content-default};
 }
 
 @include jkl.dark-mode-variables {
@@ -41,7 +41,7 @@
             jkl.$color-functional-success-dark,
             jkl.$color-granitt
         )};
-    --jkl-list-text-color: #{jkl.$color-snohvit};
+    --jkl-list-text-color: #{jkl.$sys-color-content-default};
 }
 
 .jkl-list {
@@ -73,11 +73,11 @@
     }
 
     &__item {
-        color: var(--jkl-list-text-color);
+        color: jkl.$sys-color-content-default;
         padding-left: jkl.$unit-15;
 
         &::marker {
-            color: var(--jkl-list-text-color);
+            color: jkl.$sys-color-content-default;
         }
 
         &--iconed {

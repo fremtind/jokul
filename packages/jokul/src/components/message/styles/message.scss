@@ -41,7 +41,7 @@ $_dismiss-hover-color: jkl.$color-stein;
 
 .jkl-message {
     --background-color: var(--jkl-color-background-alert-neutral);
-    --text-color: var(--jkl-color-text-on-alert);
+    --text-color: #{jkl.$sys-color-content-default};
 
     width: 100%;
     max-width: $_message-width;

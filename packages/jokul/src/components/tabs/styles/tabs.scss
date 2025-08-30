@@ -28,7 +28,7 @@
 }
 
 .jkl-tablist {
-    --text-color: var(--jkl-color-text-interactive);
+    --text-color: #{jkl.$sys-color-content-default};
     --line-color: var(--jkl-color-border-separator);
     --indicator-color: var(--jkl-color-border-separator-hover);
 
@@ -86,7 +86,7 @@
     @include jkl.reset-outline;
 
     &:hover {
-        --text-color: var(--jkl-color-text-interactive-hover);
+        --text-color: #{jkl.$sys-color-content-subdued};
     }
 
     &:focus-visible {

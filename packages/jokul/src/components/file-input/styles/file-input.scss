@@ -86,7 +86,7 @@
 
     &__max-size-text {
         @include jkl.use-font-variables("jkl-file-size-hint");
-        color: var(--jkl-color-text-subdued);
+        color: jkl.$sys-color-content-subdued;
         margin-top: jkl.$unit-30;
     }
 

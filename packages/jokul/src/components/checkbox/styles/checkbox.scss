@@ -60,7 +60,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
 .jkl-checkbox {
     --box-color: var(--jkl-color-border-action);
     --check-color: var(--jkl-color-border-action);
-    --text-color: var(--jkl-color-text-default);
+    --text-color: #{jkl.$sys-color-content-default};
     --background-color: transparent;
 
     @include jkl.use-font-variables("jkl-checkbox");

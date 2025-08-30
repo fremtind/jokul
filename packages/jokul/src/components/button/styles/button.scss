@@ -36,7 +36,7 @@
 
 .jkl-button {
     --jkl-icon-weight: var(--jkl-button-icon-weight, initial);
-    --text-color: var(--jkl-color-text-default);
+    --text-color: #{jkl.$sys-color-content-default};
     --background-color: transparent;
     --border-radius: 0;
     --border-width: #{jkl.rem(1px)}; // For secondary og tertiary button
@@ -124,7 +124,11 @@
     }
 
     &:hover {
-        background-color: color-mix(in srgb, var(--background-color), var(--text-color) 15%);
+        background-color: color-mix(
+            in srgb,
+            var(--background-color),
+            var(--text-color) 15%
+        );
 
         @media (forced-colors: active) {
             @include jkl.focus-outline;
@@ -139,7 +143,7 @@
 
     &--primary {
         --background-color: var(--jkl-color-background-action);
-        --text-color: var(--jkl-color-text-on-action);
+        --text-color: #{jkl.$sys-color-content-knockout};
 
         @media (forced-colors: active) {
             border: calc(var(--border-width) * 2) solid Highlight;
@@ -155,11 +159,13 @@
         padding-inline: var(--jkl-button-teritary-padding-icon);
 
         &:has(.jkl-icon:first-child) {
-            padding-inline: var(--jkl-button-teritary-padding-icon) calc(var(--jkl-button-teritary-padding-icon) * 2);
+            padding-inline: var(--jkl-button-teritary-padding-icon)
+                calc(var(--jkl-button-teritary-padding-icon) * 2);
         }
 
         &:has(.jkl-icon:last-child) {
-            padding-inline: calc(var(--jkl-button-teritary-padding-icon) * 2) var(--jkl-button-teritary-padding-icon);
+            padding-inline: calc(var(--jkl-button-teritary-padding-icon) * 2)
+                var(--jkl-button-teritary-padding-icon);
         }
     }
 }
