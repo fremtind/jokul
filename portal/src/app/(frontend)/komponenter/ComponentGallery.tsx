@@ -1,6 +1,9 @@
 "use client";
 
-import { Button } from "@fremtind/jokul/button";
+import {
+    SegmentedControl,
+    SegmentedControlButton,
+} from "@fremtind/jokul/segmented-control";
 import clsx from "clsx";
 import { setCookie } from "cookies-next";
 import { useState } from "react";
@@ -22,16 +25,30 @@ export const ComponentGallery = ({ children, mode }: ComponentGalleryProps) => {
 
     return (
         <>
-            <Button
-                onClick={toggleGalleryView}
+            <SegmentedControl
+                onChange={toggleGalleryView}
                 style={{
                     marginBottom: "var(--jkl-unit-40)",
                     alignSelf: "flex-end",
                 }}
-                variant="tertiary"
+                legend="Velg visning"
+                labelProps={{ srOnly: true }}
             >
-                Liste / Galleri
-            </Button>
+                <SegmentedControlButton
+                    value="list"
+                    defaultChecked={viewMode === "list"}
+                    name="visning"
+                >
+                    Liste
+                </SegmentedControlButton>
+                <SegmentedControlButton
+                    value="grid"
+                    defaultChecked={viewMode === "grid"}
+                    name="visning"
+                >
+                    Galleri
+                </SegmentedControlButton>
+            </SegmentedControl>
             <ul
                 aria-label="Komponenter"
                 className={clsx(styles.componentGallery, {
