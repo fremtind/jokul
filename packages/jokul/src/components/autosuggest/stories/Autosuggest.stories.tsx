@@ -74,6 +74,18 @@ export const Autosuggest: Story = {
                 .map((country) => country.name),
         },
     },
+    render: (args) => {
+        const [value, setValue] = React.useState("");
+
+        return (
+            <AutosuggestComponent
+                {...args}
+                value={value}
+                onInputValueChange={setValue}
+                onChange={setValue}
+            />
+        );
+    },
 };
 
 export const AutosuggestMedTooltip: Story = {
@@ -104,5 +116,17 @@ export const AutosuggestMedTooltip: Story = {
                 }
             />
         ),
+    },
+    render: (args) => {
+        const [value, setValue] = React.useState("");
+
+        return (
+            <AutosuggestComponent
+                {...args}
+                value={value}
+                onInputValueChange={setValue}
+                onChange={setValue}
+            />
+        );
     },
 };
