@@ -8,7 +8,7 @@ const meta = {
     title: "Komponenter/SummaryTable",
     component: SummaryTableComponent,
     parameters: {
-        layout: "padded",
+        layout: "centered",
     },
     tags: ["autodocs"],
 } satisfies Meta<typeof SummaryTableComponent>;

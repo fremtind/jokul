@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { Card } from "../../card/Card.js";
-import { Flex } from "../../flex/Flex.js";
 import {
     ErrorSystemMessage,
     InfoSystemMessage,
@@ -12,11 +11,39 @@ import {
 import "../styles/_index.scss";
 import "../../button/styles/_index.scss";
 
+const insurances = [
+    "Hund og katt",
+    "Livsforsikring",
+    "Hus",
+    "Innbo",
+    "Reise",
+    "Barneforsikring",
+    "Hus 2",
+    "Livsforsikring",
+    "Hus",
+    "Innbo",
+    "Reise",
+    "Barneforsikring",
+    "Hus 2",
+    "Livsforsikring",
+    "Hus",
+    "Innbo",
+    "Reise",
+    "Barneforsikring",
+    "Hus 2",
+    "Livsforsikring",
+    "Hus",
+    "Innbo",
+    "Reise",
+    "Barneforsikring",
+    "Hus 2",
+];
+
 const meta = {
     title: "Komponenter/SystemMessage",
     component: ErrorSystemMessage,
     parameters: {
-        layout: "centered",
+        layout: "fullscreen",
     },
     args: {
         dismissed: false,
@@ -29,106 +56,45 @@ const meta = {
         paddingLeft: "24px",
         role: "status",
     },
+    decorators: [
+        (Story) => (
+            <div
+                style={{
+                    backgroundColor: "var(--jkl-color-background-page)",
+                }}
+            >
+                <Story />
+                <div
+                    style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(1, 1fr)",
+                        gap: "24px",
+                        padding: "24px",
+                    }}
+                >
+                    {insurances.map((insurance) => (
+                        <Card key={insurance}>{insurance}</Card>
+                    ))}
+                </div>
+            </div>
+        ),
+    ],
     tags: ["autodocs"],
 } satisfies Meta<typeof ErrorSystemMessage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const insurances = [
-    "Hund og katt",
-    "Livsforsikring",
-    "Hus",
-    "Innbo",
-    "Reise",
-    "Barneforsikring",
-    "Hus 2",
-];
-const exampleContent = (
-    <Flex
-        gap={24}
-        wrap
-        direction="column"
-        alignContent="center"
-        justifyContent="center"
-        style={{ padding: "24px" }}
-    >
-        {insurances.map((insurance) => (
-            <Card key={insurance} clickable>
-                {insurance}
-            </Card>
-        ))}
-    </Flex>
-);
-
-export const ErrorMessage: Story = {
-    render: (args) => {
-        return (
-            <div
-                style={{
-                    width: "70svw",
-                    height: "50dvh",
-                    backgroundColor: "var(--jkl-color-background-page)",
-                    overflow: "scroll",
-                }}
-            >
-                <ErrorSystemMessage {...args} />
-                {exampleContent}
-            </div>
-        );
-    },
-};
+export const ErrorMessage: Story = {};
 
 export const SuccessMessage: Story = {
-    render: (args) => {
-        return (
-            <div
-                style={{
-                    width: "70svw",
-                    height: "50dvh",
-                    backgroundColor: "var(--jkl-color-background-page)",
-                    overflow: "scroll",
-                }}
-            >
-                <SuccessSystemMessage {...args} />
-                {exampleContent}
-            </div>
-        );
-    },
+    render: (args) => <SuccessSystemMessage {...args} />,
 };
 
 export const WarningMessage: Story = {
-    render: (args) => {
-        return (
-            <div
-                style={{
-                    width: "70svw",
-                    height: "50dvh",
-                    backgroundColor: "var(--jkl-color-background-page)",
-                    overflow: "scroll",
-                }}
-            >
-                <WarningSystemMessage {...args} />
-                {exampleContent}
-            </div>
-        );
-    },
+    render: (args) => <WarningSystemMessage {...args} />,
 };
 
 export const InfoMessage: Story = {
-    render: (args) => {
-        return (
-            <div
-                style={{
-                    width: "70svw",
-                    height: "50dvh",
-                    backgroundColor: "var(--jkl-color-background-page)",
-                    overflow: "scroll",
-                }}
-            >
-                <InfoSystemMessage {...args} />
-                {exampleContent}
-            </div>
-        );
-    },
+    render: (args) => <InfoSystemMessage {...args} />,
 };
