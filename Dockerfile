@@ -53,6 +53,7 @@ COPY --from=builder /app/server.js server.js
 COPY --from=builder /app/portal ./portal
 COPY --from=builder /app/packages/jokul ./packages/jokul
 COPY --from=builder /app/storybook-static ./storybook-static
+COPY --from=builder /app/storybook-public ./storybook-public
 COPY --from=builder /app/node_modules ./node_modules
 EXPOSE 3000
 CMD pnpm serve
