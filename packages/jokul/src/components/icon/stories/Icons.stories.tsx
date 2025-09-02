@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import { TextInput } from "../../text-input/TextInput.js";
+import { Button } from "../../button/index.js";
 import { Icon } from "../Icon.js";
-import { IconExample } from "../development/internal/IconExample.js";
-import { IconsExampleGrid } from "../development/internal/IconsExampleGrid.js";
 import {
     ArrowDownIcon,
+    ArrowHorizontalAnimated,
     ArrowLeftIcon,
     ArrowNorthEastIcon,
     ArrowRightIcon,
     ArrowUpIcon,
+    ArrowVerticalAnimated,
     CalendarIcon,
     CheckIcon,
     ChevronDownIcon,
@@ -29,6 +29,7 @@ import {
     OpenInNewIcon,
     PenIcon,
     PlusIcon,
+    PlusRemoveAnimated,
     QuestionIcon,
     RedCrossIcon,
     SearchIcon,
@@ -39,9 +40,9 @@ import {
     WarningIcon,
 } from "../index.js";
 import "../styles/_index.scss";
-import "../../text-input/styles/text-input.scss";
-import "../../input-group/styles/_index.scss";
+import "../../button/styles/_index.scss";
 
+// @ts-ignore
 const meta: Meta = {
     title: "Komponenter/Ikoner",
     component: Icon,
@@ -52,8 +53,13 @@ const meta: Meta = {
     argTypes: {
         variant: {
             control: "radio",
-            options: ["inherit", "medium", "small"],
+            options: ["inhreit", "medium", "small"],
         },
+    },
+    args: {
+        variant: "inherit",
+        bold: false,
+        filled: false,
     },
 } satisfies Meta<typeof Icon>;
 
@@ -96,39 +102,67 @@ const allIcons = [
     WarningIcon,
 ];
 
-export const Ikoner: Story = {
+export const Ikon: Story = {
     args: {
-        variant: "small",
-        bold: false,
+        children: "home",
     },
-    render: ({ variant, bold }) => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const [fontSize, setFontSize] = useState("1rem");
+};
+
+export const Ikoner: Story = {
+    decorators: [
+        (Story) => {
+            return (
+                <div
+                    style={{
+                        width: "50vw",
+                        display: "grid",
+                        gridTemplateColumns: "repeat(4, 1fr)",
+                        gap: "24px",
+                    }}
+                >
+                    <Story />
+                </div>
+            );
+        },
+    ],
+    // @ts-ignore
+    render: (args) =>
+        allIcons.map((Icon) => <Icon key={Icon.displayName} {...args} />),
+};
+
+export const AnimerteIkoner: Story = {
+    decorators: [
+        (Story) => {
+            return (
+                <div
+                    style={{
+                        width: "50vw",
+                        display: "grid",
+                        gridTemplateColumns: "repeat(4, 1fr)",
+                        gap: "24px",
+                        alignItems: "center",
+                    }}
+                >
+                    <Story />
+                </div>
+            );
+        },
+    ],
+    render: (args) => {
+        const [isAnimated, setIsAnimated] = useState(false);
 
         return (
-            <div style={{ width: "50vw" }}>
-                {variant === "inherit" && (
-                    <TextInput
-                        label="Fontstørrelse"
-                        className="jkl-spacing-24--bottom"
-                        value={fontSize}
-                        onChange={(e) => setFontSize(e.target.value)}
-                        width="10ch"
-                    />
-                )}
-                <IconsExampleGrid style={{ fontSize }} columns="four">
-                    {allIcons.map((Ico) => (
-                        <IconExample
-                            style={{ justifySelf: "center" }}
-                            key={Ico.displayName}
-                            renderIcon={() => (
-                                <Ico bold={bold} variant={variant} />
-                            )}
-                            name={Ico.displayName}
-                        />
-                    ))}
-                </IconsExampleGrid>
-            </div>
+            <>
+                <ArrowVerticalAnimated pointingDown={isAnimated} />
+                <ArrowHorizontalAnimated pointingRight={isAnimated} />
+                <PlusRemoveAnimated isPlus={isAnimated} />
+                <Button
+                    style={{ maxWidth: "max-content" }}
+                    onClick={(_) => setIsAnimated(!isAnimated)}
+                >
+                    Animér
+                </Button>
+            </>
         );
     },
 };

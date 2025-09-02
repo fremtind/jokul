@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
 import { RadioPanel as RadioPanelComponent } from "../RadioPanel.js";
 import "../styles/_index.scss";
 
@@ -7,7 +6,15 @@ const meta = {
     title: "Komponenter/RadioPanel",
     component: RadioPanelComponent,
     parameters: {
-        layout: "padded",
+        layout: "centered",
+    },
+    args: {
+        label: "Livsforsikring",
+        children:
+            "Gir dine etterlatte en engangsutbetaling hvis du dør. Pengene kan de for eksempel bruke til å nedbetale lån og tilpasse seg en ny livssituasjon.",
+        alwaysOpen: false,
+        extraLabel: "xxx kr/mnd",
+        value: "Livsforsikring",
     },
     argTypes: {
         extraLabel: {
@@ -20,19 +27,4 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const RadioPanel: Story = {
-    args: {
-        label: "Kasko",
-        children: (
-            <p>
-                En forsikring som passer de fleste biler. Dekker det meste av
-                skader, også de du selv er ansvarlig for. Inkluderer Minikasko
-                og Ansvar.
-            </p>
-        ),
-        extraLabel: "Anbefalt",
-        value: "Kasko",
-        alwaysOpen: false,
-    },
-    render: (args) => <RadioPanelComponent {...args} />,
-};
+export const RadioPanel: Story = {};
