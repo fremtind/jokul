@@ -1,20 +1,8 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import {Combobox as ComboboxComponent} from "../Combobox.js";
+import type { Meta, StoryObj } from "@storybook/react";
+import type { ComboboxValuePair } from "../../combobox/types.js";
+import { Combobox } from "../Combobox.js";
+
 import "../styles/_index.scss";
-import React from "react";
-import type {ComboboxValuePair} from "../../combobox/types.js";
-
-const meta = {
-    title: "Komponenter/Combobox",
-    component: ComboboxComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
-} satisfies Meta<typeof ComboboxComponent>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
 
 const items: ComboboxValuePair[] = [
     { value: "a080", label: "A080 - Rotavirusenteritt", tagLabel: "A080" },
@@ -56,39 +44,103 @@ const items: ComboboxValuePair[] = [
     },
 ];
 
-const itemsNoTagLabel: ComboboxValuePair[] = [
-    {label: "DNB", value: "dnb"},
-    {label: "Sparebank 1", value: "sb1"},
-    {label: "Eika", value: "eik"},
-    {label: "Fremtind", value: "fre"},
-];
-
-export const Combobox: Story = {
-    args: {
-        items,
-        label: "Velg sykdommer",
-        name: "disease",
-        onChange: () => {},
+const meta = {
+    title: "Komponenter/Combobox",
+    component: Combobox,
+    parameters: {
+        layout: "centered",
     },
-    decorators: (Story) => (
-        <div>
-            <Story/>
-        </div>
-    ),
-};
-
-export const ComboboxNoTagLabel: Story = {
-    name: "Combobox uten tag label",
-    args: {
-        items: itemsNoTagLabel,
-        label: "Filtrer",
-        name: "filter",
-        onChange: () => {
+    argTypes: {
+        className: {
+            table: {
+                disable: true,
+            },
+        },
+        id: {
+            table: {
+                disable: true,
+            },
+        },
+        "data-testautoid": {
+            table: {
+                disable: true,
+            },
+        },
+        density: {
+            table: {
+                disable: true,
+            },
+        },
+        onBlur: {
+            table: {
+                disable: true,
+            },
+        },
+        onFocus: {
+            table: {
+                disable: true,
+            },
+        },
+        onChange: {
+            table: {
+                disable: true,
+            },
+        },
+        children: {
+            table: {
+                disable: true,
+            },
+        },
+        "data-testid": {
+            table: {
+                disable: true,
+            },
+        },
+        style: {
+            table: {
+                disable: true,
+            },
+        },
+        supportLabelProps: {
+            table: {
+                disable: true,
+            },
+        },
+        render: {
+            table: {
+                disable: true,
+            },
+        },
+        tooltip: {
+            table: {
+                disable: true,
+            },
         },
     },
-    decorators: (Story) => (
-        <div>
-            <Story />
-        </div>
-    ),
+    args: {
+        placeholder: "Velg",
+        inline: false,
+        invalid: false,
+        hasTagHover: false,
+        labelProps: {
+            srOnly: false,
+            variant: "small",
+        },
+        width: "20ch",
+        helpLabel: "Du kan velge flere, dersom flere passer",
+        onChange: () => "",
+    },
+    tags: ["autodocs"],
+} satisfies Meta<typeof Combobox>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const ComboboxStory: Story = {
+    name: "Combobox",
+    args: {
+        items,
+        name: "disease",
+        label: "Velg sykdommer",
+    },
 };

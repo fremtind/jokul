@@ -2,6 +2,9 @@
 
 .jkl-expandable {
     background-color: jkl.$sys-color-background-surface-default;
+    // A transparent border will be visible in forced colors mode and replace
+    // the role of the background-color in separating the component from other content
+    border: 1px solid transparent;
     border-radius: var(--border-radius);
     box-sizing: border-box;
     width: 100%;
@@ -24,7 +27,7 @@
     }
 
     &--stroke {
-        border: 1px solid var(--jkl-color-border-separator);
+        border-color: var(--jkl-color-border-separator);
         background-color: transparent;
 
         border-radius: 0;
