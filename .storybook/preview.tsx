@@ -39,6 +39,38 @@ const preview: Preview = {
             },
         },
     },
+    argTypes: {
+        className: {
+            table: {
+                disable: true,
+            },
+        },
+        inputClassName: {
+            table: {
+                disable: true,
+            },
+        },
+        id: {
+            table: {
+                disable: true,
+            },
+        },
+        name: {
+            table: {
+                disable: true,
+            },
+        },
+        "data-testautoid": {
+            table: {
+                disable: true,
+            },
+        },
+        density: {
+            table: {
+                disable: true,
+            },
+        },
+    },
 };
 
 export default preview;
