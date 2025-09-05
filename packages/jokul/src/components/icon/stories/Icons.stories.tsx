@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React, { useState } from "react";
-import { TextInput } from "../../text-input/TextInput.js";
+import React from "react";
 import { Icon } from "../Icon.js";
-import { IconExample } from "../development/internal/IconExample.js";
-import { IconsExampleGrid } from "../development/internal/IconsExampleGrid.js";
 import {
     ArrowDownIcon,
     ArrowLeftIcon,
@@ -52,10 +49,26 @@ const meta: Meta = {
     argTypes: {
         variant: {
             control: "radio",
-            options: ["inherit", "medium", "small"],
+            options: ["inhreit", "medium", "small"],
+        },
+        // @ts-ignore
+        fontSize: {
+            control: {
+                type: "number",
+                step: 0.1,
+            },
         },
     },
-} satisfies Meta<typeof Icon>;
+    args: {
+        variant: "inherit",
+        bold: false,
+        filled: false,
+        // @ts-ignore
+        fontSize: 1.5,
+    },
+} satisfies Meta<typeof Icon & { fontSize: number }> & {
+    fontSize: number;
+};
 
 export default meta;
 
@@ -97,38 +110,31 @@ const allIcons = [
 ];
 
 export const Ikoner: Story = {
-    args: {
-        variant: "small",
-        bold: false,
-    },
-    render: ({ variant, bold }) => {
-        // eslint-disable-next-line react-hooks/rules-of-hooks
-        const [fontSize, setFontSize] = useState("1rem");
-
-        return (
-            <div style={{ width: "50vw" }}>
-                {variant === "inherit" && (
-                    <TextInput
-                        label="Fontstørrelse"
-                        className="jkl-spacing-24--bottom"
-                        value={fontSize}
-                        onChange={(e) => setFontSize(e.target.value)}
-                        width="10ch"
-                    />
-                )}
-                <IconsExampleGrid style={{ fontSize }} columns="four">
-                    {allIcons.map((Ico) => (
-                        <IconExample
-                            style={{ justifySelf: "center" }}
-                            key={Ico.displayName}
-                            renderIcon={() => (
-                                <Ico bold={bold} variant={variant} />
-                            )}
-                            name={Ico.displayName}
-                        />
-                    ))}
-                </IconsExampleGrid>
-            </div>
-        );
+    decorators: [
+        (Story) => {
+            return (
+                <div
+                    style={{
+                        width: "50vw",
+                        display: "grid",
+                        gridTemplateColumns: "repeat(4, 1fr)",
+                        gap: "24px",
+                        marginBlockStart: "24px",
+                    }}
+                >
+                    <Story />
+                </div>
+            );
+        },
+    ],
+    // @ts-ignore
+    render: (args) => {
+        return allIcons.map((Icon) => (
+            <Icon
+                key={Icon.displayName}
+                style={{ fontSize: `${args.fontSize}rem` }}
+                {...args}
+            />
+        ));
     },
 };

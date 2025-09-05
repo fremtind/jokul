@@ -17,5 +17,6 @@ type Story = StoryObj<typeof meta>;
 export const ToggleSwitch: Story = {
     args: {
         children: "Mørk modus",
+        "aria-pressed": false,
     },
 };

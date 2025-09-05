@@ -17,6 +17,12 @@ const meta: Meta = {
     parameters: {
         layout: "centered",
     },
+    args: {
+        labelProps: {
+            srOnly: false,
+            variant: "small",
+        },
+    },
     tags: ["autodocs"],
 };
 
@@ -26,8 +32,28 @@ type Story = StoryObj<typeof SegmentedControl>;
 
 const coverageChoices = ["Dekker", "Dekker ikke"];
 
-export const DekningsoversiktStory: Story = {
+export const Basic: Story = {
     name: "Segmented Control",
+    args: {
+        legend: "Segmented Control",
+    },
+    render: (args) => (
+        <SegmentedControl {...args}>
+            <SegmentedControlButton value="Vi" name="basic">
+                Vi
+            </SegmentedControlButton>
+            <SegmentedControlButton value="Står" name="basic">
+                Står
+            </SegmentedControlButton>
+            <SegmentedControlButton value="Sammen" name="basic">
+                Sammen
+            </SegmentedControlButton>
+        </SegmentedControl>
+    ),
+};
+
+export const Dekningsoversikt: Story = {
+    name: "Dekningsoversikt",
     args: {
         legend: "Velg hva som vises",
         defaultValue: coverageChoices[0],
