@@ -2,13 +2,23 @@
     "sys": {
         "color": {
             "background": {
-                "page": {
+                "default": {
                     "light": {
                         "value": "{ref.color.brand.96}",
                         "type": "color"
                     },
                     "dark": {
                         "value": "{ref.color.brand.10}",
+                        "type": "color"
+                    }
+                },
+                "variant": {
+                    "light": {
+                        "value": "{ref.color.brand.100}",
+                        "type": "color"
+                    },
+                    "dark": {
+                        "value": "{ref.color.brand.0}",
                         "type": "color"
                     }
                 },
@@ -33,80 +43,82 @@
                             "type": "color"
                         }
                     },
-                    "on-surface": {
-                        "light": {
-                            "value": "{ref.color.brand.96}",
-                            "type": "color"
-                        },
-                        "dark": {
-                            "value": "{ref.color.brand.10}",
-                            "type": "color"
-                        }
-                    },
-                    "moderate": {
-                        "light": {
-                            "value": "{ref.color.brand.80}",
-                            "type": "color"
-                        },
-                        "dark": {
-                            "value": "{ref.color.brand.50}",
-                            "type": "color"
-                        }
-                    },
-                    "knockout": {
+                    "contrast": {
                         "light": {
                             "value": "{ref.color.brand.35}",
                             "type": "color"
                         },
                         "dark": {
-                            "value": "{ref.color.brand.85}",
+                            "value": "{ref.color.brand.98}",
                             "type": "color"
                         }
                     },
-                    "error": {
+                    "action": {
                         "light": {
-                            "value": "{ref.color.red.80}",
+                            "value": "{ref.color.brand.15}",
                             "type": "color"
                         },
                         "dark": {
-                            "value": "{ref.color.red.45}",
+                            "value": "{ref.color.brand.98}",
                             "type": "color"
                         }
                     },
-                    "warning": {
-                        "light": {
-                            "value": "{ref.color.yellow.90}",
-                            "type": "color"
+                    "support": {
+                        "error": {
+                            "light": {
+                                "value": "{ref.color.red.80}",
+                                "type": "color"
+                            },
+                            "dark": {
+                                "value": "{ref.color.red.45}",
+                                "type": "color"
+                            }
                         },
-                        "dark": {
-                            "value": "{ref.color.yellow.45}",
-                            "type": "color"
-                        }
-                    },
-                    "info": {
-                        "light": {
-                            "value": "{ref.color.blue.80}",
-                            "type": "color"
+                        "warning": {
+                            "light": {
+                                "value": "{ref.color.yellow.90}",
+                                "type": "color"
+                            },
+                            "dark": {
+                                "value": "{ref.color.yellow.45}",
+                                "type": "color"
+                            }
                         },
-                        "dark": {
-                            "value": "{ref.color.blue.45}",
-                            "type": "color"
-                        }
-                    },
-                    "succes": {
-                        "light": {
-                            "value": "{ref.color.green.80}",
-                            "type": "color"
+                        "info": {
+                            "light": {
+                                "value": "{ref.color.blue.80}",
+                                "type": "color"
+                            },
+                            "dark": {
+                                "value": "{ref.color.blue.45}",
+                                "type": "color"
+                            }
                         },
-                        "dark": {
-                            "value": "{ref.color.green.45}",
-                            "type": "color"
+                        "success": {
+                            "light": {
+                                "value": "{ref.color.green.80}",
+                                "type": "color"
+                            },
+                            "dark": {
+                                "value": "{ref.color.green.45}",
+                                "type": "color"
+                            }
+                        },
+                        "neutral": {
+                            "light": {
+                                "value": "{ref.color.brand.85}",
+                                "type": "color"
+                            },
+                            "dark": {
+                                "value": "{ref.color.brand.35}",
+                                "type": "color"
+                            }
                         }
                     }
                 }
             },
             "border": {
-                "subdued": {
+                "default": {
                     "light": {
                         "value": "{ref.color.brand.80}",
                         "type": "color"
@@ -126,63 +138,13 @@
                         "type": "color"
                     }
                 },
-                "strongest": {
+                "action": {
                     "light": {
                         "value": "{ref.color.brand.0}",
                         "type": "color"
                     },
                     "dark": {
                         "value": "{ref.color.brand.100}",
-                        "type": "color"
-                    }
-                },
-                "knockout": {
-                    "light": {
-                        "value": "{ref.color.brand.100}",
-                        "type": "color"
-                    },
-                    "dark": {
-                        "value": "{ref.color.brand.0}",
-                        "type": "color"
-                    }
-                },
-                "info": {
-                    "light": {
-                        "value": "{ref.color.blue.70}",
-                        "type": "color"
-                    },
-                    "dark": {
-                        "value": "{ref.color.blue.60}",
-                        "type": "color"
-                    }
-                },
-                "success": {
-                    "light": {
-                        "value": "{ref.color.green.70}",
-                        "type": "color"
-                    },
-                    "dark": {
-                        "value": "{ref.color.green.60}",
-                        "type": "color"
-                    }
-                },
-                "error": {
-                    "light": {
-                        "value": "{ref.color.red.70}",
-                        "type": "color"
-                    },
-                    "dark": {
-                        "value": "{ref.color.red.60}",
-                        "type": "color"
-                    }
-                },
-                "warning": {
-                    "light": {
-                        "value": "{ref.color.yellow.70}",
-                        "type": "color"
-                    },
-                    "dark": {
-                        "value": "{ref.color.yellow.60}",
                         "type": "color"
                     }
                 }

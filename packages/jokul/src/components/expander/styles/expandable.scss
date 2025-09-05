@@ -1,7 +1,7 @@
 @use "../../../core/jkl";
 
 .jkl-expandable {
-    background-color: var(--jkl-color-background-container-low);
+    background-color: jkl.$sys-color-background-surface-default;
     border-radius: var(--border-radius);
     box-sizing: border-box;
     width: 100%;

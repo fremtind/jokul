@@ -56,14 +56,14 @@
 
         &:-moz-focusring {
             color: transparent;
-            text-shadow: 0 0 0 var(--jkl-color-text-subdued);
+            text-shadow: 0 0 0 jkl.$sys-color-content-subdued;
         }
 
         & option {
             font-weight: normal;
             font-family: sans-serif;
             color: jkl.$sys-color-content-subdued;
-            background-color: var(--jkl-color-background-container-high);
+            background-color: jkl.$sys-color-background-surface-highlight;
         }
     }
 
@@ -91,7 +91,7 @@
 
         height: var(--jkl-select-input-height);
         border-radius: jkl.rem(3px);
-        border: jkl.rem(1px) solid var(--jkl-color-border-input);
+        border: jkl.rem(1px) solid jkl.$sys-color-border-strong;
         box-shadow: 0 0 0 jkl.rem(1px) transparent;
         text-align: left;
         width: 100%;
@@ -106,8 +106,8 @@
         }
 
         &:hover {
-            border-color: var(--jkl-color-border-input-focus);
-            box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
+            border-color: jkl.$sys-color-border-action;
+            box-shadow: 0 0 0 jkl.rem(1px) jkl.$sys-color-border-action;
 
             & ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{jkl.rem(3px)}));
@@ -172,8 +172,8 @@
         top: 100%;
         z-index: jkl.$z-index--dropdown;
 
-        background-color: var(--jkl-color-background-container-high);
-        border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
+        background-color: jkl.$sys-color-background-surface-highlight;
+        border: jkl.rem(2px) solid jkl.$sys-color-border-action;
         border-top: none;
         border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
         box-sizing: border-box;
@@ -245,9 +245,9 @@
         .jkl-select__button {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
-            border-color: var(--jkl-color-border-input-focus);
-            background-color: var(--jkl-color-background-container-high);
-            box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
+            border-color: jkl.$sys-color-border-action;
+            background-color: jkl.$sys-color-background-surface-highlight;
+            box-shadow: 0 0 0 jkl.rem(1px) jkl.$sys-color-border-action;
 
             &:hover ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
@@ -258,7 +258,7 @@
     &--invalid {
         .jkl-select__search-input,
         .jkl-select__button {
-            background-color: var(--jkl-color-background-alert-error);
+            background-color: jkl.$sys-color-background-surface-support-error;
             color: jkl.$sys-color-content-subdued;
 
             &--active-value {

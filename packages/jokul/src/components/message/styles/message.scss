@@ -40,7 +40,7 @@ $_dismiss-hover-color: jkl.$color-stein;
 }
 
 .jkl-message {
-    --background-color: var(--jkl-color-background-alert-neutral);
+    --background-color: #{jkl.$sys-color-background-surface-support-neutral};
     --text-color: #{jkl.$sys-color-content-default};
 
     width: 100%;
@@ -134,19 +134,19 @@ $_dismiss-hover-color: jkl.$color-stein;
     }
 
     &--info {
-        --background-color: var(--jkl-color-background-alert-info);
+        --background-color: #{jkl.$sys-color-background-surface-support-info};
     }
 
     &--warning {
-        --background-color: var(--jkl-color-background-alert-warning);
+        --background-color: #{jkl.$sys-color-background-surface-support-warning};
     }
 
     &--error {
-        --background-color: var(--jkl-color-background-alert-error);
+        --background-color: #{jkl.$sys-color-background-surface-support-error};
     }
 
     &--success {
-        --background-color: var(--jkl-color-background-alert-success);
+        --background-color: #{jkl.$sys-color-background-surface-support-success};
     }
 
     &--dismissed {

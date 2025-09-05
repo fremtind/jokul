@@ -21,7 +21,7 @@
 
 .jkl-file {
     --text-color: #{jkl.$sys-color-content-default};
-    --border: 1px solid var(--jkl-color-border-separator);
+    --border: 1px solid #{jkl.$sys-color-border-default};
     --border-radius: 2px;
     --bg: transparent;
 
@@ -74,7 +74,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--jkl-color-background-container-low);
+            background: jkl.$sys-color-background-surface-default;
             border-radius: 2px;
             overflow: hidden;
             container-type: inline-size;

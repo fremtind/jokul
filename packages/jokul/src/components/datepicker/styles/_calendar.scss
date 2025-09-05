@@ -20,8 +20,8 @@
 
 .jkl-calendar {
     display: block;
-    background-color: var(--jkl-color-background-container-high);
-    color: var(--jkl-color);
+    background-color: jkl.$sys-color-background-surface-highlight;
+    color: jkl.$sys-color-content-default;
 
     &__padding {
         display: flex;

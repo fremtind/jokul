@@ -22,11 +22,11 @@
 
 @include jkl.light-mode-variables {
     --jkl-list-marker-cross: #{_cross(
-            jkl.$color-functional-error,
+            jkl.$sys-color-background-surface-support-error,
             jkl.$color-granitt
         )};
     --jkl-list-marker-check: #{_check(
-            jkl.$color-functional-success,
+            jkl.$sys-color-background-surface-support-success,
             jkl.$color-granitt
         )};
     --jkl-list-text-color: #{jkl.$sys-color-content-default};
@@ -34,11 +34,11 @@
 
 @include jkl.dark-mode-variables {
     --jkl-list-marker-cross: #{_cross(
-            jkl.$color-functional-error-dark,
+            jkl.$sys-color-background-surface-support-error,
             jkl.$color-granitt
         )};
     --jkl-list-marker-check: #{_check(
-            jkl.$color-functional-success-dark,
+            jkl.$sys-color-background-surface-support-success,
             jkl.$color-granitt
         )};
     --jkl-list-text-color: #{jkl.$sys-color-content-default};

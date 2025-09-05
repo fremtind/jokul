@@ -44,7 +44,7 @@
 }
 
 .jkl-icon-red-cross {
-    --red-cross-circle: var(--jkl-color-background-alert-error);
+    --red-cross-circle: #{jkl.$sys-color-background-surface-support-error};
     --red-cross-path: #{jkl.$color-brand-granitt};
 
     width: jkl.rem(24px);
@@ -60,7 +60,7 @@
 }
 
 .jkl-icon-green-check {
-    --green-check-circle: var(--jkl-color-background-alert-success);
+    --green-check-circle: #{jkl.$sys-color-background-surface-support-success};
     --green-check-path: #{jkl.$color-brand-granitt};
 
     width: jkl.rem(24px);

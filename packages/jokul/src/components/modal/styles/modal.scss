@@ -52,7 +52,7 @@
     z-index: jkl.$z-index--modal;
     position: relative;
 
-    background-color: var(--jkl-color-background-container-high);
+    background-color: jkl.$sys-color-background-surface-highlight;
     border-radius: jkl.rem(2px);
     box-shadow: jkl.$shadow-task-card;
 

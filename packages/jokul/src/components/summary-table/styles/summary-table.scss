@@ -2,11 +2,11 @@
 @use "../../../core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-summary-table-border-color: #{jkl.$color-granitt};
+    --jkl-summary-table-border-color: #{jkl.$sys-color-border-action};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-summary-table-border-color: #{jkl.$color-svaberg};
+    --jkl-summary-table-border-color: #{jkl.$sys-color-border-action};
 }
 
 .jkl-summary-table {

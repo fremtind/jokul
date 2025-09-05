@@ -39,33 +39,29 @@ const colors = {
     "border-separator-strong": "var(--jkl-color-border-separator-strong)",
     "border-separator-hover": "var(--jkl-color-border-separator-hover)",
     "border-subdued": "var(--jkl-color-border-subdued)",
-    "color-background-page": "var(--jkl-sys-color-background-page)",
+    "color-background-default": "var(--jkl-sys-color-background-default)",
+    "color-background-variant": "var(--jkl-sys-color-background-variant)",
     "color-background-surface-default":
         "var(--jkl-sys-color-background-surface-default)",
     "color-background-surface-highlight":
         "var(--jkl-sys-color-background-surface-highlight)",
-    "color-background-surface-on-surface":
-        "var(--jkl-sys-color-background-surface-on-surface)",
-    "color-background-surface-moderate":
-        "var(--jkl-sys-color-background-surface-moderate)",
-    "color-background-surface-knockout":
-        "var(--jkl-sys-color-background-surface-knockout)",
-    "color-background-surface-error":
-        "var(--jkl-sys-color-background-surface-error)",
-    "color-background-surface-warning":
-        "var(--jkl-sys-color-background-surface-warning)",
-    "color-background-surface-info":
-        "var(--jkl-sys-color-background-surface-info)",
-    "color-background-surface-succes":
-        "var(--jkl-sys-color-background-surface-succes)",
-    "color-border-subdued": "var(--jkl-sys-color-border-subdued)",
+    "color-background-surface-contrast":
+        "var(--jkl-sys-color-background-surface-contrast)",
+    "color-background-surface-action":
+        "var(--jkl-sys-color-background-surface-action)",
+    "color-background-surface-support-error":
+        "var(--jkl-sys-color-background-surface-support-error)",
+    "color-background-surface-support-warning":
+        "var(--jkl-sys-color-background-surface-support-warning)",
+    "color-background-surface-support-info":
+        "var(--jkl-sys-color-background-surface-support-info)",
+    "color-background-surface-support-success":
+        "var(--jkl-sys-color-background-surface-support-success)",
+    "color-background-surface-support-neutral":
+        "var(--jkl-sys-color-background-surface-support-neutral)",
+    "color-border-default": "var(--jkl-sys-color-border-default)",
     "color-border-strong": "var(--jkl-sys-color-border-strong)",
-    "color-border-strongest": "var(--jkl-sys-color-border-strongest)",
-    "color-border-knockout": "var(--jkl-sys-color-border-knockout)",
-    "color-border-info": "var(--jkl-sys-color-border-info)",
-    "color-border-success": "var(--jkl-sys-color-border-success)",
-    "color-border-error": "var(--jkl-sys-color-border-error)",
-    "color-border-warning": "var(--jkl-sys-color-border-warning)",
+    "color-border-action": "var(--jkl-sys-color-border-action)",
     "color-content-default": "var(--jkl-sys-color-content-default)",
     "color-content-subdued": "var(--jkl-sys-color-content-subdued)",
     "color-content-knockout": "var(--jkl-sys-color-content-knockout)",

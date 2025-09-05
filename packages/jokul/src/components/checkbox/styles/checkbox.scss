@@ -233,7 +233,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
     }
 
     &--error {
-        --background-color: var(--jkl-color-background-alert-error);
-        --check-color: var(--jkl-color-text-on-alert);
+        --background-color: jkl.$sys-color-background-surface-error;
+        --check-color: jkl.$sys-color-content-default;
     }
 }

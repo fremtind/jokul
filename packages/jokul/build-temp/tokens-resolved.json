@@ -4067,9 +4067,9 @@
     "sys": {
         "color": {
             "background": {
-                "page": {
+                "default": {
                     "light": {
-                        "key": "{sys.color.background.page.light}",
+                        "key": "{sys.color.background.default.light}",
                         "value": "oklch(96% 0.004 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -4077,20 +4077,26 @@
                         "original": {
                             "value": "{ref.color.brand.96}",
                             "type": "color",
-                            "key": "{sys.color.background.page.light}"
+                            "key": "{sys.color.background.default.light}"
                         },
-                        "name": "SysColorBackgroundPageLight",
+                        "name": "SysColorBackgroundDefaultLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
                             "item": "background",
-                            "subitem": "page",
+                            "subitem": "default",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "background", "page", "light"]
+                        "path": [
+                            "sys",
+                            "color",
+                            "background",
+                            "default",
+                            "light"
+                        ]
                     },
                     "dark": {
-                        "key": "{sys.color.background.page.dark}",
+                        "key": "{sys.color.background.default.dark}",
                         "value": "oklch(10% 0.007 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -4098,17 +4104,79 @@
                         "original": {
                             "value": "{ref.color.brand.10}",
                             "type": "color",
-                            "key": "{sys.color.background.page.dark}"
+                            "key": "{sys.color.background.default.dark}"
                         },
-                        "name": "SysColorBackgroundPageDark",
+                        "name": "SysColorBackgroundDefaultDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
                             "item": "background",
-                            "subitem": "page",
+                            "subitem": "default",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "background", "page", "dark"]
+                        "path": [
+                            "sys",
+                            "color",
+                            "background",
+                            "default",
+                            "dark"
+                        ]
+                    }
+                },
+                "variant": {
+                    "light": {
+                        "key": "{sys.color.background.variant.light}",
+                        "value": "oklch(100% 0.001 67)",
+                        "type": "color",
+                        "filePath": "src/core/tokens/color/system.color.tokens.json",
+                        "isSource": true,
+                        "original": {
+                            "value": "{ref.color.brand.100}",
+                            "type": "color",
+                            "key": "{sys.color.background.variant.light}"
+                        },
+                        "name": "SysColorBackgroundVariantLight",
+                        "attributes": {
+                            "category": "sys",
+                            "type": "color",
+                            "item": "background",
+                            "subitem": "variant",
+                            "state": "light"
+                        },
+                        "path": [
+                            "sys",
+                            "color",
+                            "background",
+                            "variant",
+                            "light"
+                        ]
+                    },
+                    "dark": {
+                        "key": "{sys.color.background.variant.dark}",
+                        "value": "oklch(0% 0.007 64)",
+                        "type": "color",
+                        "filePath": "src/core/tokens/color/system.color.tokens.json",
+                        "isSource": true,
+                        "original": {
+                            "value": "{ref.color.brand.0}",
+                            "type": "color",
+                            "key": "{sys.color.background.variant.dark}"
+                        },
+                        "name": "SysColorBackgroundVariantDark",
+                        "attributes": {
+                            "category": "sys",
+                            "type": "color",
+                            "item": "background",
+                            "subitem": "variant",
+                            "state": "dark"
+                        },
+                        "path": [
+                            "sys",
+                            "color",
+                            "background",
+                            "variant",
+                            "dark"
+                        ]
                     }
                 },
                 "surface": {
@@ -4228,125 +4296,9 @@
                             ]
                         }
                     },
-                    "on-surface": {
+                    "contrast": {
                         "light": {
-                            "key": "{sys.color.background.surface.on-surface.light}",
-                            "value": "oklch(96% 0.004 67)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.brand.96}",
-                                "type": "color",
-                                "key": "{sys.color.background.surface.on-surface.light}"
-                            },
-                            "name": "SysColorBackgroundSurfaceOnSurfaceLight",
-                            "attributes": {
-                                "category": "sys",
-                                "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "on-surface"
-                            },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "on-surface",
-                                "light"
-                            ]
-                        },
-                        "dark": {
-                            "key": "{sys.color.background.surface.on-surface.dark}",
-                            "value": "oklch(10% 0.007 67)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.brand.10}",
-                                "type": "color",
-                                "key": "{sys.color.background.surface.on-surface.dark}"
-                            },
-                            "name": "SysColorBackgroundSurfaceOnSurfaceDark",
-                            "attributes": {
-                                "category": "sys",
-                                "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "on-surface"
-                            },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "on-surface",
-                                "dark"
-                            ]
-                        }
-                    },
-                    "moderate": {
-                        "light": {
-                            "key": "{sys.color.background.surface.moderate.light}",
-                            "value": "oklch(80% 0.008 67)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.brand.80}",
-                                "type": "color",
-                                "key": "{sys.color.background.surface.moderate.light}"
-                            },
-                            "name": "SysColorBackgroundSurfaceModerateLight",
-                            "attributes": {
-                                "category": "sys",
-                                "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "moderate"
-                            },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "moderate",
-                                "light"
-                            ]
-                        },
-                        "dark": {
-                            "key": "{sys.color.background.surface.moderate.dark}",
-                            "value": "oklch(50% 0.007 67)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.brand.50}",
-                                "type": "color",
-                                "key": "{sys.color.background.surface.moderate.dark}"
-                            },
-                            "name": "SysColorBackgroundSurfaceModerateDark",
-                            "attributes": {
-                                "category": "sys",
-                                "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "moderate"
-                            },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "moderate",
-                                "dark"
-                            ]
-                        }
-                    },
-                    "knockout": {
-                        "light": {
-                            "key": "{sys.color.background.surface.knockout.light}",
+                            "key": "{sys.color.background.surface.contrast.light}",
                             "value": "oklch(35% 0.007 67)",
                             "type": "color",
                             "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -4354,292 +4306,420 @@
                             "original": {
                                 "value": "{ref.color.brand.35}",
                                 "type": "color",
-                                "key": "{sys.color.background.surface.knockout.light}"
+                                "key": "{sys.color.background.surface.contrast.light}"
                             },
-                            "name": "SysColorBackgroundSurfaceKnockoutLight",
+                            "name": "SysColorBackgroundSurfaceContrastLight",
                             "attributes": {
                                 "category": "sys",
                                 "type": "color",
                                 "item": "background",
                                 "subitem": "surface",
-                                "state": "knockout"
+                                "state": "contrast"
                             },
                             "path": [
                                 "sys",
                                 "color",
                                 "background",
                                 "surface",
-                                "knockout",
+                                "contrast",
                                 "light"
                             ]
                         },
                         "dark": {
-                            "key": "{sys.color.background.surface.knockout.dark}",
-                            "value": "oklch(85% 0.008 67)",
+                            "key": "{sys.color.background.surface.contrast.dark}",
+                            "value": "oklch(98% 0.003 67)",
                             "type": "color",
                             "filePath": "src/core/tokens/color/system.color.tokens.json",
                             "isSource": true,
                             "original": {
-                                "value": "{ref.color.brand.85}",
+                                "value": "{ref.color.brand.98}",
                                 "type": "color",
-                                "key": "{sys.color.background.surface.knockout.dark}"
+                                "key": "{sys.color.background.surface.contrast.dark}"
                             },
-                            "name": "SysColorBackgroundSurfaceKnockoutDark",
+                            "name": "SysColorBackgroundSurfaceContrastDark",
                             "attributes": {
                                 "category": "sys",
                                 "type": "color",
                                 "item": "background",
                                 "subitem": "surface",
-                                "state": "knockout"
+                                "state": "contrast"
                             },
                             "path": [
                                 "sys",
                                 "color",
                                 "background",
                                 "surface",
-                                "knockout",
+                                "contrast",
                                 "dark"
                             ]
                         }
                     },
-                    "error": {
+                    "action": {
                         "light": {
-                            "key": "{sys.color.background.surface.error.light}",
-                            "value": "oklch(80% 0.09 16)",
+                            "key": "{sys.color.background.surface.action.light}",
+                            "value": "oklch(15% 0.007 67)",
                             "type": "color",
                             "filePath": "src/core/tokens/color/system.color.tokens.json",
                             "isSource": true,
                             "original": {
-                                "value": "{ref.color.red.80}",
+                                "value": "{ref.color.brand.15}",
                                 "type": "color",
-                                "key": "{sys.color.background.surface.error.light}"
+                                "key": "{sys.color.background.surface.action.light}"
                             },
-                            "name": "SysColorBackgroundSurfaceErrorLight",
+                            "name": "SysColorBackgroundSurfaceActionLight",
                             "attributes": {
                                 "category": "sys",
                                 "type": "color",
                                 "item": "background",
                                 "subitem": "surface",
-                                "state": "error"
+                                "state": "action"
                             },
                             "path": [
                                 "sys",
                                 "color",
                                 "background",
                                 "surface",
-                                "error",
+                                "action",
                                 "light"
                             ]
                         },
                         "dark": {
-                            "key": "{sys.color.background.surface.error.dark}",
-                            "value": "oklch(45% 0.146 16)",
+                            "key": "{sys.color.background.surface.action.dark}",
+                            "value": "oklch(98% 0.003 67)",
                             "type": "color",
                             "filePath": "src/core/tokens/color/system.color.tokens.json",
                             "isSource": true,
                             "original": {
-                                "value": "{ref.color.red.45}",
+                                "value": "{ref.color.brand.98}",
                                 "type": "color",
-                                "key": "{sys.color.background.surface.error.dark}"
+                                "key": "{sys.color.background.surface.action.dark}"
                             },
-                            "name": "SysColorBackgroundSurfaceErrorDark",
+                            "name": "SysColorBackgroundSurfaceActionDark",
                             "attributes": {
                                 "category": "sys",
                                 "type": "color",
                                 "item": "background",
                                 "subitem": "surface",
-                                "state": "error"
+                                "state": "action"
                             },
                             "path": [
                                 "sys",
                                 "color",
                                 "background",
                                 "surface",
-                                "error",
+                                "action",
                                 "dark"
                             ]
                         }
                     },
-                    "warning": {
-                        "light": {
-                            "key": "{sys.color.background.surface.warning.light}",
-                            "value": "oklch(90% 0.08 94)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.yellow.90}",
+                    "support": {
+                        "error": {
+                            "light": {
+                                "key": "{sys.color.background.surface.support.error.light}",
+                                "value": "oklch(80% 0.09 16)",
                                 "type": "color",
-                                "key": "{sys.color.background.surface.warning.light}"
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.red.80}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.error.light}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportErrorLight",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "error",
+                                    "light"
+                                ]
                             },
-                            "name": "SysColorBackgroundSurfaceWarningLight",
-                            "attributes": {
-                                "category": "sys",
+                            "dark": {
+                                "key": "{sys.color.background.surface.support.error.dark}",
+                                "value": "oklch(45% 0.146 16)",
                                 "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "warning"
-                            },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "warning",
-                                "light"
-                            ]
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.red.45}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.error.dark}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportErrorDark",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "error",
+                                    "dark"
+                                ]
+                            }
                         },
-                        "dark": {
-                            "key": "{sys.color.background.surface.warning.dark}",
-                            "value": "oklch(45% 0.065 94)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.yellow.45}",
+                        "warning": {
+                            "light": {
+                                "key": "{sys.color.background.surface.support.warning.light}",
+                                "value": "oklch(90% 0.08 94)",
                                 "type": "color",
-                                "key": "{sys.color.background.surface.warning.dark}"
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.yellow.90}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.warning.light}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportWarningLight",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "warning",
+                                    "light"
+                                ]
                             },
-                            "name": "SysColorBackgroundSurfaceWarningDark",
-                            "attributes": {
-                                "category": "sys",
+                            "dark": {
+                                "key": "{sys.color.background.surface.support.warning.dark}",
+                                "value": "oklch(45% 0.065 94)",
                                 "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "warning"
-                            },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "warning",
-                                "dark"
-                            ]
-                        }
-                    },
-                    "info": {
-                        "light": {
-                            "key": "{sys.color.background.surface.info.light}",
-                            "value": "oklch(80% 0.09 285)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.blue.80}",
-                                "type": "color",
-                                "key": "{sys.color.background.surface.info.light}"
-                            },
-                            "name": "SysColorBackgroundSurfaceInfoLight",
-                            "attributes": {
-                                "category": "sys",
-                                "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "info"
-                            },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "info",
-                                "light"
-                            ]
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.yellow.45}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.warning.dark}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportWarningDark",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "warning",
+                                    "dark"
+                                ]
+                            }
                         },
-                        "dark": {
-                            "key": "{sys.color.background.surface.info.dark}",
-                            "value": "oklch(45% 0.169 285)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.blue.45}",
+                        "info": {
+                            "light": {
+                                "key": "{sys.color.background.surface.support.info.light}",
+                                "value": "oklch(80% 0.09 285)",
                                 "type": "color",
-                                "key": "{sys.color.background.surface.info.dark}"
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.blue.80}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.info.light}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportInfoLight",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "info",
+                                    "light"
+                                ]
                             },
-                            "name": "SysColorBackgroundSurfaceInfoDark",
-                            "attributes": {
-                                "category": "sys",
+                            "dark": {
+                                "key": "{sys.color.background.surface.support.info.dark}",
+                                "value": "oklch(45% 0.169 285)",
                                 "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "info"
-                            },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "info",
-                                "dark"
-                            ]
-                        }
-                    },
-                    "succes": {
-                        "light": {
-                            "key": "{sys.color.background.surface.succes.light}",
-                            "value": "oklch(80% 0.066 156)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.green.80}",
-                                "type": "color",
-                                "key": "{sys.color.background.surface.succes.light}"
-                            },
-                            "name": "SysColorBackgroundSurfaceSuccesLight",
-                            "attributes": {
-                                "category": "sys",
-                                "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "succes"
-                            },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "succes",
-                                "light"
-                            ]
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.blue.45}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.info.dark}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportInfoDark",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "info",
+                                    "dark"
+                                ]
+                            }
                         },
-                        "dark": {
-                            "key": "{sys.color.background.surface.succes.dark}",
-                            "value": "oklch(45% 0.095 156)",
-                            "type": "color",
-                            "filePath": "src/core/tokens/color/system.color.tokens.json",
-                            "isSource": true,
-                            "original": {
-                                "value": "{ref.color.green.45}",
+                        "success": {
+                            "light": {
+                                "key": "{sys.color.background.surface.support.success.light}",
+                                "value": "oklch(80% 0.066 156)",
                                 "type": "color",
-                                "key": "{sys.color.background.surface.succes.dark}"
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.green.80}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.success.light}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportSuccessLight",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "success",
+                                    "light"
+                                ]
                             },
-                            "name": "SysColorBackgroundSurfaceSuccesDark",
-                            "attributes": {
-                                "category": "sys",
+                            "dark": {
+                                "key": "{sys.color.background.surface.support.success.dark}",
+                                "value": "oklch(45% 0.095 156)",
                                 "type": "color",
-                                "item": "background",
-                                "subitem": "surface",
-                                "state": "succes"
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.green.45}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.success.dark}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportSuccessDark",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "success",
+                                    "dark"
+                                ]
+                            }
+                        },
+                        "neutral": {
+                            "light": {
+                                "key": "{sys.color.background.surface.support.neutral.light}",
+                                "value": "oklch(85% 0.008 67)",
+                                "type": "color",
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.brand.85}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.neutral.light}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportNeutralLight",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "neutral",
+                                    "light"
+                                ]
                             },
-                            "path": [
-                                "sys",
-                                "color",
-                                "background",
-                                "surface",
-                                "succes",
-                                "dark"
-                            ]
+                            "dark": {
+                                "key": "{sys.color.background.surface.support.neutral.dark}",
+                                "value": "oklch(35% 0.007 67)",
+                                "type": "color",
+                                "filePath": "src/core/tokens/color/system.color.tokens.json",
+                                "isSource": true,
+                                "original": {
+                                    "value": "{ref.color.brand.35}",
+                                    "type": "color",
+                                    "key": "{sys.color.background.surface.support.neutral.dark}"
+                                },
+                                "name": "SysColorBackgroundSurfaceSupportNeutralDark",
+                                "attributes": {
+                                    "category": "sys",
+                                    "type": "color",
+                                    "item": "background",
+                                    "subitem": "surface",
+                                    "state": "support"
+                                },
+                                "path": [
+                                    "sys",
+                                    "color",
+                                    "background",
+                                    "surface",
+                                    "support",
+                                    "neutral",
+                                    "dark"
+                                ]
+                            }
                         }
                     }
                 }
             },
             "border": {
-                "subdued": {
+                "default": {
                     "light": {
-                        "key": "{sys.color.border.subdued.light}",
+                        "key": "{sys.color.border.default.light}",
                         "value": "oklch(80% 0.008 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -4647,20 +4727,20 @@
                         "original": {
                             "value": "{ref.color.brand.80}",
                             "type": "color",
-                            "key": "{sys.color.border.subdued.light}"
+                            "key": "{sys.color.border.default.light}"
                         },
-                        "name": "SysColorBorderSubduedLight",
+                        "name": "SysColorBorderDefaultLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
                             "item": "border",
-                            "subitem": "subdued",
+                            "subitem": "default",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "border", "subdued", "light"]
+                        "path": ["sys", "color", "border", "default", "light"]
                     },
                     "dark": {
-                        "key": "{sys.color.border.subdued.dark}",
+                        "key": "{sys.color.border.default.dark}",
                         "value": "oklch(50% 0.007 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -4668,17 +4748,17 @@
                         "original": {
                             "value": "{ref.color.brand.50}",
                             "type": "color",
-                            "key": "{sys.color.border.subdued.dark}"
+                            "key": "{sys.color.border.default.dark}"
                         },
-                        "name": "SysColorBorderSubduedDark",
+                        "name": "SysColorBorderDefaultDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
                             "item": "border",
-                            "subitem": "subdued",
+                            "subitem": "default",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "border", "subdued", "dark"]
+                        "path": ["sys", "color", "border", "default", "dark"]
                     }
                 },
                 "strong": {
@@ -4725,9 +4805,9 @@
                         "path": ["sys", "color", "border", "strong", "dark"]
                     }
                 },
-                "strongest": {
+                "action": {
                     "light": {
-                        "key": "{sys.color.border.strongest.light}",
+                        "key": "{sys.color.border.action.light}",
                         "value": "oklch(0% 0.007 64)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -4735,20 +4815,20 @@
                         "original": {
                             "value": "{ref.color.brand.0}",
                             "type": "color",
-                            "key": "{sys.color.border.strongest.light}"
+                            "key": "{sys.color.border.action.light}"
                         },
-                        "name": "SysColorBorderStrongestLight",
+                        "name": "SysColorBorderActionLight",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
                             "item": "border",
-                            "subitem": "strongest",
+                            "subitem": "action",
                             "state": "light"
                         },
-                        "path": ["sys", "color", "border", "strongest", "light"]
+                        "path": ["sys", "color", "border", "action", "light"]
                     },
                     "dark": {
-                        "key": "{sys.color.border.strongest.dark}",
+                        "key": "{sys.color.border.action.dark}",
                         "value": "oklch(100% 0.001 67)",
                         "type": "color",
                         "filePath": "src/core/tokens/color/system.color.tokens.json",
@@ -4756,237 +4836,17 @@
                         "original": {
                             "value": "{ref.color.brand.100}",
                             "type": "color",
-                            "key": "{sys.color.border.strongest.dark}"
+                            "key": "{sys.color.border.action.dark}"
                         },
-                        "name": "SysColorBorderStrongestDark",
+                        "name": "SysColorBorderActionDark",
                         "attributes": {
                             "category": "sys",
                             "type": "color",
                             "item": "border",
-                            "subitem": "strongest",
+                            "subitem": "action",
                             "state": "dark"
                         },
-                        "path": ["sys", "color", "border", "strongest", "dark"]
-                    }
-                },
-                "knockout": {
-                    "light": {
-                        "key": "{sys.color.border.knockout.light}",
-                        "value": "oklch(100% 0.001 67)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.brand.100}",
-                            "type": "color",
-                            "key": "{sys.color.border.knockout.light}"
-                        },
-                        "name": "SysColorBorderKnockoutLight",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "knockout",
-                            "state": "light"
-                        },
-                        "path": ["sys", "color", "border", "knockout", "light"]
-                    },
-                    "dark": {
-                        "key": "{sys.color.border.knockout.dark}",
-                        "value": "oklch(0% 0.007 64)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.brand.0}",
-                            "type": "color",
-                            "key": "{sys.color.border.knockout.dark}"
-                        },
-                        "name": "SysColorBorderKnockoutDark",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "knockout",
-                            "state": "dark"
-                        },
-                        "path": ["sys", "color", "border", "knockout", "dark"]
-                    }
-                },
-                "info": {
-                    "light": {
-                        "key": "{sys.color.border.info.light}",
-                        "value": "oklch(70% 0.145 285)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.blue.70}",
-                            "type": "color",
-                            "key": "{sys.color.border.info.light}"
-                        },
-                        "name": "SysColorBorderInfoLight",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "info",
-                            "state": "light"
-                        },
-                        "path": ["sys", "color", "border", "info", "light"]
-                    },
-                    "dark": {
-                        "key": "{sys.color.border.info.dark}",
-                        "value": "oklch(60% 0.17 285)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.blue.60}",
-                            "type": "color",
-                            "key": "{sys.color.border.info.dark}"
-                        },
-                        "name": "SysColorBorderInfoDark",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "info",
-                            "state": "dark"
-                        },
-                        "path": ["sys", "color", "border", "info", "dark"]
-                    }
-                },
-                "success": {
-                    "light": {
-                        "key": "{sys.color.border.success.light}",
-                        "value": "oklch(70% 0.089 156)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.green.70}",
-                            "type": "color",
-                            "key": "{sys.color.border.success.light}"
-                        },
-                        "name": "SysColorBorderSuccessLight",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "success",
-                            "state": "light"
-                        },
-                        "path": ["sys", "color", "border", "success", "light"]
-                    },
-                    "dark": {
-                        "key": "{sys.color.border.success.dark}",
-                        "value": "oklch(60% 0.1 156)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.green.60}",
-                            "type": "color",
-                            "key": "{sys.color.border.success.dark}"
-                        },
-                        "name": "SysColorBorderSuccessDark",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "success",
-                            "state": "dark"
-                        },
-                        "path": ["sys", "color", "border", "success", "dark"]
-                    }
-                },
-                "error": {
-                    "light": {
-                        "key": "{sys.color.border.error.light}",
-                        "value": "oklch(70% 0.13 16)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.red.70}",
-                            "type": "color",
-                            "key": "{sys.color.border.error.light}"
-                        },
-                        "name": "SysColorBorderErrorLight",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "error",
-                            "state": "light"
-                        },
-                        "path": ["sys", "color", "border", "error", "light"]
-                    },
-                    "dark": {
-                        "key": "{sys.color.border.error.dark}",
-                        "value": "oklch(60% 0.149 16)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.red.60}",
-                            "type": "color",
-                            "key": "{sys.color.border.error.dark}"
-                        },
-                        "name": "SysColorBorderErrorDark",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "error",
-                            "state": "dark"
-                        },
-                        "path": ["sys", "color", "border", "error", "dark"]
-                    }
-                },
-                "warning": {
-                    "light": {
-                        "key": "{sys.color.border.warning.light}",
-                        "value": "oklch(70% 0.1 94)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.yellow.70}",
-                            "type": "color",
-                            "key": "{sys.color.border.warning.light}"
-                        },
-                        "name": "SysColorBorderWarningLight",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "warning",
-                            "state": "light"
-                        },
-                        "path": ["sys", "color", "border", "warning", "light"]
-                    },
-                    "dark": {
-                        "key": "{sys.color.border.warning.dark}",
-                        "value": "oklch(60% 0.09 94)",
-                        "type": "color",
-                        "filePath": "src/core/tokens/color/system.color.tokens.json",
-                        "isSource": true,
-                        "original": {
-                            "value": "{ref.color.yellow.60}",
-                            "type": "color",
-                            "key": "{sys.color.border.warning.dark}"
-                        },
-                        "name": "SysColorBorderWarningDark",
-                        "attributes": {
-                            "category": "sys",
-                            "type": "color",
-                            "item": "border",
-                            "subitem": "warning",
-                            "state": "dark"
-                        },
-                        "path": ["sys", "color", "border", "warning", "dark"]
+                        "path": ["sys", "color", "border", "action", "dark"]
                     }
                 }
             },

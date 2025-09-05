@@ -24,7 +24,7 @@
 
 .jkl-file-input {
     &__dropzone {
-        --border-color: var(--jkl-color-border-input);
+        --border-color: #{jkl.$sys-color-border-strong};
         --background-color: transparent;
 
         border: var(--border-color) 1px dashed;

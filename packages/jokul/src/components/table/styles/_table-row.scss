@@ -4,15 +4,15 @@ $_border-size: jkl.rem(1px);
 $_focus-ring-width: jkl.rem(2px);
 
 @include jkl.light-mode-variables {
-    --jkl-table-row-border-color: #{jkl.$color-svaberg};
+    --jkl-table-row-border-color: #{jkl.$sys-color-border-default};
     --jkl-table-row-border-none-color: #{rgba(jkl.$color-svaberg, 0)};
     --jkl-table-row-hover-border-color: #{jkl.$color-granitt};
     --jkl-table-row-highlight-color: #{jkl.$color-dis};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-table-row-border-color: #{jkl.$color-stein};
-    --jkl-table-row-border-none-color: #{rgba(jkl.$color-stein, 0)};
+    --jkl-table-row-border-color: #{jkl.$sys-color-border-default};
+    --jkl-table-row-border-none-color: #{rgba(jkl.$sys-color-border-default, 0)};
     --jkl-table-row-hover-border-color: #{jkl.$color-snohvit};
     --jkl-table-row-highlight-color: #{jkl.$color-fjellgra};
 }
@@ -27,8 +27,7 @@ $_focus-ring-width: jkl.rem(2px);
 
     /* stylelint-disable-next-line selector-not-notation */
     :not(.jkl-table-head, .jkl-table-foot) > & {
-        border-top: solid $_border-size
-            transparent; // Unngår vertikal shift ved hover i collapsed mobilvisning
+        border-top: solid $_border-size transparent; // Unngår vertikal shift ved hover i collapsed mobilvisning
 
         &:hover {
             /*

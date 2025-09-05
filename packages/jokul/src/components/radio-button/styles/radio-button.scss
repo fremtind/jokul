@@ -75,7 +75,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 }
 
 .jkl-radio-button {
-    --ring-color: var(--jkl-color-border-action);
+    --ring-color: #{jkl.$sys-color-background-surface-action};
     --dot-color: transparent;
     --background-color: transparent;
     --text-color: #{jkl.$sys-color-content-default};
@@ -99,7 +99,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         // Checked state
         &:checked {
             + .jkl-radio-button__label > .jkl-radio-button__dot::after {
-                --dot-color: var(--jkl-color-border-action);
+                --dot-color: jkl.$sys-color-border-action;
                 animation: $_radio-button-dot-animation-name
                     jkl.timing("productive") ease;
 
@@ -112,7 +112,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
                 &
                 + .jkl-radio-button__label
                 > .jkl-radio-button__dot::after {
-                --background-color: var(--jkl-color-background-alert-error);
+                --background-color: #{jkl.$sys-color-background-surface-support-error};
                 --dot-color: #{jkl.$sys-color-content-subdued};
             }
         }
@@ -128,7 +128,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             }
 
             .jkl-radio-button--error & + .jkl-radio-button__label {
-                --background-color: var(--jkl-color-background-alert-error);
+                --background-color: #{jkl.$sys-color-background-surface-support-error};
                 --dot-color: #{jkl.$sys-color-content-subdued};
             }
         }
@@ -202,7 +202,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     }
 
     &--error {
-        --background-color: var(--jkl-color-background-alert-error);
+        --background-color: #{jkl.$sys-color-background-surface-support-error};
     }
 
     &--inline {

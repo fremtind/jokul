@@ -72,7 +72,7 @@
 
     &--filter {
         &[aria-pressed="true"] {
-            --background-color: var(--jkl-color-background-action);
+            --background-color: jkl.$sys-color-background-surface-action;
             --text-color: #{jkl.$sys-color-content-knockout};
             --border-color: var(--text-color);
 

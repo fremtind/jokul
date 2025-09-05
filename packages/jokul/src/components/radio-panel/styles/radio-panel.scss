@@ -28,7 +28,7 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         height: jkl.rem(24px);
         width: jkl.rem(24px);
         border-radius: 50%;
-        border: jkl.rem(1px) solid var(--jkl-color-border-action);
+        border: jkl.rem(1px) solid jkl.$sys-color-border-action;
         background-color: var(--radio-ring-color);
 
         transition-property: background-color, outline;
@@ -68,14 +68,14 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
     }
 
     &:has(:checked) {
-        --radio-dot-color: var(--jkl-color-border-action);
+        --radio-dot-color: #{jkl.$sys-color-border-action};
     }
 
     [aria-invalid="true"] & {
-        --radio-ring-color: var(--jkl-color-background-alert-error);
+        --radio-ring-color: #{jkl.$sys-color-background-surface-support-error};
     }
 
     [aria-invalid="true"] &:has(:checked) {
-        --radio-dot-color: var(--jkl-color-text-on-alert);
+        --radio-dot-color: #{jkl.$sys-color-background-surface-action};
     }
 }
