@@ -20,8 +20,8 @@
 @include jkl.comfortable-density-variables {
     --jkl-select-input-height: #{jkl.$unit-60};
     --jkl-select-arrow-right: #{jkl.$unit-10};
-    --jkl-select-button-padding: #{jkl.$unit-10} #{jkl.rem(36px)} #{jkl.$unit-10}
-        #{jkl.$unit-15};
+    --jkl-select-button-padding: #{jkl.$unit-10} #{jkl.rem(36px)}
+        #{jkl.$unit-10} #{jkl.$unit-15};
     --jkl-select-search-input-padding: var(--jkl-select-button-padding);
     --jkl-select-native-padding: 0 #{jkl.$unit-50} 0 #{jkl.$unit-10};
     --jkl-select-option-padding: #{jkl.$unit-10} #{jkl.$unit-15};
@@ -56,14 +56,14 @@
 
         &:-moz-focusring {
             color: transparent;
-            text-shadow: 0 0 0 var(--jkl-color-text-subdued);
+            text-shadow: 0 0 0 jkl.$sys-color-content-subdued;
         }
 
         & option {
             font-weight: normal;
             font-family: sans-serif;
-            color: var(--jkl-color-text-subdued);
-            background-color: var(--jkl-color-background-container-high);
+            color: jkl.$sys-color-content-subdued;
+            background-color: jkl.$sys-color-background-surface-highlight;
         }
     }
 
@@ -77,7 +77,7 @@
     &__search-input {
         box-sizing: border-box;
         padding: var(--jkl-select-search-input-padding);
-        color: var(--jkl-color-text-subdued);
+        color: jkl.$sys-color-content-subdued;
     }
 
     &__search-input,
@@ -86,12 +86,12 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         background-color: transparent;
-        color: var(--jkl-color-text-subdued);
+        color: jkl.$sys-color-content-subdued;
         cursor: pointer;
 
         height: var(--jkl-select-input-height);
         border-radius: jkl.rem(3px);
-        border: jkl.rem(1px) solid var(--jkl-color-border-input);
+        border: jkl.rem(1px) solid jkl.$sys-color-border-strong;
         box-shadow: 0 0 0 jkl.rem(1px) transparent;
         text-align: left;
         width: 100%;
@@ -102,12 +102,12 @@
         @include jkl.use-font-variables("jkl-select");
 
         &--active-value {
-            color: var(--jkl-color-text-default);
+            color: jkl.$sys-color-content-default;
         }
 
         &:hover {
-            border-color: var(--jkl-color-border-input-focus);
-            box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
+            border-color: jkl.$sys-color-border-action;
+            box-shadow: 0 0 0 jkl.rem(1px) jkl.$sys-color-border-action;
 
             & ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{jkl.rem(3px)}));
@@ -149,7 +149,7 @@
         position: absolute;
         right: var(--jkl-select-arrow-right);
         top: 50%;
-        color: var(--jkl-color-text-default);
+        color: jkl.$sys-color-content-default;
 
         transform: translateY(-50%);
         transition-property: transform, color;
@@ -161,7 +161,7 @@
         );
 
         .jkl-select:has([aria-invalid="true"]) & {
-            color: var(--jkl-color-text-on-alert);
+            color: jkl.$sys-color-content-subdued;
         }
     }
 
@@ -172,8 +172,8 @@
         top: 100%;
         z-index: jkl.$z-index--dropdown;
 
-        background-color: var(--jkl-color-background-container-high);
-        border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
+        background-color: jkl.$sys-color-background-surface-highlight;
+        border: jkl.rem(2px) solid jkl.$sys-color-border-action;
         border-top: none;
         border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
         box-sizing: border-box;
@@ -218,12 +218,12 @@
         markeres ved hover som normalt. */
         &:focus,
         :not([data-focus="controlled"]) > &:hover {
-            color: var(--jkl-color-text-default);
+            color: jkl.$sys-color-content-default;
             background-color: var(--jkl-color-background-interactive-hover);
         }
 
         &-description {
-            color: var(--jkl-color-text-subdued);
+            color: jkl.$sys-color-content-subdued;
             display: block;
             width: 100%;
 
@@ -245,9 +245,9 @@
         .jkl-select__button {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
-            border-color: var(--jkl-color-border-input-focus);
-            background-color: var(--jkl-color-background-container-high);
-            box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
+            border-color: jkl.$sys-color-border-action;
+            background-color: jkl.$sys-color-background-surface-highlight;
+            box-shadow: 0 0 0 jkl.rem(1px) jkl.$sys-color-border-action;
 
             &:hover ~ .jkl-select__arrow {
                 transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
@@ -258,8 +258,8 @@
     &--invalid {
         .jkl-select__search-input,
         .jkl-select__button {
-            background-color: var(--jkl-color-background-alert-error);
-            color: var(--jkl-color-text-on-alert-subdued);
+            background-color: jkl.$sys-color-background-surface-support-error;
+            color: jkl.$sys-color-content-subdued;
 
             &--active-value {
                 color: revert;

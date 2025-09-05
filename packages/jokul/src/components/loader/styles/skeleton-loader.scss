@@ -6,13 +6,13 @@ $_sweep-animation-name: jkl-sweep-#{string.unique-id()};
 $_blink-animation-name: jkl-blink-#{string.unique-id()};
 
 @include jkl.light-mode-variables {
-    --jkl-skeleton-element-color: #{jkl.$color-varde};
-    --jkl-skeleton-sweeper-color: #{jkl.$color-snohvit};
+    --jkl-skeleton-element-color: #{jkl.$sys-color-background-surface-support-neutral};
+    --jkl-skeleton-sweeper-color: #{jkl.$sys-color-background-variant};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-skeleton-element-color: #{jkl.$color-stein};
-    --jkl-skeleton-sweeper-color: #{jkl.$color-granitt};
+    --jkl-skeleton-sweeper-color: #{jkl.$sys-color-background-variant};
 }
 
 .jkl-skeleton-animation {

@@ -7,11 +7,11 @@
 @use "calendar-date-button";
 
 @include jkl.light-mode-variables {
-    --jkl-datepicker-focus-color: #{jkl.$color-granitt};
+    --jkl-datepicker-focus-color: #{jkl.$sys-color-border-action};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-datepicker-focus-color: #{jkl.$color-snohvit};
+    --jkl-datepicker-focus-color: #{jkl.$sys-color-border-action};
 }
 
 .jkl-datepicker {

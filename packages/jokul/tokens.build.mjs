@@ -1,10 +1,8 @@
 import { camelCase } from "change-case";
-import { format } from "prettier";
 import StyleDictionary from "style-dictionary";
 import {
     fileHeader,
     formattedVariables,
-    usesReferences,
 } from "style-dictionary/utils";
 
 const transformTokens = (token) => {
@@ -50,15 +48,6 @@ StyleDictionary.registerFormat({
         // });
     },
 });
-
-const formatValueAsScssVar = (originalValue) => {
-    const parsedName = originalValue
-        .replace(/({|})/g, "")
-        .split(".")
-        .filter((word) => word !== "value")
-        .join("-");
-    return `#{jkl.\$${parsedName}}`;
-};
 
 StyleDictionary.registerFormat({
     name: "css/variables-ref-scss",
@@ -173,93 +162,11 @@ StyleDictionary.registerFilter({
     },
 });
 
-const legacyDictionary = new StyleDictionary({
-    source: ["src/core/tokens/legacy/*.json"],
-    platforms: {
-        scss: {
-            transformGroup: "scss",
-            buildPath: "./src/core/jkl/",
-            files: [
-                {
-                    destination: "_legacy-tokens.scss",
-                    format: "scss/variables",
-                },
-            ],
-        },
-        css: {
-            transformGroup: "scss",
-            buildPath: "./src/core/styles/",
-            prefix: "jkl",
-            files: [
-                {
-                    destination: "_legacy-tokens.scss",
-                    format: "css/variables",
-                },
-            ],
-        },
-    },
+StyleDictionary.registerFilter({
+    name: "excludeReferences",
+    filter: (token) => token.path[0] !== "ref",
 });
 
-const myStyleDictionary = new StyleDictionary({
-    source: ["src/core/tokens/**/*.json"],
-    platforms: {
-        ts: {
-            transforms: ["name/camel"],
-            buildPath: "./src/core/",
-            files: [
-                {
-                    destination: "tokens.ts",
-                    format: "javascript/esm",
-                },
-            ],
-        },
-        scss: {
-            transformGroup: "scss",
-            buildPath: "./src/core/jkl/",
-            files: [
-                {
-                    destination: "_tokens.scss",
-                    format: "scss/vars",
-                },
-            ],
-        },
-        css: {
-            transformGroup: "scss",
-            buildPath: "./src/core/styles/",
-            prefix: "jkl",
-            files: [
-                {
-                    destination: "_tokens.scss",
-                    format: "css/variables",
-                    filter: "isBaseVariable",
-                },
-                {
-                    destination: "_color-tokens.scss",
-                    format: "css/variables-ref-scss",
-                    filter: (token) =>
-                        token.path.includes("light") ||
-                        token.path.includes("dark"),
-                },
-            ],
-        },
-    },
-});
-
-const lessStyleDictionary = new StyleDictionary({
-    source: ["src/core/tokens/**/*.json"],
-    platforms: {
-        less: {
-            transformGroup: "less",
-            buildPath: "./src/core/",
-            files: [
-                {
-                    destination: "tokens.less",
-                    format: "less/variables",
-                },
-            ],
-        },
-    },
-});
 
 StyleDictionary.registerFormat({
     name: "tailwindcss/colors",
@@ -295,8 +202,113 @@ StyleDictionary.registerFormat({
     },
 });
 
-const tailwindPreset = new StyleDictionary({
+const internalDictionary = new StyleDictionary({
     source: ["src/core/tokens/**/*.json"],
+    platforms: {
+        json: {
+            transformGroup: "js",
+            buildPath: "./build-temp/",
+            files: [
+                {
+                    destination: "tokens-resolved.json",
+                    format: "json",
+                },
+            ],
+        },
+    },
+});
+
+const myStyleDictionary = new StyleDictionary({
+    source: ["build-temp/tokens-resolved.json"], // les fra ferdigløst fil
+    platforms: {
+        ts: {
+            transforms: ["name/camel"],
+            buildPath: "./src/core/",
+            files: [
+                {
+                    destination: "tokens.ts",
+                    format: "javascript/esm",
+                    filter: "excludeReferences",
+                },
+            ],
+        },
+        scss: {
+            transformGroup: "scss",
+            buildPath: "./src/core/jkl/",
+            files: [
+                {
+                    destination: "_tokens.scss",
+                    format: "scss/vars",
+                    filter: "excludeReferences",
+                },
+            ],
+        },
+        css: {
+            transformGroup: "scss",
+            buildPath: "./src/core/styles/",
+            prefix: "jkl",
+            files: [
+                {
+                    destination: "_tokens.scss",
+                    format: "css/variables",
+                    filter: "excludeReferences",
+                },
+                {
+                    destination: "_color-tokens.scss",
+                    format: "css/variables-ref-scss",
+                    filter: "excludeReferences",
+                },
+            ],
+        },
+    },
+});
+
+const legacyDictionary = new StyleDictionary({
+    source: ["src/core/tokens/legacy/*.json"],
+    platforms: {
+        scss: {
+            transformGroup: "scss",
+            buildPath: "./src/core/jkl/",
+            files: [
+                {
+                    destination: "_legacy-tokens.scss",
+                    format: "scss/variables",
+                },
+            ],
+        },
+        css: {
+            transformGroup: "scss",
+            buildPath: "./src/core/styles/",
+            prefix: "jkl",
+            files: [
+                {
+                    destination: "_legacy-tokens.css",
+                    format: "css/variables",
+                },
+            ],
+        },
+    },
+});
+
+const lessStyleDictionary = new StyleDictionary({
+    source: ["build-temp/tokens-resolved.json"],
+    platforms: {
+        less: {
+            transformGroup: "less",
+            buildPath: "./src/core/",
+            files: [
+                {
+                    destination: "tokens.less",
+                    format: "less/vars",
+                    filter: "excludeReferences",
+                },
+            ],
+        },
+    },
+});
+
+const tailwindPreset = new StyleDictionary({
+    source: ["build-temp/tokens-resolved.json"],
     platforms: {
         tailwind: {
             buildPath: "src/tailwind/",
@@ -305,13 +317,15 @@ const tailwindPreset = new StyleDictionary({
                 {
                     destination: "colors.ts",
                     format: "tailwindcss/colors",
+                    filter: "excludeReferences",
                 },
             ],
         },
     },
 });
 
-await tailwindPreset.buildAllPlatforms();
+await internalDictionary.buildAllPlatforms();
 await myStyleDictionary.buildAllPlatforms();
 await lessStyleDictionary.buildAllPlatforms();
 await legacyDictionary.buildAllPlatforms();
+await tailwindPreset.buildAllPlatforms();

@@ -16,7 +16,7 @@
     @include jkl.reset-outline;
 
     &:hover:not(:focus) {
-        color: var(--jkl-color-text-subdued);
+        color: jkl.$sys-color-content-subdued;
     }
 
     &:focus-visible {

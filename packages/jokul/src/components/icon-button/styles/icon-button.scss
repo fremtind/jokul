@@ -26,7 +26,7 @@
     }
 
     &:hover {
-        color: var(--jkl-color-text-interactive-hover);
+        color: jkl.$sys-color-content-subdued;
     }
 
     @include jkl.forced-colors-mode {
