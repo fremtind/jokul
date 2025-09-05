@@ -1,5 +1,12 @@
 # portal
 
+## 1.3.5
+
+### Patch Changes
+
+- Updated dependencies [d3770c2]
+  - @fremtind/jokul@1.2.3
+
 ## 1.3.4
 
 ### Patch Changes
