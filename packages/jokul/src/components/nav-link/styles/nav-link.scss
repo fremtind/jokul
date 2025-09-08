@@ -1,7 +1,7 @@
 @use "../../../core/jkl";
 
 .jkl-nav-link {
-    color: var(--jkl-color-text-default);
+    color: jkl.$sys-color-content-default;
 
     box-sizing: border-box;
     font-weight: jkl.$typography-weight-normal;
@@ -16,7 +16,7 @@
     @include jkl.reset-outline;
 
     &:hover:not(:focus) {
-        color: jkl.$sys-color-content-subdued;
+        color: jkl.$color-text-interactive-hover;
     }
 
     &:focus-visible {
