@@ -11,17 +11,12 @@ export const SiteHeader = async () => {
     return (
         <Flex
             as="header"
-            gap={32}
-            alignItems="center"
-            direction="column"
+            gap="lg"
+            align="center"
             className={styles.globalHeader}
         >
-            <Flex
-                gap={24}
-                justifyContent="space-between"
-                className={styles.banner}
-            >
-                <Flex as="p" gap={8} alignItems="center">
+            <Flex gap="md" justify="space-between" className={styles.banner}>
+                <Flex as="p" gap="xs" align="center">
                     <Link href="/" className={styles.logo}>
                         Jøkul
                     </Link>
