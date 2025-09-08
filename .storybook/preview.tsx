@@ -1,3 +1,4 @@
+import React from "react";
 import type { Preview } from "@storybook/react";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
 import { backgroundOptions } from "./backgrounds.js";
@@ -20,7 +21,15 @@ const preview: Preview = {
         density: densities[0],
         backgrounds: { value: "pageVariant" },
     },
-    decorators: [themeDecorator, densityDecorator],
+    decorators: [
+        (Story) => (
+            <div style={{ padding: "1em" }}>
+                <Story />
+            </div>
+        ),
+        themeDecorator,
+        densityDecorator,
+    ],
     parameters: {
         backgrounds: {
             options: backgroundOptions,
