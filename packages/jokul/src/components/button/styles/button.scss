@@ -142,7 +142,7 @@
     }
 
     &--primary {
-        --background-color: jkl.$sys-color-background-surface-action;
+        --background-color: #{jkl.$sys-color-background-surface-action};
         --text-color: #{jkl.$sys-color-content-knockout};
 
         @media (forced-colors: active) {
