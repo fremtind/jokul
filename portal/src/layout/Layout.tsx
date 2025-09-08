@@ -1,7 +1,7 @@
 import { useCookieConsent } from "@fremtind/jkl-cookie-consent-react";
-import type { WithChildren } from "@fremtind/jkl-core";
-import { useScreen } from "@fremtind/jkl-react-hooks";
-import { usePreviousValue } from "@fremtind/jkl-react-hooks/src";
+import { type WithChildren, Link } from "@fremtind/jkl-core";
+import { useScreen, usePreviousValue } from "@fremtind/jkl-react-hooks";
+import { InfoSystemMessage } from "@fremtind/jkl-system-message-react";
 import { AnimatePresence } from "framer-motion";
 import type { HeadProps } from "gatsby";
 import React, { useEffect, useRef, useState } from "react";
@@ -126,31 +126,53 @@ export const Layout: React.FC<Props> = ({
             ? "e2e"
             : undefined;
 
+    const [dismissed, setDismissed] = useState(false);
+
     return (
-        <div className="jkl jkl-portal" data-test-mode={isTestMode}>
-            <div
-                ref={announcerRef}
-                className="jkl-sr-only"
-                aria-live="polite"
-                aria-atomic="true"
-            ></div>
-            <div className="jkl-portal__theme-bg" />
-            <Header className="jkl-portal__header" />
-            <AnimatePresence>
-                {shouldShowSidebar && (
-                    <Sidebar className="jkl-portal__sidebar" />
-                )}
-            </AnimatePresence>
-            {hasMounted && <KBar />}
-            <FormatProvider>
-                {hasMounted && (
-                    <AnimatePresence mode="wait">{children}</AnimatePresence>
-                )}
-            </FormatProvider>
-            {!isTestMode && hasMounted && (
-                <PortalFooter className="jkl-portal__footer" />
+        <>
+            {!dismissed && (
+                <InfoSystemMessage
+                    dismissAction={{ handleDismiss: () => setDismissed(true) }}
+                    className="jkl"
+                >
+                    Denne nettsiden dokumenterer en gammel versjon av Jøkul. Du
+                    finner oppdatert dokumentasjon{" "}
+                    <Link
+                        external
+                        href="https://jokul-portal.intern.app.prodaws.fremtind.no"
+                    >
+                        i den nye portalen
+                    </Link>
+                    .
+                </InfoSystemMessage>
             )}
-        </div>
+            <div className="jkl jkl-portal" data-test-mode={isTestMode}>
+                <div
+                    ref={announcerRef}
+                    className="jkl-sr-only"
+                    aria-live="polite"
+                    aria-atomic="true"
+                />
+                <div className="jkl-portal__theme-bg" />
+                <Header className="jkl-portal__header" />
+                <AnimatePresence>
+                    {shouldShowSidebar && (
+                        <Sidebar className="jkl-portal__sidebar" />
+                    )}
+                </AnimatePresence>
+                {hasMounted && <KBar />}
+                <FormatProvider>
+                    {hasMounted && (
+                        <AnimatePresence mode="wait">
+                            {children}
+                        </AnimatePresence>
+                    )}
+                </FormatProvider>
+                {!isTestMode && hasMounted && (
+                    <PortalFooter className="jkl-portal__footer" />
+                )}
+            </div>
+        </>
     );
 };
 

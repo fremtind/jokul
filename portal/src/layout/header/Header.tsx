@@ -1,6 +1,6 @@
 import cx from "classnames";
 import { navigate } from "gatsby";
-import React, { useCallback, useRef, useEffect, FC } from "react";
+import React, { useCallback, useRef, useEffect, type FC } from "react";
 import { useFullscreenMenuContext } from "../../fullscreenMenuContext";
 import { ContentLink } from "./ContentLink";
 import { MainMenu } from "./MainMenu";
@@ -23,9 +23,8 @@ export const Header: FC<Props> = ({ className }) => {
         }
     }, []);
     useEffect(() => {
-        window && window.addEventListener("scroll", collapseMenu);
-        return () =>
-            window && window.removeEventListener("scroll", collapseMenu);
+        window?.addEventListener("scroll", collapseMenu);
+        return () => window?.removeEventListener("scroll", collapseMenu);
     }, [collapseMenu]);
     const { menuItems } = useNavigationLinks();
     const { setIsOpen, setCurrentItem } = useFullscreenMenuContext();
