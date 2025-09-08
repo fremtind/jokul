@@ -30,11 +30,11 @@ $_focus-ring-width: jkl.rem(2px);
 }
 
 .jkl-tooltip-content {
-    --background-color: var(--jkl-color-background-container-inverted);
+    --background-color: #{jkl.$sys-color-background-surface-contrast};
 
     @include jkl.text-style("small");
     background-color: var(--background-color);
-    color: var(--jkl-color-text-inverted);
+    color: #{jkl.$sys-color-content-on-contrast};
     display: inline-block;
     min-width: min-content;
     max-width: min(

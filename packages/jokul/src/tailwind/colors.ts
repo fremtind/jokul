@@ -64,6 +64,8 @@ const colors = {
     "color-border-action": "var(--jkl-sys-color-border-action)",
     "color-content-default": "var(--jkl-sys-color-content-default)",
     "color-content-subdued": "var(--jkl-sys-color-content-subdued)",
+    "color-content-on-contrast": "var(--jkl-sys-color-content-on-contrast)",
+    "color-content-on-decoration": "var(--jkl-sys-color-content-on-decoration)",
     "color-content-knockout": "var(--jkl-sys-color-content-knockout)",
     "color-content-info": "var(--jkl-sys-color-content-info)",
     "color-content-info-strong": "var(--jkl-sys-color-content-info-strong)",

@@ -3555,11 +3555,11 @@
                 },
                 "bold": {
                     "key": "{ref.icon.weight.bold}",
-                    "value": "500",
+                    "value": "400",
                     "filePath": "src/core/tokens/typography/reference.typography.tokens.json",
                     "isSource": true,
                     "original": {
-                        "value": "500",
+                        "value": "400",
                         "key": "{ref.icon.weight.bold}"
                     },
                     "name": "RefIconWeightBold",
@@ -4939,6 +4939,118 @@
                         "path": ["sys", "color", "content", "subdued", "dark"]
                     }
                 },
+                "on-contrast": {
+                    "light": {
+                        "key": "{sys.color.content.on-contrast.light}",
+                        "value": "oklch(98% 0.003 67)",
+                        "type": "color",
+                        "filePath": "src/core/tokens/color/system.color.tokens.json",
+                        "isSource": true,
+                        "original": {
+                            "value": "{ref.color.brand.98}",
+                            "type": "color",
+                            "key": "{sys.color.content.on-contrast.light}"
+                        },
+                        "name": "SysColorContentOnContrastLight",
+                        "attributes": {
+                            "category": "sys",
+                            "type": "color",
+                            "item": "content",
+                            "subitem": "on-contrast",
+                            "state": "light"
+                        },
+                        "path": [
+                            "sys",
+                            "color",
+                            "content",
+                            "on-contrast",
+                            "light"
+                        ]
+                    },
+                    "dark": {
+                        "key": "{sys.color.content.on-contrast.dark}",
+                        "value": "oklch(10% 0.007 67)",
+                        "type": "color",
+                        "filePath": "src/core/tokens/color/system.color.tokens.json",
+                        "isSource": true,
+                        "original": {
+                            "value": "{ref.color.brand.10}",
+                            "type": "color",
+                            "key": "{sys.color.content.on-contrast.dark}"
+                        },
+                        "name": "SysColorContentOnContrastDark",
+                        "attributes": {
+                            "category": "sys",
+                            "type": "color",
+                            "item": "content",
+                            "subitem": "on-contrast",
+                            "state": "dark"
+                        },
+                        "path": [
+                            "sys",
+                            "color",
+                            "content",
+                            "on-contrast",
+                            "dark"
+                        ]
+                    }
+                },
+                "on-decoration": {
+                    "light": {
+                        "key": "{sys.color.content.on-decoration.light}",
+                        "value": "oklch(98% 0.003 67)",
+                        "type": "color",
+                        "filePath": "src/core/tokens/color/system.color.tokens.json",
+                        "isSource": true,
+                        "original": {
+                            "value": "{ref.color.brand.98}",
+                            "type": "color",
+                            "key": "{sys.color.content.on-decoration.light}"
+                        },
+                        "name": "SysColorContentOnDecorationLight",
+                        "attributes": {
+                            "category": "sys",
+                            "type": "color",
+                            "item": "content",
+                            "subitem": "on-decoration",
+                            "state": "light"
+                        },
+                        "path": [
+                            "sys",
+                            "color",
+                            "content",
+                            "on-decoration",
+                            "light"
+                        ]
+                    },
+                    "dark": {
+                        "key": "{sys.color.content.on-decoration.dark}",
+                        "value": "oklch(98% 0.003 67)",
+                        "type": "color",
+                        "filePath": "src/core/tokens/color/system.color.tokens.json",
+                        "isSource": true,
+                        "original": {
+                            "value": "{ref.color.brand.98}",
+                            "type": "color",
+                            "key": "{sys.color.content.on-decoration.dark}"
+                        },
+                        "name": "SysColorContentOnDecorationDark",
+                        "attributes": {
+                            "category": "sys",
+                            "type": "color",
+                            "item": "content",
+                            "subitem": "on-decoration",
+                            "state": "dark"
+                        },
+                        "path": [
+                            "sys",
+                            "color",
+                            "content",
+                            "on-decoration",
+                            "dark"
+                        ]
+                    }
+                },
                 "knockout": {
                     "light": {
                         "key": "{sys.color.content.knockout.light}",
@@ -5777,11 +5889,11 @@
             },
             "bold": {
                 "key": "{icon.weight.bold}",
-                "value": "500",
+                "value": "400",
                 "filePath": "src/core/tokens/typography/typography.tokens.json",
                 "isSource": true,
                 "original": {
-                    "value": "500",
+                    "value": "400",
                     "key": "{icon.weight.bold}"
                 },
                 "name": "IconWeightBold",

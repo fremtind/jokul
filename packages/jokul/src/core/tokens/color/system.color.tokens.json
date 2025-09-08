@@ -170,6 +170,26 @@
                         "type": "color"
                     }
                 },
+                "on-contrast": {
+                    "light": {
+                        "value": "{ref.color.brand.98}",
+                        "type": "color"
+                    },
+                    "dark": {
+                        "value": "{ref.color.brand.10}",
+                        "type": "color"
+                    }
+                },
+                "on-decoration": {
+                    "light": {
+                        "value": "{ref.color.brand.98}",
+                        "type": "color"
+                    },
+                    "dark": {
+                        "value": "{ref.color.brand.98}",
+                        "type": "color"
+                    }
+                },
                 "knockout": {
                     "light": {
                         "value": "{ref.color.brand.100}",

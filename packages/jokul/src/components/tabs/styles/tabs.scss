@@ -29,8 +29,8 @@
 
 .jkl-tablist {
     --text-color: #{jkl.$sys-color-content-default};
-    --line-color: var(--jkl-color-border-separator);
-    --indicator-color: var(--jkl-color-border-separator-hover);
+    --line-color: #{jkl.$sys-color-border-default};
+    --indicator-color: #{jkl.$sys-color-border-strong};
 
     scroll-snap-type: x proximity;
     overflow: scroll hidden;
