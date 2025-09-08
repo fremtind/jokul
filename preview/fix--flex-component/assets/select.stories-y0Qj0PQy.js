@@ -1,0 +1,6 @@
+import{R as o}from"./index-siqcju79.js";import{S as r}from"./Select-DA3FeMNM.js";import"./_commonjsHelpers-DaWZu8wl.js";import"./clsx-B-dksMZM.js";import"./useAnimatedHeight-CwFQr8di.js";import"./tokens-BiWAXAgN.js";import"./useBrowserPreferences-B9LcbCiO.js";import"./usePreviousValue-f0kyfTHz.js";import"./useId-CahK3IZ3.js";import"./useListNavigation-Bf1PKTdz.js";import"./valuePair-Bn6SadUn.js";import"./ArrowVerticalAnimated-Bxtjav6b.js";import"./ArrowUpIcon-BPj9hudP.js";import"./Icon-Crh-gXYv.js";import"./InputGroup-CVsm-kgD.js";import"./Label-tZYmh4ng.js";import"./SupportLabel-Bpu1mYaT.js";import"./ErrorIcon-DGsYbkdO.js";import"./WarningIcon-C_fFKyVL.js";const E={title:"Komponenter/Select",component:r,parameters:{layout:"padded"},tags:["autodocs"]},a={name:"Select",label:"Hvilket merke er telefonen?",items:[{value:"Apple",label:"Apple"},{value:"Samsung",label:"Samsung"},{value:"Google",label:"Google"},{value:"OnePlus",label:"OnePlus"},{value:"Nokia",label:"Nokia"}]},e={args:a,render:({...t})=>o.createElement(r,{...t})};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  args: baseArgs,
+  render: ({
+    ...props
+  }) => <Select {...props} />
+}`,...e.parameters?.docs?.source}}};const G=["SelectStory"];export{e as SelectStory,G as __namedExportsOrder,E as default};
