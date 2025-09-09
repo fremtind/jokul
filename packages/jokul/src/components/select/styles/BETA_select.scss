@@ -1,0 +1,125 @@
+@use "../../../core/jkl";
+
+.BETA_jkl-select {
+    --border: 1px solid var(--jkl-color-border-input);
+    --bg: var(--jkl-color-background-input-base);
+    --border-radius: 2px;
+    --icon-size: 3ch;
+
+    label, p, select {
+        padding-inline: var(--jkl-unit-15) var(--icon-size);
+    }
+
+    label, p {
+        @include jkl.text-style("small");
+        color: var(--jkl-color-text-subdued);
+    }
+
+    label {
+        grid-row: 1;
+        grid-column: 1 / -1;
+    }
+
+    p {
+        margin-block-start: var(--jkl-unit-10);
+    }
+
+    select {
+        appearance: none;
+        cursor: pointer;
+        border: none;
+        border-radius: 0;
+        grid-column: 1 / -1;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: transparent;
+        box-sizing: border-box;
+        padding-block: var(--jkl-unit-20);
+        line-height: 1;
+    }
+
+    .component-wrapper, .select-wrapper {
+        @include jkl.motion("standard", "expressive", border-color, background-color);
+        display: grid;
+        grid-template-columns: 1fr var(--icon-size);
+        align-items: center;
+        background-color: var(--bg);
+        border: var(--border);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+
+        select, &::after {
+            grid-row: 1;
+            color: var(--jkl-color-text);
+        }
+
+        &::after {
+            line-height: 1;
+            content: "stat_minus_1" / "";
+            font-family: "Fremtind Material Symbols";
+            grid-column: 2;
+            font-weight: 300;
+            display: flex;
+            justify-content: center;
+            pointer-events: none; // FETT: https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events
+        }
+    }
+
+    .component-wrapper {
+        display: contents;
+
+        &::after {
+            display: none;
+        }
+    }
+
+    &:has(select:hover, select:active) {
+        --border: 1px solid var(--jkl-color-border-input-focus);
+        --bg: var(--jkl-color-background-input-focus);
+    }
+
+    &[data-mode="expressive"] {
+        --bg: var(--jkl-color-background-input-focus);
+
+        .component-wrapper {
+            display: grid;
+
+            &::after {
+                display: flex;
+            }
+        }
+
+        .select-wrapper {
+            display: contents;
+
+            &::after {
+                display: none;
+            }
+        }
+
+        label {
+            pointer-events: none;
+            color: var(--jkl-color-text);
+            @include jkl.text-style("body");
+            @include jkl.motion("standard", "expressive", opacity, margin-block-start);
+        }
+
+        select {
+            opacity: 0;
+            padding-block: 1.25lh;
+            @include jkl.motion("standard", "expressive", opacity, padding-block);
+        }
+
+        &:not(:has(option:checked:disabled, option:checked[value=""])) {
+            label {
+                margin-block-start: -1.5lh;
+                @include jkl.text-style("small");
+            }
+
+            select {
+                opacity: 1;
+                padding-block: 1.75lh 0.75lh;
+            }
+        }
+    }
+}
