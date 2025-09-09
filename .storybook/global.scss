@@ -1,4 +1,4 @@
 @use "../packages/jokul/src/core/styles/core";
 @use "../packages/jokul/src/fonts/styles/webfonts.scss" with (
-    $webfonts-dir: "/fonts"
+    $webfonts-dir: "../packages/jokul/src/fonts"
 );
