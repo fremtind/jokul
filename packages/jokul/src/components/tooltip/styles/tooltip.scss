@@ -67,7 +67,7 @@ $_focus-ring-width: jkl.rem(2px);
     @include jkl.reset-outline;
 
     &:hover {
-        --button-color: jkl.$sys-color-content-subdued;
+        --button-color: #{jkl.$sys-color-content-subdued};
     }
 
     &:focus-visible {
