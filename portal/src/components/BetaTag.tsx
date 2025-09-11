@@ -1,5 +1,3 @@
-"use client";
-
 import { WarningTag } from "@fremtind/jokul/tag";
 
 const BetaTag = () => {

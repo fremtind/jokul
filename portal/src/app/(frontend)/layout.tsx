@@ -1,6 +1,6 @@
 import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { TabListener } from "@/components/TabListener";
-import { SiteHeader } from "@/components/site-header/SiteHeader";
+import { Header } from "@/components/header/Header";
 import Link from "next/link";
 
 import "./global.scss";
@@ -25,7 +25,7 @@ export default async function PortalLayout({ children }: Props) {
                     Hopp til innhold
                 </Link>
                 <div className="jkl-portal-layout">
-                    <SiteHeader />
+                    <Header />
                     <main>{children}</main>
                 </div>
                 <SanityLive />

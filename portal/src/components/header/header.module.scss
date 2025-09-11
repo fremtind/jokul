@@ -1,0 +1,22 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.header {
+    padding-inline: var(--jkl-spacing-16);
+    padding-block: var(--jkl-spacing-16);
+
+    .logo {
+        @include jkl.text-style("heading-2");
+
+        > span {
+            text-decoration: none;
+            border: 0;
+        }
+    }
+}
+
+@media (width >=940px) {
+    .header {
+        padding-inline: var(--jkl-spacing-64);
+        padding-block: var(--jkl-spacing-24);
+    }
+}

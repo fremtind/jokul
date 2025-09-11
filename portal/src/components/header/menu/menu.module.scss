@@ -1,0 +1,37 @@
+.menu {
+    ul {
+        list-style: none;
+
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        list-style: none;
+
+        li {
+            padding-inline-start: 0;
+            margin: 0;
+
+            // Legg til litt margin over neste element for å skille menypunkter
+            &.separator + * {
+                margin-block-start: var(--jkl-spacing-24);
+            }
+
+            li a {
+                padding-inline-start: var(--jkl-spacing-40);
+            }
+
+            a {
+                box-sizing: border-box;
+                width: 100%;
+                display: block;
+                border-radius: 4px;
+                overflow: hidden;
+                padding: var(--jkl-spacing-8);
+
+                &.active {
+                    background-color: var(--jkl-color-background-interactive-selected);
+                }
+            }
+        }
+    }
+}
