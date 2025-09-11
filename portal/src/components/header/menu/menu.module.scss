@@ -1,0 +1,23 @@
+.menu {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            padding-inline-start: 0;
+            margin: 0;
+
+            // Legg til litt margin over neste element for å dele opp listen i seksjoner
+            &.divider + * {
+                margin-block-start: var(--jkl-spacing-24);
+            }
+
+            a {
+                &.active {
+                    background-color: var(--jkl-color-background-interactive-selected);
+                }
+            }
+        }
+    }
+}
