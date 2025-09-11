@@ -2,11 +2,11 @@
 @use "../../../core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-logo-color: #{jkl.$color-granitt};
+    --jkl-logo-color: #{jkl.$sys-color-content-default};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-logo-color: #{jkl.$color-snohvit};
+    --jkl-logo-color: #{jkl.$sys-color-content-default};
 }
 
 .jkl-logo {
@@ -57,8 +57,8 @@
         }
 
         & .jkl-logo__remtind {
-            transition: opacity jkl.timing("expressive") jkl.timing("energetic")
-                    ease-in,
+            transition:
+                opacity jkl.timing("expressive") jkl.timing("energetic") ease-in,
                 transform jkl.timing("expressive") ease;
         }
     }

@@ -19,7 +19,7 @@
     box-sizing: border-box;
     padding: var(--padding, var(--padding-s));
     text-decoration: none;
-    color: var(--jkl-color-text-default);
+    color: jkl.$sys-color-content-default;
 
     &::after {
         content: "";
@@ -56,11 +56,11 @@
     }
 
     &--high {
-        --background-color: var(--jkl-color-background-container-high);
+        --background-color: jkl.$sys-color-background-surface-highlight;
     }
 
     &--low {
-        --background-color: var(--jkl-color-background-container-low);
+        --background-color: jkl.$sys-color-background-surface-default;
     }
 
     &--outlined {

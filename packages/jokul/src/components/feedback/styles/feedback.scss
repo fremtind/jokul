@@ -3,8 +3,7 @@
 @use "../../../core/jkl";
 
 $_smiley-size: jkl.rem(40px);
-$_smileys-max-width: $_smiley-size
-    * 9; // 5 smileys med fire like store mellomrom
+$_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomrom
 $_show-animation-name: jkl-show-#{string.unique-id()};
 
 @keyframes #{$_show-animation-name} {
@@ -29,7 +28,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     }
 
     &__step-counter {
-        color: var(--jkl-color-text-subdued);
+        color: jkl.$sys-color-content-subdued;
         margin-bottom: jkl.$unit-20;
 
         @include jkl.text-style("body");
@@ -60,7 +59,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     cursor: pointer;
     height: $_smiley-size;
     width: $_smiley-size;
-    color: var(--jkl-color-text-subdued);
+    color: jkl.$sys-color-content-subdued;
     transform: translate3d(0, 0, 0);
 
     @include jkl.motion;
@@ -68,7 +67,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
 
     @include jkl.forced-colors-svg-fallback(
         $stroke: ButtonFace,
-        $fill: ButtonText,
+        $fill: ButtonText
     );
 
     &::before,
@@ -93,11 +92,11 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     }
 
     &:hover {
-        color: var(--jkl-color-text-default);
+        color: jkl.$sys-color-content-default;
     }
 
     input:checked + & {
-        color: var(--jkl-color-text-default);
+        color: jkl.$sys-color-content-default;
         transform: translate3d(0, -20%, 0);
 
         &::before {

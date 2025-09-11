@@ -1,30 +1,30 @@
 /**
- * Do not edit directly
- * Generated on Wed, 18 Dec 2024 12:25:37 GMT
+ * Do not edit directly, this file was auto-generated.
  */
+
 
 $breakpoint-medium: 680px;
 $breakpoint-large: 1200px;
 $breakpoint-xl: 1600px;
-$color-brand-snohvit: #f9f9f9;
-$color-brand-varde: #e0dbd4;
-$color-brand-granitt: #1b1917;
-$color-brand-hvit: #ffffff;
+$color-brand-snohvit: #F9F9F9;
+$color-brand-varde: #E0DBD4;
+$color-brand-granitt: #1B1917;
+$color-brand-hvit: #FFFFFF;
 $color-brand-svart: #000000;
 $color-brand-skifer: #313030;
 $color-brand-fjellgra: #444141;
 $color-brand-stein: #636060;
-$color-brand-svaberg: #c8c5c3;
-$color-brand-dis: #ece9e5;
-$color-brand-sand: #f4f2ef;
-$color-functional-info: #d3d3f6;
-$color-functional-info-dark: #a9a9ca;
-$color-functional-success: #acd3b5;
-$color-functional-success-dark: #94b79b;
-$color-functional-warning: #efdd9e;
-$color-functional-warning-dark: #decc8d;
-$color-functional-error: #f6b3b3;
-$color-functional-error-dark: #de9e9e;
+$color-brand-svaberg: #C8C5C3;
+$color-brand-dis: #ECE9E5;
+$color-brand-sand: #F4F2EF;
+$color-functional-info: #D3D3F6;
+$color-functional-info-dark: #A9A9CA;
+$color-functional-success: #ACD3B5;
+$color-functional-success-dark: #94B79B;
+$color-functional-warning: #EFDD9E;
+$color-functional-warning-dark: #DECC8D;
+$color-functional-error: #F6B3B3;
+$color-functional-error-dark: #DE9E9E;
 $motion-timing-energetic: 75ms;
 $motion-timing-snappy: 100ms;
 $motion-timing-productive: 150ms;
@@ -126,31 +126,22 @@ $unit-80: calc(var(--jkl-unit-10) * 8);
 $unit-90: calc(var(--jkl-unit-10) * 9);
 $unit-130: calc(var(--jkl-unit-10) * 13);
 $unit-210: calc(var(--jkl-unit-10) * 21);
-$unit-02: calc(var(--jkl-unit-10) * 0.25);
-$unit-05: calc(var(--jkl-unit-10) * 0.5);
+$unit-02: calc(var(--jkl-unit-10) * .25);
+$unit-05: calc(var(--jkl-unit-10) * .5);
 
 // Dynamiske variabler for farge, via referanse til CSS-variabler
-$color-background-page: var(--jkl-color-background-page);
 $color-background-page-variant: var(--jkl-color-background-page-variant);
 $color-background-container: var(--jkl-color-background-container);
 $color-background-container-low: var(--jkl-color-background-container-low);
 $color-background-container-high: var(--jkl-color-background-container-high);
-$color-background-container-inverted: var(
-    --jkl-color-background-container-inverted
-);
-$color-background-container-subdued: var(
-    --jkl-color-background-container-subdued
-);
+$color-background-container-inverted: var(--jkl-color-background-container-inverted);
+$color-background-container-subdued: var(--jkl-color-background-container-subdued);
 $color-background-input-base: var(--jkl-color-background-input-base);
 $color-background-input-focus: var(--jkl-color-background-input-focus);
 $color-background-action: var(--jkl-color-background-action);
 $color-background-interactive: var(--jkl-color-background-interactive);
-$color-background-interactive-hover: var(
-    --jkl-color-background-interactive-hover
-);
-$color-background-interactive-selected: var(
-    --jkl-color-background-interactive-selected
-);
+$color-background-interactive-hover: var(--jkl-color-background-interactive-hover);
+$color-background-interactive-selected: var(--jkl-color-background-interactive-selected);
 $color-background-alert-neutral: var(--jkl-color-background-alert-neutral);
 $color-background-alert-info: var(--jkl-color-background-alert-info);
 $color-background-alert-success: var(--jkl-color-background-alert-success);
@@ -171,3 +162,30 @@ $color-border-separator: var(--jkl-color-border-separator);
 $color-border-separator-strong: var(--jkl-color-border-separator-strong);
 $color-border-separator-hover: var(--jkl-color-border-separator-hover);
 $color-border-subdued: var(--jkl-color-border-subdued);
+$sys-color-background-default: var(--jkl-sys-color-background-default);
+$sys-color-background-variant: var(--jkl-sys-color-background-variant);
+$sys-color-background-surface-default: var(--jkl-sys-color-background-surface-default);
+$sys-color-background-surface-highlight: var(--jkl-sys-color-background-surface-highlight);
+$sys-color-background-surface-contrast: var(--jkl-sys-color-background-surface-contrast);
+$sys-color-background-surface-action: var(--jkl-sys-color-background-surface-action);
+$sys-color-background-surface-support-error: var(--jkl-sys-color-background-surface-support-error);
+$sys-color-background-surface-support-warning: var(--jkl-sys-color-background-surface-support-warning);
+$sys-color-background-surface-support-info: var(--jkl-sys-color-background-surface-support-info);
+$sys-color-background-surface-support-success: var(--jkl-sys-color-background-surface-support-success);
+$sys-color-background-surface-support-neutral: var(--jkl-sys-color-background-surface-support-neutral);
+$sys-color-border-default: var(--jkl-sys-color-border-default);
+$sys-color-border-strong: var(--jkl-sys-color-border-strong);
+$sys-color-border-action: var(--jkl-sys-color-border-action);
+$sys-color-content-default: var(--jkl-sys-color-content-default);
+$sys-color-content-subdued: var(--jkl-sys-color-content-subdued);
+$sys-color-content-on-contrast: var(--jkl-sys-color-content-on-contrast);
+$sys-color-content-on-decoration: var(--jkl-sys-color-content-on-decoration);
+$sys-color-content-knockout: var(--jkl-sys-color-content-knockout);
+$sys-color-content-info: var(--jkl-sys-color-content-info);
+$sys-color-content-info-strong: var(--jkl-sys-color-content-info-strong);
+$sys-color-content-success: var(--jkl-sys-color-content-success);
+$sys-color-content-success-strong: var(--jkl-sys-color-content-success-strong);
+$sys-color-content-error: var(--jkl-sys-color-content-error);
+$sys-color-content-error-strong: var(--jkl-sys-color-content-error-strong);
+$sys-color-content-warning: var(--jkl-sys-color-content-warning);
+$sys-color-content-warning-strong: var(--jkl-sys-color-content-warning-strong);

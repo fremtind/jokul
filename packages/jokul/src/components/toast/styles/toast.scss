@@ -43,8 +43,8 @@
 }
 
 .jkl-toast {
-    --background-color: var(--jkl-color-background-container-high);
-    --text-color: var(--jkl-color-text-default);
+    --background-color: #{jkl.$sys-color-background-surface-highlight};
+    --text-color: #{jkl.$sys-color-content-default};
 
     color: var(--text-color);
     background-color: var(--background-color);
@@ -145,23 +145,23 @@
     &--warning,
     &--error,
     &--success {
-        --text-color: var(--jkl-color-text-on-alert);
+        --text-color: #{jkl.$sys-color-content-default};
     }
 
     &--info {
-        --background-color: var(--jkl-color-background-alert-info);
+        --background-color: #{jkl.$sys-color-background-surface-support-info};
     }
 
     &--warning {
-        --background-color: var(--jkl-color-background-alert-warning);
+        --background-color: #{jkl.$sys-color-background-surface-support-warning};
     }
 
     &--error {
-        --background-color: var(--jkl-color-background-alert-error);
+        --background-color: #{jkl.$sys-color-background-surface-support-error};
     }
 
     &--success {
-        --background-color: var(--jkl-color-background-alert-success);
+        --background-color: #{jkl.$sys-color-background-surface-support-success};
     }
 
     @include jkl.forced-colors-mode {
