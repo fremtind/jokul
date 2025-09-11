@@ -16,14 +16,13 @@ body {
     flex-direction: column;
     column-gap: var(--jkl-unit-30);
     max-width: var(--max-width);
-    padding: jkl.$spacing-24 jkl.$spacing-16;
+    padding: var(--jkl-spacing-16);
 
     @media (width >=940px) {
         padding: 0;
-        flex-direction: row;
 
         main {
-            padding: jkl.$spacing-40;
+            padding: var(--jkl-spacing-40);
         }
     }
 }
@@ -70,19 +69,19 @@ article header {
     box-sizing: border-box;
 
     > * {
-        width: 100%;
-
         p {
             max-width: 55ch;
         }
+
+        width: 100%;
     }
 
     > h2 {
-        margin-block: 2lh 0.2lh;
-
         :has(+ h3) {
             margin-block-end: 0;
         }
+
+        margin-block: 2lh 0.2lh;
     }
 
     > h3 {
