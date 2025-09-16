@@ -24,7 +24,7 @@ export const Image: FC<ImageProps> = ({
             {/* Placeholder er bevisst uten loading og decoding for å vises umiddelbart */}
             <img
                 className="jkl-image__placeholder"
-                alt={alt}
+                alt={imageLoaded ? "" : alt}
                 src={placeholder || imageProperties.src}
             />
             {/* biome-ignore lint/a11y/useAltText: Den har da vitterlig en alt-attributt? */}
