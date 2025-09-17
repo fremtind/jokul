@@ -1,5 +1,5 @@
 import { client } from "@/sanity/lib/client";
-import { blogPostsQuery, komIGangQuery } from "@/sanity/queries/blog";
+import { komIGangQuery } from "@/sanity/queries/blog";
 import { componentsQuery } from "@/sanity/queries/component";
 import clsx from "clsx";
 import styles from "../SiteHeader.module.scss";
@@ -54,9 +54,7 @@ export const MenuItemList = async () => {
 
                         return (
                             <li key={name} className={clsx("jkl-list__item")}>
-                                <MenuItem
-                                    href={`/komponenter/${slug?.current}`}
-                                >
+                                <MenuItem href={`/komponenter/${slug}`}>
                                     {name}
                                 </MenuItem>
                             </li>
