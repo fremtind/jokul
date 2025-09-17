@@ -1,61 +1,67 @@
 "use client";
 
-import {
-    SegmentedControl,
-    SegmentedControlButton,
-} from "@fremtind/jokul/segmented-control";
-import clsx from "clsx";
-import { setCookie } from "cookies-next";
-import { useState } from "react";
 import styles from "./komponenter.module.scss";
+import { useState, useMemo, useCallback } from "react";
+import { ComponentCard } from "./ComponentCard";
+import { ComponentFilterToolbar } from "@/components/component-filter-toolbar/ComponentFilterToolbar";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { createQueryString } from "@/utils/url";
+import { useUserPreferences } from "@/context/UserPreferencesContext/UserPreferencesContext";
+import type { ComponentsQueryResult } from "@/sanity/types";
 
 type ComponentGalleryProps = {
-    mode?: string;
-    children?: React.ReactNode;
+    components: ComponentsQueryResult;
 };
 
-export const ComponentGallery = ({ children, mode }: ComponentGalleryProps) => {
-    const [viewMode, setViewMode] = useState(mode || "grid");
+export const ComponentGallery = ({ components }: ComponentGalleryProps) => {
+    const { preferences } = useUserPreferences();
+    const router = useRouter();
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
+    const keywordsParam = searchParams.get("keywords");
 
-    const toggleGalleryView = () => {
-        const newViewMode = viewMode === "grid" ? "list" : "grid";
-        setViewMode(newViewMode);
-        setCookie("componentGalleryViewMode", newViewMode);
-    };
+    const [selectedKeywords, setSelectedKeywords] = useState<string[]>(
+        keywordsParam ? keywordsParam.split(",") : [],
+    );
+
+    const filteredComponents = useMemo(() => {
+        if (!selectedKeywords || selectedKeywords.length === 0) {
+            return components;
+        }
+
+        return components.filter(({ keywords }) => {
+            return keywords?.some((keyword) =>
+                selectedKeywords.includes(keyword),
+            );
+        });
+    }, [components, selectedKeywords]);
+
+    const handleKeywordsChange = useCallback(
+        (keywords: string[]) => {
+            router.push(
+                `${pathname}?${createQueryString(searchParams, "keywords", keywords.join(","))}`,
+            );
+            setSelectedKeywords(keywords);
+        },
+        [router, pathname, searchParams],
+    );
 
     return (
         <>
-            <SegmentedControl
-                onChange={toggleGalleryView}
-                style={{
-                    marginBottom: "var(--jkl-unit-40)",
-                    alignSelf: "flex-end",
-                }}
-                legend="Velg visning"
-                labelProps={{ srOnly: true }}
-            >
-                <SegmentedControlButton
-                    value="list"
-                    defaultChecked={viewMode === "list"}
-                    name="visning"
-                >
-                    Liste
-                </SegmentedControlButton>
-                <SegmentedControlButton
-                    value="grid"
-                    defaultChecked={viewMode === "grid"}
-                    name="visning"
-                >
-                    Galleri
-                </SegmentedControlButton>
-            </SegmentedControl>
+            <ComponentFilterToolbar
+                selectedKeywords={selectedKeywords}
+                onSelectedKeywordsChangeAction={handleKeywordsChange}
+            />
             <ul
+                data-grid-size={preferences.componentGridSize}
                 aria-label="Komponenter"
-                className={clsx(styles.componentGallery, {
-                    [styles.listView]: viewMode === "list",
-                })}
+                className={styles.componentGallery}
             >
-                {children}
+                {filteredComponents.map((component) => (
+                    <li key={component.slug}>
+                        <ComponentCard component={component} />
+                    </li>
+                ))}
             </ul>
         </>
     );

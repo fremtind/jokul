@@ -45,8 +45,9 @@ h4 {
 }
 
 p {
-    @include jkl.text-style("body");
     max-width: 55ch;
+
+    @include jkl.text-style("body");
 }
 
 code,

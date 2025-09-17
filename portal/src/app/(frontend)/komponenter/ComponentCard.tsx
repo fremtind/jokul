@@ -1,13 +1,14 @@
 import { client } from "@/sanity/lib/client";
-import { sanityFetch } from "@/sanity/lib/live";
-import { componentCardQuery } from "@/sanity/queries/component";
 import imageUrlBuilder from "@sanity/image-url";
 import NextLink from "next/link";
 import { ComponentThumbnail } from "./ComponentThumbnail";
+import type { ComponentsQueryResult } from "@/sanity/types";
+import { useUserPreferences } from "@/context/UserPreferencesContext/UserPreferencesContext";
+import { Card } from "@fremtind/jokul/card";
 import styles from "./komponenter.module.scss";
 
-type Props = {
-    componentSlug: string;
+type ComponentCardProps = {
+    component: ComponentsQueryResult[0] | null;
 };
 
 const builder = imageUrlBuilder(client);
@@ -16,12 +17,8 @@ function urlFor(source?: { asset?: { _ref: string }; _type: string }) {
     return source?.asset?._ref ? builder.image(source).url() : undefined;
 }
 
-export const ComponentCard = async ({ componentSlug }: Props) => {
-    const { data: component } = await sanityFetch({
-        query: componentCardQuery,
-        requestTag: "component-card",
-        params: { componentSlug },
-    });
+export const ComponentCard = ({ component }: ComponentCardProps) => {
+    const { preferences } = useUserPreferences();
 
     if (!component) return null;
 
@@ -41,25 +38,29 @@ export const ComponentCard = async ({ componentSlug }: Props) => {
         : fallbackDark;
 
     return (
-        <NextLink
+        <Card
+            as={NextLink}
             href={`/komponenter/${component.slug}`}
+            padding="l"
             className={styles.componentCard}
-            aria-label={component.name || "Gå til komponent"}
+            aria-label={`Gå til ${component.name}` || "Gå til komponent"}
             aria-describedby={`${component.name}-description`}
         >
-            {imageDarkUrl && imageLightUrl ? (
+            <p className={styles.name}>{component.name}</p>
+            {preferences.showComponentDescription && (
+                <p
+                    className={styles.description}
+                    id={`${component.name}-description`}
+                >
+                    {component.short_description}
+                </p>
+            )}
+            {preferences.showComponentImage && imageDarkUrl && imageLightUrl ? (
                 <ComponentThumbnail
                     darkImage={imageDarkUrl}
                     lightImage={imageLightUrl}
                 />
             ) : null}
-            <p className={styles.name}>{component.name}</p>
-            <p
-                className={styles.description}
-                id={`${component.name}-description`}
-            >
-                {component.short_description}
-            </p>
-        </NextLink>
+        </Card>
     );
 };
