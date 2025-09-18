@@ -23,8 +23,8 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 
 .jkl-checkbox-panel {
     --checkbox-background-color: transparent;
-    --checkbox-box-color: var(--jkl-color-border-action);
-    --checkbox-check-color: var(--jkl-color-border-action);
+    --checkbox-box-color: var(--jkl-sys-color-border-contrast);
+    --checkbox-check-color: var(--jkl-sys-color-content-default);
 
     // The box
     &__decorator {
@@ -85,6 +85,6 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 
     &:has([aria-invalid="true"]) {
         --checkbox-background-color: var(--jkl-color-background-alert-error);
-        --checkbox-check-color: jkl.$sys-color-content-default;
+        --checkbox-check-color: var(--jkl-sys-color-content-default);
     }
 }

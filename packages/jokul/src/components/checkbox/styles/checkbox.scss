@@ -60,7 +60,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
 .jkl-checkbox {
     --box-color: var(--jkl-color-border-action);
     --check-color: var(--jkl-color-border-action);
-    --text-color: #{jkl.$sys-color-content-default};
+    --text-color: var(--jkl-sys-color-content-default);
     --background-color: transparent;
 
     @include jkl.use-font-variables("jkl-checkbox");
@@ -233,7 +233,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
     }
 
     &--error {
-        --background-color: jkl.$sys-color-background-surface-error;
-        --check-color: jkl.$sys-color-content-default;
+        --background-color: var(--jkl-sys-color-background-surface-error);
+        --check-color: var(--jkl-sys-color-content-default);
     }
 }

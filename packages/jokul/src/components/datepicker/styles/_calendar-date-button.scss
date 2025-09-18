@@ -1,19 +1,31 @@
 @use "../../../core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-calendar-adjacent-month-color: #{jkl.$sys-color-background-surface-contrast};
+    --jkl-calendar-adjacent-month-color: var(
+        --jkl-sys-color-background-surface-contrast
+    );
     --jkl-calendar-disabled-day-color: #{jkl.$color-svaberg};
-    --jkl-calendar-active-day-color: #{jkl.$sys-color-background-surface-highlight};
+    --jkl-calendar-active-day-color: var(
+        --jkl-sys-color-background-surface-highlight
+    );
     --jkl-calendar-hover-date-background-color: #{jkl.$color-dis};
-    --jkl-calendar-selected-date-background-color: #{jkl.$sys-color-background-surface-contrast};
+    --jkl-calendar-selected-date-background-color: var(
+        --jkl-sys-color-background-surface-contrast
+    );
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-calendar-adjacent-month-color: #{jkl.$sys-color-background-surface-contrast};
+    --jkl-calendar-adjacent-month-color: var(
+        --jkl-sys-color-background-surface-contrast
+    );
     --jkl-calendar-disabled-day-color: #{jkl.$color-stein};
-    --jkl-calendar-active-day-color: #{jkl.$sys-color-background-surface-highlight};
+    --jkl-calendar-active-day-color: var(
+        --jkl-sys-color-background-surface-highlight
+    );
     --jkl-calendar-hover-date-background-color: #{jkl.$color-stein};
-    --jkl-calendar-selected-date-background-color: #{jkl.$sys-color-background-surface-contrast};
+    --jkl-calendar-selected-date-background-color: var(
+        --jkl-sys-color-background-surface-contrast
+    );
 }
 
 @include jkl.comfortable-density-variables {

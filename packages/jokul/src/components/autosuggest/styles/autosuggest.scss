@@ -1,22 +1,26 @@
 @use "../../../core/jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-autosuggest-text-color: #{jkl.$sys-color-content-default};
+    --jkl-autosuggest-text-color: var(--jkl-sys-color-content-default);
     --jkl-autosuggest-menu-background-color: #{jkl.$color-hvit};
-    --jkl-autosuggest-focus-color: #{jkl.$sys-color-content-default};
-    --jkl-autosuggest-error-text-color: #{jkl.$sys-color-content-default};
-    --jkl-autosuggest-error-placeholder-color: #{jkl.$sys-color-content-subdued};
-    --jkl-autosuggest-hover-option-color: #{jkl.$sys-color-content-default};
+    --jkl-autosuggest-focus-color: var(--jkl-sys-color-content-default);
+    --jkl-autosuggest-error-text-color: var(--jkl-sys-color-content-default);
+    --jkl-autosuggest-error-placeholder-color: var(
+        --jkl.$sys-color-content-subdued
+    );
+    --jkl-autosuggest-hover-option-color: var(--jkl-sys-color-content-default);
     --jkl-autosuggest-hover-option-background-color: #{jkl.$color-varde};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-autosuggest-text-color: #{jkl.$sys-color-content-default};
+    --jkl-autosuggest-text-color: var(--jkl-sys-color-content-default);
     --jkl-autosuggest-menu-background-color: #{jkl.$color-svart};
-    --jkl-autosuggest-focus-color: #{jkl.$sys-color-content-default};
-    --jkl-autosuggest-error-text-color: #{jkl.$sys-color-content-default};
-    --jkl-autosuggest-error-placeholder-color: #{jkl.$sys-color-content-subdued};
-    --jkl-autosuggest-hover-option-color: #{jkl.$sys-color-content-default};
+    --jkl-autosuggest-focus-color: var(--jkl-sys-color-content-default);
+    --jkl-autosuggest-error-text-color: var(--jkl-sys-color-content-default);
+    --jkl-autosuggest-error-placeholder-color: var(
+        --jkl.$sys-color-content-subdued
+    );
+    --jkl-autosuggest-hover-option-color: var(--jkl-sys-color-content-default);
     --jkl-autosuggest-hover-option-background-color: #{jkl.$color-stein};
 }
 

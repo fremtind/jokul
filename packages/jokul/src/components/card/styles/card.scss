@@ -56,11 +56,11 @@
     }
 
     &--high {
-        --background-color: jkl.$sys-color-background-surface-highlight;
+        --background-color: var(--jkl-sys-color-background-surface-highlight);
     }
 
     &--low {
-        --background-color: jkl.$sys-color-background-surface-default;
+        --background-color: var(--jkl-sys-color-background-surface-default);
     }
 
     &--outlined {

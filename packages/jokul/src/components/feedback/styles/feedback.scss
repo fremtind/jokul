@@ -28,7 +28,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     }
 
     &__step-counter {
-        color: jkl.$sys-color-content-subdued;
+        color: var(--jkl-sys-color-content-subdued);
         margin-bottom: jkl.$unit-20;
 
         @include jkl.text-style("body");
@@ -59,7 +59,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     cursor: pointer;
     height: $_smiley-size;
     width: $_smiley-size;
-    color: jkl.$sys-color-content-subdued;
+    color: var(--jkl-sys-color-content-subdued);
     transform: translate3d(0, 0, 0);
 
     @include jkl.motion;
@@ -92,11 +92,11 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
     }
 
     &:hover {
-        color: jkl.$sys-color-content-default;
+        color: var(--jkl-sys-color-content-default);
     }
 
     input:checked + & {
-        color: jkl.$sys-color-content-default;
+        color: var(--jkl-sys-color-content-default);
         transform: translate3d(0, -20%, 0);
 
         &::before {

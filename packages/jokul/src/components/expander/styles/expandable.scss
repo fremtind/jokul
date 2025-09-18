@@ -27,7 +27,7 @@
     }
 
     &--stroke {
-        border-color: var(--jkl-color-border-separator);
+        border-color: var(--jkl-sys-color-border-default);
         background-color: transparent;
 
         border-radius: 0;
@@ -133,7 +133,7 @@
 
     @media (hover: hover) {
         &:hover {
-            background-color: var(--jkl-color-background-interactive-selected);
+            background-color: var(--jkl-sys-color-background-surface-default);
         }
     }
 

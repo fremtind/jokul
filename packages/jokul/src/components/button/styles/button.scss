@@ -36,7 +36,7 @@
 
 .jkl-button {
     --jkl-icon-weight: var(--jkl-button-icon-weight, initial);
-    --text-color: #{jkl.$sys-color-content-default};
+    --text-color: var(--jkl-sys-color-content-default);
     --background-color: transparent;
     --border-radius: 0;
     --border-width: #{jkl.rem(1px)}; // For secondary og tertiary button
@@ -142,8 +142,8 @@
     }
 
     &--primary {
-        --background-color: #{jkl.$sys-color-background-surface-action};
-        --text-color: #{jkl.$sys-color-content-knockout};
+        --background-color: var(--jkl-sys-color-background-surface-action);
+        --text-color: var(--jkl-sys-color-content-knockout);
 
         @media (forced-colors: active) {
             border: calc(var(--border-width) * 2) solid Highlight;
