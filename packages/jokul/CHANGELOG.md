@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.4
+
+### Patch Changes
+
+- 5e23ffd: fjerner alt-tekst fra placeholder-bilde etter innlasting
+
 ## 1.2.3
 
 ### Patch Changes
