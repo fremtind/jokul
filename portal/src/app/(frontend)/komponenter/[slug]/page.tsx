@@ -96,9 +96,8 @@ export default async function Page({ params }: Props) {
                                             (relatedComponent) => (
                                                 <li key={relatedComponent.slug}>
                                                     <ComponentCard
-                                                        componentSlug={
-                                                            relatedComponent.slug ||
-                                                            ""
+                                                        component={
+                                                            relatedComponent
                                                         }
                                                     />
                                                 </li>

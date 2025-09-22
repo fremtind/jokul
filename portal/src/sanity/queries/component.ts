@@ -2,9 +2,13 @@ import { defineQuery } from "next-sanity";
 
 export const componentsQuery = defineQuery(`*[_type == "jokul_component"]{
     name,
-    slug,
-    "imageUrl": image.asset->url,
-    
+    short_description,
+    "slug": slug.current,
+    figma_image,
+    image,
+    imageDark,
+    related_components,
+    keywords
 } | order(name)`);
 
 export const componentBySlugQuery =
@@ -50,7 +54,13 @@ export const componentBySlugQuery =
         related_components {
             components[]->{
                 name,
-                "slug": slug.current
+                short_description,
+                "slug": slug.current,
+                figma_image,
+                image,
+                imageDark,
+                related_components,
+                keywords
             }
         }
     }`);
@@ -64,4 +74,5 @@ export const componentCardQuery =
         image,
         imageDark,
         related_components,
+        keywords
     }[0]`);
