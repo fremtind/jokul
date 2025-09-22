@@ -28,7 +28,7 @@ export const ComponentHeader = ({
                 className={styles.header}
                 justifyContent="space-between"
             >
-                <div>
+                <div className={styles.wrapper}>
                     {name && (
                         <h1 className={styles.name} lang="en">
                             {name}
