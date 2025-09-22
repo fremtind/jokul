@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { CheckboxPanel as CheckboxPanelComponent } from "../CheckboxPanel.js";
