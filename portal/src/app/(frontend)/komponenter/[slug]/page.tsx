@@ -3,6 +3,7 @@ import { ComponentCard } from "@/components/component-card/ComponentCard";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
+import { LinkList } from "@fremtind/jokul/link-list";
 import clsx from "clsx";
 import { logger } from "logger";
 import { ComponentConsiderations } from "./components/ComponentConsiderations";
@@ -49,18 +50,35 @@ export default async function Page({ params }: Props) {
 
     return (
         <article className={styles.article}>
-            <ComponentHeader
-                name={component?.name}
-                description={component?.short_description}
-                links={{
-                    figma: component?.external_links?.figma_link,
-                    storybook: component?.external_links?.storybook_link,
-                    github: component?.external_links?.github_link,
-                }}
-            />
+            <div>
+                <ComponentHeader
+                    name={component?.name}
+                    description={component?.short_description}
+                    links={{
+                        figma: component?.external_links?.figma_link,
+                        storybook: component?.external_links?.storybook_link,
+                        github: component?.external_links?.github_link,
+                    }}
+                />
+
+                <LinkList className={styles.toc} variant="ordered">
+                    <LinkList.Item>
+                        <LinkList.Link href="#">Ting å tenke på</LinkList.Link>
+                    </LinkList.Item>
+                    <LinkList.Item>
+                        <LinkList.Link href="#">Anatomi</LinkList.Link>
+                    </LinkList.Item>
+                    <LinkList.Item>
+                        <LinkList.Link href="#">Retningslinjer</LinkList.Link>
+                    </LinkList.Item>
+                    <LinkList.Item>
+                        <LinkList.Link href="#">Tilgjengelighet</LinkList.Link>
+                    </LinkList.Item>
+                </LinkList>
+            </div>
 
             {component.name && (
-                <div className={clsx("prose", styles.wrapper)}>
+                <div className={styles.wrapper}>
                     {component.considerations && (
                         <>
                             <h2 className={"jkl-sr-only"}>Ting å tenke på</h2>

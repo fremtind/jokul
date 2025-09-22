@@ -17,8 +17,6 @@
 
 .componentPage {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    container-type: inline-size;
+    display: grid;
+    padding: var(--jkl-spacing-40) var(--jkl-spacing-64);
 }
-
