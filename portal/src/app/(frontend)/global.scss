@@ -4,6 +4,10 @@
 @use "@fremtind/jokul/styles";
 @use "@fremtind/jokul/styles/core/jkl";
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     --max-width: 1440px;
     --min-width: 320px;
@@ -61,7 +65,6 @@ article header {
 }
 
 .prose {
-    margin-block-start: var(--jkl-spacing-64);
     width: 100%;
     container-type: inline-size;
     box-sizing: border-box;
@@ -109,7 +112,7 @@ article header {
 
 .date {
     color: var(--jkl-color-text-subdued);
-    
+
     @include jkl.text-style("small");
     @include jkl.use-font-family("Fremtind Grotesk Mono");
 }
