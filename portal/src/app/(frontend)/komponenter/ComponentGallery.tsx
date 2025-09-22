@@ -9,19 +9,28 @@ import { createQueryString } from "@/utils/url";
 import { useUserPreferences } from "@/context/UserPreferencesContext/UserPreferencesContext";
 import type { ComponentsQueryResult } from "@/sanity/types";
 
-type ComponentGalleryProps = {
-    components: ComponentsQueryResult;
+export type InitialSearchParams = {
+    keywords?: string;
 };
 
-export const ComponentGallery = ({ components }: ComponentGalleryProps) => {
+type ComponentGalleryProps = {
+    components: ComponentsQueryResult;
+    initialSearchParams: InitialSearchParams;
+};
+
+export const ComponentGallery = ({
+    components,
+    initialSearchParams,
+}: ComponentGalleryProps) => {
     const { preferences } = useUserPreferences();
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
-    const keywordsParam = searchParams.get("keywords");
 
     const [selectedKeywords, setSelectedKeywords] = useState<string[]>(
-        keywordsParam ? keywordsParam.split(",") : [],
+        initialSearchParams.keywords
+            ? initialSearchParams.keywords.split(",")
+            : [],
     );
 
     const filteredComponents = useMemo(() => {
