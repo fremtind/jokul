@@ -6,6 +6,9 @@ import { TooltipContent } from "./TooltipContent.js";
 import { TooltipTrigger } from "./TooltipTrigger.js";
 import type { PopupTipProps } from "./types.js";
 
+/**
+ * @deprecated bruk heller Help
+ */
 export const PopupTip: FC<PopupTipProps> = ({
     content,
     triggerProps,
