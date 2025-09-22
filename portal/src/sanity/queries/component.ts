@@ -10,6 +10,9 @@ export const componentsQuery = defineQuery(`*[_type == "jokul_component"]{
 export const componentBySlugQuery =
     defineQuery(`*[_type == "jokul_component" && slug.current == $slug][0] {
         ...,
+        "component_example_card": component_example_card{
+        "url": asset->url
+        },
         documentation_article[]{
             ...,
             _type == "jokul_componentKortFortalt" => {
@@ -60,5 +63,5 @@ export const componentCardQuery =
         figma_image,
         image,
         imageDark,
-        related_components
+        related_components,
     }[0]`);
