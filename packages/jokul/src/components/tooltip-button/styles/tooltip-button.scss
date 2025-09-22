@@ -1,0 +1,72 @@
+@use "../../../core/jkl";
+
+.jkl-popuptip--trigger {
+    vertical-align: middle;
+    top: -2px;
+}
+
+.jkl-popuptip--popup {
+    max-width: 35ch;
+    padding: var(--jkl-unit-30);
+    margin: var(--jkl-unit-05);
+    inset: auto;
+    border: none;
+    background-color: var(--jkl-color-background-container-high);
+    color: var(--jkl-color-text-default);
+
+    header button {
+        display: none;
+    }
+
+    .title {
+        @include jkl.text-style("body") {
+            font-weight: bold;
+        }
+    }
+
+    &[data-position="top"] {
+        position-area: top center;
+        position-try: top, bottom, right, left;
+    }
+
+    &[data-position="bottom"] {
+        position-area: bottom center;
+        position-try: bottom, top, right, left;
+    }
+
+    &[data-position="left"] {
+        position-area: left center;
+        position-try: left, right, top, bottom;
+    }
+
+    &[data-position="right"] {
+        position-area: right center;
+        position-try: right, left, top, bottom;
+    }
+
+    @supports not (anchor-name: --hei) {
+        position: absolute;
+        max-width: 90dvw;
+        inset-block-start: 25%;
+        inset-inline-start: 50%;
+        transform: translateX(-50%) translateY(-50%);
+
+        &::backdrop {
+            opacity: 0.5;
+            background-color: var(--jkl-color-background-container-high);
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: var(--jkl-unit-30);
+            align-items: center;
+
+            button {
+                display: revert;
+                grid-column: 2;
+                align-self: start;
+            }
+        }
+    }
+}
