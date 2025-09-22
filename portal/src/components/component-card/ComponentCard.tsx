@@ -1,13 +1,14 @@
 "use client";
 
+import { ComponentThumbnail } from "@/components/component-card/ComponentThumbnail";
 import { client } from "@/sanity/lib/client";
+import type { ComponentsQueryResult } from "@/sanity/types";
+import { useUserPreferences } from "@/utils/user-preferences";
+import { Card } from "@fremtind/jokul/card";
 import imageUrlBuilder from "@sanity/image-url";
 import NextLink from "next/link";
-import { ComponentThumbnail } from "./ComponentThumbnail";
-import type { ComponentsQueryResult } from "@/sanity/types";
-import { useUserPreferences } from "@/context/UserPreferencesContext/UserPreferencesContext";
-import { Card } from "@fremtind/jokul/card";
-import styles from "./komponenter.module.scss";
+
+import styles from "./component-card.module.scss";
 
 type ComponentCardProps = {
     component: ComponentsQueryResult[0] | null;

@@ -1,14 +1,15 @@
-import { ComponentCard } from "@/app/(frontend)/komponenter/ComponentCard";
-import { ComponentConsiderations } from "@/app/(frontend)/komponenter/[slug]/components/ComponentConsiderations";
 import { PageFooter } from "@/components/PageFooter";
+import { ComponentCard } from "@/components/component-card/ComponentCard";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
 import clsx from "clsx";
 import { logger } from "logger";
-import styles from "./component.module.scss";
+import { ComponentConsiderations } from "./components/ComponentConsiderations";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
+
+import styles from "./component.module.scss";
 
 type Props = {
     params: Promise<{ slug: string }>;

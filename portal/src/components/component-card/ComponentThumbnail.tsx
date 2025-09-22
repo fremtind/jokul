@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardImage } from "@fremtind/jokul/card";
-import styles from "./komponenter.module.scss";
+import styles from "./component-card.module.scss";
 
 type Props = {
     lightImage: string;
