@@ -1,10 +1,16 @@
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentsQuery } from "@/sanity/queries/component";
 import { logger } from "logger";
-import { ComponentGallery } from "./ComponentGallery";
+import { ComponentGallery, type InitialSearchParams } from "./ComponentGallery";
 import styles from "./komponenter.module.scss";
 
-export default async function Components() {
+export default async function Components({
+    searchParams,
+}: {
+    searchParams: Promise<InitialSearchParams>;
+}) {
+    const initialSearchParams = await searchParams;
+
     logger.info("Rendering component overview page");
 
     const { data: components } = await sanityFetch({
@@ -25,7 +31,10 @@ export default async function Components() {
     return (
         <>
             <h1 className={styles.pageTitle}>Komponenter</h1>
-            <ComponentGallery components={components} />
+            <ComponentGallery
+                components={components}
+                initialSearchParams={initialSearchParams}
+            />
         </>
     );
 }

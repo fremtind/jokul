@@ -4,6 +4,12 @@ export const createQueryString = (
     value: string,
 ): string => {
     const params = new URLSearchParams(currentParams.toString());
-    params.set(name, value);
+
+    if (value) {
+        params.set(name, value);
+    } else {
+        params.delete(name);
+    }
+
     return params.toString();
 };
