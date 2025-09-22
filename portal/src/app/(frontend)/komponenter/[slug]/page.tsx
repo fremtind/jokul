@@ -9,6 +9,7 @@ import { logger } from "logger";
 import { ComponentConsiderations } from "./components/ComponentConsiderations";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
+import { ComponentNav } from "./components/ComponentNav";
 
 import styles from "./component.module.scss";
 
@@ -61,20 +62,9 @@ export default async function Page({ params }: Props) {
                     }}
                 />
 
-                <LinkList className={styles.toc} variant="ordered">
-                    <LinkList.Item>
-                        <LinkList.Link href="#">Ting å tenke på</LinkList.Link>
-                    </LinkList.Item>
-                    <LinkList.Item>
-                        <LinkList.Link href="#">Anatomi</LinkList.Link>
-                    </LinkList.Item>
-                    <LinkList.Item>
-                        <LinkList.Link href="#">Retningslinjer</LinkList.Link>
-                    </LinkList.Item>
-                    <LinkList.Item>
-                        <LinkList.Link href="#">Tilgjengelighet</LinkList.Link>
-                    </LinkList.Item>
-                </LinkList>
+                {component.documentation_article && (
+                    <ComponentNav blocks={component.documentation_article} />
+                )}
             </div>
 
             {component.name && (

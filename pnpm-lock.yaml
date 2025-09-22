@@ -295,6 +295,7 @@ importers:
       react-live: ^4.1.8
       sanity: ^3.86.1
       sharp: 0.33.5
+      slugify: ^1.6.6
       styled-components: ^6.1.17
       typescript: ^5.8.3
       winston: ^3.17.0
@@ -323,6 +324,7 @@ importers:
       react-live: 4.1.8_nnrd3gsncyragczmpvfhocinkq
       sanity: 3.86.1_auzxpjqgwiuw3jwkbpkeo4l7wy
       sharp: 0.33.5
+      slugify: 1.6.6
       styled-components: 6.1.17_nnrd3gsncyragczmpvfhocinkq
       winston: 3.17.0
     devDependencies:
@@ -2702,14 +2704,6 @@ packages:
     dev: true
     optional: true
 
-  /@emnapi/runtime/1.4.3:
-    resolution: {integrity: sha512-pBPWdu6MLKROBX05wSNKcNb++m5Er+KQ9QkB+WVM+pW2Kx9hoSrVTnu3BdkI5eBLZoKu/J6mW/B6i6bJB2ytXQ==}
-    requiresBuild: true
-    dependencies:
-      tslib: 2.8.1
-    dev: true
-    optional: true
-
   /@emnapi/runtime/1.4.5:
     resolution: {integrity: sha512-++LApOtY0pEEz1zrd9vy1/zXVaVJJ/EbAF3u0fXIzPJEDtnITsBGbbK0EkM72amhl/R5b+5xx0Y/QhcVOpuulg==}
     requiresBuild: true
@@ -4251,7 +4245,7 @@ packages:
     requiresBuild: true
     dependencies:
       '@emnapi/core': 1.4.3
-      '@emnapi/runtime': 1.4.3
+      '@emnapi/runtime': 1.4.5
       '@tybys/wasm-util': 0.9.0
     dev: true
     optional: true
@@ -18452,6 +18446,11 @@ packages:
       ansi-styles: 6.2.1
       is-fullwidth-code-point: 5.0.0
     dev: true
+
+  /slugify/1.6.6:
+    resolution: {integrity: sha512-h+z7HKHYXj6wJU+AnS/+IH8Uh9fdcX1Lrhg1/VMdf9PwoBQXFcXiAdsy2tSK0P6gKwJLXp02r90ahUCqHk9rrw==}
+    engines: {node: '>=8.0.0'}
+    dev: false
 
   /smob/1.5.0:
     resolution: {integrity: sha512-g6T+p7QO8npa+/hNx9ohv1E5pVCmWrVCUzUXJyLdMmftX6ER0oiWY/w9knEonLpnOp6b6FenKnMfR8gqwWdwig==}
