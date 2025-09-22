@@ -1,0 +1,16 @@
+import{R as e}from"./index-siqcju79.js";import{I as r}from"./Icon-mINJCSxV.js";import{B as n}from"./Button-Bm5jRD6q.js";/* empty css               */import"./_commonjsHelpers-DaWZu8wl.js";import"./clsx-B-dksMZM.js";import"./usePreviousValue-f0kyfTHz.js";import"./Loader-Dq-CBRAZ.js";import"./useDelayedRender-CQprwS1c.js";const a=({title:t,showTitle:p=!0,content:l,position:i="bottom",popoverType:s="auto"})=>e.createElement(e.Fragment,null,e.createElement(n,{title:t,"aria-label":t,variant:"ghost",className:"jkl-popuptip--trigger","data-testid":"jkl-popuptip-trigger",icon:e.createElement(r,{"aria-hidden":"true"},"help"),popovertarget:`${t}-popover`,style:{anchorName:`${t}-popover`}}),e.createElement("div",{"data-theme":"dark",popover:s,id:`${t}-popover`,"data-position":i,className:"jkl-popuptip--popup",style:{positionAnchor:`${t}-popover`}},e.createElement("header",null,p&&e.createElement("p",{className:"title"},t),e.createElement(n,{title:"Lukk","aria-label":"Lukk dialogen",variant:"ghost",icon:e.createElement(r,{"aria-hidden":"true"},"close"),popovertarget:`${t}-popover`,popovertargetaction:"hide"})),e.createElement("div",{className:"jkl-popuptip__content-wrapper",tabIndex:0},l)));a.__docgenInfo={description:"",methods:[],displayName:"TooltipButton",props:{title:{required:!0,tsType:{name:"string"},description:"Tittel på knappen som åpner infoen."},showTitle:{required:!1,tsType:{name:"boolean"},description:"",defaultValue:{value:"true",computed:!1}},content:{required:!0,tsType:{name:"ReactNode"},description:"Innholdet i tooltipen."},position:{required:!1,tsType:{name:"union",raw:'"top" | "bottom" | "left" | "right"',elements:[{name:"literal",value:'"top"'},{name:"literal",value:'"bottom"'},{name:"literal",value:'"left"'},{name:"literal",value:'"right"'}]},description:`Plassering av tooltipen i forhold til triggeren. Tooltipen vil automatisk
+bytte posisjon dersom det ikke er plass.
+@default "top"`,defaultValue:{value:'"bottom"',computed:!1}},popoverType:{required:!1,tsType:{name:"union",raw:'"hint" | "auto" | "manual"',elements:[{name:"literal",value:'"hint"'},{name:"literal",value:'"auto"'},{name:"literal",value:'"manual"'}]},description:"",defaultValue:{value:'"auto"',computed:!1}}}};const y={title:"Komponenter/Tooltip Button",component:a,tags:["autodocs","popover"],parameters:{layout:"fullscreen"},decorators:[t=>e.createElement("div",{style:{height:"100vh",overflow:"hidden",display:"flex",alignItems:"center",justifyContent:"center"}},e.createElement(t,null))]},o={name:"Tooltip Button",args:{title:"Hvorfor er prisen 0?",content:e.createElement("p",null,"Avtalen er betalt av arbeidsgiveren din. Du betaler ingenting."),popoverType:"auto",position:"top"},render:t=>e.createElement("p",null,"Avtalepris: 0 kr/mnd. ",e.createElement(a,{...t}))};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  name: "Tooltip Button",
+  args: {
+    title: "Hvorfor er prisen 0?",
+    content: <p>
+                Avtalen er betalt av arbeidsgiveren din. Du betaler ingenting.
+            </p>,
+    popoverType: "auto",
+    position: "top"
+  },
+  render: args => <p>
+            Avtalepris: 0 kr/mnd. <TooltipButton {...args} />
+        </p>
+}`,...o.parameters?.docs?.source}}};const b=["TooltipButtonStory"];export{o as TooltipButtonStory,b as __namedExportsOrder,y as default};
