@@ -20,10 +20,6 @@ interface KortFortaltBlock extends TypedObject {
     _type: "jokul_componentKortFortalt";
 }
 
-interface RelatedComponentsBlock extends TypedObject {
-    _type: "related_components";
-}
-
 interface ComponentNavProps {
     blocks: TypedObject[];
 }
@@ -34,12 +30,6 @@ function isBlock(block: TypedObject): block is Block {
 
 function isKortFortalt(block: TypedObject): block is KortFortaltBlock {
     return block._type === "jokul_componentKortFortalt";
-}
-
-function isRelatedComponents(
-    block: TypedObject,
-): block is RelatedComponentsBlock {
-    return block._type === "related_components";
 }
 
 export const ComponentNav = ({ blocks }: ComponentNavProps) => {
@@ -56,16 +46,6 @@ export const ComponentNav = ({ blocks }: ComponentNavProps) => {
             ];
         }
 
-        if (isRelatedComponents(block)) {
-            return [
-                {
-                    text: "Relaterte komponenter",
-                    slug: "relaterte-komponenter",
-                    level: "h2",
-                },
-            ];
-        }
-
         return [];
     });
 
@@ -73,7 +53,7 @@ export const ComponentNav = ({ blocks }: ComponentNavProps) => {
         <LinkList className={styles.toc} variant="ordered">
             {headings.map((heading) => (
                 <LinkList.Item key={heading.slug}>
-                    <LinkList.Link href={`#${heading.slug}`} key={heading.slug}>
+                    <LinkList.Link href={`#${heading.slug}`}>
                         {heading.text}
                     </LinkList.Link>
                 </LinkList.Item>
