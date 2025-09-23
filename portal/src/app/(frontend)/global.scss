@@ -17,6 +17,7 @@ body {
     column-gap: var(--jkl-unit-30);
     max-width: var(--max-width);
     padding: var(--jkl-spacing-16);
+    margin-inline: auto;
 
     @media (width >=940px) {
         padding: 0;
