@@ -65,7 +65,6 @@ export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
                 const slug = slugify(text, { lower: true, strict: true });
                 return <h3 id={slug}>{children}</h3>;
             },
-            // legg til flere hvis du trenger h4, h5 osv.
         },
     };
 
