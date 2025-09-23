@@ -24,14 +24,19 @@ function isBlock(obj: TypedObject): obj is Block {
 }
 
 export const ComponentNav = ({ blocks }: ComponentNavProps) => {
-    const headings: Heading[] = blocks
-        .filter(isBlock)
-        .filter((block) => /^h[2-3]$/.test(block.style))
-        .map((block) => {
-            const text = block.children.map((child) => child.text).join(" ");
-            const slug = slugify(text, { lower: true, strict: true });
-            return { text, slug, level: block.style };
-        });
+    const headings: Heading[] = [
+        ...blocks
+            .filter(isBlock)
+            .filter((block) => /^h[2-3]$/.test(block.style))
+            .map((block) => {
+                const text = block.children
+                    .map((child) => child.text)
+                    .join(" ");
+                const slug = slugify(text, { lower: true, strict: true });
+                return { text, slug, level: block.style };
+            }),
+        { text: "Kort fortalt", slug: "kort-fortalt", level: "h2" },
+    ];
 
     return (
         <LinkList className={styles.toc} variant="ordered">
