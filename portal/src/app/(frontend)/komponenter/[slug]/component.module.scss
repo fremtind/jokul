@@ -7,13 +7,18 @@
         minmax(200px, 394px)
         minmax(300px, 654px);
     column-gap: clamp(0px, 20vw, 264px);
-    padding: var(--jkl-spacing-40) var(--jkl-spacing-64);
 }
 
 .toc {
     position: sticky;
     top: var(--jkl-spacing-24);
     align-self: start;
+}
+
+.external_links {
+    align-items: start;
+    justify-self: end;
+    padding-top: var(--jkl-spacing-64);
 }
 
 .relatedComponents,
