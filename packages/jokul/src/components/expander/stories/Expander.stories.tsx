@@ -31,6 +31,24 @@ type Story = StoryObj<typeof Expander>;
 
 export const ExpanderStory: Story = {
     name: "Expander",
+    render: (args) => {
+        const [isOpen, setIsOpen] = React.useState(false);
+
+        return (
+            <>
+                <Expander
+                    {...args}
+                    open={isOpen}
+                    onClick={() => setIsOpen(!isOpen)}
+                >
+                    Klikk på meg for å {isOpen ? "lukke" : "åpne"}!
+                </Expander>
+                {isOpen && (
+                    <div>Hei, jeg er innholdet som vises når du åpner meg!</div>
+                )}
+            </>
+        );
+    },
 };
 
 /**
