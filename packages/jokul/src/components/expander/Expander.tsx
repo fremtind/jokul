@@ -84,3 +84,5 @@ export const Expander = React.forwardRef(function Expander<
         </El>
     );
 }) as ExpanderComponent;
+
+Expander.displayName = "ExpandablePanel.Header";
