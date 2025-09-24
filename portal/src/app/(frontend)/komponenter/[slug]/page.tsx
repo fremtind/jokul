@@ -8,7 +8,6 @@ import { logger } from "logger";
 import { ComponentConsiderations } from "./components/ComponentConsiderations";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
-import { ComponentNav } from "./components/ComponentNav";
 
 import styles from "./component.module.scss";
 
@@ -67,10 +66,6 @@ export default async function Page({ params }: Props) {
                         github: component?.external_links?.github_link,
                     }}
                 />
-
-                {component.documentation_article && (
-                    <ComponentNav blocks={component.documentation_article} />
-                )}
             </div>
 
             {component.name && (
