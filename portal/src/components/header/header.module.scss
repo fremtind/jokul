@@ -4,8 +4,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: start;
-    padding-inline: var(--jkl-spacing-16);
-    padding-block: var(--jkl-spacing-16);
+    padding: 0;
 
     p {
         justify-self: end;
@@ -23,8 +22,7 @@
 
 @media (width >=940px) {
     .header {
-        padding-inline: var(--jkl-spacing-64);
-        padding-block: var(--jkl-spacing-24);
+        padding: var(--jkl-spacing-24);
 
         p {
             justify-self: start;
