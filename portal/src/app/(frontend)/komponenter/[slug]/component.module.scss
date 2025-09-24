@@ -9,6 +9,18 @@
     column-gap: clamp(0px, 20vw, 264px);
 }
 
+.article h2 {
+    padding-top: 2rem; /* eller margin-top */
+}
+
+.article h2:first-of-type {
+    padding-top: 0;
+}
+
+.navlink {
+    padding-left: var(--jkl-unit-10);
+}
+
 .toc {
     position: sticky;
     top: var(--jkl-spacing-24);

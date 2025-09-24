@@ -3,12 +3,11 @@ import { ComponentCard } from "@/components/component-card/ComponentCard";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
-import { Flex } from "@fremtind/jokul/flex";
+import { NavLink } from "@fremtind/jokul/nav-link";
 import { logger } from "logger";
 import { ComponentConsiderations } from "./components/ComponentConsiderations";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
-import { ComponentHeaderLink } from "./components/ComponentHeaderLink";
 import { ComponentNav } from "./components/ComponentNav";
 
 import styles from "./component.module.scss";
@@ -52,6 +51,13 @@ export default async function Page({ params }: Props) {
     return (
         <article className={styles.article}>
             <div>
+                <NavLink
+                    className={styles.navlink}
+                    href="/komponenter"
+                    back={true}
+                >
+                    Komponenter
+                </NavLink>
                 <ComponentHeader
                     name={component?.name}
                     description={component?.short_description}
