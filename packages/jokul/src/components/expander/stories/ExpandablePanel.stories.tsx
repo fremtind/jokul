@@ -46,7 +46,9 @@ export const ExpandablePanelFilled: Story = {
         <Flex style={{ width: "100%" }} direction="column" gap={4}>
             {[...Array(3)].map((_, index) => (
                 <ExpandablePanel key={index} {...args}>
-                    <Expander>Når er det vi faktisk er åpne?</Expander>
+                    <ExpandablePanel.Header>
+                        Klikk på meg for å åpne!
+                    </ExpandablePanel.Header>
                     <ExpandablePanel.Content>
                         Velkommen innom når vi faktisk har kaffe! Vi er åpne
                         mandag til fredag fra kl. 09:00 til 18:00. Lørdag kan du
@@ -70,7 +72,9 @@ export const ExpandablePanelStroke: Story = {
         <>
             {[...Array(3)].map((_, index) => (
                 <ExpandablePanel key={index} {...args}>
-                    <Expander>Når er det vi faktisk er åpne?</Expander>
+                    <ExpandablePanel.Header>
+                        Klikk på meg for å åpne!
+                    </ExpandablePanel.Header>
                     <ExpandablePanel.Content>
                         Velkommen innom når vi faktisk har kaffe! Vi er åpne
                         mandag til fredag fra kl. 09:00 til 18:00. Lørdag kan du
