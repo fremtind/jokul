@@ -20,6 +20,7 @@ export type ExpandablePanelProps<ElementType extends React.ElementType> =
 
 export type ExpandablePanelComponent = {
     Content: ExpandablePanelContentComponent;
+    Header: ExpanderComponent;
 } & (<ElementType extends React.ElementType = "div">(
     props: ExpandablePanelProps<ElementType>,
 ) => React.ReactElement | null);
@@ -35,11 +36,13 @@ export type ExpanderProps<ElementType extends React.ElementType> =
         }
     >;
 
-export type ExpanderComponent = <
-    ElementType extends React.ElementType = "button",
->(
+type Expander = <ElementType extends React.ElementType = "button">(
     props: ExpanderProps<ElementType>,
 ) => React.ReactElement | null;
+
+export type ExpanderComponent = Expander & {
+    displayName?: string;
+};
 
 /* Shared context */
 export type ExpandableContext = {

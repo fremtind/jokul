@@ -7,6 +7,7 @@ import type {
     ExpandablePanelComponent,
     ExpandablePanelProps,
 } from "./types.js";
+import { Expander } from "./Expander.jsx";
 
 export const ExpandablePanel = Object.assign(
     React.forwardRef(function ExpandablePanel<
@@ -118,5 +119,5 @@ export const ExpandablePanel = Object.assign(
             </div>
         );
     }),
-    { Content: ExpandablePanelContent },
+    { Content: ExpandablePanelContent, Header: Expander },
 ) as ExpandablePanelComponent;

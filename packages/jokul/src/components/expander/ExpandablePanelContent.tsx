@@ -48,3 +48,5 @@ export const ExpandablePanelContent: ExpandablePanelContentComponent = ({
         </div>
     );
 };
+
+ExpandablePanelContent.displayName = "ExpandablePanel.Content";
