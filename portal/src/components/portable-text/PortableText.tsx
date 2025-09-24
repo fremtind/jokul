@@ -5,7 +5,6 @@ import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import type { FC, ReactNode } from "react";
 import slugify from "slugify";
-import { child } from "winston";
 import { KortFortalt } from "./kort-fortalt/KortFortalt";
 import { LinkCard } from "./link-card/LinkCard";
 import { ComponentPageLink } from "./link/ComponentPageLink";

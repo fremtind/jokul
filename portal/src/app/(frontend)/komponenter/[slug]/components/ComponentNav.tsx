@@ -9,17 +9,14 @@ interface Heading {
     slug: string;
     level: string;
 }
-
 interface Block extends TypedObject {
     _type: "block";
     style?: string;
     children: { text: string }[];
 }
-
 interface KortFortaltBlock extends TypedObject {
     _type: "jokul_componentKortFortalt";
 }
-
 interface ComponentNavProps {
     blocks: TypedObject[];
 }
@@ -39,7 +36,6 @@ export const ComponentNav = ({ blocks }: ComponentNavProps) => {
             const slug = slugify(text, { lower: true, strict: true });
             return [{ text, slug, level: block.style || "h2" }];
         }
-
         if (isKortFortalt(block)) {
             return [
                 { text: "Kort fortalt", slug: "kort-fortalt", level: "h2" },
