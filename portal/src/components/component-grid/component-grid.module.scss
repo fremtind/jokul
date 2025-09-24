@@ -1,0 +1,26 @@
+.componentGrid {
+    --grid-item-min-width: 250px;
+
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--grid-item-min-width), 1fr));
+    gap: var(--jkl-spacing-8);
+
+    > li > * {
+        height: 100%;
+    }
+
+    &[data-grid-size="small"] {
+        --grid-item-min-width: 200px;
+    }
+
+    &[data-grid-size="medium"] {
+        --grid-item-min-width: 250px;
+    }
+
+    &[data-grid-size="large"] {
+        --grid-item-min-width: 300px;
+    }
+}
