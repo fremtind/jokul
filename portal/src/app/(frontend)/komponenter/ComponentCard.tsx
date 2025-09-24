@@ -1,10 +1,12 @@
+"use client";
+
+import { useUserPreferences } from "@/context/UserPreferencesContext/UserPreferencesContext";
 import { client } from "@/sanity/lib/client";
+import type { ComponentsQueryResult } from "@/sanity/types";
+import { Card } from "@fremtind/jokul/card";
 import imageUrlBuilder from "@sanity/image-url";
 import NextLink from "next/link";
 import { ComponentThumbnail } from "./ComponentThumbnail";
-import type { ComponentsQueryResult } from "@/sanity/types";
-import { useUserPreferences } from "@/context/UserPreferencesContext/UserPreferencesContext";
-import { Card } from "@fremtind/jokul/card";
 import styles from "./komponenter.module.scss";
 
 type ComponentCardProps = {
