@@ -113,6 +113,7 @@ article header {
 
 .date {
     color: var(--jkl-color-text-subdued);
+    
     @include jkl.text-style("small");
     @include jkl.use-font-family("Fremtind Grotesk Mono");
 }

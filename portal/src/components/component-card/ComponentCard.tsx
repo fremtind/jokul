@@ -3,7 +3,10 @@
 import { ComponentThumbnail } from "@/components/component-card/ComponentThumbnail";
 import { client } from "@/sanity/lib/client";
 import type { ComponentsQueryResult } from "@/sanity/types";
-import { useUserPreferences } from "@/utils/user-preferences";
+import {
+    type UserPreferences,
+    useUserPreferences,
+} from "@/utils/user-preferences";
 import { Card } from "@fremtind/jokul/card";
 import imageUrlBuilder from "@sanity/image-url";
 import NextLink from "next/link";
@@ -12,6 +15,7 @@ import styles from "./component-card.module.scss";
 
 type ComponentCardProps = {
     component: ComponentsQueryResult[0] | null;
+    initialPreferences?: UserPreferences;
 };
 
 const builder = imageUrlBuilder(client);
@@ -20,8 +24,11 @@ function urlFor(source?: { asset?: { _ref: string }; _type: string }) {
     return source?.asset?._ref ? builder.image(source).url() : undefined;
 }
 
-export const ComponentCard = ({ component }: ComponentCardProps) => {
-    const { preferences } = useUserPreferences();
+export const ComponentCard = ({
+    component,
+    initialPreferences,
+}: ComponentCardProps) => {
+    const { preferences } = useUserPreferences(initialPreferences);
 
     if (!component) return null;
 
