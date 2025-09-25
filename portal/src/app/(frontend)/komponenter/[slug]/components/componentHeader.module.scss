@@ -4,31 +4,31 @@
     box-sizing: border-box;
     width: 100%;
     container-type: inline-size;
-    padding: var(--jkl-unit-50) var(--jkl-unit-30);
+    font-size: var(--jkl-typography-font-size-36);
     flex-direction: column;
     gap: jkl.$spacing-24;
+    padding-top: var(--jkl-spacing-40);
+    background-color: transparent;
 
-    @media (min-width: #{jkl.$breakpoint-large}) {
-        padding-inline: var(--jkl-spacing-104);
-    }
+    // @media (min-width: #{jkl.$breakpoint-large}) {
+    // }
 
     @container (min-width: 70rch) {
         flex-direction: row;
     }
 
-    @media (min-width: #{jkl.$breakpoint-medium}) {
-        padding: var(--jkl-unit-50);
-    }
+    // @media (min-width: #{jkl.$breakpoint-medium}) {
+    // }
 
-    @media (min-width: #{jkl.$breakpoint-large}) {
-        padding: var(--jkl-unit-130);
-    }
+    // @media (min-width: #{jkl.$breakpoint-large}) {
+    // }
 
     .name {
         @include jkl.text-style("title") {
-            font-size: clamp(var(--jkl-typography-font-size-36),
-                    1.8673rem + 1.6327vw,
-                    var(--jkl-typography-font-size-56));
+            font-size: clamp(
+                var(--jkl-typography-font-size-36),
+                1.8673rem + 1.6327vw
+            );
         }
     }
 
@@ -37,15 +37,12 @@
         max-width: 60ch;
 
         @include jkl.text-style("body") {
-            font-size: clamp(var(--jkl-typography-font-size-16),
-                    0.7308rem + 0.7692vw,
-                    var(--jkl-typography-font-size-20));
+            font-size: clamp(
+                var(--jkl-typography-font-size-16),
+                0.7308rem + 0.7692vw,
+                var(--jkl-typography-font-size-20)
+            );
             line-height: 1.6;
         }
-    }
-
-    .external_links {
-        align-items: start;
-        justify-self: end;
     }
 }

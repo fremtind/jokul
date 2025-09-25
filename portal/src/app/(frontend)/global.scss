@@ -1,5 +1,6 @@
 @use "@fremtind/jokul/styles/core";
-@use "@fremtind/jokul/styles/fonts" with ($webfonts-dir: "../../src/fonts" // Dette er relativt til webfonts.sccs-fila i jokul-pakka
+@use "@fremtind/jokul/styles/fonts" with (
+    $webfonts-dir: "../../src/fonts" // Dette er relativt til webfonts.sccs-fila i jokul-pakka
 );
 @use "@fremtind/jokul/styles";
 @use "@fremtind/jokul/styles/core/jkl";
@@ -23,7 +24,7 @@ body {
         padding: 0;
 
         main {
-            padding: var(--jkl-spacing-40);
+            padding: var(--jkl-spacing-40) var(--jkl-spacing-64);
         }
     }
 }

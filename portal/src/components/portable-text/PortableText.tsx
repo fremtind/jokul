@@ -3,7 +3,8 @@
 import type { PortableTextReactComponents } from "@portabletext/react";
 import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
-import type { FC } from "react";
+import type { FC, ReactNode } from "react";
+import slugify from "slugify";
 import { KortFortalt } from "./kort-fortalt/KortFortalt";
 import { LinkCard } from "./link-card/LinkCard";
 import { ComponentPageLink } from "./link/ComponentPageLink";
@@ -22,6 +23,14 @@ const jokulBlockTypes: PortableTextReactComponents["types"] = {
     jokul_codeBlock: CodeBlock,
     jokul_linkCard: LinkCard,
 };
+
+function getTextFromChildren(children: ReactNode): string {
+    if (typeof children === "string") return children;
+    if (Array.isArray(children)) {
+        return children.map(getTextFromChildren).join(" ");
+    }
+    return ""; // ignore React elements for slug
+}
 
 export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
     {
@@ -42,6 +51,18 @@ export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
                 const href = `/${slug.current}`;
                 console.log(value);
                 return <a href={href}>{children}</a>;
+            },
+        },
+        block: {
+            h2: ({ children }) => {
+                const text = getTextFromChildren(children);
+                const slug = slugify(text, { lower: true, strict: true });
+                return <h2 id={slug}>{children}</h2>;
+            },
+            h3: ({ children }) => {
+                const text = getTextFromChildren(children);
+                const slug = slugify(text, { lower: true, strict: true });
+                return <h3 id={slug}>{children}</h3>;
             },
         },
     };

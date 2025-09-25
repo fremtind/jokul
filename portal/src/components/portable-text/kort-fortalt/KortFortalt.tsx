@@ -5,13 +5,15 @@ import type { FC } from "react";
 import { PortableText } from "../PortableText";
 import styles from "./kortFortalt.module.scss";
 
+const KORT_FORTALT_SLUG = "kort-fortalt";
+
 export const KortFortalt: FC<
     PortableTextTypeComponentProps<Jokul_componentKortFortalt>
 > = ({ value }) => {
     if (!value.bruk && !value.ikke_bruk) return null;
 
     return (
-        <section className={styles.kortFortalt}>
+        <section className={styles.kortFortalt} id={KORT_FORTALT_SLUG}>
             <h2 className={styles.kortFortaltTitle}>Kort fortalt</h2>
             {!!value.bruk && (
                 <div>
