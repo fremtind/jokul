@@ -10,7 +10,7 @@ const meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "tabular data"],
 } satisfies Meta<typeof SummaryTableComponent>;
 
 export default meta;

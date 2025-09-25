@@ -8,7 +8,7 @@ const meta = {
     parameters: {
         controls: { expanded: true, sort: "alpha" },
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
     argTypes: {
         value: {
             control: "text",

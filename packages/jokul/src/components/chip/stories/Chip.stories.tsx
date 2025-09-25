@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState, useEffect } from "react";
-import { Chip as ChipComponent } from "../Chip.js";
 import { Flex } from "../../flex/Flex.jsx";
 import { FieldGroup } from "../../input-group/index.js";
+import { Chip as ChipComponent } from "../Chip.js";
 import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/Chip",
     component: ChipComponent,
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
     parameters: {
         docs: {
             description: {

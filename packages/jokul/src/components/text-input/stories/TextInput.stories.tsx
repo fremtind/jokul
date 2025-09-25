@@ -17,7 +17,7 @@ const meta = {
             sort: "alpha",
         },
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
     argTypes: {
         type: {
             control: "text",

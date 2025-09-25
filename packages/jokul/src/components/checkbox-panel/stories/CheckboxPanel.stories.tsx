@@ -1,5 +1,5 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import { CheckboxPanel as CheckboxPanelComponent } from "../CheckboxPanel.js";
 import "../styles/_index.scss";
 
@@ -9,7 +9,7 @@ const meta = {
     parameters: {
         layout: "padded",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
     argTypes: {
         extraLabel: {
             control: "text",

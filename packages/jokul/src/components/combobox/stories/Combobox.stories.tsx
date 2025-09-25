@@ -130,7 +130,7 @@ const meta = {
         helpLabel: "Du kan velge flere, dersom flere passer",
         onChange: () => "",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof Combobox>;
 
 export default meta;

@@ -17,7 +17,7 @@ export default {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "embedded content"],
     args: {
         src: dog400,
         srcSet: `${dog400} 400w, ${dog800} 800w, ${dog1200} 1200w, ${dog1920} 1920w`,

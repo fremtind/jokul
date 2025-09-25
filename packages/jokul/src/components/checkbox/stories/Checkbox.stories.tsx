@@ -15,7 +15,7 @@ const meta = {
         name: "checkbox",
         children: "Kjekk boks",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof CheckboxComponent>;
 
 export default meta;

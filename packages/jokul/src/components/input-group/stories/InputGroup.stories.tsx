@@ -11,7 +11,7 @@ const meta: Meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
     argTypes: {
         label: {
             control: "text",
