@@ -1,14 +1,21 @@
 "use client";
 
-import { useUserPreferences } from "@/utils/user-preferences";
+import {
+    type UserPreferences,
+    useUserPreferences,
+} from "@/utils/user-preferences";
 import styles from "./component-grid.module.scss";
 
 type ComponentGridProps = {
     children: React.ReactNode;
+    initialPreferences?: UserPreferences;
 };
 
-export function ComponentGrid({ children }: ComponentGridProps) {
-    const { preferences } = useUserPreferences();
+export function ComponentGrid({
+    children,
+    initialPreferences,
+}: ComponentGridProps) {
+    const { preferences } = useUserPreferences(initialPreferences);
 
     return (
         <ul

@@ -3,9 +3,14 @@ import { ComponentGrid } from "@/components/component-grid/ComponentGrid";
 import { PreferencesMenu } from "@/components/preferences-menu/PreferencesMenu";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentsQuery } from "@/sanity/queries/component";
-import { COMPONENT_KEYWORDS } from "@/utils/user-preferences";
+import {
+    COMPONENT_KEYWORDS,
+    parseUserPreferences,
+} from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
+import { getCookie } from "cookies-next";
 import { logger } from "logger";
+import { cookies } from "next/headers";
 import { FilterChip } from "./FilterChip";
 import styles from "./komponenter.module.scss";
 
@@ -30,6 +35,10 @@ export default async function Components({
             </>
         );
     }
+
+    const userPreferences = parseUserPreferences(
+        await getCookie("userPreferences", { cookies }),
+    );
 
     const { keywords } = await searchParams;
     const selectedKeywords = (keywords || "").split(",");
@@ -65,10 +74,13 @@ export default async function Components({
                 </Flex>
                 <PreferencesMenu />
             </Flex>
-            <ComponentGrid>
+            <ComponentGrid initialPreferences={userPreferences}>
                 {components.map((component) => (
                     <li key={component.slug}>
-                        <ComponentCard component={component} />
+                        <ComponentCard
+                            component={component}
+                            initialPreferences={userPreferences}
+                        />
                     </li>
                 ))}
             </ComponentGrid>
