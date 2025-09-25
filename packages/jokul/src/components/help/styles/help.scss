@@ -1,12 +1,12 @@
 @use "../../../core/jkl/index" as jkl;
 
-.jkl-help--trigger {
+.jkl-help-trigger {
     vertical-align: middle;
     width: fit-content;
     height: fit-content;
 }
 
-.jkl-help--popover {
+.jkl-help-popover {
     max-width: 40ch;
     padding: var(--jkl-unit-30);
     margin: var(--jkl-unit-05);
