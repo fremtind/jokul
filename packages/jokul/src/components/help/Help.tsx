@@ -19,7 +19,7 @@ export const BETA_Help = ({
                 title={buttonText || rest.title}
                 iconPosition={iconPosition}
                 variant="ghost"
-                className={clsx("jkl-help--trigger", rest.className)}
+                className={clsx("jkl-help-trigger", rest.className)}
                 icon={<Icon aria-hidden="true">help</Icon>}
                 data-testid="jkl-help-trigger"
                 // @ts-ignore
@@ -36,7 +36,7 @@ export const BETA_Help = ({
                     data-theme="dark"
                     popover="auto"
                     id={`${buttonText}-popover`}
-                    className="jkl-help--popover"
+                    className="jkl-help-popover"
                     // @ts-ignore
                     style={{ positionAnchor: `${buttonText}-popover` }}
                 >

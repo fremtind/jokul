@@ -593,15 +593,15 @@
                 "default": "./build/cjs/components/tooltip/index.cjs"
             }
         },
-        "./styles/components/content-tip": "./styles/components/content-tip/_index.scss",
-        "./content-tip": {
+        "./styles/components/help": "./styles/components/help/_index.scss",
+        "./help": {
             "import": {
-                "types": "./build/es/components/content-tip/index.d.ts",
-                "default": "./build/es/components/content-tip/index.js"
+                "types": "./build/es/components/help/index.d.ts",
+                "default": "./build/es/components/help/index.js"
             },
             "require": {
-                "types": "./build/cjs/components/content-tip/index.d.cts",
-                "default": "./build/cjs/components/content-tip/index.cjs"
+                "types": "./build/cjs/components/help/index.d.cts",
+                "default": "./build/cjs/components/help/index.cjs"
             }
         },
         "./screen-reader-only": {
