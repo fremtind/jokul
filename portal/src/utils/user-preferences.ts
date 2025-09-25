@@ -29,24 +29,28 @@ export const defaultPreferences: UserPreferences = {
 
 export function parseUserPreferences(
     cookieValue: CookieValueTypes,
+    fallback = defaultPreferences,
 ): UserPreferences {
     if (!cookieValue) {
-        return defaultPreferences;
+        return fallback;
     }
 
     try {
         return JSON.parse(decodeURIComponent(cookieValue)) as UserPreferences;
     } catch (error) {
         console.error("Error parsing user preferences from cookie:", error);
-        return defaultPreferences;
+        return fallback;
     }
 }
 
-export function useUserPreferences() {
+export function useUserPreferences(initialPreferences?: UserPreferences) {
     const getCookie = useReactiveGetCookie();
     const setCookie = useReactiveSetCookie();
 
-    const preferences = parseUserPreferences(getCookie("userPreferences"));
+    const preferences = parseUserPreferences(
+        getCookie("userPreferences"),
+        initialPreferences,
+    );
 
     const updatePreference = <T extends keyof UserPreferences>(
         key: T,
