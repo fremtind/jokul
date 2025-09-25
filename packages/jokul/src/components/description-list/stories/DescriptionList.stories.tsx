@@ -17,7 +17,7 @@ const meta: Meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "grouping content"],
 } satisfies Meta<typeof DescriptionList>;
 
 export default meta;

@@ -4,10 +4,10 @@ import { LinkList } from "../LinkList.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
-    title: "Komponenter/List/LinkList",
+    title: "Komponenter/LinkList",
     component: LinkList,
     parameters: {
-        layout: "centered",
+        layout: "fullscreen",
     },
     tags: ["autodocs"],
     argTypes: {
@@ -28,7 +28,7 @@ export const LinkListStory: Story = {
         variant: "unordered",
     },
     render: (props) => (
-        <LinkList style={{ minWidth: "50vw" }} {...props}>
+        <LinkList {...props}>
             <LinkList.Item>
                 <LinkList.Link href="#">SpareBank 1</LinkList.Link>
             </LinkList.Item>

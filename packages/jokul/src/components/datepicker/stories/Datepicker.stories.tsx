@@ -58,7 +58,7 @@ const meta = {
             readOnly: false,
         },
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof DatePickerComponent>;
 
 export default meta;

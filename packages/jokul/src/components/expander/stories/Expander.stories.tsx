@@ -22,7 +22,7 @@ const meta: Meta = {
             options: ["up", "down"],
         },
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "interactive elements"],
 };
 
 export default meta;
