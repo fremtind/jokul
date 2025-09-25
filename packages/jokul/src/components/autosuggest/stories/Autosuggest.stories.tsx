@@ -46,7 +46,7 @@ const meta = {
             control: "select",
         },
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof AutosuggestComponent>;
 
 export default meta;

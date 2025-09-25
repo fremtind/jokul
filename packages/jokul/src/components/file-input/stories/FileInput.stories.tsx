@@ -15,7 +15,7 @@ const meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof FileInput>;
 
 export default meta;

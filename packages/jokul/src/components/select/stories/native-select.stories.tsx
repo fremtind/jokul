@@ -68,7 +68,7 @@ const meta: Meta = {
         },
         width: "20ch",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
 };
 
 export default meta;

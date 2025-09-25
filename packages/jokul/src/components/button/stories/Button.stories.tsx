@@ -11,7 +11,7 @@ const meta = {
             toc: true,
         },
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof ButtonComponent>;
 
 export default meta;

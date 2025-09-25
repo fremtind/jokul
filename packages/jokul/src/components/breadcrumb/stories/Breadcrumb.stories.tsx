@@ -11,7 +11,7 @@ const meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "links"],
 } satisfies Meta<typeof Breadcrumb>;
 
 export default meta;
