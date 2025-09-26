@@ -1,0 +1,124 @@
+@use "../../../core/jkl" as jkl;
+
+/*
+Det kan fort oppleves som at grid er unødvendig her,
+men det er brukt for å plassere ikonet på riktig sted
+uten å måtte deale med absolutt positioning.
+Select støtter ikke &::after, så ikonet må plasseres på
+wrapperen, som leder til en del komplisert kalkulering dersom
+man ikke bruker grid i dette tilfellet.
+
+Men det er jo litt smak og behag også. Dette er bare stilen jeg liker.
+*/
+
+@include jkl.expressive {
+    --padding: var(--jkl-unit-20);
+    --border-width: 1px;
+    --border-radius: 4px;
+    --border-color: transparent;
+    --background-color: var(--jkl-color-background-container-high);
+    --label-margin: 1lh;
+    --description-margin: 1lh;
+    @include jkl.text-style("heading-2");
+}
+
+@include jkl.productive {
+    --padding: var(--jkl-unit-10);
+    --border-width: 2px;
+    --border-radius: 1px;
+    --border-color: var(--jkl-color-border-separator);
+    --background-color: transparent;
+    --label-margin: 0;
+    --description-margin: 0;
+    @include jkl.text-style("body");
+}
+
+.BETA_jkl-select {
+    min-width: 20ch;
+
+    // Sett gridet
+    display: grid;
+    grid-template-rows: [label] auto [input] auto;
+    grid-template-columns: [input-start] auto [trailing-icon] 1em [input-end];
+    gap: var(--jkl-unit-10);
+
+    // Oppdater rader basert på innholdet
+    &:has(.description) {
+        grid-template-rows: [label] auto [description] auto [input] auto;
+        --label-margin: 0;
+    }
+
+    &:has(.error) {
+        --border-color: red;
+    }
+
+    // Sett kolonne på innholdet
+    > * {
+        grid-column: input;
+    }
+
+    &::after {
+        grid-column: trailing-icon;
+    }
+
+    // Sett rad på innholdet
+    label {
+        grid-row: label;
+    }
+
+    .description {
+        grid-row: description;
+    }
+
+    select, &::after {
+        grid-row: input;
+    }
+
+    // Stiler på selve innholdet
+    label {
+        padding-block-end: var(--label-margin);
+    }
+
+    .description {
+        margin-block-end: var(--description-margin);
+        color: var(--jkl-color-text-subdued);
+        @include jkl.text-style("body");
+    }
+
+    select {
+        appearance: none;
+        background-color: var(--background-color);
+        padding: var(--padding);
+        border: var(--border-width) solid var(--border-color);
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: border-color 300ms;
+        color: var(--jkl-color-text-default);
+
+        &:invalid {
+            --border-color: var(--jkl-color-functional-error);
+        }
+
+        &:hover, &:active, &:focus-visible {
+            border-color: var(--jkl-color-border-separator-strong);
+        }
+    }
+
+    &::after {
+        font-family: "Fremtind Material Symbols";
+        content: "keyboard_arrow_down" / "";
+        pointer-events: none;
+        place-self: center;
+        margin-inline-end: 1em;
+    }
+
+    .help {
+        margin-block-start: 1lh;
+        margin-inline-start: -1.5ch;
+        max-inline-size: fit-content;
+    }
+
+    .error {
+        color: var(--border-color);
+    }
+}

@@ -1,8 +1,9 @@
-import React from "react";
 import type { Preview } from "@storybook/react";
+import React from "react";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
 import { backgroundOptions } from "./backgrounds.js";
 import { densities, densityDecorator, densityGlobal } from "./density.js";
+import { lookDecorator, lookGlobal, looks } from "./radgiver.js";
 import { themeDecorator, themeGlobal, themes } from "./theme.js";
 
 // Styles
@@ -15,11 +16,13 @@ const preview: Preview = {
     globalTypes: {
         theme: themeGlobal,
         density: densityGlobal,
+        look: lookGlobal,
     },
     initialGlobals: {
         theme: themes[0], // Automatisk dark/light
         density: densities[0],
         backgrounds: { value: "pageVariant" },
+        look: looks[0],
     },
     decorators: [
         (Story) => (
@@ -29,6 +32,7 @@ const preview: Preview = {
         ),
         themeDecorator,
         densityDecorator,
+        lookDecorator,
     ],
     parameters: {
         backgrounds: {

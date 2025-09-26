@@ -55,6 +55,20 @@
     }
 }
 
+/// Brukes til å sette CSS-variabler som skal gjelde i productive mode.
+@mixin productive {
+    [data-look="productive"] {
+        @content;
+    }
+}
+
+/// Brukes til å sette CSS-variabler som skal gjelde i expressive mode.
+@mixin expressive {
+    [data-look="expressive"] {
+        @content;
+    }
+}
+
 /// Brukes til å overstyre stiler for bruk i Forced Colors-modus.
 /// Her vil du typisk legge til fallbacks for manglende box-shadow,
 /// som for eksempel `outline: revert;` og `border: revert;`,

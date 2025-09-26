@@ -82,3 +82,11 @@ export interface SelectProps
      */
     maxShownOptions?: number;
 }
+
+export type BETA_SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
+    label: string;
+    description?: string;
+    placeholder?: string;
+    errorMessage?: string;
+    helpMessage?: string;
+};
