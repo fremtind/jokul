@@ -18,7 +18,7 @@
     --background-color: var(--jkl-color-background-interactive);
 
     background-color: var(--background-color);
-    color: var(--jkl-color-text-default);
+    color: jkl.$sys-color-content-default;
     cursor: pointer;
     text-decoration: none;
 
