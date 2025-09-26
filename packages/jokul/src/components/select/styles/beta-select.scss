@@ -1,0 +1,62 @@
+@use "../../../core/jkl" as jkl;
+
+.BETA_jkl-select {
+    display: grid;
+    grid: auto-flow dense / 1fr auto;
+    align-items: center;
+    width: 100%;
+    min-width: 20ch;
+
+    label, .description, select, .error {
+        grid-column: 1 / -1;
+        padding-inline: var(--jkl-unit-20);
+        @include jkl.text-style("body");
+    }
+
+    label {
+        @include jkl.text-style("heading-2");
+        padding-block-end: var(--jkl-unit-40);
+    }
+
+    select, &::after {
+        grid-row: 2;
+    }
+
+    &:has(.description) {
+        select, &::after {
+            grid-row: 3;
+        }
+    }
+
+    select {
+        appearance: none;
+        background-color: var(--jkl-color-background-container-high);
+        width: 100%;
+        padding-block: var(--jkl-unit-20);
+        border: 1px solid transparent;
+        border-radius: var(--jkl-unit-10);
+        cursor: pointer;
+        transition: border-color 300ms;
+
+        &:invalid {
+            border-color: red;
+        }
+
+        &:hover {
+            border-color: var(--jkl-color-border-separator);
+        }
+
+        &:active, &:focus-visible {
+            border-color: var(--jkl-color-border-separator-strong);
+        }
+    }
+
+    &::after {
+        font-family: "Fremtind Material Symbols";
+        content: "chevron_left";
+        rotate: -90deg;
+        pointer-events: none;
+        margin-inline-end: var(--jkl-unit-20);
+        grid-column: 2;
+    }
+}
