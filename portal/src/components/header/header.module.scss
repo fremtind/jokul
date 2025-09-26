@@ -22,7 +22,7 @@
 
 @media (width >=940px) {
     .header {
-        padding: var(--jkl-spacing-24);
+        padding: var(--jkl-spacing-24) var(--jkl-spacing-64);
 
         p {
             justify-self: start;
