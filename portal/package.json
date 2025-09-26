@@ -41,7 +41,6 @@
         "react-live": "^4.1.8",
         "sanity": "^3.86.1",
         "sharp": "0.32.6",
-        "slugify": "^1.6.6",
         "styled-components": "^6.1.17",
         "winston": "^3.17.0"
     },
