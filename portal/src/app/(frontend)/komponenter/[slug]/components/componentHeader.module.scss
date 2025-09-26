@@ -4,44 +4,37 @@
     box-sizing: border-box;
     width: 100%;
     container-type: inline-size;
-    font-size: var(--jkl-typography-font-size-36);
     flex-direction: column;
+    align-self: start;
     gap: jkl.$spacing-24;
     padding-top: var(--jkl-spacing-40);
     background-color: transparent;
-
-    // @media (min-width: #{jkl.$breakpoint-large}) {
-    // }
 
     @container (min-width: 70rch) {
         flex-direction: row;
     }
 
-    // @media (min-width: #{jkl.$breakpoint-medium}) {
-    // }
-
-    // @media (min-width: #{jkl.$breakpoint-large}) {
-    // }
+    @media (width >=940px) {
+        position: sticky;
+        top: 0;
+    }
 
     .name {
         @include jkl.text-style("title") {
-            font-size: clamp(
-                var(--jkl-typography-font-size-36),
-                1.8673rem + 1.6327vw
-            );
+            font-size: clamp(var(--jkl-typography-font-size-36),
+                    1.8673rem + 1.6327vw,
+                    var(--jkl-typography-font-size-56));
         }
     }
 
     .short_description {
         margin-block-start: var(--jkl-spacing-24);
-        max-width: 60ch;
+        max-width: 35ch;
 
         @include jkl.text-style("body") {
-            font-size: clamp(
-                var(--jkl-typography-font-size-16),
-                0.7308rem + 0.7692vw,
-                var(--jkl-typography-font-size-20)
-            );
+            font-size: clamp(var(--jkl-typography-font-size-16),
+                    0.7308rem + 0.7692vw,
+                    var(--jkl-typography-font-size-20));
             line-height: 1.6;
         }
     }

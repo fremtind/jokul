@@ -3,10 +3,12 @@
 .article {
     display: grid;
     width: 100%;
-    grid-template-columns:
-        minmax(200px, 394px)
-        minmax(300px, 654px);
-    column-gap: clamp(0px, 20vw, 264px);
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+
+    @media (width >=940px) {
+        grid-column: span 2;
+    }
 }
 
 .article h2 {
@@ -19,12 +21,6 @@
 
 .navlink {
     padding-left: var(--jkl-unit-10);
-}
-
-.toc {
-    position: sticky;
-    top: var(--jkl-spacing-24);
-    align-self: start;
 }
 
 .external_links {

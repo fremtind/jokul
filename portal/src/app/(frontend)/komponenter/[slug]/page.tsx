@@ -3,7 +3,6 @@ import { ComponentCard } from "@/components/component-card/ComponentCard";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
-import { NavLink } from "@fremtind/jokul/nav-link";
 import { logger } from "logger";
 import { ComponentConsiderations } from "./components/ComponentConsiderations";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
@@ -31,7 +30,7 @@ export default async function Page({ params }: Props) {
     const { slug } = await params;
 
     const initialTime = performance.now();
-    const { data: component, tags } = await sanityFetch({
+    const { data: component } = await sanityFetch({
         query: componentBySlugQuery,
         params: { slug },
         requestTag: "component-page",
@@ -49,27 +48,17 @@ export default async function Page({ params }: Props) {
 
     return (
         <article className={styles.article}>
-            <div>
-                <NavLink
-                    className={styles.navlink}
-                    href="/komponenter"
-                    back={true}
-                >
-                    Komponenter
-                </NavLink>
-                <ComponentHeader
-                    name={component?.name}
-                    description={component?.short_description}
-                    links={{
-                        figma: component?.external_links?.figma_link,
-                        storybook: component?.external_links?.storybook_link,
-                        github: component?.external_links?.github_link,
-                    }}
-                />
-            </div>
-
+            <ComponentHeader
+                name={component?.name}
+                description={component?.short_description}
+                links={{
+                    figma: component?.external_links?.figma_link,
+                    storybook: component?.external_links?.storybook_link,
+                    github: component?.external_links?.github_link,
+                }}
+            />
             {component.name && (
-                <div className={styles.wrapper}>
+                <div className="prose">
                     {component.considerations && (
                         <>
                             <h2 className={"jkl-sr-only"}>Ting å tenke på</h2>
