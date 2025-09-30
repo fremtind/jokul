@@ -40,6 +40,7 @@ const Example: FC<{ blocking: boolean }> = ({ blocking }) => {
                 onAccept={(newConsents) =>
                     console.log("Updated consents: ", newConsents)
                 }
+                aboutPage="."
             />
         </>
     );

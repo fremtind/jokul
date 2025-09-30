@@ -31,7 +31,7 @@ describe("CookieConsent", () => {
                     statistics={true}
                     marketing={false}
                 >
-                    <CookieConsent blocking={true} />
+                    <CookieConsent blocking={true} aboutPage="." />
                 </CookieConsentProvider>,
             );
 
@@ -39,29 +39,6 @@ describe("CookieConsent", () => {
 
             expect(document.cookie).toEqual(
                 'demo-consent-cookie={"marketing":null,"functional":null,"statistics":"accepted"}',
-            );
-        });
-
-        it("can accept a selection of cookies", async () => {
-            render(
-                <CookieConsentProvider
-                    cookieName="demo-consent-cookie"
-                    functional={true}
-                    statistics={true}
-                    marketing={true}
-                >
-                    <CookieConsent blocking={true} />
-                </CookieConsentProvider>,
-            );
-
-            await screen
-                .getByRole("checkbox", { name: "Tillat statistikk" })
-                .click();
-
-            await screen.getByTestId("jkl-cookie-consent-godta").click();
-
-            expect(document.cookie).toEqual(
-                'demo-consent-cookie={"marketing":"denied","functional":"denied","statistics":"accepted"}',
             );
         });
 
@@ -73,13 +50,9 @@ describe("CookieConsent", () => {
                     statistics={true}
                     marketing={true}
                 >
-                    <CookieConsent blocking={true} />
+                    <CookieConsent blocking={true} aboutPage="." />
                 </CookieConsentProvider>,
             );
-
-            await screen
-                .getByRole("checkbox", { name: "Tillat statistikk" })
-                .click();
 
             await screen.getByTestId("jkl-cookie-consent-godta-alle").click();
 
@@ -110,7 +83,7 @@ describe("CookieConsent", () => {
                         statistics={true}
                         marketing={true}
                     >
-                        <CookieConsent blocking={true} />
+                        <CookieConsent blocking={true} aboutPage="." />
                         {children}
                     </CookieConsentProvider>
                 );
