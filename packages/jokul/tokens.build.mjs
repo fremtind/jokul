@@ -1,13 +1,12 @@
+import StyleDictionary from "style-dictionary";
+import { fileHeader, formattedVariables } from "style-dictionary/utils";
 import { camelCase } from "change-case";
 import { format } from "prettier";
-import StyleDictionary from "style-dictionary";
-import {
-    fileHeader,
-    formattedVariables,
-    usesReferences,
-} from "style-dictionary/utils";
 
-const transformTokens = (token) => {
+const excludeFromTokenPath = (token, exclude) =>
+    token.path.filter((step) => !exclude.includes(step));
+
+const formatKeysToCamelCase = (token) => {
     if (!token || typeof token !== "object") {
         return token;
     }
@@ -16,15 +15,25 @@ const transformTokens = (token) => {
         return token.value;
     }
 
-    const nextObj = {};
-    for (const [prop, value] of Object.entries(token)) {
-        const camelProp = camelCase(prop);
-        nextObj[camelProp] = transformTokens(value);
+    const camelCasedObject = {};
+    for (const [key, value] of Object.entries(token)) {
+        const camelCasedKey = camelCase(key);
+        camelCasedObject[camelCasedKey] = formatKeysToCamelCase(value);
     }
 
-    return nextObj;
+    return camelCasedObject;
 };
 
+const stripRefPrefixFromTokenNames = (dictionary, platform) => {
+    for (const token of dictionary.allTokens) {
+        if (token.path[0] === "ref") {
+            const tokenPath = excludeFromTokenPath(token, ["ref"]);
+            token.name = `${platform.prefix}-${tokenPath.join("-")}`;
+        }
+    }
+};
+
+// Formatters
 StyleDictionary.registerFormat({
     name: "javascript/esm",
     format: async ({ dictionary, file, platform = {} }) => {
@@ -34,230 +43,99 @@ StyleDictionary.registerFormat({
             : dictionary.tokens;
 
         const output = `${await fileHeader({ file })}export default \n${JSON.stringify(
-            transformTokens(tokens),
+            formatKeysToCamelCase(tokens),
             null,
             2,
         )}\n`;
 
-        // return prettified
-        // return format(output, {
-        //     semi: true,
-        //     trailingComma: "all",
-        //     singleQuote: false,
-        //     printWidth: 120,
-        //     tabWidth: 4,
-        //     arrowParens: "always",
-        // });
+        return format(output, {
+            parser: "typescript",
+            semi: true,
+            trailingComma: "all",
+            singleQuote: false,
+            printWidth: 120,
+            tabWidth: 4,
+            arrowParens: "always",
+        });
     },
 });
 
-const formatValueAsScssVar = (originalValue) => {
-    const parsedName = originalValue
-        .replace(/({|})/g, "")
-        .split(".")
-        .filter((word) => word !== "value")
-        .join("-");
-    return `#{jkl.\$${parsedName}}`;
-};
-
 StyleDictionary.registerFormat({
-    name: "css/variables-ref-scss",
-    format: async ({ dictionary, file, platform }) => {
-        let output = `${await fileHeader({ file })}@use "../jkl";\n\n`;
-        const { prefix } = platform;
+    name: "scss/color-variables",
+    format: async ({ dictionary, file }) => {
+        let output = `${await fileHeader({ file })}@use "../jkl";\n`;
 
-        // Light mode
-        output += "@include jkl.light-mode-variables {\n    ";
-        output += dictionary.allTokens
-            .filter((token) => token.path.includes("light"))
-            .map((token) => {
-                const value = token.value;
-                const name = [
-                    prefix,
-                    ...token.path.filter(
-                        (step) => !["dark", "light"].includes(step),
-                    ),
-                ].join("-");
+        const colorSchemeLight = {
+            ...dictionary,
+            allTokens: dictionary.allTokens.filter((token) =>
+                token.path.includes("light"),
+            ),
+        };
 
-                return `--${name}: ${value};`;
-            })
-            .join("\n    ");
-        output += "\n}\n";
+        const colorSchemeDark = {
+            ...dictionary,
+            allTokens: dictionary.allTokens.filter((token) =>
+                token.path.includes("dark"),
+            ),
+        };
 
-        // Dark mode
-        output += "@include jkl.dark-mode-variables {\n    ";
-        output += dictionary.allTokens
-            .filter((token) => token.path.includes("dark"))
-            .map((token) => {
-                const value = token.value;
-                const name = [
-                    prefix,
-                    ...token.path.filter(
-                        (step) => !["dark", "light"].includes(step),
-                    ),
-                ].join("-");
+        output += `\n@include jkl.light-mode-variables {\n${formattedVariables({
+            dictionary: colorSchemeLight,
+            format: "css",
+            formatting: { indentation: "    " },
+        })}\n}\n`;
 
-                return `--${name}: ${value};`;
-            })
-            .join("\n    ");
-        output += "\n}\n";
+        output += `\n@include jkl.dark-mode-variables {\n${formattedVariables({
+            dictionary: colorSchemeDark,
+            format: "css",
+            formatting: { indentation: "    " },
+        })}\n}\n`;
 
         return output;
     },
 });
 
-const variableFormatter =
-    (format = "sass") =>
-    async ({ dictionary, file }) => {
-        const variableDenotion = format === "sass" ? "$" : "@";
-        const formatProperty = (token) => {
-            const path = token.path
-                .filter((word) => !["light", "dark"].includes(word))
-                .join("-");
+StyleDictionary.registerFormat({
+    name: "scss/sass-variables",
+    format: async ({ dictionary, file, platform }) => {
+        const header = await fileHeader({ file });
 
-            return `${variableDenotion}${path}: var(--jkl-${path});`;
-        };
-
-        const colorVariables = dictionary.allTokens
-            .filter((token) => token.path.some((word) => word === "light"))
-            .map((token) => ({
-                ...token,
-                path: token.path.filter((word) => word !== "light"),
-            }));
-
-        const otherVariables = dictionary.allTokens.filter(
+        const staticColorTokens = dictionary.allTokens.filter(
             (token) =>
-                !token.path.some((word) => ["light", "dark"].includes(word)) &&
-                !token.filePath.includes("legacy"),
+                !token.path.some((word) => ["light", "dark"].includes(word)),
         );
 
-        return `${await fileHeader({ file })}
-${formattedVariables({
-    dictionary: { ...dictionary, allTokens: otherVariables },
-    format: format,
-})}
+        const colorTokens = dictionary.allTokens.filter((token) =>
+            // Bruker 'light' som kilde for å unngå duplikater
+            token.path.includes("light"),
+        );
+
+        const dynamicColorTokens = colorTokens.map((token) => {
+            const tokenPath = excludeFromTokenPath(token, ["dark", "light"]);
+            const variableName = tokenPath.join("-");
+
+            return {
+                ...token,
+                name: variableName,
+                value: `var(--${platform.prefix}-${variableName})`,
+            };
+        });
+
+        const staticColorVariables = formattedVariables({
+            format: "sass",
+            dictionary: { ...dictionary, allTokens: staticColorTokens },
+        });
+
+        const dynamicColorVariables = formattedVariables({
+            format: "sass",
+            dictionary: { ...dictionary, allTokens: dynamicColorTokens },
+        });
+
+        return `${header}
+${staticColorVariables}
 
 // Dynamiske variabler for farge, via referanse til CSS-variabler
-${colorVariables.map(formatProperty).join("\n")}`;
-    };
-
-StyleDictionary.registerFormat({
-    name: "scss/vars",
-    format: variableFormatter("sass"),
-});
-
-StyleDictionary.registerFormat({
-    name: "less/vars",
-    format: variableFormatter("less"),
-});
-
-StyleDictionary.registerFilter({
-    name: "isBaseVariable",
-    filter: (token) => {
-        const baseCategories = [
-            "brand",
-            "functional",
-            "spacing",
-            "typography",
-            "unit",
-        ];
-        return token.path.some((word) => baseCategories.includes(word));
-    },
-});
-
-StyleDictionary.registerFilter({
-    name: "isNotBaseVariable",
-    filter: (token) => {
-        const baseCategories = ["brand", "functional", "spacing", "typography"];
-        return !token.path.some((word) => baseCategories.includes(word));
-    },
-});
-
-const legacyDictionary = new StyleDictionary({
-    source: ["src/core/tokens/legacy/*.json"],
-    platforms: {
-        scss: {
-            transformGroup: "scss",
-            buildPath: "./src/core/jkl/",
-            files: [
-                {
-                    destination: "_legacy-tokens.scss",
-                    format: "scss/variables",
-                },
-            ],
-        },
-        css: {
-            transformGroup: "scss",
-            buildPath: "./src/core/styles/",
-            prefix: "jkl",
-            files: [
-                {
-                    destination: "_legacy-tokens.scss",
-                    format: "css/variables",
-                },
-            ],
-        },
-    },
-});
-
-const myStyleDictionary = new StyleDictionary({
-    source: ["src/core/tokens/**/*.json"],
-    platforms: {
-        ts: {
-            transforms: ["name/camel"],
-            buildPath: "./src/core/",
-            files: [
-                {
-                    destination: "tokens.ts",
-                    format: "javascript/esm",
-                },
-            ],
-        },
-        scss: {
-            transformGroup: "scss",
-            buildPath: "./src/core/jkl/",
-            files: [
-                {
-                    destination: "_tokens.scss",
-                    format: "scss/vars",
-                },
-            ],
-        },
-        css: {
-            transformGroup: "scss",
-            buildPath: "./src/core/styles/",
-            prefix: "jkl",
-            files: [
-                {
-                    destination: "_tokens.scss",
-                    format: "css/variables",
-                    filter: "isBaseVariable",
-                },
-                {
-                    destination: "_color-tokens.scss",
-                    format: "css/variables-ref-scss",
-                    filter: (token) =>
-                        token.path.includes("light") ||
-                        token.path.includes("dark"),
-                },
-            ],
-        },
-    },
-});
-
-const lessStyleDictionary = new StyleDictionary({
-    source: ["src/core/tokens/**/*.json"],
-    platforms: {
-        less: {
-            transformGroup: "less",
-            buildPath: "./src/core/",
-            files: [
-                {
-                    destination: "tokens.less",
-                    format: "less/variables",
-                },
-            ],
-        },
+${dynamicColorVariables}`;
     },
 });
 
@@ -265,53 +143,230 @@ StyleDictionary.registerFormat({
     name: "tailwindcss/colors",
     format: async ({ dictionary, file, platform }) => {
         const { prefix } = platform;
-
         let output = await fileHeader({ file });
 
-        output += "const colors = {\n    ";
-        output += dictionary.allTokens
+        const tailwindColorEntries = dictionary.allTokens
             .filter((token) => token.path.includes("light"))
             .map((token) => {
-                const key = [
-                    ...token.path
-                        .slice(1)
-                        .filter((step) => !["dark", "light"].includes(step)),
-                ].join("-");
+                const tokenPath = excludeFromTokenPath(token, [
+                    "dark",
+                    "light",
+                ]);
+                const tailwindColorName = tokenPath.slice(1).join("-");
+                const cssVariableName = [prefix, ...tokenPath].join("-");
 
-                const value = [
-                    prefix,
-                    ...token.path.filter(
-                        (step) => !["dark", "light"].includes(step),
-                    ),
-                ].join("-");
-
-                return `"${key}": "var(--${value})",`;
+                return `    "${tailwindColorName}": "var(--${cssVariableName})",`;
             })
-            .join("\n    ");
-        output += "\n};\n\n";
+            .join("\n");
+
+        output += `const colors = {\n${tailwindColorEntries}\n};\n\n`;
         output += "export default colors;\n";
 
         return output;
     },
 });
 
-const tailwindPreset = new StyleDictionary({
-    source: ["src/core/tokens/**/*.json"],
-    platforms: {
-        tailwind: {
-            buildPath: "src/tailwind/",
-            prefix: "jkl",
-            files: [
-                {
-                    destination: "colors.ts",
-                    format: "tailwindcss/colors",
-                },
-            ],
-        },
+StyleDictionary.registerFormat({
+    name: "css/spacing-variables",
+    format: async ({ dictionary, file, platform }) => {
+        let output = `${await fileHeader({ file })}`;
+
+        stripRefPrefixFromTokenNames(dictionary, platform);
+
+        const referenceTokens = dictionary.allTokens.filter(
+            (token) => token.path[0] === "ref",
+        );
+
+        const systemTokens = dictionary.allTokens.filter(
+            (token) => token.path[0] === "sys",
+        );
+
+        const mutatedSystemTokens = systemTokens
+            .filter((token) => token.path.includes("productive"))
+            .map((token) => {
+                const tokenPath = excludeFromTokenPath(token, [
+                    "sys",
+                    "productive",
+                ]);
+                const variableName = `${platform.prefix}-${tokenPath.join("-")}`;
+
+                return {
+                    ...token,
+                    name: variableName,
+                    value: token.value,
+                };
+            });
+
+        const rootTokens = [...referenceTokens, ...mutatedSystemTokens];
+
+        output += `:root {\n${formattedVariables({
+            dictionary: { ...dictionary, allTokens: rootTokens },
+            format: "css",
+            formatting: { indentation: "    " },
+        })}\n}\n\n`;
+
+        const createLook = (look) => {
+            const lookTokens = systemTokens
+                .filter((token) => token.path.includes(look))
+                .map((token) => {
+                    const tokenPath = excludeFromTokenPath(token, [
+                        "sys",
+                        look,
+                    ]);
+                    const variableName = tokenPath.join("-");
+
+                    return {
+                        ...token,
+                        name: `${platform.prefix}-${variableName}`,
+                        value: token.value,
+                    };
+                });
+
+            return `:root, [data-look="${look}"] {\n${formattedVariables({
+                dictionary: { ...dictionary, allTokens: lookTokens },
+                format: "css",
+                formatting: { indentation: "    " },
+                outputReferences: true,
+            })}\n}`;
+        };
+
+        output += `${createLook("productive")}\n\n`;
+        output += `${createLook("expressive")}\n`;
+
+        return output;
     },
 });
 
-await tailwindPreset.buildAllPlatforms();
-await myStyleDictionary.buildAllPlatforms();
-await lessStyleDictionary.buildAllPlatforms();
-await legacyDictionary.buildAllPlatforms();
+// Filters
+const tokenMatcher = (token, criteria = {}) => {
+    if (token.path[0] === "ref") {
+        return false;
+    }
+
+    const { mustContain, mustContainOneOf } = criteria;
+
+    if (
+        mustContain &&
+        !mustContain.every((path) => token.path.includes(path))
+    ) {
+        return false;
+    }
+
+    if (
+        mustContainOneOf &&
+        !token.path.some((path) => mustContainOneOf.includes(path))
+    ) {
+        return false;
+    }
+
+    return true;
+};
+
+// Dictionaries
+async function build() {
+    const legacyDesignTokensDictionary = await new StyleDictionary({
+        source: ["src/core/tokens/legacy/*.json"],
+        platforms: {
+            scss: {
+                transformGroup: "scss",
+                buildPath: "./src/core/jkl/",
+                files: [
+                    {
+                        destination: "_legacy-tokens.scss",
+                        format: "scss/variables",
+                    },
+                ],
+            },
+            css: {
+                transformGroup: "scss",
+                buildPath: "./src/core/styles/",
+                prefix: "jkl",
+                files: [
+                    {
+                        destination: "_legacy-tokens.scss",
+                        format: "css/variables",
+                    },
+                ],
+            },
+        },
+    });
+
+    const designTokensDictionary = await new StyleDictionary({
+        source: ["src/core/tokens/**/*.json"],
+        exclude: ["src/core/tokens/legacy/*.json"],
+        platforms: {
+            ts: {
+                transforms: ["name/camel"],
+                buildPath: "./src/core/",
+                files: [
+                    {
+                        destination: "tokens.ts",
+                        format: "javascript/esm",
+                    },
+                ],
+            },
+            scss: {
+                transformGroup: "scss",
+                buildPath: "./src/core/jkl/",
+                prefix: "jkl",
+                files: [
+                    {
+                        destination: "_tokens.scss",
+                        format: "scss/sass-variables",
+                        filter: (token) => tokenMatcher(token),
+                    },
+                ],
+            },
+            css: {
+                transformGroup: "scss",
+                buildPath: "./src/core/styles/",
+                prefix: "jkl",
+                files: [
+                    {
+                        destination: "_tokens.scss",
+                        format: "css/variables",
+                        filter: (token) =>
+                            tokenMatcher(token, {
+                                mustContainOneOf: [
+                                    "brand",
+                                    "functional",
+                                    "typography",
+                                    "unit",
+                                ],
+                            }),
+                    },
+                    {
+                        destination: "_color-tokens.scss",
+                        format: "scss/color-variables",
+                        filter: (token) =>
+                            tokenMatcher(token, {
+                                mustContain: ["sys", "color"],
+                            }),
+                    },
+                    {
+                        destination: "_spacing-tokens.scss",
+                        format: "css/spacing-variables",
+                        filter: (token) => token.path.includes("spacing"),
+                    },
+                ],
+            },
+            tailwind: {
+                buildPath: "src/tailwind/",
+                prefix: "jkl",
+                files: [
+                    {
+                        destination: "colors.ts",
+                        format: "tailwindcss/colors",
+                        filter: (token) => tokenMatcher(token),
+                    },
+                ],
+            },
+        },
+    });
+
+    // Build
+    await designTokensDictionary.buildAllPlatforms();
+    await legacyDesignTokensDictionary.buildAllPlatforms();
+}
+
+build();
