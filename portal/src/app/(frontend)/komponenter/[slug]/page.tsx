@@ -8,6 +8,7 @@ import { ComponentConsiderations } from "./components/ComponentConsiderations";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
 
+import { ComponentGrid } from "@/components/component-grid/ComponentGrid";
 import styles from "./component.module.scss";
 
 type Props = {
@@ -75,7 +76,7 @@ export default async function Page({ params }: Props) {
                             {component.related_components ? (
                                 <>
                                     <h2>Relaterte komponenter</h2>
-                                    <ul className={styles.relatedComponents}>
+                                    <ComponentGrid>
                                         {component.related_components?.components?.map(
                                             (relatedComponent) => (
                                                 <li key={relatedComponent.slug}>
@@ -87,7 +88,7 @@ export default async function Page({ params }: Props) {
                                                 </li>
                                             ),
                                         )}
-                                    </ul>
+                                    </ComponentGrid>
                                 </>
                             ) : null}
 
