@@ -10,6 +10,15 @@ export type Consent = {
     statistics?: ConsentState;
 };
 
+export interface CookieConsentProps {
+    blocking?: boolean;
+    onAccept?: AcceptConsentCallback;
+    /**
+     * Lenke til informasjonssiden til cookiene i løsningen din.
+     */
+    aboutPage: string;
+}
+
 export type AcceptConsentCallback = (consent: Consent) => void;
 
 export type ConsentComponentBaseProps = {
