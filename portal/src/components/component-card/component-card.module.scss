@@ -20,6 +20,11 @@
 
     .description {
         margin-bottom: auto;
+
+        @include jkl.text-style("small") {
+            color: var(--jkl-color-text-subdued);
+            word-wrap: break-word;
+        }
     }
 
     .image {

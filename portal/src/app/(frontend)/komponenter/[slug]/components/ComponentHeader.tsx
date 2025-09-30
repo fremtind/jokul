@@ -5,6 +5,7 @@ import { Flex } from "@fremtind/jokul/flex";
 import { ComponentHeaderLink } from "./ComponentHeaderLink";
 
 import styles from "./componentHeader.module.scss";
+import { NavLink } from "@fremtind/jokul/nav-link";
 
 type ComponentHeaderProps = {
     links?: {
@@ -23,12 +24,15 @@ export const ComponentHeader = ({
 }: ComponentHeaderProps) => {
     return (
         <Card variant="low" asChild>
-            <Flex
-                as="header"
-                className={styles.header}
-                justifyContent="space-between"
-            >
-                <div className={styles.wrapper}>
+            <Flex as="header" className={styles.header}>
+                <NavLink
+                    className={styles.navlink}
+                    href="/komponenter"
+                    back={true}
+                >
+                    Komponenter
+                </NavLink>
+                <div>
                     {name && (
                         <h1 className={styles.name} lang="en">
                             {name}
