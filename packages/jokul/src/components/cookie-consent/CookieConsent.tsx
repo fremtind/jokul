@@ -1,6 +1,8 @@
 import React, { type FormEventHandler, useEffect, useId } from "react";
 import ReactDOM from "react-dom";
 import { Button } from "../button/Button.js";
+import { Flex } from "../flex/index.js";
+import { Link } from "../link/index.js";
 import {
     Modal,
     ModalActions,
@@ -12,21 +14,16 @@ import {
 } from "../modal/Modal.js";
 import { useModal } from "../modal/useModal.js";
 import { useInternalState } from "./CookieConsentContext.js";
-import { RequirementCheckbox } from "./RequirementCheckbox.js";
 import {
     convertBooleanConsentObjectToConsentObject,
     setConsentCookie,
 } from "./cookieConsentUtils.js";
-import type { AcceptConsentCallback, Consent } from "./types.js";
-
-export interface CookieConsentProps {
-    blocking?: boolean;
-    onAccept?: AcceptConsentCallback;
-}
+import type { Consent, CookieConsentProps } from "./types.js";
 
 export const CookieConsent = ({
     blocking,
     onAccept,
+    aboutPage,
     ...rest
 }: CookieConsentProps): JSX.Element | null => {
     const {
@@ -50,7 +47,6 @@ export const CookieConsent = ({
         // to provide context to assistive technology.
         title: "Informasjonskapsler",
     });
-
     useEffect(() => {
         if (isOpen) {
             instance?.show();
@@ -144,78 +140,47 @@ export const CookieConsent = ({
         >
             <ModalOverlay {...modalConfig.overlay} />
             <Modal component="form" {...modalConfig.modal} {...{ onSubmit }}>
-                <ModalHeader>
-                    <ModalTitle {...modalConfig.title}>
-                        Velg informasjonskapsler
-                    </ModalTitle>
-                </ModalHeader>
-                <ModalBody>
-                    <p>
-                        For at nettsidene skal fungere må vi bruke tekniske
-                        informasjonskaplser. Disse lagres derfor uten samtykke.
-                    </p>
-                    {requirement.functional && (
-                        <RequirementCheckbox
-                            name="functional"
-                            label="Tillat funksjonelle"
-                            defaultChecked={
-                                currentConsent.functional === "accepted"
-                            }
-                            key={`functional-${currentConsent.functional}`}
+                <form>
+                    <ModalHeader>
+                        <ModalTitle {...modalConfig.title}>
+                            Får vi bruke valgfrie informasjonskapsler?
+                        </ModalTitle>
+                    </ModalHeader>
+                    <ModalBody>
+                        <Flex direction="column" gap={24}>
+                            <p>
+                                Vi ønsker å samle anonym statistikk for å forstå
+                                hvordan nettsidene våre brukes. Det hjelper oss
+                                til å gjøre innhold og løsninger bedre og mer
+                                brukervennlige.
+                            </p>
+                            <p>
+                                <Link href={aboutPage}>
+                                    Les mer om hvilke informasjonskapsler vi
+                                    lagrer her
+                                </Link>
+                                .
+                            </p>
+                        </Flex>
+                    </ModalBody>
+                    <ModalActions>
+                        <Button
+                            variant="secondary"
+                            data-testid="jkl-cookie-consent-godta-alle"
+                            type="button"
+                            onClick={() => accept()}
                         >
-                            Funksjonelle informasjonskapsler lagrer opplysninger
-                            om din bruk av nettsidene og hvilke innstillinger du
-                            har gjort, slik at du kan få funksjonalitet
-                            tilpasset deg.
-                        </RequirementCheckbox>
-                    )}
-                    {requirement.statistics && (
-                        <RequirementCheckbox
-                            name="statistics"
-                            label="Tillat statistikk"
-                            defaultChecked={
-                                currentConsent.statistics === "accepted"
-                            }
-                            key={`statistics-${currentConsent.statistics}`}
+                            Ja, det er greit
+                        </Button>
+                        <Button
+                            variant="secondary"
+                            data-testid="jkl-cookie-consent-godta"
+                            type="submit"
                         >
-                            Informasjonskapslene lagrer statistikk som hjelper
-                            oss med å forstå hvordan nettsidene blir brukt, slik
-                            at vi kan gjøre dem bedre og enklere å bruke.
-                        </RequirementCheckbox>
-                    )}
-                    {requirement.marketing && (
-                        <RequirementCheckbox
-                            name="marketing"
-                            label="Tillat personlig markedsføring"
-                            defaultChecked={
-                                currentConsent.marketing === "accepted"
-                            }
-                            key={`marketing-${currentConsent.marketing}`}
-                        >
-                            Dette gjør at vi kan gi deg mer relevant og
-                            tilpasset markedsføring, også gjennom våre
-                            samarbeidspartnere, på for eksempel nettsider,
-                            annonser og i sosiale medier.
-                        </RequirementCheckbox>
-                    )}
-                </ModalBody>
-                <ModalActions>
-                    <Button
-                        variant="secondary"
-                        data-testid="jkl-cookie-consent-godta"
-                        type="submit"
-                    >
-                        Godta mine valg
-                    </Button>
-                    <Button
-                        variant="secondary"
-                        data-testid="jkl-cookie-consent-godta-alle"
-                        type="button"
-                        onClick={() => accept()}
-                    >
-                        Godta alle
-                    </Button>
-                </ModalActions>
+                            Nei takk
+                        </Button>
+                    </ModalActions>
+                </form>
             </Modal>
         </ModalContainer>,
         document.body,
