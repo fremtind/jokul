@@ -9,7 +9,7 @@
 }
 
 .jkl-link-list {
-    --border-color: var(--jkl-color-border-separator);
+    --border-color: #{jkl.$sys-color-border-default};
 
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@
 }
 
 .jkl-link-list-link {
-    --text-color: var(--jkl-color-text-default);
+    --text-color: #{jkl.$sys-color-content-default};
     --icon-background: transparent;
 
     display: flex;

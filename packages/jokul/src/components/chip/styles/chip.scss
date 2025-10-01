@@ -24,9 +24,9 @@
 }
 
 .jkl-chip {
-    --text-color: var(--jkl-color-text-default);
-    --border-color: var(--jkl-color-border-separator);
-    --background-color: transparent;
+    --text-color: var(--jkl-sys-color-content-default);
+    --border-color: var(--jkl-sys-color-border-default);
+    --background-color: var(--jkl-sys-color-background-surface-highlight);
     --border-width: #{jkl.rem(1px)};
 
     @include jkl.text-style("heading-5");
@@ -72,12 +72,13 @@
 
     &--filter {
         &[aria-pressed="true"] {
-            --background-color: var(--jkl-color-background-action);
-            --text-color: var(--jkl-color-text-on-action);
+            --background-color: var(--jkl-sys-color-background-surface-action);
+            --text-color: var(--jkl-sys-color-content-knockout);
             --border-color: var(--text-color);
 
             @include jkl.forced-colors-mode {
                 forced-color-adjust: none;
+
                 --background-color: CanvasText;
                 --text-color: Canvas;
             }

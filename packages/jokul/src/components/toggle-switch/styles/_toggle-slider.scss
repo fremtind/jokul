@@ -4,21 +4,21 @@
 $_slider-rounded: jkl.rem(100px);
 
 @include jkl.light-mode-variables {
-    --jkl-slider-bg: #{jkl.$color-varde};
-    --jkl-slider-pill: #{jkl.$color-snohvit};
-    --jkl-slider-pill-text: #{jkl.$color-granitt};
-    --jkl-slider-pill-text--active: #{jkl.$color-svart};
-    --jkl-slider-focus-color: #{jkl.$color-svart};
-    --jkl-slider-hover-color: #{jkl.$color-svart};
+    --jkl-slider-bg: #{jkl.$sys-color-content-on-contrast};
+    --jkl-slider-pill: #{jkl.$sys-color-background-surface-highlight};
+    --jkl-slider-pill-text: #{jkl.$sys-color-content-default};
+    --jkl-slider-pill-text--active: #{jkl.$sys-color-content-default};
+    --jkl-slider-focus-color: #{jkl.$sys-color-content-default};
+    --jkl-slider-hover-color: #{jkl.$sys-color-content-default};
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-slider-bg: #{jkl.$color-fjellgra};
-    --jkl-slider-pill: #{jkl.$color-granitt};
-    --jkl-slider-pill-text: #{jkl.$color-snohvit};
-    --jkl-slider-pill-text--active: #{jkl.$color-hvit};
-    --jkl-slider-focus-color: #{jkl.$color-svaberg};
-    --jkl-slider-hover-color: #{jkl.$color-hvit};
+    --jkl-slider-bg: #{jkl.$sys-color-background-surface-highlight};
+    --jkl-slider-pill: #{jkl.$sys-color-background-surface-highlight};
+    --jkl-slider-pill-text: #{jkl.$sys-color-content-default};
+    --jkl-slider-pill-text--active: #{jkl.$sys-color-content-default};
+    --jkl-slider-focus-color: #{jkl.$sys-color-content-on-contrast};
+    --jkl-slider-hover-color: #{jkl.$sys-color-content-default};
 }
 
 @include jkl.comfortable-density-variables {

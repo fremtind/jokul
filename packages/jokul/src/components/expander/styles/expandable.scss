@@ -1,7 +1,7 @@
 @use "../../../core/jkl";
 
 .jkl-expandable {
-    background-color: var(--jkl-color-background-container-low);
+    background-color: jkl.$sys-color-background-surface-default;
     // A transparent border will be visible in forced colors mode and replace
     // the role of the background-color in separating the component from other content
     border: 1px solid transparent;
@@ -27,7 +27,7 @@
     }
 
     &--stroke {
-        border-color: var(--jkl-color-border-separator);
+        border-color: var(--jkl-sys-color-border-default);
         background-color: transparent;
 
         border-radius: 0;
@@ -133,7 +133,7 @@
 
     @media (hover: hover) {
         &:hover {
-            background-color: var(--jkl-color-background-interactive-selected);
+            background-color: var(--jkl-sys-color-background-surface-default);
         }
     }
 

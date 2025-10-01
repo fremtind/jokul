@@ -31,7 +31,7 @@
         @include jkl.reset-outline;
 
         & option {
-            color: var(--jkl-color-text-default);
+            color: var(--jkl-sys-color-content-default);
             background-color: var(--jkl-color-background-container-high);
             text-align: left;
         }
