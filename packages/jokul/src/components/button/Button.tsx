@@ -75,6 +75,9 @@ export const Button = React.forwardRef(function Button<
     );
 }) as ButtonComponent;
 
+/**
+ * @deprecated bruk heller {@link Button} med ghost-varianten
+ */
 export function PrimaryButton<ElementType extends React.ElementType = "button">(
     props: Omit<ButtonProps<ElementType>, "variant" | "onClick" | "as"> &
         Pick<ButtonHTMLAttributes<HTMLButtonElement>, "onClick">,
@@ -86,6 +89,9 @@ export function PrimaryButton<ElementType extends React.ElementType = "button">(
     return <Button {...buttonProps} />;
 }
 
+/**
+ * @deprecated bruk heller {@link Button} med ghost-varianten
+ */
 export function SecondaryButton<
     ElementType extends React.ElementType = "button",
 >(
@@ -99,6 +105,9 @@ export function SecondaryButton<
     return <Button {...buttonProps} />;
 }
 
+/**
+ * @deprecated bruk heller {@link Button} med ghost-varianten
+ */
 export function TertiaryButton<
     ElementType extends React.ElementType = "button",
 >(
@@ -112,6 +121,9 @@ export function TertiaryButton<
     return <Button {...buttonProps} />;
 }
 
+/**
+ * @deprecated bruk heller {@link Button} med ghost-varianten
+ */
 export function GhostButton<ElementType extends React.ElementType = "button">(
     props: Omit<ButtonProps<ElementType>, "variant" | "loader">,
 ) {
