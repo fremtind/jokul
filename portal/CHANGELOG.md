@@ -1,5 +1,13 @@
 # portal
 
+## 1.4.3
+
+### Patch Changes
+
+- 297b581: Bytter til å bruke `ComponentGrid` for å vise relaterte komponenter på komponentsiden, slik at visningsinnstillingene blir tatt hensyn til der også.
+- Updated dependencies [2c289e8]
+  - @fremtind/jokul@1.4.1
+
 ## 1.4.2
 
 ### Patch Changes
