@@ -32,7 +32,7 @@ export type IconOptions =
 type Props = {
     density?: Density;
     /**
-     * Hvilken variant av knappen skal vises
+     * Hvilken variant av knappen skal vises. Tertiary er planlagt fjernet fordi den ligner for mye på en lenke.
      * @default "secondary"
      */
     variant?: ButtonVariant;
