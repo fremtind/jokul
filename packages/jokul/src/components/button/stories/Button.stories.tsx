@@ -11,48 +11,43 @@ const meta = {
             toc: true,
         },
     },
+    args: {
+        type: "button",
+        children: "Knapp",
+        variant: "secondary",
+        loader: {
+            showLoader: false,
+            textDescription: "laster inn",
+        },
+    },
     tags: ["autodocs", "forms"],
 } satisfies Meta<typeof ButtonComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const baseArgs = {
-    type: "submit",
-    children: "Knapp",
-    loader: {
-        showLoader: false,
-        textDescription: "laster inn",
-    },
-};
-export const Button: Story = {
-    args: baseArgs,
-};
+export const Button: Story = {};
 
 export const PrimaryButton: Story = {
     args: {
-        ...baseArgs,
         variant: "primary",
     },
 };
 
 export const SecondaryButton: Story = {
     args: {
-        ...baseArgs,
         variant: "secondary",
     },
 };
 
 export const TertiaryButton: Story = {
     args: {
-        ...baseArgs,
         variant: "tertiary",
     },
 };
 
 export const GhostButton: Story = {
     args: {
-        ...baseArgs,
         variant: "ghost",
     },
 };

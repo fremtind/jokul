@@ -2,6 +2,9 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 import type { IconButtonProps } from "./types.js";
 
+/**
+ * @deprecated bruk heller {@link Button} med ghost-varianten
+ */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (props, ref) => {
         const { className, children, density, ...rest } = props;
