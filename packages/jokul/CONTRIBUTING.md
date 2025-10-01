@@ -1,72 +1,70 @@
 # Bidragsguide
 
-Se også [CONTRIBUTING.md](../../CONTRIBUTING.md).
+## For mønster
 
-## Integrasjonstester
+Den enkleste måten å bidra på er å lage en story. En story er en liten kodesnutt, som andre kan kopiere inn i sine
+løsninger. Storybook er bygget opp av mange stories, og det er disse vi bruker i portalen.
 
-Vi har en testsuite laget med [Playwright](https://playwright.dev/). Den håndterer
-både visuell regresjonstesting og testing mot WCAG kriteria med en [Axe](https://www.deque.com/axe/)-plugin.
+Den enkleste storyen vi har er nok Button, den er relativt enkel å forstå, og den flest har brukt en håndfull ganger.
 
-### Visuelle regresjonstester
+### Jeg skjønner ikke hvordan
 
-Disse er kun tenkt kjørt på CI-serveren for å unngå false negatives når skjermbilder
-tas på forskjellige platformer. Dersom det allerede finnes skjermbilder for en test
-vil det gjøres en sammenligning mellom de som er lagret og det som er rendret
-i browseren og dersom det ikke finnes noen skjermbilder vil nye tas.
+1. Dra ned repoet
+2. Let fram en Story (gjerne Button.stories.ts(x)
+3. Kopier fila, plasser den i stories mappa til komponenten som best passer mønsteret.
+   a) Dersom det ikke finnes en stories mappe går det helt fint å lage en.
+   b) Dersom du ikke vet hvilken komponent som passer best kan det hende at den bør bo et annet sted. Spør designerne
+   dine, andre utviklere eller oss!
+4. Skriv i vei!
 
-Dersom du har gjort visuelle endringer er dermed alt du trenger å gjøre å slette
-eksisterende skjermbilder, så vil en Github action ta nye og gjøre en commit mot
-branchen etter at du oppretter en PR.
+### Jeg trenger å gjøre kall til et system utenfra
 
-### Testing mot WCAG kriteria
+Dersom mønsteret du vil dokumentere trenger å hente data anbefaler vi å mocke dette. Som regel kommer du langt med å
+bruke en setTimeout funksjon sammen med falsk data. Storybook har også egne funksjoner for å støtte under denne typen
+dokumentasjon, spør oss gjerne om hjelp om du står helt fast!
 
-Disse kan du fint kjøre lokalt, bruk da kommandoen `CI=true pnpm integration:axe` på
-rot av prosjektet.
+### Jeg får det ikke helt til / det er for mye å sette seg inn i
 
-## Lage ny komponent
+Send oss en melding med mønsteret dokumentert i Figma, eller aller helst lenke til noe kode! Vi finner alltid ut av noe
+sammen 😁👌
 
-Følg mappe- og filstruktur fra de andre komponentene.
+### Mønsteret er ikke lagd enda (tror jeg)
 
-```
-| components/
-| - [navn]/
-| -- [Navn].tsx
-| -- index.ts
-| -- development/
-| --- [Navn]Example.tsx
-| --- Example.tsx
-| -- styles/
-| --- _index.scss
-| --- [navn].scss
-```
+Så kult! Som regel er dette den beste tiden for oss å bli involvert, fordi vi kan se om det er et behov vi burde legge
+til rette for på andre måter enn bare stories også!
 
-Du må også legge til komponenten to steder til
+Send en melding til oss personlig, ta det med i et forum, eller lag et issue så kan vi diskutere hvor stor oppgaven er
+for oss og for deg!
 
-I [package.json](./package.json):
+### Jeg ønsker å endre et mønster som eksisterer 😐
 
-```json
-        "./components/[navn]": {
-            "import": {
-                "types": "./build/es/components/[navn]/index.d.ts"
-                "default": "./build/es/components/[navn]/index.js",
-            },
-            "require": {
-                "types": "./build/cjs/components/[navn]/index.d.cts"
-                "default": "./build/cjs/components/[navn]/index.cjs",
-            }
-        },
-```
+Dette er et supert tema å ta opp i forum. Kanskje dere har innsikt som viser at man burde gjøre forbedringer, eller et
+forslag til å løse mønsteret på en helt annen måte? Siden vi ønsker mest mulig gjenbruk av dokumenterte mønstre kan dine
+ideer være med å gjøre det bedre for andre løsninger også.
 
-I [styles.scss](./src/styles/styles.scss)
+## For komponenter
 
-```scss
-@use "../components/[navn]/styles" as [navn];
-```
+Den enkleste måten å komme med innspill på komponenter på er å lage et issue her, da kan vi holde styr på det enkelt.
+Når det er sagt kan du fint bare sende oss en melding eller ta opp problemet ditt på forum også!
 
-Når dette er på plass bør du kunne starte opp devserveren ved å kjøre kommandoen
+Dersom du har en spesifikk endring du ønsker er det veldig fint om du har noen tanker på hvordan endringen skal se ut
+eller fungere.
 
-```bash
-pnpm dev
-```
+### Jeg trenger en helt ny komponent
 
-I denne mappa.
+Kult! Da er det enda bedre om du har noen referanser til komponenter andre steder så vi skjønner hvilket behov
+komponenten skal fylle.
+
+Her er den enkleste måten å få det gjennom på definitivt å lage en PR så vi kan diskutere det tekniske behovet så vel
+som det design-messige.
+
+Dersom du ikke har en god tanke om hvordan det skal gjøres teknisk er det helt greit å bare komme med et løst ønske
+også, men da er veien til mål lengre.
+
+## Jeg skjønner ikke helt forskjell på mønster og komponent
+
+Spør! Mønster er større deler av en løsning, men det er litt vanskelig å forstå hvor en komponent slutter og et mønster
+starter. Særlig fordi både i React og i Figma blir alt som er gjenbrukbart referert til som komponenter 😑
+
+Igjen, bare spør, forskjellen er ikke så farlig for oss, det handler først og fremst bare om hvordan tingen skal
+forvaltes!
