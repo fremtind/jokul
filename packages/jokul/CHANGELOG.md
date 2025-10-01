@@ -1,11 +1,5 @@
 # Change Log
 
-## 1.5.0
-
-### Minor Changes
-
-- 9ee17e4: 1. Refaktorert token-build-scriptet for bedre struktur og vedlikeholdbarhet 2. Lagt til nye spacing-tokens med støtte for både productive og expressive varianter
-
 ## 1.4.1
 
 ### Patch Changes
