@@ -177,61 +177,11 @@ StyleDictionary.registerFormat({
             (token) => token.path[0] === "ref",
         );
 
-        const systemTokens = dictionary.allTokens.filter(
-            (token) => token.path[0] === "sys",
-        );
-
-        const mutatedSystemTokens = systemTokens
-            .filter((token) => token.path.includes("productive"))
-            .map((token) => {
-                const tokenPath = excludeFromTokenPath(token, [
-                    "sys",
-                    "productive",
-                ]);
-                const variableName = `${platform.prefix}-${tokenPath.join("-")}`;
-
-                return {
-                    ...token,
-                    name: variableName,
-                    value: token.value,
-                };
-            });
-
-        const rootTokens = [...referenceTokens, ...mutatedSystemTokens];
-
         output += `:root {\n${formattedVariables({
-            dictionary: { ...dictionary, allTokens: rootTokens },
+            dictionary: { ...dictionary, allTokens: referenceTokens },
             format: "css",
             formatting: { indentation: "    " },
         })}\n}\n\n`;
-
-        const createLook = (look) => {
-            const lookTokens = systemTokens
-                .filter((token) => token.path.includes(look))
-                .map((token) => {
-                    const tokenPath = excludeFromTokenPath(token, [
-                        "sys",
-                        look,
-                    ]);
-                    const variableName = tokenPath.join("-");
-
-                    return {
-                        ...token,
-                        name: `${platform.prefix}-${variableName}`,
-                        value: token.value,
-                    };
-                });
-
-            return `:root, [data-look="${look}"] {\n${formattedVariables({
-                dictionary: { ...dictionary, allTokens: lookTokens },
-                format: "css",
-                formatting: { indentation: "    " },
-                outputReferences: true,
-            })}\n}`;
-        };
-
-        output += `${createLook("productive")}\n\n`;
-        output += `${createLook("expressive")}\n`;
 
         return output;
     },
