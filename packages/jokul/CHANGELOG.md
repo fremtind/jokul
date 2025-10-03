@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.4.2
+
+### Patch Changes
+
+- de25ed3: Endret border z-index slik at hover-tilstand vises over checked input.
+- f084272: Sørg for at alle tokens og variabler bygges
+
+  Etter refaktoreringen av tokens-byggsteget falt en del variabler som
+  fortsatt ble brukt ut av de resulterende filene. Her sørger vi for at
+  alle tokens og variabler som trengs i systemet er tilgjengelige som før,
+  i tillegg til de nye verdiene vi vil ha ut.
+
 ## 1.4.1
 
 ### Patch Changes
