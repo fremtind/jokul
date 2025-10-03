@@ -1,10 +1,52 @@
+import { camelCase } from "change-case";
+import Prettier from "prettier";
 import StyleDictionary from "style-dictionary";
 import { fileHeader, formattedVariables } from "style-dictionary/utils";
-import { camelCase } from "change-case";
-import { format } from "prettier";
 
 const excludeFromTokenPath = (token, exclude) =>
     token.path.filter((step) => !exclude.includes(step));
+
+/**
+ * Forferdelig stygg funksjon, skrevet av Copilot, for å serialisere tokens
+ * med tall som navn på riktig måte. Forhåpentligvis blir vi kvitt denne
+ * igjen snart (famous last words)
+ */
+function serialize(object, indent = 4) {
+    const pad = (n) => " ".repeat(n);
+
+    if (object === null) return "null";
+
+    if (Array.isArray(object)) {
+        return `[${object.map((v) => serialize(v, indent)).join(", ")}]`;
+    }
+
+    if (typeof object === "object") {
+        const entries = Object.entries(object).map(([key, value]) => {
+            let keyStr;
+
+            if (
+                typeof key === "number" ||
+                (!Number.isNaN(Number(key)) && key.trim() !== "")
+            ) {
+                keyStr = Number(key).toString();
+            } else if (/^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(key)) {
+                keyStr = key;
+            } else {
+                keyStr = JSON.stringify(key);
+            }
+
+            return `${pad(indent)}${keyStr}: ${serialize(value, indent + indent)}`;
+        });
+
+        return `{
+${entries.join(",\n")}
+${pad(indent - indent)}}`;
+    }
+
+    if (typeof object === "string") return JSON.stringify(object);
+
+    return String(object);
+}
 
 const formatKeysToCamelCase = (token) => {
     if (!token || typeof token !== "object") {
@@ -42,13 +84,9 @@ StyleDictionary.registerFormat({
             ? { [prefix]: dictionary.tokens }
             : dictionary.tokens;
 
-        const output = `${await fileHeader({ file })}export default \n${JSON.stringify(
-            formatKeysToCamelCase(tokens),
-            null,
-            2,
-        )}\n`;
+        const output = `${await fileHeader({ file })}export default ${serialize(formatKeysToCamelCase(tokens))};\n`;
 
-        return format(output, {
+        return Prettier.format(output, {
             parser: "typescript",
             semi: true,
             trailingComma: "all",
@@ -61,34 +99,56 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-    name: "scss/color-variables",
+    name: "css/color-variables",
     format: async ({ dictionary, file }) => {
         let output = `${await fileHeader({ file })}@use "../jkl";\n`;
 
         const colorSchemeLight = {
             ...dictionary,
-            allTokens: dictionary.allTokens.filter((token) =>
-                token.path.includes("light"),
-            ),
+            allTokens: dictionary.allTokens
+                .filter((token) => token.path.includes("light"))
+                .map((token) => {
+                    const tokenPath = excludeFromTokenPath(token, [
+                        "dark",
+                        "light",
+                    ]);
+                    const variableName = tokenPath.join("-");
+
+                    return {
+                        ...token,
+                        name: variableName,
+                    };
+                }),
         };
 
         const colorSchemeDark = {
             ...dictionary,
-            allTokens: dictionary.allTokens.filter((token) =>
-                token.path.includes("dark"),
-            ),
+            allTokens: dictionary.allTokens
+                .filter((token) => token.path.includes("dark"))
+                .map((token) => {
+                    const tokenPath = excludeFromTokenPath(token, [
+                        "dark",
+                        "light",
+                    ]);
+                    const variableName = tokenPath.join("-");
+
+                    return {
+                        ...token,
+                        name: variableName,
+                    };
+                }),
         };
 
         output += `\n@include jkl.light-mode-variables {\n${formattedVariables({
             dictionary: colorSchemeLight,
             format: "css",
-            formatting: { indentation: "    " },
+            formatting: { prefix: "--jkl-", indentation: "    " },
         })}\n}\n`;
 
         output += `\n@include jkl.dark-mode-variables {\n${formattedVariables({
             dictionary: colorSchemeDark,
             format: "css",
-            formatting: { indentation: "    " },
+            formatting: { prefix: "--jkl-", indentation: "    " },
         })}\n}\n`;
 
         return output;
@@ -117,7 +177,7 @@ StyleDictionary.registerFormat({
             return {
                 ...token,
                 name: variableName,
-                value: `var(--${platform.prefix}-${variableName})`,
+                value: `var(--${platform.prefix || "jkl"}-${variableName})`,
             };
         });
 
@@ -217,34 +277,6 @@ async function build() {
     const legacyDesignTokensDictionary = await new StyleDictionary({
         source: ["src/core/tokens/legacy/*.json"],
         platforms: {
-            scss: {
-                transformGroup: "scss",
-                buildPath: "./src/core/jkl/",
-                files: [
-                    {
-                        destination: "_legacy-tokens.scss",
-                        format: "scss/variables",
-                    },
-                ],
-            },
-            css: {
-                transformGroup: "scss",
-                buildPath: "./src/core/styles/",
-                prefix: "jkl",
-                files: [
-                    {
-                        destination: "_legacy-tokens.scss",
-                        format: "css/variables",
-                    },
-                ],
-            },
-        },
-    });
-
-    const designTokensDictionary = await new StyleDictionary({
-        source: ["src/core/tokens/**/*.json"],
-        exclude: ["src/core/tokens/legacy/*.json"],
-        platforms: {
             ts: {
                 transforms: ["name/camel"],
                 buildPath: "./src/core/",
@@ -252,13 +284,58 @@ async function build() {
                     {
                         destination: "tokens.ts",
                         format: "javascript/esm",
+                        filter: (token) =>
+                            !token.filePath.includes("color.legacy"),
                     },
                 ],
             },
             scss: {
                 transformGroup: "scss",
                 buildPath: "./src/core/jkl/",
+                files: [
+                    {
+                        destination: "_legacy-tokens.scss",
+                        format: "scss/sass-variables",
+                    },
+                ],
+            },
+            css: {
+                transformGroup: "css",
+                buildPath: "./src/core/styles/",
                 prefix: "jkl",
+                files: [
+                    {
+                        destination: "_legacy-tokens.scss",
+                        format: "css/variables",
+                        filter: (token) => !token.filePath.includes("semantic"),
+                    },
+                    {
+                        destination: "_legacy-color-tokens.scss",
+                        format: "css/color-variables",
+                        filter: (token) => token.filePath.includes("semantic"),
+                    },
+                ],
+            },
+            tailwind: {
+                buildPath: "src/tailwind/",
+                prefix: "jkl",
+                files: [
+                    {
+                        destination: "colors.ts",
+                        format: "tailwindcss/colors",
+                        filter: (token) => tokenMatcher(token),
+                    },
+                ],
+            },
+        },
+    });
+
+    const designTokensDictionary = await new StyleDictionary({
+        source: ["src/core/tokens/!(legacy)/*.json"],
+        platforms: {
+            scss: {
+                transformGroup: "scss",
+                buildPath: "./src/core/jkl/",
                 files: [
                     {
                         destination: "_tokens.scss",
@@ -287,7 +364,7 @@ async function build() {
                     },
                     {
                         destination: "_color-tokens.scss",
-                        format: "scss/color-variables",
+                        format: "css/color-variables",
                         filter: (token) =>
                             tokenMatcher(token, {
                                 mustContain: ["sys", "color"],
@@ -297,17 +374,6 @@ async function build() {
                         destination: "_spacing-tokens.scss",
                         format: "css/spacing-variables",
                         filter: (token) => token.path.includes("spacing"),
-                    },
-                ],
-            },
-            tailwind: {
-                buildPath: "src/tailwind/",
-                prefix: "jkl",
-                files: [
-                    {
-                        destination: "colors.ts",
-                        format: "tailwindcss/colors",
-                        filter: (token) => tokenMatcher(token),
                     },
                 ],
             },

@@ -1,6 +1,5 @@
 /**
- * Do not edit directly
- * Generated on Wed, 18 Dec 2024 12:25:37 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 export default {
@@ -175,39 +174,6 @@ export default {
                 dark: "#636060",
             },
         },
-        svart: "#000",
-        granitt: "#1b1917",
-        skifer: "#313030",
-        fjellgra: "#444141",
-        stein: "#636060",
-        svaberg: "#c8c5c3",
-        varde: "#e0dbd4",
-        dis: "#ece9e5",
-        sand: "#f4f2ef",
-        snohvit: "#f9f9f9",
-        hvit: "#fff",
-        suksess: "#acd3b5",
-        suksessDark: "#94b79b",
-        feil: "#f6b3b3",
-        feilDark: "#de9e9e",
-        info: "#d3d3f6",
-        infoDark: "#a9a9ca",
-        advarsel: "#efdd9e",
-        advarselDark: "#decc8d",
-    },
-    spacing: {
-        0: "0",
-        2: "0.125rem",
-        4: "0.25rem",
-        8: "0.5rem",
-        12: "0.75rem",
-        16: "1rem",
-        24: "1.5rem",
-        32: "2rem",
-        40: "2.5rem",
-        64: "4rem",
-        104: "6.5rem",
-        168: "10.5rem",
     },
     motion: {
         timing: {
@@ -225,10 +191,24 @@ export default {
             focus: "cubic-bezier(0.6, 0.2, 0.35, 1)",
         },
     },
+    spacing: {
+        0: "0rem",
+        2: "0.125rem",
+        4: "0.25rem",
+        8: "0.5rem",
+        12: "0.75rem",
+        16: "1rem",
+        24: "1.5rem",
+        32: "2rem",
+        40: "2.5rem",
+        64: "4rem",
+        104: "6.5rem",
+        168: "10.5rem",
+    },
     icon: {
         weight: {
             normal: "300",
-            bold: "500",
+            bold: "400",
         },
     },
     typography: {
@@ -372,22 +352,5 @@ export default {
                 fontWeight: "400",
             },
         },
-    },
-    unit: {
-        10: "0.5rem",
-        15: "calc(var(--jkl-unit-10) * 1.5)",
-        20: "calc(var(--jkl-unit-10) * 2)",
-        25: "calc(var(--jkl-unit-10) * 2.5)",
-        30: "calc(var(--jkl-unit-10) * 3)",
-        40: "calc(var(--jkl-unit-10) * 4)",
-        50: "calc(var(--jkl-unit-10) * 5)",
-        60: "calc(var(--jkl-unit-10) * 6)",
-        70: "calc(var(--jkl-unit-10) * 7)",
-        80: "calc(var(--jkl-unit-10) * 8)",
-        90: "calc(var(--jkl-unit-10) * 9)",
-        130: "calc(var(--jkl-unit-10) * 13)",
-        210: "calc(var(--jkl-unit-10) * 21)",
-        "02": "calc(var(--jkl-unit-10) * .25)",
-        "05": "calc(var(--jkl-unit-10) * .5)",
     },
 };
