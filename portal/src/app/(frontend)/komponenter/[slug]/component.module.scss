@@ -3,11 +3,13 @@
 .article {
     display: grid;
     width: 100%;
-    grid-template-columns: subgrid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
     grid-column: 1 / -1;
 
     @media (width >=940px) {
         grid-column: span 2;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -17,6 +19,19 @@
 
 .article h2:first-of-type {
     padding-top: 0;
+}
+
+.articleHeader {
+    grid-column: 1;
+    padding-top: var(--jkl-spacing-24);
+
+    @media (width >=940px) {
+        position: sticky;
+        top: 0;
+        grid-column: 1;
+        align-self: start;
+        max-width: 346px;
+    }
 }
 
 .navlink {
@@ -35,6 +50,7 @@
     gap: jkl.$spacing-16;
     list-style-type: none;
     padding: 0;
+    scroll-behavior: smooth;
 }
 
 .componentConsiderations {
