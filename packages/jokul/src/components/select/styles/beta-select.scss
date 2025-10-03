@@ -1,0 +1,109 @@
+@use "../../../core/jkl" as jkl;
+
+/*
+Det kan fort oppleves som at grid er unødvendig her,
+men det er brukt for å plassere ikonet på riktig sted
+uten å måtte deale med absolutt positioning.
+Select støtter ikke &::after, så ikonet må plasseres på
+wrapperen, som leder til en del komplisert kalkulering dersom
+man ikke bruker grid i dette tilfellet.
+
+Men det er jo litt smak og behag også. Dette er bare stilen jeg liker.
+*/
+
+.BETA_jkl-select {
+    // I påvente av ny rådgiver look settes tier 3 variabler
+    // bare direkte på elementet.
+
+    --padding: var(--jkl-unit-10);
+    --border-color: var(--jkl-color-border-separator);
+    --background-color: transparent;
+    --gap: 0.2lh;
+
+    min-width: 20ch;
+
+    // Sett gridet
+    display: grid;
+    grid-template-rows: [label] auto [input] auto;
+    grid-template-columns: [input-start] auto [trailing-icon] 1.5em [input-end];
+
+    // Oppdater rader basert på innholdet
+    &:has(.description) {
+        --gap: 0.4lh;
+        grid-template-rows: [label] auto [description] auto [input] auto;
+    }
+
+    &:has(.help) {
+        grid-template-columns: [input-start] auto [trailing-icon] max-content [input-end];
+    }
+
+    // Sett kolonne på innholdet
+    > * {
+        grid-column: input;
+    }
+
+    &::after {
+        grid-column: trailing-icon;
+    }
+
+    .help {
+        grid-column: trailing-icon;
+    }
+
+    // Sett rad på innholdet
+    label, .help {
+        grid-row: label;
+        align-self: end;
+    }
+
+    .description {
+        grid-row: description;
+    }
+
+    select, &::after {
+        grid-row: input;
+    }
+
+    // Stiler på selve innholdet
+    &:not(:has(.description)) label {
+        padding-block-end: var(--gap);
+    }
+
+    .description {
+        margin-block-end: var(--gap);
+        color: var(--jkl-color-text-subdued);
+        @include jkl.text-style("small");
+    }
+
+
+    &:has(.error, select:invalid) {
+        --background-color: var(--jkl-color-background-alert-error);
+        --border-color: var(--jkl-color-border-input);
+    }
+
+    select {
+        appearance: none;
+        background-color: var(--background-color);
+        padding: var(--padding);
+        border: 1px solid var(--jkl-color-border-input);
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: border-color 300ms;
+        color: var(--jkl-color-text-default);
+
+        &:hover, &:active, &:focus-visible {
+            border-color: var(--jkl-color-border-input);
+        }
+
+        &:has(option:checked[value=""]) {
+            color: var(--jkl-color-text-subdued);
+        }
+    }
+
+    &::after {
+        font-family: "Fremtind Material Symbols";
+        content: "keyboard_arrow_down" / "";
+        pointer-events: none;
+        place-self: center;
+    }
+}

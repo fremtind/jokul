@@ -1,0 +1,80 @@
+@use "../../../core/jkl" as jkl;
+
+.BETA_jkl-combobox {
+    width: 100%;
+
+    .combobox {
+        --padding: 4px;
+
+        width: 100%;
+        display: grid;
+        grid: repeat(3, auto) / auto-flow;
+        border: 1px solid var(--jkl-combobox-search-input-selection-color);
+        padding: var(--padding);
+
+        .chips {
+            max-width: 100%;
+            display: flex;
+            gap: 4px;
+            flex-wrap: wrap;
+            box-sizing: border-box;
+            min-height: 1.5lh;
+            align-items: center;
+
+            .jkl-chip {
+                max-width: fit-content;
+
+                input {
+                    border: 0 !important;
+                    clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+                    clip-path: inset(50%) !important; /* 2 */
+                    height: 1px !important;
+                    margin: -1px !important;
+                    overflow: hidden !important;
+                    padding: 0 !important;
+                    position: absolute !important;
+                    width: 1px !important;
+                    white-space: nowrap !important; /* 3 */
+                }
+            }
+        }
+
+        hr {
+            appearance: none;
+            border: none;
+            box-sizing: border-box;
+            border-block-end: 1px solid var(--jkl-color-border-separator);
+            width: 100%;
+            margin: 0;
+            margin-block: 4px;
+        }
+
+        .jkl-button {
+            border-radius: 0;
+        }
+    }
+}
+
+.BETA_jkl-combobox.option {
+    box-sizing: border-box;
+
+    input {
+        border: 0 !important;
+        clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+        clip-path: inset(50%) !important; /* 2 */
+        height: 1px !important;
+        margin: -1px !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+        position: absolute !important;
+        width: 1px !important;
+        white-space: nowrap !important; /* 3 */
+    }
+
+    &:has(input:checked)::after {
+        margin-inline-start: auto;
+        display: inline-block;
+        content: "check";
+        font-family: "Fremtind Material Symbols";
+    }
+}
