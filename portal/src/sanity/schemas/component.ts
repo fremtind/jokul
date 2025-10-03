@@ -57,6 +57,12 @@ export const component = defineType({
             of: [{ type: "string" }],
         }),
         defineField({
+            name: "example_card",
+            title: "Eksempel",
+            type: "image",
+            group: "documentation",
+        }),
+        defineField({
             name: "considerations",
             title: "Ting å tenke på",
             group: "documentation",
