@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { NavLink } from "../../nav-link/NavLink.js";
+import { Link } from "../../link/Link.js";
 import {
     ErrorMessage,
     InfoMessage,
@@ -67,7 +67,7 @@ export const MessageExample: React.FC<ExampleComponentProps> = ({
         >
             <p>
                 Hei, jeg er en melding av typen {choiceValues?.["Variant"]} med{" "}
-                <NavLink href="/komponenter/Message">en&nbsp;navlink</NavLink>
+                <Link href="/komponenter/Message">en lenke</Link>
             </p>
         </C>
     );
