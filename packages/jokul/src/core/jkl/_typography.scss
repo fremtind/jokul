@@ -3,6 +3,7 @@
 @use "sass:list";
 @use "screens";
 @use "tokens" as *;
+@use "legacy-tokens" as *;
 @use "responsive-units";
 
 /// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.

@@ -1,78 +1,69 @@
 /**
- * Do not edit directly
- * Generated on Wed, 18 Dec 2024 12:25:37 GMT
+ * Do not edit directly, this file was auto-generated.
  */
 
 @use "../jkl";
 
 @include jkl.light-mode-variables {
-    --jkl-color-background-page: #{jkl.$color-brand-sand};
-    --jkl-color-background-page-variant: #{jkl.$color-brand-snohvit};
-    --jkl-color-background-container: #{jkl.$color-brand-snohvit};
-    --jkl-color-background-container-low: #{jkl.$color-brand-dis};
-    --jkl-color-background-container-high: #{jkl.$color-brand-hvit};
-    --jkl-color-background-container-inverted: #{jkl.$color-brand-granitt};
-    --jkl-color-background-container-subdued: #{jkl.$color-brand-svaberg};
-    --jkl-color-background-input-base: rgb(0 0 0 / 0%);
-    --jkl-color-background-input-focus: #{jkl.$color-brand-hvit};
-    --jkl-color-background-action: #{jkl.$color-brand-granitt};
-    --jkl-color-background-interactive: rgb(0 0 0 / 0%);
-    --jkl-color-background-interactive-hover: #{jkl.$color-brand-dis};
-    --jkl-color-background-interactive-selected: #{jkl.$color-brand-varde};
-    --jkl-color-background-alert-neutral: #{jkl.$color-brand-varde};
-    --jkl-color-background-alert-info: #{jkl.$color-functional-info};
-    --jkl-color-background-alert-success: #{jkl.$color-functional-success};
-    --jkl-color-background-alert-warning: #{jkl.$color-functional-warning};
-    --jkl-color-background-alert-error: #{jkl.$color-functional-error};
-    --jkl-color-text-default: #{jkl.$color-brand-granitt};
-    --jkl-color-text-subdued: #{jkl.$color-brand-stein};
-    --jkl-color-text-inverted: #{jkl.$color-brand-snohvit};
-    --jkl-color-text-on-action: #{jkl.$color-brand-snohvit};
-    --jkl-color-text-interactive: #{jkl.$color-brand-granitt};
-    --jkl-color-text-interactive-hover: #{jkl.$color-brand-stein};
-    --jkl-color-text-on-alert: #{jkl.$color-brand-granitt};
-    --jkl-color-text-on-alert-subdued: #{jkl.$color-brand-fjellgra};
-    --jkl-color-border-action: #{jkl.$color-brand-granitt};
-    --jkl-color-border-input: #{jkl.$color-brand-stein};
-    --jkl-color-border-input-focus: #{jkl.$color-brand-granitt};
-    --jkl-color-border-separator: #{jkl.$color-brand-svaberg};
-    --jkl-color-border-separator-strong: #{jkl.$color-brand-stein};
-    --jkl-color-border-separator-hover: #{jkl.$color-brand-granitt};
-    --jkl-color-border-subdued: #{jkl.$color-brand-svaberg};
+    --jkl-sys-color-background-page: oklch(96% 0.004 67);
+    --jkl-sys-color-background-surface-default: oklch(92% 0.008 67);
+    --jkl-sys-color-background-surface-highlight: oklch(100% 0.001 67);
+    --jkl-sys-color-background-surface-on-surface: oklch(96% 0.004 67);
+    --jkl-sys-color-background-surface-moderate: oklch(80% 0.008 67);
+    --jkl-sys-color-background-surface-knockout: oklch(35% 0.007 67);
+    --jkl-sys-color-background-surface-error: oklch(80% 0.09 16);
+    --jkl-sys-color-background-surface-warning: oklch(90% 0.08 94);
+    --jkl-sys-color-background-surface-info: oklch(80% 0.09 285);
+    --jkl-sys-color-background-surface-succes: oklch(80% 0.066 156);
+    --jkl-sys-color-border-subdued: oklch(80% 0.008 67);
+    --jkl-sys-color-border-strong: oklch(50% 0.007 67);
+    --jkl-sys-color-border-strongest: oklch(0% 0.007 64);
+    --jkl-sys-color-border-knockout: oklch(100% 0.001 67);
+    --jkl-sys-color-border-info: oklch(70% 0.145 285);
+    --jkl-sys-color-border-success: oklch(70% 0.089 156);
+    --jkl-sys-color-border-error: oklch(70% 0.13 16);
+    --jkl-sys-color-border-warning: oklch(70% 0.1 94);
+    --jkl-sys-color-text-default: oklch(0% 0.007 64);
+    --jkl-sys-color-text-subdued: oklch(50% 0.007 67);
+    --jkl-sys-color-text-knockout: oklch(100% 0.001 67);
+    --jkl-sys-color-text-info: oklch(25% 0.056 285);
+    --jkl-sys-color-text-info-strong: oklch(50% 0.186 285);
+    --jkl-sys-color-text-success: oklch(25% 0.024 156);
+    --jkl-sys-color-text-success-strong: oklch(50% 0.106 156);
+    --jkl-sys-color-text-error: oklch(25% 0.056 16);
+    --jkl-sys-color-text-error-strong: oklch(50% 0.16 16);
+    --jkl-sys-color-text-warning: oklch(25% 0.03 94);
+    --jkl-sys-color-text-warning-strong: oklch(70% 0.1 94);
 }
 
 @include jkl.dark-mode-variables {
-    --jkl-color-background-page: #{jkl.$color-brand-granitt};
-    --jkl-color-background-page-variant: #{jkl.$color-brand-granitt};
-    --jkl-color-background-container: #{jkl.$color-brand-skifer};
-    --jkl-color-background-container-low: #{jkl.$color-brand-svart};
-    --jkl-color-background-container-high: #{jkl.$color-brand-skifer};
-    --jkl-color-background-container-inverted: #{jkl.$color-brand-snohvit};
-    --jkl-color-background-container-subdued: #{jkl.$color-brand-stein};
-    --jkl-color-background-input-base: rgb(0 0 0 / 0%);
-    --jkl-color-background-input-focus: #{jkl.$color-brand-skifer};
-    --jkl-color-background-action: #{jkl.$color-brand-snohvit};
-    --jkl-color-background-interactive: rgb(0 0 0 / 0%);
-    --jkl-color-background-interactive-hover: #{jkl.$color-brand-fjellgra};
-    --jkl-color-background-interactive-selected: #{jkl.$color-brand-stein};
-    --jkl-color-background-alert-neutral: #{jkl.$color-brand-varde};
-    --jkl-color-background-alert-info: #{jkl.$color-functional-info-dark};
-    --jkl-color-background-alert-success: #{jkl.$color-functional-success-dark};
-    --jkl-color-background-alert-warning: #{jkl.$color-functional-warning-dark};
-    --jkl-color-background-alert-error: #{jkl.$color-functional-error-dark};
-    --jkl-color-text-default: #{jkl.$color-brand-snohvit};
-    --jkl-color-text-subdued: #{jkl.$color-brand-svaberg};
-    --jkl-color-text-inverted: #{jkl.$color-brand-granitt};
-    --jkl-color-text-on-action: #{jkl.$color-brand-granitt};
-    --jkl-color-text-interactive: #{jkl.$color-brand-snohvit};
-    --jkl-color-text-interactive-hover: #{jkl.$color-brand-svaberg};
-    --jkl-color-text-on-alert: #{jkl.$color-brand-granitt};
-    --jkl-color-text-on-alert-subdued: #{jkl.$color-brand-fjellgra};
-    --jkl-color-border-action: #{jkl.$color-brand-snohvit};
-    --jkl-color-border-input: #{jkl.$color-brand-svaberg};
-    --jkl-color-border-input-focus: #{jkl.$color-brand-snohvit};
-    --jkl-color-border-separator: #{jkl.$color-brand-stein};
-    --jkl-color-border-separator-strong: #{jkl.$color-brand-svaberg};
-    --jkl-color-border-separator-hover: #{jkl.$color-brand-snohvit};
-    --jkl-color-border-subdued: #{jkl.$color-brand-stein};
+    --jkl-sys-color-background-page: oklch(10% 0.007 67);
+    --jkl-sys-color-background-surface-default: oklch(25% 0.007 67);
+    --jkl-sys-color-background-surface-highlight: oklch(35% 0.007 67);
+    --jkl-sys-color-background-surface-on-surface: oklch(10% 0.007 67);
+    --jkl-sys-color-background-surface-moderate: oklch(50% 0.007 67);
+    --jkl-sys-color-background-surface-knockout: oklch(85% 0.008 67);
+    --jkl-sys-color-background-surface-error: oklch(45% 0.146 16);
+    --jkl-sys-color-background-surface-warning: oklch(45% 0.065 94);
+    --jkl-sys-color-background-surface-info: oklch(45% 0.169 285);
+    --jkl-sys-color-background-surface-succes: oklch(45% 0.095 156);
+    --jkl-sys-color-border-subdued: oklch(50% 0.007 67);
+    --jkl-sys-color-border-strong: oklch(80% 0.008 67);
+    --jkl-sys-color-border-strongest: oklch(100% 0.001 67);
+    --jkl-sys-color-border-knockout: oklch(0% 0.007 64);
+    --jkl-sys-color-border-info: oklch(60% 0.17 285);
+    --jkl-sys-color-border-success: oklch(60% 0.1 156);
+    --jkl-sys-color-border-error: oklch(60% 0.149 16);
+    --jkl-sys-color-border-warning: oklch(60% 0.09 94);
+    --jkl-sys-color-text-default: oklch(100% 0.001 67);
+    --jkl-sys-color-text-subdued: oklch(80% 0.008 67);
+    --jkl-sys-color-text-knockout: oklch(0% 0.007 64);
+    --jkl-sys-color-text-info: oklch(90% 0.034 285);
+    --jkl-sys-color-text-info-strong: oklch(70% 0.145 285);
+    --jkl-sys-color-text-success: oklch(90% 0.035 156);
+    --jkl-sys-color-text-success-strong: oklch(70% 0.089 156);
+    --jkl-sys-color-text-error: oklch(90% 0.045 16);
+    --jkl-sys-color-text-error-strong: oklch(70% 0.13 16);
+    --jkl-sys-color-text-warning: oklch(90% 0.08 94);
+    --jkl-sys-color-text-warning-strong: oklch(70% 0.1 94);
 }

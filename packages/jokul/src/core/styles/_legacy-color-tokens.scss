@@ -1,0 +1,77 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+@use "../jkl";
+
+@include jkl.light-mode-variables {
+    --jkl-color-background-page: #F4F2EF;
+    --jkl-color-background-page-variant: #F9F9F9;
+    --jkl-color-background-container: #F9F9F9;
+    --jkl-color-background-container-low: #ECE9E5;
+    --jkl-color-background-container-high: #FFFFFF;
+    --jkl-color-background-container-inverted: #1B1917;
+    --jkl-color-background-container-subdued: #C8C5C3;
+    --jkl-color-background-input-base: rgba(0, 0, 0, 0);
+    --jkl-color-background-input-focus: #FFFFFF;
+    --jkl-color-background-action: #1B1917;
+    --jkl-color-background-interactive: rgba(0, 0, 0, 0);
+    --jkl-color-background-interactive-hover: #ECE9E5;
+    --jkl-color-background-interactive-selected: #E0DBD4;
+    --jkl-color-background-alert-neutral: #E0DBD4;
+    --jkl-color-background-alert-info: #D3D3F6;
+    --jkl-color-background-alert-success: #ACD3B5;
+    --jkl-color-background-alert-warning: #EFDD9E;
+    --jkl-color-background-alert-error: #F6B3B3;
+    --jkl-color-text-default: #1B1917;
+    --jkl-color-text-subdued: #636060;
+    --jkl-color-text-inverted: #F9F9F9;
+    --jkl-color-text-on-action: #F9F9F9;
+    --jkl-color-text-interactive: #1B1917;
+    --jkl-color-text-interactive-hover: #636060;
+    --jkl-color-text-on-alert: #1B1917;
+    --jkl-color-text-on-alert-subdued: #444141;
+    --jkl-color-border-action: #1B1917;
+    --jkl-color-border-input: #636060;
+    --jkl-color-border-input-focus: #1B1917;
+    --jkl-color-border-separator: #C8C5C3;
+    --jkl-color-border-separator-strong: #636060;
+    --jkl-color-border-separator-hover: #1B1917;
+    --jkl-color-border-subdued: #C8C5C3;
+}
+
+@include jkl.dark-mode-variables {
+    --jkl-color-background-page: #1B1917;
+    --jkl-color-background-page-variant: #1B1917;
+    --jkl-color-background-container: #313030;
+    --jkl-color-background-container-low: #000000;
+    --jkl-color-background-container-high: #313030;
+    --jkl-color-background-container-inverted: #F9F9F9;
+    --jkl-color-background-container-subdued: #636060;
+    --jkl-color-background-input-base: rgba(0, 0, 0, 0);
+    --jkl-color-background-input-focus: #313030;
+    --jkl-color-background-action: #F9F9F9;
+    --jkl-color-background-interactive: rgba(0, 0, 0, 0);
+    --jkl-color-background-interactive-hover: #444141;
+    --jkl-color-background-interactive-selected: #636060;
+    --jkl-color-background-alert-neutral: #E0DBD4;
+    --jkl-color-background-alert-info: #A9A9CA;
+    --jkl-color-background-alert-success: #94B79B;
+    --jkl-color-background-alert-warning: #DECC8D;
+    --jkl-color-background-alert-error: #DE9E9E;
+    --jkl-color-text-default: #F9F9F9;
+    --jkl-color-text-subdued: #C8C5C3;
+    --jkl-color-text-inverted: #1B1917;
+    --jkl-color-text-on-action: #1B1917;
+    --jkl-color-text-interactive: #F9F9F9;
+    --jkl-color-text-interactive-hover: #C8C5C3;
+    --jkl-color-text-on-alert: #1B1917;
+    --jkl-color-text-on-alert-subdued: #444141;
+    --jkl-color-border-action: #F9F9F9;
+    --jkl-color-border-input: #C8C5C3;
+    --jkl-color-border-input-focus: #F9F9F9;
+    --jkl-color-border-separator: #636060;
+    --jkl-color-border-separator-strong: #C8C5C3;
+    --jkl-color-border-separator-hover: #F9F9F9;
+    --jkl-color-border-subdued: #636060;
+}
