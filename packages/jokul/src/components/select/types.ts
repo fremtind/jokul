@@ -1,6 +1,7 @@
 import type { ChangeEvent, SelectHTMLAttributes } from "react";
 import type { DataTestAutoId, Density } from "../../core/types.js";
 import type { ValuePair } from "../../utilities/valuePair.js";
+import type { HelpProps } from "../help/index.js";
 import type { LabelProps } from "../input-group/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
 
@@ -82,3 +83,11 @@ export interface SelectProps
      */
     maxShownOptions?: number;
 }
+
+export type BETA_SelectProps = SelectHTMLAttributes<HTMLSelectElement> & {
+    label: string;
+    placeholder?: string;
+    description?: string;
+    help?: HelpProps;
+    errorMessage?: string;
+};
