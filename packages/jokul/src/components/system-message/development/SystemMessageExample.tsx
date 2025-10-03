@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { NavLink } from "../../nav-link/NavLink.js";
+import { Link } from "../../link/Link.jsx";
 import {
     ErrorSystemMessage,
     InfoSystemMessage,
@@ -62,7 +62,7 @@ export const SystemMessageExample: React.FC<ExampleComponentProps> = ({
         >
             Hei, jeg er en varslingsmelding av typen{" "}
             {choiceValues ? choiceValues["Variant"] : "ᕙ(⇀‸↼‶)ᕗ"} med{" "}
-            <NavLink href="/komponenter/systemmessage">en navlink</NavLink>
+            <Link href="/komponenter/systemmessage">en lenke</Link>
         </C>
     );
 };

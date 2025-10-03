@@ -66,10 +66,14 @@ const formatKeysToCamelCase = (token) => {
     return camelCasedObject;
 };
 
-const stripRefPrefixFromTokenNames = (dictionary, platform) => {
+const stripTermsFromTokenNames = (
+    dictionary,
+    platform,
+    terms = ["ref", "sys", "light", "dark"],
+) => {
     for (const token of dictionary.allTokens) {
-        if (token.path[0] === "ref") {
-            const tokenPath = excludeFromTokenPath(token, ["ref"]);
+        if (terms.some((term) => token.path.includes(term))) {
+            const tokenPath = excludeFromTokenPath(token, terms);
             token.name = `${platform.prefix}-${tokenPath.join("-")}`;
         }
     }
@@ -99,59 +103,70 @@ StyleDictionary.registerFormat({
 });
 
 StyleDictionary.registerFormat({
-    name: "css/color-variables",
-    format: async ({ dictionary, file }) => {
-        let output = `${await fileHeader({ file })}@use "../jkl";\n`;
+    name: "css/theme-variables",
+    format: async ({ dictionary, file, platform }) => {
+        stripTermsFromTokenNames(dictionary, platform);
 
-        const colorSchemeLight = {
+        return `${await fileHeader({ file })}
+@layer jokul.theme {
+    :root {
+${formattedVariables({
+    dictionary,
+    format: "css",
+    formatting: {
+        indentation: "        ",
+    },
+})}
+    }
+}`;
+    },
+});
+
+StyleDictionary.registerFormat({
+    name: "css/dynamic-color-variables",
+    format: async ({ dictionary, file, platform }) => {
+        const lightModeOnly = {
             ...dictionary,
-            allTokens: dictionary.allTokens
-                .filter((token) => token.path.includes("light"))
-                .map((token) => {
-                    const tokenPath = excludeFromTokenPath(token, [
-                        "dark",
-                        "light",
-                    ]);
-                    const variableName = tokenPath.join("-");
-
-                    return {
-                        ...token,
-                        name: variableName,
-                    };
-                }),
+            allTokens: dictionary.allTokens.filter((token) =>
+                token.path.includes("light"),
+            ),
         };
+        stripTermsFromTokenNames(lightModeOnly, platform);
 
-        const colorSchemeDark = {
+        const darkModeOnly = {
             ...dictionary,
-            allTokens: dictionary.allTokens
-                .filter((token) => token.path.includes("dark"))
-                .map((token) => {
-                    const tokenPath = excludeFromTokenPath(token, [
-                        "dark",
-                        "light",
-                    ]);
-                    const variableName = tokenPath.join("-");
-
-                    return {
-                        ...token,
-                        name: variableName,
-                    };
-                }),
+            allTokens: dictionary.allTokens.filter((token) =>
+                token.path.includes("dark"),
+            ),
         };
+        stripTermsFromTokenNames(darkModeOnly, platform);
 
-        output += `\n@include jkl.light-mode-variables {\n${formattedVariables({
-            dictionary: colorSchemeLight,
-            format: "css",
-            formatting: { prefix: "--jkl-", indentation: "    " },
-        })}\n}\n`;
+        return `${await fileHeader({ file })}
+/* stylelint-disable */
+@use "../jkl";
 
-        output += `\n@include jkl.dark-mode-variables {\n${formattedVariables({
-            dictionary: colorSchemeDark,
-            format: "css",
-            formatting: { prefix: "--jkl-", indentation: "    " },
-        })}\n}\n`;
+@layer jokul.theme {
+    @include jkl.light-mode-variables {
+${formattedVariables({
+    dictionary: lightModeOnly,
+    format: "css",
+    formatting: {
+        indentation: "        ",
+    },
+})}
+    }
 
-        return output;
+    @include jkl.dark-mode-variables {
+${formattedVariables({
+    dictionary: darkModeOnly,
+    format: "css",
+    formatting: {
+        indentation: "        ",
+    },
+})}
+    }
+}
+`;
     },
 });
 
@@ -226,27 +241,6 @@ StyleDictionary.registerFormat({
     },
 });
 
-StyleDictionary.registerFormat({
-    name: "css/spacing-variables",
-    format: async ({ dictionary, file, platform }) => {
-        let output = `${await fileHeader({ file })}`;
-
-        stripRefPrefixFromTokenNames(dictionary, platform);
-
-        const referenceTokens = dictionary.allTokens.filter(
-            (token) => token.path[0] === "ref",
-        );
-
-        output += `:root {\n${formattedVariables({
-            dictionary: { ...dictionary, allTokens: referenceTokens },
-            format: "css",
-            formatting: { indentation: "    " },
-        })}\n}\n\n`;
-
-        return output;
-    },
-});
-
 // Filters
 const tokenMatcher = (token, criteria = {}) => {
     if (token.path[0] === "ref") {
@@ -306,12 +300,12 @@ async function build() {
                 files: [
                     {
                         destination: "_legacy-tokens.scss",
-                        format: "css/variables",
+                        format: "css/theme-variables",
                         filter: (token) => !token.filePath.includes("semantic"),
                     },
                     {
                         destination: "_legacy-color-tokens.scss",
-                        format: "css/color-variables",
+                        format: "css/dynamic-color-variables",
                         filter: (token) => token.filePath.includes("semantic"),
                     },
                 ],
@@ -351,7 +345,7 @@ async function build() {
                 files: [
                     {
                         destination: "_tokens.scss",
-                        format: "css/variables",
+                        format: "css/theme-variables",
                         filter: (token) =>
                             tokenMatcher(token, {
                                 mustContainOneOf: [
@@ -364,7 +358,7 @@ async function build() {
                     },
                     {
                         destination: "_color-tokens.scss",
-                        format: "css/color-variables",
+                        format: "css/dynamic-color-variables",
                         filter: (token) =>
                             tokenMatcher(token, {
                                 mustContain: ["sys", "color"],
@@ -372,7 +366,7 @@ async function build() {
                     },
                     {
                         destination: "_spacing-tokens.scss",
-                        format: "css/spacing-variables",
+                        format: "css/theme-variables",
                         filter: (token) => token.path.includes("spacing"),
                     },
                 ],

@@ -2,68 +2,72 @@
  * Do not edit directly, this file was auto-generated.
  */
 
+
+/* stylelint-disable */
 @use "../jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-sys-color-background-page: oklch(96% 0.004 67);
-    --jkl-sys-color-background-surface-default: oklch(92% 0.008 67);
-    --jkl-sys-color-background-surface-highlight: oklch(100% 0.001 67);
-    --jkl-sys-color-background-surface-on-surface: oklch(96% 0.004 67);
-    --jkl-sys-color-background-surface-moderate: oklch(80% 0.008 67);
-    --jkl-sys-color-background-surface-knockout: oklch(35% 0.007 67);
-    --jkl-sys-color-background-surface-error: oklch(80% 0.09 16);
-    --jkl-sys-color-background-surface-warning: oklch(90% 0.08 94);
-    --jkl-sys-color-background-surface-info: oklch(80% 0.09 285);
-    --jkl-sys-color-background-surface-succes: oklch(80% 0.066 156);
-    --jkl-sys-color-border-subdued: oklch(80% 0.008 67);
-    --jkl-sys-color-border-strong: oklch(50% 0.007 67);
-    --jkl-sys-color-border-strongest: oklch(0% 0.007 64);
-    --jkl-sys-color-border-knockout: oklch(100% 0.001 67);
-    --jkl-sys-color-border-info: oklch(70% 0.145 285);
-    --jkl-sys-color-border-success: oklch(70% 0.089 156);
-    --jkl-sys-color-border-error: oklch(70% 0.13 16);
-    --jkl-sys-color-border-warning: oklch(70% 0.1 94);
-    --jkl-sys-color-text-default: oklch(0% 0.007 64);
-    --jkl-sys-color-text-subdued: oklch(50% 0.007 67);
-    --jkl-sys-color-text-knockout: oklch(100% 0.001 67);
-    --jkl-sys-color-text-info: oklch(25% 0.056 285);
-    --jkl-sys-color-text-info-strong: oklch(50% 0.186 285);
-    --jkl-sys-color-text-success: oklch(25% 0.024 156);
-    --jkl-sys-color-text-success-strong: oklch(50% 0.106 156);
-    --jkl-sys-color-text-error: oklch(25% 0.056 16);
-    --jkl-sys-color-text-error-strong: oklch(50% 0.16 16);
-    --jkl-sys-color-text-warning: oklch(25% 0.03 94);
-    --jkl-sys-color-text-warning-strong: oklch(70% 0.1 94);
-}
+@layer jokul.theme {
+    @include jkl.light-mode-variables {
+        --jkl-color-background-page: oklch(96% 0.004 67);
+        --jkl-color-background-surface-default: oklch(92% 0.008 67);
+        --jkl-color-background-surface-highlight: oklch(100% 0.001 67);
+        --jkl-color-background-surface-on-surface: oklch(96% 0.004 67);
+        --jkl-color-background-surface-moderate: oklch(80% 0.008 67);
+        --jkl-color-background-surface-knockout: oklch(35% 0.007 67);
+        --jkl-color-background-surface-error: oklch(80% 0.09 16);
+        --jkl-color-background-surface-warning: oklch(90% 0.08 94);
+        --jkl-color-background-surface-info: oklch(80% 0.09 285);
+        --jkl-color-background-surface-succes: oklch(80% 0.066 156);
+        --jkl-color-border-subdued: oklch(80% 0.008 67);
+        --jkl-color-border-strong: oklch(50% 0.007 67);
+        --jkl-color-border-strongest: oklch(0% 0.007 64);
+        --jkl-color-border-knockout: oklch(100% 0.001 67);
+        --jkl-color-border-info: oklch(70% 0.145 285);
+        --jkl-color-border-success: oklch(70% 0.089 156);
+        --jkl-color-border-error: oklch(70% 0.13 16);
+        --jkl-color-border-warning: oklch(70% 0.1 94);
+        --jkl-color-text-default: oklch(0% 0.007 64);
+        --jkl-color-text-subdued: oklch(50% 0.007 67);
+        --jkl-color-text-knockout: oklch(100% 0.001 67);
+        --jkl-color-text-info: oklch(25% 0.056 285);
+        --jkl-color-text-info-strong: oklch(50% 0.186 285);
+        --jkl-color-text-success: oklch(25% 0.024 156);
+        --jkl-color-text-success-strong: oklch(50% 0.106 156);
+        --jkl-color-text-error: oklch(25% 0.056 16);
+        --jkl-color-text-error-strong: oklch(50% 0.16 16);
+        --jkl-color-text-warning: oklch(25% 0.03 94);
+        --jkl-color-text-warning-strong: oklch(70% 0.1 94);
+    }
 
-@include jkl.dark-mode-variables {
-    --jkl-sys-color-background-page: oklch(10% 0.007 67);
-    --jkl-sys-color-background-surface-default: oklch(25% 0.007 67);
-    --jkl-sys-color-background-surface-highlight: oklch(35% 0.007 67);
-    --jkl-sys-color-background-surface-on-surface: oklch(10% 0.007 67);
-    --jkl-sys-color-background-surface-moderate: oklch(50% 0.007 67);
-    --jkl-sys-color-background-surface-knockout: oklch(85% 0.008 67);
-    --jkl-sys-color-background-surface-error: oklch(45% 0.146 16);
-    --jkl-sys-color-background-surface-warning: oklch(45% 0.065 94);
-    --jkl-sys-color-background-surface-info: oklch(45% 0.169 285);
-    --jkl-sys-color-background-surface-succes: oklch(45% 0.095 156);
-    --jkl-sys-color-border-subdued: oklch(50% 0.007 67);
-    --jkl-sys-color-border-strong: oklch(80% 0.008 67);
-    --jkl-sys-color-border-strongest: oklch(100% 0.001 67);
-    --jkl-sys-color-border-knockout: oklch(0% 0.007 64);
-    --jkl-sys-color-border-info: oklch(60% 0.17 285);
-    --jkl-sys-color-border-success: oklch(60% 0.1 156);
-    --jkl-sys-color-border-error: oklch(60% 0.149 16);
-    --jkl-sys-color-border-warning: oklch(60% 0.09 94);
-    --jkl-sys-color-text-default: oklch(100% 0.001 67);
-    --jkl-sys-color-text-subdued: oklch(80% 0.008 67);
-    --jkl-sys-color-text-knockout: oklch(0% 0.007 64);
-    --jkl-sys-color-text-info: oklch(90% 0.034 285);
-    --jkl-sys-color-text-info-strong: oklch(70% 0.145 285);
-    --jkl-sys-color-text-success: oklch(90% 0.035 156);
-    --jkl-sys-color-text-success-strong: oklch(70% 0.089 156);
-    --jkl-sys-color-text-error: oklch(90% 0.045 16);
-    --jkl-sys-color-text-error-strong: oklch(70% 0.13 16);
-    --jkl-sys-color-text-warning: oklch(90% 0.08 94);
-    --jkl-sys-color-text-warning-strong: oklch(70% 0.1 94);
+    @include jkl.dark-mode-variables {
+        --jkl-color-background-page: oklch(10% 0.007 67);
+        --jkl-color-background-surface-default: oklch(25% 0.007 67);
+        --jkl-color-background-surface-highlight: oklch(35% 0.007 67);
+        --jkl-color-background-surface-on-surface: oklch(10% 0.007 67);
+        --jkl-color-background-surface-moderate: oklch(50% 0.007 67);
+        --jkl-color-background-surface-knockout: oklch(85% 0.008 67);
+        --jkl-color-background-surface-error: oklch(45% 0.146 16);
+        --jkl-color-background-surface-warning: oklch(45% 0.065 94);
+        --jkl-color-background-surface-info: oklch(45% 0.169 285);
+        --jkl-color-background-surface-succes: oklch(45% 0.095 156);
+        --jkl-color-border-subdued: oklch(50% 0.007 67);
+        --jkl-color-border-strong: oklch(80% 0.008 67);
+        --jkl-color-border-strongest: oklch(100% 0.001 67);
+        --jkl-color-border-knockout: oklch(0% 0.007 64);
+        --jkl-color-border-info: oklch(60% 0.17 285);
+        --jkl-color-border-success: oklch(60% 0.1 156);
+        --jkl-color-border-error: oklch(60% 0.149 16);
+        --jkl-color-border-warning: oklch(60% 0.09 94);
+        --jkl-color-text-default: oklch(100% 0.001 67);
+        --jkl-color-text-subdued: oklch(80% 0.008 67);
+        --jkl-color-text-knockout: oklch(0% 0.007 64);
+        --jkl-color-text-info: oklch(90% 0.034 285);
+        --jkl-color-text-info-strong: oklch(70% 0.145 285);
+        --jkl-color-text-success: oklch(90% 0.035 156);
+        --jkl-color-text-success-strong: oklch(70% 0.089 156);
+        --jkl-color-text-error: oklch(90% 0.045 16);
+        --jkl-color-text-error-strong: oklch(70% 0.13 16);
+        --jkl-color-text-warning: oklch(90% 0.08 94);
+        --jkl-color-text-warning-strong: oklch(70% 0.1 94);
+    }
 }

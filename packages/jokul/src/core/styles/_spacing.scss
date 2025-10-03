@@ -14,71 +14,75 @@
     @return $class-name;
 }
 
-// Sett CSS-variabler for alle spacing-kombinasjoner
-:root {
-    @each $spacing-combination in spacing.$combinations {
-        $_step: list.nth($spacing-combination, 1);
+@layer jokul.theme {
+    // Sett CSS-variabler for alle spacing-kombinasjoner
+    :root {
+        @each $spacing-combination in spacing.$combinations {
+            $_step: list.nth($spacing-combination, 1);
 
-        --#{get-class-name($spacing-combination)}: #{map.get(
+            --#{get-class-name($spacing-combination)}: #{map.get(
                 spacing.$spacing,
                 $_step
             )};
-    }
+        }
 
-    @include screens.from-medium-device {
-        @each $spacing-combination in spacing.$combinations {
-            @if list.length($spacing-combination) > 1 {
-                $_step: list.nth($spacing-combination, 2);
+        @include screens.from-medium-device {
+            @each $spacing-combination in spacing.$combinations {
+                @if list.length($spacing-combination) > 1 {
+                    $_step: list.nth($spacing-combination, 2);
 
-                --#{get-class-name($spacing-combination)}: #{map.get(
+                    --#{get-class-name($spacing-combination)}: #{map.get(
                         spacing.$spacing,
                         $_step
                     )};
+                }
             }
         }
-    }
 
-    @include screens.from-large-device {
-        @each $spacing-combination in spacing.$combinations {
-            @if list.length($spacing-combination) > 2 {
-                $_step: list.nth($spacing-combination, 3);
+        @include screens.from-large-device {
+            @each $spacing-combination in spacing.$combinations {
+                @if list.length($spacing-combination) > 2 {
+                    $_step: list.nth($spacing-combination, 3);
 
-                --#{get-class-name($spacing-combination)}: #{map.get(
+                    --#{get-class-name($spacing-combination)}: #{map.get(
                         spacing.$spacing,
                         $_step
                     )};
+                }
             }
         }
     }
 }
 
-// Lag nytteklasser for alle spacing-kombinasjoner og -posisjoner
-@each $spacing-combination in spacing.$combinations {
-    $_class-name: get-class-name($spacing-combination);
-    .#{$_class-name} {
-        &--all {
-            margin: var(--#{$_class-name});
-        }
-
-        @each $position in spacing.$positions {
-            &--#{$position} {
-                margin-#{$position}: var(--#{$_class-name});
-            }
-        }
-    }
-}
-
-// Lag nytteklasser for de gamle spacingene for å sikre bakoverkompatibilitet
-@each $spacing, $value in spacing.$spacing {
-    @if not list.index(spacing.$combinations, $spacing) {
-        .jkl-spacing-#{$spacing} {
+@layer jokul.utility {
+    // Lag nytteklasser for alle spacing-kombinasjoner og -posisjoner
+    @each $spacing-combination in spacing.$combinations {
+        $_class-name: get-class-name($spacing-combination);
+        .#{$_class-name} {
             &--all {
-                margin: $value;
+                margin: var(--#{$_class-name});
             }
 
             @each $position in spacing.$positions {
                 &--#{$position} {
-                    margin-#{$position}: $value;
+                    margin-#{$position}: var(--#{$_class-name});
+                }
+            }
+        }
+    }
+
+    // Lag nytteklasser for de gamle spacingene for å sikre bakoverkompatibilitet
+    @each $spacing, $value in spacing.$spacing {
+        @if not list.index(spacing.$combinations, $spacing) {
+            .jkl-spacing-#{$spacing} {
+                &--all {
+                    margin: $value;
+                }
+
+                @each $position in spacing.$positions {
+                    &--#{$position} {
+                        margin-#{$position}: $value;
+                    }
                 }
             }
         }
