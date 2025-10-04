@@ -1,4 +1,4 @@
-export { CookieConsent, type CookieConsentProps } from "./CookieConsent.js";
+export { CookieConsent } from "./CookieConsent.js";
 export {
     CookieConsentProvider,
     useCookieConsent,
@@ -9,4 +9,5 @@ export type {
     Consent,
     ConsentState,
     CookieConsentProviderProps,
+    CookieConsentProps,
 } from "./types.js";

@@ -8,6 +8,7 @@ import {
     useCookieConsent,
 } from "../CookieConsentContext.js";
 import "../styles/_index.scss";
+import "../../link/styles/_index.scss";
 
 const meta = {
     title: "Komponenter/CookieConsent",
@@ -16,7 +17,12 @@ const meta = {
         layout: "centered",
     },
     tags: ["autodocs"],
-    argTypes: {},
+    args: {
+        cookieName: "demo-consent-cookie",
+        functional: true,
+        statistics: true,
+        marketing: true,
+    },
 } satisfies Meta<typeof CookieConsentProvider>;
 
 export default meta;
@@ -39,12 +45,8 @@ export const CookieConsent: Story = {
     args: {
         children: (
             <Wrapper>
-                <CookieConsentComponent />
+                <CookieConsentComponent aboutPage="." />
             </Wrapper>
         ),
-        cookieName: "demo-consent-cookie",
-        functional: true,
-        statistics: true,
-        marketing: true,
     },
 };
