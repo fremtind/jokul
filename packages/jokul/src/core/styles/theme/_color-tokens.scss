@@ -4,7 +4,7 @@
 
 
 /* stylelint-disable */
-@use "../jkl";
+@use "../../jkl";
 
 @layer jokul.theme {
     @include jkl.light-mode-variables {
