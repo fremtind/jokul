@@ -3,11 +3,7 @@
  */
 
 export default {
-    breakpoint: {
-        medium: "680px",
-        large: "1200px",
-        xl: "1600px",
-    },
+    breakpoint: { medium: "680px", large: "1200px", xl: "1600px" },
     color: {
         brand: {
             snohvit: "#F9F9F9",
@@ -33,156 +29,51 @@ export default {
             errorDark: "#DE9E9E",
         },
         background: {
-            page: {
-                light: "#F4F2EF",
-                dark: "#1B1917",
-            },
-            pageVariant: {
-                light: "#F9F9F9",
-                dark: "#1B1917",
-            },
-            container: {
-                light: "#F9F9F9",
-                dark: "#313030",
-            },
-            containerLow: {
-                light: "#ECE9E5",
-                dark: "#000000",
-            },
-            containerHigh: {
-                light: "#FFFFFF",
-                dark: "#313030",
-            },
-            containerInverted: {
-                light: "#1B1917",
-                dark: "#F9F9F9",
-            },
-            containerSubdued: {
-                light: "#C8C5C3",
-                dark: "#636060",
-            },
+            page: { light: "#F4F2EF", dark: "#1B1917" },
+            pageVariant: { light: "#F9F9F9", dark: "#1B1917" },
+            container: { light: "#F9F9F9", dark: "#313030" },
+            containerLow: { light: "#ECE9E5", dark: "#000000" },
+            containerHigh: { light: "#FFFFFF", dark: "#313030" },
+            containerInverted: { light: "#1B1917", dark: "#F9F9F9" },
+            containerSubdued: { light: "#C8C5C3", dark: "#636060" },
             input: {
-                base: {
-                    light: "transparent",
-                    dark: "transparent",
-                },
-                focus: {
-                    light: "#FFFFFF",
-                    dark: "#313030",
-                },
+                base: { light: "transparent", dark: "transparent" },
+                focus: { light: "#FFFFFF", dark: "#313030" },
             },
-            action: {
-                light: "#1B1917",
-                dark: "#F9F9F9",
-            },
-            interactive: {
-                light: "transparent",
-                dark: "transparent",
-            },
-            interactiveHover: {
-                light: "#ECE9E5",
-                dark: "#444141",
-            },
-            interactiveSelected: {
-                light: "#E0DBD4",
-                dark: "#636060",
-            },
+            action: { light: "#1B1917", dark: "#F9F9F9" },
+            interactive: { light: "transparent", dark: "transparent" },
+            interactiveHover: { light: "#ECE9E5", dark: "#444141" },
+            interactiveSelected: { light: "#E0DBD4", dark: "#636060" },
             alert: {
-                neutral: {
-                    light: "#E0DBD4",
-                    dark: "#E0DBD4",
-                },
-                info: {
-                    light: "#D3D3F6",
-                    dark: "#A9A9CA",
-                },
-                success: {
-                    light: "#ACD3B5",
-                    dark: "#94B79B",
-                },
-                warning: {
-                    light: "#EFDD9E",
-                    dark: "#DECC8D",
-                },
-                error: {
-                    light: "#F6B3B3",
-                    dark: "#DE9E9E",
-                },
+                neutral: { light: "#E0DBD4", dark: "#E0DBD4" },
+                info: { light: "#D3D3F6", dark: "#A9A9CA" },
+                success: { light: "#ACD3B5", dark: "#94B79B" },
+                warning: { light: "#EFDD9E", dark: "#DECC8D" },
+                error: { light: "#F6B3B3", dark: "#DE9E9E" },
             },
         },
         text: {
-            default: {
-                light: "#1B1917",
-                dark: "#F9F9F9",
-            },
-            subdued: {
-                light: "#636060",
-                dark: "#C8C5C3",
-            },
-            inverted: {
-                light: "#F9F9F9",
-                dark: "#1B1917",
-            },
-            onAction: {
-                light: "#F9F9F9",
-                dark: "#1B1917",
-            },
-            interactive: {
-                light: "#1B1917",
-                dark: "#F9F9F9",
-            },
-            interactiveHover: {
-                light: "#636060",
-                dark: "#C8C5C3",
-            },
-            onAlert: {
-                light: "#1B1917",
-                dark: "#1B1917",
-            },
-            onAlertSubdued: {
-                light: "#444141",
-                dark: "#444141",
-            },
+            default: { light: "#1B1917", dark: "#F9F9F9" },
+            subdued: { light: "#636060", dark: "#C8C5C3" },
+            inverted: { light: "#F9F9F9", dark: "#1B1917" },
+            onAction: { light: "#F9F9F9", dark: "#1B1917" },
+            interactive: { light: "#1B1917", dark: "#F9F9F9" },
+            interactiveHover: { light: "#636060", dark: "#C8C5C3" },
+            onAlert: { light: "#1B1917", dark: "#1B1917" },
+            onAlertSubdued: { light: "#444141", dark: "#444141" },
         },
         border: {
-            action: {
-                light: "#1B1917",
-                dark: "#F9F9F9",
-            },
-            input: {
-                light: "#636060",
-                dark: "#C8C5C3",
-            },
-            inputFocus: {
-                light: "#1B1917",
-                dark: "#F9F9F9",
-            },
-            separator: {
-                light: "#C8C5C3",
-                dark: "#636060",
-            },
-            separatorStrong: {
-                light: "#636060",
-                dark: "#C8C5C3",
-            },
-            separatorHover: {
-                light: "#1B1917",
-                dark: "#F9F9F9",
-            },
-            subdued: {
-                light: "#C8C5C3",
-                dark: "#636060",
-            },
+            action: { light: "#1B1917", dark: "#F9F9F9" },
+            input: { light: "#636060", dark: "#C8C5C3" },
+            inputFocus: { light: "#1B1917", dark: "#F9F9F9" },
+            separator: { light: "#C8C5C3", dark: "#636060" },
+            separatorStrong: { light: "#636060", dark: "#C8C5C3" },
+            separatorHover: { light: "#1B1917", dark: "#F9F9F9" },
+            subdued: { light: "#C8C5C3", dark: "#636060" },
         },
     },
     motion: {
-        timing: {
-            energetic: "75ms",
-            snappy: "100ms",
-            productive: "150ms",
-            expressive: "250ms",
-            lazy: "400ms",
-        },
+        timing: { energetic: "75ms", snappy: "100ms", productive: "150ms", expressive: "250ms", lazy: "400ms" },
         easing: {
             standard: "ease",
             entrance: "ease-out",
@@ -205,17 +96,9 @@ export default {
         104: "6.5rem",
         168: "10.5rem",
     },
-    icon: {
-        weight: {
-            normal: "300",
-            bold: "400",
-        },
-    },
+    icon: { weight: { normal: "300", bold: "400" } },
     typography: {
-        weight: {
-            normal: "400",
-            bold: "700",
-        },
+        weight: { normal: "400", bold: "700" },
         font: {
             size: {
                 16: "1rem",
@@ -245,112 +128,40 @@ export default {
             },
         },
         title: {
-            small: {
-                fontSize: "2.25rem",
-                lineHeight: "2.75rem",
-                fontWeight: "400",
-            },
-            base: {
-                fontSize: "3.5rem",
-                lineHeight: "4rem",
-                fontWeight: "400",
-            },
+            small: { fontSize: "2.25rem", lineHeight: "2.75rem", fontWeight: "400" },
+            base: { fontSize: "3.5rem", lineHeight: "4rem", fontWeight: "400" },
         },
         titleSmall: {
-            small: {
-                fontSize: "1.875rem",
-                lineHeight: "2.25rem",
-                fontWeight: "400",
-            },
-            base: {
-                fontSize: "2.75rem",
-                lineHeight: "3.25rem",
-                fontWeight: "400",
-            },
+            small: { fontSize: "1.875rem", lineHeight: "2.25rem", fontWeight: "400" },
+            base: { fontSize: "2.75rem", lineHeight: "3.25rem", fontWeight: "400" },
         },
         heading_1: {
-            small: {
-                fontSize: "1.625rem",
-                lineHeight: "2rem",
-                fontWeight: "400",
-            },
-            base: {
-                fontSize: "2.25rem",
-                lineHeight: "2.75rem",
-                fontWeight: "400",
-            },
+            small: { fontSize: "1.625rem", lineHeight: "2rem", fontWeight: "400" },
+            base: { fontSize: "2.25rem", lineHeight: "2.75rem", fontWeight: "400" },
         },
         heading_2: {
-            small: {
-                fontSize: "1.4375rem",
-                lineHeight: "2rem",
-                fontWeight: "400",
-            },
-            base: {
-                fontSize: "1.75rem",
-                lineHeight: "2.5rem",
-                fontWeight: "400",
-            },
+            small: { fontSize: "1.4375rem", lineHeight: "2rem", fontWeight: "400" },
+            base: { fontSize: "1.75rem", lineHeight: "2.5rem", fontWeight: "400" },
         },
         heading_3: {
-            small: {
-                fontSize: "1.3125rem",
-                lineHeight: "1.75rem",
-                fontWeight: "700",
-            },
-            base: {
-                fontSize: "1.5625rem",
-                lineHeight: "2rem",
-                fontWeight: "700",
-            },
+            small: { fontSize: "1.3125rem", lineHeight: "1.75rem", fontWeight: "700" },
+            base: { fontSize: "1.5625rem", lineHeight: "2rem", fontWeight: "700" },
         },
         heading_4: {
-            small: {
-                fontSize: "1.125rem",
-                lineHeight: "1.5rem",
-                fontWeight: "700",
-            },
-            base: {
-                fontSize: "1.3125rem",
-                lineHeight: "1.75rem",
-                fontWeight: "700",
-            },
+            small: { fontSize: "1.125rem", lineHeight: "1.5rem", fontWeight: "700" },
+            base: { fontSize: "1.3125rem", lineHeight: "1.75rem", fontWeight: "700" },
         },
         heading_5: {
-            small: {
-                fontSize: "1rem",
-                lineHeight: "1.5rem",
-                fontWeight: "700",
-            },
-            base: {
-                fontSize: "1rem",
-                lineHeight: "1.5rem",
-                fontWeight: "700",
-            },
+            small: { fontSize: "1rem", lineHeight: "1.5rem", fontWeight: "700" },
+            base: { fontSize: "1rem", lineHeight: "1.5rem", fontWeight: "700" },
         },
         body: {
-            small: {
-                fontSize: "1.125rem",
-                lineHeight: "1.75rem",
-                fontWeight: "400",
-            },
-            base: {
-                fontSize: "1.25rem",
-                lineHeight: "2rem",
-                fontWeight: "400",
-            },
+            small: { fontSize: "1.125rem", lineHeight: "1.75rem", fontWeight: "400" },
+            base: { fontSize: "1.25rem", lineHeight: "2rem", fontWeight: "400" },
         },
         small: {
-            small: {
-                fontSize: "1rem",
-                lineHeight: "1.5rem",
-                fontWeight: "400",
-            },
-            base: {
-                fontSize: "1rem",
-                lineHeight: "1.5rem",
-                fontWeight: "400",
-            },
+            small: { fontSize: "1rem", lineHeight: "1.5rem", fontWeight: "400" },
+            base: { fontSize: "1rem", lineHeight: "1.5rem", fontWeight: "400" },
         },
     },
 };

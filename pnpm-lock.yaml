@@ -205,6 +205,7 @@ importers:
       sass-embedded: ^1.90.0
       style-dictionary: ^5.0.1
       tailwindcss: ^3.4.17
+      tsx: ^4.20.6
       vite: ^7.1.2
       vite-plugin-dts: ^4.5.4
       vitest: ^3.2.4
@@ -244,9 +245,10 @@ importers:
       rollup-plugin-visualizer: 6.0.3
       sass-embedded: 1.90.0
       style-dictionary: 5.0.1
-      vite: 7.1.2_sass-embedded@1.90.0
+      tsx: 4.20.6
+      vite: 7.1.2_yp6atvd7o5jpvmhlfg7su2icsm
       vite-plugin-dts: 4.5.4_vite@7.1.2
-      vitest: 3.2.4_yakxt6wheqgbykisktixzbfdae
+      vitest: 3.2.4_juooul32fpxyfnpz4xkszbsdua
       vitest-axe: 0.1.0_vitest@3.2.4
 
   packages/stylelint-config-jkl:
@@ -2424,12 +2426,12 @@ packages:
       '@types/node': 20.5.1
       chalk: 4.1.2
       cosmiconfig: 8.2.0
-      cosmiconfig-typescript-loader: 4.3.0_xjwwkuakieqnf2nglivucr7kjm
+      cosmiconfig-typescript-loader: 4.3.0_b3loy3mzrkewuul5go2mpimu5q
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
       resolve-from: 5.0.0
-      ts-node: 10.9.1_iq4tmmvkpoae37j5rvwyewdf6a
+      ts-node: 10.9.2_iq4tmmvkpoae37j5rvwyewdf6a
       typescript: 5.9.2
     transitivePeerDependencies:
       - '@swc/core'
@@ -3980,7 +3982,7 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       '@jridgewell/set-array': 1.2.1
-      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/sourcemap-codec': 1.5.5
       '@jridgewell/trace-mapping': 0.3.30
 
   /@jridgewell/resolve-uri/3.1.2:
@@ -4000,6 +4002,7 @@ packages:
 
   /@jridgewell/sourcemap-codec/1.5.0:
     resolution: {integrity: sha512-gv3ZRaISU3fjPAgNsriBRqGWQL6quFx04YMPW/zD8XMLsU32mhCCbfbO6KZFLjvYpCZ8zyDEgqsgf+PwPaM7GQ==}
+    dev: true
 
   /@jridgewell/sourcemap-codec/1.5.5:
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
@@ -7750,7 +7753,7 @@ packages:
     dependencies:
       '@rolldown/pluginutils': 1.0.0-beta.27
       '@swc/core': 1.13.3
-      vite: 7.1.2_sass-embedded@1.90.0
+      vite: 7.1.2_yp6atvd7o5jpvmhlfg7su2icsm
     transitivePeerDependencies:
       - '@swc/helpers'
     dev: true
@@ -7784,7 +7787,7 @@ packages:
       '@rolldown/pluginutils': 1.0.0-beta.27
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 7.1.2_sass-embedded@1.90.0
+      vite: 7.1.2_yp6atvd7o5jpvmhlfg7su2icsm
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -7822,7 +7825,7 @@ packages:
       '@vitest/spy': 3.2.4
       estree-walker: 3.0.3
       magic-string: 0.30.17
-      vite: 7.1.2_sass-embedded@1.90.0
+      vite: 7.1.2_yp6atvd7o5jpvmhlfg7su2icsm
     dev: true
 
   /@vitest/pretty-format/2.0.5:
@@ -9705,7 +9708,7 @@ packages:
   /core-util-is/1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
 
-  /cosmiconfig-typescript-loader/4.3.0_xjwwkuakieqnf2nglivucr7kjm:
+  /cosmiconfig-typescript-loader/4.3.0_b3loy3mzrkewuul5go2mpimu5q:
     resolution: {integrity: sha512-NTxV1MFfZDLPiBMjxbHRwSh5LaLcPMwNdCutmnHJCKoVnlvldPWlllonKwrsRJ5pYZBIBGRWWU2tfvzxgeSW5Q==}
     engines: {node: '>=12', npm: '>=6'}
     peerDependencies:
@@ -9716,7 +9719,7 @@ packages:
     dependencies:
       '@types/node': 20.5.1
       cosmiconfig: 8.2.0
-      ts-node: 10.9.1_iq4tmmvkpoae37j5rvwyewdf6a
+      ts-node: 10.9.2_iq4tmmvkpoae37j5rvwyewdf6a
       typescript: 5.9.2
     dev: true
 
@@ -10464,6 +10467,7 @@ packages:
     resolution: {integrity: sha512-pGjwhsmsp4kL2RTz08wcOlGN83otlqHeD/Z5T8GXZB+/YcpQ/dgo+lbU8ZsGxV0HIvqqxo9l7mqYwyYMD9bKDg==}
     engines: {node: '>=0.10'}
     hasBin: true
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -14402,7 +14406,7 @@ packages:
   /magic-string/0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.0
+      '@jridgewell/sourcemap-codec': 1.5.5
     dev: true
 
   /make-dir/1.3.0:
@@ -15342,6 +15346,7 @@ packages:
 
   /node-addon-api/7.1.1:
     resolution: {integrity: sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -18049,6 +18054,7 @@ packages:
     resolution: {integrity: sha512-9GUyuksjw70uNpb1MTYWsH9MQHOHY6kwfnkafC24+7aOMZn9+rVMBxRbLvw756mrBFbIsFg6Xw9IkR2Fnn3k+Q==}
     engines: {node: '>=14.0.0'}
     hasBin: true
+    requiresBuild: true
     dependencies:
       chokidar: 3.6.0
       immutable: 5.0.2
@@ -19609,8 +19615,8 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: false
 
-  /ts-node/10.9.1_iq4tmmvkpoae37j5rvwyewdf6a:
-    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+  /ts-node/10.9.2_iq4tmmvkpoae37j5rvwyewdf6a:
+    resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
       '@swc/core': '>=1.2.50'
@@ -19685,6 +19691,17 @@ packages:
 
   /tslib/2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
+
+  /tsx/4.20.6:
+    resolution: {integrity: sha512-ytQKuwgmrrkDTFP4LjR0ToE2nqgy886GpvRSpU0JAnrdBYppuY5rLkRUYPU1yCryb24SsKBTL/hlDQAEFVwtZg==}
+    engines: {node: '>=18.0.0'}
+    hasBin: true
+    dependencies:
+      esbuild: 0.25.5
+      get-tsconfig: 4.10.0
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
 
   /tty-browserify/0.0.1:
     resolution: {integrity: sha512-C3TaO7K81YvjCgQH9Q1S3R3P3BtN3RIM8n+OvX4il1K1zgE8ZhI0op7kClgkxtutIE8hQrcrHBXvIheqKUUCxw==}
@@ -20263,7 +20280,7 @@ packages:
       vfile-message: 4.0.2
     dev: false
 
-  /vite-node/3.2.4_sass-embedded@1.90.0:
+  /vite-node/3.2.4_yp6atvd7o5jpvmhlfg7su2icsm:
     resolution: {integrity: sha512-EbKSKh+bh1E1IFxeO0pg1n4dvoOTt0UDiXMd/qn++r98+jPO1xtJilvXldeuQ8giIB5IkpjCgMleHMNEsGH6pg==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
@@ -20272,7 +20289,7 @@ packages:
       debug: 4.4.1
       es-module-lexer: 1.7.0
       pathe: 2.0.3
-      vite: 7.1.2_sass-embedded@1.90.0
+      vite: 7.1.2_yp6atvd7o5jpvmhlfg7su2icsm
     transitivePeerDependencies:
       - '@types/node'
       - jiti
@@ -20306,7 +20323,7 @@ packages:
       kolorist: 1.8.0
       local-pkg: 1.1.1
       magic-string: 0.30.17
-      vite: 7.1.2_sass-embedded@1.90.0
+      vite: 7.1.2_yp6atvd7o5jpvmhlfg7su2icsm
     transitivePeerDependencies:
       - '@types/node'
       - rollup
@@ -20416,7 +20433,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vite/7.1.2_sass-embedded@1.90.0:
+  /vite/7.1.2_yp6atvd7o5jpvmhlfg7su2icsm:
     resolution: {integrity: sha512-J0SQBPlQiEXAF7tajiH+rUooJPo0l8KQgyg4/aMunNtrOa7bwuZJsJbDWzeljqQpgftxuq5yNJxQ91O9ts29UQ==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
@@ -20463,6 +20480,7 @@ packages:
       rollup: 4.43.0
       sass-embedded: 1.90.0
       tinyglobby: 0.2.14
+      tsx: 4.20.6
     optionalDependencies:
       fsevents: 2.3.3
     dev: true
@@ -20478,10 +20496,10 @@ packages:
       dom-accessibility-api: 0.5.16
       lodash-es: 4.17.21
       redent: 3.0.0
-      vitest: 3.2.4_yakxt6wheqgbykisktixzbfdae
+      vitest: 3.2.4_juooul32fpxyfnpz4xkszbsdua
     dev: true
 
-  /vitest/3.2.4_yakxt6wheqgbykisktixzbfdae:
+  /vitest/3.2.4_juooul32fpxyfnpz4xkszbsdua:
     resolution: {integrity: sha512-LUCP5ev3GURDysTWiP47wRRUpLKMOfPh+yKTx3kVIEiu5KOMeqzpnYNsKyOoVrULivR8tLcks4+lga33Whn90A==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
@@ -20530,8 +20548,8 @@ packages:
       tinyglobby: 0.2.14
       tinypool: 1.1.1
       tinyrainbow: 2.0.0
-      vite: 7.1.2_sass-embedded@1.90.0
-      vite-node: 3.2.4_sass-embedded@1.90.0
+      vite: 7.1.2_yp6atvd7o5jpvmhlfg7su2icsm
+      vite-node: 3.2.4_yp6atvd7o5jpvmhlfg7su2icsm
       why-is-node-running: 2.3.0
     transitivePeerDependencies:
       - jiti
