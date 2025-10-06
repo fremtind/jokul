@@ -1,6 +1,6 @@
+import type { Dictionary, File, Format } from "style-dictionary/types";
 import { fileHeader, formattedVariables } from "style-dictionary/utils";
 import { PREFIX } from "../config.js";
-import type { Dictionary, File, Format } from "style-dictionary/types";
 
 const cssDynamicColorVariablesFormat: Format = {
     name: "css/dynamic-color-variables",
@@ -13,7 +13,7 @@ const cssDynamicColorVariablesFormat: Format = {
 
         return `${await fileHeader({ file })}
 /* stylelint-disable */
-@use "../jkl";
+@use "../../jkl";
 
 @layer jokul.theme {
     ${["light", "dark"]

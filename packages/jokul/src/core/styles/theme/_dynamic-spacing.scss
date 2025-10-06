@@ -1,8 +1,8 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:string";
-@use "../jkl/spacing";
-@use "../jkl/screens";
+@use "../../jkl/screens";
+@use "../../jkl/spacing";
 
 @function get-class-name($spacing-combination) {
     $class-name: "jkl-spacing";
@@ -48,41 +48,6 @@
                         spacing.$spacing,
                         $_step
                     )};
-                }
-            }
-        }
-    }
-}
-
-@layer jokul.utility {
-    // Lag nytteklasser for alle spacing-kombinasjoner og -posisjoner
-    @each $spacing-combination in spacing.$combinations {
-        $_class-name: get-class-name($spacing-combination);
-        .#{$_class-name} {
-            &--all {
-                margin: var(--#{$_class-name});
-            }
-
-            @each $position in spacing.$positions {
-                &--#{$position} {
-                    margin-#{$position}: var(--#{$_class-name});
-                }
-            }
-        }
-    }
-
-    // Lag nytteklasser for de gamle spacingene for å sikre bakoverkompatibilitet
-    @each $spacing, $value in spacing.$spacing {
-        @if not list.index(spacing.$combinations, $spacing) {
-            .jkl-spacing-#{$spacing} {
-                &--all {
-                    margin: $value;
-                }
-
-                @each $position in spacing.$positions {
-                    &--#{$position} {
-                        margin-#{$position}: $value;
-                    }
                 }
             }
         }

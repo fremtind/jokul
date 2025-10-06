@@ -29,7 +29,7 @@ export const legacyDesignTokensConfig: Config = {
         },
         css: {
             transformGroup: "css",
-            buildPath: "./src/core/styles/",
+            buildPath: "./src/core/styles/theme/",
             files: [
                 {
                     destination: "_legacy-tokens.scss",
@@ -82,7 +82,7 @@ export const designTokensConfig: Config = {
         },
         css: {
             transformGroup: "css",
-            buildPath: "./src/core/styles/",
+            buildPath: "./src/core/styles/theme/",
             files: [
                 {
                     destination: "_tokens.scss",
