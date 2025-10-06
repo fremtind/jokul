@@ -1,6 +1,6 @@
 import React, { type FormEventHandler, useEffect, useId } from "react";
 import ReactDOM from "react-dom";
-import { SecondaryButton } from "../button/Button.js";
+import { Button } from "../button/Button.js";
 import {
     Modal,
     ModalActions,
@@ -200,19 +200,21 @@ export const CookieConsent = ({
                     )}
                 </ModalBody>
                 <ModalActions>
-                    <SecondaryButton
+                    <Button
+                        variant="secondary"
+                        data-testid="jkl-cookie-consent-godta"
+                        type="submit"
+                    >
+                        Godta mine valg
+                    </Button>
+                    <Button
+                        variant="secondary"
                         data-testid="jkl-cookie-consent-godta-alle"
                         type="button"
                         onClick={() => accept()}
                     >
                         Godta alle
-                    </SecondaryButton>
-                    <SecondaryButton
-                        data-testid="jkl-cookie-consent-godta"
-                        type="submit"
-                    >
-                        Godta mine valg
-                    </SecondaryButton>
+                    </Button>
                 </ModalActions>
             </Modal>
         </ModalContainer>,
