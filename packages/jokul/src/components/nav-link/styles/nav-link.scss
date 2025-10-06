@@ -1,63 +1,65 @@
 @use "../../../core/jkl";
 
-.jkl-nav-link {
-    color: var(--jkl-color-text-default);
+@layer jokul.components {
+    .jkl-nav-link {
+        color: var(--jkl-color-text-default);
 
-    box-sizing: border-box;
-    font-weight: jkl.$typography-weight-normal;
-    text-decoration: none;
-    position: relative;
+        box-sizing: border-box;
+        font-weight: jkl.$typography-weight-normal;
+        text-decoration: none;
+        position: relative;
 
-    // Unngå at border ved tastaturfokus "kapper" pila
-    $arrow-spacing: 0.15rem;
-    padding-right: $arrow-spacing;
-    margin-right: -#{$arrow-spacing};
+        // Unngå at border ved tastaturfokus "kapper" pila
+        $arrow-spacing: 0.15rem;
+        padding-right: $arrow-spacing;
+        margin-right: -#{$arrow-spacing};
 
-    @include jkl.reset-outline;
+        @include jkl.reset-outline;
 
-    &:hover:not(:focus) {
-        color: var(--jkl-color-text-subdued);
-    }
-
-    &:focus-visible {
-        @include jkl.focus-outline($offset: 0);
-    }
-
-    &:focus-visible,
-    &:hover:not(:focus) {
-        .jkl-nav-link__icon {
-            transform: translateX(0.3rem);
+        &:hover:not(:focus) {
+            color: var(--jkl-color-text-subdued);
         }
-    }
 
-    &__icon {
-        margin-inline-start: 0.1em;
-        margin-block-start: -0.1em;
-        vertical-align: middle;
-
-        @include jkl.motion;
-        transition-property: transform;
-    }
-
-    &--active {
-        @include jkl.no-grow-bold;
-    }
-
-    &--back {
-        padding-right: 0;
-        margin-right: 0;
-        padding-left: $arrow-spacing;
-        margin-left: -#{$arrow-spacing};
-
-        .jkl-nav-link__icon {
-            margin-inline: 0 0.1em;
+        &:focus-visible {
+            @include jkl.focus-outline($offset: 0);
         }
 
         &:focus-visible,
         &:hover:not(:focus) {
             .jkl-nav-link__icon {
-                padding-left: 0;
-                transform: translateX(-0.3rem);
+                transform: translateX(0.3rem);
+            }
+        }
+
+        &__icon {
+            margin-inline-start: 0.1em;
+            margin-block-start: -0.1em;
+            vertical-align: middle;
+
+            @include jkl.motion;
+            transition-property: transform;
+        }
+
+        &--active {
+            @include jkl.no-grow-bold;
+        }
+
+        &--back {
+            padding-right: 0;
+            margin-right: 0;
+            padding-left: $arrow-spacing;
+            margin-left: -#{$arrow-spacing};
+
+            .jkl-nav-link__icon {
+                margin-inline: 0 0.1em;
+            }
+
+            &:focus-visible,
+            &:hover:not(:focus) {
+                .jkl-nav-link__icon {
+                    padding-left: 0;
+                    transform: translateX(-0.3rem);
+                }
             }
         }
     }

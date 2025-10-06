@@ -22,100 +22,102 @@
 
 @include jkl.light-mode-variables {
     --jkl-list-marker-cross: #{_cross(
-            jkl.$color-functional-error,
-            jkl.$color-granitt
-        )};
+        jkl.$color-functional-error,
+        jkl.$color-granitt
+    )};
     --jkl-list-marker-check: #{_check(
-            jkl.$color-functional-success,
-            jkl.$color-granitt
-        )};
+        jkl.$color-functional-success,
+        jkl.$color-granitt
+    )};
     --jkl-list-text-color: #{jkl.$color-granitt};
 }
 
 @include jkl.dark-mode-variables {
     --jkl-list-marker-cross: #{_cross(
-            jkl.$color-functional-error-dark,
-            jkl.$color-granitt
-        )};
+        jkl.$color-functional-error-dark,
+        jkl.$color-granitt
+    )};
     --jkl-list-marker-check: #{_check(
-            jkl.$color-functional-success-dark,
-            jkl.$color-granitt
-        )};
+        jkl.$color-functional-success-dark,
+        jkl.$color-granitt
+    )};
     --jkl-list-text-color: #{jkl.$color-snohvit};
 }
 
-.jkl-list {
-    list-style-type: "\2022";
-    padding-left: jkl.$unit-20;
-    margin: 0;
-
-    & > .jkl-list__item {
-        & > .jkl-list {
-            margin: jkl.$unit-10 0;
-        }
-    }
-
-    &:has(.jkl-list__item--iconed) {
-        padding: 0;
-    }
-
-    &--ordered {
-        padding-left: revert;
+@layer jokul.components {
+    .jkl-list {
+        list-style-type: "\2022";
+        padding-left: jkl.$unit-20;
+        margin: 0;
 
         & > .jkl-list__item {
-            padding-left: revert;
-            list-style: decimal;
-        }
-
-        & & > .jkl-list__item {
-            list-style: lower-alpha;
-        }
-    }
-
-    &__item {
-        color: var(--jkl-list-text-color);
-        padding-left: jkl.$unit-15;
-
-        &::marker {
-            color: var(--jkl-list-text-color);
-        }
-
-        &--iconed {
-            display: flex;
-            list-style: none;
-            position: relative;
-            padding-left: 0;
-
-            &::before {
-                text-indent: -9999px;
-                background-size: contain;
-                width: 1em;
-                height: 1em;
-                flex-shrink: 0;
-                margin-right: 0.5em;
-                margin-top: 0.2em; // Vertical offset (using em for font-size scaling) to align icon properly with the first line.
+            & > .jkl-list {
+                margin: jkl.$unit-10 0;
             }
         }
 
-        &--check::before {
-            @include jkl.decorative($content: "\2713");
-            background-image: var(--jkl-list-marker-check);
+        &:has(.jkl-list__item--iconed) {
+            padding: 0;
         }
 
-        &--cross::before {
-            @include jkl.decorative($content: "\274C");
-            background-image: var(--jkl-list-marker-cross);
-        }
-    }
+        &--ordered {
+            padding-left: revert;
 
-    @include jkl.forced-colors-mode {
-        & .jkl-list__item {
+            & > .jkl-list__item {
+                padding-left: revert;
+                list-style: decimal;
+            }
+
+            & & > .jkl-list__item {
+                list-style: lower-alpha;
+            }
+        }
+
+        &__item {
+            color: var(--jkl-list-text-color);
+            padding-left: jkl.$unit-15;
+
+            &::marker {
+                color: var(--jkl-list-text-color);
+            }
+
+            &--iconed {
+                display: flex;
+                list-style: none;
+                position: relative;
+                padding-left: 0;
+
+                &::before {
+                    text-indent: -9999px;
+                    background-size: contain;
+                    width: 1em;
+                    height: 1em;
+                    flex-shrink: 0;
+                    margin-right: 0.5em;
+                    margin-top: 0.2em; // Vertical offset (using em for font-size scaling) to align icon properly with the first line.
+                }
+            }
+
             &--check::before {
-                background-image: _check(CanvasText, Canvas);
+                @include jkl.decorative($content: "\2713");
+                background-image: var(--jkl-list-marker-check);
             }
 
             &--cross::before {
-                background-image: _cross(CanvasText, Canvas);
+                @include jkl.decorative($content: "\274C");
+                background-image: var(--jkl-list-marker-cross);
+            }
+        }
+
+        @include jkl.forced-colors-mode {
+            & .jkl-list__item {
+                &--check::before {
+                    background-image: _check(CanvasText, Canvas);
+                }
+
+                &--cross::before {
+                    background-image: _cross(CanvasText, Canvas);
+                }
             }
         }
     }
