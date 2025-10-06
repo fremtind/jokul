@@ -5,7 +5,7 @@ import {
     type ExampleKnobsProps,
     useExampleContext,
 } from "utils/dev-example/index.js";
-import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import {
     Modal,
     ModalActions,
@@ -79,21 +79,23 @@ function ModalComponent({
                     Er du sikker på at du vil slette Foo Bar Baz?
                 </ModalBody>
                 <ModalActions>
-                    <PrimaryButton
+                    <Button
+                        variant="primary"
                         data-testid="confirm-modal"
                         onClick={() => {
                             onConfirm();
                         }}
                     >
                         Slett
-                    </PrimaryButton>
-                    <TertiaryButton
+                    </Button>
+                    <Button
+                        variant="secondary"
                         onClick={() => {
                             onCancel();
                         }}
                     >
                         Avbryt
-                    </TertiaryButton>
+                    </Button>
                 </ModalActions>
             </Modal>
         </ModalContainer>,
@@ -105,14 +107,15 @@ export const ModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const dialogRef = React.useRef<ModalInstance | null>();
     return (
         <div>
-            <PrimaryButton
+            <Button
+                variant="primary"
                 data-testid="open-modal"
                 onClick={() => {
                     dialogRef.current?.show();
                 }}
             >
                 Åpne modal
-            </PrimaryButton>
+            </Button>
             <ModalComponent
                 boolValues={boolValues}
                 dialogRef={(instance) => {
