@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useEffect, useState } from "react";
 import { Button } from "../../button/Button.js";
+import { BETA_Help } from "../../help/Help.jsx";
 import { InputGroup } from "../../input-group/InputGroup.js";
 import { BaseTextInput } from "../../text-input/BaseTextInput.js";
-import { PopupTip } from "../../tooltip/PopupTip.js";
 import {
     ModalActions,
     ModalBody,
@@ -77,33 +77,27 @@ export const Modal: ModalStory = {
                                 Er du sikker på at du vil slette Foo Bar Baz?
                                 <InputGroup
                                     label="Fødselsnummer"
-                                    helpLabel={undefined}
-                                    errorLabel={undefined}
                                     tooltip={
-                                        <PopupTip
-                                            content={
-                                                <>
-                                                    Du må fylle ut fødelsnummer
-                                                    eller D-nummer. Se hvordan
-                                                    du finner D-nummer.
-                                                </>
-                                            }
-                                        />
+                                        <BETA_Help buttonText="Hva betyr dette?">
+                                            Du må fylle ut fødelsnummer eller
+                                            D-nummer. Se hvordan du finner
+                                            D-nummer.
+                                        </BETA_Help>
                                     }
                                 >
                                     <BaseTextInput />
                                 </InputGroup>
                             </ModalBody>
                             <ModalActions>
+                                <Button onClick={() => instance?.hide()}>
+                                    Avbryt
+                                </Button>
                                 <Button
                                     onClick={() => {
                                         instance?.hide();
                                     }}
                                 >
                                     Bekreft
-                                </Button>
-                                <Button onClick={() => instance?.hide()}>
-                                    Avbryt
                                 </Button>
                             </ModalActions>
                         </ModalComponent>
