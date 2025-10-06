@@ -1,9 +1,11 @@
 @use "../jkl";
 
-.jkl-sr-only {
-    @include jkl.screenreader-only;
+@layer jokul.utility {
+    .jkl-sr-only {
+        @include jkl.screenreader-only;
 
-    &--focusable {
-        @include jkl.screenreader-only-focusable;
+        &--focusable {
+            @include jkl.screenreader-only-focusable;
+        }
     }
 }

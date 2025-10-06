@@ -1,16 +1,18 @@
 @use "../jkl";
 
-.jkl-body {
-    @include jkl.text-style("body");
-}
-
-.jkl-bold {
-    @include jkl.text-style("body") {
-        --jkl-icon-weight: #{jkl.$icon-weight-bold};
-        font-weight: jkl.$typography-weight-bold;
+@layer jokul.utility {
+    .jkl-body {
+        @include jkl.text-style("body");
     }
-}
 
-.jkl-small {
-    @include jkl.text-style("small");
+    .jkl-bold {
+        @include jkl.text-style("body") {
+            --jkl-icon-weight: #{jkl.$icon-weight-bold};
+            font-weight: jkl.$typography-weight-bold;
+        }
+    }
+
+    .jkl-small {
+        @include jkl.text-style("small");
+    }
 }
