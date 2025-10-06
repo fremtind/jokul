@@ -1,0 +1,318 @@
+{
+    "color": {
+        "green": {
+            "25": {
+                "value": "oklch(25% 0.024 156)",
+                "type": "color"
+            },
+            "30": {
+                "value": "oklch(30% 0.041 156)",
+                "type": "color"
+            },
+            "35": {
+                "value": "oklch(35% 0.055 156)",
+                "type": "color"
+            },
+            "40": {
+                "value": "oklch(40% 0.076 156)",
+                "type": "color"
+            },
+            "45": {
+                "value": "oklch(45% 0.095 156)",
+                "type": "color"
+            },
+            "50": {
+                "value": "oklch(50% 0.106 156)",
+                "type": "color"
+            },
+            "60": {
+                "value": "oklch(60% 0.1 156)",
+                "type": "color"
+            },
+            "70": {
+                "value": "oklch(70% 0.089 156)",
+                "type": "color"
+            },
+            "75": {
+                "value": "oklch(75% 0.081 156)",
+                "type": "color"
+            },
+            "80": {
+                "value": "oklch(80% 0.066 156)",
+                "type": "color"
+            },
+            "85": {
+                "value": "oklch(85% 0.066 156)",
+                "type": "color"
+            },
+            "90": {
+                "value": "oklch(90% 0.035 156)",
+                "type": "color"
+            },
+            "95": {
+                "value": "oklch(95% 0.018 156)",
+                "type": "color"
+            }
+        },
+        "red": {
+            "25": {
+                "value": "oklch(25% 0.056 16)",
+                "type": "color"
+            },
+            "30": {
+                "value": "oklch(30% 0.08 16)",
+                "type": "color"
+            },
+            "35": {
+                "value": "oklch(35% 0.105 16)",
+                "type": "color"
+            },
+            "40": {
+                "value": "oklch(40% 0.126 16)",
+                "type": "color"
+            },
+            "45": {
+                "value": "oklch(45% 0.146 16)",
+                "type": "color"
+            },
+            "50": {
+                "value": "oklch(50% 0.16 16)",
+                "type": "color"
+            },
+            "60": {
+                "value": "oklch(60% 0.149 16)",
+                "type": "color"
+            },
+            "70": {
+                "value": "oklch(70% 0.13 16)",
+                "type": "color"
+            },
+            "75": {
+                "value": "oklch(75% 0.111 16)",
+                "type": "color"
+            },
+            "80": {
+                "value": "oklch(80% 0.09 16)",
+                "type": "color"
+            },
+            "85": {
+                "value": "oklch(85% 0.065 16)",
+                "type": "color"
+            },
+            "90": {
+                "value": "oklch(90% 0.045 16)",
+                "type": "color"
+            },
+            "95": {
+                "value": "oklch(95% 0.015 16)",
+                "type": "color"
+            }
+        },
+        "yellow": {
+            "25": {
+                "value": "oklch(25% 0.03 94)",
+                "type": "color"
+            },
+            "30": {
+                "value": "oklch(30% 0.04 94)",
+                "type": "color"
+            },
+            "35": {
+                "value": "oklch(35% 0.045 94)",
+                "type": "color"
+            },
+            "40": {
+                "value": "oklch(40% 0.055 94)",
+                "type": "color"
+            },
+            "45": {
+                "value": "oklch(45% 0.065 94)",
+                "type": "color"
+            },
+            "50": {
+                "value": "oklch(50% 0.075 94)",
+                "type": "color"
+            },
+            "60": {
+                "value": "oklch(60% 0.09 94)",
+                "type": "color"
+            },
+            "70": {
+                "value": "oklch(70% 0.1 94)",
+                "type": "color"
+            },
+            "75": {
+                "value": "oklch(75% 0.11 94)",
+                "type": "color"
+            },
+            "80": {
+                "value": "oklch(80% 0.11 94)",
+                "type": "color"
+            },
+            "85": {
+                "value": "oklch(85% 0.105 94)",
+                "type": "color"
+            },
+            "90": {
+                "value": "oklch(90% 0.08 94)",
+                "type": "color"
+            },
+            "95": {
+                "value": "oklch(95% 0.051 94)",
+                "type": "color"
+            }
+        },
+        "blue": {
+            "25": {
+                "value": "oklch(25% 0.056 285)",
+                "type": "color"
+            },
+            "30": {
+                "value": "oklch(30% 0.086 285)",
+                "type": "color"
+            },
+            "35": {
+                "value": "oklch(35% 0.11 285)",
+                "type": "color"
+            },
+            "40": {
+                "value": "oklch(40% 0.145 285)",
+                "type": "color"
+            },
+            "45": {
+                "value": "oklch(45% 0.169 285)",
+                "type": "color"
+            },
+            "50": {
+                "value": "oklch(50% 0.186 285)",
+                "type": "color"
+            },
+            "60": {
+                "value": "oklch(60% 0.17 285)",
+                "type": "color"
+            },
+            "70": {
+                "value": "oklch(70% 0.145 285)",
+                "type": "color"
+            },
+            "75": {
+                "value": "oklch(75% 0.12 285)",
+                "type": "color"
+            },
+            "80": {
+                "value": "oklch(80% 0.09 285)",
+                "type": "color"
+            },
+            "85": {
+                "value": "oklch(85% 0.06 285)",
+                "type": "color"
+            },
+            "90": {
+                "value": "oklch(90% 0.034 285)",
+                "type": "color"
+            },
+            "95": {
+                "value": "oklch(95% 0.017 285)",
+                "type": "color"
+            }
+        },
+        "brand": {
+            "0": {
+                "value": "oklch(0% 0.007 64)",
+                "type": "color"
+            },
+            "10": {
+                "value": "oklch(10% 0.007 67)",
+                "type": "color"
+            },
+            "15": {
+                "value": "oklch(15% 0.007 67)",
+                "type": "color"
+            },
+            "20": {
+                "value": "oklch(20% 0.007 67)",
+                "type": "color"
+            },
+            "25": {
+                "value": "oklch(25% 0.007 67)",
+                "type": "color"
+            },
+            "30": {
+                "value": "oklch(30% 0.007 67)",
+                "type": "color"
+            },
+            "35": {
+                "value": "oklch(35% 0.007 67)",
+                "type": "color"
+            },
+            "40": {
+                "value": "oklch(40% 0.007 67)",
+                "type": "color"
+            },
+            "45": {
+                "value": "oklch(45% 0.007 67)",
+                "type": "color"
+            },
+            "50": {
+                "value": "oklch(50% 0.007 67)",
+                "type": "color"
+            },
+            "55": {
+                "value": "oklch(55% 0.007 67)",
+                "type": "color"
+            },
+            "60": {
+                "value": "oklch(60% 0.007 67)",
+                "type": "color"
+            },
+            "65": {
+                "value": "oklch(65% 0.007 67)",
+                "type": "color"
+            },
+            "70": {
+                "value": "oklch(70% 0.008 67)",
+                "type": "color"
+            },
+            "75": {
+                "value": "oklch(75% 0.008 67)",
+                "type": "color"
+            },
+            "80": {
+                "value": "oklch(80% 0.008 67)",
+                "type": "color"
+            },
+            "85": {
+                "value": "oklch(85% 0.008 67)",
+                "type": "color"
+            },
+            "90": {
+                "value": "oklch(90% 0.008 67)",
+                "type": "color"
+            },
+            "92": {
+                "value": "oklch(92% 0.008 67)",
+                "type": "color"
+            },
+            "94": {
+                "value": "oklch(94% 0.034 67)",
+                "type": "color"
+            },
+            "96": {
+                "value": "oklch(96% 0.004 67)",
+                "type": "color"
+            },
+            "98": {
+                "value": "oklch(98% 0.003 67)",
+                "type": "color"
+            },
+            "99": {
+                "value": "oklch(99% 0.002 67)",
+                "type": "color"
+            },
+            "100": {
+                "value": "oklch(100% 0.001 67)",
+                "type": "color"
+            }
+        }
+    }
+}

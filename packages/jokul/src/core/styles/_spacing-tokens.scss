@@ -5,17 +5,26 @@
 
 @layer jokul.theme {
     :root {
-        --jkl-spacing-0: 0rem;
-        --jkl-spacing-2: 0.125rem;
-        --jkl-spacing-4: 0.25rem;
-        --jkl-spacing-8: 0.5rem;
-        --jkl-spacing-12: 0.75rem;
-        --jkl-spacing-16: 1rem;
-        --jkl-spacing-24: 1.5rem;
-        --jkl-spacing-32: 2rem;
-        --jkl-spacing-40: 2.5rem;
-        --jkl-spacing-64: 4rem;
-        --jkl-spacing-104: 6.5rem;
-        --jkl-spacing-168: 10.5rem;
+        --jkl-unit-10: 0.5rem;
+        --jkl-unit-15: calc(var(--jkl-unit-10) * 1.5);
+        --jkl-unit-20: calc(var(--jkl-unit-10) * 2);
+        --jkl-unit-25: calc(var(--jkl-unit-10) * 2.5);
+        --jkl-unit-30: calc(var(--jkl-unit-10) * 3);
+        --jkl-unit-40: calc(var(--jkl-unit-10) * 4);
+        --jkl-unit-50: calc(var(--jkl-unit-10) * 5);
+        --jkl-unit-60: calc(var(--jkl-unit-10) * 6);
+        --jkl-unit-70: calc(var(--jkl-unit-10) * 7);
+        --jkl-unit-80: calc(var(--jkl-unit-10) * 8);
+        --jkl-unit-90: calc(var(--jkl-unit-10) * 9);
+        --jkl-unit-130: calc(var(--jkl-unit-10) * 13);
+        --jkl-unit-210: calc(var(--jkl-unit-10) * 21);
+        --jkl-unit-02: calc(var(--jkl-unit-10) * .25);
+        --jkl-unit-05: calc(var(--jkl-unit-10) * .5);
+        --jkl-spacing-xs: 0.5rem;
+        --jkl-spacing-s: calc(var(--jkl-unit-10) * 2);
+        --jkl-spacing-m: calc(var(--jkl-unit-10) * 3);
+        --jkl-spacing-l: calc(var(--jkl-unit-10) * 5);
+        --jkl-spacing-xl: calc(var(--jkl-unit-10) * 8);
+        --jkl-spacing-2xl: calc(var(--jkl-unit-10) * 13);
     }
 }

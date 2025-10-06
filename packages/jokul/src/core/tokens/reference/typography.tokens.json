@@ -1,0 +1,95 @@
+{
+    "icon": {
+        "weight": {
+            "normal": { "value": "300", "type": "typography" },
+            "bold": { "value": "400", "type": "typography" }
+        }
+    },
+    "typography": {
+        "font": {
+            "weight": {
+                "normal": { "value": "400", "type": "typography" },
+                "bold": { "value": "700", "type": "typography" }
+            },
+            "family": {
+                "regular": {
+                    "value": "'Fremtind Grotesk, Adjusted Arial Fallback, Arial, sans-serif'",
+                    "type": "typography"
+                },
+                "display": {
+                    "value": "'Fremtind Grotesk Display, Adjusted Arial Display Fallback, Arial, sans-serif'",
+                    "type": "typography"
+                },
+                "mono": {
+                    "value": "'Fremtind Grotesk Mono, Adjusted Courier New Fallback, -apple-system, BlinkMacSystemFont, monospace'",
+                    "type": "typography"
+                }
+            },
+            "size": {
+                "1": {
+                    "value": "clamp(2.25rem, 1.8673rem + 1.6327vw, 3.5rem)",
+                    "type": "typography"
+                },
+                "2": {
+                    "value": "clamp(1.875rem, 1.6071rem + 1.1429vw, 2.75rem)",
+                    "type": "typography"
+                },
+                "3": {
+                    "value": "clamp(1.625rem, 1.4337rem + 0.8163vw, 2.25rem)",
+                    "type": "typography"
+                },
+                "4": {
+                    "value": "clamp(1.438rem, 1.3425rem + 0.4075vw, 1.75rem)",
+                    "type": "typography"
+                },
+                "5": {
+                    "value": "clamp(1.313rem, 1.2365rem + 0.3265vw, 1.563rem)",
+                    "type": "typography"
+                },
+                "6": {
+                    "value": "clamp(1.125rem, 1.0674rem + 0.2456vw, 1.313rem)",
+                    "type": "typography"
+                },
+                "7": {
+                    "value": "1rem",
+                    "type": "typography"
+                },
+                "body": {
+                    "value": "clamp(1.125rem, 1.0867rem + 0.1633vw, 1.25rem)",
+                    "type": "typography"
+                },
+                "small": {
+                    "value": "1rem",
+                    "type": "typography"
+                }
+            }
+        },
+        "lineHeight": {
+            "none": { "value": 1, "type": "typography" },
+            "small": { "value": 1.1, "type": "typography" },
+            "regular": { "value": 1.2, "type": "typography" },
+            "medium": { "value": 1.3, "type": "typography" },
+            "large": { "value": 1.4, "type": "typography" }
+        },
+        "style": {
+            "title": {
+                "fontFamily": {
+                    "value": "{typography.font.family.display}",
+                    "type": "typography"
+                },
+                "fontSize": {
+                    "value": "{typography.font.size.1}",
+                    "type": "typography"
+                },
+                "lineHeight": {
+                    "value": "{typography.lineHeight.small}",
+                    "type": "typography"
+                },
+                "fontWeight": {
+                    "value": "{typography.font.weight.normal}",
+                    "type": "typography"
+                }
+            }
+        }
+    }
+}
