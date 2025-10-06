@@ -3,21 +3,23 @@
 
 $_downcount: jkl-downcount-#{string.unique-id()};
 
-.jkl-countdown {
-    @include track.track;
+@layer jokul.components {
+    .jkl-countdown {
+        @include track.track;
 
-    &__tracker {
-        animation: $_downcount var(--duration) linear forwards;
-        animation-play-state: var(--play-state, running);
-    }
-}
-
-@keyframes #{$_downcount} {
-    from {
-        width: 100%;
+        &__tracker {
+            animation: $_downcount var(--duration) linear forwards;
+            animation-play-state: var(--play-state, running);
+        }
     }
 
-    to {
-        width: 0%;
+    @keyframes #{$_downcount} {
+        from {
+            width: 100%;
+        }
+
+        to {
+            width: 0%;
+        }
     }
 }
