@@ -1,0 +1,10 @@
+{
+    "spacing": {
+        "xs": { "value": "{unit.10}", "type": "spacing" },
+        "s": { "value": "{unit.20}", "type": "spacing" },
+        "m": { "value": "{unit.30}", "type": "spacing" },
+        "l": { "value": "{unit.50}", "type": "spacing" },
+        "xl": { "value": "{unit.80}", "type": "spacing" },
+        "2xl": { "value": "{unit.130}", "type": "spacing" }
+    }
+}

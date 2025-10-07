@@ -20,5 +20,11 @@
         --jkl-unit-210: calc(var(--jkl-unit-10) * 21);
         --jkl-unit-02: calc(var(--jkl-unit-10) * .25);
         --jkl-unit-05: calc(var(--jkl-unit-10) * .5);
+        --jkl-spacing-xs: 0.5rem;
+        --jkl-spacing-s: calc(var(--jkl-unit-10) * 2);
+        --jkl-spacing-m: calc(var(--jkl-unit-10) * 3);
+        --jkl-spacing-l: calc(var(--jkl-unit-10) * 5);
+        --jkl-spacing-xl: calc(var(--jkl-unit-10) * 8);
+        --jkl-spacing-2xl: calc(var(--jkl-unit-10) * 13);
     }
 }

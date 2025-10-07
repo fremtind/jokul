@@ -11,7 +11,7 @@
 @forward "shadows";
 @forward "spacing" hide $spacing, $combinations, $positions;
 @forward "theme";
-@forward "tokens";
+@forward "tokens" hide $color-background-page, $color-border-subdued, $color-text-default, $color-text-subdued;
 @forward "legacy-tokens";
 @forward "typography" hide $text-styles;
 @forward "underline";

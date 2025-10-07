@@ -1,0 +1,31 @@
+{
+    "unit": {
+        "10": { "value": "0.5rem", "type": "spacing" },
+        "02": {
+            "value": "calc(var(--jkl-unit-10) * .25)",
+            "type": "spacing"
+        },
+        "05": { "value": "calc(var(--jkl-unit-10) * .5)", "type": "spacing" },
+        "15": {
+            "value": "calc(var(--jkl-unit-10) * 1.5)",
+            "type": "spacing"
+        },
+        "20": { "value": "calc(var(--jkl-unit-10) * 2)", "type": "spacing" },
+        "25": {
+            "value": "calc(var(--jkl-unit-10) * 2.5)",
+            "type": "spacing"
+        },
+        "30": { "value": "calc(var(--jkl-unit-10) * 3)", "type": "spacing" },
+        "40": { "value": "calc(var(--jkl-unit-10) * 4)", "type": "spacing" },
+        "50": { "value": "calc(var(--jkl-unit-10) * 5)", "type": "spacing" },
+        "60": { "value": "calc(var(--jkl-unit-10) * 6)", "type": "spacing" },
+        "70": { "value": "calc(var(--jkl-unit-10) * 7)", "type": "spacing" },
+        "80": { "value": "calc(var(--jkl-unit-10) * 8)", "type": "spacing" },
+        "90": { "value": "calc(var(--jkl-unit-10) * 9)", "type": "spacing" },
+        "130": {
+            "value": "calc(var(--jkl-unit-10) * 13)",
+            "type": "spacing"
+        },
+        "210": { "value": "calc(var(--jkl-unit-10) * 21)", "type": "spacing" }
+    }
+}
