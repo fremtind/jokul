@@ -1,11 +1,14 @@
-import { PageFooter } from "@/components/PageFooter";
 import { ComponentCard } from "@/components/component-card/ComponentCard";
+import { ComponentConsiderations } from "@/app/(frontend)/komponenter/[slug]/components/ComponentConsiderations";
+import { ComponentExampleCard } from "@/app/(frontend)/komponenter/[slug]/components/ComponentExampleCard";
+import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
+import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
 import { NavLink } from "@fremtind/jokul/nav-link";
+import imageUrlBuilder from "@sanity/image-url";
 import { logger } from "logger";
-import { ComponentConsiderations } from "./components/ComponentConsiderations";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
 
@@ -50,6 +53,12 @@ export default async function Page({ params }: Props) {
         slug,
         time: `${Math.round(performance.now() - initialTime)}ms`,
     });
+
+    const builder = imageUrlBuilder(client);
+
+    function urlFor(source?: { asset?: { _ref: string } }) {
+        return source?.asset?._ref ? builder.image(source).url() : undefined;
+    }
 
     return (
         <article className={styles.article}>
@@ -140,6 +149,12 @@ export default async function Page({ params }: Props) {
 
             {component.name && (
                 <div className="prose">
+                    {component?.example_card && (
+                        <ComponentExampleCard
+                            name={component.name}
+                            imageUrl={urlFor(component.example_card) ?? ""}
+                        />
+                    )}
                     {component.considerations && (
                         <>
                             <h2 className={"jkl-sr-only"}>Ting å tenke på</h2>
