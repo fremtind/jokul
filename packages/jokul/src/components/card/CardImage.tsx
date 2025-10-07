@@ -14,9 +14,10 @@ export type CardImageProps<ElementType extends React.ElementType> =
             /**
              * Legger til riktig negativ margin avhengig av hvor i kortet bildet
              * skal plasseres. Margin justeres automatisk etter padding i kortet.
+             * Velg "full" hvis bildet skal være eneste innhold i kortet.
              * @default "top"
              */
-            placement?: "top" | "middle" | "bottom";
+            placement?: "top" | "middle" | "bottom" | "full";
         }
     >;
 

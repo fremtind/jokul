@@ -82,9 +82,7 @@
 }
 
 .jkl-card-image {
-    --margin: calc(
-        var(--padding, 0) * -1
-    ); // Sett negativ margin tilsvarende padding (fra Card)
+    --margin: calc(var(--padding, 0) * -1); // Sett negativ margin tilsvarende padding (fra Card)
 
     width: calc(100% + 2 * var(--padding, 0));
     aspect-ratio: var(--image-aspect-ratio, 3/2);
@@ -96,5 +94,9 @@
 
     &--bottom {
         margin-bottom: var(--margin, 0);
+    }
+
+    &--full {
+        margin-block: var(--margin, 0);
     }
 }
