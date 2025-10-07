@@ -141,12 +141,9 @@ export default async function Page({ params }: Props) {
             {component.name && (
                 <div className="prose">
                     {component.considerations && (
-                        <>
-                            <h2 className={"jkl-sr-only"}>Ting å tenke på</h2>
-                            <ComponentConsiderations
-                                considerations={component.considerations}
-                            />
-                        </>
+                        <ComponentConsiderations
+                            considerations={component.considerations}
+                        />
                     )}
                     {component.documentation_article ? (
                         <>

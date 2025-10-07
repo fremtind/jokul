@@ -1,7 +1,6 @@
 "use client";
 
 import type { Jokul_component } from "@/sanity/types";
-import { clsx } from "clsx";
 
 import styles from "../component.module.scss";
 
@@ -13,15 +12,16 @@ export const ComponentConsiderations = ({
     considerations,
 }: ComponentConsiderationsProps) => {
     return (
-        <ul className={styles.componentConsiderations}>
-            {considerations?.map((consideration) => (
-                <li key={consideration.title}>
-                    <p className={clsx("jkl-heading-3", styles.title)}>
-                        {consideration.title}
-                    </p>
-                    <p>{consideration.description}</p>
-                </li>
-            ))}
-        </ul>
+        <>
+            <h2>Ting å tenke på</h2>
+            <ul className={styles.componentConsiderations}>
+                {considerations?.map((consideration) => (
+                    <li key={consideration.title}>
+                        <p className={styles.title}>{consideration.title}</p>
+                        <p>{consideration.description}</p>
+                    </li>
+                ))}
+            </ul>
+        </>
     );
 };
