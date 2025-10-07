@@ -54,17 +54,15 @@
 }
 
 .componentConsiderations {
-    max-width: 100%;
+    max-width: 450px;
     display: grid;
     gap: jkl.$spacing-40 jkl.$spacing-24;
     grid-template-columns: 1fr;
-
-    @container (width > 75ch) {
-        grid-template-columns: repeat(3, 1fr);
-    }
+    margin-top: jkl.$spacing-24;
 
     .title {
-        margin-block-end: jkl.$spacing-8;
+        font-weight: 400;
+        font-style: italic;
     }
 }
 
