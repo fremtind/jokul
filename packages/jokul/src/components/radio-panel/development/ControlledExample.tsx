@@ -61,7 +61,7 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                     <Flex
                                         as="span"
                                         alignItems="center"
-                                        justify="end"
+                                        justifyContent="end"
                                         className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                                     >
                                         500 kr/mnd
@@ -81,7 +81,7 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                     <Flex
                                         as="span"
                                         alignItems="center"
-                                        justify="end"
+                                        justifyContent="end"
                                         gap="md"
                                         className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                                     >
@@ -103,7 +103,7 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                     <Flex
                                         as="span"
                                         alignItems="center"
-                                        justify="end"
+                                        justifyContent="end"
                                         className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                                     >
                                         200 kr/mnd
@@ -123,7 +123,7 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                     <Flex
                                         as="span"
                                         alignItems="center"
-                                        justify="end"
+                                        justifyContent="end"
                                         className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                                     >
                                         100 kr/mnd

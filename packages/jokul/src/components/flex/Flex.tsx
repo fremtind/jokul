@@ -18,9 +18,9 @@ export const Flex = forwardRef(function Flex<
         fill,
         gap = "md",
         inline,
-        justify,
+        justifyContent,
         layout = {},
-        text,
+        textAlign,
         wrap = "wrap",
         ...rest
     } = props;
@@ -45,8 +45,8 @@ export const Flex = forwardRef(function Flex<
                 !center || `center-${center === true ? "xxl" : center}`,
                 !fill || "fill",
                 !inline || "inline",
-                !justify || `justify-${justify}`,
-                !text || `text-${text}`,
+                !justifyContent || `justify-${justifyContent}`,
+                !textAlign || `text-${textAlign}`,
                 !wrap || `wrap-${wrap}`,
                 "flex",
                 direction,

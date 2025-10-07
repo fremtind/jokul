@@ -46,7 +46,7 @@ export const CardStory: Story = {
         <Card {...args}>
             <Flex
                 alignItems="center"
-                justify="center"
+                justifyContent="center"
                 style={{
                     outline: "1px dashed #9747FF",
                     height: "100px",

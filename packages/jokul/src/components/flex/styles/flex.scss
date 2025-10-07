@@ -1,6 +1,13 @@
 @charset "UTF-8";
 @use "../../../core/jkl/" as jkl;
+@use "sass:math";
+@use "sass:map";
 
+/* ==========================================================================
+   1. Konfigurasjon
+   ========================================================================== */
+
+// Angir globale CSS custom properties for maksimale container-bredder.
 :root {
     --container-md: 43.75rem;
     --container-lg: 60rem;
@@ -9,7 +16,185 @@
     --container-full: 100%;
 }
 
+// Definerer responsive breakpoints som brukes for media queries.
+$breakpoints: (
+    "xs": 0,
+    "sm": 37.5em,
+    "md": 50em,
+    "lg": 64em,
+    "xl": 75em,
+    "xxl": 101.25em,
+);
 
+// Map for å generere `gap`-klasser.
+// Verdiene tilsvarer våre unit-variabler.
+$gap-values: (
+    "none": 0,
+    "xs": var(--jkl-unit-10),
+    "sm": var(--jkl-unit-20),
+    "md": var(--jkl-unit-30),
+    "lg": var(--jkl-unit-40),
+    "xl": var(--jkl-unit-50),
+    "xxl": var(--jkl-unit-130),
+);
+
+// Map for å generere klasser for uniforme (jevnt fordelte) kolonner.
+// Nøkkelen (key) representerer antall elementer, og verdien (value) er hvor mange
+// av de 12 grid-kolonnene hvert element skal oppta.
+$uniform-layouts: (
+    "0": "auto",
+    // Automatisk bredde basert på innhold
+    "1": 12,
+    // 1 element i full bredde
+    "2": 6,
+    // 2 elementer, 50% bredde hver
+    "3": 4,
+    // 3 elementer, 33.3% bredde hver
+    "4": 3,
+    // 4 elementer, 25% bredde hver
+    "6": 2,
+    // 6 elementer, 16.6% bredde hver
+);
+
+// Map for å generere asymmetriske layout-klasser (f.eks. .sm-2\.10).
+// Nøkkelen (key) er klassens suffiks, og verdien (value) angir bredden i antall
+// grid-kolonner for elementer på oddetallsplassering (1, 3, 5, ...).
+// Bredden for partallselementer beregnes automatisk (12 - verdi).
+$asymmetric-layouts: (
+    "2\\.10": 2,
+    "10\\.2": 10,
+    "3\\.9": 3,
+    "9\\.3": 9,
+    "4\\.8": 4,
+    "8\\.4": 8,
+    "5\\.7": 5,
+    "7\\.5": 7,
+);
+
+// Sass-map for å generere generiske hjelpeklasser (utility classes).
+// Hver nøkkel på toppnivå er en CSS-egenskap, og de nøstede map-ene
+// definerer klassenavn og tilhørende verdi.
+$utility-classes: (
+    "display": ("inline": inline-flex,
+    ),
+    "flex-wrap": ("wrap-reverse": wrap-reverse,
+        "wrap-nowrap": nowrap,
+    ),
+    "flex-direction": ("column": column,
+        "column-reverse": column-reverse,
+        "row-reverse": row-reverse,
+    ),
+    "text-align": ("text-left": left,
+        "text-center": center,
+        "text-right": right,
+    ),
+    "align-items": ("align-start": flex-start,
+        "align-center": center,
+        "align-end": flex-end,
+        "align-baseline": baseline,
+        "align-stretch": stretch,
+    ),
+    "align-content": ("align-content-start": flex-start,
+        "align-content-center": center,
+        "align-content-end": flex-end,
+        "align-content-stretch": stretch,
+        "align-content-baseline": baseline,
+        "align-content-space-around": space-around,
+        "align-content-space-between": space-between,
+        "align-content-space-evenly": space-evenly,
+    ),
+    "justify-content": ("justify-start": flex-start,
+        "justify-center": center,
+        "justify-end": flex-end,
+        "justify-space-around": space-around,
+        "justify-space-between": space-between,
+        "justify-space-evenly": space-evenly,
+    ),
+);
+
+// Map som definerer maksimale bredder for sentrerte containere (`.center-*`).
+// Brukes til å generere responsive breddebegrensninger.
+$containers: (
+    "md": var(--container-md),
+    "lg": var(--container-lg),
+    "xl": var(--container-xl),
+    "xxl": var(--container-xxl),
+);
+
+/* ==========================================================================
+   2. Verktøy (Mixins)
+   ========================================================================== */
+
+// Mixin for å generere responsive layout-klasser basert på $asymmetric-layouts og $uniform-layouts.
+@mixin generate-layout-classes($prefix) {
+
+    // --- Asymmetriske layouts ---
+    // Genererer klasser for layouts der oddetalls- og partalls-elementer har ulik bredde.
+    @each $class-suffix, $odd-child-columns in $asymmetric-layouts {
+        $even-child-columns: 12 - $odd-child-columns;
+
+        .#{$prefix}-#{$class-suffix} {
+
+            > :where(:nth-child(odd)) {
+                --jkl-flex-layout: #{$odd-child-columns};
+            }
+
+            > :where(:nth-child(even)) {
+                --jkl-flex-layout: #{$even-child-columns};
+            }
+        }
+    }
+
+    // --- Uniforme layouts ---
+    // Genererer klasser for layouts der alle elementer har lik bredde.
+    @each $layout, $value in $uniform-layouts {
+        .#{$prefix}-#{$layout} > * {
+            --jkl-flex-layout: #{$value};
+        }
+    }
+}
+
+// Mixin for å generere klasser for `row-gap` og `column-gap`.
+@mixin generate-gap-classes($prefix) {
+    @each $gap-name, $gap-value in $gap-values {
+        .#{$prefix}-row-gap-#{$gap-name} {
+            row-gap: $gap-value;
+        }
+
+        .#{$prefix}-col-gap-#{$gap-name} {
+            column-gap: $gap-value;
+
+            // Setter en custom property for å kunne kalkulere nøyaktig kolonnebredde
+            // i `flex-basis`, justert for `column-gap`.
+            & > * {
+                @if $gap-name =="none" {
+                    --jkl-flex-gap: #{$gap-value}px;
+                }
+
+                @else {
+                    --jkl-flex-gap: #{$gap-value};
+                }
+            }
+        }
+    }
+}
+
+// Generell mixin som itererer gjennom `$utility-classes` for å lage hjelpeklasser.
+@mixin generate-utility-classes() {
+    @each $property, $map in $utility-classes {
+        @each $class-name, $value in $map {
+            .#{$class-name} {
+                #{$property}: $value;
+            }
+        }
+    }
+}
+
+/* ==========================================================================
+   3. Kjernestiler
+   ========================================================================== */
+
+// Basisstil for alle flex-containere.
 :is(.flex) {
     box-sizing: border-box;
     display: flex;
@@ -17,1074 +202,67 @@
     flex-wrap: wrap;
 }
 
+// Sørger for at direkte barn av .fill-elementer fyller tilgjengelig plass.
+// :where brukes for å holde spesifisiteten lav.
 :where(.fill > *) {
     flex-grow: 1;
 }
 
+// Definerer standardoppførsel for alle direkte elementer av en `.flex`-container.
 :where(.flex > *) {
-    --jkl-flex-gap: 0px;
-    --jkl-flex-layout: auto;
+    --jkl-flex-gap: 0px; // Standard gap er null.
+    --jkl-flex-layout: auto; // Standard layout er automatisk bredde.
+
     box-sizing: border-box;
+
+    // Kalkulerer `flex-basis` for å lage et grid-system som tar hensyn til `gap`.
+    // Formelen fordeler bredden basert på antall kolonner definert av `--jkl-flex-layout`.
     flex-basis: calc((100% - (12 / var(--jkl-flex-layout) - 1) * var(--jkl-flex-gap)) / 12 * var(--jkl-flex-layout));
 
+    // Sørger for at elementene kan krympe, for å unngå at de flyter ut av containeren.
     min-width: calc(var(--jkl-flex-layout) * 0px);
     min-height: calc(var(--jkl-flex-layout) * 0px);
 }
 
-.inline {
-    display: inline-flex;
-}
-
-.column {
-    flex-direction: column;
-}
-
-.column-reverse {
-    flex-direction: column-reverse;
-}
-
-.row-reverse {
-    flex-direction: row-reverse;
-}
-
-.wrap-reverse {
-    flex-wrap: wrap-reverse;
-}
-
-.wrap-nowrap {
-    flex-wrap: nowrap;
-}
-
+// Hindrer at elementer krymper når `flex-wrap: nowrap` er satt.
 :where(.wrap-nowrap > *) {
     flex-shrink: calc(var(--jkl-flex-layout) * 0);
 }
 
-.text-left {
-    text-align: left;
-}
+/* ==========================================================================
+   4. CSS-generering
+   ========================================================================== */
 
-.text-center {
-    text-align: center;
-}
+@include generate-utility-classes();
 
-.text-right {
-    text-align: right;
-}
-
-.align-start {
-    align-items: flex-start;
-}
-
-.align-center {
-    align-items: center;
-}
-
-.align-end {
-    align-items: flex-end;
-}
-
-.align-baseline {
-    align-items: baseline;
-}
-
-.align-stretch {
-    align-items: stretch;
-}
-
-.align-content-start {
-    align-content: flex-start;
-}
-
-.align-content-center {
-    align-content: center;
-}
-
-.align-content-end {
-    align-content: flex-end;
-}
-
-.align-content-stretch {
-    align-content: stretch;
-}
-
-.align-content-baseline {
-    align-content: baseline;
-}
-
-.align-content-space-around {
-    align-content: space-around;
-}
-
-.align-content-space-between {
-    align-content: space-between;
-}
-
-.align-content-space-evenly {
-    align-content: space-evenly;
-}
-
-.justify-start {
-    justify-content: flex-start;
-}
-
-.justify-center {
-    justify-content: center;
-}
-
-.justify-end {
-    justify-content: flex-end;
-}
-
-.justify-space-around {
-    justify-content: space-around;
-}
-
-.justify-space-between {
-    justify-content: space-between;
-}
-
-.justify-space-evenly {
-    justify-content: space-evenly;
-}
-
-.center-md {
-    max-width: var(--container-md);
-}
-
-.center-md,
-.center-lg,
-.center-xl,
-.center-xxl {
+// Stiler for sentrerte containere.
+:is(.center-md, .center-lg, .center-xl, .center-xxl) {
     box-sizing: border-box;
     margin-inline: auto;
     width: calc(100% - var(--jkl-unit-50));
 }
 
-.center-lg,
-.center-xl,
-.center-xxl {
-    @media (width >=64em) {
-        max-width: var(--container-lg);
-    }
-}
-
-.center-xl,
-.center-xxl {
-    @media (width >=75em) {
-        max-width: var(--container-xl);
-    }
-}
-
-.center-xxl {
-    @media (width >=101.25em) {
-        max-width: var(--container-xxl);
-    }
-}
-
-.xs-10\.2 > :where(:nth-child(2n - 1)),
-.xs-2\.1 > :where(:nth-child(2n)) {
-    --jkl-flex-layout: 10;
-}
-
-.xs-2\.1 > :where(:nth-child(2n - 1)),
-.xs-10\.2 > :where(:nth-child(2n)) {
-    --jkl-flex-layout: 2;
-}
-
-.xs-3\.9 > :where(:nth-child(2n - 1)),
-.xs-9\.3 > :where(:nth-child(2n)) {
-    --jkl-flex-layout: 3;
-}
-
-.xs-4\.8 > :where(:nth-child(2n - 1)),
-.xs-8\.4 > :where(:nth-child(2n)) {
-    --jkl-flex-layout: 4;
-}
-
-.xs-5\.7 > :where(:nth-child(2n - 1)),
-.xs-7\.5 > :where(:nth-child(2n)) {
-    --jkl-flex-layout: 5;
-}
-
-.xs-7\.5 > :where(:nth-child(2n - 1)),
-.xs-5\.7 > :where(:nth-child(2n)) {
-    --jkl-flex-layout: 7;
-}
-
-.xs-8\.4 > :where(:nth-child(2n - 1)),
-.xs-4\.8 > :where(:nth-child(2n)) {
-    --jkl-flex-layout: 8;
-}
-
-.xs-9\.3 > :where(:nth-child(2n - 1)),
-.xs-3\.9 > :where(:nth-child(2n)) {
-    --jkl-flex-layout: 9;
-}
-
-.xs-0 > * {
-    --jkl-flex-layout: auto;
-}
-
-.xs-1 > * {
-    --jkl-flex-layout: 12;
-}
-
-.xs-2 > * {
-    --jkl-flex-layout: 6;
-}
-
-.xs-3 > * {
-    --jkl-flex-layout: 4;
-}
-
-.xs-4 > * {
-    --jkl-flex-layout: 4;
-}
-
-.xs-6 > * {
-    --jkl-flex-layout: 2;
-}
-
-.xs-row-gap-none {
-    row-gap: 0;
-}
-
-.xs-col-gap-none {
-    column-gap: 0;
-
-    > * {
-        --jkl-flex-gap: 0px;
-    }
-}
-
-.xs-row-gap-xs {
-    row-gap: var(--jkl-unit-10);
-}
-
-.xs-col-gap-xs {
-    column-gap: var(--jkl-unit-10);
-
-    & > * {
-        --jkl-flex-gap: var(--jkl-unit-10);
-    }
-}
-
-.xs-row-gap-sm {
-    row-gap: var(--jkl-unit-20);
-}
-
-.xs-col-gap-sm {
-    column-gap: var(--jkl-unit-20);
-
-    & > * {
-        --jkl-flex-gap: var(--jkl-unit-20);
-    }
-}
-
-.xs-row-gap-md {
-    row-gap: var(--jkl-unit-30);
-}
-
-.xs-col-gap-md {
-    column-gap: var(--jkl-unit-30);
-
-    & > * {
-        --jkl-flex-gap: var(--jkl-unit-30);
-    }
-}
-
-.xs-row-gap-lg {
-    row-gap: var(--jkl-unit-40);
-}
-
-.xs-col-gap-lg {
-    column-gap: var(--jkl-unit-40);
-
-    & > * {
-        --jkl-flex-gap: var(--jkl-unit-40);
-    }
-}
-
-.xs-row-gap-xl {
-    row-gap: var(--jkl-unit-50);
-}
-
-.xs-col-gap-xl {
-    column-gap: var(--jkl-unit-50);
-
-    & > * {
-        --jkl-flex-gap: var(--jkl-unit-50);
-    }
-}
-
-.xs-row-gap-xxl {
-    row-gap: var(--jkl-unit-130);
-}
-
-.xs-col-gap-xxl {
-    column-gap: var(--jkl-unit-130);
-
-    & > * {
-        --jkl-flex-gap: var(--jkl-unit-130);
-    }
-}
-
-@media (width >=37.5em) {
-
-    /* var(--jkl-breakpoint-sm) */
-    .sm-2\.1 > :where(:nth-child(2n - 1)),
-    .sm-10\.2 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 2;
-    }
-
-    .sm-10\.2 > :where(:nth-child(2n - 1)),
-    .sm-2\.1 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 10;
-    }
-
-    .sm-3\.9 > :where(:nth-child(2n - 1)),
-    .sm-9\.3 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 3;
-    }
-
-    .sm-9\.3 > :where(:nth-child(2n - 1)),
-    .sm-3\.9 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 9;
-    }
-
-    .sm-4\.8 > :where(:nth-child(2n - 1)),
-    .sm-8\.4 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 4;
-    }
-
-    .sm-8\.4 > :where(:nth-child(2n - 1)),
-    .sm-4\.8 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 8;
-    }
-
-    .sm-5\.7 > :where(:nth-child(2n - 1)),
-    .sm-7\.5 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 5;
-    }
-
-    .sm-7\.5 > :where(:nth-child(2n - 1)),
-    .sm-5\.7 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 7;
-    }
-
-    .sm-0 > * {
-        --jkl-flex-layout: auto;
-    }
-
-    .sm-1 > * {
-        --jkl-flex-layout: 12;
-    }
-
-    .sm-2 > * {
-        --jkl-flex-layout: 6;
-    }
-
-    .sm-3 > * {
-        --jkl-flex-layout: 4;
-    }
-
-    .sm-4 > * {
-        --jkl-flex-layout: 3;
-    }
-
-    .sm-6 > * {
-        --jkl-flex-layout: 2;
-    }
-
-    .sm-row-gap-none {
-        row-gap: 0;
-    }
-
-    .sm-col-gap-none {
-        column-gap: 0;
-
-        & > * {
-            --jkl-flex-gap: 0px;
-        }
-    }
-
-    .sm-row-gap-xs {
-        row-gap: var(--jkl-unit-10);
-    }
-
-    .sm-col-gap-xs {
-        column-gap: var(--jkl-unit-10);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-10);
-        }
-    }
-
-    .sm-row-gap-sm {
-        row-gap: var(--jkl-unit-20);
-    }
-
-    .sm-col-gap-sm {
-        column-gap: var(--jkl-unit-20);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-20);
-        }
-    }
-
-    .sm-row-gap-md {
-        row-gap: var(--jkl-unit-30);
-    }
-
-    .sm-col-gap-md {
-        column-gap: var(--jkl-unit-30);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-30);
-        }
-    }
-
-    .sm-row-gap-lg {
-        row-gap: var(--jkl-unit-40);
-    }
-
-    .sm-col-gap-lg {
-        column-gap: var(--jkl-unit-40);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-40);
-        }
-    }
-
-    .sm-row-gap-xl {
-        row-gap: var(--jkl-unit-50);
-    }
-
-    .sm-col-gap-xl {
-        column-gap: var(--jkl-unit-50);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-50);
-        }
-    }
-
-    .sm-row-gap-xxl {
-        row-gap: var(--jkl-unit-130);
-    }
-
-    .sm-col-gap-xxl {
-        column-gap: var(--jkl-unit-130);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-130);
+// Genererer responsive `max-width` for hver container-størrelse.
+@each $size, $width in $containers {
+    @media (width >=#{map.get($breakpoints, $size)}) {
+        .center-#{$size} {
+            max-width: $width;
         }
     }
 }
 
-@media (width >=50em) {
-
-    /* var(--jkl-breakpoint-md) */
-    .md-2\.1 > :where(:nth-child(2n - 1)),
-    .md-10\.2 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 2;
-    }
-
-    .md-10\.2 > :where(:nth-child(2n - 1)),
-    .md-2\.1 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 10;
-    }
-
-    .md-3\.9 > :where(:nth-child(2n - 1)),
-    .md-9\.3 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 3;
-    }
-
-    .md-9\.3 > :where(:nth-child(2n - 1)),
-    .md-3\.9 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 9;
-    }
-
-    .md-4\.8 > :where(:nth-child(2n - 1)),
-    .md-8\.4 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 4;
-    }
-
-    .md-8\.4 > :where(:nth-child(2n - 1)),
-    .md-4\.8 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 8;
-    }
-
-    .md-5\.7 > :where(:nth-child(2n - 1)),
-    .md-7\.5 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 5;
-    }
-
-    .md-7\.5 > :where(:nth-child(2n - 1)),
-    .md-5\.7 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 7;
-    }
-
-    .md-0 > * {
-        --jkl-flex-layout: auto;
-    }
-
-    .md-1 > * {
-        --jkl-flex-layout: 12;
-    }
-
-    .md-2 > * {
-        --jkl-flex-layout: 6;
-    }
-
-    .md-3 > * {
-        --jkl-flex-layout: 4;
-    }
-
-    .md-4 > * {
-        --jkl-flex-layout: 3;
-    }
-
-    .md-6 > * {
-        --jkl-flex-layout: 2;
-    }
-
-    .md-row-gap-none {
-        row-gap: 0;
-    }
-
-    .md-col-gap-none {
-        column-gap: 0;
-
-        & > * {
-            --jkl-flex-gap: 0px;
-        }
-    }
-
-    .md-row-gap-xs {
-        row-gap: var(--jkl-unit-10);
-    }
-
-    .md-col-gap-xs {
-        column-gap: var(--jkl-unit-10);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-10);
-        }
-    }
-
-    .md-row-gap-sm {
-        row-gap: var(--jkl-unit-20);
-    }
-
-    .md-col-gap-sm {
-        column-gap: var(--jkl-unit-20);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-20);
-        }
-    }
-
-    .md-row-gap-md {
-        row-gap: var(--jkl-unit-30);
-    }
-
-    .md-col-gap-md {
-        column-gap: var(--jkl-unit-30);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-30);
-        }
-    }
-
-    .md-row-gap-lg {
-        row-gap: var(--jkl-unit-40);
-    }
-
-    .md-col-gap-lg {
-        column-gap: var(--jkl-unit-40);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-40);
-        }
-    }
-
-    .md-row-gap-xl {
-        row-gap: var(--jkl-unit-50);
-    }
-
-    .md-col-gap-xl {
-        column-gap: var(--jkl-unit-50);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-50);
-        }
-    }
-
-    .md-row-gap-xxl {
-        row-gap: var(--jkl-unit-130);
-    }
-
-    .md-col-gap-xxl {
-        column-gap: var(--jkl-unit-130);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-130);
-        }
-    }
-}
-
-@media (width >=64em) {
-
-    /* var(--jkl-breakpoint-lg) */
-    .lg-2\.1 > :where(:nth-child(2n - 1)),
-    .lg-10\.2 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 2;
-    }
-
-    .lg-10\.2 > :where(:nth-child(2n - 1)),
-    .lg-2\.1 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 10;
-    }
-
-    .lg-3\.9 > :where(:nth-child(2n - 1)),
-    .lg-9\.3 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 3;
-    }
-
-    .lg-9\.3 > :where(:nth-child(2n - 1)),
-    .lg-3\.9 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 9;
-    }
-
-    .lg-4\.8 > :where(:nth-child(2n - 1)),
-    .lg-8\.4 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 4;
-    }
-
-    .lg-8\.4 > :where(:nth-child(2n - 1)),
-    .lg-4\.8 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 8;
-    }
-
-    .lg-5\.7 > :where(:nth-child(2n - 1)),
-    .lg-7\.5 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 5;
-    }
-
-    .lg-7\.5 > :where(:nth-child(2n - 1)),
-    .lg-5\.7 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 7;
-    }
-
-    .lg-0 > * {
-        --jkl-flex-layout: auto;
-    }
-
-    .lg-1 > * {
-        --jkl-flex-layout: 12;
-    }
-
-    .lg-2 > * {
-        --jkl-flex-layout: 6;
-    }
-
-    .lg-3 > * {
-        --jkl-flex-layout: 4;
-    }
-
-    .lg-4 > * {
-        --jkl-flex-layout: 3;
-    }
-
-    .lg-6 > * {
-        --jkl-flex-layout: 2;
-    }
-
-    .lg-row-gap-none {
-        row-gap: 0;
-    }
-
-    .lg-col-gap-none {
-        column-gap: 0;
-
-        & > * {
-            --jkl-flex-gap: 0px;
-        }
-    }
-
-    .lg-row-gap-xs {
-        row-gap: var(--jkl-unit-10);
-    }
-
-    .lg-col-gap-xs {
-        column-gap: var(--jkl-unit-10);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-10);
-        }
-    }
-
-    .lg-row-gap-sm {
-        row-gap: var(--jkl-unit-20);
-    }
-
-    .lg-col-gap-sm {
-        column-gap: var(--jkl-unit-20);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-20);
-        }
-    }
-
-    .lg-row-gap-md {
-        row-gap: var(--jkl-unit-30);
-    }
-
-    .lg-col-gap-md {
-        column-gap: var(--jkl-unit-30);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-30);
-        }
-    }
-
-    .lg-row-gap-lg {
-        row-gap: var(--jkl-unit-40);
-    }
-
-    .lg-col-gap-lg {
-        column-gap: var(--jkl-unit-40);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-40);
-        }
-    }
-
-    .lg-row-gap-xl {
-        row-gap: var(--jkl-unit-50);
-    }
-
-    .lg-col-gap-xl {
-        column-gap: var(--jkl-unit-50);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-50);
-        }
-    }
-
-    .lg-row-gap-xxl {
-        row-gap: var(--jkl-unit-130);
-    }
-
-    .lg-col-gap-xxl {
-        column-gap: var(--jkl-unit-130);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-130);
-        }
-    }
-}
-
-@media (width >=75em) {
-
-    /* var(--jkl-breakpoint-xl) */
-    .xl-2\.1 > :where(:nth-child(2n - 1)),
-    .xl-10\.2 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 2;
-    }
-
-    .xl-10\.2 > :where(:nth-child(2n - 1)),
-    .xl-2\.1 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 10;
-    }
-
-    .xl-3\.9 > :where(:nth-child(2n - 1)),
-    .xl-9\.3 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 3;
-    }
-
-    .xl-9\.3 > :where(:nth-child(2n - 1)),
-    .xl-3\.9 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 9;
-    }
-
-    .xl-4\.8 > :where(:nth-child(2n - 1)),
-    .xl-8\.4 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 4;
-    }
-
-    .xl-8\.4 > :where(:nth-child(2n - 1)),
-    .xl-4\.8 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 8;
-    }
-
-    .xl-5\.7 > :where(:nth-child(2n - 1)),
-    .xl-7\.5 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 5;
-    }
-
-    .xl-7\.5 > :where(:nth-child(2n - 1)),
-    .xl-5\.7 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 7;
-    }
-
-    .xl-0 > * {
-        --jkl-flex-layout: auto;
-    }
-
-    .xl-1 > * {
-        --jkl-flex-layout: 12;
-    }
-
-    .xl-2 > * {
-        --jkl-flex-layout: 6;
-    }
-
-    .xl-3 > * {
-        --jkl-flex-layout: 4;
-    }
-
-    .xl-4 > * {
-        --jkl-flex-layout: 3;
-    }
-
-    .xl-6 > * {
-        --jkl-flex-layout: 2;
-    }
-
-    .xl-row-gap-none {
-        row-gap: 0;
-    }
-
-    .xl-col-gap-none {
-        column-gap: 0;
-
-        & > * {
-            --jkl-flex-gap: 0px;
-        }
-    }
-
-    .xl-row-gap-xs {
-        row-gap: var(--jkl-unit-10);
-    }
-
-    .xl-col-gap-xs {
-        column-gap: var(--jkl-unit-10);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-10);
-        }
-    }
-
-    .xl-row-gap-sm {
-        row-gap: var(--jkl-unit-20);
-    }
-
-    .xl-col-gap-sm {
-        column-gap: var(--jkl-unit-20);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-20);
-        }
-    }
-
-    .xl-row-gap-md {
-        row-gap: var(--jkl-unit-30);
-    }
-
-    .xl-col-gap-md {
-        column-gap: var(--jkl-unit-30);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-30);
-        }
-    }
-
-    .xl-row-gap-lg {
-        row-gap: var(--jkl-unit-40);
-    }
-
-    .xl-col-gap-lg {
-        column-gap: var(--jkl-unit-40);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-40);
-        }
-    }
-
-    .xl-row-gap-xl {
-        row-gap: var(--jkl-unit-50);
-    }
-
-    .xl-col-gap-xl {
-        column-gap: var(--jkl-unit-50);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-50);
-        }
-    }
-
-    .xl-row-gap-xxl {
-        row-gap: var(--jkl-unit-130);
-    }
-
-    .xl-col-gap-xxl {
-        column-gap: var(--jkl-unit-130);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-130);
-        }
-    }
-}
-
-@media (width >=101.25em) {
-
-    /* var(--jkl-breakpoint-xxl) */
-    .xxl-2\.1 > :where(:nth-child(2n - 1)),
-    .xxl-10\.2 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 2;
-    }
-
-    .xxl-10\.2 > :where(:nth-child(2n - 1)),
-    .xxl-2\.1 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 10;
-    }
-
-    .xxl-3\.9 > :where(:nth-child(2n - 1)),
-    .xxl-9\.3 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 3;
-    }
-
-    .xxl-9\.3 > :where(:nth-child(2n - 1)),
-    .xxl-3\.9 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 9;
-    }
-
-    .xxl-4\.8 > :where(:nth-child(2n - 1)),
-    .xxl-8\.4 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 4;
-    }
-
-    .xxl-8\.4 > :where(:nth-child(2n - 1)),
-    .xxl-4\.8 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 8;
-    }
-
-    .xxl-5\.7 > :where(:nth-child(2n - 1)),
-    .xxl-7\.5 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 5;
-    }
-
-    .xxl-7\.5 > :where(:nth-child(2n - 1)),
-    .xxl-5\.7 > :where(:nth-child(2n)) {
-        --jkl-flex-layout: 7;
-    }
-
-    .xxl-0 > * {
-        --jkl-flex-layout: auto;
-    }
-
-    .xxl-1 > * {
-        --jkl-flex-layout: 12;
-    }
-
-    .xxl-2 > * {
-        --jkl-flex-layout: 6;
-    }
-
-    .xxl-3 > * {
-        --jkl-flex-layout: 4;
-    }
-
-    .xxl-4 > * {
-        --jkl-flex-layout: 3;
-    }
-
-    .xxl-6 > * {
-        --jkl-flex-layout: 2;
-    }
-
-    .xxl-row-gap-none {
-        row-gap: 0;
-    }
-
-    .xxl-col-gap-none {
-        column-gap: 0;
-
-        & > * {
-            --jkl-flex-gap: 0px;
-        }
-    }
-
-    .xxl-row-gap-xs {
-        row-gap: var(--jkl-unit-10);
-    }
-
-    .xxl-col-gap-xs {
-        column-gap: var(--jkl-unit-10);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-10);
-        }
-    }
-
-    .xxl-row-gap-sm {
-        row-gap: var(--jkl-unit-20);
-    }
-
-    .xxl-col-gap-sm {
-        column-gap: var(--jkl-unit-20);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-20);
-        }
-    }
-
-    .xxl-row-gap-md {
-        row-gap: var(--jkl-unit-30);
-    }
-
-    .xxl-col-gap-md {
-        column-gap: var(--jkl-unit-30);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-30);
-        }
-    }
-
-    .xxl-row-gap-lg {
-        row-gap: var(--jkl-unit-40);
-    }
-
-    .xxl-col-gap-lg {
-        column-gap: var(--jkl-unit-40);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-40);
-        }
-    }
-
-    .xxl-row-gap-xl {
-        row-gap: var(--jkl-unit-50);
-    }
-
-    .xxl-col-gap-xl {
-        column-gap: var(--jkl-unit-50);
-
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-50);
-        }
-    }
-
-    .xxl-row-gap-xxl {
-        row-gap: var(--jkl-unit-130);
+// Itererer gjennom alle definerte breakpoints for å generere responsive layout- og gap-klasser.
+@each $name, $width in $breakpoints {
+    @if $name =="xs" {
+        @include generate-layout-classes($name);
+        @include generate-gap-classes($name);
     }
 
-    .xxl-col-gap-xxl {
-        column-gap: var(--jkl-unit-130);
+    @else {
 
-        & > * {
-            --jkl-flex-gap: var(--jkl-unit-130);
+        @media (width >=#{$width}) {
+            @include generate-layout-classes($name);
+            @include generate-gap-classes($name);
         }
     }
 }

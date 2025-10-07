@@ -67,7 +67,7 @@ Ansvar:    ${ansvar}
                         <Flex
                             as="span"
                             alignItems="center"
-                            justify="end"
+                            justifyContent="end"
                             gap="md"
                             className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                         >
@@ -89,7 +89,7 @@ Ansvar:    ${ansvar}
                         <Flex
                             as="span"
                             alignItems="center"
-                            justify="end"
+                            justifyContent="end"
                             className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                         >
                             200 kr/mnd
@@ -108,7 +108,7 @@ Ansvar:    ${ansvar}
                         <Flex
                             as="span"
                             alignItems="center"
-                            justify="end"
+                            justifyContent="end"
                             className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                         >
                             100 kr/mnd

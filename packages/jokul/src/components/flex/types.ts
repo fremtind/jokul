@@ -28,8 +28,8 @@ type FlexBaseProps = {
     fill?: boolean;
     gap?: Gap | { xs?: Gap; sm?: Gap; md?: Gap; lg?: Gap; xl?: Gap; xxl?: Gap };
     inline?: boolean;
-    text?: "left" | "right" | "center";
-    justify?:
+    textAlign?: "left" | "right" | "center";
+    justifyContent?:
         | "normal"
         | "start"
         | "center"
