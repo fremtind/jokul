@@ -3,9 +3,11 @@ import React from "react";
 import { CardImage } from "../../card/CardImage.js";
 import { Flex } from "../../flex/index.js";
 import { CheckIcon, CopyIcon } from "../../icon/index.js";
+import { Image } from "../../image/Image.jsx";
 import { InfoTag } from "../../tag/index.js";
 import { Card } from "../Card.js";
 import { CARD_PADDINGS, CARD_VARIANTS } from "../types.js";
+
 import "../styles/_index.scss";
 
 const dog1200 = "/images/dog-1200.jpg";
@@ -171,6 +173,23 @@ export const LinkCard: Story = {
             <Flex>
                 <p>311 kr/mnd</p>
             </Flex>
+        </Card>
+    ),
+};
+
+export const FullImageCard: Story = {
+    name: "Card med heldekkende bilde",
+    args: {
+        children: null,
+    },
+    render: (args) => (
+        <Card {...args} style={{ width: "500px" }}>
+            <CardImage
+                as={Image}
+                src={dog1200}
+                alt="En hund"
+                placement="full"
+            />
         </Card>
     ),
 };
