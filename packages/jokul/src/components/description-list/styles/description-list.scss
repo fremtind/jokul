@@ -32,25 +32,27 @@
     }
 }
 
-.jkl-description-list {
-    &__term {
-        font-weight: jkl.$typography-weight-bold;
-        margin-bottom: jkl.$spacing-4;
+@layer jokul.components {
+    .jkl-description-list {
+        &__term {
+            font-weight: jkl.$typography-weight-bold;
+            margin-bottom: jkl.$spacing-4;
 
-        &:not(:first-child) {
-            margin-top: jkl.$spacing-12;
+            &:not(:first-child) {
+                margin-top: jkl.$spacing-12;
+            }
         }
-    }
 
-    &__detail {
-        margin-left: 0;
-    }
+        &__detail {
+            margin-left: 0;
+        }
 
-    &__detail + &__detail {
-        margin-top: jkl.$spacing-4;
-    }
+        &__detail + &__detail {
+            margin-top: jkl.$spacing-4;
+        }
 
-    @include jkl.from-medium-device {
-        @include _horizontal-list;
+        @include jkl.from-medium-device {
+            @include _horizontal-list;
+        }
     }
 }

@@ -1,57 +1,59 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-summary-table-border-color: #{jkl.$color-granitt};
-}
+@layer jokul.components {
+    @include jkl.light-mode-variables {
+        --jkl-summary-table-border-color: #{jkl.$color-granitt};
+    }
 
-@include jkl.dark-mode-variables {
-    --jkl-summary-table-border-color: #{jkl.$color-svaberg};
-}
+    @include jkl.dark-mode-variables {
+        --jkl-summary-table-border-color: #{jkl.$color-svaberg};
+    }
 
-.jkl-summary-table {
-    display: flex;
-    flex-direction: column;
-    overflow-wrap: anywhere;
-    width: 100%;
-
-    tr {
+    .jkl-summary-table {
         display: flex;
-        justify-content: space-between;
-        padding-bottom: jkl.$spacing-8;
-    }
+        flex-direction: column;
+        overflow-wrap: anywhere;
+        width: 100%;
 
-    th,
-    td {
-        flex-basis: 50%;
-        padding-right: jkl.$spacing-16;
-
-        &:first-child {
-            text-align: left;
+        tr {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: jkl.$spacing-8;
         }
-
-        &:last-child {
-            text-align: right;
-            padding-right: 0;
-        }
-    }
-
-    & > tbody {
-        th {
-            font-weight: jkl.$typography-weight-normal;
-        }
-    }
-
-    & > tfoot {
-        border-top: jkl.rem(1px) solid jkl.$color-granitt;
-        border-top: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
-        border-bottom: jkl.rem(1px) solid jkl.$color-granitt;
-        border-bottom: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
-        padding-top: jkl.$spacing-8;
 
         th,
         td {
-            font-weight: jkl.$typography-weight-bold;
+            flex-basis: 50%;
+            padding-right: jkl.$spacing-16;
+
+            &:first-child {
+                text-align: left;
+            }
+
+            &:last-child {
+                text-align: right;
+                padding-right: 0;
+            }
+        }
+
+        & > tbody {
+            th {
+                font-weight: jkl.$typography-weight-normal;
+            }
+        }
+
+        & > tfoot {
+            border-top: jkl.rem(1px) solid jkl.$color-granitt;
+            border-top: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
+            border-bottom: jkl.rem(1px) solid jkl.$color-granitt;
+            border-bottom: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
+            padding-top: jkl.$spacing-8;
+
+            th,
+            td {
+                font-weight: jkl.$typography-weight-bold;
+            }
         }
     }
 }

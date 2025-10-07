@@ -2,24 +2,26 @@
 @use "../../../core/jkl";
 @use "../../../shared/track/styles/track";
 
-.jkl-progress-bar {
-    @include track.track;
+@layer jokul.components {
+    .jkl-progress-bar {
+        @include track.track;
 
-    &__tracker {
-        transition-property: width;
+        &__tracker {
+            transition-property: width;
 
-        @include jkl.motion("standard", "productive");
-    }
-}
-
-$_downcount: jkl-downcount-#{string.unique-id()};
-
-@keyframes #{$_downcount} {
-    from {
-        width: 100%;
+            @include jkl.motion("standard", "productive");
+        }
     }
 
-    to {
-        width: 0%;
+    $_downcount: jkl-downcount-#{string.unique-id()};
+
+    @keyframes #{$_downcount} {
+        from {
+            width: 100%;
+        }
+
+        to {
+            width: 0%;
+        }
     }
 }

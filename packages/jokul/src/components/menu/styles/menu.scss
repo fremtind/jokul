@@ -3,34 +3,38 @@
 @use "menu-item";
 @use "menu-divider";
 
-@include jkl.light-mode-variables {
-    --jkl-menu-border-color: transparent;
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-menu-border-color: #{jkl.$color-snohvit};
-}
-
-.jkl-menu {
-    background-color: var(--jkl-color-background-container-high);
-
-    width: 100%;
-    max-width: jkl.rem(336px);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-wrap: nowrap;
-    box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
-    border-radius: jkl.rem(2px);
-    border: 2px solid var(--jkl-menu-border-color);
-    z-index: jkl.$z-index--dropdown;
-
-    &:focus-visible {
-        outline: none;
+@layer jokul.components {
+    @include jkl.light-mode-variables {
+        --jkl-menu-border-color: transparent;
     }
 
-    & &[data-placement="bottom-start"] {
-        box-shadow: rgb(0 0 0 / 20%) 0 -1px 2px 0,
-            rgb(0 0 0 / 14%) -1px 2px 2px 0, rgb(0 0 0 / 12%) 3px 1px 5px 0;
+    @include jkl.dark-mode-variables {
+        --jkl-menu-border-color: #{jkl.$color-snohvit};
+    }
+
+    .jkl-menu {
+        background-color: var(--jkl-color-background-container-high);
+
+        width: 100%;
+        max-width: jkl.rem(336px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
+        border-radius: jkl.rem(2px);
+        border: 2px solid var(--jkl-menu-border-color);
+        z-index: jkl.$z-index--dropdown;
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        & &[data-placement="bottom-start"] {
+            box-shadow:
+                rgb(0 0 0 / 20%) 0 -1px 2px 0,
+                rgb(0 0 0 / 14%) -1px 2px 2px 0,
+                rgb(0 0 0 / 12%) 3px 1px 5px 0;
+        }
     }
 }

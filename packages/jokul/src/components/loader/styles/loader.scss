@@ -15,122 +15,125 @@ $_loader-left-animation-name: jkl-loader-left-spin-#{string.unique-id()};
 $_loader-middle-animation-name: jkl-loader-middle-spin-#{string.unique-id()};
 $_loader-right-animation-name: jkl-loader-right-spin-#{string.unique-id()};
 
-.jkl-loader {
-    display: flex;
+@layer jokul.components {
+    .jkl-loader {
+        display: flex;
 
-    &--inline {
-        display: inline-flex;
-    }
-
-    &__dot {
-        display: block;
-        transform-origin: center;
-        background-color: currentColor;
-        height: $_loader-dot-size--large;
-        width: $_loader-dot-size--large;
-        animation: $_loader-animation-properties;
-
-        &--left {
-            animation-name: $_loader-left-animation-name;
-            margin-right: $_loader-spacing--large * 0.9; // for visual balance
+        &--inline {
+            display: inline-flex;
         }
 
-        &--middle {
-            animation-name: $_loader-middle-animation-name;
-            margin-right: $_loader-spacing--large;
+        &__dot {
+            display: block;
+            transform-origin: center;
+            background-color: currentColor;
+            height: $_loader-dot-size--large;
+            width: $_loader-dot-size--large;
+            animation: $_loader-animation-properties;
+
+            &--left {
+                animation-name: $_loader-left-animation-name;
+                margin-right: $_loader-spacing--large
+                    * 0.9; // for visual balance
+            }
+
+            &--middle {
+                animation-name: $_loader-middle-animation-name;
+                margin-right: $_loader-spacing--large;
+            }
+
+            &--right {
+                animation-name: $_loader-right-animation-name;
+            }
+
+            @include jkl.forced-colors-mode {
+                background-color: CanvasText;
+            }
         }
 
-        &--right {
-            animation-name: $_loader-right-animation-name;
+        .jkl-button & > .jkl-loader__dot,
+        &--medium > .jkl-loader__dot {
+            height: $_loader-dot-size--medium;
+            width: $_loader-dot-size--medium;
+
+            &--left {
+                margin-right: $_loader-spacing--medium * 0.9;
+            }
+
+            &--middle {
+                margin-right: $_loader-spacing--medium;
+            }
         }
 
-        @include jkl.forced-colors-mode {
-            background-color: CanvasText;
+        &--small > .jkl-loader__dot {
+            height: $_loader-dot-size--small;
+            width: $_loader-dot-size--small;
+
+            &--left {
+                margin-right: $_loader-spacing--small * 0.9;
+            }
+
+            &--middle {
+                margin-right: $_loader-spacing--small;
+            }
         }
     }
 
-    .jkl-button & > .jkl-loader__dot,
-    &--medium > .jkl-loader__dot {
-        height: $_loader-dot-size--medium;
-        width: $_loader-dot-size--medium;
-
-        &--left {
-            margin-right: $_loader-spacing--medium * 0.9;
+    @keyframes #{$_loader-left-animation-name} {
+        0% {
+            transform: rotate(0) scale(0);
         }
 
-        &--middle {
-            margin-right: $_loader-spacing--medium;
+        30% {
+            transform: rotate(90deg) scale(1);
+        }
+
+        70% {
+            transform: rotate(180deg) scale(0);
+        }
+
+        100% {
+            transform: rotate(180deg) scale(0);
         }
     }
 
-    &--small > .jkl-loader__dot {
-        height: $_loader-dot-size--small;
-        width: $_loader-dot-size--small;
-
-        &--left {
-            margin-right: $_loader-spacing--small * 0.9;
+    @keyframes #{$_loader-middle-animation-name} {
+        0% {
+            transform: rotate(20deg) scale(0);
         }
 
-        &--middle {
-            margin-right: $_loader-spacing--small;
+        10% {
+            transform: rotate(20deg) scale(0);
+        }
+
+        40% {
+            transform: rotate(110deg) scale(1.4);
+        }
+
+        85% {
+            transform: rotate(200deg) scale(0);
+        }
+
+        100% {
+            transform: rotate(200deg) scale(0);
         }
     }
-}
 
-@keyframes #{$_loader-left-animation-name} {
-    0% {
-        transform: rotate(0) scale(0);
-    }
+    @keyframes #{$_loader-right-animation-name} {
+        0% {
+            transform: rotate(40deg) scale(0);
+        }
 
-    30% {
-        transform: rotate(90deg) scale(1);
-    }
+        20% {
+            transform: rotate(40deg) scale(0);
+        }
 
-    70% {
-        transform: rotate(180deg) scale(0);
-    }
+        50% {
+            transform: rotate(130deg) scale(1);
+        }
 
-    100% {
-        transform: rotate(180deg) scale(0);
-    }
-}
-
-@keyframes #{$_loader-middle-animation-name} {
-    0% {
-        transform: rotate(20deg) scale(0);
-    }
-
-    10% {
-        transform: rotate(20deg) scale(0);
-    }
-
-    40% {
-        transform: rotate(110deg) scale(1.4);
-    }
-
-    85% {
-        transform: rotate(200deg) scale(0);
-    }
-
-    100% {
-        transform: rotate(200deg) scale(0);
-    }
-}
-
-@keyframes #{$_loader-right-animation-name} {
-    0% {
-        transform: rotate(40deg) scale(0);
-    }
-
-    20% {
-        transform: rotate(40deg) scale(0);
-    }
-
-    50% {
-        transform: rotate(130deg) scale(1);
-    }
-
-    100% {
-        transform: rotate(220deg) scale(0);
+        100% {
+            transform: rotate(220deg) scale(0);
+        }
     }
 }
