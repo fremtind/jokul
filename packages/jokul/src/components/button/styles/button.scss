@@ -65,6 +65,10 @@
 
     @include jkl.motion("standard", "productive", background-color);
 
+    &:has(.jkl-button__text) {
+        min-width: 9.5ch;
+    }
+
     &:has(.jkl-icon:first-child) {
         padding-inline-start: var(--jkl-button-padding-icon);
     }
