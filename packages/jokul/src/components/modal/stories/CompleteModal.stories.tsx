@@ -50,10 +50,10 @@ export const CompleteModal: Story = {
                     Er du sikker på at du vil slette Foo Bar Baz?
                 </ModalBody>
                 <ModalActions>
+                    <Button>Avbryt</Button>
                     <Button variant="primary" data-testid="confirm-modal">
                         Slett
                     </Button>
-                    <Button>Avbryt</Button>
                 </ModalActions>
             </Modal>
         </ModalContainer>

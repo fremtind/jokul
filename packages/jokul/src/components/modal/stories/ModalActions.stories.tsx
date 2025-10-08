@@ -21,20 +21,20 @@ export const ModalActions: Story = {
     render: (args) => (
         <ModalActionsComponent {...args}>
             <Button
-                variant="primary"
-                onClick={() => {
-                    console.log("Bekreft is clicked");
-                }}
-            >
-                Bekreft
-            </Button>
-            <Button
                 variant="tertiary"
                 onClick={() => {
                     console.log("Avbryt is clicked");
                 }}
             >
                 Avbryt
+            </Button>
+            <Button
+                variant="primary"
+                onClick={() => {
+                    console.log("Bekreft is clicked");
+                }}
+            >
+                Bekreft
             </Button>
         </ModalActionsComponent>
     ),
