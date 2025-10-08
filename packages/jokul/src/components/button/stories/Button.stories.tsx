@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "../Button.js";
 import "../styles/_index.scss";
 import { Flex } from "../../flex/Flex.jsx";
-import { CheckIcon, CloseIcon } from "../../icon/index.js";
+import { CheckIcon, CloseIcon, PlusIcon } from "../../icon/index.js";
 
 const meta = {
     title: "Komponenter/Button",
@@ -17,10 +17,29 @@ const meta = {
     args: {
         type: "button",
         children: "Knapp",
-        variant: "secondary",
-        loader: {
-            showLoader: false,
-            textDescription: "laster inn",
+        variant: "primary",
+        icon: undefined,
+    },
+    argTypes: {
+        iconLeft: {
+            table: { disable: true },
+        },
+        iconRight: {
+            table: { disable: true },
+        },
+        iconPosition: {
+            control: { type: "radio" },
+            options: ["left", "right"],
+        },
+        variant: {
+            control: "select",
+            options: ["primary", "secondary", "ghost"],
+        },
+        ref: {
+            table: { disable: true },
+        },
+        as: {
+            table: { disable: true },
         },
     },
     tags: ["autodocs", "forms"],
@@ -29,29 +48,64 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ButtonStory: Story = {};
-
 export const PrimaryButton: Story = {
-    args: {
-        variant: "primary",
-    },
+    name: "Primær knapp",
 };
 
 export const SecondaryButton: Story = {
+    name: "Sekundær knapp",
     args: {
         variant: "secondary",
     },
 };
 
-export const TertiaryButton: Story = {
+export const GhostButton: Story = {
+    name: "Ghost knapp",
     args: {
-        variant: "tertiary",
+        variant: "ghost",
     },
 };
 
-export const GhostButton: Story = {
+export const ButtonWithIcon: Story = {
+    name: "Knapp med ikon",
     args: {
-        variant: "ghost",
+        variant: "primary",
+        icon: <PlusIcon bold={false} />,
+        iconPosition: "right",
+        children: "Knapp",
+    },
+};
+
+export const ButtonWithLoader: Story = {
+    name: "Knapp med loader",
+    args: {
+        variant: "primary",
+        children: "Lagre",
+        loader: {
+            showLoader: true,
+            textDescription: "Lagrer...",
+        },
+    },
+    render: (args) => {
+        const [isLoading, setIsLoading] = React.useState(false);
+
+        const handleSave = () => {
+            setIsLoading(true);
+            setTimeout(() => setIsLoading(false), 2000);
+        };
+
+        return (
+            <Button
+                {...args}
+                onClick={handleSave}
+                loader={{
+                    showLoader: isLoading,
+                    textDescription: "Lagrer...",
+                }}
+            >
+                {args.children}
+            </Button>
+        );
     },
 };
 
@@ -62,12 +116,6 @@ export const ShortButtons: Story = {
             table: { disable: true },
         },
         children: {
-            table: { disable: true },
-        },
-        iconLeft: {
-            table: { disable: true },
-        },
-        iconRight: {
             table: { disable: true },
         },
         icon: {
