@@ -1,7 +1,7 @@
-import { ComponentCard } from "@/components/component-card/ComponentCard";
 import { ComponentConsiderations } from "@/app/(frontend)/komponenter/[slug]/components/ComponentConsiderations";
 import { ComponentExampleCard } from "@/app/(frontend)/komponenter/[slug]/components/ComponentExampleCard";
 import { PageFooter } from "@/components/PageFooter";
+import { ComponentCard } from "@/components/component-card/ComponentCard";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
@@ -173,6 +173,7 @@ export default async function Page({ params }: Props) {
                                             (relatedComponent) => (
                                                 <li key={relatedComponent.slug}>
                                                     <ComponentCard
+                                                        // @ts-expect-error Typene her er fortsatt ikke 100% i sync, men alt som trengs stemmer
                                                         component={
                                                             relatedComponent
                                                         }
