@@ -8,7 +8,7 @@ export const component = defineType({
     title: "Komponent",
     type: "document",
     groups: [
-        { name: "documentation", title: "Dokumentasjon", default: true },
+        { name: "documentation", title: "Dokumentasjon" },
         { name: "metadata", title: "Metadata" },
         { name: "images", title: "Bilder" },
     ],
@@ -43,12 +43,28 @@ export const component = defineType({
         defineField({
             name: "status",
             title: "Status",
-            type: "array",
+            type: "string",
             group: "metadata",
             options: {
                 list: ["deprecated", "alpha", "beta", "stabil"],
+                layout: "dropdown",
             },
+        }),
+        defineField({
+            name: "categories",
+            title: "Kategorier",
+            type: "array",
+            group: "metadata",
             of: [{ type: "string" }],
+            options: {
+                list: [
+                    "Knapper",
+                    "Skjema",
+                    "Navigasjon",
+                    "Layout",
+                    "Feedback",
+                ].sort(),
+            },
         }),
         defineField({
             name: "keywords",
@@ -56,6 +72,10 @@ export const component = defineType({
             type: "array",
             group: "metadata",
             of: [{ type: "string" }],
+            options: {
+                layout: "tags",
+                sortable: true,
+            },
         }),
         defineField({
             name: "example_card",
@@ -168,37 +188,7 @@ export const component = defineType({
             ],
             options: {
                 collapsible: true,
-                columns: 2,
             },
-        }),
-        defineField({
-            type: "object",
-            name: "figma_image",
-            title: "Illustrasjon fra Figma",
-            group: "images",
-            hidden: true,
-            fields: [
-                defineField({
-                    type: "string",
-                    name: "light_mode",
-                    title: "Lys modus",
-                    description:
-                        "Lenke til frame i Figma for illustrasjon i lys modus",
-                    // Endre tilbake når importen fra Figma fungerer
-                    // validation: (Rule) => Rule.required(),
-                }),
-                defineField({
-                    type: "string",
-                    name: "dark_mode",
-                    title: "Mørk modus",
-                    description:
-                        "Lenke til frame i Figma for illustrasjon i mørk modus",
-                    // Endre tilbake når importen fra Figma fungerer
-                    // validation: (Rule) => Rule.required(),
-                }),
-            ],
-            // Endre tilbake når importen fra Figma fungerer
-            // validation: (Rule) => Rule.required(),
         }),
         defineField({
             name: "image",
