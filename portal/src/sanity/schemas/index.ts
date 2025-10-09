@@ -1,5 +1,6 @@
 import { temaside } from "@/sanity/schemas/temaside";
 import { blogPost } from "./blogPost";
+import { checkList } from "./checklist";
 import { codeBlock } from "./codeBlock";
 import { codeExample } from "./codeExample";
 import { component } from "./component";
@@ -19,4 +20,5 @@ export const schemaTypes = [
     storybookStory,
     kortFortalt,
     linkCard,
+    checkList,
 ];
