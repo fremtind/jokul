@@ -1,5 +1,57 @@
 # Change Log
 
+## 1.5.0
+
+### Minor Changes
+
+- 6c47b7a: Legger til [CSS layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) for Jøkul sine grunnleggende stiler for å unngå konflikt både innad i Jøkul, og mellom dine egne stilark og stilene fra Jøkul.
+
+  Stilene til Jøkul ligger inne i laget `jokul`, som igjen har fem under-lag. Disse er, i rekkefølge fra minst til mest prioritert:
+
+  1. `resets`: Normalisering og reset av nettleser-stiler. Disse ønsker vi på sikt å bli kvitt, eller få trimmet ned kraftig.
+  2. `theme`: Her ligger variablene som legger grunnlag for designsystemet; spacing, farger, typografi, etc.
+  3. `global`: Foreløpig er dette laget tomt, men her kan det komme overordnede stiler som gjelder uten å sette klasser, slik som automatiske stiler for typografi basert på HTML-element.
+  4. `components`: Her bor alle stilene til komponentene våre (vil bli lagt inn i fremtidig(e) pull request(s)).
+  5. `utility`: Dette laget inneholder nytteklassene våre. De er høyest prioritert slik at de får effekt selv om de styrer egenskaper som også er satt gjennom f.eks. komponent-stilark.
+
+  Når du skriver dine egne stiler vil de som standard ha høyere prioritet enn _alle disse lagene_, slik at du kan være sikker på at stilarkene du skriver har effekt. Dersom du bruker dine egne lag i stilarkene dine kan du spesifisere at Jøkul sine stiler skal ha lavere prioritet:
+
+  ```css
+  @layer jokul, dine-komponenter, dine-nytteklasser;
+  ```
+
+- d306833: - Introduserer et nytt sett med **semantiske spacing-variabler** for mer konsistent bruk av avstand i design og kode.
+
+  - Restrukturerer og forbedrer **byggesystemet for tokens** for å gjøre vedlikehold og utvidelser enklere.
+
+  ### Nye spacing-variabler
+
+  ```css
+  --jkl-spacing-xs
+  --jkl-spacing-s
+  --jkl-spacing-m
+  --jkl-spacing-l
+  --jkl-spacing-xl
+  --jkl-spacing-2xl
+  ```
+
+- 656db36: Flytter knappene i modalen til høyre side på store skjermer. Oppdaterer også eksemplene for å vise at hovedhandlingen bør stå til høyre når vi følger dette mønstret.
+- 6852e3e: Core-stilarket `@fremtind/jokul/styles/core.css` er refaktorert for å sørge for at CSS-lagene alltid opptrer i riktig rekkefølge. For å opprettholde dette i din egen kodebase bør du importere `core`-stilarket _før_ du importerer komponentstilarkene du bruker.
+- 8705b2f: CardImage har fått muligheten til å blø ut i alle kanter av kortet det er plassert i, dersom det ikke er annet innhold i kortet. Sett `placement` til `full` for å bruke komponenten på denne måten.
+
+### Patch Changes
+
+- ed30758: Plasser stilene til alle komponenter som ikke er avhengige av andre komponenters stiler inne i CSS-laget `jokul.components`.
+- 3b2293c: Legger til globale stiler for elementer som bruker [popover-APIet](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API), som sørger for at popovers animeres inn og ut med en enkel overtoning dersom ikke noe annet er spesifisert i selve komponenten. Siden disse stilene ligger i `jokul.global`-laget er de enkle å overstyre.
+- de25ed3: Endret border z-index slik at hover-tilstand vises over checked input.
+- 9f552db: Legger til en minimumsbredde for knapper med tekstinnhold, slik at det ikke ser rart ut når valgene er korte ord som "Ja" eller "Nei".
+- f084272: Sørg for at alle tokens og variabler bygges
+
+  Etter refaktoreringen av tokens-byggsteget falt en del variabler som
+  fortsatt ble brukt ut av de resulterende filene. Her sørger vi for at
+  alle tokens og variabler som trengs i systemet er tilgjengelige som før,
+  i tillegg til de nye verdiene vi vil ha ut.
+
 ## 1.4.1
 
 ### Patch Changes
