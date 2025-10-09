@@ -27,18 +27,18 @@ const meta = {
                 9.3,
                 5.7,
                 7.5,
-                "{ xs: 1, md: 2, lg: 4 }",
-                '{ xs: 1, md: "auto" }',
+                "{ xs: 1, m: 2, l: 4 }",
+                '{ xs: 1, m: "auto" }',
             ],
             mapping: {
-                "{ xs: 1, md: 2, lg: 4 }": { xs: 1, md: 2, lg: 4 },
-                '{ xs: 1, md: "auto" }': { xs: 1, md: "auto" },
+                "{ xs: 1, m: 2, l: 4 }": { xs: 1, m: 2, l: 4 },
+                '{ xs: 1, m: "auto" }': { xs: 1, m: "auto" },
             },
             description: `Sets layout for items per row.
             Layouts with equal width is named to correlate with the count of items you want per row, as this gives a consistent experience when nesting.
             Layouts with uneven width, is named based on a 12-column grid to correlate with how designers work in Figma.
             \nAccepts both a single value \`layout="2"\` or a object to specify different values for different breakpoints (all breakpoints are optional):
-            \`layout={{ xs: 1, md: 2, lg: 4 }}\`.
+            \`layout={{ xs: 1, m: 2, l: 4 }}\`.
         `,
         },
         gap: {
@@ -46,64 +46,64 @@ const meta = {
             options: [
                 "none",
                 "xs",
-                "sm",
-                "md",
-                "lg",
+                "s",
+                "m",
+                "l",
                 "xl",
                 "xxl",
                 "xxl xl",
-                "xxl lg",
-                "xxl md",
-                "xxl sm",
+                "xxl l",
+                "xxl m",
+                "xxl s",
                 "xxl xs",
                 "xxl none",
                 "xl xxl",
-                "xl lg",
-                "xl md",
-                "xl sm",
+                "xl l",
+                "xl m",
+                "xl s",
                 "xl xs",
                 "xl none",
-                "lg xxl",
-                "lg xl",
-                "lg md",
-                "lg sm",
-                "lg xs",
-                "lg none",
-                "md xxl",
-                "md xl",
-                "md lg",
-                "md sm",
-                "md xs",
-                "md none",
-                "sm xxl",
-                "sm xl",
-                "sm lg",
-                "sm md",
-                "sm xs",
-                "sm none",
+                "l xxl",
+                "l xl",
+                "l m",
+                "l s",
+                "l xs",
+                "l none",
+                "m xxl",
+                "m xl",
+                "m l",
+                "m s",
+                "m xs",
+                "m none",
+                "s xxl",
+                "s xl",
+                "s l",
+                "s m",
+                "s xs",
+                "s none",
                 "xs xxl",
                 "xs xl",
-                "xs lg",
-                "xs md",
-                "xs sm",
+                "xs l",
+                "xs m",
+                "xs s",
                 "xs none",
                 "none xxl",
                 "none xl",
-                "none lg",
-                "none md",
-                "none sm",
+                "none l",
+                "none m",
+                "none s",
                 "none xs",
-                `{ xs: 'none', md: 'xl' }`,
+                `{ xs: 'none', m: 'xl' }`,
             ],
             mapping: {
-                [`{ xs: 'none', md: 'xl' }`]: { xs: "none", md: "sm xl" },
+                [`{ xs: 'none', m: 'xl' }`]: { xs: "none", m: "s xl" },
             },
             description: `Gap can be one of predefined constants. Also accepts two values separated by whitespace to specifiy different row and colum gap.
-            For example \`gap="lg md"\` will cause \`lg\` row gap, and \`md\` column gap.
-            \nThe gap sizes are \`xs\` (\`unit-10\` / \`8px\`), \`sm\` (\`unit-20\` / \`16px\`), \`md\` (\`unit-30\` / \`24px\`), \`lg\` (\`unit-40\` / \`32px\`), \`xl\` (\`unit-50\` / \`40px\`), \`xxl\` (\`unit-100\` / \`80px\`).
-            \nAccepts both a single value \`gap="md"\` or a object to specify different values for different breakpoints (all breakpoints are optional):
-            \`gap={{ xs: 'none', md: 'lg' }}\`.`,
-            table: { defaultValue: { summary: "'md'" } },
+            For example \`gap="l m"\` will cause \`l\` row gap, and \`m\` column gap.
+            \nThe gap sizes are \`xs\` (\`unit-10\` / \`8px\`), \`s\` (\`unit-20\` / \`16px\`), \`m\` (\`unit-30\` / \`24px\`), \`l\` (\`unit-40\` / \`32px\`), \`xl\` (\`unit-50\` / \`40px\`), \`xxl\` (\`unit-100\` / \`80px\`).
+            \nAccepts both a single value \`gap="m"\` or a object to specify different values for different breakpoints (all breakpoints are optional):
+            \`gap={{ xs: 'none', m: 'l' }}\`.`,
+            table: { defaultValue: { summary: "'m'" } },
         },
         direction: {
             control: "inline-radio",
@@ -124,7 +124,7 @@ const meta = {
             control: "select",
             description:
                 "Center the `<Flex>` and add outer padding left and right",
-            options: [false, true, "xxl", "xl", "lg", "md"],
+            options: [false, true, "xxl", "xl", "l", "m"],
             table: { defaultValue: { summary: "false" } },
         },
         align: {
@@ -193,7 +193,7 @@ const meta = {
     },
     args: {
         layout: undefined,
-        gap: "md",
+        gap: "m",
         center: false,
         fill: false,
         align: "normal",
@@ -232,7 +232,7 @@ const decorators = [
 export const Default: Story = {
     decorators,
     args: {
-        center: "md",
+        center: "m",
         layout: 6,
         gap: "xl",
         children: null,
@@ -267,8 +267,8 @@ export const Responsive: Story = {
             <>
                 <Flex
                     {...props}
-                    layout={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 6 }}
-                    gap={{ xs: "none", sm: "sm", md: "md", lg: "xl" }}
+                    layout={{ xs: 1, s: 2, m: 3, l: 4, xl: 6 }}
+                    gap={{ xs: "none", s: "s", m: "m", l: "xl" }}
                 >
                     <div>Child 1</div>
                     <div>Child 2</div>
@@ -279,8 +279,8 @@ export const Responsive: Story = {
                 </Flex>
                 <Flex
                     {...props}
-                    layout={{ xs: 1, sm: 7.5, md: 8.4, lg: 2 }}
-                    gap={{ xs: "none", sm: "sm", md: "md", lg: "xl" }}
+                    layout={{ xs: 1, s: 7.5, m: 8.4, l: 2 }}
+                    gap={{ xs: "none", s: "s", m: "m", l: "xl" }}
                 >
                     <div>Child even and uneven widths 1</div>
                     <div>Child even and uneven widths 2</div>
@@ -289,7 +289,7 @@ export const Responsive: Story = {
                     Resize browser to see how the layout changes, based on this
                     setup:
                     <pre>
-                        {`<Flex\n  layout={{ xs: 1, sm: 2, md: 3, lg: 4, xl: 6 }}\n  gap={{ xs: 'none', sm: 'sm', md: 'md', lg: 'xl' }}\n>`}
+                        {`<Flex\n  layout={{ xs: 1, s: 2, m: 3, l: 4, xl: 6 }}\n  gap={{ xs: 'none', s: 's', m: 'm', l: 'xl' }}\n>`}
                     </pre>
                 </span>
             </>
@@ -393,7 +393,7 @@ export const Center: Story = {
     ]),
     args: {
         center: true,
-        gap: "lg",
+        gap: "l",
         layout: 1,
         children: null,
     },
@@ -423,15 +423,15 @@ export const Center: Story = {
                         <small>= 10 units wide on xxl breakpoint</small>
                     </div>
                 </Flex>
-                <Flex {...props} center="lg">
+                <Flex {...props} center="l">
                     <div>
-                        <code>&lt;Flex center=&apos;lg&apos;&gt;</code>
+                        <code>&lt;Flex center=&apos;l&apos;&gt;</code>
                         <small>= 8 units wide on xxl breakpoint</small>
                     </div>
                 </Flex>
-                <Flex {...props} center="md">
+                <Flex {...props} center="m">
                     <div>
-                        <code>&lt;Flex center=&apos;md&apos;&gt;</code>
+                        <code>&lt;Flex center=&apos;m&apos;&gt;</code>
                         <small>= 6 units wide on xxl breakpoint</small>
                     </div>
                 </Flex>

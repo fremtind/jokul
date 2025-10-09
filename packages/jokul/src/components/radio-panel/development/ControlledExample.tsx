@@ -41,7 +41,7 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                     <Flex
                         asChild
                         direction="column"
-                        gap="lg"
+                        gap="s"
                         style={{ maxWidth: 580, width: "100%" }}
                     >
                         <RadioPanelGroup
@@ -82,7 +82,7 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                         as="span"
                                         alignItems="center"
                                         justifyContent="end"
-                                        gap="md"
+                                        gap="m"
                                         className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                                     >
                                         <SuccessTag>Anbefalt</SuccessTag>

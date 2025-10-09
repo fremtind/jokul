@@ -1,14 +1,18 @@
 import React from "react";
 import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
-import type {
-    Expand,
-    PolymorphicComponentPropWithRef,
-} from "../../utilities/polymorphism/polymorphism.js";
+import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+
+// Les https://stackoverflow.com/q/57683303
+export type Expand<T> = T extends (...args: infer A) => infer R
+    ? (...args: Expand<A>) => Expand<R>
+    : T extends infer O
+      ? { [K in keyof O]: O[K] }
+      : never;
 
 type Size = 1 | 2 | 3 | 4 | 6 | 4.8 | 8.4 | 2.1 | 10.2 | 3.9 | 9.3 | 5.7 | 7.5;
-type Center = "md" | "lg" | "xl" | "xxl" | boolean;
+type Center = "m" | "l" | "xl" | "xxl" | boolean;
 type Layout = Expand<"auto" | Size | `${Size}`[][number] | "2.10">;
-type GapValue = "none" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+type GapValue = "none" | "xxs" | "xs" | "s" | "m" | "l" | "xl" | "xxl";
 type Gap = `${GapValue}` | `${GapValue} ${GapValue}`;
 
 type FlexBaseProps = {
@@ -26,7 +30,7 @@ type FlexBaseProps = {
     center?: Center;
     direction?: "row" | "column" | "row-reverse" | "column-reverse";
     fill?: boolean;
-    gap?: Gap | { xs?: Gap; sm?: Gap; md?: Gap; lg?: Gap; xl?: Gap; xxl?: Gap };
+    gap?: Gap | { xs?: Gap; s?: Gap; m?: Gap; l?: Gap; xl?: Gap; xxl?: Gap };
     inline?: boolean;
     textAlign?: "left" | "right" | "center";
     justifyContent?:
@@ -41,9 +45,9 @@ type FlexBaseProps = {
         | Layout
         | {
               xs?: Layout;
-              sm?: Layout;
-              md?: Layout;
-              lg?: Layout;
+              s?: Layout;
+              m?: Layout;
+              l?: Layout;
               xl?: Layout;
               xxl?: Layout;
           };
@@ -51,7 +55,7 @@ type FlexBaseProps = {
 };
 
 export type FlexProps<As extends React.ElementType = "div"> =
-    PolymorphicComponentPropWithRef<As, FlexBaseProps>;
+    PolymorphicPropsWithRef<As, FlexBaseProps>;
 
 export type FlexComponent = <ElementType extends React.ElementType = "div">(
     props: FlexProps<ElementType> & AsChildProps,

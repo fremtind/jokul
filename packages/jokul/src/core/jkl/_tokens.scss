@@ -18,6 +18,8 @@ $unit-130: calc(var(--jkl-unit-10) * 13);
 $unit-210: calc(var(--jkl-unit-10) * 21);
 $unit-02: calc(var(--jkl-unit-10) * .25);
 $unit-05: calc(var(--jkl-unit-10) * .5);
+$spacing-none: 0;
+$spacing-xxs: calc(var(--jkl-unit-10) * .5);
 $spacing-xs: 0.5rem;
 $spacing-s: calc(var(--jkl-unit-10) * 2);
 $spacing-m: calc(var(--jkl-unit-10) * 3);

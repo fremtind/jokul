@@ -16,7 +16,7 @@ export const UnControlledExample: FC<ExampleComponentProps> = ({
     boolValues,
 }) => {
     return (
-        <Flex style={{ width: "100%" }} direction="column" gap="lg">
+        <Flex style={{ width: "100%" }} direction="column" gap="s">
             <div>
                 <ExpandablePanel>
                     <Expander

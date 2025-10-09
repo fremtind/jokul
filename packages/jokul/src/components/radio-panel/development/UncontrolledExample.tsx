@@ -30,7 +30,7 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Flex asChild direction="column" gap="lg" style={{ width: "100%" }}>
+            <Flex asChild direction="column" gap="s">
                 <RadioPanelGroup
                     legend="Velg sesong"
                     errorLabel={

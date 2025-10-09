@@ -13,7 +13,7 @@ export const LinkCard: FC<PortableTextTypeComponentProps<Jokul_linkCard>> = ({
     if (!value?.external_links?.length) return null;
 
     return (
-        <Flex gap="md" className={styles.linkCardWrapper}>
+        <Flex gap="m" className={styles.linkCardWrapper}>
             {value.external_links.map((link, index) => {
                 return (
                     <Card

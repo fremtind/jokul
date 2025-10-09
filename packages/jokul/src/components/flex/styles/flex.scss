@@ -9,8 +9,8 @@
 
 // Angir globale CSS custom properties for maksimale container-bredder.
 :root {
-    --container-md: 43.75rem;
-    --container-lg: 60rem;
+    --container-m: 43.75rem;
+    --container-l: 60rem;
     --container-xl: 75rem;
     --container-xxl: 90rem;
     --container-full: 100%;
@@ -19,9 +19,9 @@
 // Definerer responsive breakpoints som brukes for media queries.
 $breakpoints: (
     "xs": 0,
-    "sm": 37.5em,
-    "md": 50em,
-    "lg": 64em,
+    "s": 37.5em,
+    "m": 50em,
+    "l": 64em,
     "xl": 75em,
     "xxl": 101.25em,
 );
@@ -29,13 +29,14 @@ $breakpoints: (
 // Map for å generere `gap`-klasser.
 // Verdiene tilsvarer våre unit-variabler.
 $gap-values: (
-    "none": 0,
-    "xs": var(--jkl-unit-10),
-    "sm": var(--jkl-unit-20),
-    "md": var(--jkl-unit-30),
-    "lg": var(--jkl-unit-40),
-    "xl": var(--jkl-unit-50),
-    "xxl": var(--jkl-unit-130),
+    "none",
+    "xxs",
+    "xs",
+    's',
+    "m",
+    "l",
+    "xl",
+    "xxl"
 );
 
 // Map for å generere klasser for uniforme (jevnt fordelte) kolonner.
@@ -56,7 +57,7 @@ $uniform-layouts: (
     // 6 elementer, 16.6% bredde hver
 );
 
-// Map for å generere asymmetriske layout-klasser (f.eks. .sm-2\.10).
+// Map for å generere asymmetriske layout-klasser (f.eks. .s-2\.10).
 // Nøkkelen (key) er klassens suffiks, og verdien (value) angir bredden i antall
 // grid-kolonner for elementer på oddetallsplassering (1, 3, 5, ...).
 // Bredden for partallselementer beregnes automatisk (12 - verdi).
@@ -75,48 +76,59 @@ $asymmetric-layouts: (
 // Hver nøkkel på toppnivå er en CSS-egenskap, og de nøstede map-ene
 // definerer klassenavn og tilhørende verdi.
 $utility-classes: (
-    "display": ("inline": inline-flex,
+    "display": (inline-flex,
     ),
-    "flex-wrap": ("wrap-reverse": wrap-reverse,
-        "wrap-nowrap": nowrap,
+    "flex-wrap": (wrap-reverse,
+        nowrap,
     ),
-    "flex-direction": ("column": column,
-        "column-reverse": column-reverse,
-        "row-reverse": row-reverse,
+    "flex-direction": (column,
+        column-reverse,
+        row-reverse,
     ),
-    "text-align": ("text-left": left,
-        "text-center": center,
-        "text-right": right,
+    "text-align": (left,
+        center,
+        right,
     ),
-    "align-items": ("align-start": flex-start,
-        "align-center": center,
-        "align-end": flex-end,
-        "align-baseline": baseline,
-        "align-stretch": stretch,
+    "align-items": (start,
+        center,
+        end,
+        baseline,
+        stretch,
     ),
-    "align-content": ("align-content-start": flex-start,
-        "align-content-center": center,
-        "align-content-end": flex-end,
-        "align-content-stretch": stretch,
-        "align-content-baseline": baseline,
-        "align-content-space-around": space-around,
-        "align-content-space-between": space-between,
-        "align-content-space-evenly": space-evenly,
+    "align-content": (start,
+        center,
+        end,
+        stretch,
+        baseline,
+        space-around,
+        space-between,
+        space-evenly,
     ),
-    "justify-content": ("justify-start": flex-start,
-        "justify-center": center,
-        "justify-end": flex-end,
-        "justify-space-around": space-around,
-        "justify-space-between": space-between,
-        "justify-space-evenly": space-evenly,
+    "justify-content": (start,
+        center,
+        end,
+        space-around,
+        space-between,
+        space-evenly,
     ),
 );
+
+// Generell mixin som itererer gjennom `$utility-classes` for å lage hjelpeklasser.
+@mixin generate-utility-classes() {
+    @each $property, $values in $utility-classes {
+        @each $value in $values {
+            .#{$property}-#{$value} {
+                #{$property}: $value;
+            }
+        }
+    }
+}
 
 // Map som definerer maksimale bredder for sentrerte containere (`.center-*`).
 // Brukes til å generere responsive breddebegrensninger.
 $containers: (
-    "md": var(--container-md),
-    "lg": var(--container-lg),
+    "m": var(--container-m),
+    "l": var(--container-l),
     "xl": var(--container-xl),
     "xxl": var(--container-xxl),
 );
@@ -154,37 +166,21 @@ $containers: (
     }
 }
 
+
 // Mixin for å generere klasser for `row-gap` og `column-gap`.
 @mixin generate-gap-classes($prefix) {
-    @each $gap-name, $gap-value in $gap-values {
-        .#{$prefix}-row-gap-#{$gap-name} {
-            row-gap: $gap-value;
+    @each $gap in $gap-values {
+        .#{$prefix}-row-gap-#{$gap} {
+            row-gap: var(--jkl-spacing-#{$gap});
         }
 
-        .#{$prefix}-col-gap-#{$gap-name} {
-            column-gap: $gap-value;
+        .#{$prefix}-col-gap-#{$gap} {
+            column-gap: var(--jkl-spacing-#{$gap});
 
             // Setter en custom property for å kunne kalkulere nøyaktig kolonnebredde
             // i `flex-basis`, justert for `column-gap`.
             & > * {
-                @if $gap-name =="none" {
-                    --jkl-flex-gap: #{$gap-value}px;
-                }
-
-                @else {
-                    --jkl-flex-gap: #{$gap-value};
-                }
-            }
-        }
-    }
-}
-
-// Generell mixin som itererer gjennom `$utility-classes` for å lage hjelpeklasser.
-@mixin generate-utility-classes() {
-    @each $property, $map in $utility-classes {
-        @each $class-name, $value in $map {
-            .#{$class-name} {
-                #{$property}: $value;
+                --jkl-flex-gap: var(--jkl-spacing-#{$gap});
             }
         }
     }
@@ -236,7 +232,7 @@ $containers: (
 @include generate-utility-classes();
 
 // Stiler for sentrerte containere.
-:is(.center-md, .center-lg, .center-xl, .center-xxl) {
+:is(.center-m, .center-l, .center-xl, .center-xxl) {
     box-sizing: border-box;
     margin-inline: auto;
     width: calc(100% - var(--jkl-unit-50));

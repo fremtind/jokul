@@ -87,7 +87,7 @@ export const ImageCard: Story = {
                 }}
             />
 
-            <Flex direction="column" gap="sm">
+            <Flex direction="column" gap="s">
                 <Flex direction="column" gap="xs">
                     <p className="jkl-heading-2">Se forsikringene mine</p>
                     <p>
@@ -128,7 +128,7 @@ export const CopyCard: Story = {
                     }, 3000);
                 }}
             >
-                <Flex alignItems="center" gap="sm">
+                <Flex alignItems="center" gap="s">
                     <p id="kode">{args.children}</p>
                     {hasCopied ? (
                         <CheckIcon aria-label="Kopiert" aria-hidden="false" />
@@ -164,7 +164,7 @@ export const LinkCard: Story = {
                 <div>
                     <InfoTag>Fornyelse</InfoTag>
                 </div>
-                <Flex direction="column" gap="sm">
+                <Flex direction="column" gap="s">
                     <p className="jkl-heading-2">Hus</p>
                     <p>Kittel Nielsens vei 88 1163 Oslo</p>
                 </Flex>

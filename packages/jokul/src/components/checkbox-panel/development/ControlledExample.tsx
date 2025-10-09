@@ -52,7 +52,7 @@ Ansvar:    ${ansvar}
     return (
         <Flex
             direction="column"
-            gap="lg"
+            gap="l"
             style={{ maxWidth: 580, width: "100%" }}
             asChild
         >
@@ -68,7 +68,7 @@ Ansvar:    ${ansvar}
                             as="span"
                             alignItems="center"
                             justifyContent="end"
-                            gap="md"
+                            gap="m"
                             className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                         >
                             <SuccessTag>Anbefalt</SuccessTag>

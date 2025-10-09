@@ -54,7 +54,7 @@ export const FileListStory: Story = {
     name: "Eksempel:: File List",
     render: (args) => {
         return (
-            <Flex direction={"column"} gap="sm">
+            <Flex direction={"column"} gap="s">
                 <div
                     style={{
                         background:
