@@ -7,13 +7,6 @@
 }
 
 .jkl-help-popover {
-    @include jkl.motion("standard", "productive");
-
-    opacity: 0;
-    transition: opacity,
-        overlay allow-discrete,
-        display allow-discrete;
-
     max-width: 40ch;
     padding: var(--jkl-unit-30);
     margin: var(--jkl-unit-05);
@@ -50,13 +43,5 @@
     &[data-position="right"] {
         position-area: right center;
         position-try: right, left, top, bottom;
-    }
-
-    &:popover-open {
-        opacity: 1;
-
-        @starting-style {
-            opacity: 0;
-        }
     }
 }
