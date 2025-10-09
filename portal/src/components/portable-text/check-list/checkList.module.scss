@@ -1,0 +1,9 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.list_wrapper {
+    max-width: 400px;
+}
+
+.list_item {
+    margin-bottom: var(--jkl-unit-10);
+}
