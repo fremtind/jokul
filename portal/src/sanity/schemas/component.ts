@@ -1,4 +1,5 @@
 import { defineField, defineType } from "sanity";
+import { componentPageLink } from "./links/componentPageLink";
 
 const MAX_LENGTH = 70;
 
@@ -106,7 +107,12 @@ export const component = defineType({
             type: "array",
             group: "documentation",
             of: [
-                { type: "block" },
+                {
+                    type: "block",
+                    marks: {
+                        annotations: [componentPageLink],
+                    },
+                },
                 { type: "image" },
                 { type: "jokul_componentProps" },
                 { type: "jokul_componentKortFortalt" },

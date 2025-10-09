@@ -1,28 +1,24 @@
 "use client";
 
 import { ComponentThumbnail } from "@/components/component-card/ComponentThumbnail";
-import { client } from "@/sanity/lib/client";
-import type { ComponentsQueryResult } from "@/sanity/types";
+import type { ComponentBySlugQueryResult } from "@/sanity/types";
 import {
     type UserPreferences,
     useUserPreferences,
 } from "@/utils/user-preferences";
 import { Card } from "@fremtind/jokul/card";
-import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageObject } from "@sanity/image-url/lib/types/types";
 import NextLink from "next/link";
 
 import styles from "./component-card.module.scss";
 
 type ComponentCardProps = {
-    component: ComponentsQueryResult[0] | null;
+    component: Pick<
+        NonNullable<ComponentBySlugQueryResult>,
+        "image" | "imageDark" | "name" | "slug" | "short_description"
+    > | null;
     initialPreferences?: UserPreferences;
 };
-
-const builder = imageUrlBuilder(client);
-
-function urlFor(source?: { asset?: { _ref: string }; _type: string }) {
-    return source?.asset?._ref ? builder.image(source).url() : undefined;
-}
 
 export const ComponentCard = ({
     component,
@@ -31,21 +27,6 @@ export const ComponentCard = ({
     const { preferences } = useUserPreferences(initialPreferences);
 
     if (!component) return null;
-
-    // Bruk placeholderbilde midlertidig, mens vi finner ut av problemene
-    // med å hente figma-bilder under bygging av applikasjonen.
-    // Bruk getFigmaImageUrls for å hente figma-bilder når det er fikset.
-    const [fallbackLight, fallbackDark] = [
-        "/component_placeholder_light.svg",
-        "/component_placeholder_dark.svg",
-    ];
-
-    const imageLightUrl = component.image
-        ? urlFor(component.image)
-        : fallbackLight;
-    const imageDarkUrl = component.imageDark
-        ? urlFor(component.imageDark)
-        : fallbackDark;
 
     return (
         <Card
@@ -65,12 +46,12 @@ export const ComponentCard = ({
                     {component.short_description}
                 </p>
             )}
-            {preferences.showComponentImage && imageDarkUrl && imageLightUrl ? (
+            {preferences.showComponentImage && (
                 <ComponentThumbnail
-                    darkImage={imageDarkUrl}
-                    lightImage={imageLightUrl}
+                    darkImage={component.imageDark as SanityImageObject}
+                    lightImage={component.image as SanityImageObject}
                 />
-            ) : null}
+            )}
         </Card>
     );
 };

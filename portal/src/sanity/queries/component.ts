@@ -14,6 +14,7 @@ export const componentsQuery = defineQuery(`*[_type == "jokul_component"]{
 export const componentBySlugQuery =
     defineQuery(`*[_type == "jokul_component" && slug.current == $slug][0] {
         ...,
+        "slug": slug.current,
         "component_example_card": component_example_card{
         "url": asset->url
         },
@@ -29,7 +30,11 @@ export const componentBySlugQuery =
                                 ...,
                                 component->{
                                     name,
-                                    slug
+                                    short_description,
+                                    "slug": slug.current,
+                                    figma_image,
+                                    image,
+                                    imageDark
                                 }
                             }
                         }
@@ -43,12 +48,28 @@ export const componentBySlugQuery =
                                 ...,
                                 component->{
                                     name,
-                                    slug
+                                    short_description,
+                                    "slug": slug.current,
+                                    figma_image,
+                                    image,
+                                    imageDark
                                 }
                             }
                         }
                     }
                 }
+            },
+            markDefs[] {
+                ...,
+                _type == "componentPageLink" => {
+                    component-> {
+                        "slug": slug.current,
+                        name,
+                        short_description,
+                        image,
+                        imageDark,
+                    }
+                },
             }
         },
         related_components {

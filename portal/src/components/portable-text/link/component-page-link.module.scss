@@ -1,0 +1,16 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.componentPageLinkPopover {
+    display: none;
+    position: fixed;
+    border: none;
+    max-width: 30rch;
+    position-area: top center;
+    position-try: top, bottom, right, left;
+    margin: var(--jkl-unit-10);
+    box-shadow: jkl.$shadow-navigation--hover;
+
+    &:popover-open {
+        display: block;
+    }
+}
