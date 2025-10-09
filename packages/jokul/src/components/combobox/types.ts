@@ -1,6 +1,7 @@
-import type { ChangeEvent } from "react";
+import type { ChangeEvent, InputHTMLAttributes } from "react";
 import type { Density } from "../../core/types.js";
 import type { ValuePair } from "../../utilities/valuePair.js";
+import type { HelpProps } from "../help/index.js";
 import type { InputGroupProps, LabelProps } from "../input-group/types.js";
 
 export type ComboboxValuePair = ValuePair & {
@@ -45,3 +46,16 @@ export interface ComboboxProps extends InputGroupProps {
     onBlur?: ComboboxChangeEventHandler;
     onFocus?: ComboboxChangeEventHandler;
 }
+
+export type BETA_ComboboxProps = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    "children" | "defaultValue"
+> & {
+    label: string;
+    description?: string;
+    help?: HelpProps;
+    errorMessage?: string;
+    multiselect?: boolean;
+    options: string[];
+    defaultValue?: string[];
+};
