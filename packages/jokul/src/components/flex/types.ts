@@ -1,19 +1,38 @@
 import React from "react";
+import tokens from "../../core/tokens.js";
 import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
-// Les https://stackoverflow.com/q/57683303
-export type Expand<T> = T extends (...args: infer A) => infer R
-    ? (...args: Expand<A>) => Expand<R>
-    : T extends infer O
-      ? { [K in keyof O]: O[K] }
-      : never;
+export type Spacing = keyof typeof tokens.semanticSpacing;
+export type Breakpoint = keyof typeof tokens.breakpoint;
 
-type Size = 1 | 2 | 3 | 4 | 6 | 4.8 | 8.4 | 2.1 | 10.2 | 3.9 | 9.3 | 5.7 | 7.5;
-type Center = "m" | "l" | "xl" | "xxl" | boolean;
-type Layout = Expand<"auto" | Size | `${Size}`[][number] | "2.10">;
-type GapValue = "none" | "xxs" | "xs" | "s" | "m" | "l" | "xl" | "xxl";
-type Gap = `${GapValue}` | `${GapValue} ${GapValue}`;
+export type Responsive<T> = Partial<Record<Breakpoint, T>>;
+export function isResponsive<T>(value: unknown): value is Responsive<T> {
+    return Object.keys(tokens.breakpoint).includes(
+        Object.keys(value as Responsive<T>)[0],
+    );
+}
+
+export const LAYOUTS = [
+    "auto",
+    "1",
+    "2",
+    "3",
+    "4",
+    "6",
+    "4.8",
+    "8.4",
+    "2.10",
+    "10.2",
+    "3.9",
+    "9.3",
+    "5.7",
+    "7.5",
+] as const;
+
+export type Layout = (typeof LAYOUTS)[number];
+export type Center = "m" | "l" | "xl" | "2xl" | boolean;
+export type Gap = `${Spacing}` | `${Spacing} ${Spacing}`;
 
 type FlexBaseProps = {
     alignItems?: "normal" | "start" | "center" | "end" | "baseline" | "stretch";
@@ -30,7 +49,7 @@ type FlexBaseProps = {
     center?: Center;
     direction?: "row" | "column" | "row-reverse" | "column-reverse";
     fill?: boolean;
-    gap?: Gap | { xs?: Gap; s?: Gap; m?: Gap; l?: Gap; xl?: Gap; xxl?: Gap };
+    gap?: Gap | Responsive<Gap>;
     inline?: boolean;
     textAlign?: "left" | "right" | "center";
     justifyContent?:
@@ -41,16 +60,7 @@ type FlexBaseProps = {
         | "space-between"
         | "space-around"
         | "space-evenly";
-    layout?:
-        | Layout
-        | {
-              xs?: Layout;
-              s?: Layout;
-              m?: Layout;
-              l?: Layout;
-              xl?: Layout;
-              xxl?: Layout;
-          };
+    layout?: Layout | Responsive<Layout>;
     wrap?: "wrap" | "nowrap" | "reverse";
 };
 

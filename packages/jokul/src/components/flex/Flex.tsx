@@ -1,8 +1,14 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
-import type { FlexComponent, FlexProps } from "./types.js";
 import { SlotComponent } from "../../utilities/index.js";
+import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import {
+    type Breakpoint,
+    type FlexComponent,
+    type FlexProps,
+    type Responsive,
+    isResponsive,
+} from "./types.js";
 
 export const Flex = forwardRef(function Flex<
     ElementType extends React.ElementType = "div",
@@ -21,18 +27,20 @@ export const Flex = forwardRef(function Flex<
         justifyContent,
         layout = {},
         textAlign,
-        wrap = "wrap",
+        wrap = "nowrap",
         ...rest
     } = props;
 
     const Tag = asChild ? SlotComponent : as;
-    const gaps = toObj(gap).flatMap(([breakpoint, gap]) => {
+    const gaps = toObjectEntries(gap).flatMap(([breakpoint, gap]) => {
         const [row, col = row] = gap.trim().split(" ");
-        return [`${breakpoint}-row-gap-${row}`, `${breakpoint}-col-gap-${col}`];
+        return [
+            `screen-${breakpoint}-row-gap-${row}`,
+            `screen-${breakpoint}-col-gap-${col}`,
+        ];
     });
-    const layouts = toObj(layout).map(
-        ([breakpoint, layout]) =>
-            `${breakpoint}-${Number(`${layout}`.replace("auto", "0"))}`, // Convert to number to convert 2.10 to 2.1 and false to 0
+    const layouts = toObjectEntries(layout).map(
+        ([breakpoint, layout]) => `screen-${breakpoint}-${layout}`, // Convert to number to convert 2.10 to 2.1 and false to 0
     );
 
     return (
@@ -42,14 +50,13 @@ export const Flex = forwardRef(function Flex<
                 "jkl-flex",
                 !alignItems || `align-items-${alignItems}`,
                 !alignContent || `align-content-${alignContent}`,
-                !center || `center-${center === true ? "xxl" : center}`,
+                !center || `center-${center === true ? "2xl" : center}`,
                 !fill || "fill",
                 !inline || "inline-flex",
                 !justifyContent || `justify-content-${justifyContent}`,
                 !textAlign || `text-align-${textAlign}`,
                 !wrap || `flex-wrap-${wrap}`,
                 !direction || `flex-direction-${direction}`,
-                "flex",
                 ...gaps,
                 ...layouts,
                 className,
@@ -59,5 +66,18 @@ export const Flex = forwardRef(function Flex<
     );
 }) as FlexComponent; // Needed to tell Typescript this does not return ReactNode but acutally JSX.Element
 
-const toObj = (value: string | number | object) =>
-    Object.entries(typeof value === "object" ? value : { xs: value });
+/**
+ * Gjør en enkeltstående eller responsiv verdi om til et nøstet array,
+ * der hvert indre array inneholder et breakpoint med tilhørende verdi.
+ * @example `{ small: "12", large: "64" }` -> `[["small", "12"], ["large", "64"]]`
+ * @example `"24"` -> `[["small", "24"]]`
+ * @param value enkeltstående eller responsiv verdi
+ * @returns nøstet array med breakpoints og verdier
+ */
+function toObjectEntries<T>(value: T | Responsive<T>): [Breakpoint, T][] {
+    if (isResponsive(value)) {
+        return Object.entries(value) as [Breakpoint, T][];
+    }
+
+    return [["small", value]];
+}

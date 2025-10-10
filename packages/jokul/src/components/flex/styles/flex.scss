@@ -1,43 +1,25 @@
 @charset "UTF-8";
-@use "../../../core/jkl/" as jkl;
 @use "sass:math";
 @use "sass:map";
+@use "../../../core/jkl";
 
-/* ==========================================================================
-   1. Konfigurasjon
-   ========================================================================== */
+// ==========================================================================
+// 1. Konfigurasjon
+// ==========================================================================
 
 // Angir globale CSS custom properties for maksimale container-bredder.
-:root {
-    --container-m: 43.75rem;
-    --container-l: 60rem;
-    --container-xl: 75rem;
-    --container-xxl: 90rem;
-    --container-full: 100%;
+@layer jokul.components {
+    :root {
+        --container-m: 43.75rem;
+        --container-l: 60rem;
+        --container-xl: 75rem;
+        --container-2xl: 90rem;
+        --container-full: 100%;
+    }
 }
 
-// Definerer responsive breakpoints som brukes for media queries.
-$breakpoints: (
-    "xs": 0,
-    "s": 37.5em,
-    "m": 50em,
-    "l": 64em,
-    "xl": 75em,
-    "xxl": 101.25em,
-);
-
-// Map for å generere `gap`-klasser.
-// Verdiene tilsvarer våre unit-variabler.
-$gap-values: (
-    "none",
-    "xxs",
-    "xs",
-    's',
-    "m",
-    "l",
-    "xl",
-    "xxl"
-);
+$jokul-breakpoints: map.get(jkl.$tokens, "breakpoint");
+$jokul-spacing: map.get(jkl.$tokens, "semantic-spacing");
 
 // Map for å generere klasser for uniforme (jevnt fordelte) kolonner.
 // Nøkkelen (key) representerer antall elementer, og verdien (value) er hvor mange
@@ -113,7 +95,23 @@ $utility-classes: (
     ),
 );
 
-// Generell mixin som itererer gjennom `$utility-classes` for å lage hjelpeklasser.
+// Map som definerer maksimale bredder for sentrerte containere (`.center-*`).
+// Brukes til å generere responsive breddebegrensninger.
+$containers: (
+    "small": var(--container-m),
+    "medium": var(--container-l),
+    "large": var(--container-xl),
+    "xl": var(--container-2xl),
+);
+
+// ==========================================================================
+// 2. Verktøy (Mixins)
+// ==========================================================================
+
+/// Mixin som genererer hjelpeklasser for de forskjellige egenskapene et
+/// flex-element kan ha. For eksempel vil man for `align-items`-egenskapen
+/// få generert ut hjelpeklasser som `.align-items-end`.
+/// @output Hjelpeklasser for de vanligste flex-egenskapene
 @mixin generate-utility-classes() {
     @each $property, $values in $utility-classes {
         @each $value in $values {
@@ -124,29 +122,15 @@ $utility-classes: (
     }
 }
 
-// Map som definerer maksimale bredder for sentrerte containere (`.center-*`).
-// Brukes til å generere responsive breddebegrensninger.
-$containers: (
-    "m": var(--container-m),
-    "l": var(--container-l),
-    "xl": var(--container-xl),
-    "xxl": var(--container-xxl),
-);
-
-/* ==========================================================================
-   2. Verktøy (Mixins)
-   ========================================================================== */
-
 // Mixin for å generere responsive layout-klasser basert på $asymmetric-layouts og $uniform-layouts.
-@mixin generate-layout-classes($prefix) {
+@mixin generate-layout-classes($breakpoint) {
 
     // --- Asymmetriske layouts ---
     // Genererer klasser for layouts der oddetalls- og partalls-elementer har ulik bredde.
-    @each $class-suffix, $odd-child-columns in $asymmetric-layouts {
+    @each $layout, $odd-child-columns in $asymmetric-layouts {
         $even-child-columns: 12 - $odd-child-columns;
 
-        .#{$prefix}-#{$class-suffix} {
-
+        .screen-#{$breakpoint}-#{$layout} {
             > :where(:nth-child(odd)) {
                 --jkl-flex-layout: #{$odd-child-columns};
             }
@@ -160,7 +144,7 @@ $containers: (
     // --- Uniforme layouts ---
     // Genererer klasser for layouts der alle elementer har lik bredde.
     @each $layout, $value in $uniform-layouts {
-        .#{$prefix}-#{$layout} > * {
+        .screen-#{$breakpoint}-#{$layout} > * {
             --jkl-flex-layout: #{$value};
         }
     }
@@ -168,97 +152,101 @@ $containers: (
 
 
 // Mixin for å generere klasser for `row-gap` og `column-gap`.
-@mixin generate-gap-classes($prefix) {
-    @each $gap in $gap-values {
-        .#{$prefix}-row-gap-#{$gap} {
-            row-gap: var(--jkl-spacing-#{$gap});
+@mixin generate-gap-classes($breakpoint) {
+    @each $spacing, $value in $jokul-spacing {
+        .screen-#{$breakpoint}-row-gap-#{$spacing} {
+            row-gap: var(--jkl-spacing-#{$spacing});
         }
 
-        .#{$prefix}-col-gap-#{$gap} {
-            column-gap: var(--jkl-spacing-#{$gap});
+        .screen-#{$breakpoint}-col-gap-#{$spacing} {
+            column-gap: var(--jkl-spacing-#{$spacing});
 
             // Setter en custom property for å kunne kalkulere nøyaktig kolonnebredde
             // i `flex-basis`, justert for `column-gap`.
             & > * {
-                --jkl-flex-gap: var(--jkl-spacing-#{$gap});
+                --jkl-flex-gap: var(--jkl-spacing-#{$spacing});
             }
         }
     }
 }
 
-/* ==========================================================================
-   3. Kjernestiler
-   ========================================================================== */
+// ==========================================================================
+// 3. Kjernestiler
+// ==========================================================================
 
-// Basisstil for alle flex-containere.
-:is(.flex) {
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+@layer jokul.components {
+
+    // Basisstil for alle flex-containere.
+    :is(.jkl-flex) {
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    // Sørger for at direkte barn av .fill-elementer fyller tilgjengelig plass.
+    // :where brukes for å holde spesifisiteten lav.
+    :where(.fill > *) {
+        flex-grow: 1;
+    }
+
+    // Definerer standardoppførsel for alle direkte elementer av en `.flex`-container.
+    :where(.jkl-flex > *) {
+        --jkl-flex-gap: 0px; // Standard gap er null.
+        --jkl-flex-layout: auto; // Standard layout er automatisk bredde.
+
+        box-sizing: border-box;
+
+        // Kalkulerer `flex-basis` for å lage et grid-system som tar hensyn til `gap`.
+        // Formelen fordeler bredden basert på antall kolonner definert av `--jkl-flex-layout`.
+        flex-basis: calc((100% - (12 / var(--jkl-flex-layout) - 1) * var(--jkl-flex-gap)) / 12 * var(--jkl-flex-layout));
+
+        // Sørger for at elementene kan krympe, for å unngå at de flyter ut av containeren.
+        min-width: calc(var(--jkl-flex-layout) * 0px);
+        min-height: calc(var(--jkl-flex-layout) * 0px);
+    }
+
+    // Hindrer at elementer krymper når `flex-wrap: nowrap` er satt.
+    :where(.wrap-nowrap > *) {
+        flex-shrink: calc(var(--jkl-flex-layout) * 0);
+    }
 }
 
-// Sørger for at direkte barn av .fill-elementer fyller tilgjengelig plass.
-// :where brukes for å holde spesifisiteten lav.
-:where(.fill > *) {
-    flex-grow: 1;
-}
+// ==========================================================================
+// 4. CSS-generering
+// ==========================================================================
 
-// Definerer standardoppførsel for alle direkte elementer av en `.flex`-container.
-:where(.flex > *) {
-    --jkl-flex-gap: 0px; // Standard gap er null.
-    --jkl-flex-layout: auto; // Standard layout er automatisk bredde.
+@layer jokul.components {
+    @include generate-utility-classes;
 
-    box-sizing: border-box;
+    // Stiler for sentrerte containere.
+    :is(.center-m, .center-l, .center-xl, .center-2xl) {
+        box-sizing: border-box;
+        margin-inline: auto;
+        width: calc(100% - var(--jkl-unit-50));
+    }
 
-    // Kalkulerer `flex-basis` for å lage et grid-system som tar hensyn til `gap`.
-    // Formelen fordeler bredden basert på antall kolonner definert av `--jkl-flex-layout`.
-    flex-basis: calc((100% - (12 / var(--jkl-flex-layout) - 1) * var(--jkl-flex-gap)) / 12 * var(--jkl-flex-layout));
-
-    // Sørger for at elementene kan krympe, for å unngå at de flyter ut av containeren.
-    min-width: calc(var(--jkl-flex-layout) * 0px);
-    min-height: calc(var(--jkl-flex-layout) * 0px);
-}
-
-// Hindrer at elementer krymper når `flex-wrap: nowrap` er satt.
-:where(.wrap-nowrap > *) {
-    flex-shrink: calc(var(--jkl-flex-layout) * 0);
-}
-
-/* ==========================================================================
-   4. CSS-generering
-   ========================================================================== */
-
-@include generate-utility-classes();
-
-// Stiler for sentrerte containere.
-:is(.center-m, .center-l, .center-xl, .center-xxl) {
-    box-sizing: border-box;
-    margin-inline: auto;
-    width: calc(100% - var(--jkl-unit-50));
-}
-
-// Genererer responsive `max-width` for hver container-størrelse.
-@each $size, $width in $containers {
-    @media (width >=#{map.get($breakpoints, $size)}) {
-        .center-#{$size} {
-            max-width: $width;
+    // Genererer responsive `max-width` for hver container-størrelse.
+    @each $size, $width in $containers {
+        @media (width >=#{map.get($jokul-breakpoints, $size)}) {
+            .center-#{$size} {
+                max-width: $width;
+            }
         }
     }
-}
 
-// Itererer gjennom alle definerte breakpoints for å generere responsive layout- og gap-klasser.
-@each $name, $width in $breakpoints {
-    @if $name =="xs" {
-        @include generate-layout-classes($name);
-        @include generate-gap-classes($name);
-    }
+    // Itererer gjennom alle definerte breakpoints for å generere responsive layout- og gap-klasser.
+    @each $breakpoint, $width in $jokul-breakpoints {
+        @if $breakpoint =="small" {
+            @include generate-layout-classes($breakpoint);
+            @include generate-gap-classes($breakpoint);
+        }
 
-    @else {
-
-        @media (width >=#{$width}) {
-            @include generate-layout-classes($name);
-            @include generate-gap-classes($name);
+        @else {
+            @media (width >=#{$width}) {
+                @include generate-layout-classes($breakpoint);
+                @include generate-gap-classes($breakpoint);
+            }
         }
     }
 }
