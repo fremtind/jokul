@@ -31,7 +31,19 @@ export const blogPost = defineType({
             type: "text",
             rows: 2,
         }),
-
+        defineField({
+            name: "category",
+            title: "Kategori",
+            type: "string",
+            options: {
+                list: [
+                    "Release notes",
+                    "Blogg",
+                    "Kom i gang",
+                    "Referat",
+                ].sort(),
+            },
+        }),
         defineField({
             name: "article",
             title: "Artikkel",
