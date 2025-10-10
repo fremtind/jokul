@@ -23,7 +23,7 @@ import type { Consent, CookieConsentProps } from "./types.js";
 export const CookieConsent = ({
     blocking,
     onAccept,
-    aboutPage,
+    aboutPage = "https://www.fremtind.no/informasjonskapsler",
     ...rest
 }: CookieConsentProps): JSX.Element | null => {
     const {
@@ -72,7 +72,6 @@ export const CookieConsent = ({
         if (onAccept) {
             onAccept({
                 functional: "denied",
-                marketing: "denied",
                 statistics: "denied",
             });
         }
@@ -85,7 +84,6 @@ export const CookieConsent = ({
             {
                 functional: true,
                 statistics: true,
-                marketing: true,
             },
             requirement,
         ),
@@ -124,7 +122,6 @@ export const CookieConsent = ({
             {
                 functional: formData.get("functional") === "true",
                 statistics: formData.get("statistics") === "true",
-                marketing: formData.get("marketing") === "true",
             },
             requirement,
         );
@@ -155,7 +152,7 @@ export const CookieConsent = ({
                                 brukervennlige.
                             </p>
                             <p>
-                                <Link href={aboutPage}>
+                                <Link href={aboutPage} target="_blank">
                                     Les mer om hvilke informasjonskapsler vi
                                     lagrer her
                                 </Link>

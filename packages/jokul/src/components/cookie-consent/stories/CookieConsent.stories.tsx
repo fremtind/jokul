@@ -16,13 +16,12 @@ const meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
     args: {
         cookieName: "demo-consent-cookie",
         functional: true,
         statistics: true,
-        marketing: true,
     },
+    tags: ["autodocs"],
 } satisfies Meta<typeof CookieConsentProvider>;
 
 export default meta;
@@ -45,7 +44,7 @@ export const CookieConsent: Story = {
     args: {
         children: (
             <Wrapper>
-                <CookieConsentComponent aboutPage="." />
+                <CookieConsentComponent aboutPage="https://www.fremtind.no/informasjonskapsler" />
             </Wrapper>
         ),
     },
