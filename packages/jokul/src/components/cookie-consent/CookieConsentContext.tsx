@@ -17,7 +17,6 @@ const Context = React.createContext<InternalContext | undefined>(undefined);
 export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     children,
     cookieAdapter,
-    marketing,
     functional,
     statistics,
     cookieName = DEFAULT_COOKIE_NAME,
@@ -27,8 +26,8 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     const [timestamp, setTimestamp] = useState(() => Date.now());
 
     const requirement = useMemo(
-        () => buildRequirementsObject({ marketing, functional, statistics }),
-        [marketing, functional, statistics],
+        () => buildRequirementsObject({ functional, statistics }),
+        [functional, statistics],
     );
 
     /* Use timestamp as a dependency to be able to force re-reading of cookie */
@@ -36,7 +35,6 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     const consentCookie = useMemo(() => {
         return (
             getConsentCookie({ adapter: cookieAdapter, name: cookieName }) ?? {
-                marketing: null,
                 functional: null,
                 statistics: null,
             }

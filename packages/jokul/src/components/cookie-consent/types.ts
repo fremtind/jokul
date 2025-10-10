@@ -5,7 +5,6 @@ export type ConsentState = null | "denied" | "accepted";
 export type ConsentRequirement = Partial<Record<keyof Consent, boolean>>;
 
 export type Consent = {
-    marketing?: ConsentState;
     functional?: ConsentState;
     statistics?: ConsentState;
 };
@@ -13,10 +12,6 @@ export type Consent = {
 export interface CookieConsentProps {
     blocking?: boolean;
     onAccept?: AcceptConsentCallback;
-    /**
-     * Lenke til informasjonssiden til cookiene i løsningen din.
-     */
-    aboutPage: string;
 }
 
 export type AcceptConsentCallback = (consent: Consent) => void;

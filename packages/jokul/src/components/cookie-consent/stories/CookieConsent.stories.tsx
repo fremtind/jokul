@@ -21,7 +21,6 @@ const meta = {
         cookieName: "demo-consent-cookie",
         functional: true,
         statistics: true,
-        marketing: true,
     },
 } satisfies Meta<typeof CookieConsentProvider>;
 
@@ -45,7 +44,7 @@ export const CookieConsent: Story = {
     args: {
         children: (
             <Wrapper>
-                <CookieConsentComponent aboutPage="." />
+                <CookieConsentComponent />
             </Wrapper>
         ),
     },

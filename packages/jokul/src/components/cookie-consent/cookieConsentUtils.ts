@@ -126,19 +126,14 @@ export const convertBooleanConsentObjectToConsentObject = (
         statistics: requirement.statistics
             ? convertBooleanToConsentValue(consent.statistics)
             : undefined,
-        marketing: requirement.marketing
-            ? convertBooleanToConsentValue(consent.marketing)
-            : undefined,
     };
 };
 
 export const buildRequirementsObject = ({
-    marketing,
     functional,
     statistics,
 }: ConsentRequirement) => {
     return {
-        ...(marketing && { marketing }),
         ...(functional && { functional }),
         ...(statistics && { statistics }),
     };
