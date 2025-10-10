@@ -62,7 +62,7 @@ function ToastUsageExample() {
     const [keys, setKeys] = useState<string[]>([]);
 
     return (
-        <Flex direction="column" rowGap={24}>
+        <Flex direction="column" gap="m">
             <PrimaryButton
                 onClick={() => {
                     const [content, options] =
