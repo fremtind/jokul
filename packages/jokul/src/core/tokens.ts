@@ -3,7 +3,7 @@
  */
 
 export default {
-    breakpoint: { medium: "680px", large: "1200px", xl: "1600px" },
+    breakpoint: { small: "0", medium: "680px", large: "1200px", xl: "1600px" },
     color: {
         brand: {
             snohvit: "#F9F9F9",
@@ -73,7 +73,13 @@ export default {
         },
     },
     motion: {
-        timing: { energetic: "75ms", snappy: "100ms", productive: "150ms", expressive: "250ms", lazy: "400ms" },
+        timing: {
+            energetic: "75ms",
+            snappy: "100ms",
+            productive: "150ms",
+            expressive: "250ms",
+            lazy: "400ms",
+        },
         easing: {
             standard: "ease",
             entrance: "ease-out",
@@ -95,6 +101,16 @@ export default {
         64: "4rem",
         104: "6.5rem",
         168: "10.5rem",
+    },
+    semanticSpacing: {
+        none: "0",
+        "2xs": "0.25rem",
+        xs: "0.5rem",
+        s: "1rem",
+        m: "1.5rem",
+        l: "2.5rem",
+        xl: "4rem",
+        "2xl": "6.5rem",
     },
     icon: { weight: { normal: "300", bold: "400" } },
     typography: {
@@ -128,39 +144,99 @@ export default {
             },
         },
         title: {
-            small: { fontSize: "2.25rem", lineHeight: "2.75rem", fontWeight: "400" },
+            small: {
+                fontSize: "2.25rem",
+                lineHeight: "2.75rem",
+                fontWeight: "400",
+            },
             base: { fontSize: "3.5rem", lineHeight: "4rem", fontWeight: "400" },
         },
         titleSmall: {
-            small: { fontSize: "1.875rem", lineHeight: "2.25rem", fontWeight: "400" },
-            base: { fontSize: "2.75rem", lineHeight: "3.25rem", fontWeight: "400" },
+            small: {
+                fontSize: "1.875rem",
+                lineHeight: "2.25rem",
+                fontWeight: "400",
+            },
+            base: {
+                fontSize: "2.75rem",
+                lineHeight: "3.25rem",
+                fontWeight: "400",
+            },
         },
         heading_1: {
-            small: { fontSize: "1.625rem", lineHeight: "2rem", fontWeight: "400" },
-            base: { fontSize: "2.25rem", lineHeight: "2.75rem", fontWeight: "400" },
+            small: {
+                fontSize: "1.625rem",
+                lineHeight: "2rem",
+                fontWeight: "400",
+            },
+            base: {
+                fontSize: "2.25rem",
+                lineHeight: "2.75rem",
+                fontWeight: "400",
+            },
         },
         heading_2: {
-            small: { fontSize: "1.4375rem", lineHeight: "2rem", fontWeight: "400" },
-            base: { fontSize: "1.75rem", lineHeight: "2.5rem", fontWeight: "400" },
+            small: {
+                fontSize: "1.4375rem",
+                lineHeight: "2rem",
+                fontWeight: "400",
+            },
+            base: {
+                fontSize: "1.75rem",
+                lineHeight: "2.5rem",
+                fontWeight: "400",
+            },
         },
         heading_3: {
-            small: { fontSize: "1.3125rem", lineHeight: "1.75rem", fontWeight: "700" },
-            base: { fontSize: "1.5625rem", lineHeight: "2rem", fontWeight: "700" },
+            small: {
+                fontSize: "1.3125rem",
+                lineHeight: "1.75rem",
+                fontWeight: "700",
+            },
+            base: {
+                fontSize: "1.5625rem",
+                lineHeight: "2rem",
+                fontWeight: "700",
+            },
         },
         heading_4: {
-            small: { fontSize: "1.125rem", lineHeight: "1.5rem", fontWeight: "700" },
-            base: { fontSize: "1.3125rem", lineHeight: "1.75rem", fontWeight: "700" },
+            small: {
+                fontSize: "1.125rem",
+                lineHeight: "1.5rem",
+                fontWeight: "700",
+            },
+            base: {
+                fontSize: "1.3125rem",
+                lineHeight: "1.75rem",
+                fontWeight: "700",
+            },
         },
         heading_5: {
-            small: { fontSize: "1rem", lineHeight: "1.5rem", fontWeight: "700" },
+            small: {
+                fontSize: "1rem",
+                lineHeight: "1.5rem",
+                fontWeight: "700",
+            },
             base: { fontSize: "1rem", lineHeight: "1.5rem", fontWeight: "700" },
         },
         body: {
-            small: { fontSize: "1.125rem", lineHeight: "1.75rem", fontWeight: "400" },
-            base: { fontSize: "1.25rem", lineHeight: "2rem", fontWeight: "400" },
+            small: {
+                fontSize: "1.125rem",
+                lineHeight: "1.75rem",
+                fontWeight: "400",
+            },
+            base: {
+                fontSize: "1.25rem",
+                lineHeight: "2rem",
+                fontWeight: "400",
+            },
         },
         small: {
-            small: { fontSize: "1rem", lineHeight: "1.5rem", fontWeight: "400" },
+            small: {
+                fontSize: "1rem",
+                lineHeight: "1.5rem",
+                fontWeight: "400",
+            },
             base: { fontSize: "1rem", lineHeight: "1.5rem", fontWeight: "400" },
         },
     },

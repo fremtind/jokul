@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "./legacy-tokens" as *;
+@use "./legacy" as *;
 
 /// @type Color
 $color-focus-color: $color-granitt;

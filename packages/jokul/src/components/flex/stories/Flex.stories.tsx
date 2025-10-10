@@ -1,11 +1,23 @@
 import type { Meta, StoryFn, StoryObj } from "@storybook/react";
 import React from "react";
+import tokens from "../../../core/tokens.js";
 import { Flex } from "../Flex.js";
+import { LAYOUTS } from "../types.js";
+
 import "../styles/_index.scss";
+
+const spacingSteps = Object.keys(tokens.semanticSpacing);
+const gapValues = spacingSteps.flatMap((step) => [
+    step,
+    ...spacingSteps
+        .filter((otherStep) => step !== otherStep)
+        .map((otherStep) => `${step} ${otherStep}`),
+]);
 
 const meta = {
     title: "Komponenter/Flex",
     component: Flex,
+    tags: ["autodocs"],
     argTypes: {
         children: {
             description: "`React.ReactNode`",
@@ -13,97 +25,43 @@ const meta = {
         layout: {
             control: "select",
             options: [
-                "auto",
-                1,
-                2,
-                3,
-                4,
-                6,
-                4.8,
-                8.4,
-                "2.10",
-                10.2,
-                3.9,
-                9.3,
-                5.7,
-                7.5,
-                "{ xs: 1, m: 2, l: 4 }",
-                '{ xs: 1, m: "auto" }',
+                ...LAYOUTS,
+                "{ small: '1', medium: '2', large: '4' }",
+                '{ small: "1", medium: "auto" }',
             ],
             mapping: {
-                "{ xs: 1, m: 2, l: 4 }": { xs: 1, m: 2, l: 4 },
-                '{ xs: 1, m: "auto" }': { xs: 1, m: "auto" },
+                "{ small: '1', medium: '2', large: '4' }": {
+                    small: "1",
+                    medium: "2",
+                    large: "4",
+                },
+                '{ small: "1", medium: "auto" }': {
+                    small: "1",
+                    medium: "auto",
+                },
             },
             description: `Sets layout for items per row.
             Layouts with equal width is named to correlate with the count of items you want per row, as this gives a consistent experience when nesting.
             Layouts with uneven width, is named based on a 12-column grid to correlate with how designers work in Figma.
             \nAccepts both a single value \`layout="2"\` or a object to specify different values for different breakpoints (all breakpoints are optional):
-            \`layout={{ xs: 1, m: 2, l: 4 }}\`.
+            \`layout={{ small: "1", medium: "2", large: "4" }}\`.
         `,
         },
         gap: {
             control: "select",
-            options: [
-                "none",
-                "xs",
-                "s",
-                "m",
-                "l",
-                "xl",
-                "xxl",
-                "xxl xl",
-                "xxl l",
-                "xxl m",
-                "xxl s",
-                "xxl xs",
-                "xxl none",
-                "xl xxl",
-                "xl l",
-                "xl m",
-                "xl s",
-                "xl xs",
-                "xl none",
-                "l xxl",
-                "l xl",
-                "l m",
-                "l s",
-                "l xs",
-                "l none",
-                "m xxl",
-                "m xl",
-                "m l",
-                "m s",
-                "m xs",
-                "m none",
-                "s xxl",
-                "s xl",
-                "s l",
-                "s m",
-                "s xs",
-                "s none",
-                "xs xxl",
-                "xs xl",
-                "xs l",
-                "xs m",
-                "xs s",
-                "xs none",
-                "none xxl",
-                "none xl",
-                "none l",
-                "none m",
-                "none s",
-                "none xs",
-                `{ xs: 'none', m: 'xl' }`,
-            ],
+            options: [...gapValues, `{ small: 'none', medium: 'xl' }`],
             mapping: {
-                [`{ xs: 'none', m: 'xl' }`]: { xs: "none", m: "s xl" },
+                "{ small: 'none', medium: 'xl' }": {
+                    small: "none",
+                    medium: "xl",
+                },
             },
             description: `Gap can be one of predefined constants. Also accepts two values separated by whitespace to specifiy different row and colum gap.
             For example \`gap="l m"\` will cause \`l\` row gap, and \`m\` column gap.
-            \nThe gap sizes are \`xs\` (\`unit-10\` / \`8px\`), \`s\` (\`unit-20\` / \`16px\`), \`m\` (\`unit-30\` / \`24px\`), \`l\` (\`unit-40\` / \`32px\`), \`xl\` (\`unit-50\` / \`40px\`), \`xxl\` (\`unit-100\` / \`80px\`).
+            \nThe gap sizes are \`2xs\` (\`unit-05\` / \`4px\`), \`xs\` (\`unit-10\` / \`8px\`), \`s\` (\`unit-20\` / \`16px\`), \`m\` (\`unit-30\` / \`24px\`), \`l\` (\`unit-40\` / \`32px\`), \`xl\` (\`unit-80\` / \`64px\`), \`2xl\` (\`unit-130\` / \`104px\`).
             \nAccepts both a single value \`gap="m"\` or a object to specify different values for different breakpoints (all breakpoints are optional):
             \`gap={{ xs: 'none', m: 'l' }}\`.`,
-            table: { defaultValue: { summary: "'m'" } },
+            table: { defaultValue: { summary: "16" } },
         },
         direction: {
             control: "inline-radio",
@@ -124,25 +82,17 @@ const meta = {
             control: "select",
             description:
                 "Center the `<Flex>` and add outer padding left and right",
-            options: [false, true, "xxl", "xl", "l", "m"],
+            options: [false, true, "2xl", "xl", "l", "m"],
             table: { defaultValue: { summary: "false" } },
         },
-        align: {
-            control: "inline-radio",
-            options: [
-                "normal",
-                "start",
-                "center",
-                "end",
-                "baseline",
-                "stretch",
-            ],
+        alignItems: {
+            control: "select",
+            options: ["start", "center", "end", "baseline", "stretch"],
             description: "Change `align-items`",
         },
         alignContent: {
-            control: "inline-radio",
+            control: "select",
             options: [
-                "normal",
                 "start",
                 "center",
                 "end",
@@ -154,10 +104,9 @@ const meta = {
             ],
             description: "Change `align-content`",
         },
-        justify: {
-            control: "inline-radio",
+        justifyContent: {
+            control: "select",
             options: [
-                "normal",
                 "start",
                 "center",
                 "end",
@@ -167,7 +116,7 @@ const meta = {
             ],
             description: "Change `justify-content`",
         },
-        text: {
+        textAlign: {
             control: "inline-radio",
             options: ["left", "center", "right"],
             description: "Change `text-align`",
@@ -196,17 +145,13 @@ const meta = {
         gap: "m",
         center: false,
         fill: false,
-        align: "normal",
+        alignItems: "normal",
         alignContent: "normal",
-        justify: "normal",
+        justifyContent: "normal",
         direction: "row",
         inline: false,
         wrap: "wrap",
         asChild: true,
-    },
-    parameters: {
-        tag: "Containers",
-        figma: "",
     },
 } satisfies Meta<typeof Flex>;
 
@@ -233,8 +178,8 @@ export const Default: Story = {
     decorators,
     args: {
         center: "m",
-        layout: 6,
-        gap: "xl",
+        layout: "6",
+        gap: "m",
         children: null,
     },
     render({ asChild, ...args }) {
@@ -267,8 +212,8 @@ export const Responsive: Story = {
             <>
                 <Flex
                     {...props}
-                    layout={{ xs: 1, s: 2, m: 3, l: 4, xl: 6 }}
-                    gap={{ xs: "none", s: "s", m: "m", l: "xl" }}
+                    layout={{ small: "1", medium: "2", large: "3", xl: "4" }}
+                    gap={{ small: "none", medium: "s", large: "m", xl: "l" }}
                 >
                     <div>Child 1</div>
                     <div>Child 2</div>
@@ -279,8 +224,13 @@ export const Responsive: Story = {
                 </Flex>
                 <Flex
                     {...props}
-                    layout={{ xs: 1, s: 7.5, m: 8.4, l: 2 }}
-                    gap={{ xs: "none", s: "s", m: "m", l: "xl" }}
+                    layout={{
+                        small: "1",
+                        medium: "7.5",
+                        large: "8.4",
+                        xl: "2",
+                    }}
+                    gap={{ medium: "none s", large: "s m", xl: "m xl" }}
                 >
                     <div>Child even and uneven widths 1</div>
                     <div>Child even and uneven widths 2</div>
@@ -289,7 +239,7 @@ export const Responsive: Story = {
                     Resize browser to see how the layout changes, based on this
                     setup:
                     <pre>
-                        {`<Flex\n  layout={{ xs: 1, s: 2, m: 3, l: 4, xl: 6 }}\n  gap={{ xs: 'none', s: 's', m: 'm', l: 'xl' }}\n>`}
+                        {`<Flex\n  layout={{ small: 1, medium: 2, large: 3, xl: 4 }}\n  gap={{ small: 'none', medium: 's', large: 'm', xl: 'l' }}\n>`}
                     </pre>
                 </span>
             </>
@@ -333,7 +283,7 @@ export const Nested: Story = {
 export const Fill: Story = {
     decorators,
     args: {
-        layout: 3,
+        layout: "3",
         children: null,
     },
     render({ asChild, ...props }) {
@@ -394,7 +344,7 @@ export const Center: Story = {
     args: {
         center: true,
         gap: "l",
-        layout: 1,
+        layout: "1",
         children: null,
     },
     render({ asChild, ...props }) {
@@ -408,7 +358,7 @@ export const Center: Story = {
                     <div>5</div>
                     <div>6</div>
                 </Flex>
-                <Flex {...props} center="xxl">
+                <Flex {...props} center="2xl">
                     <div>
                         <code>
                             &lt;Flex center&gt; | &lt;Flex

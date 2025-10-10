@@ -12,5 +12,15 @@
         "64": { "value": "4rem" },
         "104": { "value": "6.5rem" },
         "168": { "value": "10.5rem" }
+    },
+    "semantic-spacing": {
+        "none": { "value": "0", "type": "spacing" },
+        "2xs": { "value": "{spacing.4}", "type": "spacing" },
+        "xs": { "value": "{spacing.8}", "type": "spacing" },
+        "s": { "value": "{spacing.16}", "type": "spacing" },
+        "m": { "value": "{spacing.24}", "type": "spacing" },
+        "l": { "value": "{spacing.40}", "type": "spacing" },
+        "xl": { "value": "{spacing.64}", "type": "spacing" },
+        "2xl": { "value": "{spacing.104}", "type": "spacing" }
     }
 }

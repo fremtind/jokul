@@ -1,0 +1,396 @@
+
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+$breakpoint-small: 0 !default;
+$breakpoint-medium: 680px !default;
+$breakpoint-large: 1200px !default;
+$breakpoint-xl: 1600px !default;
+$color-brand-snohvit: #F9F9F9 !default;
+$color-brand-varde: #E0DBD4 !default;
+$color-brand-granitt: #1B1917 !default;
+$color-brand-hvit: #FFFFFF !default;
+$color-brand-svart: #000000 !default;
+$color-brand-skifer: #313030 !default;
+$color-brand-fjellgra: #444141 !default;
+$color-brand-stein: #636060 !default;
+$color-brand-svaberg: #C8C5C3 !default;
+$color-brand-dis: #ECE9E5 !default;
+$color-brand-sand: #F4F2EF !default;
+$color-functional-info: #D3D3F6 !default;
+$color-functional-info-dark: #A9A9CA !default;
+$color-functional-success: #ACD3B5 !default;
+$color-functional-success-dark: #94B79B !default;
+$color-functional-warning: #EFDD9E !default;
+$color-functional-warning-dark: #DECC8D !default;
+$color-functional-error: #F6B3B3 !default;
+$color-functional-error-dark: #DE9E9E !default;
+$color-svart: #000 !default;
+$color-granitt: #1b1917 !default;
+$color-skifer: #313030 !default;
+$color-fjellgra: #444141 !default;
+$color-stein: #636060 !default;
+$color-svaberg: #c8c5c3 !default;
+$color-varde: #e0dbd4 !default;
+$color-dis: #ece9e5 !default;
+$color-sand: #f4f2ef !default;
+$color-snohvit: #f9f9f9 !default;
+$color-hvit: #fff !default;
+$color-suksess: #acd3b5 !default;
+$color-suksess-dark: #94b79b !default;
+$color-feil: #f6b3b3 !default;
+$color-feil-dark: #de9e9e !default;
+$color-info: #d3d3f6 !default;
+$color-info-dark: #a9a9ca !default;
+$color-advarsel: #efdd9e !default;
+$color-advarsel-dark: #decc8d !default;
+$motion-timing-energetic: 75ms !default;
+$motion-timing-snappy: 100ms !default;
+$motion-timing-productive: 150ms !default;
+$motion-timing-expressive: 250ms !default;
+$motion-timing-lazy: 400ms !default;
+$motion-easing-standard: ease !default;
+$motion-easing-entrance: ease-out !default;
+$motion-easing-exit: ease-in !default;
+$motion-easing-ease-in-bounce-out: cubic-bezier(0, 0, 0.375, 1.17) !default;
+$motion-easing-focus: cubic-bezier(0.6, 0.2, 0.35, 1) !default;
+$spacing-0: 0rem !default;
+$spacing-2: 0.125rem !default;
+$spacing-4: 0.25rem !default;
+$spacing-8: 0.5rem !default;
+$spacing-12: 0.75rem !default;
+$spacing-16: 1rem !default;
+$spacing-24: 1.5rem !default;
+$spacing-32: 2rem !default;
+$spacing-40: 2.5rem !default;
+$spacing-64: 4rem !default;
+$spacing-104: 6.5rem !default;
+$spacing-168: 10.5rem !default;
+$semantic-spacing-none: 0 !default;
+$semantic-spacing-2xs: 0.25rem !default;
+$semantic-spacing-xs: 0.5rem !default;
+$semantic-spacing-s: 1rem !default;
+$semantic-spacing-m: 1.5rem !default;
+$semantic-spacing-l: 2.5rem !default;
+$semantic-spacing-xl: 4rem !default;
+$semantic-spacing-2xl: 6.5rem !default;
+$icon-weight-normal: 300 !default;
+$icon-weight-bold: 400 !default;
+$typography-weight-normal: 400 !default;
+$typography-weight-bold: 700 !default;
+$typography-font-size-16: 1rem !default;
+$typography-font-size-18: 1.125rem !default;
+$typography-font-size-20: 1.25rem !default;
+$typography-font-size-21: 1.3125rem !default;
+$typography-font-size-23: 1.4375rem !default;
+$typography-font-size-25: 1.5625rem !default;
+$typography-font-size-26: 1.625rem !default;
+$typography-font-size-28: 1.75rem !default;
+$typography-font-size-30: 1.875rem !default;
+$typography-font-size-36: 2.25rem !default;
+$typography-font-size-44: 2.75rem !default;
+$typography-font-size-56: 3.5rem !default;
+$typography-line-height-24: 1.5rem !default;
+$typography-line-height-28: 1.75rem !default;
+$typography-line-height-32: 2rem !default;
+$typography-line-height-36: 2.25rem !default;
+$typography-line-height-40: 2.5rem !default;
+$typography-line-height-44: 2.75rem !default;
+$typography-line-height-52: 3.25rem !default;
+$typography-line-height-64: 4rem !default;
+$typography-title-small-font-size: 2.25rem !default;
+$typography-title-small-line-height: 2.75rem !default;
+$typography-title-small-font-weight: 400 !default;
+$typography-title-base-font-size: 3.5rem !default;
+$typography-title-base-line-height: 4rem !default;
+$typography-title-base-font-weight: 400 !default;
+$typography-title-small-small-font-size: 1.875rem !default;
+$typography-title-small-small-line-height: 2.25rem !default;
+$typography-title-small-small-font-weight: 400 !default;
+$typography-title-small-base-font-size: 2.75rem !default;
+$typography-title-small-base-line-height: 3.25rem !default;
+$typography-title-small-base-font-weight: 400 !default;
+$typography-heading-1-small-font-size: 1.625rem !default;
+$typography-heading-1-small-line-height: 2rem !default;
+$typography-heading-1-small-font-weight: 400 !default;
+$typography-heading-1-base-font-size: 2.25rem !default;
+$typography-heading-1-base-line-height: 2.75rem !default;
+$typography-heading-1-base-font-weight: 400 !default;
+$typography-heading-2-small-font-size: 1.4375rem !default;
+$typography-heading-2-small-line-height: 2rem !default;
+$typography-heading-2-small-font-weight: 400 !default;
+$typography-heading-2-base-font-size: 1.75rem !default;
+$typography-heading-2-base-line-height: 2.5rem !default;
+$typography-heading-2-base-font-weight: 400 !default;
+$typography-heading-3-small-font-size: 1.3125rem !default;
+$typography-heading-3-small-line-height: 1.75rem !default;
+$typography-heading-3-small-font-weight: 700 !default;
+$typography-heading-3-base-font-size: 1.5625rem !default;
+$typography-heading-3-base-line-height: 2rem !default;
+$typography-heading-3-base-font-weight: 700 !default;
+$typography-heading-4-small-font-size: 1.125rem !default;
+$typography-heading-4-small-line-height: 1.5rem !default;
+$typography-heading-4-small-font-weight: 700 !default;
+$typography-heading-4-base-font-size: 1.3125rem !default;
+$typography-heading-4-base-line-height: 1.75rem !default;
+$typography-heading-4-base-font-weight: 700 !default;
+$typography-heading-5-small-font-size: 1rem !default;
+$typography-heading-5-small-line-height: 1.5rem !default;
+$typography-heading-5-small-font-weight: 700 !default;
+$typography-heading-5-base-font-size: 1rem !default;
+$typography-heading-5-base-line-height: 1.5rem !default;
+$typography-heading-5-base-font-weight: 700 !default;
+$typography-body-small-font-size: 1.125rem !default;
+$typography-body-small-line-height: 1.75rem !default;
+$typography-body-small-font-weight: 400 !default;
+$typography-body-base-font-size: 1.25rem !default;
+$typography-body-base-line-height: 2rem !default;
+$typography-body-base-font-weight: 400 !default;
+$typography-small-small-font-size: 1rem !default;
+$typography-small-small-line-height: 1.5rem !default;
+$typography-small-small-font-weight: 400 !default;
+$typography-small-base-font-size: 1rem !default;
+$typography-small-base-line-height: 1.5rem !default;
+$typography-small-base-font-weight: 400 !default;
+
+$tokens: (
+  'breakpoint': (
+    'small': $breakpoint-small,
+    'medium': $breakpoint-medium,
+    'large': $breakpoint-large,
+    'xl': $breakpoint-xl
+  ),
+  'color': (
+    'brand': (
+      'snohvit': $color-brand-snohvit,
+      'varde': $color-brand-varde,
+      'granitt': $color-brand-granitt,
+      'hvit': $color-brand-hvit,
+      'svart': $color-brand-svart,
+      'skifer': $color-brand-skifer,
+      'fjellgra': $color-brand-fjellgra,
+      'stein': $color-brand-stein,
+      'svaberg': $color-brand-svaberg,
+      'dis': $color-brand-dis,
+      'sand': $color-brand-sand
+    ),
+    'functional': (
+      'info': $color-functional-info,
+      'info-dark': $color-functional-info-dark,
+      'success': $color-functional-success,
+      'success-dark': $color-functional-success-dark,
+      'warning': $color-functional-warning,
+      'warning-dark': $color-functional-warning-dark,
+      'error': $color-functional-error,
+      'error-dark': $color-functional-error-dark
+    ),
+    'svart': $color-svart,
+    'granitt': $color-granitt,
+    'skifer': $color-skifer,
+    'fjellgra': $color-fjellgra,
+    'stein': $color-stein,
+    'svaberg': $color-svaberg,
+    'varde': $color-varde,
+    'dis': $color-dis,
+    'sand': $color-sand,
+    'snohvit': $color-snohvit,
+    'hvit': $color-hvit,
+    'suksess': $color-suksess,
+    'suksess-dark': $color-suksess-dark,
+    'feil': $color-feil,
+    'feil-dark': $color-feil-dark,
+    'info': $color-info,
+    'info-dark': $color-info-dark,
+    'advarsel': $color-advarsel,
+    'advarsel-dark': $color-advarsel-dark
+  ),
+  'motion': (
+    'timing': (
+      'energetic': $motion-timing-energetic,
+      'snappy': $motion-timing-snappy,
+      'productive': $motion-timing-productive,
+      'expressive': $motion-timing-expressive,
+      'lazy': $motion-timing-lazy
+    ),
+    'easing': (
+      'standard': $motion-easing-standard,
+      'entrance': $motion-easing-entrance,
+      'exit': $motion-easing-exit,
+      'easeInBounceOut': $motion-easing-ease-in-bounce-out,
+      'focus': $motion-easing-focus
+    )
+  ),
+  'spacing': (
+    '0': $spacing-0,
+    '2': $spacing-2,
+    '4': $spacing-4,
+    '8': $spacing-8,
+    '12': $spacing-12,
+    '16': $spacing-16,
+    '24': $spacing-24,
+    '32': $spacing-32,
+    '40': $spacing-40,
+    '64': $spacing-64,
+    '104': $spacing-104,
+    '168': $spacing-168
+  ),
+  'semantic-spacing': (
+    'none': $semantic-spacing-none,
+    '2xs': $semantic-spacing-2xs,
+    'xs': $semantic-spacing-xs,
+    's': $semantic-spacing-s,
+    'm': $semantic-spacing-m,
+    'l': $semantic-spacing-l,
+    'xl': $semantic-spacing-xl,
+    '2xl': $semantic-spacing-2xl
+  ),
+  'icon': (
+    'weight': (
+      'normal': $icon-weight-normal,
+      'bold': $icon-weight-bold
+    )
+  ),
+  'typography': (
+    'weight': (
+      'normal': $typography-weight-normal,
+      'bold': $typography-weight-bold
+    ),
+    'font': (
+      'size': (
+        '16': $typography-font-size-16,
+        '18': $typography-font-size-18,
+        '20': $typography-font-size-20,
+        '21': $typography-font-size-21,
+        '23': $typography-font-size-23,
+        '25': $typography-font-size-25,
+        '26': $typography-font-size-26,
+        '28': $typography-font-size-28,
+        '30': $typography-font-size-30,
+        '36': $typography-font-size-36,
+        '44': $typography-font-size-44,
+        '56': $typography-font-size-56
+      )
+    ),
+    'line': (
+      'height': (
+        '24': $typography-line-height-24,
+        '28': $typography-line-height-28,
+        '32': $typography-line-height-32,
+        '36': $typography-line-height-36,
+        '40': $typography-line-height-40,
+        '44': $typography-line-height-44,
+        '52': $typography-line-height-52,
+        '64': $typography-line-height-64
+      )
+    ),
+    'title': (
+      'small': (
+        'fontSize': $typography-title-small-font-size,
+        'lineHeight': $typography-title-small-line-height,
+        'fontWeight': $typography-title-small-font-weight
+      ),
+      'base': (
+        'fontSize': $typography-title-base-font-size,
+        'lineHeight': $typography-title-base-line-height,
+        'fontWeight': $typography-title-base-font-weight
+      )
+    ),
+    'titleSmall': (
+      'small': (
+        'fontSize': $typography-title-small-small-font-size,
+        'lineHeight': $typography-title-small-small-line-height,
+        'fontWeight': $typography-title-small-small-font-weight
+      ),
+      'base': (
+        'fontSize': $typography-title-small-base-font-size,
+        'lineHeight': $typography-title-small-base-line-height,
+        'fontWeight': $typography-title-small-base-font-weight
+      )
+    ),
+    'heading-1': (
+      'small': (
+        'fontSize': $typography-heading-1-small-font-size,
+        'lineHeight': $typography-heading-1-small-line-height,
+        'fontWeight': $typography-heading-1-small-font-weight
+      ),
+      'base': (
+        'fontSize': $typography-heading-1-base-font-size,
+        'lineHeight': $typography-heading-1-base-line-height,
+        'fontWeight': $typography-heading-1-base-font-weight
+      )
+    ),
+    'heading-2': (
+      'small': (
+        'fontSize': $typography-heading-2-small-font-size,
+        'lineHeight': $typography-heading-2-small-line-height,
+        'fontWeight': $typography-heading-2-small-font-weight
+      ),
+      'base': (
+        'fontSize': $typography-heading-2-base-font-size,
+        'lineHeight': $typography-heading-2-base-line-height,
+        'fontWeight': $typography-heading-2-base-font-weight
+      )
+    ),
+    'heading-3': (
+      'small': (
+        'fontSize': $typography-heading-3-small-font-size,
+        'lineHeight': $typography-heading-3-small-line-height,
+        'fontWeight': $typography-heading-3-small-font-weight
+      ),
+      'base': (
+        'fontSize': $typography-heading-3-base-font-size,
+        'lineHeight': $typography-heading-3-base-line-height,
+        'fontWeight': $typography-heading-3-base-font-weight
+      )
+    ),
+    'heading-4': (
+      'small': (
+        'fontSize': $typography-heading-4-small-font-size,
+        'lineHeight': $typography-heading-4-small-line-height,
+        'fontWeight': $typography-heading-4-small-font-weight
+      ),
+      'base': (
+        'fontSize': $typography-heading-4-base-font-size,
+        'lineHeight': $typography-heading-4-base-line-height,
+        'fontWeight': $typography-heading-4-base-font-weight
+      )
+    ),
+    'heading-5': (
+      'small': (
+        'fontSize': $typography-heading-5-small-font-size,
+        'lineHeight': $typography-heading-5-small-line-height,
+        'fontWeight': $typography-heading-5-small-font-weight
+      ),
+      'base': (
+        'fontSize': $typography-heading-5-base-font-size,
+        'lineHeight': $typography-heading-5-base-line-height,
+        'fontWeight': $typography-heading-5-base-font-weight
+      )
+    ),
+    'body': (
+      'small': (
+        'fontSize': $typography-body-small-font-size,
+        'lineHeight': $typography-body-small-line-height,
+        'fontWeight': $typography-body-small-font-weight
+      ),
+      'base': (
+        'fontSize': $typography-body-base-font-size,
+        'lineHeight': $typography-body-base-line-height,
+        'fontWeight': $typography-body-base-font-weight
+      )
+    ),
+    'small': (
+      'small': (
+        'fontSize': $typography-small-small-font-size,
+        'lineHeight': $typography-small-small-line-height,
+        'fontWeight': $typography-small-small-font-weight
+      ),
+      'base': (
+        'fontSize': $typography-small-base-font-size,
+        'lineHeight': $typography-small-base-line-height,
+        'fontWeight': $typography-small-base-font-weight
+      )
+    )
+  )
+);

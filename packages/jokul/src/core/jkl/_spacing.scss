@@ -2,23 +2,11 @@
 @use "sass:map";
 @use "sass:list";
 @use "screens";
-@use "legacy-tokens";
+@use "legacy";
 
 /// Lar deg gjøre oppslag på navnet uten `spacing`-prefix for å få ut rem-verdien
 /// @type Map
-$spacing: (
-    "2": legacy-tokens.$spacing-2,
-    "4": legacy-tokens.$spacing-4,
-    "8": legacy-tokens.$spacing-8,
-    "12": legacy-tokens.$spacing-12,
-    "16": legacy-tokens.$spacing-16,
-    "24": legacy-tokens.$spacing-24,
-    "32": legacy-tokens.$spacing-32,
-    "40": legacy-tokens.$spacing-40,
-    "64": legacy-tokens.$spacing-64,
-    "104": legacy-tokens.$spacing-104,
-    "168": legacy-tokens.$spacing-168,
-);
+$spacing: map.get(legacy.$tokens, "spacing");
 
 /// Her defineres kombinasjoner av spacinger til bruk i nytteklasser for spacing.
 /// Nytteklasser for alle enkeltspacinger, samt kombinasjoner, i denne listen
@@ -60,7 +48,12 @@ $combinations: (
 
 /// Posisjoner som kan benyttes for spacing
 /// @type Map
-$positions: (top, bottom, left, right);
+$positions: (
+    top,
+    bottom,
+    left,
+    right
+);
 
 /// Deler opp en streng i substrenger, gitt et tegn du vil bruke som avdeler.
 /// @param { string } $string En streng du vil dele opp
@@ -69,8 +62,9 @@ $positions: (top, bottom, left, right);
 /// @example
 /// splitString("24/40", "/"); // "24", "40"
 @function _split-string($string, $delimiter: null) {
+
     // Returner en liste med uendret streng hvis ingen separator er satt, eller strengen er tom
-    @if not $delimiter or string.length($string) == 0 {
+    @if not $delimiter or string.length($string)==0 {
         @return ($string);
     }
 
@@ -84,10 +78,8 @@ $positions: (top, bottom, left, right);
 
     $first-value: string.slice($string, 0, $delimiter-index - 1);
     // Finn eventuelt flere substrenger ved å kjøre funksjonen rekursivt
-    $other-values: _split-string(
-        string.slice($string, $delimiter-index + 1),
-        $delimiter
-    );
+    $other-values: _split-string(string.slice($string, $delimiter-index + 1),
+            $delimiter );
 
     // Returner en kommaseparert liste over substrengene
     @return list.join($first-value, $other-values, "comma");
@@ -105,7 +97,9 @@ $positions: (top, bottom, left, right);
 
     @if map.has-key($spacing, $spacing-step) {
         margin#{$position}: map.get($spacing, $spacing-step);
-    } @else {
+    }
+
+    @else {
         @error "Fant ikke \"#{$spacing-step}\" i våre spacing-verdier";
     }
 }
@@ -133,7 +127,9 @@ $positions: (top, bottom, left, right);
 
     @if list.length($steps) > 3 {
         @error "Du kan ikke oppgi fler enn tre spacing-steg";
-    } @else if list.length($steps) < 1 {
+    }
+
+    @else if list.length($steps) < 1 {
         @error "Du må oppgi minst ett spacing-steg";
     }
 

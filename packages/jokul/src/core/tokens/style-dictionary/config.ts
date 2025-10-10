@@ -19,11 +19,23 @@ export const legacyDesignTokensConfig: Config = {
         },
         scss: {
             transformGroup: "scss",
-            buildPath: "./src/core/jkl/",
+            buildPath: "./src/core/jkl/legacy/",
             files: [
                 {
-                    destination: "_legacy-tokens.scss",
+                    destination: "_dynamic-colors.scss",
                     format: "scss/theme-variables",
+                    filter: (token) =>
+                        token.path.some((word) =>
+                            ["light", "dark"].includes(word),
+                        ),
+                },
+                {
+                    destination: "_tokens.scss",
+                    format: "scss/map-deep",
+                    filter: (token) =>
+                        !token.path.some((word) =>
+                            ["light", "dark"].includes(word),
+                        ),
                 },
             ],
         },
