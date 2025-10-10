@@ -8,21 +8,17 @@ import {
 import type { Consent, ConsentRequirement, ConsentState } from "./types.js";
 
 const generateRequirement = (
-    marketing: boolean,
     functional: boolean,
     statistics: boolean,
 ): ConsentRequirement => ({
-    marketing,
     functional,
     statistics,
 });
 
 const generateConsent = (
-    marketing: ConsentState,
     functional: ConsentState,
     statistics: ConsentState,
 ): Consent => ({
-    marketing,
     functional,
     statistics,
 });
@@ -45,7 +41,7 @@ describe("cookieConsentUtils/getConsentCookie", () => {
     };
 
     it("henter fremtind-cookie", () => {
-        const consent = generateConsent(null, "accepted", null);
+        const consent = generateConsent(null, "accepted");
         setDocumentCookieState([[COOKIE_NAME, JSON.stringify(consent)]]);
         expect(getConsentCookie({ name: COOKIE_NAME })).toEqual(consent);
     });
@@ -56,7 +52,7 @@ describe("cookieConsentUtils/getConsentCookie", () => {
     });
 
     it("henter fremtind-cookie", () => {
-        const consent = generateConsent(null, "accepted", "accepted");
+        const consent = generateConsent(null, "accepted");
         setDocumentCookieState([[COOKIE_NAME, JSON.stringify(consent)]]);
         expect(getConsentCookie({ name: COOKIE_NAME })).toEqual(consent);
     });
@@ -71,24 +67,24 @@ describe("cookieConsentUtils/setConsentCookie", () => {
         });
 
         setConsentCookie({
-            consent: generateConsent(null, null, null),
+            consent: generateConsent(null, null),
             name: COOKIE_NAME,
         });
         expect(mockGet).toHaveBeenCalled();
         expect(mockGet).toHaveBeenCalledWith(
             `${COOKIE_NAME}=${JSON.stringify(
-                generateConsent(null, null, null),
+                generateConsent(null, null),
             )};max-age=10368000;SameSite=Lax`,
         );
 
         setConsentCookie({
-            consent: generateConsent(null, "accepted", "denied"),
+            consent: generateConsent(null, "accepted"),
             name: COOKIE_NAME,
         });
         expect(mockGet).toHaveBeenCalled();
         expect(mockGet).toHaveBeenCalledWith(
             `${COOKIE_NAME}=${JSON.stringify(
-                generateConsent(null, "accepted", "denied"),
+                generateConsent(null, "accepted"),
             )};max-age=10368000;SameSite=Lax`,
         );
     });
@@ -98,7 +94,7 @@ describe("cookieConsentUtils/shouldShowConsentDialog", () => {
     it("viser ikke consent når cookie ikke finnes, og ingen consent er påkrevd", () => {
         expect(
             shouldShowConsentDialog(
-                generateRequirement(false, false, false),
+                generateRequirement(false, false),
                 undefined,
             ),
         ).toEqual(false);
@@ -107,35 +103,32 @@ describe("cookieConsentUtils/shouldShowConsentDialog", () => {
     it("viser consent når cookie ikke finnes, og en eller flere consent er påkrevd", () => {
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, false, false),
+                generateRequirement(true, false),
                 undefined,
             ),
         ).toEqual(true);
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, false, true),
+                generateRequirement(true, false),
                 undefined,
             ),
         ).toEqual(true);
         expect(
-            shouldShowConsentDialog(
-                generateRequirement(true, true, false),
-                undefined,
-            ),
+            shouldShowConsentDialog(generateRequirement(true, true), undefined),
         ).toEqual(true);
     });
 
     it("viser ikke consent når cookie finnes, og ingen consent er påkrevd", () => {
         expect(
             shouldShowConsentDialog(
-                generateRequirement(false, false, false),
-                generateConsent(null, null, null),
+                generateRequirement(false, false),
+                generateConsent(null, null),
             ),
         ).toEqual(false);
         expect(
             shouldShowConsentDialog(
-                generateRequirement(false, false, false),
-                generateConsent("denied", "accepted", "denied"),
+                generateRequirement(false, false),
+                generateConsent("denied", "accepted"),
             ),
         ).toEqual(false);
     });
@@ -143,20 +136,20 @@ describe("cookieConsentUtils/shouldShowConsentDialog", () => {
     it("viser ikke consent når cookie og requirement er like", () => {
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, false, false),
-                generateConsent("accepted", "denied", "denied"),
+                generateRequirement(true, false),
+                generateConsent("accepted", "denied"),
             ),
         ).toEqual(false);
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, true, false),
-                generateConsent("accepted", "accepted", "denied"),
+                generateRequirement(true, true),
+                generateConsent("accepted", "accepted"),
             ),
         ).toEqual(false);
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, true, true),
-                generateConsent("accepted", "accepted", "accepted"),
+                generateRequirement(true, true),
+                generateConsent("accepted", "accepted"),
             ),
         ).toEqual(false);
     });
@@ -164,20 +157,20 @@ describe("cookieConsentUtils/shouldShowConsentDialog", () => {
     it("vise consent når consent ikke dekker consentet", () => {
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, false, false),
-                generateConsent(null, null, null),
+                generateRequirement(true, false),
+                generateConsent(null, null),
             ),
         ).toEqual(true);
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, false, true),
-                generateConsent(null, "denied", "denied"),
+                generateRequirement(true, false),
+                generateConsent(null, "denied"),
             ),
         ).toEqual(true);
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, false, true),
-                generateConsent(null, "accepted", "denied"),
+                generateRequirement(true, false),
+                generateConsent(null, "accepted"),
             ),
         ).toEqual(true);
     });
@@ -185,20 +178,20 @@ describe("cookieConsentUtils/shouldShowConsentDialog", () => {
     it("viser ikke consent når consent er avslått", () => {
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, false, false),
-                generateConsent("denied", "denied", "denied"),
+                generateRequirement(true, false),
+                generateConsent("denied", "denied"),
             ),
         ).toEqual(false);
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, false, true),
-                generateConsent("accepted", "denied", "denied"),
+                generateRequirement(true, false),
+                generateConsent("accepted", "denied"),
             ),
         ).toEqual(false);
         expect(
             shouldShowConsentDialog(
-                generateRequirement(true, false, true),
-                generateConsent("accepted", "accepted", "denied"),
+                generateRequirement(true, false),
+                generateConsent("accepted", "accepted"),
             ),
         ).toEqual(false);
     });
