@@ -16,7 +16,6 @@ export const knobs: ExampleKnobsProps = {
         { prop: "Blocking", defaultValue: true },
         { prop: "Functional", defaultValue: true },
         "Statistics",
-        "Marketing",
     ],
 };
 
@@ -59,7 +58,6 @@ export const CookieConsentModalExample: FC<ExampleComponentProps> = ({
             consent: {
                 functional: "denied",
                 statistics: "denied",
-                marketing: "denied",
             },
             name: "demo-consent-cookie",
         });
@@ -76,7 +74,6 @@ export const CookieConsentModalExample: FC<ExampleComponentProps> = ({
             cookiePath="/"
             functional={boolValues?.["Functional"]}
             statistics={boolValues?.["Statistics"]}
-            marketing={boolValues?.["Marketing"]}
         >
             <Example blocking={boolValues?.["Blocking"] || false} />
         </CookieConsentProvider>

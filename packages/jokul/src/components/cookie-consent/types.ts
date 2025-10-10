@@ -5,10 +5,14 @@ export type ConsentState = null | "denied" | "accepted";
 export type ConsentRequirement = Partial<Record<keyof Consent, boolean>>;
 
 export type Consent = {
-    marketing?: ConsentState;
     functional?: ConsentState;
     statistics?: ConsentState;
 };
+
+export interface CookieConsentProps {
+    blocking?: boolean;
+    onAccept?: AcceptConsentCallback;
+}
 
 export type AcceptConsentCallback = (consent: Consent) => void;
 

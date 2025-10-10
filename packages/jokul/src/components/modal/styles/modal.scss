@@ -100,7 +100,7 @@
         gap: jkl.$unit-20;
 
         @include jkl.screen-from(60ch) {
-            flex-direction: row;
+            flex-direction: row-reverse;
             align-self: flex-end;
         }
     }
