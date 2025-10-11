@@ -9,10 +9,9 @@ import type {
 type Props = {
     /**
      * Spacing-steget som skal brukes som avstand mellom innholdsblokkene.
-     * Standard er unit.20, som tilsvarer 16px.
-     * @default 30
+     * @default 0
      */
-    gap?: keyof typeof tokens.unit;
+    gap?: keyof typeof tokens.spacing;
     /**
      * lager automatisk avstand også mellom innhold inni nøstede elementer
      * inne i Stack. Dette sørger for jevn fordeling av innholdet selv om
@@ -50,7 +49,7 @@ export const Stack = React.forwardRef(function Stack<
             className={clsx("jkl-stack", className)}
             style={{
                 ...style,
-                "--gap": gap ? tokens.unit[gap] : 0,
+                "--gap": gap ? tokens.spacing[gap] : 0,
             }}
             {...componentProps}
             ref={ref}

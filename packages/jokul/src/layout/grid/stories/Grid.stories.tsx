@@ -22,16 +22,16 @@ const meta = {
             table: {
                 defaultValue: { summary: "undefined" },
             },
-            options: Object.keys(tokens.unit),
+            options: Object.keys(tokens.spacing),
             control: {
                 type: "select",
             },
         },
         gap: {
             table: {
-                defaultValue: { summary: "20" },
+                defaultValue: { summary: "16" },
             },
-            options: Object.keys(tokens.unit),
+            options: Object.keys(tokens.spacing),
             control: {
                 type: "select",
             },
@@ -64,7 +64,7 @@ const meta = {
     args: {
         children: "6",
         minElementWidth: "20ch",
-        gap: 20,
+        gap: 16,
     },
 } satisfies Meta<typeof Grid>;
 
@@ -93,12 +93,7 @@ export const Demo: Story = {
                     at du kan vise flere elementer side om side på større
                     skjermer, og færre elementer på mindre skjermer.
                 </p>
-                <Grid
-                    style={{
-                        border: "2px dashed var(--jkl-color-border-subdued)",
-                    }}
-                    {...props}
-                />
+                <Grid {...props} />
             </div>
         );
     },

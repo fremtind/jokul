@@ -1,16 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import { Button } from "../../../components/button/Button.jsx";
 import { tokens } from "../../../core/index.js";
 import { Prose } from "../../prose/Prose.jsx";
-import { Column } from "../Column.jsx";
+import { Center } from "../Center.jsx";
 
 import "../../../components/button/styles/_index.scss";
 import "../../prose/styles/_index.scss";
 import "../styles/_index.scss";
 
 const meta = {
-    title: "Layout/Primitives/Column",
-    component: Column,
+    title: "Layout/Primitives/Center",
+    component: Center,
     tags: ["autodocs"],
     argTypes: {
         contentWidth: {
@@ -22,7 +23,7 @@ const meta = {
             },
         },
         position: {
-            table: { defaultValue: { summary: "left" } },
+            table: { defaultValue: { summary: "center" } },
             options: ["left", "center"],
             control: {
                 type: "select",
@@ -30,9 +31,9 @@ const meta = {
         },
         gutter: {
             table: {
-                defaultValue: { summary: "40" },
+                defaultValue: { summary: "32" },
             },
-            options: Object.keys(tokens.unit),
+            options: Object.keys(tokens.spacing),
             control: {
                 type: "select",
             },
@@ -59,9 +60,9 @@ const meta = {
         // gutter: 40,
         contentWidth: "70ch",
         centerWithin: false,
-        position: "left",
+        position: "center",
     },
-} satisfies Meta<typeof Column>;
+} satisfies Meta<typeof Center>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -83,7 +84,7 @@ export const Demo: Story = {
     ],
     render: (props) => {
         return (
-            <Column as={Prose} {...props}>
+            <Center as={Prose} {...props}>
                 <h2 className="jkl-heading-2">Lag en commit</h2>
                 <p>
                     For å dokumentere endringer på en måte som automatiserer
@@ -97,7 +98,7 @@ export const Demo: Story = {
                     (major, minor, eller patch) endringen medfører.
                 </p>
                 <Button>Gå videre</Button>
-            </Column>
+            </Center>
         );
     },
 };

@@ -1,6 +1,6 @@
 @use "../../../core/jkl";
 
-.jkl-prose {
+:where(.jkl-prose) {
     > * + * {
         margin-block-start: var(--jkl-unit-30);
     }
@@ -13,28 +13,26 @@
         }
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-        &:not(:first-child) {
-            margin-block-start: var(--jkl-unit-50);
-
-            @include jkl.from-medium-device {
-                margin-block-start: var(--jkl-unit-80);
-            }
-        }
+    > p + p {
+        margin-block-start: 1lh;
     }
 
-    h2,
-    h3,
-    h4,
-    h5 {
-        & + * {
-            margin-block-start: var(--jkl-unit-15);
-        }
+    > * + :is(h1,
+        h2,
+        h3,
+        h4,
+        h5) {
+        margin-block-start: 1.5lh;
     }
+
+    > :is(h1,
+        h2,
+        h3,
+        h4,
+        h5) + * {
+        margin-block-start: 0.25lh;
+    }
+
 
     h1 {
         @include jkl.text-style("title");

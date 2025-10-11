@@ -17,6 +17,7 @@ const config: StorybookConfig = {
         name: "@storybook/react-vite",
         options: {},
     },
+    // @ts-ignore
     viteFinal: (config) => {
         return {
             ...config,

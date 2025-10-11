@@ -1,12 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import { Prose } from "../Prose.jsx";
+import tokens from "../../../core/tokens.js";
+import { Stack } from "../Stack.jsx";
 
 import "../styles/_index.scss";
 
 const meta = {
-    title: "Layout/Prose",
-    component: Prose,
+    title: "Layout/Primitives/Stack",
+    component: Stack,
     tags: ["autodocs"],
     argTypes: {
         ref: {
@@ -21,8 +22,13 @@ const meta = {
         style: {
             table: { disable: true },
         },
+        gap: {
+            control: "select",
+            options: Object.keys(tokens.spacing),
+        },
+        recursive: { control: "boolean" },
     },
-} satisfies Meta<typeof Prose>;
+} satisfies Meta<typeof Stack>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -45,7 +51,7 @@ export const Demo: Story = {
     ],
     render: (props) => {
         return (
-            <Prose {...props}>
+            <Stack {...props}>
                 <h1>Hvordan skrive dokumentasjon</h1>
                 <p>
                     For at designsystemet skal fungere må systemdokumentasjonen
@@ -71,7 +77,7 @@ export const Demo: Story = {
                     <code>major</code>, <code>minor</code>, eller{" "}
                     <code>patch</code>) endringen medfører.
                 </p>
-            </Prose>
+            </Stack>
         );
     },
 };

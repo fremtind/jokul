@@ -21,7 +21,7 @@ type Props = {
      * når du bygger sidepanel og innhold for å oppnå ønsket avstand.
      * @default undefined
      */
-    gap?: keyof typeof tokens.unit;
+    gap?: keyof typeof tokens.spacing;
 };
 
 export type TwoColumnProps<ElementType extends React.ElementType> =
@@ -52,7 +52,7 @@ export const TwoColumn = React.forwardRef(function TwoColumn<
             style={{
                 ...style,
                 "--min-content-width": minContentWidth,
-                "--gap": gap ? tokens.unit[gap] : 0,
+                "--gap": gap ? tokens.spacing[gap] : 0,
             }}
             {...componentProps}
             ref={ref}

@@ -1,15 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import { Flex } from "../../../components/flex/Flex.js";
 import { Link } from "../../../components/link/Link.js";
 import { Logo } from "../../../components/logo/Logo.js";
 import { tokens } from "../../../core/index.js";
-import { Column } from "../../column/Column.jsx";
+import { Center } from "../../center/Center.jsx";
 import { Prose } from "../../prose/Prose.jsx";
 import { Cover } from "../Cover.jsx";
 
 import "../../../components/link/styles/_index.scss";
 import "../../prose/styles/_index.scss";
-import "../../column/styles/_index.scss";
+import "../../center/styles/_index.scss";
 import "../styles/_index.scss";
 
 const meta = {
@@ -30,9 +31,9 @@ const meta = {
         },
         padding: {
             table: {
-                defaultValue: { summary: "20" },
+                defaultValue: { summary: "16" },
             },
-            options: [...Object.keys(tokens.unit), undefined],
+            options: [...Object.keys(tokens.spacing), undefined],
             control: {
                 type: "select",
             },
@@ -41,7 +42,7 @@ const meta = {
             table: {
                 defaultValue: { summary: "undefined" },
             },
-            options: [...Object.keys(tokens.unit), undefined],
+            options: [...Object.keys(tokens.spacing), undefined],
             control: {
                 type: "select",
             },
@@ -61,7 +62,7 @@ const meta = {
     },
     args: {
         minHeight: "100dvh",
-        padding: 20,
+        padding: 16,
         gap: undefined,
     },
 } satisfies Meta<typeof Cover>;
@@ -96,7 +97,7 @@ export const Demo: Story = {
                     </Flex>
                 </Flex>
                 <Cover.Content as="main">
-                    <Column position="center" as={Prose}>
+                    <Center position="center" as={Prose}>
                         <h1>Velkommen 👋</h1>
                         <p>
                             For å dokumentere endringer på en måte som
@@ -109,7 +110,7 @@ export const Demo: Story = {
                             versjonsoppdatering (major, minor, eller patch)
                             endringen medfører.
                         </p>
-                    </Column>
+                    </Center>
                 </Cover.Content>
                 <Flex
                     as="footer"

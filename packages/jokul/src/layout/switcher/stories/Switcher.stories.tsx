@@ -14,7 +14,7 @@ const meta = {
             table: {
                 defaultValue: { summary: "undefined" },
             },
-            options: Object.keys(tokens.unit),
+            options: Object.keys(tokens.spacing),
             control: {
                 type: "select",
             },
@@ -23,7 +23,7 @@ const meta = {
             table: {
                 defaultValue: { summary: "20" },
             },
-            options: Object.keys(tokens.unit),
+            options: Object.keys(tokens.spacing),
             control: {
                 type: "select",
             },
@@ -65,7 +65,7 @@ const meta = {
     args: {
         children: 3,
         treshold: "30rem",
-        gap: 20,
+        gap: 16,
         maxElements: 3,
     },
 } satisfies Meta<typeof Switcher>;

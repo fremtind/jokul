@@ -2,5 +2,5 @@
     display: grid;
     gap: var(--gap, var(--jkl-unit-20));
     padding: var(--padding, 0);
-    grid-template-columns: repeat(auto-fit, minmax(min(var(--min-element-width, 30ch), 100%), 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--min-element-width, 30ch), 100%), 1fr));
 }

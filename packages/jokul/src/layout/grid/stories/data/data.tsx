@@ -1,17 +1,19 @@
+import React from "react";
 import type { CSSProperties } from "react";
 import { Card } from "../../../../components/card/Card.jsx";
 import { CardImage } from "../../../../components/card/CardImage.jsx";
 import { Flex } from "../../../../components/flex/Flex.jsx";
-import breadcrumb from "./images/breadcrumb.png";
-import button from "./images/button.png";
-import card from "./images/card.png";
-import checkbox from "./images/checkbox.png";
-import chip from "./images/chip.png";
-import combobox from "./images/combobox.png";
-import datepicker from "./images/datepicker.png";
-import descriptionList from "./images/description-list.png";
-import expander from "./images/expander.png";
-import placeholder from "./images/placeholder.svg";
+
+const breadcrumb = "/images/breadcrumb.png";
+const button = "/images/button.png";
+const card = "/images/card.png";
+const checkbox = "/images/checkbox.png";
+const chip = "/images/chip.png";
+const combobox = "/images/combobox.png";
+const datepicker = "/images/datepicker.png";
+const descriptionList = "/images/descriptionList.png";
+const expander = "/images/expander.png";
+const placeholder = "/images/placeholder.svg";
 
 export const exampleComponents = [
     {

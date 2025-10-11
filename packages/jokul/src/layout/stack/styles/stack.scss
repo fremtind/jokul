@@ -1,7 +1,5 @@
 .jkl-stack {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    display: block;
 
     > * + * {
         margin-block-start: var(--gap, var(--jkl-unit-30));

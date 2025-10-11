@@ -31,7 +31,7 @@ import "../../combobox/styles/_index.scss";
 import "../../text-input/styles/_index.scss";
 
 const meta = {
-    title: "Komponenter/Table",
+    title: "Komponenter/Table/Complex",
     component: Table,
     subcomponents: {
         TableCaption,

@@ -20,12 +20,12 @@ type Props = {
      * Standard er unit.20, som tilsvarer 16px.
      * @default 20
      */
-    gap?: keyof typeof tokens.unit;
+    gap?: keyof typeof tokens.spacing;
     /**
      * Spacing-steget som skal brukes som padding rundt innholdsblokkene.
      * @default 0
      */
-    padding?: keyof typeof tokens.unit;
+    padding?: keyof typeof tokens.spacing;
     /**
      * Maksimalt antall elementer som vil vises ved siden av hverandre.
      * Hvis det er fler elementer enn dette, vil alle elementene vises i en kolonne.
@@ -33,6 +33,13 @@ type Props = {
      * @default 3
      */
     maxElements?: number;
+    /**
+     * Lar elementene ta opp plassen de trenger, i stedet for å vokse til å
+     * fylle sin del av bredden, og justerer innholdet til starten eller
+     * slutten av beholderen. Hvis du lar denne står tom tar elementene opp
+     * like store deler av beholderen.
+     */
+    justifyContent?: "start" | "end";
 };
 
 export type SwitcherProps<ElementType extends React.ElementType> =
@@ -59,9 +66,10 @@ export const Switcher = React.forwardRef(function Switcher<
         as = "div",
         className,
         treshold = "30rem",
-        gap = 20,
+        gap = 16,
         padding,
         maxElements = 3,
+        justifyContent,
         style,
         ...componentProps
     } = props;
@@ -73,11 +81,12 @@ export const Switcher = React.forwardRef(function Switcher<
             data-testid="jkl-switcher"
             className={clsx("jkl-switcher", className)}
             data-max-elements={maxElements}
+            data-justify-content={justifyContent}
             style={{
                 ...style,
                 "--treshold": treshold,
-                "--gap": tokens.unit[gap],
-                "--padding": padding ? tokens.unit[padding] : 0,
+                "--gap": tokens.spacing[gap],
+                "--padding": padding ? tokens.spacing[padding] : 0,
             }}
             {...componentProps}
             ref={ref}

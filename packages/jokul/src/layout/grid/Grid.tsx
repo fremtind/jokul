@@ -19,15 +19,15 @@ type Props = {
     minElementWidth?: string;
     /**
      * Spacing-steget som skal brukes som avstand mellom innholdsblokkene.
-     * Standard er unit.20, som tilsvarer 16px.
-     * @default 20
+     * Standard er spacing.16, som tilsvarer 16px.
+     * @default 16
      */
-    gap?: keyof typeof tokens.unit;
+    gap?: keyof typeof tokens.spacing;
     /**
      * Spacing-steget som skal brukes som padding rundt innholdsblokkene.
      * @default 0
      */
-    padding?: keyof typeof tokens.unit;
+    padding?: keyof typeof tokens.spacing;
 };
 
 export type GridProps<ElementType extends React.ElementType> =
@@ -52,7 +52,7 @@ export const Grid = React.forwardRef(function Grid<
         as = "div",
         className,
         minElementWidth = "20ch",
-        gap = 20,
+        gap = 16,
         padding,
         style,
         ...componentProps
@@ -67,8 +67,8 @@ export const Grid = React.forwardRef(function Grid<
             style={{
                 ...style,
                 "--min-element-width": minElementWidth,
-                "--gap": tokens.unit[gap],
-                "--padding": padding ? tokens.unit[padding] : 0,
+                "--gap": tokens.spacing[gap],
+                "--padding": padding ? tokens.spacing[padding] : 0,
             }}
             {...componentProps}
             ref={ref}

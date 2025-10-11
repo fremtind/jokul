@@ -1,13 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import { Button } from "../../../components/button/Button.jsx";
 import { tokens } from "../../../core/index.js";
-import { Column } from "../../column/Column.jsx";
+import { Center } from "../../center/Center.jsx";
 import { Prose } from "../../prose/Prose.jsx";
 import { TwoColumn } from "../TwoColumn.jsx";
 
 import "../../../components/button/styles/_index.scss";
 import "../../prose/styles/_index.scss";
-import "../../column/styles/_index.scss";
+import "../../center/styles/_index.scss";
 import "../styles/_index.scss";
 
 const meta = {
@@ -30,7 +31,7 @@ const meta = {
             table: {
                 defaultValue: { summary: "undefined" },
             },
-            options: Object.keys(tokens.unit),
+            options: Object.keys(tokens.spacing),
             control: {
                 type: "select",
             },
@@ -68,13 +69,13 @@ export const Demo: Story = {
                 <div
                     style={{
                         width: "200px",
-                        paddingInline: tokens.unit[40],
+                        paddingInline: tokens.spacing[32],
                         flexGrow: 0,
                     }}
                 >
                     Sidebar
                 </div>
-                <Column as={Prose}>
+                <Center as={Prose}>
                     <h2>Lag en commit</h2>
                     <p>
                         For å dokumentere endringer på en måte som automatiserer
@@ -88,7 +89,7 @@ export const Demo: Story = {
                         endringen medfører.
                     </p>
                     <Button>Gå videre</Button>
-                </Column>
+                </Center>
             </TwoColumn>
         );
     },

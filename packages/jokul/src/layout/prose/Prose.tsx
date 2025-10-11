@@ -20,13 +20,7 @@ type ProseComponent = <ElementType extends React.ElementType = "div">(
 export const Prose = React.forwardRef(function Prose<
     ElementType extends React.ElementType = "div",
 >(props: ProseProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
-    const {
-        as = "div",
-        className,
-        gap,
-        recursive = false,
-        ...componentProps
-    } = props;
+    const { as = "div", className, ...componentProps } = props;
 
     const Component = as;
 

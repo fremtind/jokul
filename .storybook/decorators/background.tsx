@@ -1,4 +1,5 @@
 import type { ReactRenderer } from "@storybook/react";
+import React from "react";
 import { useEffect } from "react";
 import type { DecoratorFunction, InputType } from "storybook/internal/types";
 

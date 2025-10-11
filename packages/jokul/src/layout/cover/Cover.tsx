@@ -19,17 +19,17 @@ type Props = {
      * Kan være nyttig hvis du har flere elementer over/under hoved-
      * innholdet, eller hvis hoverdinnholdet er så høyt at det tar
      * opp hele høyden av skjermen, f.eks. på små skjermer.
-     * Du kan bruke `tokens.unit` for å velge avstand, eller sette gap
+     * Du kan bruke `tokens.spacing` for å velge avstand, eller sette gap
      * til `undefined` hvis du ikke ønsker avstand.
      * @default 20
      */
-    gap?: keyof typeof tokens.unit;
+    gap?: keyof typeof tokens.spacing;
     /**
      * Padding for hele komponenten. La være `undefined` hvis du ikke
      * ønsker padding.
      * @default undefined
      */
-    padding?: keyof typeof tokens.unit;
+    padding?: keyof typeof tokens.spacing;
 };
 
 export type CoverProps<ElementType extends React.ElementType> =
@@ -67,8 +67,8 @@ const Cover = React.forwardRef(function Cover<
             style={{
                 ...style,
                 "--min-height": minHeight,
-                "--padding": padding ? tokens.unit[padding] : 0,
-                "--gap": gap ? tokens.unit[gap] : 0,
+                "--padding": padding ? tokens.spacing[padding] : 0,
+                "--gap": gap ? tokens.spacing[gap] : 0,
             }}
             {...componentProps}
             ref={ref}

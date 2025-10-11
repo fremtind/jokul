@@ -1,3 +1,4 @@
+import React from "react";
 import { Flex } from "../../../components/flex/Flex.jsx";
 
 const ExampleContent = ({
