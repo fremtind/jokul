@@ -1,8 +1,7 @@
 @use "@fremtind/jokul/styles/core";
-@use "@fremtind/jokul/styles/fonts" with (
-    $webfonts-dir: "../../src/fonts" // Dette er relativt til webfonts.sccs-fila i jokul-pakka
+@use "@fremtind/jokul/styles/fonts" with ($webfonts-dir: "../../src/fonts" // Dette er relativt til webfonts.sccs-fila i jokul-pakka
 );
-@use "@fremtind/jokul/styles";
+@use "@fremtind/jokul/styles/styles";
 @use "@fremtind/jokul/styles/core/jkl";
 
 html {
@@ -12,7 +11,7 @@ html {
 body {
     --max-width: 1440px;
     --min-width: 320px;
-    background-color: var(--jkl-color-background-contaier-high);
+    background-color: var(--jkl-color-background-container-low);
     min-height: 100dvh;
 }
 
