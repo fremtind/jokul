@@ -5,12 +5,17 @@ import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import type { FC, ReactNode } from "react";
 import slugify from "slugify";
-import { CheckList } from "./check-list/CheckList";
 import { KortFortalt } from "./kort-fortalt/KortFortalt";
 import { LinkCard } from "./link-card/LinkCard";
 import { ComponentPageLink } from "./link/ComponentPageLink";
 import { Link } from "./link/Link";
-import { ListItem, OrderedList, UnorderedList } from "./list";
+import {
+    CheckListItem,
+    CrossListItem,
+    ListItem,
+    OrderedList,
+    UnorderedList,
+} from "./list";
 import { Storybook } from "./storybook-story/Storybook";
 import { CodeBlock } from "./typography/Typography";
 
@@ -23,7 +28,6 @@ const jokulBlockTypes: PortableTextReactComponents["types"] = {
     jokul_componentKortFortalt: KortFortalt,
     jokul_codeBlock: CodeBlock,
     jokul_linkCard: LinkCard,
-    jokul_checkList: CheckList,
 };
 
 function getTextFromChildren(children: ReactNode): string {
@@ -39,10 +43,14 @@ export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
         types: jokulBlockTypes,
         list: {
             bullet: UnorderedList,
+            check: UnorderedList,
+            cross: UnorderedList,
             number: OrderedList,
         },
         listItem: {
             bullet: ListItem,
+            check: CheckListItem,
+            cross: CrossListItem,
             number: ListItem,
         },
         marks: {

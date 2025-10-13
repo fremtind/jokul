@@ -1,5 +1,5 @@
 import { defineField, defineType } from "sanity";
-import { componentPageLink } from "./links/componentPageLink";
+import { checkList, crossList } from "./lists/usageList";
 
 const MAX_LENGTH = 70;
 
@@ -129,9 +129,12 @@ export const component = defineType({
             of: [
                 {
                     type: "block",
-                    marks: {
-                        annotations: [componentPageLink],
-                    },
+                    lists: [
+                        { title: "Punktliste", value: "bullet" },
+                        { title: "Nummerert liste", value: "number" },
+                        checkList,
+                        crossList,
+                    ],
                 },
                 { type: "image" },
                 { type: "jokul_componentProps" },
@@ -139,7 +142,6 @@ export const component = defineType({
                 { type: "jokul_codeExample" },
                 { type: "jokul_storybook" },
                 { type: "jokul_codeBlock" },
-                { type: "jokul_checkList" },
             ],
         }),
         defineField({
