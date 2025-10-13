@@ -11,12 +11,10 @@ const meta: Meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs", "forms"],
-    argTypes: {
-        label: {
-            control: "text",
-        },
+    args: {
+        description: "Fødselsnummer består av 11 siffer.",
     },
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof InputGroup>;
 
 export default meta;

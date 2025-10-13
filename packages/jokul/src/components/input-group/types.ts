@@ -20,6 +20,7 @@ export interface FieldGroupProps
     helpLabel?: string;
     errorLabel?: string;
     density?: Density;
+    description?: string;
 }
 
 export interface InputProps {
@@ -43,6 +44,7 @@ export type InputGroupProps = WithOptionalChildren &
             SupportLabelProps,
             "id" | "errorLabel" | "helpLabel" | "density"
         >;
+    description?: string;
         tooltip?: ReactNode;
         style?: CSSProperties;
         render?: (props: InputProps) => JSX.Element;

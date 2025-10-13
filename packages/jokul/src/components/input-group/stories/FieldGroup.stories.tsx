@@ -12,12 +12,11 @@ const meta: Meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs", "forms"],
-    argTypes: {
-        tooltip: {
-            type: "boolean",
-        },
+    args: {
+        description:
+            "Velg metoden som gjør det enklest for oss å få kontakt med deg i jobb-tider.",
     },
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof FieldGroup>;
 
 export default meta;

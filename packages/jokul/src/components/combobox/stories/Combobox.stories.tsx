@@ -127,7 +127,7 @@ const meta = {
             variant: "small",
         },
         width: "20ch",
-        helpLabel: "Du kan velge flere, dersom flere passer",
+        description: "Du kan velge flere, dersom flere passer",
         onChange: () => "",
     },
     tags: ["autodocs", "forms"],
