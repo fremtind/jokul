@@ -57,16 +57,27 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
                     )}
                 </Label>
             </legend>
+            {supportLabelProps?.position === "above-field" &&
+                (helpLabel || errorLabel) && (
+                    <SupportLabel
+                        {...supportLabelProps}
+                        label={supportText}
+                        labelType={supportTextType}
+                        id={supportId}
+                        density={density}
+                    />
+                )}
             {children}
-            {(helpLabel || errorLabel) && (
-                <SupportLabel
-                    {...supportLabelProps}
-                    label={supportText}
-                    labelType={supportTextType}
-                    id={supportId}
-                    density={density}
-                />
-            )}
+            {supportLabelProps?.position !== "above-field" &&
+                (helpLabel || errorLabel) && (
+                    <SupportLabel
+                        {...supportLabelProps}
+                        label={supportText}
+                        labelType={supportTextType}
+                        id={supportId}
+                        density={density}
+                    />
+                )}
         </fieldset>
     );
 };

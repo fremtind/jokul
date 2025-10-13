@@ -119,4 +119,10 @@ export interface SupportLabelProps {
     density?: Density;
     className?: string;
     srOnly?: boolean;
+    /**
+     * Bestemmer om support label rendres over eller under input-feltet
+     * hvis den brukes i InputGroup eller FieldGroup-komponentene.
+     * @default "below-field"
+     */
+    position?: "above-field" | "below-field";
 }

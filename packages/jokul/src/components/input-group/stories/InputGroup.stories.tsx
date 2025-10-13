@@ -12,6 +12,14 @@ const meta: Meta = {
         layout: "centered",
     },
     tags: ["autodocs", "forms"],
+    args: {
+        label: "Fødeselsnummer",
+        labelProps: {
+            srOnly: false,
+            standAlone: false,
+        },
+        helpLabel: "Hjelpetekst",
+    },
     argTypes: {
         label: {
             control: "text",
@@ -25,9 +33,6 @@ type Story = StoryObj<typeof InputGroup>;
 
 export const InputGroupStory: Story = {
     name: "InputGroup",
-    args: {
-        label: "Fødeselsnummer",
-    },
     render: (props) => (
         <InputGroup {...props}>
             <BaseTextInput />

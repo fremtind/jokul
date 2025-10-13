@@ -12,12 +12,19 @@ const meta: Meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs", "forms"],
-    argTypes: {
-        tooltip: {
-            type: "boolean",
+    args: {
+        legend: "Hvordan kan vi kontakte deg?",
+        labelProps: {
+            variant: "large",
         },
+        helpLabel: "Hjelpetekst",
+        supportLabelProps: {
+            position: "below-field",
+            labelType: "help",
+        },
+        tooltip: false,
     },
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof FieldGroup>;
 
 export default meta;
@@ -30,16 +37,6 @@ const tooltipComponent = (
 
 export const FieldGroupStory: Story = {
     name: "Kontaktpreferanser",
-    args: {
-        legend: "Hvordan kan vi kontakte deg?",
-        labelProps: {
-            variant: "large",
-        },
-        supportLabelProps: {
-            labelType: "help",
-        },
-        tooltip: false,
-    },
     render: ({ tooltip, ...props }) => (
         <FieldGroup {...props} tooltip={tooltip ? tooltipComponent : undefined}>
             <Checkbox name="checklist" value="phone" invalid={false}>

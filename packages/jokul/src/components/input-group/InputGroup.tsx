@@ -17,7 +17,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
             label,
             labelProps,
             render,
-            supportLabelProps,
+            supportLabelProps = { position: "below-field" },
             tooltip,
             id,
             ...rest
@@ -88,15 +88,27 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                         label
                     )}
                 </Label>
+                {supportLabelProps?.position === "above-field" && (
+                    <SupportLabel
+                        srOnly={false}
+                        {...supportLabelProps}
+                        label={helpLabel}
+                        labelType={"help"}
+                        id={supportId}
+                        density={density}
+                    />
+                )}
                 {renderInput()}
-                <SupportLabel
-                    srOnly={inline}
-                    {...supportLabelProps}
-                    label={supportText}
-                    labelType={supportTextType}
-                    id={supportId}
-                    density={density}
-                />
+                {supportLabelProps?.position !== "above-field" && (
+                    <SupportLabel
+                        srOnly={inline}
+                        {...supportLabelProps}
+                        label={supportText}
+                        labelType={supportTextType}
+                        id={supportId}
+                        density={density}
+                    />
+                )}
             </div>
         );
     },
