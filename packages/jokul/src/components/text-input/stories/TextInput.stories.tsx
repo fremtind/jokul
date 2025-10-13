@@ -51,6 +51,7 @@ const meta = {
         disabled: false,
         readOnly: false,
         defaultValue: "",
+        description: "",
     },
 } satisfies Meta<typeof TextInputComponent>;
 

@@ -55,6 +55,7 @@ const meta: Meta = {
     args: {
         name: "Select",
         label: "Hvilket merke er telefonen?",
+        description: "Du kan kun velge ett merke",
         items: [
             { value: "Apple", label: "Apple" },
             { value: "Samsung", label: "Samsung" },
@@ -66,7 +67,6 @@ const meta: Meta = {
         defaultPrompt: "Velg merke",
         inline: false,
         invalid: false,
-        helpLabel: "Du kan kun velge ett merke",
         labelProps: {
             srOnly: false,
             variant: "small",
@@ -75,7 +75,7 @@ const meta: Meta = {
         width: "20ch",
         searchable: false,
     },
-    tags: ["autodocs"],
+    tags: ["autodocs", "forms"],
 };
 
 export default meta;
@@ -98,6 +98,7 @@ export const SelectInline: Story = {
         ],
         inline: true,
         value: "Frontend-utvikler",
+        description: "",
         helpLabel: "",
     },
     render: (args) => {

@@ -18,6 +18,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
             labelProps,
             render,
             supportLabelProps,
+            description,
             tooltip,
             id,
             ...rest
@@ -88,6 +89,9 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                         label
                     )}
                 </Label>
+                {description && (
+                    <p className="jkl-input-group-description">{description}</p>
+                )}
                 {renderInput()}
                 <SupportLabel
                     srOnly={inline}

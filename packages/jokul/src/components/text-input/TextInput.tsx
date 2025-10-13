@@ -17,6 +17,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             labelProps,
             supportLabelProps,
             tooltip,
+            description,
             ...rest
         } = props;
         const inputGroupProps = {
@@ -28,6 +29,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             inline,
             supportLabelProps,
             tooltip,
+            description,
         };
         return (
             <InputGroup
