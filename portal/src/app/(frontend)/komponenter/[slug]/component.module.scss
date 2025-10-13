@@ -13,14 +13,6 @@
     }
 }
 
-.article h2 {
-    padding-top: 2rem;
-}
-
-.article h2:first-of-type {
-    padding-top: 0;
-}
-
 .articleHeader {
     grid-column: 1;
     padding-top: var(--jkl-spacing-24);

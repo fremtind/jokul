@@ -1,6 +1,5 @@
 @use "@fremtind/jokul/styles/core";
-@use "@fremtind/jokul/styles/fonts" with (
-    $webfonts-dir: "../../src/fonts" // Dette er relativt til webfonts.sccs-fila i jokul-pakka
+@use "@fremtind/jokul/styles/fonts" with ($webfonts-dir: "../../src/fonts" // Dette er relativt til webfonts.sccs-fila i jokul-pakka
 );
 @use "@fremtind/jokul/styles";
 @use "@fremtind/jokul/styles/core/jkl";
@@ -70,44 +69,64 @@ article header {
     container-type: inline-size;
     box-sizing: border-box;
 
-    > * {
-        p {
-            max-width: 55ch;
-        }
+    @include jkl.text-style("body");
 
-        width: 100%;
-    }
-
-    > h2 {
-        :has(+ h3) {
-            margin-block-end: 0;
-        }
-
-        margin-block: 2lh 0.2lh;
-    }
-
-    > h3 {
+    > * + * {
         margin-block-start: 1lh;
     }
 
-    > h4 {
-        margin-block-start: 1lh;
+    p:empty {
+        display: none;
     }
 
-    > p,
-    > ul {
-        margin-block-end: 0.7lh;
+    > * + :is(h1,
+        h2,
+        h3,
+        h4,
+        h5) {
+        margin-block-start: 1.5lh;
     }
 
-    > p {
-        &:empty {
-            display: none;
-        }
+    > :is(h1,
+        h2,
+        h3,
+        h4,
+        h5) + * {
+        margin-block-start: 0.5lh;
     }
 
-    > ul,
-    > ol {
-        margin-block-end: 1lh;
+
+    h1 {
+        @include jkl.text-style("title");
+    }
+
+    h2 {
+        @include jkl.text-style("heading-2");
+    }
+
+    h3 {
+        @include jkl.text-style("heading-3");
+    }
+
+    h4 {
+        @include jkl.text-style("heading-4");
+    }
+
+    h5 {
+        @include jkl.text-style("heading-5");
+    }
+
+    code,
+    samp {
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
+    }
+
+    code {
+        display: inline-block;
+        background-color: var(--jkl-color-background-container-low);
+        font-size: 0.9em;
+        padding: 0 var(--jkl-unit-10);
+        border-radius: jkl.rem(2px);
     }
 }
 
