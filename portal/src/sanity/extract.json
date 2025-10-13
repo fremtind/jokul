@@ -326,76 +326,6 @@
         }
     },
     {
-        "name": "jokul_checkList",
-        "type": "type",
-        "value": {
-            "type": "object",
-            "attributes": {
-                "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                        "type": "string",
-                        "value": "jokul_checkList"
-                    }
-                },
-                "items": {
-                    "type": "objectAttribute",
-                    "value": {
-                        "type": "array",
-                        "of": {
-                            "type": "object",
-                            "attributes": {
-                                "type": {
-                                    "type": "objectAttribute",
-                                    "value": {
-                                        "type": "union",
-                                        "of": [
-                                            {
-                                                "type": "string",
-                                                "value": "check"
-                                            },
-                                            {
-                                                "type": "string",
-                                                "value": "cross"
-                                            }
-                                        ]
-                                    },
-                                    "optional": true
-                                },
-                                "text": {
-                                    "type": "objectAttribute",
-                                    "value": {
-                                        "type": "string"
-                                    },
-                                    "optional": true
-                                },
-                                "_type": {
-                                    "type": "objectAttribute",
-                                    "value": {
-                                        "type": "string",
-                                        "value": "item"
-                                    }
-                                }
-                            },
-                            "rest": {
-                                "type": "object",
-                                "attributes": {
-                                    "_key": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    },
-                    "optional": true
-                }
-            }
-        }
-    },
-    {
         "name": "jokul_linkCard",
         "type": "type",
         "value": {
@@ -1891,21 +1821,6 @@
                                 "rest": {
                                     "type": "inline",
                                     "name": "jokul_codeBlock"
-                                }
-                            },
-                            {
-                                "type": "object",
-                                "attributes": {
-                                    "_key": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                            "type": "string"
-                                        }
-                                    }
-                                },
-                                "rest": {
-                                    "type": "inline",
-                                    "name": "jokul_checkList"
                                 }
                             }
                         ]

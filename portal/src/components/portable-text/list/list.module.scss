@@ -1,0 +1,5 @@
+.checkCrossListItem {
+    & + & {
+        margin-block-start: 0.25lh;
+    }
+}

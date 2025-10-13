@@ -19,13 +19,6 @@ export const componentBySlugQuery =
         },
         documentation_article[]{
             ...,
-            _type == "jokul_checkList" => {
-                ...,
-                items[]{
-                    type,
-                    text
-                }
-            },
             _type == "jokul_componentKortFortalt" => {
                 ...,
                 bruk[]{

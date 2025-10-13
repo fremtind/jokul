@@ -1,0 +1,13 @@
+[data-list-item="cross"] [data-list-prefix] > span::before {
+    content: "❌";
+    font-size: 1.0em;
+    display: inline-block;
+    padding-top: 2px;
+}
+
+[data-list-item="check"] [data-list-prefix] > span::before {
+    content: "✅";
+    font-size: 1.0em;
+    display: inline-block;
+    padding-top: 2px;
+}
