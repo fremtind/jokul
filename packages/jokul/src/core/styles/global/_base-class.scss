@@ -2,6 +2,9 @@
 
 @layer jokul.global {
     .jkl {
+        @supports (font: -apple-system-body) {
+            font: -apple-system-body;
+        }
         @include jkl.use-font-family("Fremtind Grotesk");
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
