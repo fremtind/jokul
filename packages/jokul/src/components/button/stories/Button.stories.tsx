@@ -19,6 +19,10 @@ const meta = {
         children: "Knapp",
         variant: "primary",
         icon: undefined,
+        loader: {
+            showLoader: false,
+            textDescription: "Laster inn avtaler",
+        },
     },
     argTypes: {
         iconLeft: {
@@ -80,7 +84,7 @@ export const ButtonWithLoader: Story = {
     name: "Knapp med loader",
     args: {
         variant: "primary",
-        children: "Lagre",
+        children: "Klikk for å vise loader",
         loader: {
             showLoader: true,
             textDescription: "Lagrer...",
