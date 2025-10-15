@@ -1,7 +1,7 @@
 "use client";
 
 import { ComponentThumbnail } from "@/components/component-card/ComponentThumbnail";
-import type { ComponentBySlugQueryResult } from "@/sanity/types";
+import type {ComponentCardQueryResult} from "@/sanity/types";
 import {
     type UserPreferences,
     useUserPreferences,
@@ -13,10 +13,7 @@ import NextLink from "next/link";
 import styles from "./component-card.module.scss";
 
 type ComponentCardProps = {
-    component: Pick<
-        NonNullable<ComponentBySlugQueryResult>,
-        "image" | "imageDark" | "name" | "slug" | "short_description"
-    > | null;
+    component: ComponentCardQueryResult;
     initialPreferences?: UserPreferences;
 };
 
