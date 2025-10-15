@@ -4,7 +4,7 @@
 .jkl-link {
     --link-color: var(--jkl-color-text-default);
 
-    color: var(--link-color);
+    color: inherit;
     outline: none;
     text-decoration: none;
 
@@ -15,7 +15,7 @@
         text-decoration: underline;
         text-underline-offset: 0.08lh;
         text-decoration-thickness: 0.05em;
-        text-decoration-color: rgba(from currentcolor r g b / 0.7);
+        text-decoration-color: rgb(from currentColor r g b / 70%);
     }
 
     &__icon {
@@ -45,7 +45,6 @@
     &[download]::after {
         content: "\feff\f090" / "(Last ned fil)";
     }
-
 
     &:hover:not(:focus) {
         --link-color: var(--jkl-color-text-subdued);
