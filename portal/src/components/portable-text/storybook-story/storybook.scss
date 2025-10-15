@@ -1,0 +1,12 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+
+.storybook-example {
+    border: 0;
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 1;
+    border-radius: jkl.rem(4px);
+    min-height: jkl.rem(120px);
+    max-height: 100vh;
+}
