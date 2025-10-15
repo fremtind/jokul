@@ -9,7 +9,13 @@ import { KortFortalt } from "./kort-fortalt/KortFortalt";
 import { LinkCard } from "./link-card/LinkCard";
 import { ComponentPageLink } from "./link/ComponentPageLink";
 import { Link } from "./link/Link";
-import { ListItem, OrderedList, UnorderedList } from "./list";
+import {
+    CheckListItem,
+    CrossListItem,
+    ListItem,
+    OrderedList,
+    UnorderedList,
+} from "./list";
 import { Storybook } from "./storybook-story/Storybook";
 import { CodeBlock } from "./typography/Typography";
 
@@ -37,10 +43,14 @@ export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
         types: jokulBlockTypes,
         list: {
             bullet: UnorderedList,
+            check: UnorderedList,
+            cross: UnorderedList,
             number: OrderedList,
         },
         listItem: {
             bullet: ListItem,
+            check: CheckListItem,
+            cross: CrossListItem,
             number: ListItem,
         },
         marks: {
