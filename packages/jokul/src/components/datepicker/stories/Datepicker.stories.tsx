@@ -26,7 +26,7 @@ const meta = {
         disableAfterDate: new Date(
             new Date().setDate(new Date().getDate() + 14),
         ).toLocaleDateString("en-US"),
-        helpLabel: "Kortet er gyldig i 3 måneder fra denne datoen",
+        description: "Kortet er gyldig i 3 måneder fra denne datoen",
         label: "Når skal du reise?",
         labelProps: {
             srOnly: false,

@@ -23,6 +23,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             tooltip,
             value,
             width,
+            description,
             ...rest
         } = props;
 
@@ -35,6 +36,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             inline,
             supportLabelProps,
             tooltip,
+            description,
         };
 
         return (

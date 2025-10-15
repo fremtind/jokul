@@ -8,7 +8,7 @@
 }
 
 $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.unique-id(
-    
+
 )};
 
 @include jkl.comfortable-density-variables {
@@ -117,6 +117,14 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     &--sr-only {
         @include jkl.screenreader-only;
     }
+}
+
+.jkl-input-group-description {
+    @include jkl.text-style("small");
+    color: var(--jkl-color-text-subdued);
+    margin: var(--jkl-label-medium-margin);
+    max-inline-size: 35ch;
+    text-wrap: pretty;
 }
 
 @keyframes #{$_support-icon-entrance-animation-name} {

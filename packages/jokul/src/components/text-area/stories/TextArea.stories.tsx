@@ -8,6 +8,15 @@ const meta = {
     parameters: {
         layout: "centered",
     },
+    args: {
+        label: "Tilleggsinformasjon",
+        description: "Legg til relevant informasjon som kan påvirke saken.",
+        counter: {
+            maxLength: 200,
+            hideProgress: false,
+        },
+        autoExpand: true,
+    },
     tags: ["autodocs", "forms"],
 } satisfies Meta<typeof TextAreaComponent>;
 
@@ -17,21 +26,11 @@ type Story = StoryObj<typeof meta>;
 export const TextArea: Story = {
     args: {
         label: "Har du noen tilbakemeldinger til oss?",
-        helpLabel: "Din tilbakemelding hjelper oss å bli bedre.",
+        description: "Din tilbakemelding hjelper oss å bli bedre.",
     },
 };
 
-export const TextAreaWithCounterAndAutoExpand: Story = {
-    args: {
-        label: "Tilleggsinformasjon",
-        helpLabel: "Legg til relevant informasjon som kan påvirke saken.",
-        counter: {
-            maxLength: 200,
-            hideProgress: false,
-        },
-        autoExpand: true,
-    },
-};
+export const TextAreaWithCounterAndAutoExpand: Story = {};
 
 export const WithError: Story = {
     args: {
@@ -53,6 +52,6 @@ export const ReadOnly: Story = {
         label: "Tidligere registrert informasjon",
         readOnly: true,
         value: "Kunde rapporterte vannlekkasje i kjeller 15. mars kl. 08:30. Skaden oppstod som følge av frostsprengt rør under kjøkkengulvet. Rørlegger tilkalt samme dag.",
-        helpLabel: "Denne informasjonen kan ikke endres",
+        description: "Denne informasjonen kan ikke endres",
     },
 };

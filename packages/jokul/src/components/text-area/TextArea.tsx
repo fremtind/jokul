@@ -19,6 +19,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             startOpen,
             supportLabelProps,
             tooltip,
+            description,
             ...rest
         } = props;
         const inputGroupProps = {
@@ -30,6 +31,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             inline,
             supportLabelProps,
             tooltip,
+            description,
         };
         const textAreaProps = { autoExpand, counter, startOpen };
         return (

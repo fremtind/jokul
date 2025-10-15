@@ -61,7 +61,7 @@ const meta: Meta = {
         placeholder: "Velg merke",
         inline: false,
         invalid: false,
-        helpLabel: "Du kan kun velge ett merke",
+        description: "Du kan kun velge ett merke",
         labelProps: {
             srOnly: false,
             variant: "small",

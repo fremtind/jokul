@@ -17,6 +17,7 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
         helpLabel,
         errorLabel,
         density,
+        description,
         "data-testautoid": testAutoId,
         ...rest
     } = props;
@@ -57,6 +58,9 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
                     )}
                 </Label>
             </legend>
+            {description && (
+                <p className="jkl-input-group-description">{description}</p>
+            )}
             {children}
             {(helpLabel || errorLabel) && (
                 <SupportLabel
