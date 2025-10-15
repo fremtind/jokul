@@ -1,5 +1,17 @@
 # portal
 
+## 1.4.5
+
+### Patch Changes
+
+- 2b9ffaa: - Rettet opp i importen av CSS-stiler for komponenter i [global.scss](<https://github.com/fremtind/jokul/blob/main/portal/src/app/(frontend)/global.scss#L5>).
+  - Endret bakgrunnsfargen til body i portalen fra `--jkl-color-background-container-high` til `--jkl-color-background-page`.
+- Updated dependencies [74e9d27]
+- Updated dependencies [1a60d17]
+- Updated dependencies [68b580f]
+- Updated dependencies [9eba724]
+  - @fremtind/jokul@1.5.1
+
 ## 1.4.4
 
 ### Patch Changes
