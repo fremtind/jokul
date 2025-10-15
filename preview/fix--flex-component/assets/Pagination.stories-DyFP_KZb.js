@@ -1,0 +1,24 @@
+import{R as n,r as I}from"./index-siqcju79.js";import{c}from"./clsx-B-dksMZM.js";import{I as p}from"./IconButton-B7cUPyFx.js";import{C as y}from"./ChevronLeftIcon-CRfKwj3Y.js";import{C as j}from"./ChevronRightIcon-FDHwb4Pe.js";import"./_commonjsHelpers-DaWZu8wl.js";import"./Icon-Crh-gXYv.js";const o=({isActive:s,number:a,onClick:e,total:t})=>c.createElement("li",{"aria-setsize":t,"aria-posinset":a},c.createElement("button",{className:c("jkl-pagination-button",{"jkl-pagination-button--current":s}),"aria-current":s,type:"button",onClick:e,tabIndex:s?-1:0,"aria-disabled":s,title:`side ${a}`},c.createElement("span",{"aria-hidden":!0},a)));o.__docgenInfo={description:"",methods:[],displayName:"PageButton",props:{isActive:{required:!0,tsType:{name:"boolean"},description:""},number:{required:!0,tsType:{name:"number"},description:""},onClick:{required:!0,tsType:{name:"MouseEventHandler"},description:""},total:{required:!0,tsType:{name:"number"},description:""}}};const h=n.forwardRef(function({onPageChange:a,currentPage:e,numberOfPages:t,labels:i={previous:"Forrige side",next:"Neste side"},as:u,className:l,...E},C){I.useEffect(()=>{e<1&&console.error("[Pagination]: currentPage prop should be set to a value larger than 0"),e>t&&console.error("[Pagination]: currentPage prop should not be set to a value larger than numberOfPages")},[e,t]);const N=u||"nav";if(t<=7)return n.createElement(N,{ref:C,...E,className:c("jkl-pagination",l)},n.createElement(p,{className:"jkl-pagination-button",title:i.previous,onClick:()=>a(e-1,e),"aria-disabled":e===1,tabIndex:e===1?-1:0},n.createElement(y,null)),n.createElement("ol",{className:"jkl-pagination__pages"},Array.from({length:t}).map((M,x)=>{const f=x+1;return n.createElement(o,{key:x,isActive:e===f,number:f,total:t,onClick:()=>a(f,e)})})),n.createElement(p,{className:"jkl-pagination-button",title:i.next,onClick:()=>a(e+1,e),"aria-disabled":e===t,tabIndex:e===t?-1:0},n.createElement(j,null)));const _=e>4,A=e<t-3,m=Math.min(Math.max(e-2,2),t-5),r=Math.min(m+1,t-4),k=Math.min(r+1,t-3),v=Math.min(r+2,t-2),b=Math.min(r+3,t-1);return n.createElement(N,{ref:C,...E,className:"jkl-pagination"},n.createElement(p,{className:"jkl-pagination-button",title:i.previous,onClick:()=>a(e-1,e),"aria-disabled":e===1,tabIndex:e===1?-1:0},n.createElement(y,null)),n.createElement("ol",{className:"jkl-pagination__pages"},n.createElement(o,{isActive:e===1,number:1,total:t,onClick:()=>a(1,e)}),_?n.createElement("span",{"aria-hidden":!0,className:"jkl-pagination-button--elipsis"},"..."):n.createElement(o,{isActive:e===m,number:m,total:t,onClick:()=>a(m,e)}),n.createElement(o,{isActive:e===r,number:r,total:t,onClick:()=>a(r,e)}),n.createElement(o,{isActive:e===k,number:k,total:t,onClick:()=>a(k,e)}),n.createElement(o,{isActive:e===v,number:v,total:t,onClick:()=>a(v,e)}),A?n.createElement("span",{"aria-hidden":!0,className:"jkl-pagination-button--elipsis"},"..."):n.createElement(o,{isActive:e===b,number:b,total:t,onClick:()=>a(b,e)}),n.createElement(o,{isActive:e===t,number:t,total:t,onClick:()=>a(t,e)})),n.createElement(p,{className:"jkl-pagination-button",title:i.next,onClick:()=>a(e+1,e),"aria-disabled":e===t,tabIndex:e===t?-1:0},n.createElement(j,null)))});h.__docgenInfo={description:"",methods:[],displayName:"Pagination",props:{as:{required:!1,tsType:{name:"ElementType"},description:`Her kan du angi hva slags element komponenten skal rendres
+som. Det kan enten være en string for native HTML elementer
+eller en komponent (som Link fra react-router og lignende).`},ref:{required:!1,tsType:{name:'ReactComponentPropsWithRef["ref"]',raw:'React.ComponentPropsWithRef<As>["ref"]'},description:""},labels:{defaultValue:{value:`{
+    previous: "Forrige side",
+    next: "Neste side",
+}`,computed:!1},required:!1}}};const H={title:"Komponenter/Pagination",component:h,parameters:{layout:"centered"},tags:["autodocs"]},d={args:{currentPage:1,numberOfPages:10,onPageChange:()=>{}},decorators:[(s,a)=>{const[e,t]=I.useState(a.args.currentPage),i=a.args.numberOfPages,u=(l,E)=>{l>0&&l<=i&&t(l)};return n.createElement("div",null,n.createElement(h,{currentPage:e,numberOfPages:i,onPageChange:u}))}]};d.parameters={...d.parameters,docs:{...d.parameters?.docs,source:{originalSource:`{
+  args: {
+    currentPage: 1,
+    numberOfPages: 10,
+    onPageChange: () => {}
+  },
+  decorators: [(Story, context) => {
+    const [currentPage, setCurrentPage] = useState<number>(context.args.currentPage);
+    const numberOfPages = context.args.numberOfPages;
+    const onPageChange = (newPage: number, fromPage: number) => {
+      if (newPage > 0 && newPage <= numberOfPages) {
+        setCurrentPage(newPage);
+      }
+    };
+    return <div>
+                    <PaginationComponent currentPage={currentPage} numberOfPages={numberOfPages} onPageChange={onPageChange} />
+                </div>;
+  }]
+}`,...d.parameters?.docs?.source}}};const L=["Pagination"];export{d as Pagination,L as __namedExportsOrder,H as default};

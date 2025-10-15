@@ -1,0 +1,17 @@
+import{R as e}from"./index-siqcju79.js";import{c as p}from"./clsx-B-dksMZM.js";import"./_commonjsHelpers-DaWZu8wl.js";const l=({className:m,caption:a,header:o,body:s,footer:c,...d})=>e.createElement("table",{...d,className:p("jkl-summary-table",m)},a&&e.createElement("caption",{className:"jkl-sr-only"},a),e.createElement("thead",{className:"jkl-sr-only"},e.createElement("tr",null,o.map((i,u)=>e.createElement("th",{scope:"col",key:u},i)))),e.createElement("tbody",null,s),e.createElement("tfoot",null,c));l.__docgenInfo={description:"",methods:[],displayName:"SummaryTable",props:{className:{required:!1,tsType:{name:"string"},description:""},caption:{required:!1,tsType:{name:"string"},description:""},header:{required:!0,tsType:{name:"tuple",raw:"[string, string]",elements:[{name:"string"},{name:"string"}]},description:""},body:{required:!0,tsType:{name:"ReactNode"},description:""},footer:{required:!1,tsType:{name:"ReactNode"},description:""}}};const t=({className:m,header:a,content:o,...s})=>e.createElement("tr",{...s,className:m},e.createElement("th",{scope:"row"},a),e.createElement("td",null,o));t.__docgenInfo={description:"",methods:[],displayName:"SummaryTableRow",props:{className:{required:!1,tsType:{name:"string"},description:""},header:{required:!0,tsType:{name:"union",raw:"string | ReactNode",elements:[{name:"string"},{name:"ReactNode"}]},description:""},content:{required:!0,tsType:{name:"union",raw:"string | ReactNode",elements:[{name:"string"},{name:"ReactNode"}]},description:""}}};const E={title:"Komponenter/SummaryTable",component:l,parameters:{layout:"centered"},tags:["autodocs","tabular data"]},r="­",n={args:{caption:"Example",header:["Product","Price"],body:e.createElement(e.Fragment,null,e.createElement(t,{header:`Uføre${r}pensjon`,content:"340,00 kr/mnd"}),e.createElement(t,{className:"summary-table-example__custom-row",header:`Livs${r}forsikring`,content:"Tatt ut av tilbudet"}),e.createElement(t,{header:`Innbo${r}forsikring`,content:"122,00 kr/mnd"}),e.createElement(t,{header:`Reise${r}forsikring`,content:"249,00 kr/mnd"}),e.createElement(t,{className:"summary-table-example__custom-row",header:"Rabatt",content:"- 17,50 kr/mnd"})),footer:e.createElement(e.Fragment,null,e.createElement(t,{header:"Total sum",content:"693,50 kr/mnd"}),e.createElement(t,{header:e.createElement("span",{className:"jkl-sr-only"},"Total sum per år"),content:"8322,50 kr/mnd"}))}};n.parameters={...n.parameters,docs:{...n.parameters?.docs,source:{originalSource:`{
+  args: {
+    caption: "Example",
+    header: ["Product", "Price"],
+    body: <>
+                <SummaryTableRow header={\`Uføre\${SOFT_HYPHEN}pensjon\`} content="340,00 kr/mnd" />
+                <SummaryTableRow className="summary-table-example__custom-row" header={\`Livs\${SOFT_HYPHEN}forsikring\`} content="Tatt ut av tilbudet" />
+                <SummaryTableRow header={\`Innbo\${SOFT_HYPHEN}forsikring\`} content="122,00 kr/mnd" />
+                <SummaryTableRow header={\`Reise\${SOFT_HYPHEN}forsikring\`} content="249,00 kr/mnd" />
+                <SummaryTableRow className="summary-table-example__custom-row" header="Rabatt" content="- 17,50 kr/mnd" />
+            </>,
+    footer: <>
+                <SummaryTableRow header="Total sum" content="693,50 kr/mnd" />
+                <SummaryTableRow header={<span className="jkl-sr-only">Total sum per år</span>} content="8322,50 kr/mnd" />
+            </>
+  }
+}`,...n.parameters?.docs?.source}}};const g=["SummaryTable"];export{n as SummaryTable,g as __namedExportsOrder,E as default};
