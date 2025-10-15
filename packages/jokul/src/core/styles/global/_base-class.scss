@@ -2,15 +2,19 @@
 
 @layer jokul.global {
     .jkl {
-        @supports (font: -apple-system-body) {
-            font: -apple-system-body;
-        }
-        @include jkl.use-font-family("Fremtind Grotesk");
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
 
         background-color: var(--jkl-background-color);
         color: var(--jkl-color);
+
+        @supports (font: -apple-system-body) {
+            font: -apple-system-body;
+        }
+
+        & {
+            @include jkl.use-font-family("Fremtind Grotesk");
+        }
 
         strong {
             --jkl-icon-weight: #{jkl.$icon-weight-bold};
@@ -19,6 +23,7 @@
     }
 
     @include jkl.prefers-reduced-motion {
+
         *,
         *::after,
         *::before {
