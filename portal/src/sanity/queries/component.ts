@@ -16,7 +16,7 @@ export const componentBySlugQuery =
         ...,
         "slug": slug.current,
         "component_example_card": component_example_card{
-        "url": asset->url
+            "url": asset->url
         },
         documentation_article[]{
             ...,
