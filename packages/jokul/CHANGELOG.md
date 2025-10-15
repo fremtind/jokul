@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.5.1
+
+### Patch Changes
+
+- 74e9d27: - Gjør `Image`-komponenten om til en `forwardRef` for å støtte `refs` fra `parent`-komponenter.
+  - Setter `img` i `Card` til `object-fit: cover` som standard, slik at bilder dekker kortet uten å forvrenge proporsjonene.
+- 1a60d17: Støtte for skalering av tekst på iOS-enheter
+- 68b580f: Retter opp i en visuell inkonsistens mellom Tooltip og Help komponentene, som hadde ulik oppførsel for bakgrunnsfarge i light og dark mode. Begge bruker nå `--jkl-color-background-container-inverted`.
+- 9eba724: La til css slik at tekstfargen på lenker i Help arver fargen til teksten og derfor følger tema.
+
 ## 1.5.0
 
 ### Minor Changes
