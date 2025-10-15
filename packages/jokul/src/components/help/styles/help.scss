@@ -19,10 +19,6 @@
         display: none;
     }
 
-    a {
-        color: inherit;
-    }
-
     .title {
         @include jkl.text-style("body") {
             font-weight: bold;
