@@ -1,5 +1,8 @@
+import { CheckmarkCircleIcon, CloseCircleIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { checkList, crossList } from "./lists/usageList";
+import { componentPageLink } from "./links/componentPageLink";
+
+import "./lists/usageList.scss";
 
 const MAX_LENGTH = 70;
 
@@ -132,9 +135,20 @@ export const component = defineType({
                     lists: [
                         { title: "Punktliste", value: "bullet" },
                         { title: "Nummerert liste", value: "number" },
-                        checkList,
-                        crossList,
+                        {
+                            title: "Oppfordringsliste",
+                            value: "check",
+                            icon: CheckmarkCircleIcon,
+                        },
+                        {
+                            title: "Frarådningsliste",
+                            value: "cross",
+                            icon: CloseCircleIcon,
+                        },
                     ],
+                    marks: {
+                        annotations: [componentPageLink],
+                    },
                 },
                 { type: "image" },
                 { type: "jokul_componentProps" },
