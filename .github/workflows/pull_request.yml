@@ -2,7 +2,7 @@ name: Pull request
 
 on:
     pull_request:
-        branches: [ "main" ]
+        branches: [ "jokul-1.x" ]
     merge_group:
         types: [ checks_requested ]
 
@@ -75,7 +75,7 @@ jobs:
                     message: |
                         Hei, @${{ github.event.sender.login }}! Takk for at du bidrar til Jøkul! 🙌
                         For å sørge for god dokumentasjon og brukeropplevelse er det fint om du husker å gjøre disse tingene:
-                        
+
                         - [ ] **Test endringene dine** ♿️
                           Sørg for å teste endringene dine for både responsivitet og universell utforming (tastaturnavigasjon, skjermleser, etc.).
                         ${{ steps.documentation.outputs.changeset == 'false' && '- [ ] **Skriv endringslogg** 📝
@@ -84,16 +84,16 @@ jobs:
                           Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere eller legge til [Storybook-stories](https://storybook.js.org/docs/get-started/whats-a-story) for dette i komponenten(e).
                         - [ ] **Oppdater informasjon i Sanity** 📖
                           Hvis du har endret eller lagt til ny funksjonalitet i komponenter må du huske å oppdatere informasjonen om komponenten(e) i Sanity.' }}
-                        
+
                         Hvis du lurer på hvordan du kommer i gang med noe av dette, er det bare å spørre oss i Jøkul-teamet om hjelp! Tagg oss i en kommentar her, eller spør oss [på Teams](https://teams.microsoft.com/l/channel/19%3Adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%20Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0).
-    
+
 
     testlint:
         name: Kjør tester og linting
         needs: changes
         # Vi vil alltid kjøre denne jobben, men avgjør om tester skal kjøres
         # ut fra om vi er i merge-køen eller det er endringer i koden.
-        if: ${{ always() }} 
+        if: ${{ always() }}
         runs-on: ubuntu-latest
         permissions:
             actions: read
@@ -188,5 +188,5 @@ jobs:
                     message: |
                         <span aria-hidden="true">✅</span> Forhåndsvisning: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/
                         <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
-                        
+
                         Forhåndsvisningen blir tilgjengelig innen et par minutter. Den fjernes automatisk når pull requesten lukkes.

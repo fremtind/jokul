@@ -3,7 +3,7 @@ name: Publiser nye versjoner
 on:
     push:
         branches:
-            - main
+            - 'jokul-1.x'
 
 run-name: Publiser endrede pakker. Siste commit er ${{ github.event.head_commit.message }}
 
@@ -21,7 +21,7 @@ jobs:
         steps:
             - name: Checkout Repo
               uses: actions/checkout@v3
-              
+
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
 
@@ -62,11 +62,11 @@ jobs:
             - name: Tilbakestill endringer i .npmrc
               # Unngår å få feil ved publisering pga. unclean git status
               run: git checkout .npmrc
-                
+
             - name: Reinstaller pakker etter actions/setup-node
               if: steps.changesets.outputs.published == 'true'
               run: pnpm install --frozen-lockfile
-            
+
             - name: Publiser pakker til GitHub Packages
               if: steps.changesets.outputs.published == 'true'
               run: pnpm -r publish
