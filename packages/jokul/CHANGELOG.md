@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.71.3
+
+### Patch Changes
+
+- 4cec227: endre max-høyde for modalen
+- 47e60a2: legg til støtte for ios-tekstskalering
+
 ## 0.71.2
 
 ### Patch Changes
