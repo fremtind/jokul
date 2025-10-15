@@ -173,7 +173,6 @@ export default async function Page({ params }: Props) {
                                             (relatedComponent) => (
                                                 <li key={relatedComponent.slug}>
                                                     <ComponentCard
-                                                        // @ts-expect-error Typene her er fortsatt ikke 100% i sync, men alt som trengs stemmer
                                                         component={
                                                             relatedComponent
                                                         }
