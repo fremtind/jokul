@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.6.0
+
+### Minor Changes
+
+- 98bdec6: Erstattet PenIcon med nytt ikon fra Material.
+- 4598e1e: Legger til `description`-propen i input-felt.
+
 ## 1.5.1
 
 ### Patch Changes
