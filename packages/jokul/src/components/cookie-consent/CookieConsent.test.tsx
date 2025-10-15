@@ -16,7 +16,6 @@ describe("CookieConsent", () => {
                 consent: {
                     functional: null,
                     statistics: null,
-                    marketing: null,
                 },
                 name: "demo-consent-cookie",
                 maxAge: -1,
@@ -29,39 +28,18 @@ describe("CookieConsent", () => {
                     cookieName="demo-consent-cookie"
                     functional={false}
                     statistics={true}
-                    marketing={false}
                 >
-                    <CookieConsent blocking={true} />
+                    <CookieConsent
+                        blocking={true}
+                        aboutPage="https://www.fremtind.no/informasjonskapsler"
+                    />
                 </CookieConsentProvider>,
             );
 
             await screen.getByTestId("jkl-cookie-consent-godta-alle").click();
 
             expect(document.cookie).toEqual(
-                'demo-consent-cookie={"marketing":null,"functional":null,"statistics":"accepted"}',
-            );
-        });
-
-        it("can accept a selection of cookies", async () => {
-            render(
-                <CookieConsentProvider
-                    cookieName="demo-consent-cookie"
-                    functional={true}
-                    statistics={true}
-                    marketing={true}
-                >
-                    <CookieConsent blocking={true} />
-                </CookieConsentProvider>,
-            );
-
-            await screen
-                .getByRole("checkbox", { name: "Tillat statistikk" })
-                .click();
-
-            await screen.getByTestId("jkl-cookie-consent-godta").click();
-
-            expect(document.cookie).toEqual(
-                'demo-consent-cookie={"marketing":"denied","functional":"denied","statistics":"accepted"}',
+                'demo-consent-cookie={"functional":null,"statistics":"accepted"}',
             );
         });
 
@@ -71,20 +49,18 @@ describe("CookieConsent", () => {
                     cookieName="demo-consent-cookie"
                     functional={true}
                     statistics={true}
-                    marketing={true}
                 >
-                    <CookieConsent blocking={true} />
+                    <CookieConsent
+                        blocking={true}
+                        aboutPage="https://www.fremtind.no/informasjonskapsler"
+                    />
                 </CookieConsentProvider>,
             );
-
-            await screen
-                .getByRole("checkbox", { name: "Tillat statistikk" })
-                .click();
 
             await screen.getByTestId("jkl-cookie-consent-godta-alle").click();
 
             expect(document.cookie).toEqual(
-                'demo-consent-cookie={"marketing":"accepted","functional":"accepted","statistics":"accepted"}',
+                'demo-consent-cookie={"functional":"accepted","statistics":"accepted"}',
             );
         });
     });
@@ -95,7 +71,6 @@ describe("CookieConsent", () => {
                 consent: {
                     functional: null,
                     statistics: "accepted",
-                    marketing: null,
                 },
                 name: "demo-consent-cookie",
             });
@@ -108,9 +83,11 @@ describe("CookieConsent", () => {
                         cookieName="demo-consent-cookie"
                         functional={true}
                         statistics={true}
-                        marketing={true}
                     >
-                        <CookieConsent blocking={true} />
+                        <CookieConsent
+                            blocking={true}
+                            aboutPage="https://www.fremtind.no/informasjonskapsler"
+                        />
                         {children}
                     </CookieConsentProvider>
                 );
@@ -122,7 +99,6 @@ describe("CookieConsent", () => {
 
             await waitFor(() => {
                 expect(result.current?.consents).toEqual({
-                    marketing: null,
                     statistics: "accepted",
                     functional: null,
                 });
@@ -132,7 +108,6 @@ describe("CookieConsent", () => {
 
             await waitFor(() => {
                 expect(result.current?.consents).toEqual({
-                    marketing: "accepted",
                     statistics: "accepted",
                     functional: "accepted",
                 });

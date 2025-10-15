@@ -8,6 +8,7 @@ import {
     useCookieConsent,
 } from "../CookieConsentContext.js";
 import "../styles/_index.scss";
+import "../../link/styles/_index.scss";
 
 const meta = {
     title: "Komponenter/CookieConsent",
@@ -15,8 +16,12 @@ const meta = {
     parameters: {
         layout: "centered",
     },
+    args: {
+        cookieName: "demo-consent-cookie",
+        functional: true,
+        statistics: true,
+    },
     tags: ["autodocs"],
-    argTypes: {},
 } satisfies Meta<typeof CookieConsentProvider>;
 
 export default meta;
@@ -39,12 +44,8 @@ export const CookieConsent: Story = {
     args: {
         children: (
             <Wrapper>
-                <CookieConsentComponent />
+                <CookieConsentComponent aboutPage="https://www.fremtind.no/informasjonskapsler" />
             </Wrapper>
         ),
-        cookieName: "demo-consent-cookie",
-        functional: true,
-        statistics: true,
-        marketing: true,
     },
 };
