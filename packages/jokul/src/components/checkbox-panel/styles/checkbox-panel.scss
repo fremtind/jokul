@@ -1,6 +1,7 @@
 @use "../../../core/jkl" as jkl;
 @use "sass:string";
 @use "../../../shared/input-panel/styles/shared";
+@use "../../checkbox/styles/checkbox.scss";
 
 $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 
@@ -78,16 +79,13 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 
         &:has(:checked) &__decorator {
             &::after {
-                animation: $_checkbox-checked-animation-name
-                    jkl.timing("productive") ease-in-out forwards;
+                animation: $_checkbox-checked-animation-name jkl.timing("productive") ease-in-out forwards;
                 opacity: 1;
             }
         }
 
         &:has([aria-invalid="true"]) {
-            --checkbox-background-color: var(
-                --jkl-color-background-alert-error
-            );
+            --checkbox-background-color: var(--jkl-color-background-alert-error);
             --checkbox-check-color: var(--jkl-color-text-on-alert);
         }
     }
