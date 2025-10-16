@@ -2,8 +2,8 @@ name: Månedlig påminnelse - Synkroniser design-tokens
 
 on:
   schedule:
-    # Kjører hver mandag kl. 09:00
-    - cron: '0 9 * * 1'
+    # Kjører kl. 09:00 første dag hver måned
+    - cron: '0 9 1 * *'
 jobs:
   create_token_issue:
     name: Opprett påminnelses-issue
