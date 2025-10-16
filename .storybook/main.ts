@@ -1,3 +1,5 @@
+import { mergeConfig } from "vite";
+import react from "@vitejs/plugin-react";
 import type { StorybookConfig } from "@storybook/react-vite";
 
 const config: StorybookConfig = {
@@ -17,13 +19,13 @@ const config: StorybookConfig = {
         name: "@storybook/react-vite",
         options: {},
     },
-    viteFinal: (config) => {
-        return {
-            ...config,
+    viteFinal: (config) =>
+        mergeConfig(config, {
+            plugins: [react()],
             css: {
                 preprocessorOptions: { scss: { api: "modern" } },
             },
-        };
-    },
+        }),
 };
+
 export default config;
