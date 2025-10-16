@@ -2159,6 +2159,14 @@
                                                 {
                                                     "type": "string",
                                                     "value": "number"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "value": "check"
+                                                },
+                                                {
+                                                    "type": "string",
+                                                    "value": "cross"
                                                 }
                                             ]
                                         },
