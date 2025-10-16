@@ -22,7 +22,7 @@ const Wrapper: FC<WithChildren> = ({ children }) => {
     const [key, setKey] = useState(0);
 
     return (
-        <Flex style={{ width: 500 }} direction="column" gap={24}>
+        <Flex style={{ width: 500 }} direction="column" gap="m">
             <div key={key}>{children}</div>
             <PrimaryButton
                 onClick={() => setKey(Date.now())}

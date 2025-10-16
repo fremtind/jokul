@@ -48,9 +48,9 @@ Ansvar:    ${watch("ansvar")}
     return (
         <Flex
             direction="column"
-            gap={32}
+            gap="s"
             style={{ maxWidth: 580, width: "100%" }}
-            asChild={true}
+            asChild
         >
             <form onSubmit={handleSubmit(onSubmit)}>
                 <CheckboxPanel
@@ -63,8 +63,8 @@ Ansvar:    ${watch("ansvar")}
                         <Flex
                             as="span"
                             alignItems="center"
-                            justifyContent="flex-end"
-                            gap={24}
+                            justifyContent="end"
+                            gap="s"
                             className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                         >
                             <SuccessTag>Anbefalt</SuccessTag>
@@ -84,7 +84,7 @@ Ansvar:    ${watch("ansvar")}
                         <Flex
                             as="span"
                             alignItems="center"
-                            justifyContent="flex-end"
+                            justifyContent="end"
                             className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                         >
                             200 kr/mnd
@@ -102,7 +102,7 @@ Ansvar:    ${watch("ansvar")}
                         <Flex
                             as="span"
                             alignItems="center"
-                            justifyContent="flex-end"
+                            justifyContent="end"
                             className="input-panel-example__custom-label input-panel-example__custom-label--bold"
                         >
                             100 kr/mnd

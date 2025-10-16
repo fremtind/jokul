@@ -30,9 +30,9 @@ const baseArgs = {
 export const IconPlacements: Story = {
     args: baseArgs,
     render: (args) => (
-        <Flex direction="column" gap={24} style={{ width: "100%" }}>
+        <Flex direction="column" gap="m" style={{ width: "100%" }}>
             {["primary", "secondary", "tertiary", "ghost"].map((variant) => (
-                <Flex key={variant} gap={8}>
+                <Flex key={variant} gap="xs">
                     <Button {...args} variant={variant as ButtonVariant} />
                     <Button
                         {...args}

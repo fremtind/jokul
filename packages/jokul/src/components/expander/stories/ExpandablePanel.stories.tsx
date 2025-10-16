@@ -43,7 +43,7 @@ export const ExpandablePanelFilled: Story = {
         variant: "fill",
     },
     render: (args) => (
-        <Flex style={{ width: "100%" }} direction="column" gap={4}>
+        <Flex direction="column" gap="xs">
             {[...Array(3)].map((_, index) => (
                 <ExpandablePanel key={index} {...args}>
                     <ExpandablePanel.Header>
