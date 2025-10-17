@@ -46,38 +46,6 @@
         }
     }
 
-    .jkl-icon-red-cross {
-        --red-cross-circle: var(--jkl-color-background-alert-error);
-        --red-cross-path: #{jkl.$color-brand-granitt};
-
-        width: jkl.rem(24px);
-        height: jkl.rem(24px);
-
-        & path {
-            fill: var(--red-cross-path);
-        }
-
-        & circle {
-            fill: var(--red-cross-circle);
-        }
-    }
-
-    .jkl-icon-green-check {
-        --green-check-circle: var(--jkl-color-background-alert-success);
-        --green-check-path: #{jkl.$color-brand-granitt};
-
-        width: jkl.rem(24px);
-        height: jkl.rem(24px);
-
-        & path {
-            fill: var(--green-check-path);
-        }
-
-        & circle {
-            fill: var(--green-check-circle);
-        }
-    }
-
     .jkl-animated-horizontal-arrows,
     .jkl-animated-vertical-arrows {
         overflow: hidden;
