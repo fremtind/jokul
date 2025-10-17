@@ -1,7 +1,6 @@
 import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { TabListener } from "@/components/TabListener";
 import { Header } from "@/components/header/Header";
-import Link from "next/link";
 
 import "./global.scss";
 import { SanityLive } from "@/sanity/lib/live";
@@ -18,13 +17,6 @@ export default async function PortalLayout({ children }: Props) {
         <html lang="no" className="jkl">
             <body>
                 <TabListener />
-                <Link
-                    id="content-skip-link"
-                    className="jkl-body jkl-sr-only jkl-sr-only--focusable jkl-portal-skip-link"
-                    href="#innhold"
-                >
-                    Hopp til innhold
-                </Link>
                 <CookiesNextProvider>
                     <div className="jkl-portal-layout">
                         <Header />
