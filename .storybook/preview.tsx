@@ -4,9 +4,6 @@ import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js"
 import { backgroundOptions } from "./backgrounds.js";
 import { densities, densityDecorator, densityGlobal } from "./density.js";
 import { themeDecorator, themeGlobal, themes } from "./theme.js";
-
-// Styles
-import "../packages/jokul/src/components/card/styles/_index.scss";
 import "./global.scss";
 
 initTabListener();

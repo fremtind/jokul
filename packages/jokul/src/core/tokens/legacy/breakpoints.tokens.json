@@ -1,5 +1,8 @@
 {
     "breakpoint": {
+        "small": {
+            "value": "0"
+        },
         "medium": {
             "value": "680px"
         },

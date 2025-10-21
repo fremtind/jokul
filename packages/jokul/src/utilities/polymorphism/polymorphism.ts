@@ -25,8 +25,8 @@ export type PolymorphicProps<
     > &
     ElementTypeProp<ElementType>;
 
-export type PolymorphicRef<ElementType extends React.ElementType> =
-    React.ComponentPropsWithRef<ElementType>["ref"];
+export type PolymorphicRef<As extends React.ElementType> =
+    React.ComponentPropsWithRef<As>["ref"];
 
 export type PolymorphicPropsWithRef<
     ElementType extends React.ElementType,

@@ -12,7 +12,7 @@ type ComponentFooterProps = {
 export const PageFooter = ({ name }: ComponentFooterProps) => {
     if (!name) {
         return (
-            <Flex as="footer" gap={24} wrap className={styles.footer}>
+            <Flex as="footer" gap="m" wrap="wrap" className={styles.footer}>
                 <Link
                     external
                     href="https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BInnspill+til+innhold%5D%3A"
@@ -24,7 +24,7 @@ export const PageFooter = ({ name }: ComponentFooterProps) => {
     }
 
     return (
-        <Flex as="footer" gap={24} wrap className={styles.footer}>
+        <Flex as="footer" gap="m" wrap="wrap" className={styles.footer}>
             <Link
                 external
                 href={`https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BBidra+med+innhold%5D%3A+${name}`}
