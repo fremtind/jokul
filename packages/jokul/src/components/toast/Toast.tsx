@@ -1,7 +1,7 @@
 import { type AriaToastProps, useToast } from "@react-aria/toast";
 import type { QueuedToast, ToastState } from "@react-stately/toast";
 import clsx from "clsx";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
 import { Button } from "../button/Button.js";
 import { Countdown } from "../countdown/Countdown.js";
@@ -41,6 +41,7 @@ export function Toast<T extends ToastContent>({
 }: ToastProps<T>) {
     const ref = useRef(null);
     const { toastProps, titleProps } = useToast(props, state, ref);
+    const [announceReady, setAnnounceReady] = useState(false);
 
     const content =
         typeof props.toast.content === "string"
@@ -55,6 +56,15 @@ export function Toast<T extends ToastContent>({
     const isPaused = props.toast.timer?.timerId == null;
 
     const { prefersReducedMotion } = useBrowserPreferences();
+
+    useEffect(() => {
+        // Delay the update to the next event loop so the toast has time to render before being announced to screen readers
+        const timeout = setTimeout(() => {
+            setAnnounceReady(true);
+        }, 0);
+
+        return () => clearTimeout(timeout);
+    }, []);
 
     useEffect(() => {
         if (prefersReducedMotion && props.toast.animation === "exiting") {
@@ -100,9 +110,15 @@ export function Toast<T extends ToastContent>({
                 ) : null}
             </span>
             {getIcon(props.toast.variant)}
-            <div {...titleProps} className="jkl-toast__content">
-                {title && <p className="jkl-toast__title">{title}</p>}
-                <p className="jkl-toast__message">{content}</p>
+            <div
+                {...titleProps}
+                className="jkl-toast__content"
+                aria-live="assertive"
+            >
+                {title && (
+                    <p className="jkl-toast__title">{announceReady && title}</p>
+                )}
+                <p className="jkl-toast__message">{announceReady && content}</p>
                 {props.toast.action && (
                     <div className="jkl-toast__action">
                         <Button
