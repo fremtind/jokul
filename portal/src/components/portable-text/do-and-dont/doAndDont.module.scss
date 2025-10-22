@@ -1,0 +1,21 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.container {
+    @media (width <= 940px) {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.image {
+    width: 100%;
+    min-width: jkl.rem(274px);
+    height: auto;
+    object-fit: contain;
+    display: block;
+
+    @media (width <= 940px) {
+        object-fit: cover;
+        max-height: fit-content;
+    }
+}

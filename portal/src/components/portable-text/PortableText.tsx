@@ -5,6 +5,7 @@ import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import type { FC, ReactNode } from "react";
 import slugify from "slugify";
+import { DoAndDont } from "./do-and-dont/DoAndDont";
 import { KortFortalt } from "./kort-fortalt/KortFortalt";
 import { LinkCard } from "./link-card/LinkCard";
 import { ComponentPageLink } from "./link/ComponentPageLink";
@@ -28,6 +29,7 @@ const jokulBlockTypes: PortableTextReactComponents["types"] = {
     jokul_componentKortFortalt: KortFortalt,
     jokul_codeBlock: CodeBlock,
     jokul_linkCard: LinkCard,
+    jokul_doAndDont: DoAndDont,
 };
 
 function getTextFromChildren(children: ReactNode): string {

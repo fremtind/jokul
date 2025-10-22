@@ -13,7 +13,7 @@ export const ComponentExampleCard = ({
 }: ComponentExampleCard) => {
     return (
         <div className={styles.example_card_image_wrapper}>
-            <Card>
+            <Card style={{ padding: "0", backgroundColor: "transparent" }}>
                 <img
                     className={styles.example_card_image}
                     src={imageUrl}
