@@ -95,5 +95,5 @@ export const componentCardQuery =
         image,
         imageDark,
         related_components,
-        keywords
+        keywords,
     }[0]`);
