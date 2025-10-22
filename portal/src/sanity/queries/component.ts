@@ -20,6 +20,9 @@ export const componentBySlugQuery =
         },
         documentation_article[]{
             ...,
+              _type == "jokul_doAndDont" => {
+                ...,
+            },
             _type == "jokul_componentKortFortalt" => {
                 ...,
                 bruk[]{
@@ -95,5 +98,6 @@ export const componentCardQuery =
         image,
         imageDark,
         related_components,
-        keywords
+        keywords,
+        jokul_doAndDont
     }[0]`);

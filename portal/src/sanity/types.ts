@@ -68,6 +68,34 @@ export type Geopoint = {
     alt?: number;
 };
 
+export type Jokul_doAndDont = {
+    _type: "jokul_doAndDont";
+    do?: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+    };
+    dont?: {
+        asset?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+    };
+};
+
 export type Jokul_linkCard = {
     _type: "jokul_linkCard";
     external_links?: Array<{
@@ -508,6 +536,7 @@ export type AllSanitySchemaTypes =
     | SanityImageDimensions
     | SanityFileAsset
     | Geopoint
+    | Jokul_doAndDont
     | Jokul_linkCard
     | Jokul_componentKortFortalt
     | Jokul_storybook
@@ -704,311 +733,6 @@ export type ComponentsQueryResult = Array<{
     } | null;
     keywords: Array<string> | null;
 }>;
-// Variable: componentBySlugQuery
-// Query: *[_type == "jokul_component" && slug.current == $slug][0] {        ...,        "slug": slug.current,        "component_example_card": component_example_card{            "url": asset->url        },        documentation_article[]{            ...,            _type == "jokul_componentKortFortalt" => {                ...,                bruk[]{                    bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    short_description,                                    "slug": slug.current,                                    figma_image,                                    image,                                    imageDark                                }                            }                        }                    }                },                ikke_bruk[]{                    ikke_bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    short_description,                                    "slug": slug.current,                                    figma_image,                                    image,                                    imageDark                                }                            }                        }                    }                }            },            markDefs[] {                ...,                _type == "componentPageLink" => {                    component-> {                        "slug": slug.current,                        name,                        short_description,                        image,                        imageDark,                    }                },            }        },        related_components {            components[]->{                name,                short_description,                "slug": slug.current,                figma_image,                image,                imageDark,                related_components,                keywords            }        }    }
-export type ComponentBySlugQueryResult = {
-    _id: string;
-    _type: "jokul_component";
-    _createdAt: string;
-    _updatedAt: string;
-    _rev: string;
-    name?: string;
-    slug: string | null;
-    short_description?: string;
-    status?: "alpha" | "beta" | "deprecated" | "stabil";
-    categories?: Array<string>;
-    keywords?: Array<string>;
-    example_card?: {
-        asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
-    };
-    considerations?: Array<{
-        title?: string;
-        description?: string;
-        _type: "consideration";
-        _key: string;
-    }>;
-    documentation_article: Array<
-        | {
-              children?: Array<{
-                  marks?: Array<string>;
-                  text?: string;
-                  _type: "span";
-                  _key: string;
-              }>;
-              style?:
-                  | "blockquote"
-                  | "h1"
-                  | "h2"
-                  | "h3"
-                  | "h4"
-                  | "h5"
-                  | "h6"
-                  | "normal";
-              listItem?: "bullet" | "check" | "cross" | "number";
-              markDefs: Array<{
-                  component: {
-                      slug: string | null;
-                      name: string | null;
-                      short_description: string | null;
-                      image: {
-                          asset?: {
-                              _ref: string;
-                              _type: "reference";
-                              _weak?: boolean;
-                              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                          };
-                          media?: unknown;
-                          hotspot?: SanityImageHotspot;
-                          crop?: SanityImageCrop;
-                          _type: "image";
-                      } | null;
-                      imageDark: {
-                          asset?: {
-                              _ref: string;
-                              _type: "reference";
-                              _weak?: boolean;
-                              [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                          };
-                          media?: unknown;
-                          hotspot?: SanityImageHotspot;
-                          crop?: SanityImageCrop;
-                          _type: "image";
-                      } | null;
-                  } | null;
-                  _type: "componentPageLink";
-                  _key: string;
-              }> | null;
-              level?: number;
-              _type: "block";
-              _key: string;
-          }
-        | {
-              asset?: {
-                  _ref: string;
-                  _type: "reference";
-                  _weak?: boolean;
-                  [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-              };
-              media?: unknown;
-              hotspot?: SanityImageHotspot;
-              crop?: SanityImageCrop;
-              _type: "image";
-              _key: string;
-              markDefs: null;
-          }
-        | {
-              _key: string;
-              _type: "jokul_codeBlock";
-              code?: string;
-              language?: "scss" | "typescript";
-              markDefs: null;
-          }
-        | {
-              _key: string;
-              _type: "jokul_codeExample";
-              showEditor?: boolean;
-              codeExample?: string;
-              markDefs: null;
-          }
-        | {
-              _key: string;
-              _type: "jokul_componentKortFortalt";
-              bruk: Array<{
-                  bruk_punkt: Array<{
-                      children?: Array<{
-                          marks?: Array<string>;
-                          text?: string;
-                          _type: "span";
-                          _key: string;
-                      }>;
-                      style?: "normal";
-                      listItem?: never;
-                      markDefs: Array<{
-                          component: {
-                              name: string | null;
-                              short_description: string | null;
-                              slug: string | null;
-                              figma_image: null;
-                              image: {
-                                  asset?: {
-                                      _ref: string;
-                                      _type: "reference";
-                                      _weak?: boolean;
-                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                                  };
-                                  media?: unknown;
-                                  hotspot?: SanityImageHotspot;
-                                  crop?: SanityImageCrop;
-                                  _type: "image";
-                              } | null;
-                              imageDark: {
-                                  asset?: {
-                                      _ref: string;
-                                      _type: "reference";
-                                      _weak?: boolean;
-                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                                  };
-                                  media?: unknown;
-                                  hotspot?: SanityImageHotspot;
-                                  crop?: SanityImageCrop;
-                                  _type: "image";
-                              } | null;
-                          } | null;
-                          _type: "componentPageLink";
-                          _key: string;
-                      }> | null;
-                      level?: number;
-                      _type: "block";
-                      _key: string;
-                  }> | null;
-              }> | null;
-              ikke_bruk: Array<{
-                  ikke_bruk_punkt: Array<{
-                      children?: Array<{
-                          marks?: Array<string>;
-                          text?: string;
-                          _type: "span";
-                          _key: string;
-                      }>;
-                      style?: "normal";
-                      listItem?: never;
-                      markDefs: Array<{
-                          component: {
-                              name: string | null;
-                              short_description: string | null;
-                              slug: string | null;
-                              figma_image: null;
-                              image: {
-                                  asset?: {
-                                      _ref: string;
-                                      _type: "reference";
-                                      _weak?: boolean;
-                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                                  };
-                                  media?: unknown;
-                                  hotspot?: SanityImageHotspot;
-                                  crop?: SanityImageCrop;
-                                  _type: "image";
-                              } | null;
-                              imageDark: {
-                                  asset?: {
-                                      _ref: string;
-                                      _type: "reference";
-                                      _weak?: boolean;
-                                      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                                  };
-                                  media?: unknown;
-                                  hotspot?: SanityImageHotspot;
-                                  crop?: SanityImageCrop;
-                                  _type: "image";
-                              } | null;
-                          } | null;
-                          _type: "componentPageLink";
-                          _key: string;
-                      }> | null;
-                      level?: number;
-                      _type: "block";
-                      _key: string;
-                  }> | null;
-              }> | null;
-              markDefs: null;
-          }
-        | {
-              _key: string;
-              _type: "jokul_componentProps";
-              componentFolder?: string;
-              markDefs: null;
-          }
-        | {
-              _key: string;
-              _type: "jokul_storybook";
-              story?: Jokul_storybookStory;
-              code?: Jokul_codeBlock;
-              markDefs: null;
-          }
-    > | null;
-    related_components: {
-        components: Array<{
-            name: string | null;
-            short_description: string | null;
-            slug: string | null;
-            figma_image: null;
-            image: {
-                asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                _type: "image";
-            } | null;
-            imageDark: {
-                asset?: {
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-                };
-                media?: unknown;
-                hotspot?: SanityImageHotspot;
-                crop?: SanityImageCrop;
-                _type: "image";
-            } | null;
-            related_components: {
-                components?: Array<{
-                    _ref: string;
-                    _type: "reference";
-                    _weak?: boolean;
-                    _key: string;
-                    [internalGroqTypeReferenceTo]?: "jokul_component";
-                }>;
-            } | null;
-            keywords: Array<string> | null;
-        }> | null;
-    } | null;
-    external_links?: {
-        github_link?: string;
-        figma_link?: string;
-        storybook_link?: string;
-    };
-    image?: {
-        asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
-    };
-    imageDark?: {
-        asset?: {
-            _ref: string;
-            _type: "reference";
-            _weak?: boolean;
-            [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        _type: "image";
-    };
-    component_example_card: null;
-} | null;
 // Variable: componentCardQuery
 // Query: *[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug] {        name,        short_description,        "slug": slug.current,        figma_image,        image,        imageDark,        related_components,        keywords    }[0]
 export type ComponentCardQueryResult = {
@@ -1060,7 +784,6 @@ declare module "@sanity/client" {
         '*[_type == "jokul_blog_post" && slug.current == $slug][0]': BlogPostBySlugQueryResult;
         '*[_type == "jokul_blog_post" && slug.current == "kom-i-gang"][0]': KomIGangQueryResult;
         '*[_type == "jokul_component"]{\n    name,\n    short_description,\n    "slug": slug.current,\n    figma_image,\n    image,\n    imageDark,\n    related_components,\n    keywords\n} | order(name)': ComponentsQueryResult;
-        '*[_type == "jokul_component" && slug.current == $slug][0] {\n        ...,\n        "slug": slug.current,\n        "component_example_card": component_example_card{\n            "url": asset->url\n        },\n        documentation_article[]{\n            ...,\n            _type == "jokul_componentKortFortalt" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == "componentPageLink" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    "slug": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == "componentPageLink" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    "slug": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                }\n            },\n            markDefs[] {\n                ...,\n                _type == "componentPageLink" => {\n                    component-> {\n                        "slug": slug.current,\n                        name,\n                        short_description,\n                        image,\n                        imageDark,\n                    }\n                },\n            }\n        },\n        related_components {\n            components[]->{\n                name,\n                short_description,\n                "slug": slug.current,\n                figma_image,\n                image,\n                imageDark,\n                related_components,\n                keywords\n            }\n        }\n    }': ComponentBySlugQueryResult;
         '*[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug] {\n        name,\n        short_description,\n        "slug": slug.current,\n        figma_image,\n        image,\n        imageDark,\n        related_components,\n        keywords\n    }[0]': ComponentCardQueryResult;
     }
 }
