@@ -3,10 +3,6 @@
 .example_card_image_wrapper {
     width: 100%;
     margin-bottom: var(--jkl-unit-60);
-
-    :global(.jkl-card) {
-        padding: 0;
-    }
 }
 
 .example_card_image {

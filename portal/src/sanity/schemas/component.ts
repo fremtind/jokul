@@ -156,6 +156,7 @@ export const component = defineType({
                 { type: "jokul_codeExample" },
                 { type: "jokul_storybook" },
                 { type: "jokul_codeBlock" },
+                { type: "jokul_doAndDont" },
             ],
         }),
         defineField({
