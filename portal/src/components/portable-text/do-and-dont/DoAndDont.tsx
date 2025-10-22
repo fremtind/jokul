@@ -44,7 +44,11 @@ export const DoAndDont: FC<PortableTextTypeComponentProps<Jokul_doAndDont>> = ({
                     <GreenCheckIcon />
                 </Flex>
 
-                <img className={styles.image} src={urlFor(value.do)} alt="" />
+                <img
+                    className={styles.image}
+                    src={urlFor(value.do)}
+                    alt={value.do?.alt}
+                />
             </Card>
             <Card padding="l">
                 <Flex
@@ -55,7 +59,11 @@ export const DoAndDont: FC<PortableTextTypeComponentProps<Jokul_doAndDont>> = ({
                     <RedCrossIcon />
                 </Flex>
 
-                <img className={styles.image} src={urlFor(value.dont)} alt="" />
+                <img
+                    className={styles.image}
+                    src={urlFor(value.dont)}
+                    alt={value.dont?.alt}
+                />
             </Card>
         </Flex>
     );
