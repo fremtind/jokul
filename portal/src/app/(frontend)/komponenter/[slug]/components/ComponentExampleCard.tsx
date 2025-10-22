@@ -1,5 +1,3 @@
-import { Card, CardImage } from "@fremtind/jokul/card";
-
 import styles from "./componentExampleCard.module.scss";
 
 type ComponentExampleCard = {
@@ -13,13 +11,11 @@ export const ComponentExampleCard = ({
 }: ComponentExampleCard) => {
     return (
         <div className={styles.example_card_image_wrapper}>
-            <Card style={{ padding: "0", backgroundColor: "transparent" }}>
-                <img
-                    className={styles.example_card_image}
-                    src={imageUrl}
-                    alt={name}
-                />
-            </Card>
+            <img
+                className={styles.example_card_image}
+                src={imageUrl}
+                alt={name}
+            />
         </div>
     );
 };
