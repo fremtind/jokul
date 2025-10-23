@@ -2345,57 +2345,99 @@
                                         "value": {
                                             "type": "array",
                                             "of": {
-                                                "type": "object",
-                                                "attributes": {
-                                                    "component": {
-                                                        "type": "objectAttribute",
-                                                        "value": {
+                                                "type": "union",
+                                                "of": [
+                                                    {
+                                                        "type": "object",
+                                                        "attributes": {
+                                                            "href": {
+                                                                "type": "objectAttribute",
+                                                                "value": {
+                                                                    "type": "string"
+                                                                },
+                                                                "optional": true
+                                                            },
+                                                            "blank": {
+                                                                "type": "objectAttribute",
+                                                                "value": {
+                                                                    "type": "boolean"
+                                                                },
+                                                                "optional": true
+                                                            },
+                                                            "_type": {
+                                                                "type": "objectAttribute",
+                                                                "value": {
+                                                                    "type": "string",
+                                                                    "value": "link"
+                                                                }
+                                                            }
+                                                        },
+                                                        "rest": {
                                                             "type": "object",
                                                             "attributes": {
-                                                                "_ref": {
+                                                                "_key": {
                                                                     "type": "objectAttribute",
                                                                     "value": {
                                                                         "type": "string"
                                                                     }
-                                                                },
-                                                                "_type": {
-                                                                    "type": "objectAttribute",
-                                                                    "value": {
-                                                                        "type": "string",
-                                                                        "value": "reference"
-                                                                    }
-                                                                },
-                                                                "_weak": {
-                                                                    "type": "objectAttribute",
-                                                                    "value": {
-                                                                        "type": "boolean"
-                                                                    },
-                                                                    "optional": true
                                                                 }
-                                                            },
-                                                            "dereferencesTo": "jokul_component"
-                                                        },
-                                                        "optional": true
-                                                    },
-                                                    "_type": {
-                                                        "type": "objectAttribute",
-                                                        "value": {
-                                                            "type": "string",
-                                                            "value": "componentPageLink"
+                                                            }
                                                         }
-                                                    }
-                                                },
-                                                "rest": {
-                                                    "type": "object",
-                                                    "attributes": {
-                                                        "_key": {
-                                                            "type": "objectAttribute",
-                                                            "value": {
-                                                                "type": "string"
+                                                    },
+                                                    {
+                                                        "type": "object",
+                                                        "attributes": {
+                                                            "component": {
+                                                                "type": "objectAttribute",
+                                                                "value": {
+                                                                    "type": "object",
+                                                                    "attributes": {
+                                                                        "_ref": {
+                                                                            "type": "objectAttribute",
+                                                                            "value": {
+                                                                                "type": "string"
+                                                                            }
+                                                                        },
+                                                                        "_type": {
+                                                                            "type": "objectAttribute",
+                                                                            "value": {
+                                                                                "type": "string",
+                                                                                "value": "reference"
+                                                                            }
+                                                                        },
+                                                                        "_weak": {
+                                                                            "type": "objectAttribute",
+                                                                            "value": {
+                                                                                "type": "boolean"
+                                                                            },
+                                                                            "optional": true
+                                                                        }
+                                                                    },
+                                                                    "dereferencesTo": "jokul_component"
+                                                                },
+                                                                "optional": true
+                                                            },
+                                                            "_type": {
+                                                                "type": "objectAttribute",
+                                                                "value": {
+                                                                    "type": "string",
+                                                                    "value": "componentPageLink"
+                                                                }
+                                                            }
+                                                        },
+                                                        "rest": {
+                                                            "type": "object",
+                                                            "attributes": {
+                                                                "_key": {
+                                                                    "type": "objectAttribute",
+                                                                    "value": {
+                                                                        "type": "string"
+                                                                    }
+                                                                }
                                                             }
                                                         }
                                                     }
-                                                }
+                                                ]
                                             }
                                         },
                                         "optional": true
