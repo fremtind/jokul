@@ -11,6 +11,10 @@ import { useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js"
 import type { ToggleChangeHandler, ToggleSliderProps } from "./types.js";
 import { usePillStyles } from "./usePillStyles.js";
 
+/**
+ * @deprecated bruk heller {@link SegmentedControl}
+ */
+
 export const ToggleSlider: FC<ToggleSliderProps> = ({
     children,
     labels,
