@@ -22,7 +22,7 @@ const meta = {
         children:
             "Gir dine etterlatte en engangsutbetaling hvis du dør. Pengene kan de for eksempel bruke til å nedbetale lån og tilpasse seg en ny livssituasjon.",
         alwaysOpen: true,
-        extraLabel: "xxx kr/mnd",
+        amount: "xxx kr/mnd",
         value: "Livsforsikring",
     },
 } satisfies Meta<typeof CheckboxPanelComponent>;
