@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { CheckboxPanel as CheckboxPanelComponent } from "../CheckboxPanel.js";
 import "../styles/_index.scss";
+import { Flex } from "../../flex/index.js";
+import { FieldGroup } from "../../input-group/index.js";
 
 const meta = {
     title: "Komponenter/CheckboxPanel",
@@ -35,7 +37,12 @@ export const VelgDekningForReiseforsikring: Story = {
     name: "Velg dekning for reiseforsikring",
     render: () => {
         return (
-            <>
+            <Flex
+                gap="xs"
+                direction="column"
+                as={FieldGroup}
+                legend="Velg dekninger"
+            >
                 <CheckboxPanelComponent
                     name="dekning"
                     label="Reisegods"
@@ -64,7 +71,7 @@ export const VelgDekningForReiseforsikring: Story = {
                     Gir en engangsutbetaling ved varig medisinsk invaliditet
                     eller død som følge av en ulykke på reisen.
                 </CheckboxPanelComponent>
-            </>
+            </Flex>
         );
     },
 };
