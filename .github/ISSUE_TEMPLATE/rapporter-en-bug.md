@@ -2,26 +2,22 @@
 name: Rapporter en bug
 about: Du har funnet en bug i designsystemet
 title: "Feil: "
-labels: "\U0001F41D Bug"
 type: "Bug"
 assignees: ""
 ---
 
-<!-- Gi en kort beskrivelse av feilen. Legg gjerne ved screenshots eller andre visuelle eksempler. -->
+- Komponent med feil:
+- Jøkul-versjon:
+- Operativsystem:
+- Nettleser:
+- Type enhet (mobil, laptop, etc.):
 
-## Steg for å gjenskape
+## Hvordan oppstod feilen?
 
-<!-- Fortell hvordan vi kan finne feilen stegvis: -->
-
+<!--
+Gi en kort beskrivelse av feilen. Legg gjerne ved screenshots eller andre visuelle eksempler.
+Fortell gjerne stegvis hvordan vi kan gjenskape feilen.
 1. Gå til '...'
 2. Klikk på '...'
 3. Scroll ned til '...'
-
-## Forventet oppførsel
-
-<!-- Hva forventet du at skulle skje da feilen oppsto? -->
-
-## Systeminformasjon
-
-<!-- Skriv gjerne hvilken enhet og programvare/nettleser du bruker, i tilfelle feilen er spesifikk for dette (for eksempel Safari på iPhone X med iOS 13, eller Chrome 75 på Windows 10). Hvis du ikke vet kan du sjekke på https://www.whatismybrowser.com
 -->
