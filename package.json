@@ -123,6 +123,11 @@
         ],
         "*.{scss,css}": [
             "stylelint --fix --config=packages/stylelint-config-jkl/index.mjs"
+        ],
+        "./portal/src/sanity/**/*.(ts|tsx)": [
+            "pnpm --filter \"portal\" typegen",
+            "git add ./portal/src/sanity/extract.json",
+            "git add ./portal/src/sanity/types.ts"
         ]
     },
     "stylelint": {
