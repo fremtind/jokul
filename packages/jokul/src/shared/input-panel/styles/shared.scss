@@ -3,15 +3,13 @@
 .jkl-input-panel {
     --outer-border-color: var(--jkl-color-border-input);
     --outer-border-thickness: #{jkl.rem(1px)};
+    --padding-inline: var(--jkl-unit-20) var(--jkl-unit-30);
+    --padding-label-block: var(--jkl-unit-25);
     --background-color: transparent;
 
     box-shadow: inset 0 0 0 var(--outer-border-thickness) var(--outer-border-color);
     border-radius: 4px;
-    padding-left: jkl.rem(16px);
-
     background-color: var(--background-color);
-
-    cursor: pointer;
 
     &__input {
         opacity: 0;
@@ -21,10 +19,11 @@
 
     &__label {
         display: grid;
-        grid-template-columns: min-content fit-content(30%) 1fr;
+        grid-template-columns: min-content 1fr max-content;
         align-items: center;
         gap: jkl.rem(8px);
         cursor: pointer;
+        padding-inline: var(--padding-inline);
     }
 
     &__main-label {
@@ -32,10 +31,7 @@
     }
 
     &__extra-label {
-        margin-left: jkl.rem(16px);
         align-self: stretch;
-
-        margin-right: jkl.rem(16px);
 
         > :first-child {
             box-sizing: content-box;
@@ -52,8 +48,9 @@
     &__content {
         height: 0;
         overflow: hidden;
-        cursor: default;
-        padding-right: jkl.rem(24px);
+        padding-inline: var(--padding-inline);
+
+        @include jkl.text-style("body");
 
         &[data-alwaysopen="true"],
         .jkl-input-panel:has([aria-expanded="true"]) & {
@@ -70,7 +67,7 @@
         --background-color: var(--jkl-color-background-container-high);
     }
 
-    &:hover {
+    &:has(label:hover) {
         --outer-border-color: var(--jkl-color-border-separator-hover);
         --outer-border-thickness: #{jkl.rem(2px)};
     }

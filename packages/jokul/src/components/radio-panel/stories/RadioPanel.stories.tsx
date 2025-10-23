@@ -1,8 +1,9 @@
-import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
+import React from "react";
 import { RadioPanel as RadioPanelComponent } from "../RadioPanel.js";
 import { RadioPanelGroup } from "../RadioPanelGroup.jsx";
 import "../styles/_index.scss";
+import { Flex } from "../../flex/index.js";
 
 const meta = {
     title: "Komponenter/RadioPanel",
@@ -20,7 +21,7 @@ const meta = {
         label: "Livsforsikring",
         children:
             "Gir dine etterlatte en engangsutbetaling hvis du dør. Pengene kan de for eksempel bruke til å nedbetale lån og tilpasse seg en ny livssituasjon.",
-        alwaysOpen: false,
+        alwaysOpen: true,
         extraLabel: "xxx kr/mnd",
         value: "Livsforsikring",
     },
@@ -36,10 +37,13 @@ export const VelgForsikring: Story = {
     name: "Velg forsikring",
     render: () => {
         return (
-            <RadioPanelGroup
+            <Flex
+                as={RadioPanelGroup}
                 legend="Velg en forsikring"
                 name="forsikring"
                 defaultValue="Livsforsikring"
+                gap="xs"
+                direction="column"
             >
                 <RadioPanelComponent
                     name="forsikring"
@@ -68,7 +72,7 @@ export const VelgForsikring: Story = {
                     Pengene kan de for eksempel bruke til å nedbetale lån og
                     tilpasse seg en ny livssituasjon.
                 </RadioPanelComponent>
-            </RadioPanelGroup>
+            </Flex>
         );
     },
 };
