@@ -11,6 +11,10 @@ import { useAutoAnimatedHeight } from "../../hooks/useAnimatedHeight/useAutoAnim
 
 type Props = ComponentPropsWithRef<"input"> & {
     isChecked: boolean;
+    /**
+     * @deprecated vi ønsker ikke at content skal skjules for brukerne lenger
+     * @default false
+     */
     alwaysOpen: boolean;
     label: string;
     extraLabel?: ReactNode;
@@ -22,7 +26,7 @@ export const BasePanel = forwardRef(function BasePanel(
         className,
         isChecked,
         children,
-        alwaysOpen,
+        alwaysOpen = false,
         label,
         extraLabel,
         type,

@@ -10,6 +10,10 @@ export type RadioPanelProps = Omit<
     value: string;
     label: string;
     extraLabel?: React.ReactNode;
+    /**
+     * @deprecated vi ønsker ikke at content skal skjules for brukerne lenger
+     * @default false
+     */
     alwaysOpen?: boolean;
 };
 
