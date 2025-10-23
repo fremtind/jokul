@@ -1,6 +1,6 @@
-name: Forslag til forbedring av komponent
-description: Del dine forslag og innspill til en komponent
-title: "[Forslag til forbedring]: "
+name: Forslag
+description: Del dine forslag og innspill til Jøkul
+title: "Tilbakemelding: "
 labels: ["✨ Forslag"]
 type: "Feature"
 body:
@@ -12,4 +12,4 @@ body:
       id: feedback
       attributes:
           label: Innspill
-          description: Beskriv hvilke forbedringer eller tilbakemeldinger du har til komponenten.
+          description: Beskriv hvilke forbedringer eller tilbakemeldinger du har.
