@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.6.1
+
+### Patch Changes
+
+- 1c5a1df: Importerer stilarket for `Checkbox` i `CheckboxPanel`, slik at checkboxer i paneler får riktige stiler.
+
 ## 1.6.0
 
 ### Minor Changes
