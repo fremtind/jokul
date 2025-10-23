@@ -1,8 +1,8 @@
 import { CodeBlock } from "@/components/portable-text/code-block";
 import type { Jokul_storybook } from "@/sanity/types";
-import {Card} from "@fremtind/jokul/card";
+import { Card } from "@fremtind/jokul/card";
 import { ExpandablePanel, Expander } from "@fremtind/jokul/expander";
-import {Flex} from "@fremtind/jokul/flex";
+import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
 import type { PortableTextTypeComponentProps } from "next-sanity";
 import NextLink from "next/link";
@@ -26,11 +26,11 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
         <Flex
             as={Card}
             direction="column"
-            gap={12}
+            gap="s"
             padding="m"
             className="storybook-card"
         >
-            <Flex alignItems="center" justifyContent="space-between" gap={24}>
+            <Flex alignItems="center" justifyContent="space-between" gap="m">
                 {STORYBOOK_URL && (
                     <Link
                         as={NextLink}

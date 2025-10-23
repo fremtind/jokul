@@ -34,7 +34,7 @@ export const DoAndDont: FC<PortableTextTypeComponentProps<Jokul_doAndDont>> = ({
     if (!value?.do && !value?.dont) return null;
 
     return (
-        <Flex className={styles.container} gap={8} wrap={true}>
+        <Flex className={styles.container} gap="xs" wrap="wrap">
             <Card padding="l">
                 <Flex
                     justifyContent="space-between"
