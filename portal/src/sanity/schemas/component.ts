@@ -1,4 +1,8 @@
-import { CheckmarkCircleIcon, CloseCircleIcon } from "@sanity/icons";
+import {
+    CheckmarkCircleIcon,
+    CloseCircleIcon,
+    EarthGlobeIcon,
+} from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 import { componentPageLink } from "./links/componentPageLink";
 
@@ -147,7 +151,28 @@ export const component = defineType({
                         },
                     ],
                     marks: {
-                        annotations: [componentPageLink],
+                        annotations: [
+                            {
+                                name: "link",
+                                type: "object",
+                                title: "Ekstern lenke",
+                                icon: EarthGlobeIcon,
+                                fields: [
+                                    {
+                                        name: "href",
+                                        type: "url",
+                                        title: "URL",
+                                    },
+                                    {
+                                        title: "Åpne i ny fane",
+                                        name: "blank",
+                                        type: "boolean",
+                                        initialValue: false,
+                                    },
+                                ],
+                            },
+                            componentPageLink,
+                        ],
                     },
                 },
                 { type: "image" },
