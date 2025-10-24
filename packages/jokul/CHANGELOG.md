@@ -1,5 +1,33 @@
 # Change Log
 
+## 3.0.0
+
+### Major Changes
+
+- def9c2f: Oppdaterer `Flex`-komponenten med ny funksjonalitet for responsivitet og layout.
+
+  - De fleste flex-egenskaper er eksponert via props
+  - Mulighet for å styre hvordan komponenten vises ved hjelp av props
+  - Støtte for forskjellige verdier på forskjellige breakpoints
+  - Mulighet for å styre layout med kolonner
+  - Stilene til flex blir ikke lenger satt inline slik at de kan overstyres
+
+  **BREAKING**
+  Avstander i `Flex` baserer seg nå på våre nye, semantiske spacing-tokens. Man må derfor oppdatere vardiene for `gap` og lignende props.
+
+  ```diff
+  - <Flex gap={16}>
+  + <Flex gap="s">
+  ```
+
+  For mer informasjon om bruk av komponenten, og det nye APIet, se portalen og eksemplene i Storybook.
+
+### Patch Changes
+
+- bc3e9f1: Annonserer toast-innhold for skjermlesere umiddelbart.
+- 676f44e: ToggleSlider er markert som deprecated. Bruk heller SegmentedControl.
+- 23152ee: Importerer stilarket for `Checkbox` i `CheckboxPanel`, slik at checkboxer i paneler får riktige stiler.
+
 ## 2.0.0
 
 ### Major Changes
