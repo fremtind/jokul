@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
 import "../styles/_index.scss";
-import { Button, PrimaryButton } from "../../button/index.js";
+import { Button } from "../../button/index.js";
 import { File } from "../../file/File.js";
 import { FileInput } from "../FileInput.js";
 import { Dropzone } from "../internal/Dropzone.js";
@@ -28,7 +28,7 @@ export const FileInputStory: Story = {
         variant: "flexible",
         value: [],
         onChange: console.info,
-        legend: "Legg til fil",
+        legend: "Last opp vedlegg",
         labelProps: {
             variant: "medium",
         },
@@ -69,7 +69,8 @@ export const FileInputStory: Story = {
                         );
                     })}
                 </FileInput>
-                <PrimaryButton
+                <Button
+                    variant="primary"
                     className="jkl-spacing-16--top"
                     type="button"
                     onClick={async () => {
@@ -96,7 +97,7 @@ export const FileInputStory: Story = {
                     }}
                 >
                     Last opp
-                </PrimaryButton>
+                </Button>
             </div>
         );
     },

@@ -4,6 +4,7 @@ import type { UploadedFile } from "../types.js";
 
 type FileInputContext = {
     accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
+    multiple?: boolean;
     maxSizeBytes?: number;
     files: UploadedFile[];
     onChange: (

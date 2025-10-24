@@ -36,7 +36,10 @@ describe("FileInput", () => {
             </FileInput>,
         );
 
-        expect(getByText("Legg til fil")).toBeInTheDocument();
+        for (const file of files) {
+            expect(getByText(file.file.name)).toBeInTheDocument();
+        }
+
         expect(
             queryByText(/^Maksimum filstørrelse er/),
         ).not.toBeInTheDocument();
