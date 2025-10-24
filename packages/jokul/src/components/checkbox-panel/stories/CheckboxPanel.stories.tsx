@@ -21,7 +21,7 @@ const meta = {
         label: "Livsforsikring",
         children:
             "Gir dine etterlatte en engangsutbetaling hvis du dør. Pengene kan de for eksempel bruke til å nedbetale lån og tilpasse seg en ny livssituasjon.",
-        alwaysOpen: false,
+        alwaysOpen: true,
         extraLabel: "xxx kr/mnd",
         value: "Livsforsikring",
     },
