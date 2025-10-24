@@ -6,9 +6,8 @@ import type {
 } from "utils/dev-example/index.js";
 import { PrimaryButton } from "../../button/Button.js";
 import { Flex } from "../../flex/index.js";
-import { SuccessTag } from "../../tag/index.js";
+import { FieldGroup } from "../../input-group/index.js";
 import { RadioPanel } from "../RadioPanel.js";
-import { RadioPanelGroup } from "../RadioPanelGroup.js";
 
 export const knobs: ExampleKnobsProps = {
     boolProps: ["Med feilmelding"],
@@ -44,7 +43,7 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                         gap="s"
                         style={{ maxWidth: 580, width: "100%" }}
                     >
-                        <RadioPanelGroup
+                        <FieldGroup
                             legend="Velg dekning"
                             errorLabel={
                                 boolValues?.["Med feilmelding"]
@@ -57,83 +56,40 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                                 value={"toppkasko"}
                                 checked={value === "toppkasko"}
                                 label="Toppkasko"
-                                extraLabel={
-                                    <Flex
-                                        as="span"
-                                        alignItems="center"
-                                        justifyContent="end"
-                                        className="input-panel-example__custom-label input-panel-example__custom-label--bold"
-                                    >
-                                        500 kr/mnd
-                                    </Flex>
-                                }
-                            >
-                                Passer for biler av høy verdi, og spesielt om
-                                den er nyere enn 10 år. Dekker maskinskader.
-                            </RadioPanel>
+                                amount="500 kr/mnd"
+                                description="Passer for biler av høy verdi, og spesielt om
+                                den er nyere enn 10 år. Dekker maskinskader."
+                            />
                             <RadioPanel
                                 {...inputProps}
                                 value={"kasko"}
                                 checked={value === "kasko"}
                                 label="Kasko"
-                                alwaysOpen={true}
-                                extraLabel={
-                                    <Flex
-                                        as="span"
-                                        alignItems="center"
-                                        justifyContent="end"
-                                        gap="m"
-                                        className="input-panel-example__custom-label input-panel-example__custom-label--bold"
-                                    >
-                                        <SuccessTag>Anbefalt</SuccessTag>
-                                        300 kr/mnd
-                                    </Flex>
-                                }
-                            >
-                                En forsikring som passer de fleste biler. Dekker
+                                amount="300 kr/mnd"
+                                description="En forsikring som passer de fleste biler. Dekker
                                 det meste av skader, også de du selv er
-                                ansvarlig for. Inkluderer Minikasko og Ansvar.
-                            </RadioPanel>
+                                ansvarlig for. Inkluderer Minikasko og Ansvar."
+                            />
                             <RadioPanel
                                 {...inputProps}
                                 value={"minikasko"}
                                 checked={value === "minikasko"}
                                 label="Minikasko"
-                                extraLabel={
-                                    <Flex
-                                        as="span"
-                                        alignItems="center"
-                                        justifyContent="end"
-                                        className="input-panel-example__custom-label input-panel-example__custom-label--bold"
-                                    >
-                                        200 kr/mnd
-                                    </Flex>
-                                }
-                            >
-                                Passer for eldre biler med en verdi under 50 000
+                                amount="200 kr/mnd"
+                                description=" Passer for eldre biler med en verdi under 50 000
                                 kr. Dekker brann, tyveri og glasskader i tillegg
-                                til det lovpålagte.
-                            </RadioPanel>
+                                til det lovpålagte."
+                            />
                             <RadioPanel
                                 {...inputProps}
                                 value={"ansvar"}
                                 checked={value === "ansvar"}
                                 label="Ansvar"
-                                extraLabel={
-                                    <Flex
-                                        as="span"
-                                        alignItems="center"
-                                        justifyContent="end"
-                                        className="input-panel-example__custom-label input-panel-example__custom-label--bold"
-                                    >
-                                        100 kr/mnd
-                                    </Flex>
-                                }
-                            >
-                                Lovpålagt når du eier et kjøretøy som brukes på
-                                veien.
-                            </RadioPanel>
-                        </RadioPanelGroup>
+                                amount="100 kr/mnd"
+                                description="Lovpålagt når du eier et kjøretøy som brukes på
+                                veien."
+                            />
+                        </FieldGroup>
                     </Flex>
                 )}
             />
