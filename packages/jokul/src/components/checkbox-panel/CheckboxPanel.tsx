@@ -12,7 +12,7 @@ export const CheckboxPanel = forwardRef(function CheckboxPanel(
     {
         label,
         extraLabel,
-        alwaysOpen = false,
+        alwaysOpen = true,
         checked,
         defaultChecked,
         onChange,

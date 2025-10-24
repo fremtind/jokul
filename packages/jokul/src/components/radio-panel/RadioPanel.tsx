@@ -12,7 +12,7 @@ import type { RadioPanelProps } from "./types.js";
 
 export const RadioPanel = forwardRef(function RadioPanel(
     {
-        alwaysOpen = false,
+        alwaysOpen = true,
         label,
         extraLabel,
         checked,
