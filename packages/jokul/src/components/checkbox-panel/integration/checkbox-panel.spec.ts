@@ -19,7 +19,7 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots({ focusElement: "[aria-expanded='false']" });
+    await helper.snapshots();
 });
 
 test("axe", async ({ axe }) => {
