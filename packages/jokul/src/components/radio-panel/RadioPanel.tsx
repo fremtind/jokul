@@ -15,6 +15,7 @@ export const RadioPanel = forwardRef(function RadioPanel(
         alwaysOpen = true,
         label,
         extraLabel,
+        amount,
         checked,
         onChange,
         value,
