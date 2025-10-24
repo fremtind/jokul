@@ -30,7 +30,13 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
         if (variant === "small") {
             return (
                 <FileInputContextProvider
-                    context={{ accept, onChange, maxSizeBytes, files: value }}
+                    context={{
+                        accept,
+                        onChange,
+                        maxSizeBytes,
+                        multiple,
+                        files: value,
+                    }}
                 >
                     <FieldGroup
                         className={clsx(
@@ -48,7 +54,11 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                             <div className="jkl-file-input__call-to-action">
                                 <Input
                                     id={id}
-                                    label="Legg til fil"
+                                    label={
+                                        multiple && hasFiles
+                                            ? "Velg flere filer"
+                                            : "Velg fil"
+                                    }
                                     multiple={multiple}
                                     ref={ref}
                                     aria-describedby={maxSizeDescriptionId}
@@ -68,7 +78,13 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 
         return (
             <FileInputContextProvider
-                context={{ accept, onChange, maxSizeBytes, files: value }}
+                context={{
+                    accept,
+                    onChange,
+                    maxSizeBytes,
+                    multiple,
+                    files: value,
+                }}
             >
                 <FieldGroup
                     className={clsx("jkl-file-input", className, {
@@ -88,8 +104,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                 id={id}
                                 label={
                                     multiple && hasFiles
-                                        ? "Legg til flere filer"
-                                        : "Legg til fil"
+                                        ? "Velg flere filer"
+                                        : "Velg fil"
                                 }
                                 multiple={multiple}
                                 ref={ref}

@@ -3,7 +3,7 @@ import type { UploadedFile } from "../types.js";
 import { useFileInputContext } from "./fileInputContext.js";
 import { validateFileInputFiles } from "./validateFileInputFiles.js";
 
-interface FileInputProps {
+interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     id?: string;
     label: string;
     multiple: boolean;
@@ -15,7 +15,8 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
 
         const defaultId = useId();
 
-        const maxSizeDescriptionId = `${id}-description`;
+        const fileInfoId = "file-info";
+
         const descriptor = multiple ? "filer" : "fil";
 
         const context = useFileInputContext();
@@ -24,9 +25,25 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                 <p>Input must be placed inside a FileInputContextProvider.</p>
             );
         }
-        const { accept, maxSizeBytes, onChange } = context;
+        const { accept, maxSizeBytes, onChange, files } = context;
 
         const elementId = id || defaultId;
+
+        const describedBy = [
+            fileInfoId,
+            maxSizeBytes ? rest["aria-describedby"] : undefined,
+        ]
+            .filter(Boolean)
+            .join(" ");
+
+        const getFileAnnouncementMessage = () => {
+            if (files.length === 0) {
+                return multiple
+                    ? "Velg én eller flere filer for opplasting."
+                    : "Velg en fil for opplasting.";
+            }
+            return `${files.length} ${files.length === 1 ? "fil" : "filer"} valgt.`;
+        };
 
         return (
             <>
@@ -42,13 +59,10 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                     ref={ref}
                     id={elementId}
                     accept={accept}
-                    aria-describedby={
-                        maxSizeBytes ? maxSizeDescriptionId : undefined
-                    }
+                    aria-describedby={describedBy}
                     className="jkl-sr-only"
                     type="file"
                     multiple={multiple}
-                    value=""
                     onChange={(e) => {
                         if (e.target.files) {
                             onChange(
@@ -69,6 +83,13 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                         }
                     }}
                 />
+                <output
+                    aria-live="polite"
+                    id={fileInfoId}
+                    className="jkl-sr-only"
+                >
+                    {getFileAnnouncementMessage()}
+                </output>
                 <p className="jkl-file-input__dropzone-hint">
                     eller slipp {descriptor} her
                 </p>{" "}

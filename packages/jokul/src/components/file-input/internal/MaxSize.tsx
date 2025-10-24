@@ -11,15 +11,19 @@ export const MaxSize: FC<Props> = ({ id }) => {
     if (!context) {
         return <p>MaxSize must be placed inside a FileInputContextProvider.</p>;
     }
-    const { maxSizeBytes } = context;
+    const { maxSizeBytes, multiple } = context;
 
     if (typeof maxSizeBytes === "undefined") {
         return false;
     }
 
+    const maxSizeText = multiple
+        ? `Maks ${formatBytes(maxSizeBytes)} per fil`
+        : `Maks ${formatBytes(maxSizeBytes)}`;
+
     return (
-        <div id={id} className="jkl-file-input__max-size-text">
-            Maks {formatBytes(maxSizeBytes)} per fil
-        </div>
+        <p id={id} className="jkl-file-input__max-size-text">
+            {maxSizeText}
+        </p>
     );
 };
