@@ -7,3 +7,7 @@ export type {
     SelectPartialChangeEvent,
     NativeSelectProps,
 } from "./types.js";
+
+// Beta
+export { Select as BETA_Select } from "../../components-beta/select/Select.js";
+export type { SelectProps as BETA_SelectProps } from "../../components-beta/select/types.js";
