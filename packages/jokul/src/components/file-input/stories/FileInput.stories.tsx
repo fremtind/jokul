@@ -45,11 +45,8 @@ export const FileInputStory: Story = {
                     id="file-input-example"
                     className="jkl-spacing-16-24--bottom"
                     value={files}
-                    onChange={(_e, newFiles) => {
-                        setFiles((currentFiles) => [
-                            ...currentFiles,
-                            ...newFiles,
-                        ]);
+                    onChange={(_e, updatedFiles) => {
+                        setFiles(updatedFiles);
                     }}
                 >
                     {files.map(({ state, file, validation }, index) => {

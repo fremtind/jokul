@@ -24,7 +24,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                 <p>Input must be placed inside a FileInputContextProvider.</p>
             );
         }
-        const { accept, maxSizeBytes, onChange } = context;
+        const { accept, maxSizeBytes, files, onChange } = context;
 
         const elementId = id || defaultId;
 
@@ -50,23 +50,28 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                     multiple={multiple}
                     value=""
                     onChange={(e) => {
-                        if (e.target.files) {
-                            onChange(
-                                e,
-                                [...e.target.files].map<UploadedFile>(
-                                    (file) => ({
-                                        file,
-                                        state: undefined,
-                                        validation: validateFileInputFiles(
-                                            file,
-                                            accept,
-                                            maxSizeBytes,
-                                        ),
-                                        uploadProgress: 0,
-                                    }),
-                                ),
-                            );
-                        }
+                        const { files: selectedFiles } = e.target;
+
+                        if (!selectedFiles) return;
+
+                        const newUploads = Array.from(
+                            selectedFiles,
+                        ).map<UploadedFile>((file) => ({
+                            file,
+                            state: undefined,
+                            validation: validateFileInputFiles(
+                                file,
+                                accept,
+                                maxSizeBytes,
+                            ),
+                            uploadProgress: 0,
+                        }));
+
+                        const updatedFiles = multiple
+                            ? [...files, ...newUploads]
+                            : newUploads;
+
+                        onChange(e, updatedFiles);
                     }}
                 />
                 <p className="jkl-file-input__dropzone-hint">
