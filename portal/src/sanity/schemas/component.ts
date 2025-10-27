@@ -7,6 +7,7 @@ import { defineField, defineType } from "sanity";
 import { componentPageLink } from "./links/componentPageLink";
 
 import "./lists/usageList.scss";
+import { COMPONENT_CATEGORIES } from "@/utils/user-preferences";
 
 const MAX_LENGTH = 70;
 
@@ -64,13 +65,7 @@ export const component = defineType({
             group: "metadata",
             of: [{ type: "string" }],
             options: {
-                list: [
-                    "Knapper",
-                    "Skjema",
-                    "Navigasjon",
-                    "Layout",
-                    "Feedback",
-                ].sort(),
+                list: COMPONENT_CATEGORIES,
             },
         }),
         defineField({
