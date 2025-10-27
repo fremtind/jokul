@@ -4,7 +4,7 @@ import { PreferencesMenu } from "@/components/preferences-menu/PreferencesMenu";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentsQuery } from "@/sanity/queries/component";
 import {
-    COMPONENT_KEYWORDS,
+    COMPONENT_CATEGORIES,
     parseUserPreferences,
 } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
@@ -40,15 +40,15 @@ export default async function Components({
         await getCookie("userPreferences", { cookies }),
     );
 
-    const { keywords } = await searchParams;
-    const selectedKeywords = (keywords || "").split(",");
+    const { categories: paramCategories } = await searchParams;
+    const selectedCategories = (paramCategories || "").split(",");
 
-    if (keywords) {
-        logger.info(`Filtering components by keywords: ${keywords}`);
+    if (paramCategories) {
+        logger.info(`Filtering components by categories: ${paramCategories}`);
 
-        components = components.filter(({ keywords }) => {
-            return keywords?.some((keyword) =>
-                selectedKeywords.includes(keyword),
+        components = components.filter(({ categories }) => {
+            return categories?.some((category) =>
+                selectedCategories.includes(category),
             );
         });
     }
@@ -64,11 +64,11 @@ export default async function Components({
                 className="jkl-spacing-40--bottom"
             >
                 <Flex wrap="wrap" gap="xs">
-                    {COMPONENT_KEYWORDS.map((keyword) => (
+                    {COMPONENT_CATEGORIES.map((category) => (
                         <FilterChip
-                            key={keyword}
-                            keyword={keyword}
-                            selectedKeywords={selectedKeywords || []}
+                            key={category}
+                            category={category}
+                            selectedCategories={selectedCategories || []}
                         />
                     ))}
                 </Flex>

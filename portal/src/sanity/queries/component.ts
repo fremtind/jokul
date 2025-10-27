@@ -8,7 +8,7 @@ export const componentsQuery = defineQuery(`*[_type == "jokul_component"]{
     image,
     imageDark,
     related_components,
-    keywords
+    categories
 } | order(name)`);
 
 export const componentBySlugQuery =
@@ -81,7 +81,7 @@ export const componentBySlugQuery =
                 image,
                 imageDark,
                 related_components,
-                keywords
+                categories
             }
         }
     }`);
@@ -95,5 +95,5 @@ export const componentCardQuery =
         image,
         imageDark,
         related_components,
-        keywords,
+        categories,
     }[0]`);
