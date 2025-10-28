@@ -3,7 +3,7 @@ name: Publiser nye versjoner
 on:
     push:
         branches:
-            - main
+            - "jokul-2.x"
 
 run-name: Publiser endrede pakker. Siste commit er ${{ github.event.head_commit.message }}
 
@@ -96,14 +96,3 @@ jobs:
                     -H "X-GitHub-Api-Version: 2022-11-28" \
                     https://api.github.com/repos/fremtind/jokul-portal-deploy/actions/workflows/notify-jokul-release.yaml/dispatches \
                     -d '{"ref":"main","published_packages":"${{ needs.changesets-release.outputs.publishedPackages }}","committer_name":"${{ steps.commit-info.outputs.committer_name }}","committer_email":"${{ steps.commit-info.outputs.committer_email }}"}'
-
-    main-to-external:
-        name: Merge main to external-contributions
-        needs: [changesets-release]
-        runs-on: ubuntu-latest
-        permissions:
-            contents: write
-        steps:
-            - run: gh api --method POST /repos/fremtind/jokul/merges -F base='external-contributions' -F head='main' # do a server-side merge using GitHub API https://cli.github.com/manual/gh_api and https://docs.github.com/en/rest/reference/repos#merging
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

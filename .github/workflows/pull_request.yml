@@ -2,7 +2,7 @@ name: Pull request
 
 on:
     pull_request:
-        branches: [ "main" ]
+        branches: [ "jokul-2.x" ]
     merge_group:
         types: [ checks_requested ]
 

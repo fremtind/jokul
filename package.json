@@ -15,7 +15,7 @@
         "lint:ci": "biome lint --reporter=github",
         "ci:test": "run-p test lint:ci typecheck",
         "test": "pnpm --filter \"@fremtind/jokul\" test",
-        "release": "pnpm build && changeset publish",
+        "release": "pnpm build && changeset publish --tag version-2",
         "dev": "storybook dev -p 6007",
         "portal:dev": "pnpm --filter \"portal\" dev",
         "portal:storybook": "storybook dev -p 6007 --no-open",
