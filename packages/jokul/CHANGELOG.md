@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.6.2
+
+### Patch Changes
+
+- 62c9069: Annonserer toast-innhold for skjermlesere umiddelbart.
+
 ## 1.6.1
 
 ### Patch Changes
