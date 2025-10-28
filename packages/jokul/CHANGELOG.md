@@ -1,5 +1,15 @@
 # Change Log
 
+## 3.1.0
+
+### Minor Changes
+
+- d2d539e: Legg til refaktorert Select som beta.
+
+### Patch Changes
+
+- 8713b86: Nå vil radio- og checkboxpanel ha bedre støtte for extralabel ut av boksen, med enklere stiler.
+
 ## 3.0.0
 
 ### Major Changes
