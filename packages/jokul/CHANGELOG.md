@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- 833e995: Annonserer toast-innhold for skjermlesere umiddelbart.
+- 6b22a77: ToggleSlider er markert som deprecated. Bruk heller SegmentedControl.
+- 23152ee: Importerer stilarket for `Checkbox` i `CheckboxPanel`, slik at checkboxer i paneler får riktige stiler.
+
 ## 2.0.0
 
 ### Major Changes
