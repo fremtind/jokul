@@ -37,7 +37,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         return (
             <InputGroup
                 className={clsx("jkl-text-area", className, {
-                    "jkl-text-area--start-open": startOpen,
                     "jkl-text-area--auto-expand": autoExpand,
                 })}
                 data-testid="jkl-text-area"

@@ -1,8 +1,13 @@
 import { render, screen } from "@testing-library/react";
+import UserEventModule from "@testing-library/user-event";
 import React from "react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import { TextArea } from "./TextArea.js";
+
+// https://github.com/testing-library/user-event/issues/1146
+// @ts-ignore typecheck liker ikke at default muligens ikke finnes
+const userEvent = UserEventModule.default ?? UserEventModule;
 
 describe("TextArea", () => {
     it("renders with correct label", () => {
@@ -25,12 +30,26 @@ describe("TextArea", () => {
         expect(label).toHaveClass("jkl-label--sr-only");
     });
 
-    it("renders with an empty placeholder for CSS selector reasons, so expand animation works", () => {
-        const { getByRole } = render(<TextArea label="Cool text area" />);
+    it("renders with counter when provided", () => {
+        render(
+            <TextArea
+                label="Test area"
+                counter={{ maxLength: 100 }}
+                value="Hello"
+            />,
+        );
 
-        const textArea = getByRole("textbox");
+        expect(screen.getByText("5 / 100")).toBeInTheDocument();
+    });
 
-        expect(textArea.getAttribute("placeholder")).toEqual(" ");
+    it("updates counter when typing", async () => {
+        const user = userEvent.setup();
+        render(<TextArea label="Test area" counter={{ maxLength: 100 }} />);
+
+        const textarea = screen.getByLabelText("Test area");
+
+        await user.type(textarea, "Hello World");
+        expect(screen.getByText("11 / 100")).toBeInTheDocument();
     });
 });
 
