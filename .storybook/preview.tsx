@@ -1,5 +1,5 @@
-import React from "react";
 import type { Preview } from "@storybook/react";
+import React from "react";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
 import { backgroundOptions } from "./backgrounds.js";
 import { densities, densityDecorator, densityGlobal } from "./density.js";
@@ -40,6 +40,13 @@ const preview: Preview = {
             },
         },
         docs: {
+            toc: {
+                title: "Innhold",
+                disable: false,
+                unsafeTocbotOptions: {
+                    orderedList: false,
+                },
+            },
             controls: {
                 sort: "alpha",
             },
