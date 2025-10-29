@@ -509,6 +509,17 @@
                 "default": "./build/cjs/components/table/index.cjs"
             }
         },
+        "./styles/components-beta/table-of-contents": "./styles/components-beta/table-of-contents/_index.scss",
+        "./table-of-contents": {
+            "import": {
+                "types": "./build/es/components-beta/table-of-contents/index.d.ts",
+                "default": "./build/es/components-beta/table-of-contents/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components-beta/table-of-contents/index.d.cts",
+                "default": "./build/cjs/components-beta/table-of-contents/index.cjs"
+            }
+        },
         "./styles/components/tabs": "./styles/components/tabs/_index.scss",
         "./tabs": {
             "import": {
