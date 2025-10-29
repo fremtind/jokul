@@ -4,41 +4,41 @@ import { Chip } from "@fremtind/jokul/chip";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 type FilterChipProps = {
-    keyword: string;
-    selectedKeywords: string[];
+    category: string;
+    selectedCategories: string[];
 };
 
-const toggledKeywords = (
-    keyword: string,
-    selectedKeywords: string[],
+const toggledCategories = (
+    category: string,
+    selectedCategories: string[],
 ): string[] => {
-    if (selectedKeywords.includes(keyword)) {
-        return selectedKeywords.filter((k) => k !== keyword).filter(Boolean);
+    if (selectedCategories.includes(category)) {
+        return selectedCategories.filter((c) => c !== category).filter(Boolean);
     }
-    return [...selectedKeywords, keyword].filter(Boolean);
+    return [...selectedCategories, category].filter(Boolean);
 };
 
-export function FilterChip({ keyword, selectedKeywords }: FilterChipProps) {
+export function FilterChip({ category, selectedCategories }: FilterChipProps) {
     const router = useRouter();
     const pathname = usePathname();
     const searchParams = useSearchParams();
 
     return (
         <Chip
-            key={keyword}
+            key={category}
             variant="filter"
-            selected={selectedKeywords?.includes(keyword)}
+            selected={selectedCategories?.includes(category)}
             onClick={() => {
-                const updatedKeywords = toggledKeywords(
-                    keyword,
-                    selectedKeywords,
+                const updatedCategories = toggledCategories(
+                    category,
+                    selectedCategories,
                 );
                 const params = new URLSearchParams(searchParams.toString());
-                params.set("keywords", updatedKeywords.join(","));
+                params.set("categories", updatedCategories.join(","));
                 router.push(`${pathname}?${params.toString()}`);
             }}
         >
-            {keyword}
+            {category}
         </Chip>
     );
 }

@@ -4,13 +4,13 @@ import {
     useReactiveSetCookie,
 } from "cookies-next";
 
-export const COMPONENT_KEYWORDS = [
+export const COMPONENT_CATEGORIES = [
     "Knapper",
     "Skjema",
     "Navigasjon",
     "Layout",
     "Feedback",
-] as const;
+].sort();
 
 export const COMPONENT_GRID_SIZES = ["small", "medium", "large"] as const;
 export type ComponentGridSize = (typeof COMPONENT_GRID_SIZES)[number];
