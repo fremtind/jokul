@@ -7,19 +7,11 @@ import { LinkList } from "./LinkList.js";
 describe("LinkList", () => {
     it("renders as expected", () => {
         render(
-            <LinkList variant="unordered">
-                <LinkList.Item>
-                    <LinkList.Link>SpareBank 1</LinkList.Link>
-                </LinkList.Item>
-                <LinkList.Item>
-                    <LinkList.Link>DNB</LinkList.Link>
-                </LinkList.Item>
-                <LinkList.Item>
-                    <LinkList.Link>LOfavør</LinkList.Link>
-                </LinkList.Item>
-                <LinkList.Item>
-                    <LinkList.Link>Norsk Sykepleierforbund</LinkList.Link>
-                </LinkList.Item>
+            <LinkList variant="unordered" label="Distributører">
+                <LinkList.Link>SpareBank 1</LinkList.Link>
+                <LinkList.Link>DNB</LinkList.Link>
+                <LinkList.Link>LOfavør</LinkList.Link>
+                <LinkList.Link>Norsk Sykepleierforbund</LinkList.Link>
             </LinkList>,
         );
         expect(screen.getByText("SpareBank 1")).toBeInTheDocument();
@@ -30,10 +22,8 @@ describe("LinkList", () => {
 
     it("renders as ordered list", () => {
         render(
-            <LinkList variant="ordered">
-                <LinkList.Item>
-                    <LinkList.Link>SpareBank 1</LinkList.Link>
-                </LinkList.Item>
+            <LinkList variant="ordered" label="Distributører">
+                <LinkList.Link>SpareBank 1</LinkList.Link>
             </LinkList>,
         );
 
@@ -43,12 +33,10 @@ describe("LinkList", () => {
 
     it("renders as unordered list", () => {
         render(
-            <LinkList variant="unordered">
-                <LinkList.Item>
-                    <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring.html">
-                        SpareBank 1
-                    </LinkList.Link>
-                </LinkList.Item>
+            <LinkList variant="unordered" label="Distributører">
+                <LinkList.Link href="https://www.sparebank1.no/nb/bank/privat/forsikring.html">
+                    SpareBank 1
+                </LinkList.Link>
             </LinkList>,
         );
 
@@ -62,10 +50,8 @@ describe("LinkList", () => {
             "https://www.sparebank1.no/nb/bank/privat/forsikring.html";
 
         render(
-            <LinkList variant="unordered">
-                <LinkList.Item>
-                    <LinkList.Link href={linkUrl}>{linkText}</LinkList.Link>
-                </LinkList.Item>
+            <LinkList variant="unordered" label="Distributører">
+                <LinkList.Link href={linkUrl}>{linkText}</LinkList.Link>
             </LinkList>,
         );
 
@@ -76,10 +62,8 @@ describe("LinkList", () => {
 
     it("is accessible", async () => {
         const { container } = render(
-            <LinkList variant="unordered">
-                <LinkList.Item>
-                    <LinkList.Link>SpareBank 1</LinkList.Link>
-                </LinkList.Item>
+            <LinkList variant="unordered" label="Distributører">
+                <LinkList.Link>SpareBank 1</LinkList.Link>
             </LinkList>,
         );
         const results = await axe(container);
