@@ -1,9 +1,11 @@
+import clsx from "clsx";
 import React, {
     type ChangeEvent,
     type FocusEvent,
     forwardRef,
     type RefObject,
     useEffect,
+    useId,
     useRef,
     useState,
 } from "react";
@@ -16,13 +18,14 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
             counter,
             onBlur,
             onFocus,
-            rows = 7,
-            placeholder = " ", // This space intentionally left blank. Denne + rows trengs for å få den ekspanderende effekten.
-            startOpen,
+            rows = 4,
+            placeholder,
             style,
             value,
             "aria-invalid": ariaInvalid,
+            "aria-describedby": ariaDescribedBy,
             onChange,
+            startOpen,
             ...rest
         } = props;
 
@@ -47,18 +50,34 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
             const textAreaElement = textAreaRef.current;
             if (textAreaElement) {
                 if (!autoExpand) {
-                    textAreaElement.style.height = "";
+                    textAreaElement.style.removeProperty("--textarea-height");
                     return;
                 }
 
                 if (textAreaFocused || value) {
-                    textAreaElement.style.height = "auto"; // Sett til auto før scrollhøyden leses, sånn at redusering av høyde ved sletting av tekst fungerer
-                    textAreaElement.style.height = `${textAreaElement.scrollHeight}px`;
+                    textAreaElement.style.setProperty(
+                        "--textarea-height",
+                        "auto",
+                    ); // Sett til auto før scrollhøyden leses, sånn at redusering av høyde ved sletting av tekst fungerer
+                    textAreaElement.style.setProperty(
+                        "--textarea-height",
+                        `${textAreaElement.scrollHeight}px`,
+                    );
                 } else {
-                    textAreaElement.style.height = "";
+                    textAreaElement.style.setProperty(
+                        "--textarea-height",
+                        "auto",
+                    );
                 }
             }
-        }, [autoExpand, textAreaRef, value, textAreaFocused, counterCurrent]);
+        }, [
+            autoExpand,
+            textAreaRef,
+            value,
+            textAreaFocused,
+            counterCurrent,
+            rows,
+        ]);
 
         function handleOnFocus(e: FocusEvent<HTMLTextAreaElement>) {
             setTextAreaFocused(true);
@@ -81,14 +100,20 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
             }
         }
 
+        function handleCounterClick() {
+            textAreaRef.current?.focus();
+        }
+
         const counterTotal: number = counter?.maxLength || 0;
-        const progressCurrent: number = counterTotal - counterCurrent;
+        const progressCurrent: number = counterCurrent;
+
         function calculatePercentage(current: number, total: number): number {
             if (current <= 0) {
                 return 0;
             }
             return total === 0 ? 0 : (current * 100) / total;
         }
+
         const counterLabel =
             counter && counterCurrent > counterTotal
                 ? `Du har skrevet ${counterCurrent - counterTotal} tegn for mye`
@@ -100,15 +125,23 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
             overflowX: autoExpand ? "hidden" : undefined, // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
         } as React.CSSProperties;
 
+        const maxLengthId = useId();
+
+        const describedBy = clsx(ariaDescribedBy, {
+            [maxLengthId ?? ""]: counter,
+        });
+
         return (
-            <div
-                className="jkl-text-area-wrapper"
-                data-invalid={invalid}
-                data-has-content={counterCurrent > 0}
-            >
+            <div className="jkl-text-area-wrapper" data-invalid={invalid}>
+                {counter && (
+                    <p id={maxLengthId} className="jkl-sr-only">
+                        Tekstområde med plass til {counterTotal} tegn
+                    </p>
+                )}
                 <textarea
                     aria-invalid={invalid}
-                    className={`jkl-text-area__text-area jkl-text-area__text-area--${rows}-rows`}
+                    className="jkl-text-area__text-area"
+                    rows={rows}
                     onBlur={handleOnBlur}
                     onFocus={handleOnFocus}
                     onChange={handleOnChange}
@@ -116,13 +149,26 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
                     style={{ ...style, ...overflowStyle }}
                     placeholder={placeholder}
                     value={value}
+                    maxLength={counter?.maxLength}
+                    {...(describedBy
+                        ? { "aria-describedby": describedBy }
+                        : {})}
                     {...rest}
                 />
                 {counter && (
-                    <div className="jkl-text-area__counter" aria-hidden="true">
-                        <div className="jkl-text-area__counter-count">
+                    // biome-ignore lint/a11y/useKeyWithClickEvents: Counter is decorative and should not be keyboard navigable
+                    <div
+                        className="jkl-text-area__counter"
+                        aria-hidden="true"
+                        onClick={handleCounterClick}
+                        style={{ cursor: "pointer" }}
+                    >
+                        <output
+                            className="jkl-text-area__counter-count"
+                            aria-hidden="true"
+                        >
                             {counterCurrent}&nbsp;/&nbsp;{counterTotal}
-                        </div>
+                        </output>
                         {!counter.hideProgress && (
                             <div
                                 className="jkl-text-area__counter-progress"
@@ -140,4 +186,5 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         );
     },
 );
+
 BaseTextArea.displayName = "BaseTextArea";

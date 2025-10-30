@@ -11,10 +11,6 @@ const meta = {
     args: {
         label: "Tilleggsinformasjon",
         description: "Legg til relevant informasjon som kan påvirke saken.",
-        counter: {
-            maxLength: 200,
-            hideProgress: false,
-        },
         autoExpand: true,
     },
     tags: ["autodocs", "forms"],
@@ -24,13 +20,21 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const TextArea: Story = {
+    name: "TextArea",
     args: {
         label: "Har du noen tilbakemeldinger til oss?",
         description: "Din tilbakemelding hjelper oss å bli bedre.",
     },
 };
 
-export const TextAreaWithCounterAndAutoExpand: Story = {};
+export const WithCounter: Story = {
+    args: {
+        counter: {
+            maxLength: 200,
+            hideProgress: false,
+        },
+    },
+};
 
 export const WithError: Story = {
     args: {
