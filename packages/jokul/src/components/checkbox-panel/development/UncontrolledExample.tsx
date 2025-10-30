@@ -7,7 +7,6 @@ import type {
 import { PrimaryButton } from "../../button/Button.js";
 import { CheckboxPanel } from "../../checkbox-panel/CheckboxPanel.js";
 import { Flex } from "../../flex/Flex.js";
-import { SuccessTag } from "../../tag/Tag.js";
 
 export const knobs: ExampleKnobsProps = {
     boolProps: ["Med feil"],
@@ -58,19 +57,8 @@ Ansvar:    ${watch("ansvar")}
                     {...register("kasko")}
                     defaultChecked={true}
                     aria-invalid={boolValues?.["Med feil"] ? "true" : undefined}
-                    alwaysOpen={true}
-                    extraLabel={
-                        <Flex
-                            as="span"
-                            alignItems="center"
-                            justifyContent="end"
-                            gap="s"
-                            className="input-panel-example__custom-label input-panel-example__custom-label--bold"
-                        >
-                            <SuccessTag>Anbefalt</SuccessTag>
-                            300 kr/mnd
-                        </Flex>
-                    }
+                    amount="300 kr/mnd"
+                    value="300"
                 >
                     En forsikring som passer de fleste biler. Dekker det meste
                     av skader, også de du selv er ansvarlig for. Inkluderer
@@ -80,16 +68,8 @@ Ansvar:    ${watch("ansvar")}
                     label="Minikasko"
                     {...register("minikasko")}
                     aria-invalid={boolValues?.["Med feil"] ? "true" : undefined}
-                    extraLabel={
-                        <Flex
-                            as="span"
-                            alignItems="center"
-                            justifyContent="end"
-                            className="input-panel-example__custom-label input-panel-example__custom-label--bold"
-                        >
-                            200 kr/mnd
-                        </Flex>
-                    }
+                    amount="200 kr/mnd"
+                    value="200"
                 >
                     Passer for eldre biler med en verdi under 50 000 kr. Dekker
                     brann, tyveri og glasskader i tillegg til det lovpålagte.
@@ -98,16 +78,8 @@ Ansvar:    ${watch("ansvar")}
                     label="Ansvar"
                     {...register("ansvar")}
                     aria-invalid={boolValues?.["Med feil"] ? "true" : undefined}
-                    extraLabel={
-                        <Flex
-                            as="span"
-                            alignItems="center"
-                            justifyContent="end"
-                            className="input-panel-example__custom-label input-panel-example__custom-label--bold"
-                        >
-                            100 kr/mnd
-                        </Flex>
-                    }
+                    amount="100 kr/mnd"
+                    value="100"
                 >
                     Lovpålagt når du eier et kjøretøy som brukes på veien.
                 </CheckboxPanel>
