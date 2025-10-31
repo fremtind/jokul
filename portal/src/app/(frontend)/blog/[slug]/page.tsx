@@ -3,8 +3,8 @@ import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { blogPostBySlugQuery } from "@/sanity/queries/blog";
 
+import { ArticleHeader } from "@/components/article/header";
 import { logger } from "logger";
-import styles from "../blog.module.scss";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -44,34 +44,13 @@ export default async function BlogPostPage({ params }: Props) {
         time: `${Math.round(performance.now() - initialTime)}ms`,
     });
 
-    const publishedDate = new Date(blogPost._createdAt).toLocaleString("no", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-    });
-
-    const updatedDate = new Date(blogPost._updatedAt).toLocaleString("no", {
-        day: "2-digit",
-        month: "2-digit",
-        year: "numeric",
-    });
-
-    const dateString =
-        updatedDate !== publishedDate
-            ? `Oppdatert ${updatedDate}`
-            : `Publisert ${publishedDate}`;
-
     return (
         <article className={"prose"}>
-            <header className={styles.articleHeader}>
-                {blogPost.name && (
-                    <h1 className={styles.title}>{blogPost.name}</h1>
-                )}
-                {blogPost.short_description && (
-                    <p>{blogPost.short_description}</p>
-                )}
-                <p className="date">{dateString}</p>
-            </header>
+            <ArticleHeader
+                title={blogPost.name || ""}
+                description={blogPost.short_description}
+                date={{ updated: new Date(blogPost._updatedAt) }}
+            />
             {blogPost.article ? (
                 <PortableText blocks={blogPost.article} />
             ) : null}
