@@ -1,0 +1,14 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.header {
+    .title, .description, .date {
+        margin-block-end: var(--jkl-spacing-24);
+    }
+
+    .date {
+        @include jkl.text-style("small") {
+            @include jkl.use-font-family("Fremtind Grotesk Mono");
+            color: var(--jkl-color-text-subdued);
+        }
+    }
+}
