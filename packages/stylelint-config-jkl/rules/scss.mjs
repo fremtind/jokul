@@ -1,5 +1,4 @@
 export default {
-    // Regler som er skrudd av er outsourcet til Prettier
     "scss/at-else-closing-brace-newline-after": null,
     "scss/at-else-closing-brace-space-after": null,
     "scss/at-else-empty-line-before": null,
