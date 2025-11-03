@@ -33,7 +33,7 @@
         "build-storybook": "storybook build",
         "prepare": "husky || true"
     },
-    "packageManager": "pnpm@7.32.2",
+    "packageManager": "pnpm@10.21.0",
     "pnpm": {
         "overrides": {
             "@types/react": "18.3.1",

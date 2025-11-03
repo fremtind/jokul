@@ -1,12 +1,11 @@
-import { fileHeader } from "style-dictionary/utils";
 import { camelCase } from "change-case";
-import Prettier from "prettier";
 import type {
+    DesignToken,
     Dictionary,
     File,
-    DesignToken,
     Format,
 } from "style-dictionary/types";
+import { fileHeader } from "style-dictionary/utils";
 
 const formatKeysToCamelCase = (token: DesignToken) => {
     if (!token || typeof token !== "object") {
@@ -32,17 +31,7 @@ const javascriptEsmFormat: Format = {
         dictionary,
         file,
     }: { dictionary: Dictionary; file: File }) => {
-        const output = `${await fileHeader({ file })}export default ${JSON.stringify(formatKeysToCamelCase(dictionary.tokens))};\n`;
-
-        return Prettier.format(output, {
-            parser: "babel",
-            semi: true,
-            trailingComma: "all",
-            singleQuote: false,
-            printWidth: 120,
-            tabWidth: 4,
-            arrowParens: "always",
-        });
+        return `${await fileHeader({ file })}export default ${JSON.stringify(formatKeysToCamelCase(dictionary.tokens))};\n`;
     },
 };
 
