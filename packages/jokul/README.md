@@ -175,6 +175,8 @@ export default {
 };
 ```
 
+Hvis du bruker Tailwind sammen med Jøkul anbefaler vi at du [skrur av Tailwind sine egne reset-regler](https://v3.tailwindcss.com/docs/preflight#disabling-preflight) (preflight), ettersom de kan overskrive Jøkul sine egne grunnstiler.
+
 ### Farger
 
 Preset-et kommer med alle semantiske farger fra Jøkul definert. Vi anbefaler å bruke Tailwind sin plugin til VSCode eller IntelliJ for å få autocomplete for farger og andre verdier i preset-et.
