@@ -1,5 +1,11 @@
 # portal
 
+## 1.4.10
+
+### Patch Changes
+
+- 4134008: Sortering av komponenter baserer seg nå på kategorier istedenfor stikkord
+
 ## 1.4.9
 
 ### Patch Changes
