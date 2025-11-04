@@ -5,6 +5,7 @@ import { codeExample } from "./codeExample";
 import { component } from "./component";
 import { componentProps } from "./componentProps";
 import { doAndDont } from "./doAndDont";
+import { fundamentals } from "./fundamentals";
 import { kortFortalt } from "./kortFortalt";
 import { linkCard } from "./linkCard";
 import { storybook, storybookStory } from "./storybook";
@@ -21,4 +22,5 @@ export const schemaTypes = [
     kortFortalt,
     linkCard,
     doAndDont,
+    fundamentals,
 ];
