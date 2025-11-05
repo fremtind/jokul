@@ -4,6 +4,7 @@ import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { ComponentHeaderLink } from "./ComponentHeaderLink";
 
+import { InfoMessage, WarningMessage } from "@fremtind/jokul/message";
 import styles from "./componentHeader.module.scss";
 
 type ComponentHeaderProps = {
@@ -14,16 +15,34 @@ type ComponentHeaderProps = {
     };
     name?: string;
     description?: string;
+    status?: {
+        value?: string;
+        statusDescription?: string;
+    };
 };
 
 export const ComponentHeader = ({
     links,
     name,
     description,
+    status,
 }: ComponentHeaderProps) => {
     return (
         <Card variant="low" asChild>
             <Flex as="header" className={styles.header}>
+                <div className={styles.status}>
+                    {status?.value === "deprecated" && (
+                        <WarningMessage title="Deprecated" density="compact">
+                            {status.statusDescription}
+                        </WarningMessage>
+                    )}
+                    {status?.value === "beta" && (
+                        <InfoMessage title="Beta" density="compact">
+                            {status.statusDescription}
+                        </InfoMessage>
+                    )}
+                </div>
+
                 <div>
                     {name && (
                         <h1 className={styles.name} lang="en">
