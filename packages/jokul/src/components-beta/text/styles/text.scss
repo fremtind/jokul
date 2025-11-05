@@ -1,0 +1,7 @@
+.jkl-text--beta {
+    max-width: 55ch;
+
+    &:where([class*=heading], [class*=title]) {
+        max-width: 30ch;
+    }
+}

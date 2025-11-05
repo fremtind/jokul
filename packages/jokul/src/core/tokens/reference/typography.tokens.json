@@ -1,8 +1,8 @@
 {
     "icon": {
         "weight": {
-            "normal": { "value": "300", "type": "typography" },
-            "bold": { "value": "400", "type": "typography" }
+            "normal": { "value": "400", "type": "typography" },
+            "bold": { "value": "700", "type": "typography" }
         }
     },
     "typography": {
@@ -17,7 +17,7 @@
                     "type": "typography"
                 },
                 "display": {
-                    "value": "'Fremtind Grotesk Display, Adjusted Arial Display Fallback, Arial, sans-serif'",
+                    "value": "'Adjusted Arial Display Fallback, Arial, sans-serif'",
                     "type": "typography"
                 },
                 "mono": {
@@ -65,11 +65,9 @@
             }
         },
         "lineHeight": {
-            "none": { "value": 1, "type": "typography" },
-            "small": { "value": 1.1, "type": "typography" },
-            "regular": { "value": 1.2, "type": "typography" },
-            "medium": { "value": 1.3, "type": "typography" },
-            "large": { "value": 1.4, "type": "typography" }
+            "flush": { "value": 1, "type": "typography" },
+            "tight": { "value": 1.3, "type": "typography" },
+            "loose": { "value": 1.6, "type": "typography" }
         },
         "style": {
             "title": {

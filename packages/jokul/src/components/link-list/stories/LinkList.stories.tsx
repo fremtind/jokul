@@ -30,7 +30,10 @@ export const LinkListStory: Story = {
     render: (props) => (
         <LinkList {...props}>
             <LinkList.Item>
-                <LinkList.Link href="#">SpareBank 1</LinkList.Link>
+                <LinkList.Link href="#">
+                    SpareBank 1 SpareBank 2 SpareBank 3 SpareBank 4 SpareBank 5
+                    SpareBank 6
+                </LinkList.Link>
             </LinkList.Item>
             <LinkList.Item>
                 <LinkList.Link href="#">DNB</LinkList.Link>

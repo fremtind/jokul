@@ -1,35 +1,14 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-@include jkl.compact-density-variables {
-    --padding-inline-s: #{jkl.$unit-10};
-    --padding-inline-l: #{jkl.$unit-15};
-    --padding-icon-s: #{jkl.$unit-05};
-    --padding-icon-l: #{jkl.$unit-10};
-    --height-l: #{jkl.$unit-40};
-    --height-s: #{jkl.$unit-30};
-    --gap-s: #{jkl.$unit-02};
-    --gap-l: #{jkl.$unit-05};
-}
-
-@include jkl.comfortable-density-variables {
-    --padding-inline-s: #{jkl.$unit-15};
-    --padding-inline-l: #{jkl.$unit-20};
-    --padding-icon-s: #{jkl.$unit-10};
-    --padding-icon-l: #{jkl.$unit-15};
-    --height-l: #{jkl.$unit-50};
-    --height-s: #{jkl.$unit-40};
-    --gap-s: #{jkl.$unit-05};
-    --gap-l: #{jkl.$unit-10};
-}
-
 .jkl-chip {
     --text-color: var(--jkl-color-text-default);
     --border-color: var(--jkl-color-border-separator);
     --background-color: transparent;
     --border-width: #{jkl.rem(1px)};
 
-    @include jkl.text-style("heading-5");
+    @include jkl.text-style("small");
+    padding-inline: 0.75em 0.5em;
     cursor: pointer;
     position: relative;
     background-color: var(--background-color);
@@ -38,15 +17,15 @@
     border-radius: 99999px;
     display: inline-flex;
     align-items: center;
-    text-align: initial;
-    white-space: nowrap;
-    gap: var(--gap, var(--gap-s));
-    padding: 0 var(--padding-inline, var(--padding-inline-s));
-    min-height: var(--height, var(--height-s));
+    gap: 0.25ch;
 
     @include jkl.forced-colors-mode {
         border: 2px none CanvasText;
         border-bottom-style: dotted;
+    }
+
+    &__icon {
+        display: inline;
     }
 
     &::after {
@@ -82,23 +61,5 @@
                 --text-color: Canvas;
             }
         }
-    }
-
-    &--small {
-        --padding-inline: var(--padding-inline-s);
-        --gap: var(--gap-s);
-        --padding-icon: var(--padding-icon-s);
-        --height: var(--height-s);
-    }
-
-    &--large {
-        --padding-inline: var(--padding-inline-l);
-        --gap: var(--gap-l);
-        --padding-icon: var(--padding-icon-l);
-        --height: var(--height-l);
-    }
-
-    &:has(.jkl-icon) {
-        padding-inline-end: var(--padding-icon);
     }
 }
