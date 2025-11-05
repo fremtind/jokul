@@ -15,9 +15,9 @@ export const codeBlock = defineType({
             title: "Språk",
             type: "string",
             options: {
-                list: ["scss", "typescript"],
+                list: ["scss", "typescript", "fritekst"],
             },
-            initialValue: "typescript",
+            initialValue: "fritekst",
         }),
     ],
 });
