@@ -11,13 +11,11 @@ import { Flex } from "@fremtind/jokul/flex";
 import { NavLink } from "@fremtind/jokul/nav-link";
 import imageUrlBuilder from "@sanity/image-url";
 import { logger } from "logger";
+import styles from "./component.module.scss";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
 import { ComponentHeaderLink } from "./components/ComponentHeaderLink";
 import { ComponentNav } from "./components/ComponentNav";
-
-import { PreferencesMenu } from "@/components/preferences-menu/PreferencesMenu";
-import styles from "./component.module.scss";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -71,9 +69,11 @@ export default async function Page({ params }: Props) {
                 >
                     Komponenter
                 </NavLink>
+
                 <ComponentHeader
                     name={component?.name}
                     description={component?.short_description}
+                    status={component.status}
                 />
 
                 {component.documentation_article && <ComponentNav />}

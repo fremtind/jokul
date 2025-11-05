@@ -368,7 +368,10 @@ export type Jokul_component = {
   name?: string;
   slug?: Slug;
   short_description?: string;
-  status?: "deprecated" | "alpha" | "beta" | "stabil";
+  status?: {
+    value?: "deprecated" | "alpha" | "beta" | "stabil";
+    statusDescription?: string;
+  };
   categories?: Array<string>;
   keywords?: Array<string>;
   example_card?: {
@@ -708,7 +711,10 @@ export type ComponentBySlugQueryResult = {
   name?: string;
   slug: string | null;
   short_description?: string;
-  status?: "alpha" | "beta" | "deprecated" | "stabil";
+  status?: {
+    value?: "alpha" | "beta" | "deprecated" | "stabil";
+    statusDescription?: string;
+  };
   categories?: Array<string>;
   keywords?: Array<string>;
   example_card?: {
