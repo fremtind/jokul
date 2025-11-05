@@ -1425,6 +1425,10 @@
               {
                 "type": "string",
                 "value": "typescript"
+              },
+              {
+                "type": "string",
+                "value": "fritekst"
               }
             ]
           },
