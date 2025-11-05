@@ -1,3 +1,4 @@
+/* stylelint-disable rule-empty-line-before */
 @use "sass:map";
 @use "../../jkl";
 @use "../../jkl/typography";
@@ -5,23 +6,50 @@
 @layer jokul.theme {
     :root {
         @each $level, $values in typography.$text-styles {
-            @each $property, $value
-                in map.get(typography.$text-styles, $level, "small-screen") {
+            @each $property, $value in map.get(typography.$text-styles, $level, "small-screen") {
                 --jkl-#{$level}-#{$property}: #{$value};
             }
         }
 
         @include jkl.from-medium-device {
             @each $level, $values in typography.$text-styles {
-                @each $property, $value
-                    in map.get(
-                        typography.$text-styles,
-                        $level,
-                        "large-screen"
-                    ) {
+                @each $property, $value in map.get(typography.$text-styles,
+                    $level,
+                    "large-screen"
+
+                ) {
                     --jkl-#{$level}-#{$property}: #{$value};
                 }
             }
         }
+    }
+}
+
+
+@layer jokul.theme {
+
+    :root,
+    [data-typography] {
+        --jkl-font-size-xs: max(12px, calc(var(--base-font-size) * pow(var(--scale), -2)));
+        --jkl-font-size-s: max(12px, calc(var(--base-font-size) * pow(var(--scale), -1)));
+        --jkl-font-size-m: var(--base-font-size);
+        --jkl-font-size-l: calc(var(--base-font-size) * pow(var(--scale), 1));
+        --jkl-font-size-xl: calc(var(--base-font-size) * pow(var(--scale), 2));
+        --jkl-font-size-2xl: calc(var(--base-font-size) * pow(var(--scale), 3));
+        --jkl-font-size-3xl: calc(var(--base-font-size) * pow(var(--scale), 4));
+        --jkl-line-height-flush: 1;
+        --jkl-line-height-tight: 1.3;
+        --jkl-line-height-relaxed: 1.6;
+    }
+
+    :root,
+    [data-typography="regular"] {
+        --scale: 1.25;
+        --base-font-size: clamp(1rem, 0.9091rem + 0.4545vw, 1.25rem);
+    }
+
+    [data-typography="expressive"] {
+        --scale: 1.333;
+        --base-font-size: clamp(1.125rem, 0.9886rem + 0.6818vw, 1.5rem);
     }
 }

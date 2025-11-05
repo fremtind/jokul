@@ -127,6 +127,21 @@ $text-styles: (
     ),
 );
 
+/// @access private
+$new-text-styles: (
+    "title": ("font-size": "var(--jkl-font-size-3xl)", "line-height": "var(--jkl-line-height-tight)"),
+    "title-small": ("font-size": "var(--jkl-font-size-2xl)", "line-height": "var(--jkl-line-height-tight)"),
+    "heading-1": ("font-size": "var(--jkl-font-size-2xl)", "line-height": "var(--jkl-line-height-tight)"),
+    "heading-2": ("font-size": "var(--jkl-font-size-xl)", "line-height": "var(--jkl-line-height-tight)"),
+    "heading-3": ("font-size": "var(--jkl-font-size-l)", "line-height": "var(--jkl-line-height-tight)"),
+    "heading-4": ("font-size": "var(--jkl-font-size-m)", "line-height": "var(--jkl-line-height-tight)"),
+    "heading-5": ("font-size": "var(--jkl-font-size-s)", "line-height": "var(--jkl-line-height-tight)"),
+    "body": ("font-size": "var(--jkl-font-size-m)", "line-height": "var(--jkl-line-height-relaxed)"),
+    "small": ("font-size": "var(--jkl-font-size-s)", "line-height": "var(--jkl-line-height-relaxed)"),
+    "xsmall": ("font-size": "var(--jkl-font-size-xs)", "line-height": "var(--jkl-line-height-relaxed)"),
+    "label": ("font-size": "var(--jkl-font-size-s)", "line-height": "var(--jkl-line-height-flush)"),
+);
+
 /// Gir deg responsive font-size, line-height og font-weight basert på navnet på typografien.
 /// Du kan overstyre standardverdier ved å bruke `@content`. Dette er ment som en "escape hatch".
 /// Ikke tukle med typografiskalaen med mindre du har en god grunn til det.
@@ -142,48 +157,62 @@ $text-styles: (
 ///             font-weight: jkl.$typography-weight-bold;
 ///         }
 ///     }
+// @mixin text-style($style-name) {
+//     // Separate style/variant into style and variant variables:
+//     $start-index: string.index($style-name, "/") or 0;
+//     $end-index: string.index($style-name, "/") or 9999999;
+//     $style: string.slice($style-name, 0, $start-index - 1);
+//     $variant: string.slice($style-name, $end-index + 1);
+
+//     @if map.has-key($text-styles, $style) {
+//         $variants: map.get($text-styles, $style);
+
+//         @if string.length($variant)==0 {
+//             @each $property, $value in map.get($variants, "small-screen") {
+//                 #{$property}: $value;
+//             }
+
+//             @content;
+
+//             // Styles heading-5 and small are the same size on small and large screens. Skip to generate less CSS.
+//             @if $style !="small" and $style !="heading-5" {
+//                 @include screens.from-medium-device {
+//                     @each $property, $value in map.get($variants, "large-screen") {
+//                         #{$property}: $value;
+//                     }
+
+//                     @content;
+//                 }
+//             }
+//         }
+
+//         @else {
+//             @if map.has-key($variants, $variant) {
+//                 @each $property, $value in map.get($variants, $variant) {
+//                     #{$property}: $value;
+//                 }
+
+//                 @content;
+//             }
+
+//             @else {
+//                 @error "The text style #{$style} has no variant called #{$variant}. Try one of these: #{map.keys(map.get($new-text-styles, $style))}";
+//             }
+//         }
+//     }
+
+//     @else {
+//         @error "No text style with the name #{$style} was found. Try one of these: #{map.keys($new-text-styles)}";
+//     }
+// }
+
 @mixin text-style($style-name) {
-    // Separate style/variant into style and variant variables:
-    $start-index: string.index($style-name, "/") or 0;
-    $end-index: string.index($style-name, "/") or 9999999;
-    $style: string.slice($style-name, 0, $start-index - 1);
-    $variant: string.slice($style-name, $end-index + 1);
-
-    @if map.has-key($text-styles, $style) {
-        $variants: map.get($text-styles, $style);
-
-        @if string.length($variant)==0 {
-            @each $property, $value in map.get($variants, "small-screen") {
-                #{$property}: $value;
-            }
-
-            @content;
-
-            // Styles heading-5 and small are the same size on small and large screens. Skip to generate less CSS.
-            @if $style !="small" and $style !="heading-5" {
-                @include screens.from-medium-device {
-                    @each $property, $value in map.get($variants, "large-screen") {
-                        #{$property}: $value;
-                    }
-
-                    @content;
-                }
-            }
+    @if map.has-key($new-text-styles, $style-name) {
+        @each $property, $value in map.get($new-text-styles, $style-name) {
+            #{$property}: #{$value};
         }
 
-        @else {
-            @if map.has-key($variants, $variant) {
-                @each $property, $value in map.get($variants, $variant) {
-                    #{$property}: $value;
-                }
-
-                @content;
-            }
-
-            @else {
-                @error "The text style #{$style} has no variant called #{$variant}. Try one of these: #{map.keys(map.get($new-text-styles, $style))}";
-            }
-        }
+        @content;
     }
 
     @else {

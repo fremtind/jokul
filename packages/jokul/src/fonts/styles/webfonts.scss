@@ -5,11 +5,17 @@ $webfonts-dir: "/fonts" !default;
 @font-face {
     font-family: "Fremtind Grotesk";
     font-display: fallback;
-    font-weight: 400;
+    font-weight: 400 700;
     font-style: normal;
-    src: url("#{$webfonts-dir}/FremtindGrotesk-Regular-Web.woff2")
-            format("woff2"),
-        url("#{$webfonts-dir}/FremtindGrotesk-Regular-Web.woff") format("woff");
+    src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2")
+}
+
+@font-face {
+    font-family: "Fremtind Grotesk";
+    font-display: fallback;
+    font-weight: 400 700;
+    font-style: italic;
+    src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2")
 }
 
 @font-face {
@@ -24,15 +30,6 @@ $webfonts-dir: "/fonts" !default;
 }
 
 @font-face {
-    font-family: "Fremtind Grotesk";
-    font-display: fallback;
-    font-weight: 700;
-    font-style: normal;
-    src: url("#{$webfonts-dir}/FremtindGrotesk-Bold-Web.woff2") format("woff2"),
-        url("#{$webfonts-dir}/FremtindGrotesk-Bold-Web.woff") format("woff");
-}
-
-@font-face {
     font-family: "Adjusted Arial Fallback";
     font-weight: 700;
     font-style: normal;
@@ -44,16 +41,6 @@ $webfonts-dir: "/fonts" !default;
 }
 
 @font-face {
-    font-family: "Fremtind Grotesk";
-    font-display: fallback;
-    font-weight: 400;
-    font-style: italic;
-    src: url("#{$webfonts-dir}/FremtindGrotesk-Italic-Web.woff2")
-            format("woff2"),
-        url("#{$webfonts-dir}/FremtindGrotesk-Italic-Web.woff") format("woff");
-}
-
-@font-face {
     font-family: "Adjusted Arial Fallback";
     font-weight: 400;
     font-style: italic;
@@ -62,17 +49,6 @@ $webfonts-dir: "/fonts" !default;
     ascent-override: 83%;
     descent-override: normal;
     line-gap-override: 28%;
-}
-
-@font-face {
-    font-family: "Fremtind Grotesk";
-    font-display: fallback;
-    font-weight: 700;
-    font-style: italic;
-    src: url("#{$webfonts-dir}/FremtindGrotesk-BoldItalic-Web.woff2")
-            format("woff2"),
-        url("#{$webfonts-dir}/FremtindGrotesk-BoldItalic-Web.woff")
-            format("woff");
 }
 
 @font-face {
@@ -91,9 +67,8 @@ $webfonts-dir: "/fonts" !default;
     font-display: fallback;
     font-weight: 400;
     font-style: normal;
-    src: url("#{$webfonts-dir}/FremtindGrotesk-Display-Web.woff2")
-            format("woff2"),
-        url("#{$webfonts-dir}/FremtindGrotesk-Display-Web.woff") format("woff");
+    src: url("#{$webfonts-dir}/FremtindGrotesk-Display-Web.woff2") format("woff2"),
+    url("#{$webfonts-dir}/FremtindGrotesk-Display-Web.woff") format("woff");
 }
 
 @font-face {
@@ -112,10 +87,8 @@ $webfonts-dir: "/fonts" !default;
     font-display: fallback;
     font-weight: 400;
     font-style: normal;
-    src: url("#{$webfonts-dir}/FremtindGroteskMono-Regular-Web.woff2")
-            format("woff2"),
-        url("#{$webfonts-dir}/FremtindGroteskMono-Regular-Web.woff")
-            format("woff");
+    src: url("#{$webfonts-dir}/FremtindGroteskMono-Regular-Web.woff2") format("woff2"),
+    url("#{$webfonts-dir}/FremtindGroteskMono-Regular-Web.woff") format("woff");
 }
 
 @font-face {
@@ -131,7 +104,7 @@ $webfonts-dir: "/fonts" !default;
 
 @font-face {
     font-family: "Fremtind Material Symbols";
-    font-weight: 300 400;
+    font-weight: 400 700;
     font-style: normal;
     src: url("#{$webfonts-dir}/Fremtind-Material-Symbols.woff2") format("woff2");
 }
@@ -139,7 +112,7 @@ $webfonts-dir: "/fonts" !default;
 @font-face {
     font-family: "Fremtind Material Symbols Fallback";
     src: local(courier new);
-    font-weight: 300 400;
+    font-weight: 400 700;
     font-style: normal;
     size-adjust: 0%;
 }
