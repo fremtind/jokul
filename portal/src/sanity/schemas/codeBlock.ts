@@ -6,18 +6,16 @@ export const codeBlock = defineType({
     type: "object",
     fields: [
         defineField({
-            name: "code",
-            title: "Kode",
-            type: "text",
-        }),
-        defineField({
             name: "language",
             title: "Språk",
             type: "string",
-            options: {
-                list: ["scss", "typescript", "fritekst"],
-            },
             initialValue: "fritekst",
+            description: "For eksempel Scss, TypeScript eller HTML.",
+        }),
+        defineField({
+            name: "code",
+            title: "Kode",
+            type: "text",
         }),
     ],
 });

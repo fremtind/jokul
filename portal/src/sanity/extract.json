@@ -1406,31 +1406,17 @@
             "value": "jokul_codeBlock"
           }
         },
-        "code": {
+        "language": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
           },
           "optional": true
         },
-        "language": {
+        "code": {
           "type": "objectAttribute",
           "value": {
-            "type": "union",
-            "of": [
-              {
-                "type": "string",
-                "value": "scss"
-              },
-              {
-                "type": "string",
-                "value": "typescript"
-              },
-              {
-                "type": "string",
-                "value": "fritekst"
-              }
-            ]
+            "type": "string"
           },
           "optional": true
         }
