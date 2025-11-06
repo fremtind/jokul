@@ -46,7 +46,8 @@ h4 {
     @include jkl.text-style("heading-4");
 }
 
-p, li {
+p,
+li {
     max-width: 55ch;
 
     @include jkl.text-style("body");
