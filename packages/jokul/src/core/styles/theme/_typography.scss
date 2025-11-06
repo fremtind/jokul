@@ -45,11 +45,13 @@
     :root,
     [data-typography="regular"] {
         --scale: 1.25;
-        --base-font-size: clamp(1rem, 0.9091rem + 0.4545vw, 1.25rem);
+        // --base-font-size: clamp(1rem, 0.9091rem + 0.4545vw, 1.25rem);
+        --base-font-size: clamp(0.75rem, 0.9091rem + 0.4545vw, 1rem);
     }
 
     [data-typography="expressive"] {
         --scale: 1.333;
+        // --base-font-size: clamp(1.25rem, 1.0682rem + 0.9091vw, 1.75rem);
         --base-font-size: clamp(1.125rem, 0.9886rem + 0.6818vw, 1.5rem);
     }
 }

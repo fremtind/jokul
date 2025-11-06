@@ -103,7 +103,7 @@
     /* Removes the default disclosure triangle without breaking semantics */
     list-style: none;
 
-    @include jkl.text-style("label");
+    @include jkl.text-style("body");
 
     &::-webkit-details-marker {
         display: none;

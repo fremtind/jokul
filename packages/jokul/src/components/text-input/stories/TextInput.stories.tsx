@@ -59,7 +59,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const TextInput: Story = {
-    args: {},
+    args: {
+        width: "25ch",
+    },
 };
 
 /**

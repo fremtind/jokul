@@ -5,6 +5,11 @@ import { backgroundOptions } from "./backgrounds.js";
 import { densities, densityDecorator, densityGlobal } from "./density.js";
 import { themeDecorator, themeGlobal, themes } from "./theme.js";
 import "./global.scss";
+import {
+    typoStyles,
+    typographyDecorator,
+    typographyGlobal,
+} from "./typography.js";
 
 initTabListener();
 
@@ -12,10 +17,12 @@ const preview: Preview = {
     globalTypes: {
         theme: themeGlobal,
         density: densityGlobal,
+        typography: typographyGlobal,
     },
     initialGlobals: {
         theme: themes[0], // Automatisk dark/light
         density: densities[0],
+        typography: typoStyles[0],
         backgrounds: { value: "pageVariant" },
     },
     decorators: [
@@ -26,6 +33,7 @@ const preview: Preview = {
         ),
         themeDecorator,
         densityDecorator,
+        typographyDecorator,
     ],
     parameters: {
         backgrounds: {

@@ -99,21 +99,10 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     display: block;
     margin-left: initial;
     color: var(--jkl-color-text-default);
+    margin-bottom: 0.5lh;
 
-    &--small {
-        @include jkl.use-font-variables("jkl-label-small");
-        margin: var(--jkl-label-small-margin);
-    }
+    @include jkl.text-style("label");
 
-    &--medium {
-        @include jkl.use-font-variables("jkl-label-medium");
-        margin: var(--jkl-label-medium-margin);
-    }
-
-    &--large {
-        @include jkl.use-font-variables("jkl-label-large");
-        margin: var(--jkl-label-large-margin);
-    }
 
     &--sr-only {
         @include jkl.screenreader-only;
