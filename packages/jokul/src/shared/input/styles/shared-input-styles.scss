@@ -1,13 +1,14 @@
+/* stylelint-disable rule-empty-line-before */
 @use "sass:color";
 @use "../../../core/jkl";
 
 @mixin wrapper-styles {
     --text-color: var(--jkl-color-text-default);
-    --background-color: var(--jkl-color-background-input-base);
-    --border-color: var(--jkl-color-border-input);
+    --background-color: var(--jkl-color-background-input-focus);
+    --border-color: var(--jkl-color-border-input-focus);
     --placeholder-color: var(--jkl-color-text-subdued);
 
-    border-radius: jkl.rem(3px);
+    // border-radius: jkl.rem(3px);
     box-sizing: border-box;
     max-width: 100%;
 
@@ -18,10 +19,8 @@
     // Disse to henger sammen
     @include jkl.text-style("body");
 
-    padding: 20px;
-    padding: 1ex;
-    padding: 1em;
-    padding: 0.5lh;
+    padding: 1ex 0.75em;
+    border-radius: 0.5em;
 
     @include jkl.motion;
     transition-property: color, box-shadow, background-color;
@@ -29,7 +28,7 @@
     background-color: var(--background-color);
     color: var(--text-color);
     box-shadow:
-        inset 0 0 0 jkl.rem(1px) var(--border-color),
+        inset 0 0 0 jkl.rem(2px) var(--border-color),
         0 0 0 jkl.rem(1px) transparent;
 
     &:focus-within,
@@ -60,6 +59,7 @@
     }
 
     @include jkl.keyboard-navigation {
+
         &:has(.jkl-text-input__input:focus-visible),
         &:has(.jkl-text-area__text-area:focus-visible) {
             @include jkl.focus-outline;

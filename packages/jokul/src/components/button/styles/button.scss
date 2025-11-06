@@ -20,7 +20,7 @@
     position: relative;
     animation: a 0.3s linear;
 
-    @include jkl.text-style("heading-2");
+    @include jkl.text-style("body");
     @include jkl.motion("standard", "productive", background-color);
 
     &__label {
