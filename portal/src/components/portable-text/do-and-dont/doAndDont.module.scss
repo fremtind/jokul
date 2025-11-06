@@ -7,6 +7,14 @@
     }
 }
 
+.card {
+    width: 50%;
+
+    @media (width <= 940px) {
+        width: 100%;
+    }
+}
+
 .image {
     width: 100%;
     min-width: jkl.rem(274px);
