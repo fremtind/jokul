@@ -9,7 +9,6 @@ export const codeBlock = defineType({
             name: "language",
             title: "Språk",
             type: "string",
-            initialValue: "fritekst",
             description: "For eksempel Scss, TypeScript eller HTML.",
         }),
         defineField({
