@@ -228,8 +228,8 @@ export type Jokul_storybookStory = {
 
 export type Jokul_codeBlock = {
   _type: "jokul_codeBlock";
+  language?: string;
   code?: string;
-  language?: "scss" | "typescript";
 };
 
 export type Jokul_codeExample = {
@@ -795,8 +795,8 @@ export type ComponentBySlugQueryResult = {
   } | {
     _key: string;
     _type: "jokul_codeBlock";
+    language?: string;
     code?: string;
-    language?: "scss" | "typescript";
     markDefs: null;
   } | {
     _key: string;

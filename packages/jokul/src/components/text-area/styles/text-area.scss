@@ -52,16 +52,11 @@
 
             &[data-has-content="true"],
             &:focus-within {
-                padding-bottom: calc(
-                    var(--jkl-text-input-height) + #{$progress-bar-height}
-                );
+                padding-bottom: calc(var(--jkl-text-input-height) + #{$progress-bar-height});
             }
         }
 
         .jkl-text-area__counter {
-            @include jkl.motion;
-            transition-property: opacity;
-            opacity: 0;
 
             pointer-events: none; // La brukeren klikke gjennom telleren når feltet er kollapset
             position: absolute;
@@ -94,18 +89,12 @@
                 }
             }
         }
-
-        &:focus-within .jkl-text-area__counter {
-            opacity: 1;
-            transition-delay: jkl.timing(
-                "productive"
-            ); // Vent med å fade inn til feltet er ekspandert
-        }
     }
 }
 
 // Nytteklasser for tekstfelt med $num antall rader
 @for $num from 3 through 10 {
+
     .jkl-text-area__text-area--#{$num}-rows:focus,
     .jkl-text-area__text-area--#{$num}-rows:not(:placeholder-shown),
     .jkl-text-area--start-open .jkl-text-area__text-area--#{$num}-rows {
