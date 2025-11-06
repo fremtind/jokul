@@ -40,8 +40,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
         return null;
     }
 
-    const prismLanguage =
-        language === "fritekst" ? "text" : language?.toLocaleLowerCase();
+    const prismLanguage = language?.toLocaleLowerCase();
 
     return (
         <div
