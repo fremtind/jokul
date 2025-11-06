@@ -19,7 +19,7 @@
 
     @media (width >=940px) {
         position: sticky;
-        top: 0;
+        top: #{jkl.rem(128px)};
         grid-column: 1;
         align-self: start;
         max-width: 346px;
