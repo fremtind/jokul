@@ -455,6 +455,17 @@
                 "default": "./build/cjs/components/select/index.cjs"
             }
         },
+        "./styles/components/search": "./styles/components-beta/search/_index.scss",
+        "./search": {
+            "import": {
+                "types": "./build/es/components-beta/search/index.d.ts",
+                "default": "./build/es/components-beta/search/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components-beta/search/index.d.cts",
+                "default": "./build/cjs/components-beta/search/index.cjs"
+            }
+        },
         "./styles/components/segmented-control": "./styles/components/segmented-control/_index.scss",
         "./segmented-control": {
             "import": {
