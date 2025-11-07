@@ -1,0 +1,106 @@
+@use "../../../core/jkl/index" as jkl;
+@use "../../../shared/input/styles/shared-input-styles" as shared;
+
+.jkl-search--beta {
+    --icon-size: var(--jkl-text-input-height);
+    --border-radius: 3px;
+    --border: 1px solid var(--jkl-color-border-input);
+
+    width: 100%;
+
+    @include jkl.text-style("body");
+
+    input[type="search"] {
+        appearance: none;
+        padding: 0;
+        background-color: transparent;
+        height: 100%;
+        color: var(--jkl-color-text-default);
+        grid-column: 2 / 3;
+
+        @include jkl.reset-outline;
+
+        &::-webkit-search-cancel-button, &::-webkit-calendar-picker-indicator, &::-webkit-search-results-button {
+            appearance: none;
+            display: none !important;
+        }
+    }
+
+    .input-wrapper {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: var(--icon-size) 1fr;
+        border-radius: var(--border-radius);
+        padding-inline-end: 0;
+        height: var(--jkl-text-input-height);
+        border: var(--border);
+
+        &::before {
+            font-family: "Fremtind Material Symbols";
+            content: attr(data-icon) / "";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            grid-column: 1;
+        }
+
+        &:has(.clear-button) {
+            grid-template-columns: var(--icon-size) 1fr var(--icon-size);
+        }
+    }
+
+    // Nettlesere har ulik støtte for begge disse metodene, så begge må være med per 12. november 2025
+    &:has(input:not(:valid), input:placeholder-shown) {
+        .clear-button {
+            display: none;
+        }
+    }
+
+    .clear-button {
+        display: grid;
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        height: 100%;
+        padding: 0;
+        cursor: pointer;
+        color: var(--jkl-color-text-default);
+
+        &::before, &::after {
+            display: inline-grid;
+            align-items: center;
+            justify-content: center;
+            place-self: center;
+            align-self: center;
+            grid-row: 1;
+            grid-column: 1;
+        }
+
+        &::before {
+            content: "close" / "";
+            font-family: "Fremtind Material Symbols";
+            z-index: 1;
+            line-height: 1.25lh;
+        }
+
+        &::after {
+            content: "";
+            background-color: transparent;
+            height: 1.25lh;
+            aspect-ratio: 1;
+            border-radius: 100%;
+
+            @include jkl.motion;
+            transition-property: background-color;
+        }
+
+        &:hover::after {
+            background-color: var(--jkl-color-background-interactive-hover);
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+        }
+    }
+}

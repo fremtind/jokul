@@ -1,9 +1,10 @@
 import { Flex } from "@fremtind/jokul/flex";
-import styles from "./header.module.scss";
-import { MenuItemList } from "./menu/MenuItemList";
-import { Menu } from "./menu/Menu";
 import { Link } from "@fremtind/jokul/link";
 import BetaTag from "../BetaTag";
+import { Menu } from "./menu/Menu";
+import { MenuItemList } from "./menu/MenuItemList";
+
+import styles from "./header.module.scss";
 
 export const Header = async () => {
     return (
