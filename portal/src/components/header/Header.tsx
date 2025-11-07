@@ -1,9 +1,10 @@
 import { Flex } from "@fremtind/jokul/flex";
-import styles from "./header.module.scss";
-import { MenuItemList } from "./menu/MenuItemList";
-import { Menu } from "./menu/Menu";
 import { Link } from "@fremtind/jokul/link";
 import BetaTag from "../BetaTag";
+import { GlobalSearch } from "./global-search/GlobalSearch";
+import styles from "./header.module.scss";
+import { Menu } from "./menu/Menu";
+import { MenuItemList } from "./menu/MenuItemList";
 
 export const Header = async () => {
     return (
@@ -17,6 +18,7 @@ export const Header = async () => {
                 </Link>
                 <BetaTag />
             </Flex>
+            <GlobalSearch />
         </header>
     );
 };

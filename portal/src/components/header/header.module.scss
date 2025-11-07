@@ -2,30 +2,26 @@
 
 .header {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: start;
+    grid-template-columns: repeat(2, 1fr) auto; // FIX: Dette fungerer ikke med det nye oppsettet på komponentsider
     padding: 0;
-
-    p {
-        justify-self: end;
-    }
 
     .logo {
         @include jkl.text-style("heading-2");
+        justify-self: center;
 
         > span {
             text-decoration: none;
             border: 0;
         }
     }
+
+    .search {
+        justify-self: end;
+    }
 }
 
 @media (width >=940px) {
     .header {
         padding: var(--jkl-spacing-24) var(--jkl-spacing-64);
-
-        p {
-            justify-self: start;
-        }
     }
 }
