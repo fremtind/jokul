@@ -16,7 +16,7 @@ import { MenuItemCheckbox } from "../MenuItemCheckbox.js";
 export const MenuToggleSwitchExampleKnobs: ExampleKnobsProps = {
     choiceProps: [
         {
-            name: "isOpen",
+            name: "open",
             values: ["true", "false", "tom"],
             defaultValue: 2,
         },
@@ -26,9 +26,9 @@ export const MenuToggleSwitchExampleKnobs: ExampleKnobsProps = {
 export const MenuToggleSwitchExample: FC<ExampleComponentProps> = ({
     choiceValues,
 }) => {
-    const isOpen =
-        choiceValues?.["isOpen"] !== "tom"
-            ? choiceValues?.["isOpen"] === "true"
+    const open =
+        choiceValues?.["open"] !== "tom"
+            ? choiceValues?.["open"] === "true"
             : undefined;
 
     const pref = useBrowserPreferences();
@@ -71,7 +71,7 @@ export const MenuToggleSwitchExample: FC<ExampleComponentProps> = ({
             <Tooltip>
                 <Menu
                     initialPlacement="bottom-start"
-                    isOpen={isOpen}
+                    open={open}
                     triggerElement={
                         <TooltipTrigger>
                             <IconButton className="jkl-portal-navigation_menu-trigger">
