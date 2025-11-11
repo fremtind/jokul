@@ -36,11 +36,11 @@ export interface MenuProps
      * Kan brukes til å styre utenfra om menyen skal være åpen eller ikke.
      * @default false
      */
-    isOpen?: boolean;
+    open?: boolean;
     /**
      * Callback som kalles når menyen åpnes eller lukkes.
      */
-    onToggle?: (isOpen: boolean) => void;
+    onToggle?: (open: boolean) => void;
 }
 
 export type MenuItemProps<ElementType extends React.ElementType> =
