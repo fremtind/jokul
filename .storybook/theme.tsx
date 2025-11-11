@@ -2,42 +2,45 @@ import type { ReactRenderer } from "@storybook/react";
 import React, { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
-export const themes = [undefined, "light", "dark"] as const;
+export const colorSchemes = [undefined, "light", "dark"] as const;
 
-const applyTheme = (element: HTMLElement, theme: (typeof themes)[number]) => {
+const applyColorScheme = (
+    element: HTMLElement,
+    colorScheme: (typeof colorSchemes)[number],
+) => {
     element.classList.add("jkl");
-    element.dataset.theme = theme;
+    element.dataset.theme = colorScheme;
 };
 
-const clearTheme = (element: HTMLElement) => {
+const clearColorScheme = (element: HTMLElement) => {
     element.dataset.theme = undefined;
 };
 
-export const themeGlobal = {
+export const colorSchemeGlobal = {
     description: "Fargetema for eksemplet",
     toolbar: {
-        title: "Fargetema",
+        title: "Color Scheme",
         icon: "paintbrush",
         items: [
-            { title: "Automatisk", value: themes[0], icon: "contrast" },
-            { title: "Lyst", value: themes[1], icon: "sun" },
-            { title: "Mørkt", value: themes[2], icon: "moon" },
+            { title: "Automatisk", value: colorSchemes[0], icon: "browser" },
+            { title: "Lyst", value: colorSchemes[1], icon: "sun" },
+            { title: "Mørkt", value: colorSchemes[2], icon: "moon" },
         ],
         dynamicTitle: true,
     },
 };
 
-export const themeDecorator: DecoratorFunction<ReactRenderer> = (
+export const colorSchemeDecorator: DecoratorFunction<ReactRenderer> = (
     Story,
     context,
 ) => {
     useEffect(() => {
         const body = window.document.body;
-        clearTheme(body);
-        applyTheme(body, context.globals.theme);
+        clearColorScheme(body);
+        applyColorScheme(body, context.globals.colorScheme);
 
-        return () => clearTheme(body);
-    }, [context.globals.theme]);
+        return () => clearColorScheme(body);
+    }, [context.globals.colorScheme]);
 
     return <Story />;
 };

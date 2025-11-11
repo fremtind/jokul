@@ -3,27 +3,27 @@
 @use "../../jkl";
 @use "../../jkl/typography";
 
-@layer jokul.theme {
-    :root {
-        @each $level, $values in typography.$text-styles {
-            @each $property, $value in map.get(typography.$text-styles, $level, "small-screen") {
-                --jkl-#{$level}-#{$property}: #{$value};
-            }
-        }
+// @layer jokul.theme {
+//     :root {
+//         @each $level, $values in typography.$text-styles {
+//             @each $property, $value in map.get(typography.$text-styles, $level, "small-screen") {
+//                 --jkl-#{$level}-#{$property}: #{$value};
+//             }
+//         }
 
-        @include jkl.from-medium-device {
-            @each $level, $values in typography.$text-styles {
-                @each $property, $value in map.get(typography.$text-styles,
-                    $level,
-                    "large-screen"
+//         @include jkl.from-medium-device {
+//             @each $level, $values in typography.$text-styles {
+//                 @each $property, $value in map.get(typography.$text-styles,
+//                     $level,
+//                     "large-screen"
 
-                ) {
-                    --jkl-#{$level}-#{$property}: #{$value};
-                }
-            }
-        }
-    }
-}
+//                 ) {
+//                     --jkl-#{$level}-#{$property}: #{$value};
+//                 }
+//             }
+//         }
+//     }
+// }
 
 
 @layer jokul.theme {
@@ -52,6 +52,6 @@
     [data-typography="expressive"] {
         --scale: 1.333;
         // --base-font-size: clamp(1.25rem, 1.0682rem + 0.9091vw, 1.75rem);
-        --base-font-size: clamp(1.125rem, 0.9886rem + 0.6818vw, 1.5rem);
+        --base-font-size: clamp(1.25rem, 0.9886rem + 0.6818vw, 1.5rem);
     }
 }

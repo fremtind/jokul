@@ -49,21 +49,25 @@
     }
 
     .jkl-modal {
+        --min-margin: #{jkl.$unit-20};
+
         margin: auto;
         z-index: jkl.$z-index--modal;
         position: relative;
 
         background-color: var(--jkl-color-background-container-high);
-        border-radius: jkl.rem(2px);
+        border-radius: 0.5em;
         box-shadow: jkl.$shadow-task-card;
 
+        box-sizing: border-box;
         width: 100%;
-        min-width: var(--jkl-modal-min-width);
-        max-width: var(--jkl-modal-max-width);
-        max-height: 90vh;
+        min-width: min(calc(100vi - 2 * var(--min-margin)), 30ch);
+        max-width: 60ch;
+        max-height: 90vb;
         overflow: auto;
 
         padding: var(--jkl-modal-padding);
+        padding: 1.5em;
         display: flex;
         flex-direction: column;
 
@@ -72,7 +76,7 @@
         }
 
         @include jkl.small-device {
-            margin: auto jkl.$unit-30;
+            margin: auto var(--min-margin);
         }
     }
 
@@ -90,7 +94,9 @@
     }
 
     .jkl-modal-title {
-        @include jkl.use-font-variables("jkl-modal-title");
+        @include jkl.text-style("body") {
+            font-weight: jkl.$typography-weight-bold;
+        }
     }
 
     .jkl-modal-actions {

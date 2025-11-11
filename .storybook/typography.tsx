@@ -19,11 +19,11 @@ const clearDensity = (element: HTMLElement) => {
 export const typographyGlobal = {
     description: "Typografistil for eksemplet",
     toolbar: {
-        title: "Typografi",
-        icon: "font",
+        title: "Density",
+        icon: "grow",
         items: [
-            { title: "Regular", value: typoStyles[0], icon: "browser" },
-            { title: "Expressive", value: typoStyles[1], icon: "expandalt" },
+            { title: "Regular", value: typoStyles[0], icon: "grow" },
+            { title: "Spacious", value: typoStyles[1], icon: "grow" },
         ],
         dynamicTitle: true,
     },

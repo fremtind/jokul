@@ -80,6 +80,16 @@ export const ButtonWithIcon: Story = {
     },
 };
 
+export const ButtonWithIconOnly: Story = {
+    name: "Knapp med kun ikon",
+    args: {
+        variant: "primary",
+        icon: <PlusIcon bold={false} />,
+        iconPosition: "right",
+        children: null,
+    },
+};
+
 export const ButtonWithLoader: Story = {
     name: "Knapp med loader",
     args: {
