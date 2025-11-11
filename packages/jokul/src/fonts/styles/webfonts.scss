@@ -31,7 +31,7 @@ $webfonts-dir: "/fonts" !default;
 
 @font-face {
     font-family: "Adjusted Arial Fallback";
-    font-weight: 700;
+    font-weight: 600;
     font-style: normal;
     src: local(arial);
     size-adjust: 108%;
@@ -53,7 +53,7 @@ $webfonts-dir: "/fonts" !default;
 
 @font-face {
     font-family: "Adjusted Arial Fallback";
-    font-weight: 700;
+    font-weight: 600;
     font-style: italic;
     src: local(arial);
     size-adjust: 108%;
@@ -104,7 +104,7 @@ $webfonts-dir: "/fonts" !default;
 
 @font-face {
     font-family: "Fremtind Material Symbols";
-    font-weight: 400 700;
+    font-weight: 400 600;
     font-style: normal;
     src: url("#{$webfonts-dir}/Fremtind-Material-Symbols.woff2") format("woff2");
 }
@@ -112,7 +112,7 @@ $webfonts-dir: "/fonts" !default;
 @font-face {
     font-family: "Fremtind Material Symbols Fallback";
     src: local(courier new);
-    font-weight: 400 700;
+    font-weight: 400 600;
     font-style: normal;
     size-adjust: 0%;
 }

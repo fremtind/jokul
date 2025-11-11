@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button } from "../../button/Button.js";
 import { BETA_Help } from "../../help/Help.jsx";
 import { InputGroup } from "../../input-group/InputGroup.js";
@@ -48,61 +48,50 @@ export const Modal: ModalStory = {
         role: "document",
     },
     render: (args) => {
-        const [showModal, setShowModal] = useState(false);
         const heading = "Bekreft sletting";
         const [instance, { title, overlay, container, modal, closeButton }] =
             useModal({ title: heading });
 
-        useEffect(() => {
-            if (!instance) {
-                return;
-            }
-            instance.show();
-        }, [instance]);
-
         return (
             <>
-                <Button onClick={(e) => setShowModal(!showModal)}>
+                <Button variant="primary" onClick={(e) => instance.show()}>
                     Vis modal
                 </Button>
-                {showModal && (
-                    <ModalContainer {...container}>
-                        <ModalOverlay {...overlay} />
-                        <ModalComponent {...modal}>
-                            <ModalHeader>
-                                <ModalTitle {...title}>{heading}</ModalTitle>
-                                <ModalCloseButton {...closeButton} />
-                            </ModalHeader>
-                            <ModalBody>
-                                Er du sikker på at du vil slette Foo Bar Baz?
-                                <InputGroup
-                                    label="Fødselsnummer"
-                                    tooltip={
-                                        <BETA_Help buttonText="Hva betyr dette?">
-                                            Du må fylle ut fødelsnummer eller
-                                            D-nummer. Se hvordan du finner
-                                            D-nummer.
-                                        </BETA_Help>
-                                    }
-                                >
-                                    <BaseTextInput />
-                                </InputGroup>
-                            </ModalBody>
-                            <ModalActions>
-                                <Button onClick={() => instance?.hide()}>
-                                    Avbryt
-                                </Button>
-                                <Button
-                                    onClick={() => {
-                                        instance?.hide();
-                                    }}
-                                >
-                                    Bekreft
-                                </Button>
-                            </ModalActions>
-                        </ModalComponent>
-                    </ModalContainer>
-                )}
+                <ModalContainer {...container}>
+                    <ModalOverlay {...overlay} />
+                    <ModalComponent {...modal}>
+                        <ModalHeader>
+                            <ModalTitle {...title}>{heading}</ModalTitle>
+                            <ModalCloseButton {...closeButton} />
+                        </ModalHeader>
+                        <ModalBody>
+                            Er du sikker på at du vil slette Foo Bar Baz?
+                            <InputGroup
+                                label="Fødselsnummer"
+                                tooltip={
+                                    <BETA_Help buttonText="Hva betyr dette?">
+                                        Du må fylle ut fødelsnummer eller
+                                        D-nummer. Se hvordan du finner D-nummer.
+                                    </BETA_Help>
+                                }
+                            >
+                                <BaseTextInput />
+                            </InputGroup>
+                        </ModalBody>
+                        <ModalActions>
+                            <Button onClick={() => instance?.hide()}>
+                                Avbryt
+                            </Button>
+                            <Button
+                                onClick={() => {
+                                    instance?.hide();
+                                }}
+                            >
+                                Bekreft
+                            </Button>
+                        </ModalActions>
+                    </ModalComponent>
+                </ModalContainer>
             </>
         );
     },

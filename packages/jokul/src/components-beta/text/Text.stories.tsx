@@ -3,6 +3,7 @@ import React from "react";
 import { Text } from "./Text.js";
 
 import "./styles/_index.scss";
+import { Flex } from "../../components/flex/Flex.jsx";
 
 const fontStyles = [
     "heading-1",
@@ -122,6 +123,46 @@ export const Eksempelside: Story = {
                     stemmen vår til å løfte frem viktige samfunnsutfordringer,
                     skape debatt og påvirke.
                 </Text>
+            </>
+        );
+    },
+};
+
+export const Skala: Story = {
+    parameters: { layout: "fullscreen" },
+    render: (args) => {
+        return (
+            <>
+                <Flex
+                    gap="s"
+                    direction="column"
+                    className="jkl-spacing-64--bottom"
+                >
+                    {["xs", "s", "m", "l", "xl", "2xl", "3xl"].map((size) => (
+                        <p
+                            key={size}
+                            style={{
+                                fontSize: `var(--jkl-font-size-${size})`,
+                                lineHeight: "var(--jkl-line-height-flush)",
+                            }}
+                        >
+                            Hvem gjør hva overfor <strong>kundene</strong> våre?
+                        </p>
+                    ))}
+                </Flex>
+                <Flex gap="s" direction="column" data-typography="expressive">
+                    {["xs", "s", "m", "l", "xl", "2xl", "3xl"].map((size) => (
+                        <p
+                            key={size}
+                            style={{
+                                fontSize: `var(--jkl-font-size-${size})`,
+                                lineHeight: "var(--jkl-line-height-flush)",
+                            }}
+                        >
+                            Hvem gjør hva overfor <strong>kundene</strong> våre?
+                        </p>
+                    ))}
+                </Flex>
             </>
         );
     },

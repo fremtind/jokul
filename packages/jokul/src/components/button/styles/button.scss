@@ -3,11 +3,10 @@
 @use "../../../core/jkl";
 
 .jkl-button {
+    --button-size: 2em;
+    --button-border-radius: 100vi;
+
     display: inline-block;
-
-    font-size: var(--jkl-button-font-size);
-    line-height: var(--jkl-button-line-height);
-
     cursor: pointer;
     user-select: none;
     background: var(--background-color);
@@ -16,12 +15,31 @@
     text-decoration: none;
     -webkit-tap-highlight-color: transparent;
 
-    border-radius: var(--border-radius);
+    border-radius: var(--button-border-radius);
+    padding: 0 1em;
+    min-height: var(--button-size);
+    min-width: var(--button-size);
+
     position: relative;
     animation: a 0.3s linear;
 
-    @include jkl.text-style("body");
+    @include jkl.text-style("body") {
+        line-height: var(--line-height-tight);
+    }
+
     @include jkl.motion("standard", "productive", background-color);
+
+    &:not(:has(.jkl-icon)) {
+        min-width: calc(var(--button-size) * 2.5)
+    }
+
+    &:not(:has(.jkl-button__text)) {
+        padding: 0;
+    }
+
+    &:has(.jkl-icon) .jkl-button__text {
+        text-box: trim-both ex alphabetic;
+    }
 
     &__label {
         @include jkl.motion("standard", "expressive", translate);
@@ -29,30 +47,32 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        justify-content: center;
         gap: jkl.$unit-02;
         pointer-events: none;
-        padding: 0.5em;
-        min-height: 2em;
         box-sizing: border-box;
+        height: var(--button-size);
     }
+
 
     &__loader {
         @include jkl.motion("standard", "expressive", opacity, translate);
 
         position: absolute;
-        top: 50%;
-        left: 50%;
-        translate: -50% 350%;
+        inset: 0;
+        translate: 0 100%;
         opacity: 0;
         pointer-events: none;
+        justify-content: center;
+        align-items: center;
     }
 
     &[data-loading="true"] &__label {
-        translate: 0 -120%;
+        translate: 0 -100%;
     }
 
     &[data-loading="true"] &__loader {
-        translate: -50% -50%;
+        translate: 0 0;
         opacity: 1;
     }
 
