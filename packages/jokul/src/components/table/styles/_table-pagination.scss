@@ -2,14 +2,15 @@
 
 .jkl-table-pagination {
     display: flex;
-    gap: jkl.$unit-20;
+    gap: var(--jkl-unit-15);
     flex-direction: column;
     width: 100%;
 
     @include jkl.from-medium-device {
         flex-direction: row;
-        gap: jkl.$unit-15;
+        gap: var(--jkl-unit-30);
         justify-content: space-between;
+        align-items: center;
     }
 
     &__left {
@@ -22,6 +23,10 @@
         flex-wrap: nowrap;
     }
 
+    &__total-rows {
+        white-space: nowrap;
+    }
+
     &__picker {
         display: flex;
         flex-direction: row;
@@ -29,7 +34,7 @@
         white-space: nowrap;
 
         &--page {
-            padding-inline-end: jkl.$unit-30;
+            padding-inline-end: var(--jkl-unit-30);
             width: min(12rem, 100%);
 
             @include jkl.from-medium-device {
@@ -43,7 +48,7 @@
     }
 
     &__picker-label {
-        margin-inline-end: jkl.$unit-10;
+        margin-inline-end: var(--jkl-unit-10);
     }
 
     &__nav {
