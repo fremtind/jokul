@@ -164,6 +164,9 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                         />
                     </div>
                 </div>
+                <span className="jkl-table-pagination__total-rows">
+                    Treff: {totalNumberOfRows}
+                </span>
                 <div className="jkl-table-pagination__right">
                     {numberOfPages !== 1 && (
                         <nav className="jkl-table-pagination__nav">
