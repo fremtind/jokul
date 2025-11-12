@@ -3,7 +3,11 @@ import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polym
 
 export type LinkListProps = HTMLAttributes<HTMLUListElement> & {
     label: string;
-    hideLabel?: boolean;
+    /**
+     * Brukes for å vise navnet på lista
+     * @default false
+     */
+    showLabel?: boolean;
 };
 
 export type LinkListLinkComponent = <

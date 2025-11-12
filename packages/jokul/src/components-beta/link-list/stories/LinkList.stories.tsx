@@ -21,7 +21,7 @@ const meta: Meta = {
     },
     args: {
         label: "Om forsikringen din",
-        hideLabel: true,
+        showLabel: false,
         children: banks.map((link) => (
             <LinkList.Link href="#" key={link}>
                 {link}

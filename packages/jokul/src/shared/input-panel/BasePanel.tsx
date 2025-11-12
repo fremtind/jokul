@@ -11,9 +11,21 @@ import { useAutoAnimatedHeight } from "../../hooks/useAnimatedHeight/useAutoAnim
 
 type Props = ComponentPropsWithRef<"input"> & {
     isChecked: boolean;
-    alwaysOpen: boolean;
-    label: string;
+    /**
+     * @deprecated bruk heller {@link amount} for å vise pris.
+     * Dersom du har behov utover dette ta kontakt med oss så finner vi en løsning sammen.
+     */
     extraLabel?: ReactNode;
+    /**
+     * @deprecated vi ønsker ikke at content skal skjules for brukerne lenger
+     * @default true
+     */
+    alwaysOpen?: boolean;
+    /**
+     * Viser pris til høyre i panelet
+     */
+    amount?: string;
+    label: string;
     type: "radio" | "checkbox";
 };
 
@@ -22,9 +34,10 @@ export const BasePanel = forwardRef(function BasePanel(
         className,
         isChecked,
         children,
-        alwaysOpen,
+        alwaysOpen = false,
         label,
         extraLabel,
+        amount,
         type,
         ...rest
     }: Props,
@@ -54,14 +67,16 @@ export const BasePanel = forwardRef(function BasePanel(
                     className={`jkl-${type}-panel__decorator`}
                 />
                 <span className="jkl-input-panel__main-label">{label}</span>
-                <span
-                    className={clsx("jkl-input-panel__extra-label", {
-                        "jkl-input-panel__extra-label--text":
-                            typeof extraLabel === "string",
-                    })}
-                >
-                    {extraLabel}
-                </span>
+                {(extraLabel || amount) && (
+                    <span
+                        className={clsx("jkl-input-panel__extra-label", {
+                            "jkl-input-panel__extra-label--text":
+                                typeof extraLabel === "string" || amount,
+                        })}
+                    >
+                        {extraLabel || amount}
+                    </span>
+                )}
             </label>
             {hasChildren && (
                 <div ref={animationRef} aria-hidden={!isChecked && !alwaysOpen}>

@@ -2,9 +2,9 @@ import { defineField, defineType } from "sanity";
 
 const MAX_LENGTH = 70;
 
-export const blogPost = defineType({
-    name: "jokul_blog_post",
-    title: "Bloggartikkel",
+export const fundamentals = defineType({
+    name: "jokul_fundamentals",
+    title: "Fundamenter",
     type: "document",
     fields: [
         defineField({
@@ -35,19 +35,6 @@ export const blogPost = defineType({
             rows: 2,
         }),
         defineField({
-            name: "category",
-            title: "Kategori",
-            type: "string",
-            options: {
-                list: [
-                    "Release notes",
-                    "Blogg",
-                    "Kom i gang",
-                    "Referat",
-                ].sort(),
-            },
-        }),
-        defineField({
             name: "article",
             title: "Artikkel",
             type: "array",
@@ -57,6 +44,7 @@ export const blogPost = defineType({
                 { type: "image" },
                 { type: "jokul_codeBlock" },
                 { type: "jokul_storybook" },
+                { type: "jokul_doAndDont" },
             ],
         }),
     ],

@@ -1,6 +1,6 @@
 import { ComponentCard } from "@/components/component-card/ComponentCard";
 import { ComponentGrid } from "@/components/component-grid/ComponentGrid";
-import { PreferencesMenu } from "@/components/preferences-menu/PreferencesMenu";
+import { OverviewHeader } from "@/components/overview/header";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentsQuery } from "@/sanity/queries/component";
 import {
@@ -12,7 +12,6 @@ import { getCookie } from "cookies-next";
 import { logger } from "logger";
 import { cookies } from "next/headers";
 import { FilterChip } from "./FilterChip";
-import styles from "./komponenter.module.scss";
 
 export default async function Components({
     searchParams,
@@ -30,7 +29,7 @@ export default async function Components({
         logger.warn("No components found");
         return (
             <>
-                <h1 className={styles.pageTitle}>Komponenter</h1>
+                <OverviewHeader title="Komponenter" />
                 <p>Fant ingen komponenter :(</p>
             </>
         );
@@ -55,14 +54,7 @@ export default async function Components({
 
     return (
         <>
-            <h1 className={styles.pageTitle}>Komponenter</h1>
-            <Flex
-                as="search"
-                alignItems="center"
-                justifyContent="space-between"
-                title="komponenter"
-                className="jkl-spacing-40--bottom"
-            >
+            <OverviewHeader title="Komponenter" showToolbar>
                 <Flex wrap="wrap" gap="xs">
                     {COMPONENT_CATEGORIES.map((category) => (
                         <FilterChip
@@ -72,9 +64,8 @@ export default async function Components({
                         />
                     ))}
                 </Flex>
-                <PreferencesMenu />
-            </Flex>
-            <ComponentGrid initialPreferences={userPreferences}>
+            </OverviewHeader>
+            <ComponentGrid>
                 {components.map((component) => (
                     <li key={component.slug}>
                         <ComponentCard

@@ -2,37 +2,33 @@ import { OverviewCard } from "@/components/overview/card";
 import { OverviewGrid } from "@/components/overview/grid";
 import { OverviewHeader } from "@/components/overview/header";
 import { sanityFetch } from "@/sanity/lib/live";
-import { blogPostsQuery } from "@/sanity/queries/blog";
+import { fundamentalsQuery } from "@/sanity/queries/fundamentals";
 import { logger } from "logger";
 
-export default async function BlogPage() {
-    logger.info("Rendering blog overview page");
+export default async function FundamentalsPage() {
+    logger.info("Rendering fundamentals page");
 
     const { data: posts } = await sanityFetch({
-        query: blogPostsQuery,
-        requestTag: "blog-posts",
-        tags: ["jokul_blog_post"],
+        query: fundamentalsQuery,
+        requestTag: "fundamentals-posts",
+        tags: ["jokul_fundamentals"],
     });
 
     if (!posts) {
-        logger.warn("No blog posts found");
+        logger.warn("No fundamental posts found");
         return null;
     }
 
-    const sortedPosts = posts.sort(
-        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
-    );
-
     return (
         <>
-            <OverviewHeader title="Artikler" />
-            <OverviewGrid title="Artikler">
-                {sortedPosts.map((post) => (
+            <OverviewHeader title="Design Tokens" />
+            <OverviewGrid title="Fundamenter">
+                {posts.map((post) => (
                     <OverviewCard
                         key={post.slug?.current}
                         title={post.name || ""}
                         description={post.short_description || ""}
-                        link={`/blog/${post.slug?.current}` || ""}
+                        link={`design-tokens/${post.slug?.current}` || ""}
                     />
                 ))}
             </OverviewGrid>

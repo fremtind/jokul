@@ -5,7 +5,7 @@ import type { LinkListProps } from "./types.js";
 
 export const LinkList = ({
     label,
-    hideLabel = true,
+    showLabel = false,
     className,
     ...rest
 }: LinkListProps): React.JSX.Element => {
@@ -19,7 +19,7 @@ export const LinkList = ({
             <p
                 className="jkl-link-list-title"
                 id={`list-${id}-label`}
-                hidden={hideLabel}
+                hidden={!showLabel}
             >
                 {label}
             </p>

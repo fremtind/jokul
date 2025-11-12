@@ -2,21 +2,22 @@ import { ComponentConsiderations } from "@/app/(frontend)/komponenter/[slug]/com
 import { ComponentExampleCard } from "@/app/(frontend)/komponenter/[slug]/components/ComponentExampleCard";
 import { PageFooter } from "@/components/PageFooter";
 import { ComponentCard } from "@/components/component-card/ComponentCard";
+import { ComponentGrid } from "@/components/component-grid/ComponentGrid";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
+import { Flex } from "@fremtind/jokul/flex";
 import { NavLink } from "@fremtind/jokul/nav-link";
 import imageUrlBuilder from "@sanity/image-url";
 import { logger } from "logger";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
-
-import { ComponentGrid } from "@/components/component-grid/ComponentGrid";
-import { Flex } from "@fremtind/jokul/flex";
-import styles from "./component.module.scss";
 import { ComponentHeaderLink } from "./components/ComponentHeaderLink";
 import { ComponentNav } from "./components/ComponentNav";
+
+import { PreferencesMenu } from "@/components/preferences-menu/PreferencesMenu";
+import styles from "./component.module.scss";
 
 type Props = {
     params: Promise<{ slug: string }>;

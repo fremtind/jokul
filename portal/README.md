@@ -1,6 +1,6 @@
 # Portal for dokumentasjon av designsystemet Jøkul
 
-![Skjermbilde 2025-05-08 kl  14 54 09](https://github.com/user-attachments/assets/47214e8c-049e-4c3c-b123-664603319755)
+<img alt="Skjermbilde 2025-11-04 kl  13 05 45" src="https://github.com/user-attachments/assets/4e2d60cf-66d3-4827-9fa5-f6bf68a33bab" />
 
 Portalen er knutepunktet for informasjon om Jøkul. Målet med tjenesten er å være en kilde for sannhet om designsystemets bestanddeler og hvordan man bruker dem, både hver for seg og sammen som en helhet.
 
