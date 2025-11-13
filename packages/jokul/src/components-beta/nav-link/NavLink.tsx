@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import React, { useId } from "react";
-import { Card } from "../../components/card/Card.jsx";
 import type { PolymorphicRef } from "../../utilities/index.js";
 import type { NavLinkProps } from "./types.js";
 
@@ -23,22 +22,21 @@ export const NavLink = React.forwardRef(function NavLink<
     const id = useId();
 
     return (
-        <Card
-            asChild
+        <Component
             {...rest}
             ref={ref}
-            clickable
-            padding="m"
-            variant="low"
-            aria-labelledby={id}
+            aria-labelledby={`${id}-title`}
+            aria-describedby={`${id}-description`}
             className={clsx("jkl-navlink--beta", className)}
         >
-            <Component>
-                <p className="title" id={`${id}-title`}>
-                    {title}
+            <p className="title" id={`${id}-title`}>
+                {title}
+            </p>
+            {description && (
+                <p className="description" id={`${id}-description`}>
+                    {description}
                 </p>
-                {description && <p className="description">{description}</p>}
-            </Component>
-        </Card>
+            )}
+        </Component>
     );
 }) as NavLinkComponent;
