@@ -1,12 +1,15 @@
 @use "../../../core/jkl";
 
 .jkl-description-list--beta {
+    --spacing: 0;
+
     container: description-list / inline-size;
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 1em;
 
     &[data-alignment="justified"] {
+        --spacing: var(--jkl-spacing-xs);
         grid-template-columns: 1fr max-content;
 
         .title,
@@ -20,18 +23,22 @@
     }
 
     &[data-alignment="horizontal"] {
+        --spacing: var(--jkl-spacing-xs);
         grid-template-columns: max-content 1fr;
     }
 
-    .jkl-description-list-item--beta {
+    &[data-alignment="vertical"] {
         --spacing: var(--jkl-spacing-s);
+    }
 
+    .jkl-description-list-item--beta {
         display: grid;
         grid-template-columns: subgrid;
         grid-column: 1 / -1;
 
         @container description-list (width < 30ch) {
             grid-template-columns: 1fr;
+            --spacing: var(--jkl-spacing-s);
 
             .title,
             .value {
