@@ -6,9 +6,8 @@ import type {
 } from "utils/dev-example/index.js";
 import { PrimaryButton } from "../../button/Button.js";
 import { Flex } from "../../flex/index.js";
-import { InfoTag } from "../../tag/index.js";
+import { FieldGroup } from "../../input-group/index.js";
 import { RadioPanel } from "../RadioPanel.js";
-import { RadioPanelGroup } from "../RadioPanelGroup.js";
 
 export const knobs: ExampleKnobsProps = {
     boolProps: ["Med feilmelding"],
@@ -31,7 +30,7 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <Flex asChild direction="column" gap="s">
-                <RadioPanelGroup
+                <FieldGroup
                     legend="Velg sesong"
                     errorLabel={
                         boolValues?.["Med feilmelding"]
@@ -44,20 +43,8 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
                         value={"winter"}
                         label="Vinter"
                         defaultChecked={true}
-                        extraLabel={
-                            <Flex
-                                as="span"
-                                alignItems="center"
-                                className="input-panel-example__custom-label input-panel-example__custom-label--small"
-                            >
-                                Den kalde fine tiden
-                                <InfoTag className="input-panel-example__season-tag">
-                                    Anbefalt
-                                </InfoTag>
-                            </Flex>
-                        }
-                    >
-                        <div>
+                        amount="Den kalde fine tiden"
+                        description={
                             <p
                                 style={{
                                     fontFamily: "monospace",
@@ -69,37 +56,20 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
                                 <br />
                                 Vinden hvisker kald som duft.
                             </p>
-                        </div>
-                    </RadioPanel>
+                        }
+                    />
                     <RadioPanel
                         {...register("season")}
                         value={"spring"}
                         label="Vår"
-                        extraLabel={
-                            <Flex
-                                as="span"
-                                alignItems="center"
-                                className="input-panel-example__custom-label input-panel-example__custom-label--small"
-                            >
-                                Jeg velger meg april
-                            </Flex>
-                        }
+                        amount="Jeg velger meg april"
                     />
                     <RadioPanel
                         {...register("season")}
                         value={"summer"}
                         label="Sommer"
-                        extraLabel={
-                            <Flex
-                                as="span"
-                                alignItems="center"
-                                className="input-panel-example__custom-label input-panel-example__custom-label--small"
-                            >
-                                Sol og regn og latter og sang
-                            </Flex>
-                        }
-                    >
-                        <div>
+                        amount="Sol og regn og latter og sang"
+                        description={
                             <p
                                 style={{
                                     fontFamily: "monospace",
@@ -110,23 +80,14 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
                                 Bølger hvisker mot en strand, <br />
                                 Sommernatten, lys og brand.
                             </p>
-                        </div>
-                    </RadioPanel>
+                        }
+                    />
                     <RadioPanel
                         {...register("season")}
                         value={"autumn"}
                         label="Høst"
-                        extraLabel={
-                            <Flex
-                                as="span"
-                                alignItems="center"
-                                className="input-panel-example__custom-label input-panel-example__custom-label--small"
-                            >
-                                Vått, trist, kaldt og mørkt
-                            </Flex>
-                        }
-                    >
-                        <div>
+                        amount="Vått, trist, kaldt og mørkt"
+                        description={
                             <p
                                 style={{
                                     fontFamily: "monospace",
@@ -137,9 +98,9 @@ export const UncontrolledExample: FC<ExampleComponentProps> = ({
                                 Vinden river, kulden biter, <br />
                                 Verden visner, alt forvitrer.
                             </p>
-                        </div>
-                    </RadioPanel>
-                </RadioPanelGroup>
+                        }
+                    />
+                </FieldGroup>
             </Flex>
             <PrimaryButton style={{ marginTop: 32 }}>Send inn</PrimaryButton>
         </form>
