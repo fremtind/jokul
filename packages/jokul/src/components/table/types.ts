@@ -97,7 +97,7 @@ export interface TablePaginationProps {
     id?: string;
     density?: Density;
     /**
-     * @default 0
+     * @default 1
      */
     activePage?: number;
     /**
