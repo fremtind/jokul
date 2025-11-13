@@ -1,14 +1,13 @@
 @use "../../../core/jkl";
 
 .jkl-description-list--beta {
-    --justified: 1fr max-content;
     container: description-list / inline-size;
     display: grid;
     grid-template-columns: 1fr;
     column-gap: 1em;
 
-    @container (width > 40ch) {
-        grid-template-columns: var(--justified);
+    &[data-alignment="justified"] {
+        grid-template-columns: 1fr max-content;
 
         .title,
         .value {
@@ -20,53 +19,55 @@
         }
     }
 
-    &[data-always-justified="true"] {
-        grid-template-columns: var(--justified);
-
-        .title,
-        .value {
-            grid-row: 1;
-        }
-
-        .value {
-            text-align: end;
-        }
-    }
-}
-
-.jkl-description-list-item--beta {
-    --spacing: var(--jkl-spacing-s);
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 1 / -1;
-
-
-    &:not(:last-of-type) {
-        border-block-end: 1px solid var(--jkl-color-border-separator);
-        margin-block-end: var(--spacing);
-        padding-block-end: var(--spacing);
+    &[data-alignment="horizontal"] {
+        grid-template-columns: max-content 1fr;
     }
 
-    .title,
-    .value {
-        line-height: 1.3;
-    }
+    .jkl-description-list-item--beta {
+        --spacing: var(--jkl-spacing-s);
 
-    .title {
-        font-weight: bold;
-    }
-
-    dd {
-        margin: 0;
-
-        /* &.value {
-                font-variant-numeric: tabular-nums;
-            } */
-    }
-
-    .description {
+        display: grid;
+        grid-template-columns: subgrid;
         grid-column: 1 / -1;
-        color: var(--jkl-color-text-subdued);
 
+        @container description-list (width < 30ch) {
+            grid-template-columns: 1fr;
+
+            .title,
+            .value {
+                grid-row: unset;
+            }
+
+            .value {
+                text-align: start;
+            }
+        }
+
+        &:not(:last-of-type) {
+            margin-block-end: var(--spacing);
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-inline-start: 0;
+
+            &.support-text {
+                grid-column: 1 / -1;
+                color: var(--jkl-color-text-subdued);
+            }
+        }
+    }
+
+    &[data-separators="true"] {
+        > * {
+            &:not(:last-of-type) {
+                --spacing: var(--jkl-spacing-s);
+                border-block-end: 1px solid var(--jkl-color-border-separator);
+                padding-block-end: var(--spacing);
+            }
+        }
     }
 }
