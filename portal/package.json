@@ -1,7 +1,7 @@
 {
     "name": "portal",
     "private": true,
-    "version": "1.4.10",
+    "version": "1.4.11",
     "description": "Dokumentasjonsportal for Jøkul designsystem",
     "license": "MIT",
     "type": "module",
@@ -52,7 +52,6 @@
         "@types/react-dom": "^18.3.6",
         "eslint": "^9.25.1",
         "eslint-config-next": "15.3.1",
-        "prettier": "^3.5.3",
         "typescript": "^5.8.3"
     },
     "engines": {
