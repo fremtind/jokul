@@ -1,0 +1,1 @@
+import{f as i,n as a}from"./formatNumber-VUIDqav1.js";function e(r,m){return r>=1e5?`${i(Number(r/1e3/1e3),{maximumFractionDigits:1,...m})}${a}MB`:`${i(r/1e3,{maximumFractionDigits:2,...m})}${a}KB`}export{e as f};
