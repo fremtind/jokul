@@ -1,0 +1,80 @@
+@use "../../../core/jkl";
+
+.jkl-description-list--beta {
+    --spacing: 0;
+
+    container: description-list / inline-size;
+    display: grid;
+    grid-template-columns: 1fr;
+    column-gap: 1em;
+
+    &[data-alignment="justified"] {
+        --spacing: var(--jkl-spacing-xs);
+        grid-template-columns: 1fr max-content;
+
+        .title,
+        .value {
+            grid-row: 1;
+        }
+
+        .value {
+            text-align: end;
+        }
+    }
+
+    &[data-alignment="horizontal"] {
+        --spacing: var(--jkl-spacing-xs);
+        grid-template-columns: max-content 1fr;
+    }
+
+    &[data-alignment="vertical"] {
+        --spacing: var(--jkl-spacing-s);
+    }
+
+    .jkl-description-list-item--beta {
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1 / -1;
+
+        @container description-list (width < 30ch) {
+            grid-template-columns: 1fr;
+            --spacing: var(--jkl-spacing-s);
+
+            .title,
+            .value {
+                grid-row: unset;
+            }
+
+            .value {
+                text-align: start;
+            }
+        }
+
+        &:not(:last-of-type) {
+            margin-block-end: var(--spacing);
+        }
+
+        .title {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-inline-start: 0;
+
+            &.support-text {
+                grid-column: 1 / -1;
+                color: var(--jkl-color-text-subdued);
+            }
+        }
+    }
+
+    &[data-separators="true"] {
+        > * {
+            &:not(:last-of-type) {
+                --spacing: var(--jkl-spacing-s);
+                border-block-end: 1px solid var(--jkl-color-border-separator);
+                padding-block-end: var(--spacing);
+            }
+        }
+    }
+}
