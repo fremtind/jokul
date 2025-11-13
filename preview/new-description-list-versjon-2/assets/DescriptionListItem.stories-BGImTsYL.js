@@ -1,0 +1,3 @@
+import{D as r}from"./_index-CFMXvqBk.js";import"./jsx-runtime-DqZpzl9T.js";import"./index-siqcju79.js";import"./_commonjsHelpers-DaWZu8wl.js";const a={title:"Beta/Description List/Description List Item",component:r,parameters:{layout:"padded"},args:{title:"Forsikring",value:"Hundeforsikring"},tags:["autodocs","grouping content"]},t={name:"DescriptionList"};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  name: "DescriptionList"
+}`,...t.parameters?.docs?.source}}};const n=["DescriptionListStory"];export{t as DescriptionListStory,n as __namedExportsOrder,a as default};
