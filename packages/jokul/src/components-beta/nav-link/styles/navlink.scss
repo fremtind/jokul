@@ -1,0 +1,27 @@
+@use "../../../core/jkl/index" as jkl;
+
+.jkl-navlink--beta {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    column-gap: 2em;
+
+    .title,
+    .description {
+        grid-column: 1;
+    }
+
+    &:has(.description) {
+        .title {
+            font-weight: bold;
+        }
+    }
+
+    &::before {
+        content: "arrow_forward" / "";
+        font-family: "Fremtind Material Symbols";
+        align-self: center;
+        grid-column: 2;
+        grid-row: 1 / span 999;
+    }
+}
