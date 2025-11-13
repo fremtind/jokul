@@ -58,7 +58,7 @@ export const TableComplex: Story = {
     },
     render: (args) => {
         const ref = useRef<HTMLTableElement>(null);
-        const [activePage, setActivePage] = useState(0);
+        const [activePage, setActivePage] = useState(1);
         const [rowsPerPage, setRowsPerPage] = useState(6);
         const [sortBy, setSortBy] = useState(faktura.columns[0]);
         const [direction, setDirection] = useState<TableSortDirection>("desc");
@@ -66,7 +66,7 @@ export const TableComplex: Story = {
         const [status, setStatus] = useState("");
         const [filteredRows, setFilteredRows] = useState(faktura.rows);
 
-        const startIndex = activePage * rowsPerPage;
+        const startIndex = (activePage - 1) * rowsPerPage;
 
         const handleSortChange = (
             sortKey: string,
@@ -302,7 +302,7 @@ export const TableComplex: Story = {
                                             const newRowsPerPage =
                                                 Number.parseInt(e.target.value);
                                             setRowsPerPage(newRowsPerPage);
-                                            setActivePage(0);
+                                            setActivePage(1);
                                             if (ref.current) {
                                                 ref.current.scrollIntoView({
                                                     behavior: "smooth",
