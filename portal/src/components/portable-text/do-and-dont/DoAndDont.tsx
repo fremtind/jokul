@@ -34,8 +34,8 @@ export const DoAndDont: FC<PortableTextTypeComponentProps<Jokul_doAndDont>> = ({
     if (!value?.do && !value?.dont) return null;
 
     return (
-        <Flex className={styles.container} gap="xs" wrap="wrap">
-            <Card padding="l">
+        <Flex className={styles.container} gap="xs">
+            <Card padding="l" className={styles.card}>
                 <Flex
                     justifyContent="space-between"
                     style={{ paddingBottom: "16px" }}
@@ -50,7 +50,7 @@ export const DoAndDont: FC<PortableTextTypeComponentProps<Jokul_doAndDont>> = ({
                     alt={value.do?.alt}
                 />
             </Card>
-            <Card padding="l">
+            <Card padding="l" className={styles.card}>
                 <Flex
                     justifyContent="space-between"
                     style={{ paddingBottom: "16px" }}
