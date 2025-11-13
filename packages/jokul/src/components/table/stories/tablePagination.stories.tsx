@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
+import { Flex } from "../../flex/Flex.jsx";
 import { Link } from "../../link/index.js";
 import { Table } from "../Table.js";
 import { TableBody } from "../TableBody.js";
 import { TableCaption } from "../TableCaption.js";
 import { TableCell } from "../TableCell.js";
-import { TableFooter } from "../TableFooter.js";
 import { TableHead } from "../TableHead.js";
 import { TableHeader } from "../TableHeader.js";
 import { TablePagination } from "../TablePagination.js";
@@ -37,7 +37,7 @@ export const TablePaginationStory: Story = {
             previous: "Forrige side",
             rowsPerPage: "Fakturaer per side",
         },
-        activePage: 0,
+        activePage: 1,
         totalNumberOfRows: faktura.rows.length,
         rowsPerPage: 12,
         rowsPerPageItems: [
@@ -84,58 +84,73 @@ export const TablePaginationStory: Story = {
         },
     },
     render: (args) => {
-        const startIndex = (args.activePage || 0) * args.rowsPerPage;
+        const [activePage, setActivePage] = React.useState(
+            args.activePage || 1,
+        );
+        const [rowsPerPage, setRowsPerPage] = React.useState(args.rowsPerPage);
+
+        const startIndex = (activePage - 1) * rowsPerPage;
 
         const visibleRows = faktura.rows.slice(
             startIndex,
-            startIndex + args.rowsPerPage,
+            startIndex + rowsPerPage,
         );
 
         return (
-            <Table
-                caption={<TableCaption>Eksempel på paginering</TableCaption>}
-            >
-                <TableHead sticky={true}>
-                    <TableRow>
-                        {faktura.columns.slice(0, 5).map((column, index) => (
-                            <TableHeader key={index} bold>
-                                {column}
-                            </TableHeader>
-                        ))}
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {visibleRows.map((row, rowIndex) => (
-                        <TableRow key={rowIndex}>
-                            <TableCell>
-                                <Link
-                                    download={`${row[3]} ${new Date(row[0] as Date).toLocaleDateString()}`}
-                                    href={"#"}
-                                >
-                                    {new Date(
-                                        row[0] as Date,
-                                    ).toLocaleDateString()}
-                                </Link>
-                            </TableCell>
-                            {row.slice(1, 5).map((cell, cellIndex) => (
-                                <TableCell
-                                    key={cellIndex}
-                                    data-th={columns[cellIndex]}
-                                >
-                                    {cell.toLocaleString()}
-                                </TableCell>
-                            ))}
+            <Flex direction="column">
+                <Table
+                    caption={
+                        <TableCaption>Eksempel på paginering</TableCaption>
+                    }
+                >
+                    <TableHead sticky={true}>
+                        <TableRow>
+                            {faktura.columns
+                                .slice(0, 5)
+                                .map((column, index) => (
+                                    <TableHeader key={index} bold>
+                                        {column}
+                                    </TableHeader>
+                                ))}
                         </TableRow>
-                    ))}
-                </TableBody>
-                <TableFooter>
-                    <TableRow>
-                        <TableCell colSpan={99}>
-                            <TablePagination {...args} />
-                        </TableCell>
-                    </TableRow>
-                </TableFooter>
-            </Table>
+                    </TableHead>
+                    <TableBody>
+                        {visibleRows.map((row, rowIndex) => (
+                            <TableRow key={rowIndex}>
+                                <TableCell>
+                                    <Link
+                                        download={`${row[3]} ${new Date(row[0] as Date).toLocaleDateString()}`}
+                                        href={"#"}
+                                    >
+                                        {new Date(
+                                            row[0] as Date,
+                                        ).toLocaleDateString()}
+                                    </Link>
+                                </TableCell>
+                                {row.slice(1, 5).map((cell, cellIndex) => (
+                                    <TableCell
+                                        key={cellIndex}
+                                        data-th={columns[cellIndex]}
+                                    >
+                                        {cell.toLocaleString()}
+                                    </TableCell>
+                                ))}
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+                <TablePagination
+                    {...args}
+                    activePage={activePage}
+                    rowsPerPage={rowsPerPage}
+                    onChange={setActivePage}
+                    onChangeRowsPerPage={(e) => {
+                        const newRowsPerPage = Number.parseInt(e.target.value);
+                        setRowsPerPage(newRowsPerPage);
+                        setActivePage(1);
+                    }}
+                />
+            </Flex>
         );
     },
 };

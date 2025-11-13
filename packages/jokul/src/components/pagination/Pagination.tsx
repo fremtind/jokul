@@ -64,7 +64,7 @@ export const Pagination = React.forwardRef(function Pagination<
                         const page = index + 1;
                         return (
                             <PageButton
-                                key={index}
+                                key={page}
                                 isActive={currentPage === page}
                                 number={page}
                                 total={numberOfPages}

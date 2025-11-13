@@ -23,14 +23,14 @@ export const Pagination: Story = {
         onPageChange: () => {},
     },
     decorators: [
-        (Story, context) => {
+        (_, context) => {
             const [currentPage, setCurrentPage] = useState<number>(
                 context.args.currentPage,
             );
 
             const numberOfPages = context.args.numberOfPages;
 
-            const onPageChange = (newPage: number, fromPage: number) => {
+            const onPageChange = (newPage: number) => {
                 if (newPage > 0 && newPage <= numberOfPages) {
                     setCurrentPage(newPage);
                 }
