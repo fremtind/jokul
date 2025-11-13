@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.2.0
+
+### Minor Changes
+
+- 28ba168: Vis total antall treff i TablePagination-komponenten.
+- 1391356: alwaysOpen i `CheckboxPanel` og `RadioPanel` er markert som deprecated. Vi ønsker ikke lenger å skjule informasjon for brukerne før de tar et valg i en flyt.
+
+### Patch Changes
+
+- 474d28f: Markert extraLabel som deprecated, med amount som erstatning. Vi ønsker å rendyrke denne komponenten til å vise produkter, dekninger, utbetalinger og lignende.
+- 0858502: Alltid vis counter dersom counter er satt
+
 ## 3.1.0
 
 ### Minor Changes
