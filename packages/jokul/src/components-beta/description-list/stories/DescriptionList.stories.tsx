@@ -6,7 +6,7 @@ import { DescriptionListItem } from "../DescriptionListItem.jsx";
 
 import "../styles/_index.scss";
 
-const listItems = [
+const oppgjor = [
     {
         title: "Supergavekort fra GoGift",
         value: `${formatNumber(100150)} kr`,
@@ -18,6 +18,36 @@ const listItems = [
     {
         title: "Penger på konto",
         value: `${formatNumber(12419)} kr`,
+    },
+];
+
+const claimsCase = [
+    {
+        title: "Forsikring",
+        value: "Innboforsikring",
+    },
+    {
+        title: "Skadenummer",
+        value: "350005600006",
+    },
+    {
+        title: "Egenandel?",
+        value: `${formatNumber(1500)} kr`,
+    },
+];
+
+const productPurchase = [
+    {
+        title: "Pris per år",
+        value: `${formatNumber(1025)} kr`,
+    },
+    {
+        title: "Kontor",
+        value: "2,5 årsverk",
+    },
+    {
+        title: "Ikke-kontor?",
+        value: "3 årsverk",
     },
 ];
 
@@ -44,10 +74,39 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const DescriptionListStory: Story = {
-    name: "Description List",
+export const _DescriptionList: Story = {
+    name: "Default",
     args: {
-        children: listItems.map((item) => (
+        children: claimsCase.map((item) => (
+            <DescriptionList.Item key={item.title} {...item} />
+        )),
+    },
+};
+
+export const DescriptionListClaim: Story = {
+    name: "Skadesak",
+    args: {
+        children: claimsCase.map((item) => (
+            <DescriptionList.Item key={item.title} {...item} />
+        )),
+    },
+};
+
+export const DescriptionListProduct: Story = {
+    name: "Produktkjøp",
+    args: {
+        children: productPurchase.map((item) => (
+            <DescriptionList.Item key={item.title} {...item} />
+        )),
+    },
+};
+
+export const DescriptionListStory: Story = {
+    name: "Oppgjør",
+    args: {
+        alignment: "justified",
+        showSeparators: true,
+        children: oppgjor.map((item) => (
             <DescriptionList.Item key={item.title} {...item} />
         )),
     },
@@ -56,11 +115,13 @@ export const DescriptionListStory: Story = {
 export const DescriptionListWithDescription: Story = {
     name: "Description List med hjelpetekst",
     args: {
-        children: listItems.map((item) => (
+        alignment: "justified",
+        showSeparators: true,
+        children: oppgjor.map((item) => (
             <DescriptionList.Item
                 key={item.title}
                 {...item}
-                supportText="Hei, Heidi og Jonas, jeg er en veldig lang beskrivende tekst for feltene over."
+                supportText="Hjelpeteksten bør være kort"
             />
         )),
     },
