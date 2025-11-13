@@ -73,6 +73,12 @@ jobs:
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+            - name: Publiser endringer til Figma Code Connect
+              if: steps.changesets.outputs.published == 'true'
+              run: pnpm -r figma:publish
+              env:
+                  FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_CODE_CONNECT_TOKEN }}
+
     trigger-release-notification:
         name: Gi beskjed om publiserte pakker
         runs-on: ubuntu-latest
