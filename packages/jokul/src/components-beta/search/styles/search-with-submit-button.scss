@@ -1,0 +1,37 @@
+@use "../../../core/jkl/index" as jkl;
+@use "../../../shared/input/styles/shared-input-styles" as shared;
+
+.jkl-search--beta:has(button.jkl-search-submit){
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: end;
+
+    .input-wrapper {
+        border-inline-end: 0;
+        border-radius: 3px 0 0 3px;
+    }
+
+    button.jkl-search-submit {
+        height: var(--jkl-text-input-height);
+        border-radius: 0 3px 3px 0;
+        border: var(--border);
+        border-inline-start: 0;
+        min-width: unset;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 1px;
+            inset: 0;
+            inset-block: 20%;
+            background-color: var(--jkl-color-border-separator);
+
+            @include jkl.motion;
+            transition-property: inset;
+        }
+
+        &:hover::before {
+            inset-block: 0;
+        }
+    }
+}
