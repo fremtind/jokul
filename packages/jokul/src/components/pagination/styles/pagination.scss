@@ -4,6 +4,7 @@ $_button-size: jkl.rem(32px);
 
 .jkl-pagination {
     display: flex;
+    align-items: center;
 
     &__pages {
         list-style: none;

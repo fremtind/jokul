@@ -26,7 +26,7 @@ export const PaginationExample: FC<ExampleComponentProps> = ({
 
     const numberOfPages = Number(choiceValues?.["Antall sider"] || "5");
 
-    const updatePage = (newPage: number) => {
+    const updatePage = (_: React.SyntheticEvent, newPage: number) => {
         if (newPage > 0 && newPage <= numberOfPages) {
             setCurrentPage(newPage);
             setPagePickerValue(String(newPage));
@@ -37,7 +37,7 @@ export const PaginationExample: FC<ExampleComponentProps> = ({
 
     const onSubmit: React.FormEventHandler = (e) => {
         e.preventDefault();
-        updatePage(Number(pagePickerValue));
+        updatePage(e, Number(pagePickerValue));
     };
 
     return (

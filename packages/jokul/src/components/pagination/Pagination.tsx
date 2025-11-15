@@ -53,7 +53,9 @@ export const Pagination = React.forwardRef(function Pagination<
                 <IconButton
                     className="jkl-pagination-button"
                     title={labels.previous}
-                    onClick={() => onPageChange(currentPage - 1, currentPage)}
+                    onClick={(e) =>
+                        onPageChange(e, currentPage - 1, currentPage)
+                    }
                     aria-disabled={currentPage === 1}
                     tabIndex={currentPage === 1 ? -1 : 0}
                 >
@@ -68,7 +70,9 @@ export const Pagination = React.forwardRef(function Pagination<
                                 isActive={currentPage === page}
                                 number={page}
                                 total={numberOfPages}
-                                onClick={() => onPageChange(page, currentPage)}
+                                onClick={(e) =>
+                                    onPageChange(e, page, currentPage)
+                                }
                             />
                         );
                     })}
@@ -76,7 +80,9 @@ export const Pagination = React.forwardRef(function Pagination<
                 <IconButton
                     className="jkl-pagination-button"
                     title={labels.next}
-                    onClick={() => onPageChange(currentPage + 1, currentPage)}
+                    onClick={(e) =>
+                        onPageChange(e, currentPage + 1, currentPage)
+                    }
                     aria-disabled={currentPage === numberOfPages}
                     tabIndex={currentPage === numberOfPages ? -1 : 0}
                 >
@@ -112,7 +118,7 @@ export const Pagination = React.forwardRef(function Pagination<
             <IconButton
                 className="jkl-pagination-button"
                 title={labels.previous}
-                onClick={() => onPageChange(currentPage - 1, currentPage)}
+                onClick={(e) => onPageChange(e, currentPage - 1, currentPage)}
                 aria-disabled={currentPage === 1}
                 tabIndex={currentPage === 1 ? -1 : 0}
             >
@@ -123,7 +129,7 @@ export const Pagination = React.forwardRef(function Pagination<
                     isActive={currentPage === 1}
                     number={1}
                     total={numberOfPages}
-                    onClick={() => onPageChange(1, currentPage)}
+                    onClick={(e) => onPageChange(e, 1, currentPage)}
                 />
                 {showStartEllipsis ? (
                     <span
@@ -137,29 +143,33 @@ export const Pagination = React.forwardRef(function Pagination<
                         isActive={currentPage === startEllipsis}
                         number={startEllipsis}
                         total={numberOfPages}
-                        onClick={() => onPageChange(startEllipsis, currentPage)}
+                        onClick={(e) =>
+                            onPageChange(e, startEllipsis, currentPage)
+                        }
                     />
                 )}
                 <PageButton
                     isActive={currentPage === centerPageNumberStart}
                     number={centerPageNumberStart}
                     total={numberOfPages}
-                    onClick={() =>
-                        onPageChange(centerPageNumberStart, currentPage)
+                    onClick={(e) =>
+                        onPageChange(e, centerPageNumberStart, currentPage)
                     }
                 />
                 <PageButton
                     isActive={currentPage === centerPageNumber}
                     number={centerPageNumber}
                     total={numberOfPages}
-                    onClick={() => onPageChange(centerPageNumber, currentPage)}
+                    onClick={(e) =>
+                        onPageChange(e, centerPageNumber, currentPage)
+                    }
                 />
                 <PageButton
                     isActive={currentPage === centerPageNumberEnd}
                     number={centerPageNumberEnd}
                     total={numberOfPages}
-                    onClick={() =>
-                        onPageChange(centerPageNumberEnd, currentPage)
+                    onClick={(e) =>
+                        onPageChange(e, centerPageNumberEnd, currentPage)
                     }
                 />
                 {showEndEllipsis ? (
@@ -174,20 +184,22 @@ export const Pagination = React.forwardRef(function Pagination<
                         isActive={currentPage === endEllipsis}
                         number={endEllipsis}
                         total={numberOfPages}
-                        onClick={() => onPageChange(endEllipsis, currentPage)}
+                        onClick={(e) =>
+                            onPageChange(e, endEllipsis, currentPage)
+                        }
                     />
                 )}
                 <PageButton
                     isActive={currentPage === numberOfPages}
                     number={numberOfPages}
                     total={numberOfPages}
-                    onClick={() => onPageChange(numberOfPages, currentPage)}
+                    onClick={(e) => onPageChange(e, numberOfPages, currentPage)}
                 />
             </ol>
             <IconButton
                 className="jkl-pagination-button"
                 title={labels.next}
-                onClick={() => onPageChange(currentPage + 1, currentPage)}
+                onClick={(e) => onPageChange(e, currentPage + 1, currentPage)}
                 aria-disabled={currentPage === numberOfPages}
                 tabIndex={currentPage === numberOfPages ? -1 : 0}
             >
