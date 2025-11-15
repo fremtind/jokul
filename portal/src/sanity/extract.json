@@ -2431,25 +2431,41 @@
       "status": {
         "type": "objectAttribute",
         "value": {
-          "type": "union",
-          "of": [
-            {
-              "type": "string",
-              "value": "deprecated"
+          "type": "object",
+          "attributes": {
+            "value": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "union",
+                "of": [
+                  {
+                    "type": "string",
+                    "value": "deprecated"
+                  },
+                  {
+                    "type": "string",
+                    "value": "alpha"
+                  },
+                  {
+                    "type": "string",
+                    "value": "beta"
+                  },
+                  {
+                    "type": "string",
+                    "value": "stabil"
+                  }
+                ]
+              },
+              "optional": true
             },
-            {
-              "type": "string",
-              "value": "alpha"
-            },
-            {
-              "type": "string",
-              "value": "beta"
-            },
-            {
-              "type": "string",
-              "value": "stabil"
+            "statusDescription": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "string"
+              },
+              "optional": true
             }
-          ]
+          }
         },
         "optional": true
       },

@@ -51,12 +51,25 @@ export const component = defineType({
         defineField({
             name: "status",
             title: "Status",
-            type: "string",
+            type: "object",
             group: "metadata",
-            options: {
-                list: ["deprecated", "alpha", "beta", "stabil"],
-                layout: "dropdown",
-            },
+            fields: [
+                defineField({
+                    name: "value",
+                    title: "Status",
+                    type: "string",
+                    options: {
+                        list: ["deprecated", "alpha", "beta", "stabil"],
+                        layout: "dropdown",
+                    },
+                }),
+                defineField({
+                    name: "statusDescription",
+                    title: "Statusbeskrivelse",
+                    type: "text",
+                    hidden: ({ parent }) => !parent?.value,
+                }),
+            ],
         }),
         defineField({
             name: "categories",
