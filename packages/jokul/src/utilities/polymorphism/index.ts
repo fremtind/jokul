@@ -1,6 +1,5 @@
 export type { AsChildProps } from "./as-child.js";
 export { mergeProps } from "./mergeProps.js";
-export { mergeRefs, type PossibleRef } from "./mergeRefs.js";
 export type {
     PolymorphicProps,
     PolymorphicPropsWithRef,
