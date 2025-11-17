@@ -10,7 +10,7 @@ const meta: Meta = {
     title: "Beta/Description List/Description List Item",
     component: DescriptionListItem,
     parameters: {
-        layout: "padded",
+        layout: "centered",
         docs: {
             controls: {
                 sort: "requiredFirst",
@@ -20,7 +20,7 @@ const meta: Meta = {
     args: {
         title: "Supergavekort fra GoGift",
         value: `${formatNumber(100150)} kr`,
-        supportText: "",
+        supportText: "Pengene betales ut",
     },
     decorators: [
         (Story) => (

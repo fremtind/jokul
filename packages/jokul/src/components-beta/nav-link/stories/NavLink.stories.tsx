@@ -34,25 +34,25 @@ const meta: Meta = {
             description: "Bytt ut med ditt rammeverks lenke-element",
             control: "text",
             table: {
-                category: "Teknisk",
+                category: "Lenke",
             },
         },
         href: {
             if: { arg: "as", eq: "a" },
             table: {
-                category: "Teknisk",
+                category: "Lenke",
             },
         },
         to: {
             if: { arg: "as", neq: "a" },
             control: "text",
             table: {
-                category: "Teknisk",
+                category: "Lenke",
             },
         },
         ref: {
             table: {
-                category: "Teknisk",
+                category: "React",
             },
         },
     },
