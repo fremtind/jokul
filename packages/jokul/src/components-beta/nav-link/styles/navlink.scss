@@ -1,23 +1,10 @@
 @use "../../../core/jkl/index" as jkl;
 
 .jkl-navlink--beta {
-    --border-radius: 4px;
-    --separator: 1px solid var(--jkl-color-border-separator);
-
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     column-gap: 2em;
-    color: inherit;
-    text-decoration: none;
-    background-color: var(--jkl-color-background-container-low);
-    padding: var(--jkl-spacing-s);
-    border-radius: 0;
-
-    @include jkl.text-style("body");
-
-    @include jkl.motion("easeInBounceOut", "productive");
-    transition-property: background-color;
 
     .title,
     .description {
@@ -30,37 +17,11 @@
         }
     }
 
-    &::after {
+    &::before {
         content: "arrow_forward" / "";
         font-family: "Fremtind Material Symbols";
         align-self: center;
         grid-column: 2;
         grid-row: 1 / span 999;
-        translate: 0;
-
-        @include jkl.motion("easeInBounceOut", "productive");
-        transition-property: translate;
-    }
-
-    &:hover, &:focus-visible {
-        background-color: var(--jkl-color-background-interactive-selected);
-
-        &::after {
-            translate: 4px 0;
-        }
-    }
-
-    &:first-of-type {
-        border-start-start-radius: var(--border-radius);
-        border-start-end-radius: var(--border-radius);
-    }
-
-    &:last-of-type {
-        border-end-start-radius: var(--border-radius);
-        border-end-end-radius: var(--border-radius);
-    }
-
-    &:has( + .jkl-navlink--beta) {
-        border-block-end: var(--separator);
     }
 }

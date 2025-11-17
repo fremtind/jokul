@@ -5,8 +5,7 @@ import type { DescriptionListProps } from "./types.js";
 
 export const DescriptionList = ({
     className,
-    alignment = "horizontal",
-    showSeparators = false,
+    alwaysJustified = false,
     children,
     ...rest
 }: DescriptionListProps): React.JSX.Element => {
@@ -14,8 +13,7 @@ export const DescriptionList = ({
         <dl
             {...rest}
             className={clsx("jkl-description-list--beta", className)}
-            data-alignment={alignment}
-            data-separators={showSeparators}
+            data-always-justified={alwaysJustified}
         >
             {children}
         </dl>

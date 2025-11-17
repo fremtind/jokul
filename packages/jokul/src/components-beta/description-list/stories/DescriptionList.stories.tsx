@@ -1,23 +1,28 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
-import { formatNumber } from "../../../utilities/index.js";
 import { DescriptionList } from "../DescriptionList.js";
-import { DescriptionListItem } from "../DescriptionListItem.jsx";
-
 import "../styles/_index.scss";
+import {
+    formatDate,
+    formatKontonummer,
+    formatNumber,
+} from "../../../utilities/index.js";
+import { DescriptionListItem } from "../DescriptionListItem.jsx";
 
 const listItems = [
     {
         title: "Supergavekort fra GoGift",
         value: `${formatNumber(100150)} kr`,
+        description: `Gyldig til ${formatDate(new Date())}`,
     },
     {
         title: "Gavekort fra Power",
         value: `${formatNumber(1000)} kr`,
+        description: `Gyldig til ${formatDate(new Date())}`,
     },
     {
         title: "Penger på konto",
         value: `${formatNumber(12419)} kr`,
+        description: `Utbetales til ${formatKontonummer("12345678901")}`,
     },
 ];
 
@@ -29,13 +34,10 @@ const meta: Meta = {
         layout: "padded",
     },
     args: {
-        alignment: "horizontal",
-        showSeparators: false,
-    },
-    argTypes: {
-        alignment: {
-            options: ["horizontal", "vertical", "justified"],
-        },
+        alwaysJustified: false,
+        children: listItems.map((item) => (
+            <DescriptionList.Item key={item.title} {...item} />
+        )),
     },
     tags: ["autodocs", "grouping content"],
 } satisfies Meta<typeof DescriptionList>;
@@ -45,23 +47,5 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const DescriptionListStory: Story = {
-    name: "Description List",
-    args: {
-        children: listItems.map((item) => (
-            <DescriptionList.Item key={item.title} {...item} />
-        )),
-    },
-};
-
-export const DescriptionListWithDescription: Story = {
-    name: "Description List med hjelpetekst",
-    args: {
-        children: listItems.map((item) => (
-            <DescriptionList.Item
-                key={item.title}
-                {...item}
-                supportText="Hei, Heidi og Jonas, jeg er en veldig lang beskrivende tekst for feltene over."
-            />
-        )),
-    },
+    name: "DescriptionList",
 };

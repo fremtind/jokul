@@ -4,14 +4,14 @@ import type { DescriptionListItemProps } from "./types.js";
 export const DescriptionListItem: FC<DescriptionListItemProps> = ({
     title,
     value,
-    supportText,
+    description,
     ...rest
 }) => {
     return (
         <div {...rest} className="jkl-description-list-item--beta">
             <dt className="title">{title}</dt>
             <dd className="value">{value}</dd>
-            {supportText && <dd className="support-text">{supportText}</dd>}
+            {description && <dd className="description">{description}</dd>}
         </div>
     );
 };

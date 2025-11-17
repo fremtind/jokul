@@ -2,15 +2,10 @@ import type { HTMLAttributes } from "react";
 
 export type DescriptionListProps = HTMLAttributes<HTMLDListElement> & {
     /**
-     * Visning av elementene i lista
-     * @default "horizontal"
-     */
-    alignment?: "horizontal" | "vertical" | "justified";
-    /**
-     * Vis skillelinjene mellom elementene i lista
+     * Alltid vis value til høyre
      * @default false
      */
-    showSeparators?: boolean;
+    alwaysJustified: boolean;
 };
 
 export type DescriptionListItemProps = Omit<
@@ -19,5 +14,5 @@ export type DescriptionListItemProps = Omit<
 > & {
     title: string;
     value: string;
-    supportText?: string;
+    description?: string;
 };
