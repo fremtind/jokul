@@ -9,8 +9,12 @@ type ValidElement = HTMLElement | SVGElement;
 type Target =
     | MutableRefObject<ValidElement>
     | RefObject<ValidElement>
+    | MutableRefObject<ValidElement | null>
+    | RefObject<ValidElement | null>
     | MutableRefObject<NodeListOf<ValidElement>>
     | RefObject<NodeListOf<ValidElement>>
+    | MutableRefObject<NodeListOf<ValidElement> | null>
+    | RefObject<NodeListOf<ValidElement> | null>
     | NodeListOf<ValidElement>;
 
 function isNodeList(
