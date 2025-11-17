@@ -21,8 +21,8 @@ export const MenuItemListClient = ({ komIGang }: MenuItemListClientProps) => {
                 </li>
 
                 <li>
-                    <MenuItem as={Link} href="/design-tokens">
-                        Design Tokens
+                    <MenuItem as={Link} href="/fundamenter">
+                        Fundamenter
                     </MenuItem>
                 </li>
 
