@@ -1,0 +1,3 @@
+import{j as o}from"./jsx-runtime-DqZpzl9T.js";import"./index-siqcju79.js";import{c as a}from"./clsx-B-dksMZM.js";/* empty css               */import"./_commonjsHelpers-DaWZu8wl.js";const r=s=>{const{className:t,...n}=s;return o.jsx("hr",{className:a("jkl-menu-divider",t),...n})};r.__docgenInfo={description:"",methods:[],displayName:"MenuDivider"};const u={title:"Komponenter/Menu/MenuDivider",component:r,parameters:{layout:"centered"},tags:["autodocs"]},e={render:()=>o.jsx(r,{})};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  render: () => <MenuDividerComponent />
+}`,...e.parameters?.docs?.source}}};const l=["MenuDivider"];export{e as MenuDivider,l as __namedExportsOrder,u as default};
