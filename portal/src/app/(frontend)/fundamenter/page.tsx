@@ -21,14 +21,14 @@ export default async function FundamentalsPage() {
 
     return (
         <>
-            <OverviewHeader title="Design Tokens" />
-            <OverviewGrid title="Fundamenter">
+            <OverviewHeader title="Fundamenter" />
+            <OverviewGrid title="Design tokens">
                 {posts.map((post) => (
                     <OverviewCard
                         key={post.slug?.current}
                         title={post.name || ""}
                         description={post.short_description || ""}
-                        link={`design-tokens/${post.slug?.current}` || ""}
+                        link={`fundamenter/${post.slug?.current}` || ""}
                     />
                 ))}
             </OverviewGrid>
