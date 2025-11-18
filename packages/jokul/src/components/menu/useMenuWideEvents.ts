@@ -7,11 +7,11 @@ export const useMenuWideEvents = (
     parentId: string | null,
 ): {
     allowHover: boolean;
-    open: boolean;
-    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+    isOpen: boolean;
+    setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 } => {
     const [allowHover, setAllowHover] = useState(false);
-    const [open, setOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     // Event emitter allows you to communicate across tree components.
     // This effect closes all menus when an item gets clicked anywhere
@@ -20,7 +20,7 @@ export const useMenuWideEvents = (
         if (!tree) return;
 
         function handleTreeClick() {
-            setOpen(false);
+            setIsOpen(false);
         }
 
         function onSubMenuOpen(event: { nodeId: string; parentId: string }) {
@@ -29,7 +29,7 @@ export const useMenuWideEvents = (
                 event.nodeId !== nodeId &&
                 event.parentId === parentId
             ) {
-                setOpen(false);
+                setIsOpen(false);
             }
         }
 
@@ -43,10 +43,10 @@ export const useMenuWideEvents = (
     }, [tree, nodeId, parentId]);
 
     useEffect(() => {
-        if (open && tree && nodeId) {
+        if (isOpen && tree && nodeId) {
             tree.events.emit("menuopen", { parentId, nodeId });
         }
-    }, [tree, open, nodeId, parentId]);
+    }, [tree, isOpen, nodeId, parentId]);
 
     // Determine if "hover" logic can run based on the modality of input. This
     // prevents unwanted focus synchronization as menus open and close with
@@ -76,5 +76,5 @@ export const useMenuWideEvents = (
         };
     }, [allowHover]);
 
-    return { allowHover, open, setOpen };
+    return { allowHover, isOpen, setIsOpen };
 };

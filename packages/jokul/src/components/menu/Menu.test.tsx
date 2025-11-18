@@ -42,11 +42,11 @@ describe("Menu", () => {
         expect(queryByRole("menuitem")).not.toBeInTheDocument();
     });
 
-    it("should render as open if open prop is true", async () => {
+    it("should render as open if isOpen prop is true", async () => {
         const { getByRole } = setup(
             <Menu
                 initialPlacement="bottom-start"
-                open={true}
+                isOpen={true}
                 triggerElement={
                     <IconButton title="En kontekstuell meny">
                         <DotsIcon bold />
@@ -60,11 +60,11 @@ describe("Menu", () => {
         expect(getByRole("menuitem", { name: "Menyvalg" })).toBeInTheDocument();
     });
 
-    it("should not open if open prop is set to false", async () => {
+    it("should not open if isOpen prop is set to false", async () => {
         const { getByRole, queryByRole, user } = setup(
             <Menu
                 initialPlacement="bottom-start"
-                open={false}
+                isOpen={false}
                 triggerElement={
                     <IconButton title="En kontekstuell meny">
                         <DotsIcon bold />
