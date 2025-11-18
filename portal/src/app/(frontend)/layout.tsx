@@ -2,11 +2,12 @@ import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { TabListener } from "@/components/TabListener";
 import { Header } from "@/components/header/Header";
 
-import "./global.scss";
 import { SanityLive } from "@/sanity/lib/live";
 import { CookiesNextProvider } from "cookies-next";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
+
+import "./global.scss";
 
 interface Props {
     children: React.ReactNode;
