@@ -5,7 +5,7 @@ import { Header } from "@/components/header/Header";
 import "./global.scss";
 import { SanityLive } from "@/sanity/lib/live";
 import { CookiesNextProvider } from "cookies-next";
-import { VisualEditing } from "next-sanity";
+import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
 
 interface Props {
