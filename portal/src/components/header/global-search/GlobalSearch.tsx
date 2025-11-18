@@ -46,7 +46,6 @@ export const GlobalSearch = () => {
                                 label="Søk i Jøkul"
                                 labelProps={{ variant: "large" }}
                                 placeholder=""
-                                showClearButton
                                 value={searchText}
                                 onChange={(e) => setSearchText(e.target.value)}
                             />
