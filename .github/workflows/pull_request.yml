@@ -119,17 +119,23 @@ jobs:
                 run: echo "Ingen endringer i kode, hopper over tester og linting."
 
                 # Steget må være med, men vil være cachet
-            -   name: Install dependencies
+            -   name: Installer avhengigheter
                 if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
                 run: pnpm install
 
-            -   name: Build packages
+            -   name: Bygg pakker
                 if: github.event_name == 'merge_group'  || needs.changes.outputs.code_changes == 'true'
                 run: pnpm build
 
-            -   name: Lint and test
+            -   name: Lint og test
                 if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
                 run: pnpm ci:test
+
+            -   name: Sjekk Figma Code Connect
+                if: github.event_name != 'merge_group' && needs.changes.outputs.components == 'true'
+                run: pnpm -r figma:test
+                env:
+                  FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_CODE_CONNECT_TOKEN }}
 
     preview:
         name: Publiser forhåndsvisning

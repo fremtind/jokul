@@ -21,6 +21,7 @@ export default defineConfig({
         dts({
             include: ["src"],
             exclude: [
+                "src/**/*.figma.{ts,tsx}",
                 "src/**/*.test.{ts,tsx}",
                 "src/**/*.spec.{ts,tsx}",
                 "src/**/*.stories.{ts,tsx}",
@@ -53,7 +54,7 @@ export default defineConfig({
         rollupOptions: {
             input: Object.fromEntries(
                 // https://rollupjs.org/configuration-options/#input
-                globSync("src/**/!(*.test|*.spec|*.stories).{ts,tsx}")
+                globSync("src/**/!(*.figma|*.test|*.spec|*.stories).{ts,tsx}")
                     .filter((file) => !file.includes("development/"))
                     .map((file) => [
                         relative(
