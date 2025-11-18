@@ -17,6 +17,86 @@
             text-decoration: none;
             border: 0;
         }
+
+        .holiday {
+            --color-1: black;
+            --color-2: var(--color-1);
+            --color-3: var(--color-2);
+            --color-4: var(--color-3);
+            --color-5: var(--color-4);
+            --color-6: var(--color-5);
+            --grandient-rotation: 90deg;
+            --text-opacity: 25%;
+
+            background: linear-gradient(
+                    var(--grandient-rotation),
+                    var(--color-1),
+                    var(--color-2),
+                    var(--color-3),
+                    var(--color-4),
+                    var(--color-5),
+                    var(--color-6)
+            );
+            background-clip: text;
+            color: rgb(from currentColor r g b / var(--text-opacity));
+        }
+
+        .newyear {
+            --color-1: red;
+            --color-2: green;
+            --color-3: purple;
+            --color-4: orange;
+            --text-opacity: 0%;
+        }
+
+        .lucia {
+            --color-1: orange;
+            --color-2: yellow;
+            --color-4: orange;
+            --text-opacity: 25%;
+        }
+
+        .christmas {
+            --color-1: red;
+            --text-opacity: 50%;
+        }
+
+        .halloween {
+            --color-1: orange;
+            --color-5: yellow;
+            --text-opacity: 20%;
+            --grandient-rotation: 180deg;
+        }
+
+        .olsok {
+            --color-1: green;
+        }
+
+        .pride {
+            --color-1: red;
+            --color-2: orange;
+            --color-3: yellow;
+            --color-4: green;
+            --color-5: blue;
+            --color-6: purple;
+        }
+
+        .may {
+            --color-1: red;
+            --color-4: white;
+            --color-5: blue;
+        }
+
+        .holi {
+            --color-1: purple;
+            --text-opacity: 10%;
+        }
+
+        .valentines {
+            --color-1: darkred;
+            --color-3: red;
+            --grandient-rotation: 0deg;
+        }
     }
 }
 
