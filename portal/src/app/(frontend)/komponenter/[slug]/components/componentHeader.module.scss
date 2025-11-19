@@ -15,6 +15,18 @@
         flex-direction: row;
     }
 
+    .status {
+        margin-top: var(--jkl-unit-80);
+
+        span {
+            font-size: 1.25rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+        }
+    }
+
     .name {
         @include jkl.text-style("title") {
             font-size: clamp(

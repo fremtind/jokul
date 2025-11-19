@@ -4,6 +4,7 @@ import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { ComponentHeaderLink } from "./ComponentHeaderLink";
 
+import { InfoMessage, WarningMessage } from "@fremtind/jokul/message";
 import styles from "./componentHeader.module.scss";
 
 type ComponentHeaderProps = {
@@ -14,12 +15,17 @@ type ComponentHeaderProps = {
     };
     name?: string;
     description?: string;
+    status?: {
+        value?: string;
+        statusDescription?: string;
+    };
 };
 
 export const ComponentHeader = ({
     links,
     name,
     description,
+    status,
 }: ComponentHeaderProps) => {
     return (
         <Card variant="low" asChild>
@@ -35,6 +41,21 @@ export const ComponentHeader = ({
                             {description}
                         </p>
                     )}
+                    <div className={styles.status}>
+                        {status?.value === "deprecated" && (
+                            <WarningMessage
+                                title="Deprecated"
+                                density="compact"
+                            >
+                                {status.statusDescription}
+                            </WarningMessage>
+                        )}
+                        {status?.value === "beta" && (
+                            <InfoMessage title="Beta" density="compact">
+                                {status.statusDescription}
+                            </InfoMessage>
+                        )}
+                    </div>
                 </div>
                 {links && (
                     <Flex gap="s" className={styles.external_links}>
