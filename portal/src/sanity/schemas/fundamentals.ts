@@ -45,6 +45,7 @@ export const fundamentals = defineType({
                 { type: "jokul_codeBlock" },
                 { type: "jokul_storybook" },
                 { type: "jokul_doAndDont" },
+                { type: "jokul_table" },
             ],
         }),
     ],

@@ -9,6 +9,7 @@ import { fundamentals } from "./fundamentals";
 import { kortFortalt } from "./kortFortalt";
 import { linkCard } from "./linkCard";
 import { storybook, storybookStory } from "./storybook";
+import { table } from "./table";
 
 export const schemaTypes = [
     component,
@@ -23,4 +24,5 @@ export const schemaTypes = [
     linkCard,
     doAndDont,
     fundamentals,
+    table,
 ];
