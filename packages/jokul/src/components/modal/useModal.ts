@@ -2,7 +2,9 @@ import { useA11yDialog } from "react-a11y-dialog";
 import { useId } from "../../hooks/useId/useId.js";
 import type { ModalConfig, UseModalOptions } from "./types.js";
 
-export type ModalInstance = ReturnType<typeof useModal>[0];
+export type ModalInstance = ReturnType<typeof useA11yDialog>[0];
+
+export type UseModalReturn = readonly [ModalInstance, ModalConfig];
 
 /**
  * @example
@@ -47,7 +49,7 @@ export type ModalInstance = ReturnType<typeof useModal>[0];
  *  );
  * ```
  */
-export function useModal(props: UseModalOptions) {
+export function useModal(props: UseModalOptions): UseModalReturn {
     const {
         id: idProp,
         role = "dialog",
@@ -74,5 +76,5 @@ export function useModal(props: UseModalOptions) {
         },
     };
 
-    return [instance, modalConfig] as const;
+    return [instance, modalConfig];
 }
