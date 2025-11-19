@@ -26,9 +26,9 @@ import clsx from "clsx";
 import React, { forwardRef, useEffect, useRef, useState, useId } from "react";
 import { useBrowserPreferences } from "../../hooks/index.js";
 import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
-import { SlotComponent } from "../../utilities/index.js";
 import type { MenuProps } from "./types.js";
 import { useMenuWideEvents } from "./useMenuWideEvents.js";
+import { SlotComponent } from "../../utilities/index.js";
 
 function getTranslation(side: Side, value = 0) {
     switch (side) {
@@ -55,7 +55,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
             openOnHover = false,
             keepOpenOnClickOutside = false,
             triggerElement,
-            open: openOverride,
+            isOpen: isOpenOverride,
             onToggle,
             ...triggerProps
         } = props;
@@ -73,18 +73,19 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
         const [activeIndex, setActiveIndex] = useState<number | null>(null);
         const {
             allowHover,
-            open: openDefault,
-            setOpen,
+            isOpen: isOpenDefault,
+            setIsOpen,
         } = useMenuWideEvents(tree, nodeId, parentId);
 
-        const open = openOverride !== undefined ? openOverride : openDefault;
+        const isOpen =
+            isOpenOverride !== undefined ? isOpenOverride : isOpenDefault;
 
-        useEffect(() => onToggle?.(open), [open, onToggle]);
+        useEffect(() => onToggle?.(isOpen), [isOpen, onToggle]);
 
         const { refs, placement, context, floatingStyles } = useFloating({
             nodeId,
-            open: open,
-            onOpenChange: setOpen,
+            open: isOpen,
+            onOpenChange: setIsOpen,
             placement:
                 initialPlacement || (isNested ? "right-start" : "bottom-start"),
             middleware: [
@@ -186,7 +187,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                 role="menu"
                                 data-placement={placement}
                                 aria-live="assertive"
-                                aria-hidden={!open}
+                                aria-hidden={!isOpen}
                                 ref={refs.setFloating}
                                 {...getFloatingProps({
                                     id: MenuId,
@@ -251,13 +252,15 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                                                     "Enter"
                                                             ) {
                                                                 // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/menuitemcheckbox_role#keyboard_interactions
-                                                                setOpen(false);
+                                                                setIsOpen(
+                                                                    false,
+                                                                );
                                                             }
                                                         },
                                                         onMouseEnter() {
                                                             if (
                                                                 allowHover &&
-                                                                open
+                                                                isOpen
                                                             ) {
                                                                 setActiveIndex(
                                                                     index,
