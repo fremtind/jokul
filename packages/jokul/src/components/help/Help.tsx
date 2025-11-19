@@ -33,6 +33,7 @@ export const BETA_Help = ({
             <output aria-live="assertive">
                 <div
                     data-position={position}
+                    // @ts-ignore
                     popover="auto"
                     id={`${buttonText}-popover`}
                     className="jkl-help-popover"

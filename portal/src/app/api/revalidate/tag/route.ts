@@ -1,6 +1,6 @@
+import { parseBody } from "next-sanity/webhook";
 import { revalidateTag } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
-import { parseBody } from "next-sanity/webhook";
 
 type WebhookPayload = {
     tags: string[];
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
         }
 
         for (const tag of body.tags) {
-            revalidateTag(tag);
+            revalidateTag(tag, {});
         }
 
         return NextResponse.json({ body });
