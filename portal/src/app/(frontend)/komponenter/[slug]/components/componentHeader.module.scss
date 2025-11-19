@@ -16,7 +16,15 @@
     }
 
     .status {
-        padding-bottom: jkl.$unit-40;
+        margin-top: var(--jkl-unit-80);
+
+        span {
+            font-size: 1.25rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+        }
     }
 
     .name {

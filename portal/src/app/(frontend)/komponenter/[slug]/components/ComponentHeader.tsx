@@ -30,19 +30,6 @@ export const ComponentHeader = ({
     return (
         <Card variant="low" asChild>
             <Flex as="header" className={styles.header}>
-                <div className={styles.status}>
-                    {status?.value === "deprecated" && (
-                        <WarningMessage title="Deprecated" density="compact">
-                            {status.statusDescription}
-                        </WarningMessage>
-                    )}
-                    {status?.value === "beta" && (
-                        <InfoMessage title="Beta" density="compact">
-                            {status.statusDescription}
-                        </InfoMessage>
-                    )}
-                </div>
-
                 <div>
                     {name && (
                         <h1 className={styles.name} lang="en">
@@ -54,6 +41,21 @@ export const ComponentHeader = ({
                             {description}
                         </p>
                     )}
+                    <div className={styles.status}>
+                        {status?.value === "deprecated" && (
+                            <WarningMessage
+                                title="Deprecated"
+                                density="compact"
+                            >
+                                {status.statusDescription}
+                            </WarningMessage>
+                        )}
+                        {status?.value === "beta" && (
+                            <InfoMessage title="Beta" density="compact">
+                                {status.statusDescription}
+                            </InfoMessage>
+                        )}
+                    </div>
                 </div>
                 {links && (
                     <Flex gap="s" className={styles.external_links}>
