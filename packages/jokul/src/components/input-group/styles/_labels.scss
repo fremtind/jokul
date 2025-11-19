@@ -101,8 +101,17 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     color: var(--jkl-color-text-default);
     margin-bottom: 0.5lh;
 
-    @include jkl.text-style("label");
+    &--small {
+        @include jkl.text-style("label-small");
+    }
 
+    &--medium {
+        @include jkl.text-style("label-medium");
+    }
+
+    &--large {
+        @include jkl.text-style("label-large");
+    }
 
     &--sr-only {
         @include jkl.screenreader-only;

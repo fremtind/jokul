@@ -139,7 +139,9 @@ $new-text-styles: (
     "body": ("font-size": "var(--jkl-font-size-m)", "line-height": "var(--jkl-line-height-relaxed)"),
     "small": ("font-size": "var(--jkl-font-size-s)", "line-height": "var(--jkl-line-height-relaxed)"),
     "xsmall": ("font-size": "var(--jkl-font-size-xs)", "line-height": "var(--jkl-line-height-relaxed)"),
-    "label": ("font-size": "var(--jkl-font-size-s)", "line-height": "var(--jkl-line-height-flush)"),
+    "label-small": ("font-size": "var(--jkl-font-size-s)", "line-height": "var(--jkl-line-height-flush)"),
+    "label-medium": ("font-size": "var(--jkl-font-size-m)", "line-height": "var(--jkl-line-height-flush)"),
+    "label-large": ("font-size": "var(--jkl-font-size-l)", "line-height": "var(--jkl-line-height-flush)"),
 );
 
 $newer-text-styles: (

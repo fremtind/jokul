@@ -13,7 +13,7 @@
 }
 
 .jkl-table-header {
-    @include jkl.text-style("label");
+    @include jkl.text-style("label-medium");
 
     padding: 0 0.5em 1ex;
     text-align: left;
