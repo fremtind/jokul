@@ -1,5 +1,29 @@
 # portal
 
+## 1.4.12
+
+### Patch Changes
+
+- b40db27: Legg til en `Search`-komponent. Før har man måttet bruke en kombinasjon av props på `TextInput` for å få den til å se ut som et søkefelt. Med denne komponenten slipper du det, og den blir semantisk riktigere.
+
+  I tillegg følger det med:
+
+  - en `Search.Button`, som er en egen knapp tiltenkt kun søkefeltet.
+  - en knapp som enkelt tømmer søkefeltet.
+
+  Du kan bruke komponenten enten med eller uten et `form`-element, avhengig av behov. Husk at dersom du wrapper søkefeltet i et skjema kan du også sette `type="submit"` på `Search.Button` for å håndtere søking (uten et tredjepartsbibliotek).
+
+  **OBS**: `Search` bruker `InputGroup`, og støtter derfor alle props som også finnes i den. Vær oppmerksom på at `label` er skjult by default. Dette kan du endre med `labelProps`-propen.
+
+- 2e90247: Rettet byggefeilen i jokul-portal-deploy forårsaket av en avhengighetskonflikt ved å oppgradere @sanity/client pakken.
+- Updated dependencies [b68ade2]
+- Updated dependencies [b40db27]
+- Updated dependencies [cce0ef3]
+- Updated dependencies [a45a566]
+- Updated dependencies [57c1d4f]
+- Updated dependencies [9f18961]
+  - @fremtind/jokul@3.3.0
+
 ## 1.4.11
 
 ### Patch Changes

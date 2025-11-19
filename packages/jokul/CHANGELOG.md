@@ -1,5 +1,79 @@
 # Change Log
 
+## 3.3.0
+
+### Minor Changes
+
+- b40db27: Legg til en `Search`-komponent. Før har man måttet bruke en kombinasjon av props på `TextInput` for å få den til å se ut som et søkefelt. Med denne komponenten slipper du det, og den blir semantisk riktigere.
+
+  I tillegg følger det med:
+
+  - en `Search.Button`, som er en egen knapp tiltenkt kun søkefeltet.
+  - en knapp som enkelt tømmer søkefeltet.
+
+  Du kan bruke komponenten enten med eller uten et `form`-element, avhengig av behov. Husk at dersom du wrapper søkefeltet i et skjema kan du også sette `type="submit"` på `Search.Button` for å håndtere søking (uten et tredjepartsbibliotek).
+
+  **OBS**: `Search` bruker `InputGroup`, og støtter derfor alle props som også finnes i den. Vær oppmerksom på at `label` er skjult by default. Dette kan du endre med `labelProps`-propen.
+
+- a45a566: Legger til en utility-funksjon for å slå sammen flere React refs
+
+  ```tsx
+  import { mergeRefs } from "@fremtind/jokul/utilities";
+
+  const MyComponent = forwardRef<HTMLInputElement>((props, ref) => {
+      const internalRef = useRef<HTMLInputElement>(null);
+      const combinedRef = mergeRefs(ref, internalRef);
+
+      return <input type="text" ref={combinedRef} {...props} />;
+  }
+  ```
+
+  Du kan sende inn så mange refs du vil: `mergeRefs(ref1, ref2, ref3, ref4)`.
+  Det finnes også en memoisert versjon `useMergeRefs` som oppdateres kun
+  når noen av `ref`-ene endrer seg
+
+- 57c1d4f: LinkList får nytt visuelt uttrykk i beta-versjon. I forbindelse med dette er det gjort følgende endringer:
+
+  - Lagt til `TableOfContents`, som brukes likt som `LinkList` med `variant="ordered"` satt. Endringene under er gjeldende for både `LinkList` og `TableOfContents`.
+  - `LinkList` krever ikke lenger `LinkList.Item`.
+  - `LinkList` krever nå en [`label` som beskriver innholdet i lista](https://www.w3.org/WAI/WCAG21/Techniques/html/H97). Denne skjules automatisk med `hideLabel`-propen.
+  - `LinkList` er nå semantisk en `nav`-komponent fordi den skal brukes for samlinger av navigasjonslenker.
+
+  Før:
+
+  ```typescript jsx
+  <LinkList>
+    <LinkList.Item>
+      <LinkList.Link href="#">...</LinkList.Link>
+    </LinkList.Item>
+  </LinkList>
+  ```
+
+  Etter:
+
+  ```typescript jsx
+  <LinkList>
+    <LinkList.Link href="#">...</LinkList.Link>
+  </LinkList>
+  ```
+
+- 9f18961: Legg til ny versjon av Description List som beta-komponent:
+
+  - `DescriptionList` bygges opp av en ny komponent `DescriptionListItem`.
+  - `DescriptionListItem` tar inn title og value, og har en valgfri `supportText`, som alltid ligger nederst i raden.
+  - `DescriptionList` får mulighet til å vise skillelinjer mellom hvert item.
+  - `DescriptionList` får en `alignment`-prop, med mulighet for å vise items `horizontal`, `vertical` og `justified`. I smale visninger vil den alltid brekke til vertikalt, som den gamle også gjorde.
+
+  Legg til ny versjon av NavLink som beta-komponent:
+
+  - NavLink får nytt utseende, basert på `LinkListLink` med en pil til høyre.
+  - NavLink tar inn `title`, og en valgfri `description`.
+
+### Patch Changes
+
+- b68ade2: Fikser typekompatibilitet med React 19 for useIntersectionObserver. Hooken aksepterer nå nullable refs.
+- cce0ef3: Organiserer Card-stiler i @layer jokul.components slik at de kan overstyres enklere.
+
 ## 3.2.0
 
 ### Minor Changes
