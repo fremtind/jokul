@@ -3,6 +3,9 @@
 @use "../../../core/jkl";
 
 .jkl-button {
+    --text-color: var(--jkl-color-text-default);
+    --background-color: transparent;
+;
     --button-size: 2em;
     --button-border-radius: 100vi;
 
