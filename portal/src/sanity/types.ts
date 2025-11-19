@@ -13,6 +13,20 @@
  */
 
 // Source: schema.json
+export type Jokul_table = {
+  _type: "jokul_table";
+  head?: Array<{
+    cells?: Array<string>;
+    _type: "head_row";
+    _key: string;
+  }>;
+  body?: Array<{
+    cells?: Array<string>;
+    _type: "body_row";
+    _key: string;
+  }>;
+};
+
 export type Jokul_fundamentals = {
   _id: string;
   _type: "jokul_fundamentals";
@@ -59,7 +73,9 @@ export type Jokul_fundamentals = {
     _key: string;
   } & Jokul_storybook | {
     _key: string;
-  } & Jokul_doAndDont>;
+  } & Jokul_doAndDont | {
+    _key: string;
+  } & Jokul_table>;
 };
 
 export type SanityImageCrop = {
@@ -547,7 +563,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Jokul_component | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Jokul_component | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/blog.ts
 // Variable: blogPostsQuery
@@ -1099,6 +1115,8 @@ export type FundamentalsBySlugQueryResult = {
   } & Jokul_linkCard | {
     _key: string;
   } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_table | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;

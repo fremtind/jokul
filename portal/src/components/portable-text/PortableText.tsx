@@ -18,6 +18,7 @@ import {
     UnorderedList,
 } from "./list";
 import { Storybook } from "./storybook-story/Storybook";
+import { Table } from "./table/Table";
 import { CodeBlock } from "./typography/Typography";
 
 interface Props {
@@ -30,6 +31,7 @@ const jokulBlockTypes: PortableTextReactComponents["types"] = {
     jokul_codeBlock: CodeBlock,
     jokul_linkCard: LinkCard,
     jokul_doAndDont: DoAndDont,
+    jokul_table: Table,
 };
 
 function getTextFromChildren(children: ReactNode): string {
