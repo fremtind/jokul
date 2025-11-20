@@ -3,7 +3,7 @@ name: Publiser nye versjoner
 on:
     push:
         branches:
-            - 'jokul-1.x'
+            - "jokul-1.x"
 
 run-name: Publiser endrede pakker. Siste commit er ${{ github.event.head_commit.message }}
 
@@ -28,7 +28,7 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
-                  node-version-file: '.nvmrc'
+                  node-version-file: ".nvmrc"
                   cache: "pnpm"
 
             - name: Installer avhengigheter
@@ -56,8 +56,8 @@ jobs:
               if: steps.changesets.outputs.published == 'true'
               uses: actions/setup-node@v4
               with:
-                registry-url: "https://npm.pkg.github.com"
-                scope: "@fremtind"
+                  registry-url: "https://npm.pkg.github.com"
+                  scope: "@fremtind"
 
             - name: Tilbakestill endringer i .npmrc
               # Unngår å få feil ved publisering pga. unclean git status
@@ -69,7 +69,7 @@ jobs:
 
             - name: Publiser pakker til GitHub Packages
               if: steps.changesets.outputs.published == 'true'
-              run: pnpm -r publish
+              run: pnpm -r publish --tag version-1 --publish-branch jokul-1.x
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -82,8 +82,8 @@ jobs:
             - name: Hent informasjon om commit
               id: commit-info
               run: |
-                echo "committer_name=$(git log -1 --pretty=format:'%an')" >> $GITHUB_OUTPUT
-                echo "committer_email=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_OUTPUT
+                  echo "committer_name=$(git log -1 --pretty=format:'%an')" >> $GITHUB_OUTPUT
+                  echo "committer_email=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_OUTPUT
 
             - name: Send notification om release
               env:
