@@ -1,13 +1,5 @@
 @use "../../../core/jkl";
 
-@include jkl.comfortable-density-variables {
-    --jkl-link-list-padding: var(--jkl-unit-10);
-}
-
-@include jkl.compact-density-variables {
-    --jkl-link-list-padding: var(--jkl-unit-05);
-}
-
 .jkl-link-list {
     --border-color: var(--jkl-color-border-separator);
 
@@ -39,11 +31,13 @@
     --text-color: var(--jkl-color-text-default);
     --icon-background: transparent;
 
+    @include jkl.text-style("small");
+
     display: flex;
     justify-content: space-between;
     align-items: first baseline;
     gap: var(--jkl-unit-20);
-    padding: var(--jkl-link-list-padding) 0;
+    padding: 0.5lh 0;
     border-top: jkl.rem(1px) solid var(--border-color);
     width: 100%;
     text-decoration: none;

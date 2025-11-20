@@ -3,19 +3,30 @@ import React from "react";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
 import { backgroundOptions } from "./backgrounds.js";
 import { densities, densityDecorator, densityGlobal } from "./density.js";
-import { themeDecorator, themeGlobal, themes } from "./theme.js";
+import {
+    colorSchemeDecorator,
+    colorSchemeGlobal,
+    colorSchemes,
+} from "./theme.js";
 import "./global.scss";
+import {
+    typoStyles,
+    typographyDecorator,
+    typographyGlobal,
+} from "./typography.js";
 
 initTabListener();
 
 const preview: Preview = {
     globalTypes: {
-        theme: themeGlobal,
-        density: densityGlobal,
+        colorScheme: colorSchemeGlobal,
+        // density: densityGlobal,
+        typography: typographyGlobal,
     },
     initialGlobals: {
-        theme: themes[0], // Automatisk dark/light
+        colorScheme: colorSchemes[0], // Automatisk dark/light
         density: densities[0],
+        typography: typoStyles[0],
         backgrounds: { value: "pageVariant" },
     },
     decorators: [
@@ -24,8 +35,9 @@ const preview: Preview = {
                 <Story />
             </div>
         ),
-        themeDecorator,
-        densityDecorator,
+        colorSchemeDecorator,
+        // densityDecorator,
+        typographyDecorator,
     ],
     parameters: {
         backgrounds: {

@@ -14,31 +14,13 @@
 
 @layer jokul.components {
     .jkl-icon {
+        font: inherit;
         --jkl-icon-fill: 0;
 
         @include base-styles;
 
-        &--bold {
-            --jkl-icon-weight: #{jkl.$icon-weight-bold};
-        }
-
         &--filled {
             --jkl-icon-fill: 1;
-        }
-
-        &--medium {
-            --jkl-icon-opsz: 24;
-            --jkl-icon-size: #{jkl.rem(24px)};
-        }
-
-        &--small {
-            --jkl-icon-opsz: 20;
-            --jkl-icon-size: #{jkl.rem(20px)};
-        }
-
-        &--inherit {
-            --jkl-icon-opsz: 20;
-            --jkl-icon-size: 1.2em;
         }
 
         &--animated {
