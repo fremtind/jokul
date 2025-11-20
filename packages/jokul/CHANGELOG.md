@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.1
+
+### Patch Changes
+
+- 613688d: **Feilretting: Fjerner CSS som overskrev Fremtind Grotesk font**
+
+  Fjernet en `@supports`-regel som førte til at Fremtind Grotesk på Apple-enheter ble overskrevet.
+
 ## 2.1.0
 
 ### Minor Changes
