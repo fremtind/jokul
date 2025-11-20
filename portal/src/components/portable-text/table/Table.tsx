@@ -46,7 +46,11 @@ export const Table: FC<PortableTextTypeComponentProps<Jokul_table>> = ({
                             <TableRow key={row._key}>
                                 {row.cells?.map((cell, cellIndex) => (
                                     <TableCell key={cellIndex}>
-                                        {cell}
+                                        {cell.startsWith("jkl") ? (
+                                            <code>{cell}</code>
+                                        ) : (
+                                            <>{cell}</>
+                                        )}
                                     </TableCell>
                                 ))}
                             </TableRow>
