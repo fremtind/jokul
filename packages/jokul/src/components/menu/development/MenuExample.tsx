@@ -12,7 +12,7 @@ import { MenuItem } from "../MenuItem.js";
 export const MenuExampleKnobs: ExampleKnobsProps = {
     choiceProps: [
         {
-            name: "isOpen",
+            name: "open",
             values: ["true", "false", "tom"],
             defaultValue: 2,
         },
@@ -24,9 +24,9 @@ export const MenuExample: FC<ExampleComponentProps> = ({
     choiceValues,
     displayValues,
 }) => {
-    const isOpen =
-        choiceValues?.["isOpen"] !== "tom"
-            ? choiceValues?.["isOpen"] === "true"
+    const open =
+        choiceValues?.["open"] !== "tom"
+            ? choiceValues?.["open"] === "true"
             : undefined;
 
     /* Force a re-render whenever theme or density changes */
@@ -54,7 +54,7 @@ export const MenuExample: FC<ExampleComponentProps> = ({
             <Menu
                 id={key}
                 initialPlacement="bottom-end"
-                isOpen={isOpen}
+                open={open}
                 keepOpenOnClickOutside={
                     boolValues?.["Ikke lukk ved klikk utenfor"]
                 }
