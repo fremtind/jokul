@@ -1,6 +1,14 @@
 @use "../../jkl";
 
 @layer jokul.global {
+    /* Legger til støtte for fontskalering via OS-innstillinger på Apple-enheter */
+    @supports (font: -apple-system-body) {
+        :root {
+            /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+            font: -apple-system-body;
+        }
+    }
+
     .jkl {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
