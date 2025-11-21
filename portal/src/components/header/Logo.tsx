@@ -102,7 +102,7 @@ export const Logo = () => {
                     🫟
                 </>
             );
-        case true:
+        case isValentinesDay:
             return (
                 <>
                     <span className={clsx(styles.holiday, styles.valentines)}>
