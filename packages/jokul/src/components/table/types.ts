@@ -97,7 +97,7 @@ export interface TablePaginationProps {
     id?: string;
     density?: Density;
     /**
-     * @default 0
+     * @default 1
      */
     activePage?: number;
     /**
@@ -113,11 +113,7 @@ export interface TablePaginationProps {
      * @default false
      */
     withGoToPage?: boolean | { gotoLabel: string };
-    onChange: (
-        e: React.SyntheticEvent,
-        toPage: number,
-        fromPage: number,
-    ) => void;
+    onChange: (toPage: number, fromPage: number) => void;
     onChangeRowsPerPage: ChangeEventHandler<HTMLSelectElement>;
     /**
      * Dersom du ønsker å ha custom labels kan du sende inn disse. "rowsPerPage"

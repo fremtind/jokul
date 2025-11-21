@@ -27,9 +27,9 @@ export const PaginatedTableExample: FC<ExampleComponentProps> = ({
 }) => {
     const ref = useRef<HTMLTableElement>(null);
 
-    const [activePage, setActivePage] = useState(0);
+    const [activePage, setActivePage] = useState(1);
     const [rowsPerPage, setRowsPerPage] = useState(25);
-    const startIndex = activePage * rowsPerPage;
+    const startIndex = (activePage - 1) * rowsPerPage;
 
     const visibleRows = rows.slice(startIndex, startIndex + rowsPerPage);
 
@@ -84,7 +84,7 @@ export const PaginatedTableExample: FC<ExampleComponentProps> = ({
                                     e.target.value,
                                 );
                                 setRowsPerPage(newRowsPerPage);
-                                setActivePage(0); // TODO: beregne oss fram til riktig side?
+                                setActivePage(1); // TODO: beregne oss fram til riktig side?
                                 if (ref.current) {
                                     ref.current.scrollIntoView({
                                         behavior: "smooth",
