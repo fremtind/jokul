@@ -1,8 +1,11 @@
 "use client";
 
+import { client } from "@/sanity/lib/client";
 import type { PortableTextReactComponents } from "@portabletext/react";
 import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
+import imageUrlBuilder from "@sanity/image-url";
+import type { SanityImageObject } from "@sanity/image-url/lib/types/types";
 import type { FC, ReactNode } from "react";
 import slugify from "slugify";
 import { DoAndDont } from "./do-and-dont/DoAndDont";
@@ -25,13 +28,32 @@ interface Props {
     blocks: TypedObject[] | null;
 }
 
-const jokulBlockTypes: PortableTextReactComponents["types"] = {
+const builder = imageUrlBuilder(client);
+
+function urlFor(source: SanityImageObject) {
+    return builder.image(source);
+}
+
+const jokulBlockTypes = {
     jokul_storybook: Storybook,
     jokul_componentKortFortalt: KortFortalt,
     jokul_codeBlock: CodeBlock,
     jokul_linkCard: LinkCard,
     jokul_doAndDont: DoAndDont,
     jokul_table: Table,
+    image: function ImageRenderer({
+        value,
+    }: {
+        value: SanityImageObject & { alt?: string };
+    }) {
+        return (
+            <img
+                src={urlFor(value).width(1200).url()}
+                alt={value.alt || ""}
+                style={{ maxWidth: "55ch", width: "100%", height: "auto" }}
+            />
+        );
+    },
 };
 
 function getTextFromChildren(children: ReactNode): string {
