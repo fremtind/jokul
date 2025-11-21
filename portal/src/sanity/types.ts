@@ -1088,11 +1088,12 @@ export type ComponentCardQueryResult = {
 
 // Source: ./src/sanity/queries/fundamentals.ts
 // Variable: fundamentalsQuery
-// Query: *[_type == "jokul_fundamentals"]{        name,        slug,        short_description,        "date": _createdAt,    } | order(_createdAt desc)
+// Query: *[_type == "jokul_fundamentals"]{        name,        slug,        short_description,        image,        "date": _createdAt,    } | order(_createdAt desc)
 export type FundamentalsQueryResult = Array<{
   name: string | null;
   slug: Slug | null;
   short_description: string | null;
+  image: null;
   date: string;
 }>;
 // Variable: fundamentalsBySlugQuery
@@ -1158,7 +1159,7 @@ declare module "@sanity/client" {
     "*[_type == \"jokul_component\"]{\n    name,\n    short_description,\n    \"slug\": slug.current,\n    figma_image,\n    image,\n    imageDark,\n    related_components,\n    categories\n} | order(name)": ComponentsQueryResult;
     "*[_type == \"jokul_component\" && slug.current == $slug][0] {\n        ...,\n        \"slug\": slug.current,\n        \"component_example_card\": component_example_card{\n            \"url\": asset->url\n        },\n        documentation_article[]{\n            ...,\n            _type == \"jokul_componentKortFortalt\" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                }\n            },\n            markDefs[] {\n                ...,\n                _type == \"componentPageLink\" => {\n                    component-> {\n                        \"slug\": slug.current,\n                        name,\n                        short_description,\n                        image,\n                        imageDark,\n                    }\n                },\n            }\n        },\n        related_components {\n            components[]->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                image,\n                imageDark,\n                related_components,\n                categories\n            }\n        }\n    }": ComponentBySlugQueryResult;
     "*[_type == \"jokul_component\" && defined(slug.current) && slug.current == $componentSlug] {\n        name,\n        short_description,\n        \"slug\": slug.current,\n        figma_image,\n        image,\n        imageDark,\n        related_components,\n        categories,\n    }[0]": ComponentCardQueryResult;
-    "*[_type == \"jokul_fundamentals\"]{\n        name,\n        slug,\n        short_description,\n        \"date\": _createdAt,\n    } | order(_createdAt desc)": FundamentalsQueryResult;
+    "*[_type == \"jokul_fundamentals\"]{\n        name,\n        slug,\n        short_description,\n        image,\n        \"date\": _createdAt,\n    } | order(_createdAt desc)": FundamentalsQueryResult;
     "*[_type == \"jokul_fundamentals\" && slug.current == $slug][0]": FundamentalsBySlugQueryResult;
   }
 }
