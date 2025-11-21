@@ -6,17 +6,9 @@ $_sweep-animation-name: jkl-sweep-#{string.unique-id()};
 $_blink-animation-name: jkl-blink-#{string.unique-id()};
 
 @layer jokul.components {
-    @include jkl.light-mode-variables {
-        --jkl-skeleton-element-color: #{jkl.$color-varde};
-        --jkl-skeleton-sweeper-color: #{jkl.$color-snohvit};
-    }
-
-    @include jkl.dark-mode-variables {
-        --jkl-skeleton-element-color: #{jkl.$color-stein};
-        --jkl-skeleton-sweeper-color: #{jkl.$color-granitt};
-    }
-
     .jkl-skeleton-animation {
+        --jkl-skeleton-element-color: var(--jkl-color-background-container-low);
+        --jkl-skeleton-sweeper-color: var(--jkl-color-background-page-variant);
         --jkl-skeleton-sweep-duration: 3s;
 
         position: relative;
@@ -28,14 +20,11 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
             top: 0;
             bottom: 0;
             width: jkl.rem(200px);
-            background: linear-gradient(
-                89.17deg,
-                rgb(249 249 249 / 0%) 0.8%,
-                var(--jkl-skeleton-sweeper-color) 50.09%,
-                rgb(249 249 249 / 0%) 96.31%
-            );
-            animation: var(--jkl-skeleton-sweep-duration) ease infinite
-                $_sweep-animation-name;
+            background: linear-gradient(89.17deg,
+                    rgb(249 249 249 / 0%) 0.8%,
+                    var(--jkl-skeleton-sweeper-color) 50.09%,
+                    rgb(249 249 249 / 0%) 96.31%);
+            animation: var(--jkl-skeleton-sweep-duration) ease infinite $_sweep-animation-name;
         }
 
         @include jkl.small-device {

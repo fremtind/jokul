@@ -9,7 +9,7 @@
     }
 
     @include jkl.dark-mode-variables {
-        --jkl-menu-border-color: #{jkl.$color-snohvit};
+        --jkl-menu-border-color: var(--jkl-color-border-input-focus);
     }
 
     .jkl-menu {

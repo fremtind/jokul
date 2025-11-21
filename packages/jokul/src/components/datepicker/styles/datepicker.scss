@@ -6,14 +6,6 @@
 @use "calendar-table";
 @use "calendar-date-button";
 
-@include jkl.light-mode-variables {
-    --jkl-datepicker-focus-color: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-datepicker-focus-color: #{jkl.$color-snohvit};
-}
-
 .jkl-datepicker {
     position: relative;
     display: flex;

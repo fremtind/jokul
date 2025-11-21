@@ -1,25 +1,5 @@
 @use "../../../core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-autosuggest-text-color: #{jkl.$color-granitt};
-    --jkl-autosuggest-menu-background-color: #{jkl.$color-hvit};
-    --jkl-autosuggest-focus-color: #{jkl.$color-granitt};
-    --jkl-autosuggest-error-text-color: #{jkl.$color-granitt};
-    --jkl-autosuggest-error-placeholder-color: #{jkl.$color-stein};
-    --jkl-autosuggest-hover-option-color: #{jkl.$color-granitt};
-    --jkl-autosuggest-hover-option-background-color: #{jkl.$color-varde};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-autosuggest-text-color: #{jkl.$color-snohvit};
-    --jkl-autosuggest-menu-background-color: #{jkl.$color-svart};
-    --jkl-autosuggest-focus-color: #{jkl.$color-snohvit};
-    --jkl-autosuggest-error-text-color: #{jkl.$color-granitt};
-    --jkl-autosuggest-error-placeholder-color: #{jkl.$color-stein};
-    --jkl-autosuggest-hover-option-color: #{jkl.$color-snohvit};
-    --jkl-autosuggest-hover-option-background-color: #{jkl.$color-stein};
-}
-
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-autosuggest-item", "body");
 
@@ -53,35 +33,17 @@
         border-radius: jkl.rem(3px) jkl.rem(3px) 0 0;
     }
 
-    &__input-group > input[aria-invalid="true"] {
-        & ~ .jkl-autosuggest__controller-button {
-            color: var(--jkl-autosuggest-error-placeholder-color);
-
-            &:hover {
-                color: var(--jkl-autosuggest-error-text-color);
-            }
-
-            @include jkl.keyboard-navigation {
-                &:focus::after {
-                    box-shadow: inset 0 0 0 jkl.rem(2px)
-                        var(--jkl-autosuggest-error-text-color);
-                }
-            }
-        }
-    }
-
     &__no-hits-message {
         font-size: var(--jkl-autosuggest-no-hits-message-font-size);
         padding: var(--jkl-autosuggest-option-padding);
     }
 
     &__menu {
-        background-color: var(--jkl-autosuggest-menu-background-color);
-        border: jkl.rem(2px) solid var(--jkl-autosuggest-focus-color);
+        background-color: var(--jkl-color-background-container-high);
+        border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
         border-top: none;
         border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
         box-sizing: border-box;
-        color: var(--jkl-autosuggest-text-color);
         position: absolute;
         inset: 100% jkl.rem(-1px) auto;
         margin: 0;
@@ -105,7 +67,7 @@
         display: flex; // avoids wrapping long names "under" the focus arrow
         align-items: center;
         border: 0; // removes native styling
-        background-color: inherit;
+        background-color: var(--jkl-color-background-interactive);
         min-height: var(--jkl-autosuggest-option-height);
         text-align: left;
 
@@ -118,10 +80,8 @@
         &:focus,
         &--active,
         &:hover {
-            color: var(--jkl-autosuggest-hover-option-color);
-            background-color: var(
-                --jkl-autosuggest-hover-option-background-color
-            );
+            color: var(--jkl-color-text-default);
+            background-color: var(--jkl-color-background-interactive-hover);
         }
     }
 }

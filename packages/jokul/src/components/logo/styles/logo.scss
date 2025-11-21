@@ -2,29 +2,21 @@
 @use "../../../core/jkl";
 
 @layer jokul.components {
-    @include jkl.light-mode-variables {
-        --jkl-logo-color: #{jkl.$color-granitt};
-    }
-
-    @include jkl.dark-mode-variables {
-        --jkl-logo-color: #{jkl.$color-snohvit};
-    }
-
     .jkl-logo {
-        color: var(--jkl-logo-color);
+        color: var(--jkl-color-text-default);
 
         // I valget mellom å følge merkevaren og å være lesbar velger vi å være lesbar.
-        @include jkl.forced-colors-svg-fallback(
-            $stroke: CanvasText,
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText,
             $fill: CanvasText,
         );
 
         &__F {
-            transform-origin: 30px
-                132px; /* Is connected to the viewbox of the logo, change at your own risk */
+            /* Is connected to the viewbox of the logo, change at your own risk */
+            transform-origin: 30px 132px;
 
             &-line {
-                transform-origin: 34.3px; /* Must be the same as the line x1 origin, change at your own risk */
+                /* Must be the same as the line x1 origin, change at your own risk */
+                transform-origin: 34.3px;
             }
         }
 
@@ -50,8 +42,7 @@
 
         &--animated {
             & .jkl-logo__F {
-                transition: transform jkl.timing("expressive")
-                    jkl.timing("energetic") cubic-bezier(0.5, 0, 0.62, 1);
+                transition: transform jkl.timing("expressive") jkl.timing("energetic") cubic-bezier(0.5, 0, 0.62, 1);
             }
 
             & .jkl-logo__F-line {
@@ -60,8 +51,7 @@
 
             & .jkl-logo__remtind {
                 transition:
-                    opacity jkl.timing("expressive") jkl.timing("energetic")
-                    ease-in,
+                    opacity jkl.timing("expressive") jkl.timing("energetic") ease-in,
                     transform jkl.timing("expressive") ease;
             }
         }
@@ -77,8 +67,7 @@
         color: var(--logo-stamp-color);
 
         // I valget mellom å følge merkevaren og å være lesbar velger vi å være lesbar.
-        @include jkl.forced-colors-svg-fallback(
-            $stroke: CanvasText,
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText,
             $fill: CanvasText,
         );
 

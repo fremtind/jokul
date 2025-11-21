@@ -1,21 +1,5 @@
 @use "../../../core/jkl";
 
-@include jkl.light-mode-variables {
-    --jkl-calendar-adjacent-month-color: #{jkl.$color-stein};
-    --jkl-calendar-disabled-day-color: #{jkl.$color-svaberg};
-    --jkl-calendar-active-day-color: #{jkl.$color-hvit};
-    --jkl-calendar-hover-date-background-color: #{jkl.$color-dis};
-    --jkl-calendar-selected-date-background-color: #{jkl.$color-granitt};
-}
-
-@include jkl.dark-mode-variables {
-    --jkl-calendar-adjacent-month-color: #{jkl.$color-svaberg};
-    --jkl-calendar-disabled-day-color: #{jkl.$color-stein};
-    --jkl-calendar-active-day-color: #{jkl.$color-svart};
-    --jkl-calendar-hover-date-background-color: #{jkl.$color-stein};
-    --jkl-calendar-selected-date-background-color: #{jkl.$color-snohvit};
-}
-
 @include jkl.comfortable-density-variables {
     --jkl-calendar-date-size: #{jkl.rem(38px)};
 
@@ -67,7 +51,7 @@
     &[data-adjacent="true"] {
         @include jkl.text-style("small");
         padding: 0; // reset vertical alignment of text
-        color: var(--jkl-calendar-adjacent-month-color);
+        color: var(--jkl-color-text-subdued);
     }
 
     &[aria-current="date"] {
@@ -76,14 +60,14 @@
 
     // Other dates
     &:hover:not(:disabled) {
-        background-color: var(--jkl-calendar-hover-date-background-color);
+        background-color: var(--jkl-color-background-interactive-hover);
         cursor: pointer;
     }
 
     // Selected date
     &[aria-pressed="true"] {
-        background-color: var(--jkl-calendar-selected-date-background-color);
-        color: var(--jkl-calendar-active-day-color);
+        background-color: var(--jkl-color-background-container-inverted);
+        color: var(--jkl-color-text-inverted);
         cursor: pointer;
 
         &:hover {
@@ -92,7 +76,7 @@
     }
 
     &:disabled {
-        color: var(--jkl-calendar-disabled-day-color);
+        color: color(from var(--jkl-color-text-subdued) srgb r g b / 70%);
     }
 
     &:focus-visible {
