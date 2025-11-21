@@ -26,8 +26,6 @@ figma.connect(
                 true: figma.instance("↳ Content"),
                 false: undefined,
             }),
-            // TODO: Det mangler en property for label i Figma
-            // label: figma.string(''),
         },
         example: ({ children, ...props }) => (
             <CheckboxPanel label="Skriv noe her" {...props}>

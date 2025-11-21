@@ -1,0 +1,84 @@
+@use "../../../core/jkl" as jkl;
+
+@layer components {
+    .jkl-input-panel {
+        --outer-border-color: var(--jkl-color-border-input);
+        --outer-border-thickness: #{jkl.rem(1px)};
+        --background-color: transparent;
+
+        box-shadow: inset 0 0 0 var(--outer-border-thickness) var(--outer-border-color);
+        border-radius: 4px;
+        background-color: var(--background-color);
+        display: flex;
+        flex-direction: column;
+        interpolate-size: allow-keywords;
+
+        @include jkl.motion;
+        transition-property: box-shadow;
+
+        &__header {
+            display: grid;
+            grid-template-columns: 1fr max-content;
+            align-items: center;
+            gap: jkl.rem(8px);
+            cursor: pointer;
+            position: relative;
+            padding: var(--jkl-spacing-s) var(--jkl-spacing-m);
+
+            &__amount {
+                display: flex;
+                height: 100%;
+                align-items: center;
+                @include jkl.use-font-variables("jkl-checkbox");
+            }
+
+            & label,
+            .jkl-radio-button,
+            .jkl-checkbox {
+                position: unset;
+            }
+
+            & label::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                inline-size: 100%;
+                block-size: 100%;
+            }
+        }
+
+        &__description {
+            height: 0;
+            overflow: hidden;
+            padding-inline: var(--jkl-spacing-m);
+            padding-block-end: var(--jkl-spacing-none);
+            line-height: initial;
+            @include jkl.use-font-variables("jkl-checkbox");
+
+            @include jkl.motion;
+            transition-property: height;
+        }
+
+        &:has(:focus-visible) {
+            @include jkl.focus-outline;
+        }
+
+        &:has(:checked),
+        &[data-always-open="true"],
+        &:not([data-always-open]) {
+            --background-color: var(--jkl-color-background-container-high);
+
+            .jkl-input-panel__description {
+                height: auto;
+                padding-block-end: var(--jkl-spacing-s);
+            }
+        }
+
+        &:has(input:hover) {
+            --outer-border-color: var(--jkl-color-border-separator-hover);
+            --outer-border-thickness: #{jkl.rem(2px)};
+            cursor: pointer;
+        }
+    }
+}
