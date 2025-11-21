@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.3.2
+
+### Patch Changes
+
+- 6dc3dd2: Korrigerte ModalInstance-typedefinisjonen og oppdaterte returtypen til useModal, slik at instance ikke lenger er typet som any.
+- f33b677: Legger tilbake fontskalering for iOS basert på brukerinnstillinger, på en måte om ikke overskriver fonten vår i designsystemet.
+
 ## 3.3.1
 
 ### Patch Changes
