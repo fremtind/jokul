@@ -7,7 +7,6 @@ $_message-width: jkl.rem(560px);
 $_message-width--compact: jkl.rem(440px);
 
 $_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
-$_dismiss-hover-color: jkl.$color-stein;
 
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-message-content", "body");
@@ -71,9 +70,7 @@ $_dismiss-hover-color: jkl.$color-stein;
     &__message {
         @include jkl.use-font-variables("jkl-message-content");
 
-        margin-top: jkl.rem(
-            -2px
-        ); // Offset for å aligne med ikon hvis uten tittel.
+        margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
     }
 
     &__title {
@@ -119,7 +116,7 @@ $_dismiss-hover-color: jkl.$color-stein;
         }
 
         &:hover {
-            color: $_dismiss-hover-color;
+            color: var(--jkl-color-text-interactive-hover);
 
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
         }
@@ -150,8 +147,7 @@ $_dismiss-hover-color: jkl.$color-stein;
     }
 
     &--dismissed {
-        animation: $_dismiss-animation-name $_dismiss-animation-duration
-            ease-in-out forwards;
+        animation: $_dismiss-animation-name $_dismiss-animation-duration ease-in-out forwards;
         transition: visibility 0ms $_dismiss-animation-duration;
         visibility: hidden;
     }
