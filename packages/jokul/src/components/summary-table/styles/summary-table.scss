@@ -2,14 +2,6 @@
 @use "../../../core/jkl";
 
 @layer jokul.components {
-    @include jkl.light-mode-variables {
-        --jkl-summary-table-border-color: #{jkl.$color-granitt};
-    }
-
-    @include jkl.dark-mode-variables {
-        --jkl-summary-table-border-color: #{jkl.$color-svaberg};
-    }
-
     .jkl-summary-table {
         display: flex;
         flex-direction: column;
@@ -44,10 +36,8 @@
         }
 
         & > tfoot {
-            border-top: jkl.rem(1px) solid jkl.$color-granitt;
-            border-top: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
-            border-bottom: jkl.rem(1px) solid jkl.$color-granitt;
-            border-bottom: jkl.rem(1px) solid var(--jkl-summary-table-border-color);
+            border-top: jkl.rem(1px) solid var(--jkl-color-border-separator-strong);
+            border-bottom: jkl.rem(1px) solid var(--jkl-color-border-separator-strong);
             padding-top: jkl.$spacing-8;
 
             th,
