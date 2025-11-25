@@ -181,6 +181,7 @@
             }
         },
         "./styles/components/description-list": "./styles/components/description-list/_index.scss",
+        "./styles/components-beta/description-list": "./styles/components-beta/description-list/_index.scss",
         "./description-list": {
             "import": {
                 "types": "./build/es/components/description-list/index.d.ts",
@@ -379,6 +380,7 @@
             }
         },
         "./styles/components/nav-link": "./styles/components/nav-link/_index.scss",
+        "./styles/components-beta/nav-link": "./styles/components-beta/nav-link/_index.scss",
         "./nav-link": {
             "import": {
                 "types": "./build/es/components/nav-link/index.d.ts",
