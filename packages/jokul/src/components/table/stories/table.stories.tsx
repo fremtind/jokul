@@ -90,7 +90,7 @@ export const StortableTable: Story = {
         children: "",
     },
     render: (args) => {
-        const [sortBy, setSortBy] = useState(columns[0]);
+        const [sortBy, setSortBy] = useState(faktura.columns[0]);
         const [direction, setDirection] = useState<TableSortDirection>("desc");
 
         const handleSortChange = (
