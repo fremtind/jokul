@@ -3,6 +3,9 @@ import { FieldGroup } from "../input-group/FieldGroup.js";
 import { context } from "./radioPanelContext.js";
 import type { RadioPanelGroupProps } from "./types.js";
 
+/**
+ * @deprecated bruk heller {@link FieldGroup}
+ */
 export const RadioPanelGroup: FC<RadioPanelGroupProps> = ({
     className,
     ...rest
