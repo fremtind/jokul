@@ -1,5 +1,12 @@
 # portal
 
+## 1.4.11
+
+### Patch Changes
+
+- Updated dependencies [8dcb832]
+  - @fremtind/jokul@1.7.2
+
 ## 1.4.10
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.2
+
+### Patch Changes
+
+- 8dcb832: Legger tilbake fontskalering for iOS basert på brukerinnstillinger, på en måte om ikke overskriver fonten vår i designsystemet.
+
 ## 1.7.1
 
 ### Patch Changes
