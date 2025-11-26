@@ -2,18 +2,18 @@ import type { ReactRenderer } from "@storybook/react";
 import React, { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
-export const densities = [undefined, "compact", "comfortable"] as const;
+export const densities = [undefined, "small", "medium", "large"] as const;
 
 const applyDensity = (
     element: HTMLElement,
     density: (typeof densities)[number],
 ) => {
     element.classList.add("jkl");
-    element.dataset.layoutDensity = density;
+    element.dataset.size = density;
 };
 
 const clearDensity = (element: HTMLElement) => {
-    element.dataset.layoutDensity = undefined;
+    element.dataset.size = undefined;
 };
 
 export const densityGlobal = {
@@ -23,8 +23,9 @@ export const densityGlobal = {
         icon: "unfold",
         items: [
             { title: "Automatisk", value: densities[0], icon: "browser" },
-            { title: "Compact", value: densities[1], icon: "collapse" },
-            { title: "Comfortable", value: densities[2], icon: "expandalt" },
+            { title: "Small", value: densities[1], icon: "collapse" },
+            { title: "Medium", value: densities[2], icon: "expandalt" },
+            { title: "Large", value: densities[3], icon: "expand" },
         ],
         dynamicTitle: true,
     },

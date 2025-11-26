@@ -3,64 +3,20 @@
 @use "../../../core/jkl";
 @use "../../../core/jkl/colors";
 
+$_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
+$_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.unique-id()};
+
 @layer jokul.components {
-    @include jkl.comfortable-density-variables {
-        @include jkl.declare-font-variables("jkl-checkbox", "body");
-
-        --jkl-checkbox-height: #{jkl.rem(48px)};
-        --jkl-checkbox-box-size: #{jkl.rem(24px)};
-        --jkl-checkbox-line-height: #{jkl.rem(32px)};
-
-        @include jkl.small-device {
-            --jkl-checkbox-height: #{jkl.rem(40px)};
-            --jkl-checkbox-box-size: #{jkl.rem(24px)};
-            --jkl-checkbox-line-height: #{jkl.rem(28px)};
-        }
-    }
-
-    @include jkl.compact-density-variables {
-        @include jkl.declare-font-variables("jkl-checkbox", "small");
-
-        --jkl-checkbox-height: #{jkl.rem(28px)};
-        --jkl-checkbox-box-size: #{jkl.rem(18px)};
-        --jkl-checkbox-line-height: #{jkl.rem(24px)};
-    }
-
-    $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id(
-        
-    )};
-    $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.unique-id(
-        
-    )};
-
-    @keyframes #{$_checkbox-checked-animation-name} {
-        0% {
-            width: 0;
-            height: 0;
-        }
-
-        40% {
-            width: 18%;
-            height: 0;
-        }
-
-        100% {
-            width: 18%;
-            height: 58%;
-        }
-    }
-
-    @keyframes #{$_checkbox-indeterminate-animation-name} {
-        0% {
-            width: 0;
-        }
-
-        100% {
-            width: 66%;
-        }
+    @include jkl.small-device {
+        --jkl-checkbox-height: var(--jkl-unit-50);
+        --jkl-checkbox-box-size: var(--jkl-unit-30);
+        --jkl-checkbox-line-height: var(--jkl-unit-30);
     }
 
     .jkl-checkbox {
+        --jkl-checkbox-height: var(--jkl-unit-60);
+        --jkl-checkbox-box-size: var(--jkl-unit-30);
+        --jkl-checkbox-line-height: var(--jkl-unit-40);
         --box-color: var(--jkl-color-border-action);
         --check-color: var(--jkl-color-border-action);
         --text-color: var(--jkl-color-text-default);
@@ -85,17 +41,14 @@
 
             &:checked {
                 + .jkl-checkbox__label .jkl-checkbox__check-mark::after {
-                    animation: $_checkbox-checked-animation-name
-                        jkl.timing("productive") ease-in-out forwards;
+                    animation: $_checkbox-checked-animation-name jkl.timing("productive") ease-in-out forwards;
                     opacity: 1;
                 }
             }
 
             &:indeterminate:not(:checked) {
-                + .jkl-checkbox__label
-                    .jkl-checkbox__indeterminate-mark::after {
-                    animation: $_checkbox-indeterminate-animation-name
-                        jkl.timing("productive") ease-in-out forwards;
+                + .jkl-checkbox__label .jkl-checkbox__indeterminate-mark::after {
+                    animation: $_checkbox-indeterminate-animation-name jkl.timing("productive") ease-in-out forwards;
                     opacity: 1;
                 }
             }
@@ -133,12 +86,7 @@
         }
 
         &__text {
-            margin: calc(
-                (
-                    var(--jkl-checkbox-height) - var(--jkl-checkbox-line-height)
-                )
-                    * 0.5
-            ) 0;
+            margin: calc((var(--jkl-checkbox-height) - var(--jkl-checkbox-line-height)) * 0.5) 0;
             translate: 0 jkl.rem(1px);
 
             @include jkl.motion;
@@ -151,12 +99,7 @@
             height: var(--jkl-checkbox-box-size);
             width: var(--jkl-checkbox-box-size);
 
-            margin-block: calc(
-                (
-                    var(--jkl-checkbox-height) - var(--jkl-checkbox-box-size)
-                )
-                    * 0.5
-            );
+            margin-block: calc((var(--jkl-checkbox-height) - var(--jkl-checkbox-box-size)) * 0.5);
             margin-inline-end: var(--jkl-unit-10);
             align-self: flex-start;
             flex-shrink: 0; // Don't allow the mark to shrink in case of really long text
@@ -236,13 +179,40 @@
             display: inline-flex;
 
             &:not(:last-of-type) {
-                margin-right: jkl.$unit-30;
+                margin-right: var(--jkl-unit-30);
             }
         }
 
         &--error {
             --background-color: var(--jkl-color-background-alert-error);
             --check-color: var(--jkl-color-text-on-alert);
+        }
+
+        @keyframes #{$_checkbox-checked-animation-name} {
+            0% {
+                width: 0;
+                height: 0;
+            }
+
+            40% {
+                width: 18%;
+                height: 0;
+            }
+
+            100% {
+                width: 18%;
+                height: 58%;
+            }
+        }
+
+        @keyframes #{$_checkbox-indeterminate-animation-name} {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 66%;
+            }
         }
     }
 }

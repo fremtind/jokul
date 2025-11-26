@@ -2,23 +2,9 @@
 @use "../../../core/jkl";
 
 @layer jokul.components {
-    @include jkl.comfortable-density-variables {
-        --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-50) var(--jkl-unit-15) var(--jkl-unit-02);
-        --jkl-tab-padding-inline-end: var(--jkl-unit-50);
-
-        @include jkl.declare-font-variables("jkl-tab", "body");
-
-        @include jkl.small-device {
-            --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-30) var(--jkl-unit-15) var(--jkl-unit-02);
-            --jkl-tab-padding-inline-end: var(--jkl-unit-30);
-        }
-    }
-
-    @include jkl.compact-density-variables {
-        @include jkl.declare-font-variables("jkl-tab", "small");
-
-        --jkl-tab-padding: var(--jkl-unit-02) var(--jkl-unit-40) var(--jkl-unit-05) 0;
-        --jkl-tab-padding-inline-end: var(--jkl-unit-40);
+    @include jkl.small-device {
+        --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-30) var(--jkl-unit-15) var(--jkl-unit-02);
+        --jkl-tab-padding-inline-end: var(--jkl-unit-30);
     }
 
     .jkl-tabs {
@@ -26,6 +12,7 @@
     }
 
     .jkl-tablist {
+        --jkl-tab-padding-inline-end: var(--jkl-unit-50);
         --text-color: var(--jkl-color-text-interactive);
         --line-color: var(--jkl-color-border-separator);
         --indicator-color: var(--jkl-color-border-separator-hover);
@@ -67,6 +54,9 @@
     }
 
     .jkl-tab {
+        --jkl-tab-padding-inline-end: var(--jkl-unit-50);
+        --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-50) var(--jkl-unit-15) var(--jkl-unit-02);
+
         @include jkl.use-font-variables("jkl-tab");
         color: var(--text-color);
         padding: var(--jkl-tab-padding);

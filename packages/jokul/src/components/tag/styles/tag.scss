@@ -1,17 +1,9 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-@include jkl.comfortable-density-variables {
+.jkl-tag {
     --jkl-tag-padding: var(--jkl-unit-05) var(--jkl-unit-10);
     --jkl-tag-gap: var(--jkl-unit-05);
-}
-
-@include jkl.compact-density-variables {
-    --jkl-tag-padding: 0 var(--jkl-unit-05);
-    --jkl-tag-gap: var(--jkl-unit-02);
-}
-
-.jkl-tag {
     --background-color: var(--jkl-color-background-alert-neutral);
     --text-color: var(--jkl-color-text-on-alert);
 

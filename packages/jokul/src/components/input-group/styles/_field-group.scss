@@ -1,5 +1,7 @@
 @use "../../../core/jkl";
 
-.jkl-field-group {
-    @include jkl.reset-outline;
+@layer jokul.components {
+    .jkl-field-group {
+        @include jkl.reset-outline;
+    }
 }

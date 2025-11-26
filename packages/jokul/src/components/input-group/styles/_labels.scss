@@ -1,159 +1,122 @@
 @use "sass:string";
 @use "../../../core/jkl";
 
-.jkl-dormant-form-support-label {
-    display: none;
-    opacity: 0;
-    pointer-events: none;
-}
+$_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.unique-id()};
 
-$_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.unique-id(
-)
-}
-
-;
-
-@include jkl.comfortable-density-variables {
-    @include jkl.declare-font-variables("jkl-form-support-label", "small");
-    $_icon-size: jkl.rem(20px);
-
-    --jkl-form-support-label-margin: #{jkl.$spacing-8} 0 0;
-    --jkl-form-support-label-icon-size: #{$_icon-size};
-    --jkl-form-support-label-icon-margin: 0 -#{$_icon-size} -#{jkl.rem(6px)} 0;
-}
-
-@include jkl.compact-density-variables {
-    $_icon-size: jkl.rem(22px);
-
-    --jkl-form-support-label-icon-size: #{$_icon-size};
-    --jkl-form-support-label-icon-margin: 0 -#{$_icon-size} -#{jkl.rem(5px)} 0;
-}
-
-.jkl-form-support-label {
-    --color: var(--jkl-color-text-subdued);
-
-    @include jkl.use-font-variables("jkl-form-support-label");
-    @include jkl.motion("standard", "lazy");
-
-    display: flex;
-    margin: var(--jkl-form-support-label-margin);
-    color: var(--color);
-    transition-property: color;
-    transition-delay: jkl.timing("productive");
-
-    &__icon,
-    &__icon.jkl-icon {
+@layer jokul.components {
+    .jkl-dormant-form-support-label {
+        display: none;
         opacity: 0;
-        height: var(--jkl-form-support-label-icon-size);
-        margin: var(--jkl-form-support-label-icon-margin);
-
-        @include jkl.forced-colors-svg-fallback($stroke: CanvasText,
-            $fill: Canvas,
-        );
+        pointer-events: none;
     }
 
-    &--error,
-    &--warning,
-    &--success {
-        --color: var(--jkl-color-text-default);
+    .jkl-form-support-label {
+        $_icon-size: jkl.rem(20px);
 
-        .jkl-form-support-label__icon {
-            animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1) jkl.timing("expressive") $_support-icon-entrance-animation-name forwards;
+        --jkl-form-support-label-margin: var(--jkl-unit-10) 0 0;
+        --jkl-form-support-label-icon-size: #{$_icon-size};
+        --jkl-form-support-label-icon-margin: 0 -#{$_icon-size} -#{jkl.rem(6px)} 0;
+        --color: var(--jkl-color-text-subdued);
+
+        @include jkl.use-font-variables("jkl-form-support-label");
+        @include jkl.motion("standard", "lazy");
+
+        display: flex;
+        margin: var(--jkl-form-support-label-margin);
+        color: var(--color);
+        transition-property: color;
+        transition-delay: jkl.timing("productive");
+
+        &__icon,
+        &__icon.jkl-icon {
+            opacity: 0;
+            height: var(--jkl-form-support-label-icon-size);
+            margin: var(--jkl-form-support-label-icon-margin);
+
+            @include jkl.forced-colors-svg-fallback($stroke: CanvasText,
+                $fill: Canvas,
+            );
+        }
+
+        &--error,
+        &--warning,
+        &--success {
+            --color: var(--jkl-color-text-default);
+
+            .jkl-form-support-label__icon {
+                animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1) jkl.timing("expressive") $_support-icon-entrance-animation-name forwards;
+            }
+        }
+
+        &--sr-only {
+            @include jkl.screenreader-only;
         }
     }
 
-    &--sr-only {
-        @include jkl.screenreader-only;
-    }
-}
+    .jkl-label {
+        --jkl-label-small-margin: 0 0 var(--jkl-unit-15) 0;
+        --jkl-label-medium-margin: 0 0 var(--jkl-unit-20) 0;
+        --jkl-label-large-margin: 0 0 var(--jkl-unit-30) #{jkl.rem(-1px)};
 
-@include jkl.comfortable-density-variables {
-    $_label-spacing-12mall: jkl.$spacing-4;
-    $_label-spacing-16edium: jkl.$spacing-8;
-    $_label-spacing-24arge: jkl.$spacing-16;
+        display: block;
+        margin-left: initial;
+        color: var(--jkl-color-text-default);
 
-    --jkl-label-small-margin: 0 0 #{$_label-spacing-12mall} 0;
-    --jkl-label-medium-margin: 0 0 #{$_label-spacing-16edium} 0;
-    --jkl-label-large-margin: 0 0 #{$_label-spacing-24arge} #{jkl.rem(-1px)};
+        &--small {
+            @include jkl.use-font-variables("jkl-label-small");
+            margin: var(--jkl-label-small-margin);
+        }
 
-    @include jkl.declare-font-variables("jkl-label-small", "small");
-    @include jkl.declare-font-variables("jkl-label-medium", "body");
-    @include jkl.declare-font-variables("jkl-label-large", "heading-2");
-}
+        &--medium {
+            @include jkl.use-font-variables("jkl-label-medium");
+            margin: var(--jkl-label-medium-margin);
+        }
 
-@include jkl.compact-density-variables {
-    $_label-spacing-12mall--compact: jkl.$spacing-4;
-    $_label-spacing-16edium--compact: jkl.$spacing-8;
-    $_label-spacing-24arge--compact: jkl.$spacing-12;
+        &--large {
+            @include jkl.use-font-variables("jkl-label-large");
+            margin: var(--jkl-label-large-margin);
+        }
 
-    --jkl-label-small-margin: 0 0 #{$_label-spacing-12mall--compact} 0;
-    --jkl-label-medium-margin: 0 0 #{$_label-spacing-16edium--compact} 0;
-    --jkl-label-large-margin: 0 0 #{$_label-spacing-24arge--compact} #{jkl.rem(
- -1px)
-}
-
-;
-}
-
-.jkl-label {
-    display: block;
-    margin-left: initial;
-    color: var(--jkl-color-text-default);
-
-    &--small {
-        @include jkl.use-font-variables("jkl-label-small");
-        margin: var(--jkl-label-small-margin);
+        &--sr-only {
+            @include jkl.screenreader-only;
+        }
     }
 
-    &--medium {
-        @include jkl.use-font-variables("jkl-label-medium");
+    .jkl-input-group-description {
+        @include jkl.text-style("small");
+        color: var(--jkl-color-text-subdued);
         margin: var(--jkl-label-medium-margin);
+        max-inline-size: 50ch;
+        text-wrap: pretty;
     }
 
-    &--large {
-        @include jkl.use-font-variables("jkl-label-large");
-        margin: var(--jkl-label-large-margin);
-    }
+    @keyframes #{$_support-icon-entrance-animation-name} {
+        0% {
+            margin-right: 0;
+            opacity: 0;
+            transform: scale(1);
+        }
 
-    &--sr-only {
-        @include jkl.screenreader-only;
-    }
-}
+        30% {
+            margin-right: jkl.$spacing-8;
+        }
 
-.jkl-input-group-description {
-    @include jkl.text-style("small");
-    color: var(--jkl-color-text-subdued);
-    margin: var(--jkl-label-medium-margin);
-    max-inline-size: 50ch;
-    text-wrap: pretty;
-}
+        50% {
+            opacity: 1;
+        }
 
-@keyframes #{$_support-icon-entrance-animation-name} {
-    0% {
-        margin-right: 0;
-        opacity: 0;
-        transform: scale(1);
-    }
+        70% {
+            transform: scale(1.1);
+        }
 
-    30% {
-        margin-right: jkl.$spacing-8;
-    }
+        85% {
+            transform: scale(0.9);
+        }
 
-    50% {
-        opacity: 1;
-    }
-
-    70% {
-        transform: scale(1.1);
-    }
-
-    85% {
-        transform: scale(0.9);
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 1;
-        margin-right: jkl.$spacing-8;
+        100% {
+            transform: scale(1);
+            opacity: 1;
+            margin-right: jkl.$spacing-8;
+        }
     }
 }

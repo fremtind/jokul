@@ -5,27 +5,29 @@ $_card-corner-radius: jkl.rem(2px);
 $_container-width: jkl.rem(660px);
 $_container-width--compact: jkl.rem(320px);
 
-.jkl-cookie-consent-modal {
-    position: fixed;
-    z-index: jkl.$z-index--modal !important;
-
-    &[aria-hidden="true"] {
-        display: none;
-    }
-
-    & > .jkl-cookie-consent-modal__overlay {
+@layer jokul.components {
+    .jkl-cookie-consent-modal {
         position: fixed;
-        background: rgb(0 0 0 / 30%);
-        inset: 0;
-        transition: 0.2s;
-    }
+        z-index: jkl.$z-index--modal !important;
 
-    &__info-text {
-        @include jkl.text-style("small");
-    }
+        &[aria-hidden="true"] {
+            display: none;
+        }
 
-    &__checkbox {
-        margin-bottom: jkl.$unit-10;
-        margin-top: jkl.$unit-30;
+        & > .jkl-cookie-consent-modal__overlay {
+            position: fixed;
+            background: rgb(0 0 0 / 30%);
+            inset: 0;
+            transition: 0.2s;
+        }
+
+        &__info-text {
+            @include jkl.text-style("small");
+        }
+
+        &__checkbox {
+            margin-bottom: var(--jkl-unit-10);
+            margin-top: var(--jkl-unit-30);
+        }
     }
 }

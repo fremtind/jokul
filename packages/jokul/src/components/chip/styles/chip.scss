@@ -1,35 +1,22 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-@include jkl.compact-density-variables {
-    --padding-inline-s: #{jkl.$unit-10};
-    --padding-inline-l: #{jkl.$unit-15};
-    --padding-icon-s: #{jkl.$unit-05};
-    --padding-icon-l: #{jkl.$unit-10};
-    --height-l: #{jkl.$unit-40};
-    --height-s: #{jkl.$unit-30};
-    --gap-s: #{jkl.$unit-02};
-    --gap-l: #{jkl.$unit-05};
-}
-
-@include jkl.comfortable-density-variables {
-    --padding-inline-s: #{jkl.$unit-15};
-    --padding-inline-l: #{jkl.$unit-20};
-    --padding-icon-s: #{jkl.$unit-10};
-    --padding-icon-l: #{jkl.$unit-15};
-    --height-l: #{jkl.$unit-50};
-    --height-s: #{jkl.$unit-40};
-    --gap-s: #{jkl.$unit-05};
-    --gap-l: #{jkl.$unit-10};
-}
-
 .jkl-chip {
+    --padding-inline-s: var(--jkl-unit-15);
+    --padding-inline-l: var(--jkl-unit-20);
+    --padding-icon-s: var(--jkl-unit-10);
+    --padding-icon-l: var(--jkl-unit-15);
+    --height-l: var(--jkl-unit-50);
+    --height-s: var(--jkl-unit-40);
+    --gap-s: var(--jkl-unit-05);
+    --gap-l: var(--jkl-unit-10);
     --text-color: var(--jkl-color-text-default);
     --border-color: var(--jkl-color-border-separator);
     --background-color: transparent;
     --border-width: #{jkl.rem(1px)};
 
     @include jkl.text-style("heading-5");
+
     cursor: pointer;
     position: relative;
     background-color: var(--background-color);
@@ -78,6 +65,7 @@
 
             @include jkl.forced-colors-mode {
                 forced-color-adjust: none;
+
                 --background-color: CanvasText;
                 --text-color: Canvas;
             }

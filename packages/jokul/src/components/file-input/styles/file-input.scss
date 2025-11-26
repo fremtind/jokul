@@ -1,130 +1,117 @@
 @use "../../../core/jkl";
 @use "../../file/styles";
 
-@include jkl.comfortable-density-variables {
-    @include jkl.declare-font-variables("jkl-file-input-drag", "heading-2");
-    @include jkl.declare-font-variables("jkl-file-size-hint", "small");
+@layer jokul.components {
+    .jkl-file-input {
+        --jkl-file-input-dropzone-padding: var(--jkl-unit-30);
+        --jkl-file-input-dropzone-gap: var(--jkl-unit-30);
+        --jkl-file-cta-gap: var(--jkl-unit-30);
+        --jkl-file-cta-with-files-gap: var(--jkl-unit-15);
+        --jkl-file-list-gap: var(--jkl-unit-10);
 
-    --jkl-file-input-dropzone-padding: #{jkl.$unit-30};
-    --jkl-file-input-dropzone-gap: #{jkl.$unit-30};
-    --jkl-file-cta-gap: #{jkl.$unit-30};
-    --jkl-file-cta-with-files-gap: #{jkl.$unit-15};
-    --jkl-file-list-gap: #{jkl.$unit-10};
-}
+        &__dropzone {
+            --border-color: var(--jkl-color-border-input);
+            --background-color: transparent;
 
-@include jkl.compact-density-variables {
-    @include jkl.declare-font-variables("jkl-file-input-drag", "body");
+            border: var(--border-color) 1px dashed;
+            border-radius: jkl.rem(4px);
+            padding: var(--jkl-file-input-dropzone-padding);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: var(--jkl-file-input-dropzone-gap);
 
-    --jkl-file-input-dropzone-padding: #{jkl.$unit-20};
-    --jkl-file-input-dropzone-gap: #{jkl.$unit-20};
-    --jkl-file-cta-gap: #{jkl.$unit-15};
-    --jkl-file-cta-with-files-gap: #{jkl.$unit-05};
-    --jkl-file-list-gap: #{jkl.$unit-10};
-}
+            @include jkl.motion("standard", "productive");
+            transition-property: background-color;
+            background-color: var(--background-color);
 
-.jkl-file-input {
-    &__dropzone {
-        --border-color: var(--jkl-color-border-input);
-        --background-color: transparent;
-
-        border: var(--border-color) 1px dashed;
-        border-radius: jkl.rem(4px);
-        padding: var(--jkl-file-input-dropzone-padding);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        gap: var(--jkl-file-input-dropzone-gap);
-
-        @include jkl.motion("standard", "productive");
-        transition-property: background-color;
-        background-color: var(--background-color);
-
-        &--enter {
-            --border-color: var(--jkl-color-border-input-focus);
-            --background-color: var(--jkl-color-background-container-high);
-            border-style: solid;
-        }
-
-        &__drag-text {
-            @include jkl.use-font-variables("jkl-file-input-drag");
-
-            @include jkl.small-device {
-                display: none;
+            &--enter {
+                --border-color: var(--jkl-color-border-input-focus);
+                --background-color: var(--jkl-color-background-container-high);
+                border-style: solid;
             }
-        }
-    }
 
-    &__call-to-action {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        flex-wrap: nowrap;
+            &__drag-text {
+                @include jkl.use-font-variables("jkl-file-input-drag");
 
-        &:has(:focus-visible) {
-            .jkl-button {
-                transform: scale(1.05);
-
-                @include jkl.focus-outline;
-
-                &:active {
-                    transform: scale(1);
+                @include jkl.small-device {
+                    display: none;
                 }
             }
         }
-    }
 
-    &__dropzone-hint {
-        margin-top: jkl.$unit-30;
-    }
+        &__call-to-action {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: nowrap;
 
-    &--has-files &__dropzone-hint {
-        display: none;
-    }
+            &:has(:focus-visible) {
+                .jkl-button {
+                    transform: scale(1.05);
 
-    &__max-size-text {
-        @include jkl.use-font-variables("jkl-file-size-hint");
-        color: var(--jkl-color-text-subdued);
-        margin-top: jkl.$unit-30;
-    }
+                    @include jkl.focus-outline;
 
-    &__files {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: var(--jkl-file-list-gap);
-    }
-
-    &--small {
-        .jkl-file-input__dropzone-hint {
-            margin: 0;
-            display: block;
+                    &:active {
+                        transform: scale(1);
+                    }
+                }
+            }
         }
 
-        .jkl-file-input__dropzone {
-            padding: jkl.$unit-20;
-            gap: jkl.$unit-20;
-            margin-bottom: jkl.$unit-20;
-            justify-content: flex-start;
-            flex-direction: row;
-            max-width: fit-content;
+        &__dropzone-hint {
+            margin-top: var(--jkl-unit-30);
         }
 
-        .jkl-file-input__call-to-action {
+        &--has-files &__dropzone-hint {
+            display: none;
+        }
+
+        &__max-size-text {
             @include jkl.use-font-variables("jkl-file-size-hint");
-
-            gap: #{jkl.$unit-15};
-            flex-direction: row;
-            justify-content: flex-start;
+            color: var(--jkl-color-text-subdued);
+            margin-top: var(--jkl-unit-30);
         }
 
-        .jkl-file-input__max-size-text {
-            margin-top: calc(-1 * #{jkl.$unit-15});
-            margin-bottom: jkl.$unit-20;
+        &__files {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--jkl-file-list-gap);
+        }
+
+        &--small {
+            .jkl-file-input__dropzone-hint {
+                margin: 0;
+                display: block;
+            }
+
+            .jkl-file-input__dropzone {
+                padding: var(--jkl-unit-20);
+                gap: var(--jkl-unit-20);
+                margin-bottom: var(--jkl-unit-20);
+                justify-content: flex-start;
+                flex-direction: row;
+                max-width: fit-content;
+            }
+
+            .jkl-file-input__call-to-action {
+                @include jkl.use-font-variables("jkl-file-size-hint");
+
+                gap: #{jkl.$unit-15};
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+
+            .jkl-file-input__max-size-text {
+                margin-top: calc(-1 * var(--jkl-unit-15));
+                margin-bottom: var(--jkl-unit-20);
+            }
         }
     }
 }

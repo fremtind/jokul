@@ -1,87 +1,80 @@
 @use "../../../core/jkl";
 
-@include jkl.comfortable-density-variables {
-    --ordered-item-padding: var(--jkl-unit-10);
-}
+@layer jokul.components {
+    .jkl-table-of-contents--beta {
+        --ordered-item-padding: var(--jkl-unit-10);
+        --border: 1px solid var(--jkl-color-border-separator);
+        --text-color: var(--jkl-color-text-default);
 
-@include jkl.compact-density-variables {
-    --ordered-item-padding: var(--jkl-unit-05);
-}
-
-.jkl-table-of-contents--beta {
-    --border: 1px solid var(--jkl-color-border-separator);
-    --text-color: var(--jkl-color-text-default);
-
-    .jkl-table-of-contents-title {
-        margin-block-end: var(--jkl-unit-05);
-        @include jkl.text-style("small");
-    }
-
-    & ol {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        height: min-content;
-    }
-
-    & .jkl-table-of-contents-item {
-        display: flex;
-
-        &:not(:last-of-type) {
-            .jkl-table-of-contents-link {
-                border-block-end: var(--border);
-            }
-        }
-    }
-
-    & .jkl-table-of-contents-link {
-        display: flex;
-        align-items: center;
-        gap: var(--jkl-unit-20);
-        width: 100%;
-        text-decoration: none;
-        color: var(--text-color);
-        text-wrap: balance;
-        box-sizing: border-box;
-    }
-
-    &:has(ol) {
         .jkl-table-of-contents-title {
-            @include jkl.screenreader-only()
-        }
-    }
+            margin-block-end: var(--jkl-unit-05);
 
-    & ol {
-        border-block: var(--border);
-        counter-reset: table-of-contents;
-
-        &:has(.jkl-table-of-contents-link:is(:hover, :focus-visible)) {
-            --text-color: rgb(from currentColor r g b / 0.6);
-
-            .jkl-table-of-contents-link:is(:hover, :focus-visible) {
-                --text-color: rgb(from currentColor r g b / 1);
-            }
+            @include jkl.text-style("small");
         }
 
         & .jkl-table-of-contents-item {
-            counter-increment: table-of-contents;
+            display: flex;
+
+            &:not(:last-of-type) {
+                .jkl-table-of-contents-link {
+                    border-block-end: var(--border);
+                }
+            }
         }
 
         & .jkl-table-of-contents-link {
-            padding-inline-end: var(--jkl-unit-20);
-            padding-block: var(--ordered-item-padding);
+            display: flex;
+            align-items: center;
+            gap: var(--jkl-unit-20);
+            width: 100%;
+            text-decoration: none;
+            color: var(--text-color);
+            text-wrap: balance;
+            box-sizing: border-box;
+        }
 
-            @include jkl.motion("standard", "productive");
-            transition-property: color;
+        &:has(ol) {
+            .jkl-table-of-contents-title {
+                @include jkl.screenreader-only
+            }
+        }
 
-            &::before {
-                content: counter(table-of-contents, decimal-leading-zero);
+        & ol {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            height: min-content;
+            border-block: var(--border);
+            counter-reset: table-of-contents;
 
-                @include jkl.use-font-family("Fremtind Grotesk Mono");
-                color: inherit;
-                font-size: var(--jkl-small-font-size);
+            &:has(.jkl-table-of-contents-link:is(:hover, :focus-visible)) {
+                --text-color: rgb(from currentColor r g b / 60%);
+
+                .jkl-table-of-contents-link:is(:hover, :focus-visible) {
+                    --text-color: rgb(from currentColor r g b / 100%);
+                }
+            }
+
+            & .jkl-table-of-contents-item {
+                counter-increment: table-of-contents;
+            }
+
+            & .jkl-table-of-contents-link {
+                padding-inline-end: var(--jkl-unit-20);
+                padding-block: var(--ordered-item-padding);
+
+                @include jkl.motion("standard", "productive");
+                transition-property: color;
+
+                &::before {
+                    content: counter(table-of-contents, decimal-leading-zero);
+
+                    @include jkl.use-font-family("Fremtind Grotesk Mono");
+                    color: inherit;
+                    font-size: var(--jkl-small-font-size);
+                }
             }
         }
     }
