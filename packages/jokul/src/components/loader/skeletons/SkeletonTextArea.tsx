@@ -6,22 +6,16 @@ import { SkeletonLabel } from "./SkeletonLabel.js";
 
 export const SkeletonTextArea = ({
     className,
-    density,
     labelProps,
     inputProps,
     ...rest
 }: SkeletonTextAreaProps) => {
-    const compact = density === "compact";
     return (
-        <div
-            className={clsx("jkl-skeleton-input", className)}
-            {...rest}
-            data-density={density}
-        >
-            <SkeletonLabel density={density} {...labelProps} />
+        <div className={clsx("jkl-skeleton-input", className)} {...rest}>
+            <SkeletonLabel {...labelProps} />
             <SkeletonElement
-                width={compact ? 301 : 316}
-                height={compact ? 148 : 168}
+                width="calc(var(--jkl-unit-210) * 1.88)"
+                height="var(--jkl-unit-210)"
                 {...inputProps}
             />
         </div>

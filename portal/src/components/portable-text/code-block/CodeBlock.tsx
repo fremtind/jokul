@@ -62,7 +62,6 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
             <Button
                 className={styles.copyButton}
                 variant={"primary"}
-                density={"compact"}
                 onClick={(_) => {
                     navigator.clipboard.writeText(children.toString());
                 }}

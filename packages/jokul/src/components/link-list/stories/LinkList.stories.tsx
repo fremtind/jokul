@@ -1,42 +1,38 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { LinkList } from "../LinkList.js";
+import { LinkListLink } from "../LinkListLink.js";
+
 import "../styles/_index.scss";
+
+const banks = [
+    "Hva dekker forsikringen?",
+    "Reisekort",
+    "SmartDelay+",
+    "Reise SMS",
+    "Hjelp",
+];
 
 const meta: Meta = {
     title: "Komponenter/LinkList",
     component: LinkList,
-    argTypes: {
-        variant: {
-            control: "radio",
-            options: ["ordered", "unordered"],
-        },
+    subcomponents: {
+        LinkListLink,
     },
+    args: {
+        label: "Om forsikringen din",
+        hideLabel: true,
+        children: banks.map((link) => (
+            <LinkList.Link href="#" key={link}>
+                {link}
+            </LinkList.Link>
+        )),
+    },
+    tags: ["autodocs"],
 } satisfies Meta<typeof LinkList>;
 
 export default meta;
 
 type Story = StoryObj<typeof LinkList>;
 
-export const LinkListStory: Story = {
-    name: "LinkList",
-    args: {
-        variant: "unordered",
-    },
-    render: (props) => (
-        <LinkList {...props}>
-            <LinkList.Item>
-                <LinkList.Link href="#">SpareBank 1</LinkList.Link>
-            </LinkList.Item>
-            <LinkList.Item>
-                <LinkList.Link href="#">DNB</LinkList.Link>
-            </LinkList.Item>
-            <LinkList.Item>
-                <LinkList.Link href="#">LOfavør</LinkList.Link>
-            </LinkList.Item>
-            <LinkList.Item>
-                <LinkList.Link href="#">Norsk Sykepleierforbund</LinkList.Link>
-            </LinkList.Item>
-        </LinkList>
-    ),
-};
+export const _LinkList: Story = {};

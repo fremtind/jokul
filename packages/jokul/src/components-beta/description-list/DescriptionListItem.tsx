@@ -2,6 +2,9 @@ import { clsx } from "clsx";
 import React, { type FC } from "react";
 import type { DescriptionListItemProps } from "./types.js";
 
+/**
+ * @deprecated Bruk heller den stabile komponenten for DescriptionList sammen med Terms og Details. All funksjonalitet fra Beta-komponenten er tilgjengelige der.
+ */
 export const DescriptionListItem: FC<DescriptionListItemProps> = ({
     title,
     value,

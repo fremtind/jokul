@@ -1,35 +1,23 @@
 @use "../../../core/jkl";
 
 @layer jokul.components {
-    @include jkl.comfortable-density-variables {
-        --jkl-menu-item-height: #{jkl.rem(48px)};
-        --jkl-menu-item-padding: #{jkl.$unit-10} #{jkl.$unit-30};
-
-        @include jkl.declare-font-variables("jkl-menu-item", "body");
-    }
-
-    @include jkl.compact-density-variables {
-        --jkl-menu-item-height: jkl.rem(32px);
-        --jkl-menu-item-padding: #{jkl.$unit-05} #{jkl.$unit-15};
-
-        @include jkl.declare-font-variables("jkl-menu-item", "small");
-    }
-
     .jkl-menu-item {
+        --jkl-menu-item-height: var(--jkl-unit-60);
+        --jkl-menu-item-padding: var(--jkl-unit-15) var(--jkl-unit-30);
         --background-color: var(--jkl-color-background-interactive);
 
         background-color: var(--background-color);
         color: var(--jkl-color-text-default);
-        cursor: pointer;
         text-decoration: none;
+        cursor: pointer;
 
         box-sizing: border-box;
         user-select: none;
 
-        @include jkl.use-font-variables("jkl-menu-item");
+        @include jkl.text-style("text-medium");
         display: flex;
         align-items: center;
-        gap: jkl.$unit-10;
+        gap: var(--jkl-unit-10);
         width: 100%;
         height: var(--jkl-menu-item-height);
         padding: var(--jkl-menu-item-padding);
@@ -38,7 +26,7 @@
 
         &__content {
             display: flex;
-            gap: jkl.$unit-05;
+            gap: var(--jkl-unit-05);
             justify-content: flex-start;
             overflow: hidden;
             white-space: nowrap;

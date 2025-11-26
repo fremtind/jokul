@@ -2,168 +2,153 @@
 @use "sass:string";
 @use "../../../core/jkl";
 
-@include jkl.comfortable-density-variables {
-    --jkl-button-padding-block: #{jkl.$unit-10};
-    --jkl-button-padding-text: #{jkl.$unit-30};
-    --jkl-button-padding-icon: #{jkl.$unit-20};
-    --jkl-button-padding-icon-button: #{jkl.$unit-10};
-    --jkl-button-teritary-padding-icon: #{jkl.$unit-05};
-    --jkl-button-font-size: #{jkl.$typography-body-small-font-size};
-    --jkl-button-line-height: #{jkl.$typography-body-small-line-height};
+@layer jokul.components {
+    .jkl-button {
+        --jkl-button-font-size: var(--jkl-typography-body-base-font-size);
+        --jkl-button-line-height: var(--jkl-typography-body-base-line-height);
+        --jkl-button-padding-block: var(--jkl-unit-10);
+        --jkl-button-padding-text: var(--jkl-unit-30);
+        --jkl-button-padding-icon: var(--jkl-unit-20);
+        --jkl-button-padding-icon-button: var(--jkl-unit-10);
+        --jkl-button-tertiary-padding-icon: var(--jkl-unit-05);
+        --jkl-icon-weight: var(--jkl-icon-weight-bold);
+        --text-color: var(--jkl-color-text-default);
+        --background-color: transparent;
+        --border-radius: 0;
+        --border-width: #{jkl.rem(1px)}; // For secondary og tertiary button
 
-    @include jkl.from-medium-device {
-        --jkl-button-font-size: #{jkl.$typography-body-base-font-size};
-        --jkl-button-line-height: #{jkl.$typography-body-base-line-height};
-    }
-}
+        display: inline-block;
 
-@include jkl.compact-density-variables {
-    --jkl-button-padding-block: #{jkl.$unit-05};
-    --jkl-button-padding-text: #{jkl.$unit-15};
-    --jkl-button-padding-icon: #{jkl.$unit-10};
-    --jkl-button-padding-icon-button: #{jkl.$unit-05};
-    --jkl-button-teritary-padding-icon: #{jkl.$unit-02};
-    --jkl-button-padding-ghost-inline: #{jkl.$unit-05};
-    --jkl-button-font-size: #{jkl.$typography-small-small-font-size};
-    --jkl-button-line-height: #{jkl.$typography-small-small-line-height};
+        @include jkl.text-style("text-medium") {
+            font-weight: jkl.$typography-weight-bold;
+        }
 
-    @include jkl.from-medium-device {
-        --jkl-button-font-size: #{jkl.$typography-small-base-font-size};
-        --jkl-button-line-height: #{jkl.$typography-small-base-line-height};
-        --jkl-button-icon-weight: #{jkl.$icon-weight-bold};
-    }
-}
+        cursor: pointer;
+        user-select: none;
+        background: var(--background-color);
+        color: var(--text-color);
+        border: unset;
+        text-decoration: none;
+        -webkit-tap-highlight-color: transparent;
 
-.jkl-button {
-    --jkl-icon-weight: var(--jkl-button-icon-weight, initial);
-    --text-color: var(--jkl-color-text-default);
-    --background-color: transparent;
-    --border-radius: 0;
-    --border-width: #{jkl.rem(1px)}; // For secondary og tertiary button
-
-    display: inline-block;
-
-    font-weight: #{jkl.$typography-weight-bold};
-    font-size: var(--jkl-button-font-size);
-    line-height: var(--jkl-button-line-height);
-
-    cursor: pointer;
-    user-select: none;
-    background: var(--background-color);
-    color: var(--text-color);
-    border: unset;
-    text-decoration: none;
-    -webkit-tap-highlight-color: transparent;
-
-    border-radius: var(--border-radius);
-    padding-inline: var(--jkl-button-padding-text);
-    padding-block: var(--jkl-button-padding-block);
-    position: relative;
-    overflow: hidden;
-    max-width: 100%;
-    animation: a 0.3s linear;
-
-    @include jkl.motion("standard", "productive", background-color);
-
-    &:has(.jkl-button__text) {
-        min-width: 9.5ch;
-    }
-
-    &:has(.jkl-icon:first-child) {
-        padding-inline-start: var(--jkl-button-padding-icon);
-    }
-
-    &:has(.jkl-icon:last-child) {
-        padding-inline-end: var(--jkl-button-padding-icon);
-    }
-
-    &:has(.jkl-icon:first-child):has(.jkl-icon:last-child) {
-        padding-inline: var(--jkl-button-padding-icon-button);
-    }
-
-    &__label {
-        @include jkl.motion("standard", "expressive", translate);
-
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: jkl.$unit-02;
-        pointer-events: none;
-    }
-
-    &__loader {
-        @include jkl.motion("standard", "expressive", opacity, translate);
-
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        translate: -50% 350%;
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    &__text {
-        // Håndter tekster som er lenger enn knappen
-        // Knappen vokser til teksten, men kan f.eks. begrenses
-        // av sidebredde på mobil
-        width: 100%;
-        max-width: 100%;
+        border-radius: var(--border-radius);
+        padding-inline: var(--jkl-button-padding-text);
+        padding-block: var(--jkl-button-padding-block);
+        position: relative;
         overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-    }
+        max-width: 100%;
+        animation: a 0.3s linear;
 
-    &[data-loading="true"] &__label {
-        translate: 0 -120%;
-    }
+        @include jkl.motion("standard", "productive", background-color);
 
-    &[data-loading="true"] &__loader {
-        translate: -50% -50%;
-        opacity: 1;
-    }
-
-    &:focus-visible {
-        @include jkl.focus-outline;
-    }
-
-    &:hover {
-        background-color: color-mix(in srgb, var(--background-color), var(--text-color) 15%);
-
-        @media (forced-colors: active) {
-            @include jkl.focus-outline;
+        &:has(.jkl-button__text) {
+            min-width: 9.5ch;
         }
-    }
-
-    &--primary,
-    &--secondary,
-    &--ghost {
-        --border-radius: 999px;
-    }
-
-    &--primary {
-        --background-color: var(--jkl-color-background-action);
-        --text-color: var(--jkl-color-text-on-action);
-
-        @media (forced-colors: active) {
-            border: calc(var(--border-width) * 2) solid Highlight;
-        }
-    }
-
-    &--secondary {
-        border: var(--border-width) solid var(--text-color);
-    }
-
-    &--tertiary {
-        border-bottom: var(--border-width) solid var(--text-color);
-        padding-inline: var(--jkl-button-teritary-padding-icon);
 
         &:has(.jkl-icon:first-child) {
-            padding-inline: var(--jkl-button-teritary-padding-icon) calc(var(--jkl-button-teritary-padding-icon) * 2);
+            padding-inline-start: var(--jkl-button-padding-icon);
         }
 
         &:has(.jkl-icon:last-child) {
-            padding-inline: calc(var(--jkl-button-teritary-padding-icon) * 2) var(--jkl-button-teritary-padding-icon);
+            padding-inline-end: var(--jkl-button-padding-icon);
+        }
+
+        &:has(.jkl-icon:first-child):has(.jkl-icon:last-child) {
+            padding-inline: var(--jkl-button-padding-icon-button);
+        }
+
+        &__label {
+            @include jkl.motion("standard", "expressive", translate);
+
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: jkl.$unit-02;
+            pointer-events: none;
+        }
+
+        &__loader {
+            @include jkl.motion("standard", "expressive", opacity, translate);
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            translate: -50% 350%;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        &__text {
+            // Håndter tekster som er lenger enn knappen
+            // Knappen vokser til teksten, men kan f.eks. begrenses
+            // av sidebredde på mobil
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        &[data-loading="true"] &__label {
+            translate: 0 -120%;
+        }
+
+        &[data-loading="true"] &__loader {
+            translate: -50% -50%;
+            opacity: 1;
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+        }
+
+        &:hover {
+            background-color: color-mix(
+                in srgb,
+                var(--background-color),
+                var(--text-color) 15%
+            );
+
+            @media (forced-colors: active) {
+                @include jkl.focus-outline;
+            }
+        }
+
+        &--primary,
+        &--secondary,
+        &--ghost {
+            --border-radius: 999px;
+        }
+
+        &--primary {
+            --background-color: var(--jkl-color-background-action);
+            --text-color: var(--jkl-color-text-on-action);
+
+            @media (forced-colors: active) {
+                border: calc(var(--border-width) * 2) solid Highlight;
+            }
+        }
+
+        &--secondary {
+            border: var(--border-width) solid var(--text-color);
+        }
+
+        &--tertiary {
+            border-bottom: var(--border-width) solid var(--text-color);
+            padding-inline: var(--jkl-button-tertiary-padding-icon);
+
+            &:has(.jkl-icon:first-child) {
+                padding-inline: var(--jkl-button-tertiary-padding-icon)
+                    calc(var(--jkl-button-tertiary-padding-icon) * 2);
+            }
+
+            &:has(.jkl-icon:last-child) {
+                padding-inline: calc(
+                        var(--jkl-button-tertiary-padding-icon) * 2
+                    )
+                    var(--jkl-button-tertiary-padding-icon);
+            }
         }
     }
 }

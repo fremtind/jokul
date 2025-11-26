@@ -1,5 +1,5 @@
 import type { ChangeEvent, SelectHTMLAttributes } from "react";
-import type { DataTestAutoId, Density } from "../../core/types.js";
+import type { DataTestAutoId } from "../../core/types.js";
 import type { ValuePair } from "../../utilities/valuePair.js";
 import type { LabelProps } from "../input-group/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
@@ -43,10 +43,7 @@ export interface SelectProps
     id?: string;
     name: string;
     label: string;
-    labelProps?: Omit<
-        LabelProps,
-        "children" | "density" | "htmlFor" | "standAlone"
-    >;
+    labelProps?: Omit<LabelProps, "children" | "htmlFor" | "standAlone">;
     items: Array<string | ValuePair>;
     /**
      * @default false
@@ -66,7 +63,6 @@ export interface SelectProps
     searchable?:
         | boolean
         | ((searchValue: string, searchItem: string | ValuePair) => boolean);
-    density?: Density;
     width?: string;
     onChange?: SelectChangeEventHandler;
     onBlur?: SelectChangeEventHandler;

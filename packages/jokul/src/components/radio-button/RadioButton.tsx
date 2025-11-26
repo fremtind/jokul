@@ -8,11 +8,7 @@ import type { RadioButtonProps } from "./types.js";
 export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
     (props, ref) => {
         const { checked, value, supportLabelProps, helpLabel, ...rest } = props;
-        const {
-            value: selectedValue,
-            density,
-            ...context
-        } = useRadioGroupContext();
+        const { value: selectedValue, ...context } = useRadioGroupContext();
         const supportId = useId("jkl-support-label");
 
         return (
@@ -36,7 +32,6 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
                     label={helpLabel}
                     labelType={"help"}
                     id={supportId}
-                    density={density}
                 />
             </>
         );

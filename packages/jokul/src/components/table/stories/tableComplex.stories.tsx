@@ -227,6 +227,7 @@ export const TableComplex: Story = {
                                                     </DescriptionTerm>
                                                     <DescriptionDetail>
                                                         <Link
+                                                            key="1"
                                                             external
                                                             target={"_blank"}
                                                             href={"#"}
@@ -236,6 +237,7 @@ export const TableComplex: Story = {
                                                     </DescriptionDetail>
                                                     <DescriptionDetail>
                                                         <Link
+                                                            key="2"
                                                             download={`${row[3]} ${new Date(row[0] as Date).toLocaleDateString()}`}
                                                             href={"#"}
                                                         >

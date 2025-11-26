@@ -1,65 +1,53 @@
 @use "../../../core/jkl";
 
-@include jkl.comfortable-density-variables {
-    @include jkl.declare-font-variables("jkl-table-header", "body");
+@layer jokul.components {
+    .jkl-table-header {
+        --jkl-table-header-padding-inline: var(--jkl-unit-15);
+        --jkl-table-header-padding-block: var(--jkl-unit-10);
 
-    --jkl-table-header-padding-inline: var(--jkl-spacing-12);
-    --jkl-table-header-padding-block: var(--jkl-spacing-8);
-}
+        @include jkl.text-style("text-small") {
+            font-weight: jkl.$typography-weight-bold;
+        };
 
-@include jkl.compact-density-variables {
-    @include jkl.declare-font-variables("jkl-table-header", "small");
+        padding-block: var(--jkl-table-header-padding-block);
+        padding-inline: var(--jkl-table-header-padding-inline);
+        text-align: left;
+        white-space: nowrap;
 
-    --jkl-table-header-padding-inline: var(--jkl-spacing-8);
-    --jkl-table-header-padding-block: var(--jkl-spacing-4);
-}
-
-.jkl-table-header {
-    @include jkl.use-font-variables("jkl-table-header");
-
-    padding-block: var(--jkl-table-header-padding-block);
-    padding-inline: var(--jkl-table-header-padding-inline);
-    text-align: left;
-    white-space: nowrap;
-
-    &--bold {
-        font-weight: var(--jkl-typography-weight-bold);
-    }
-
-    &--sortable {
-        cursor: pointer;
-        user-select: none;
-    }
-
-    &--sr-only {
-        @include jkl.screenreader-only;
-    }
-
-    &__arrows {
-        display: flex;
-        gap: var(--jkl-spacing-4);
-        align-items: center;
-
-        &[data-align="center"] {
-            justify-content: center;
+        &--align-center {
+            text-align: center;
         }
 
-        &[data-align="right"] {
-            justify-content: end;
+        &--align-right {
+            text-align: right;
         }
-    }
 
-    @mixin _responsive-table-header {
-        display: none;
-    }
-
-    .jkl-table--collapse-to-list & {
-        @include jkl.small-device {
-            @include _responsive-table-header;
+        &--bold {
+            font-weight: var(--jkl-typography-weight-bold);
         }
-    }
 
-    .jkl-table--collapse-to-list[data-collapse] & {
-        @include _responsive-table-header;
+        &__arrows {
+            display: flex;
+            gap: var(--jkl-spacing-4);
+            align-items: center;
+
+            &[data-align="center"] {
+                justify-content: center;
+            }
+
+            &[data-align="right"] {
+                justify-content: end;
+            }
+        }
+
+        @mixin _responsive-table-header {
+            display: none;
+        }
+
+        .jkl-table--collapse-to-list & {
+            @include jkl.small-device {
+                @include _responsive-table-header;
+            }
+        }
     }
 }
