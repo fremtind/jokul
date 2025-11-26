@@ -14,7 +14,8 @@ Selv om disse konseptene ikke er helt like så kan du som regel bytte ut `data-d
 - [Se oversikt over tokens for avstander her](https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/avstander).
 
 Før:
-``` ts
+
+```ts
 data-density="compact"
 // Eller
 data-layout-density="compact"
@@ -22,7 +23,7 @@ data-layout-density="compact"
 
 Etter:
 
-``` ts
+```ts
 data-size="small"
 ```
 
@@ -31,7 +32,8 @@ data-size="small"
 Langtlevende komponenter har hatt mulighet for å sette density som en prop. Dette er fjernet til fordel for data-attributter. **Sett `data-size` på seksjoner med innhold**.
 
 Før:
-``` ts
+
+```ts
 <section/div/article>
     ...
     <Button density="compact">Klikk på meg</Button>
@@ -41,7 +43,7 @@ Før:
 
 Etter:
 
-``` ts
+```ts
 <section/div/article data-size="small">
     ...
     <Button>Klikk på meg</Button>
@@ -60,13 +62,15 @@ Der du har brukt `body` eller `small`, må du nå velge mellom en variant av par
 - Dersom du er usikker: kontakt en designer på teamet ditt, eller Jøkul-teamet.
 
 Før:
-``` css
+
+```css
 @includes jkl.text-style("body");
 @includes jkl.text-style("small");
 ```
 
 Etter:
-``` css
+
+```css
 @includes jkl.text-style("paragraph-medium");
 @includes jkl.text-style("paragraph-small");
 
@@ -78,19 +82,21 @@ Etter:
 
 ### Beta-komponenter blir stabile
 
-Betakomponentene prefixes med <code>BETA_</code> for å gjøre det enkelt å finne. For å bruke stabile komponenter må du derfor fjerne prefixen. Dette gjelder:
+Betakomponentene prefixes med <code>BETA\_</code> for å gjøre det enkelt å finne. For å bruke stabile komponenter må du derfor fjerne prefixen. Dette gjelder:
 
 - Search
 - Table of Contents
 
 Før:
-``` ts
+
+```ts
 <BETA_Search ...
 <BETA_TableOfContents ...
 ```
 
 Etter:
-``` ts
+
+```ts
 <Search ...
 <TableOfContents ...
 ```
@@ -102,47 +108,42 @@ Beta-versjonen av `LinkList` er tatt inn som stabil.
 - Der du tidligere brukte `variant="ordered"` bruker du nå den nye komponenten TableOfContents.
 
 Før:
+
 ```tsx
 <LinkList variant="ordered">
     <LinkList.Item>
-        <LinkList.Link href="#">
-            Lenketekst
-        </LinkList.Link>
+        <LinkList.Link href="#">Lenketekst</LinkList.Link>
     </LinkList.Item>
 </LinkList>
 ```
 
 Etter:
+
 ```tsx
 <TableOfContents>
-    <TableOfContents.Link href="#">
-        Lenketekst
-    </TableOfContents.Link>
+    <TableOfContents.Link href="#">Lenketekst</TableOfContents.Link>
 </TableOfContents>
 ```
 
 - Der du tidligere brukte `variant="unordered"`, eller uten å sette `variant`, bruker du den nå alltid uten `variant`.
 
 Før:
+
 ```tsx
 <LinkList variant="unordered">
     <LinkList.Item>
-        <LinkList.Link href="#">
-            Lenketekst
-        </LinkList.Link>
+        <LinkList.Link href="#">Lenketekst</LinkList.Link>
     </LinkList.Item>
 </LinkList>
 ```
 
 Etter:
+
 ```tsx
 <LinkList>
-    <LinkList.Link href="#">
-        Lenketekst
-    </LinkList.Link>
+    <LinkList.Link href="#">Lenketekst</LinkList.Link>
 </LinkList>
 ```
-
 
 ## Oppgradering av Jøkul til versjon 1.x.x
 
@@ -169,7 +170,6 @@ Hovedkomponenten for bruk av radio buttons har skiftet navn til `<RadioButtons>`
 ### TextField
 
 Varianten `<TextField inline />` er erstattet av `<InlineTextField>`. Denne komponenten tar ikke lenger inn `errorLabel` eller `helpLabel`. Om det skal vises error state kan man bruke den nye prop-en `invalid`
-
 
 Ting å passe på når man går over fra gammel pakkestruktur til monopakke
 
@@ -250,18 +250,20 @@ Hvis du sender inn `$webfonts-dir` variabelen er det også her path må oppdater
 Med noen unntak gjøres dette på samme måte for alle:
 
 1. Import av React komponent endres
+
 ```diff
 - import { Feedback } from "@fremtind/jkl-feedback-react";
 + import { Feedback } from "@fremtind/jokul/feedback";
 ```
+
 2. Import av styling endres
+
 ```diff
 - @use "@fremtind/jkl-feedback/feedback";
 + @use "@fremtind/jokul/styles/components/feedback";
 ```
 
 Les mer om hvordan du bruker stilark i `@fremtind/jokul` i [README-filen](./README.md#stilark)
-
 
 #### Autosuggest
 
