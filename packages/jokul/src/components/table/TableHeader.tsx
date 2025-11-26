@@ -7,10 +7,10 @@ import type { TableHeaderProps } from "./types.js";
 export type TableSortDirection = "asc" | "desc" | "none";
 
 const SortableArrows = ({ direction }: { direction: TableSortDirection }) => {
-    if (direction === "desc") return <ChevronDownIcon />;
-    if (direction === "asc") return <ChevronUpIcon />;
+    if (direction === "desc") return <ChevronDownIcon variant="inherit" />;
+    if (direction === "asc") return <ChevronUpIcon variant="inherit" />;
 
-    return <Icon>unfold_more</Icon>;
+    return <Icon variant="inherit">unfold_more</Icon>;
 };
 
 const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
