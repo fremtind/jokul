@@ -2,27 +2,10 @@
 @use "../../../core/jkl";
 @use "./toggle-slider";
 
-@include jkl.comfortable-density-variables {
-    @include jkl.declare-font-variables("jkl-toggle", "body");
-
-    --jkl-toggle-switch-height: #{jkl.rem(28px)};
-    --jkl-toggle-switch-width: #{jkl.rem(48px)};
-    --jkl-toggle-switch-knob-size: #{jkl.rem(20px)};
-    --jkl-toggle-switch-indicator-spacing: 0;
-    --jkl-toggle-switch-help-label-spacing: var(--jkl-unit-02);
-}
-
-@include jkl.compact-density-variables {
-    @include jkl.declare-font-variables("jkl-toggle", "small");
-
-    --jkl-toggle-switch-height: #{jkl.rem(20px)};
-    --jkl-toggle-switch-width: #{jkl.rem(36px)};
-    --jkl-toggle-switch-knob-size: #{jkl.rem(12px)};
-    --jkl-toggle-switch-indicator-spacing: #{jkl.rem(-2px)};
-    --jkl-toggle-switch-help-label-spacing: 0;
-}
-
 .jkl-toggle-switch {
+    --jkl-toggle-switch-height: var(--jkl-unit-40);
+    --jkl-toggle-switch-width: var(--jkl-unit-60);
+    --jkl-toggle-switch-knob-size: var(--jkl-unit-30);
     --border-width: #{jkl.rem(1px)};
     --switch-padding: #{jkl.rem(4px)};
     --knob-position: 0;
@@ -45,7 +28,7 @@
     gap: var(--jkl-unit-10);
     touch-action: none; // Forhindrer at siden flytter på seg når man drar i toggle
 
-    @include jkl.use-font-variables("jkl-toggle");
+    @include jkl.text-style("text-medium");
     @include jkl.reset-outline;
 
     @include jkl.forced-colors-mode {
@@ -58,8 +41,10 @@
         --indicator-color: var(--jkl-color-background-container-inverted);
         --knob-color: var(--jkl-color-text-inverted);
         --knob-position: calc(
-            var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) -
-                var(--switch-padding) * 2
+            var(--jkl-toggle-switch-width) - var(
+                    --jkl-toggle-switch-knob-size
+                ) - var(--switch-padding) *
+                2
         );
     }
 
@@ -78,6 +63,11 @@
 }
 
 .jkl-toggle-switch-widget {
+    --jkl-toggle-switch-height: var(--jkl-unit-40);
+    --jkl-toggle-switch-width: var(--jkl-unit-60);
+    --jkl-toggle-switch-knob-size: var(--jkl-unit-30);
+    --jkl-toggle-switch-indicator-spacing: 0;
+
     position: relative;
     box-sizing: border-box;
     display: flex;
@@ -107,6 +97,7 @@
         height: var(--jkl-toggle-switch-knob-size);
         width: var(--jkl-toggle-switch-knob-size);
         color: var(--icon-color);
+        font-size: var(--jkl-font-size-1);
 
         @include jkl.motion;
         transition-property: translate;

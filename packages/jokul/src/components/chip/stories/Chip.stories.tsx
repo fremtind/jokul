@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState, useEffect } from "react";
-import { Flex } from "../../flex/Flex.jsx";
+import { Flex } from "../../flex/Flex.js";
 import { FieldGroup } from "../../input-group/index.js";
 import { Chip as ChipComponent } from "../Chip.js";
 import "../styles/_index.scss";
@@ -18,11 +18,6 @@ const meta = {
             options: ["input", "filter"],
             description:
                 "Bestemmer stilen og funksjonaliteten. `input` brukes for fjerning, `filter` for valg.",
-        },
-        size: {
-            control: "select",
-            options: ["small", "large"],
-            description: "Størrelsen på chip-en.",
         },
         selected: {
             control: "boolean",
@@ -44,7 +39,6 @@ export const Chip: Story = {
     args: {
         children: "Husforsikring",
         variant: "input",
-        size: "small",
     },
 };
 
@@ -52,7 +46,6 @@ export const Filter: Story = {
     name: "Filter",
     args: {
         variant: "filter",
-        size: "small",
     },
     render: ({ variant, ...args }) => {
         const insuranceProducts = [
@@ -148,7 +141,6 @@ export const Input: Story = {
     name: "Input",
     args: {
         variant: "input",
-        size: "small",
     },
     parameters: {
         docs: {

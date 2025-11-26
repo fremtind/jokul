@@ -1,4 +1,3 @@
-import type { Density } from "../../core/types.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export const buttonVariants = [
@@ -30,7 +29,6 @@ export type IconOptions =
       };
 
 type Props = {
-    density?: Density;
     /**
      * Hvilken variant av knappen skal vises. Tertiary er planlagt fjernet fordi den ligner for mye på en lenke.
      * @default "secondary"

@@ -3,7 +3,6 @@ import { nanoid } from "nanoid";
 import React, { useCallback, useEffect, useState } from "react";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
 import type { InjectedProps } from "./TabList.js";
-import { TabsContextProvider } from "./tabsContext.js";
 import type { TabListProps, TabPanelProps, TabsProps } from "./types.js";
 
 /**
@@ -12,12 +11,7 @@ import type { TabListProps, TabPanelProps, TabsProps } from "./types.js";
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = ({
-    onChange,
-    defaultTab,
-    density,
-    ...props
-}: TabsProps) => {
+export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
     const [activeIndex, setActiveIndex] = useState(defaultTab ?? 0);
 
     const previousTabIndex = usePreviousValue(activeIndex);
@@ -90,15 +84,9 @@ export const Tabs = ({
     }, [resolveIDs]);
 
     return (
-        <TabsContextProvider state={{ density }}>
-            <div
-                {...props}
-                className={clsx("jkl-tabs", props.className)}
-                data-density={density}
-            >
-                {renderTabList()}
-                {renderTabPanels()}
-            </div>
-        </TabsContextProvider>
+        <div {...props} className={clsx("jkl-tabs", props.className)}>
+            {renderTabList()}
+            {renderTabPanels()}
+        </div>
     );
 };

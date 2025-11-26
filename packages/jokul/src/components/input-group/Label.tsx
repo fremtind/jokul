@@ -4,7 +4,6 @@ import type { LabelProps } from "./types.js";
 
 export const Label: FC<LabelProps> = ({
     variant = "small",
-    density,
     srOnly,
     children,
     standAlone,
@@ -29,12 +28,7 @@ export const Label: FC<LabelProps> = ({
     }
 
     return (
-        <C
-            {...rest}
-            className={labelClassNames}
-            htmlFor={htmlFor}
-            data-density={density}
-        >
+        <C {...rest} className={labelClassNames} htmlFor={htmlFor}>
             {children}
         </C>
     );

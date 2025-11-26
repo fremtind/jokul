@@ -43,15 +43,12 @@ export const ComponentHeader = ({
                     )}
                     <div className={styles.status}>
                         {status?.value === "deprecated" && (
-                            <WarningMessage
-                                title="Deprecated"
-                                density="compact"
-                            >
+                            <WarningMessage title="Deprecated">
                                 {status.statusDescription}
                             </WarningMessage>
                         )}
                         {status?.value === "beta" && (
-                            <InfoMessage title="Beta" density="compact">
+                            <InfoMessage title="Beta">
                                 {status.statusDescription}
                             </InfoMessage>
                         )}

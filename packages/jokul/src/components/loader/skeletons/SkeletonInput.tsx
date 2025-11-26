@@ -6,18 +6,16 @@ import { SkeletonLabel } from "./SkeletonLabel.js";
 
 export const SkeletonInput = ({
     className,
-    density,
     labelProps,
     inputProps,
     ...rest
 }: SkeletonInputProps) => {
-    const compact = density === "compact";
     return (
         <div className={clsx("jkl-skeleton-input", className)} {...rest}>
-            <SkeletonLabel density={density} {...labelProps} />
+            <SkeletonLabel {...labelProps} />
             <SkeletonElement
-                width={compact ? 301 : 316}
-                height={compact ? 32 : 48}
+                width="var(--jkl-unit-210)"
+                height="var(--jkl-unit-40)"
                 {...inputProps}
             />
         </div>

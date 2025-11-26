@@ -456,15 +456,15 @@
                 "default": "./build/cjs/components/select/index.cjs"
             }
         },
-        "./styles/components/search": "./styles/components-beta/search/_index.scss",
+        "./styles/components/search": "./styles/components/search/_index.scss",
         "./search": {
             "import": {
-                "types": "./build/es/components-beta/search/index.d.ts",
-                "default": "./build/es/components-beta/search/index.js"
+                "types": "./build/es/components/search/index.d.ts",
+                "default": "./build/es/components/search/index.js"
             },
             "require": {
-                "types": "./build/cjs/components-beta/search/index.d.cts",
-                "default": "./build/cjs/components-beta/search/index.cjs"
+                "types": "./build/cjs/components/search/index.d.cts",
+                "default": "./build/cjs/components/search/index.cjs"
             }
         },
         "./styles/components/segmented-control": "./styles/components/segmented-control/_index.scss",

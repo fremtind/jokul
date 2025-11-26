@@ -74,11 +74,11 @@ describe("Combobox", () => {
         expect(screen.getByRole("option", { name: "drop" })).toBeVisible();
     });
 
-    it("can be forced into compact mode", () => {
+    it("can be forced into large size", () => {
         const screen = setup(
             <Combobox
                 name="snoop"
-                density="compact"
+                data-size="large"
                 items={[
                     { label: "1", value: "1" },
                     { label: "2", value: "2" },
@@ -92,8 +92,8 @@ describe("Combobox", () => {
         );
 
         expect(screen.getByTestId("jkl-combobox")).toHaveAttribute(
-            "data-density",
-            "compact",
+            "data-size",
+            "large",
         );
     });
 
@@ -193,11 +193,11 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("compact combobox should be a11y compliant", async () => {
+    it("size small combobox should be a11y compliant", async () => {
         const { container } = setup(
             <Combobox
                 name="items"
-                density="compact"
+                data-size="small"
                 label="Combobox"
                 onChange={() => {
                     return;

@@ -23,7 +23,7 @@ const DataTable = forwardRef<HTMLTableElement, DataTableProps>(
                 <TableHead>
                     <TableRow>
                         {columns.map((column, index) => (
-                            <TableHeader key={index} density="compact" bold>
+                            <TableHeader key={index} bold>
                                 {column}
                             </TableHeader>
                         ))}

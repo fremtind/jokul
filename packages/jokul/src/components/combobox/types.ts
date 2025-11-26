@@ -1,5 +1,4 @@
 import type { ChangeEvent } from "react";
-import type { Density } from "../../core/types.js";
 import type { ValuePair } from "../../utilities/valuePair.js";
 import type { InputGroupProps, LabelProps } from "../input-group/types.js";
 
@@ -25,16 +24,12 @@ export type ComboboxChangeEventHandler = (
 export interface ComboboxProps extends InputGroupProps {
     id?: string;
     placeholder?: string;
-    labelProps?: Omit<
-        LabelProps,
-        "children" | "density" | "htmlFor" | "standAlone"
-    >;
+    labelProps?: Omit<LabelProps, "children" | "htmlFor" | "standAlone">;
     items: Array<ValuePair>;
     noMatchingOption?: string;
     label: string;
     name: string;
     value?: Array<ValuePair>;
-    density?: Density;
     width?: string;
     helpLabel?: string;
     errorLabel?: string;

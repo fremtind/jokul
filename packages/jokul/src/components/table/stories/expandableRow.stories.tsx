@@ -1,11 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { Fragment } from "react";
+import React from "react";
 import { faktura } from "../../../../../../storybook-public/data/table-data.js";
-import {
-    DescriptionDetail,
-    DescriptionList,
-    DescriptionTerm,
-} from "../../description-list/index.js";
+import { DescriptionList } from "../../description-list/index.js";
 import { Link } from "../../link/index.js";
 import { ExpandableTableRow } from "../ExpandableTableRow.js";
 import { ExpandableTableRowController } from "../ExpandableTableRowController.js";
@@ -45,29 +41,29 @@ const meta = {
                     faktura.rows[0].map(
                         (cell, rowIndex) =>
                             columnIndex === rowIndex && (
-                                <Fragment key={rowIndex}>
-                                    <DescriptionTerm>{column}</DescriptionTerm>
-                                    <DescriptionDetail>
-                                        {cell.toLocaleString()}
-                                    </DescriptionDetail>
-                                </Fragment>
+                                <DescriptionList.Item
+                                    key={rowIndex}
+                                    terms={column}
+                                    details={cell.toLocaleString()}
+                                />
                             ),
                     ),
                 )}
-                <DescriptionTerm>Faktura</DescriptionTerm>
-                <DescriptionDetail>
-                    <Link external target={"_blank"} href={"#"}>
-                        Åpne i ny fane
-                    </Link>
-                </DescriptionDetail>
-                <DescriptionDetail>
-                    <Link
-                        download={`${faktura.rows[3]} ${new Date(faktura.rows[0][0] as Date).toLocaleDateString()}`}
-                        href={"#"}
-                    >
-                        Last ned
-                    </Link>
-                </DescriptionDetail>
+                <DescriptionList.Item
+                    terms="Faktura"
+                    details={[
+                        <Link key="1" external target={"_blank"} href={"#"}>
+                            Åpne i ny fane
+                        </Link>,
+                        <Link
+                            key="2"
+                            download={`${faktura.rows[3]} ${new Date(faktura.rows[0][0] as Date).toLocaleDateString()}`}
+                            href={"#"}
+                        >
+                            Last ned
+                        </Link>,
+                    ]}
+                />
             </DescriptionList>
         ),
         isOpen: false,

@@ -22,16 +22,17 @@ export const ToggleSlider: FC<ToggleSliderProps> = ({
     onToggle,
     defaultValue,
     hideLegend = false,
-    density,
     ...rest
 }) => {
+    const size = (rest as { "data-size"?: string })["data-size"];
+
     const [currentLabel, setCurrentLabel] = useState(defaultValue || labels[0]);
     const id = useId("jkl-toggle-slider");
     const legendId = useId("jkl-toggle-slider-legend");
     const activeRef = useRef<HTMLLabelElement>(null);
 
     const shouldTransform = currentLabel === labels[1];
-    const pillStyles = usePillStyles(activeRef, shouldTransform, [density]);
+    const pillStyles = usePillStyles(activeRef, shouldTransform, [size]);
 
     const handleChange: ToggleChangeHandler<HTMLElement> = (_, pressed) => {
         setCurrentLabel(pressed ? labels[1] : labels[0]);
@@ -62,7 +63,6 @@ export const ToggleSlider: FC<ToggleSliderProps> = ({
             className={clsx("jkl-toggle-slider", className)}
             aria-labelledby={legendId}
             data-testid="jkl-toggle-slider"
-            data-density={density}
         >
             <div
                 id={legendId}

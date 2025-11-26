@@ -1,0 +1,91 @@
+import clsx from "clsx";
+import React, { forwardRef, useRef } from "react";
+import { mergeRefs } from "../../utilities/mergeRefs.js";
+import { InputGroup } from "../input-group/index.js";
+import { SearchButton } from "./SearchButton.js";
+import type { SearchInputProps } from "./types.js";
+
+export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
+    function Search(props, forwardedRef): React.JSX.Element {
+        const {
+            label = "Søk",
+            className,
+            errorLabel,
+            helpLabel,
+            labelProps = { srOnly: true },
+            supportLabelProps,
+            tooltip,
+            description,
+            name = "q",
+            placeholder = "Søk",
+            spellCheck = false,
+            icon = "search",
+            children,
+            value,
+            ...rest
+        } = props;
+
+        const inputGroupProps = {
+            label,
+            errorLabel,
+            helpLabel,
+            labelProps,
+            supportLabelProps,
+            tooltip,
+            description,
+        };
+
+        const internalRef = useRef<HTMLInputElement>(null);
+        const ref = mergeRefs(internalRef, forwardedRef);
+
+        const handleClick = () => {
+            if (internalRef.current) {
+                const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+                    window.HTMLInputElement.prototype,
+                    "value",
+                )?.set;
+                nativeInputValueSetter?.call(internalRef.current, "");
+                const event = new Event("change", { bubbles: true });
+                internalRef.current.dispatchEvent(event);
+                internalRef.current.focus();
+            }
+        };
+
+        return (
+            <div className={clsx("jkl-search", className)}>
+                <InputGroup
+                    {...inputGroupProps}
+                    label={label}
+                    data-testid="jkl-search"
+                    render={(inputProps) => (
+                        <div className="input-wrapper" data-icon={icon}>
+                            <input
+                                ref={ref}
+                                type="search"
+                                name={name}
+                                placeholder={placeholder}
+                                spellCheck={spellCheck}
+                                {...inputProps}
+                                {...rest}
+                            />
+                            <button
+                                className="clear-button"
+                                type="button"
+                                onClick={handleClick}
+                            >
+                                <span className="jkl-sr-only">
+                                    Tilbakestill søkefeltet
+                                </span>
+                            </button>
+                        </div>
+                    )}
+                />
+                {children}
+            </div>
+        );
+    },
+) as ReturnType<typeof forwardRef<HTMLInputElement, SearchInputProps>> & {
+    Button: typeof SearchButton;
+};
+
+Search.Button = SearchButton;
