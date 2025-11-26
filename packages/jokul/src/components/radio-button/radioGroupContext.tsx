@@ -3,13 +3,12 @@ import React, {
     useContext,
     type ChangeEventHandler,
 } from "react";
-import type { Density, WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../core/types.js";
 
 type RadioGroupContext = {
     name: string | undefined;
     value: string | undefined;
     inline: boolean;
-    density?: Density;
     invalid: boolean;
     onChange: ChangeEventHandler<HTMLInputElement> | undefined;
 };
@@ -21,7 +20,6 @@ const radioGroupContext = createContext<RadioGroupContext>({
         return;
     },
     inline: false,
-    density: undefined,
     invalid: false,
 });
 

@@ -1,18 +1,29 @@
+@use "sass:map";
 @use "../../jkl";
+@use "../../jkl/typography";
 
 @layer jokul.utility {
     .jkl-body {
-        @include jkl.text-style("body");
+        @include jkl.text-style("paragraph-medium");
     }
 
     .jkl-bold {
-        @include jkl.text-style("body") {
+        @include jkl.text-style("paragraph-medium") {
             --jkl-icon-weight: #{jkl.$icon-weight-bold};
             font-weight: jkl.$typography-weight-bold;
         }
     }
 
     .jkl-small {
-        @include jkl.text-style("small");
+        @include jkl.text-style("paragraph-small");
+    }
+
+    @each $style, $_ in typography.$text-styles {
+        .jkl-#{$style} {
+            @each $property, $value in map.get(typography.$text-styles, $style)
+            {
+                #{$property}: $value;
+            }
+        }
     }
 }

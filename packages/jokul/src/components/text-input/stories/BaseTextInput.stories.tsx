@@ -32,7 +32,6 @@ const meta = {
                 disable: true,
             },
         },
-        density: { table: { disable: true } },
         align: {
             table: { defaultValue: { summary: "left" } },
         },

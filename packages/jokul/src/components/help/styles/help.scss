@@ -1,47 +1,49 @@
 @use "../../../core/jkl/index" as jkl;
 
-.jkl-help-trigger {
-    vertical-align: middle;
-    width: fit-content;
-    height: fit-content;
-}
-
-.jkl-help-popover {
-    max-width: 40ch;
-    padding: var(--jkl-unit-30);
-    margin: var(--jkl-unit-05);
-    inset: auto;
-    border: none;
-    background-color: var(--jkl-color-background-container-inverted);
-    color: var(--jkl-color-text-inverted);
-
-    header button {
-        display: none;
+@layer jokul.components {
+    .jkl-help-trigger {
+        vertical-align: middle;
+        width: fit-content;
+        height: fit-content;
     }
 
-    .title {
-        @include jkl.text-style("body") {
-            font-weight: bold;
+    .jkl-help-popover {
+        max-width: 40ch;
+        padding: var(--jkl-unit-30);
+        margin: var(--jkl-unit-05);
+        inset: auto;
+        border: none;
+        background-color: var(--jkl-color-background-container-inverted);
+        color: var(--jkl-color-text-inverted);
+
+        header button {
+            display: none;
         }
-    }
 
-    &[data-position="top"] {
-        position-area: top center;
-        position-try: top, bottom, right, left;
-    }
+        .title {
+            @include jkl.text-style("heading-2") {
+                font-weight: bold;
+            }
+        }
 
-    &[data-position="bottom"] {
-        position-area: bottom center;
-        position-try: bottom, top, right, left;
-    }
+        &[data-position="top"] {
+            position-area: top center;
+            position-try: top, bottom, right, left;
+        }
 
-    &[data-position="left"] {
-        position-area: left center;
-        position-try: left, right, top, bottom;
-    }
+        &[data-position="bottom"] {
+            position-area: bottom center;
+            position-try: bottom, top, right, left;
+        }
 
-    &[data-position="right"] {
-        position-area: right center;
-        position-try: right, left, top, bottom;
+        &[data-position="left"] {
+            position-area: left center;
+            position-try: left, right, top, bottom;
+        }
+
+        &[data-position="right"] {
+            position-area: right center;
+            position-try: right, left, top, bottom;
+        }
     }
 }

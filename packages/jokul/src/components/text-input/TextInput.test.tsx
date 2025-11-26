@@ -26,11 +26,11 @@ describe("TextInput", () => {
         expect(component).toHaveAttribute("maxlength", "10");
     });
 
-    it("renders as compact when specified", () => {
-        render(<TextInput label="testing" density="compact" />);
+    it("renders as size small when specified", () => {
+        render(<TextInput label="testing" data-size="small" />);
 
         const component = screen.getByTestId("jkl-text-input");
-        expect(component).toHaveAttribute("data-density", "compact");
+        expect(component).toHaveAttribute("data-size", "small");
     });
 
     it("has the placeholder given", () => {

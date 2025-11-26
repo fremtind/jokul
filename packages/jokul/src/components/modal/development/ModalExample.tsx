@@ -27,7 +27,6 @@ type ModalComponentProps = ExampleComponentProps & {
 };
 
 function ModalComponent({
-    boolValues,
     dialogRef,
     onConfirm,
     onCancel,
@@ -51,14 +50,10 @@ function ModalComponent({
         };
     }, [dialogRef, instance]);
 
-    const { theme, density } = useExampleContext();
+    const { theme } = useExampleContext();
 
     return ReactDOM.createPortal(
-        <ModalContainer
-            {...container}
-            data-theme={theme}
-            data-layout-density={density}
-        >
+        <ModalContainer {...container} data-theme={theme}>
             <ModalOverlay
                 {...overlay}
                 onClick={() => {

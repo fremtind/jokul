@@ -9,7 +9,6 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
             className,
             caption,
             children,
-            density,
             collapseToList = false,
             fullWidth = false,
             tabIndex,
@@ -20,9 +19,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
         const [hasStickyHead, setHasStickyHead] = useState<boolean>(false);
 
         return (
-            <TableContextProvider
-                state={{ density, collapseToList, setHasStickyHead }}
-            >
+            <TableContextProvider state={{ collapseToList, setHasStickyHead }}>
                 <table
                     className={clsx("jkl-table", className, {
                         ["jkl-table--full-width"]: fullWidth,

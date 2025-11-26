@@ -1,53 +1,31 @@
 import clsx from "clsx";
-import React from "react";
-import type {
-    PolymorphicPropsWithRef,
-    PolymorphicRef,
-} from "../../utilities/polymorphism/polymorphism.js";
-import { ArrowRightIcon } from "../icon/icons/ArrowRightIcon.js";
-import type { ItemProps, LinkComponent, LinkListProps } from "./types.js";
-
-const Item: ItemProps = ({ className, ...rest }) => {
-    return <li className={clsx("jkl-link-list-item", className)} {...rest} />;
-};
-
-const Link = React.forwardRef(function LinkListLink<
-    ElementType extends React.ElementType = "a",
->(
-    props: PolymorphicPropsWithRef<ElementType>,
-    ref: PolymorphicRef<ElementType>,
-) {
-    const { as: Component = "a", children, className, ...rest } = props;
-
-    return (
-        <Component
-            className={clsx("jkl-link-list-link", className)}
-            ref={ref}
-            {...rest}
-        >
-            {children}
-            <ArrowRightIcon className="jkl-link-list-link__arrow" />
-        </Component>
-    );
-}) as LinkComponent;
+import React, { useId } from "react";
+import { LinkListLink } from "./LinkListLink.js";
+import type { LinkListProps } from "./types.js";
 
 export const LinkList = ({
-    variant,
+    label,
+    hideLabel = true,
     className,
     ...rest
 }: LinkListProps): React.JSX.Element => {
-    const Component = variant === "ordered" ? "ol" : "ul";
+    const id = useId();
 
     return (
-        <Component
-            className={clsx("jkl-link-list", className, {
-                "jkl-link-list--ordered": variant === "ordered",
-                "jkl-link-list--unordered": variant === "unordered",
-            })}
-            {...rest}
-        />
+        <nav
+            className={clsx("jkl-link-list", className)}
+            aria-labelledby={`list-${id}-label`}
+        >
+            <p
+                className="jkl-link-list-title"
+                id={`list-${id}-label`}
+                hidden={hideLabel}
+            >
+                {label}
+            </p>
+            <ul aria-labelledby={`list-${id}-label`} {...rest} />
+        </nav>
     );
 };
 
-LinkList.Link = Link;
-LinkList.Item = Item;
+LinkList.Link = LinkListLink;

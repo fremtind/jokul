@@ -1,6 +1,5 @@
 export type {
     ColorScheme,
-    Density,
     Easing,
     Timing,
     DataTestAutoId,

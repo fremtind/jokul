@@ -15,7 +15,6 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
             children,
             id,
             value,
-            density,
             multiple = true,
             maxSizeBytes,
             onChange,
@@ -41,7 +40,6 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                 "jkl-file-input--has-files": hasFiles,
                             },
                         )}
-                        data-layout-density={density ? density : "compact"}
                         {...rest}
                     >
                         <Dropzone>
@@ -74,7 +72,6 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                     className={clsx("jkl-file-input", className, {
                         "jkl-file-input--has-files": hasFiles,
                     })}
-                    data-layout-density={density}
                     {...rest}
                 >
                     <Dropzone>

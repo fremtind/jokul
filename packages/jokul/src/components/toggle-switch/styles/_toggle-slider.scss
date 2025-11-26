@@ -3,22 +3,6 @@
 
 $_slider-rounded: jkl.rem(100px);
 
-@include jkl.comfortable-density-variables {
-    @include jkl.declare-font-variables("jkl-slider", "body");
-
-    --jkl-slider-legend-font-size: var(--jkl-body-font-size);
-    --jkl-slider-legend-line-height: var(--jkl-body-line-height);
-    --jkl-slider-legend-font-weight: #{jkl.$typography-weight-bold};
-}
-
-@include jkl.compact-density-variables {
-    @include jkl.declare-font-variables("jkl-slider", "small");
-
-    --jkl-slider-legend-font-size: var(--jkl-small-font-size);
-    --jkl-slider-legend-line-height: var(--jkl-small-line-height);
-    --jkl-slider-legend-font-weight: #{jkl.$typography-weight-bold};
-}
-
 .jkl-toggle-slider {
     --jkl-slider-bg: var(--jkl-color-background-container-low);
     --jkl-slider-pill: var(--jkl-color-background-container-high);
@@ -74,7 +58,7 @@ $_slider-rounded: jkl.rem(100px);
         justify-content: center;
         z-index: 1;
         cursor: pointer;
-        padding: jkl.$spacing-2 jkl.$spacing-16;
+        padding: var(--jkl-unit-02) var(--jkl-unit-20);
         color: var(--jkl-slider-pill-text);
         -webkit-tap-highlight-color: transparent;
 

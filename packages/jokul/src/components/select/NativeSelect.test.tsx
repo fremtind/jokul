@@ -65,14 +65,14 @@ describe("NativeSelect", () => {
         expect(screen.getByText("Please choose")).toBeInTheDocument();
     });
 
-    it("can be forced into compact mode", () => {
+    it("can be forced into size small", () => {
         render(
-            <NativeSelect items={["1", "2"]} label="test" density="compact" />,
+            <NativeSelect items={["1", "2"]} label="test" data-size="small" />,
         );
 
         expect(screen.getByTestId("jkl-select")).toHaveAttribute(
-            "data-density",
-            "compact",
+            "data-size",
+            "small",
         );
     });
 
@@ -108,11 +108,11 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("compact native select should be a11y compliant", async () => {
+    it("small native select should be a11y compliant", async () => {
         const onChange = vi.fn();
         const { container } = render(
             <NativeSelect
-                density="compact"
+                data-size="small"
                 label="Select"
                 items={["1", "2"]}
                 value="1"
