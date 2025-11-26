@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, useEffect, useRef } from "react";
 import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
-import { ErrorMessage } from "./Message.js";
+import { Message } from "./Message.js";
 import type { FormErrorMessageProps } from "./types.js";
 
 const defaultMessageProps = {
@@ -33,9 +33,10 @@ export const FormErrorMessage = forwardRef<
             className={clsx("jkl-form-error-message", className)}
             {...rest}
         >
-            <ErrorMessage
+            <Message
                 {...defaultMessageProps}
                 {...messageProps}
+                variant="error"
                 ref={messageRef}
                 role={hasNewErrors ? "alert" : "presentation"} // Unngå å repetere hele oppsummeringen etter hvert som feilene rettes
             >
@@ -48,7 +49,7 @@ export const FormErrorMessage = forwardRef<
                             </li>
                         ))}
                 </ul>
-            </ErrorMessage>
+            </Message>
         </div>
     );
 });

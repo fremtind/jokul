@@ -8,6 +8,7 @@ export interface MessageProps extends React.ComponentPropsWithoutRef<"div"> {
         handleDismiss: () => void;
         buttonTitle?: string;
     };
+    variant?: "info" | "error" | "success" | "warning";
 }
 
 export interface FormErrorMessageProps {
