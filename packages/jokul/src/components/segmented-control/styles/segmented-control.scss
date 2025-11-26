@@ -2,98 +2,83 @@
 @use "../../../core/jkl";
 @use "../../../components/radio-button/styles";
 
-@include jkl.comfortable-density-variables {
-    --jkl-segmented-controls-padding: #{jkl.$unit-02};
-    --jkl-segmented-controls-margin: 1.5ch;
+@layer jokul.components {
+    .jkl-segmented-control {
+        --jkl-segmented-controls-padding: var(--jkl-unit-02);
+        --jkl-segmented-controls-margin: 1.5ch;
 
-    @include jkl.declare-font-variables("jkl-segmented-control", "body");
-}
+        .jkl-segmented-control-legend {
+            margin-block-end: 0.25lh;
+        }
 
-@include jkl.compact-density-variables {
-    --jkl-segmented-controls-padding: 0;
-    --jkl-segmented-controls-margin: 1ch;
+        .jkl-segmented-control-item {
+            --jkl-segmented-control-border-width: 1px;
+            --jkl-segmented-controls-border-radius: 2lh;
 
-    @include jkl.declare-font-variables("jkl-segmented-control", "small");
-}
-
-.jkl-segmented-control {
-    @include jkl.use-font-variables("jkl-segmented-control");
-
-    @include jkl.small-device {
-        @include jkl.declare-font-variables("jkl-segmented-control", "small");
-    }
-
-    .jkl-segmented-control-legend {
-        margin-block-end: 0.25lh;
-    }
-
-    .jkl-segmented-control-item {
-        --jkl-segmented-control-border-width: 1px;
-        --jkl-segmented-controls-border-radius: 2lh;
-
-        cursor: pointer;
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        background-color: var(--jkl-color-background-interactive);
-        border: var(--jkl-segmented-control-border-width) solid var(--jkl-color-border-separator);
-        border-radius: 0; // Gjør det enklere å behandle separering senere
-        margin-inline-end: calc(var(--jkl-segmented-control-border-width) * -1);
-        margin-block-end: 0.5lh;
-
-        @include jkl.motion("easeInBounceOut", "expressive", border background);
-
-        label {
             cursor: pointer;
-            padding-block: var(--jkl-segmented-controls-padding);
-            padding-inline: 1ch 1.5ch;
-        }
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--jkl-color-background-interactive);
+            border: var(--jkl-segmented-control-border-width) solid var(--jkl-color-border-separator);
+            border-radius: 0; // Gjør det enklere å behandle separering senere
+            margin-inline-end: calc(var(--jkl-segmented-control-border-width) * -1);
+            margin-block-end: 0.5lh;
 
-        &:hover {
-            background-color: var(--jkl-color-background-interactive-hover);
-            border-color: var(--jkl-color-border-separator-hover);
-            z-index: 2;
-        }
+            @include jkl.motion("easeInBounceOut", "expressive", border background);
 
-        &:has(input:checked) {
-            background-color: var(--jkl-color-background-container-high);
-            border-color: var(--jkl-color-border-separator);
-            z-index: 1;
-        }
-
-        // Kontrollerer border og margin på separerte items + border-radius til neste sibling
-        &:has(input[data-separated="true"]) {
-            border-radius: var(--jkl-segmented-controls-border-radius);
-            margin-inline-start: var(--jkl-segmented-controls-margin);
-
-            &:first-of-type {
-                margin-inline-start: 0;
+            label {
+                cursor: pointer;
+                padding-block: var(--jkl-segmented-controls-padding);
+                padding-inline: 1ch 1.5ch;
             }
 
-            + span + .jkl-segmented-control-item {
+            &:hover {
+                background-color: var(--jkl-color-background-interactive-hover);
+                border-color: var(--jkl-color-border-separator-hover);
+                z-index: 2;
+            }
+
+            &:has(input:checked) {
+                background-color: var(--jkl-color-background-container-high);
+                border-color: var(--jkl-color-border-separator);
+                z-index: 1;
+            }
+
+            // Kontrollerer border og margin på separerte items + border-radius til neste sibling
+            &:has(input[data-separated="true"]) {
+                border-radius: var(--jkl-segmented-controls-border-radius);
+                margin-inline-start: var(--jkl-segmented-controls-margin);
+
+                &:first-of-type {
+                    margin-inline-start: 0;
+                }
+
+                + span + .jkl-segmented-control-item {
+                    border-end-start-radius: var(--jkl-segmented-controls-border-radius);
+                    border-start-start-radius: var(--jkl-segmented-controls-border-radius);
+
+                    margin-inline-start: var(--jkl-segmented-controls-margin);
+                }
+            }
+
+            // Første element skal alltid ha border-radius på starten
+            &:first-of-type {
                 border-end-start-radius: var(--jkl-segmented-controls-border-radius);
                 border-start-start-radius: var(--jkl-segmented-controls-border-radius);
-
-                margin-inline-start: var(--jkl-segmented-controls-margin);
             }
-        }
 
-        // Første element skal alltid ha border-radius på starten
-        &:first-of-type {
-            border-end-start-radius: var(--jkl-segmented-controls-border-radius);
-            border-start-start-radius: var(--jkl-segmented-controls-border-radius);
-        }
+            // Siste element skal alltid ha border-radius på slutten
+            &:last-of-type {
+                border-end-end-radius: var(--jkl-segmented-controls-border-radius);
+                border-start-end-radius: var(--jkl-segmented-controls-border-radius);
+            }
 
-        // Siste element skal alltid ha border-radius på slutten
-        &:last-of-type {
-            border-end-end-radius: var(--jkl-segmented-controls-border-radius);
-            border-start-end-radius: var(--jkl-segmented-controls-border-radius);
-        }
-
-        // Dersom nærmeste sibling er separert skal slutten ha border radius
-        &:has(+ span + .jkl-segmented-control-item > input[data-separated="true"]) {
-            border-end-end-radius: var(--jkl-segmented-controls-border-radius);
-            border-start-end-radius: var(--jkl-segmented-controls-border-radius);
+            // Dersom nærmeste sibling er separert skal slutten ha border radius
+            &:has(+ span + .jkl-segmented-control-item > input[data-separated="true"]) {
+                border-end-end-radius: var(--jkl-segmented-controls-border-radius);
+                border-start-end-radius: var(--jkl-segmented-controls-border-radius);
+            }
         }
     }
 }

@@ -1,87 +1,76 @@
 @use "../../../core/jkl";
 
-@include jkl.comfortable-density-variables {
-    @include jkl.declare-font-variables("jkl-autosuggest-item", "body");
+@layer jokul.components {
+    .jkl-autosuggest {
+        --border-radius: var(--jkl-border-radius-s);
+        --jkl-autosuggest-menu-padding: var(--jkl-unit-20) var(--jkl-unit-10) 0;
+        --jkl-autosuggest-controller-button-width: auto;
+        --jkl-autosuggest-controller-button-padding: 0 var(--jkl-unit-15);
+        --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
+        --jkl-autosuggest-option-padding: var(--jkl-unit-10) 0.75em;
+        --jkl-autosuggest-option-height: #{jkl.rem(48px)};
 
-    --jkl-autosuggest-menu-padding: 1rem 0.5rem 0;
-    --jkl-autosuggest-controller-button-width: auto;
-    --jkl-autosuggest-controller-button-padding: 0 #{jkl.$spacing-12};
-    --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
-    --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-12};
-    --jkl-autosuggest-option-height: #{jkl.rem(48px)};
-}
-
-@include jkl.compact-density-variables {
-    @include jkl.declare-font-variables("jkl-autosuggest-item", "small");
-
-    --jkl-autosuggest-menu-padding: #{jkl.$spacing-4};
-    --jkl-autosuggest-controller-button-width: #{jkl.rem(24px)};
-    --jkl-autosuggest-controller-button-padding: 0;
-    --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(18px)};
-    --jkl-autosuggest-no-hits-message-font-size: var(--jkl-small-font-size);
-    --jkl-autosuggest-option-padding: 0 #{jkl.$spacing-8};
-    --jkl-autosuggest-option-height: #{jkl.rem(32px)};
-}
-
-.jkl-autosuggest {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    position: relative;
-
-    &[aria-expanded="true"] .jkl-text-input-wrapper {
-        border-radius: jkl.rem(3px) jkl.rem(3px) 0 0;
-    }
-
-    &__no-hits-message {
-        font-size: var(--jkl-autosuggest-no-hits-message-font-size);
-        padding: var(--jkl-autosuggest-option-padding);
-    }
-
-    &__menu {
-        background-color: var(--jkl-color-background-container-high);
-        border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
-        border-top: none;
-        border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
-        box-sizing: border-box;
-        position: absolute;
-        inset: 100% jkl.rem(-1px) auto;
-        margin: 0;
-        padding: 0;
-        max-height: 60vh;
-        overflow-y: auto;
-        width: calc(100% + jkl.rem(2px));
-        z-index: jkl.$z-index--dropdown;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    &__item-list {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    &__item {
-        @include jkl.use-font-variables("jkl-autosuggest-item");
-        color: unset;
-        display: flex; // avoids wrapping long names "under" the focus arrow
-        align-items: center;
-        border: 0; // removes native styling
-        background-color: var(--jkl-color-background-interactive);
-        min-height: var(--jkl-autosuggest-option-height);
-        text-align: left;
-
-        @include jkl.motion;
-        transition-property: color, background-color;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         position: relative;
-        padding: var(--jkl-autosuggest-option-padding);
-        cursor: pointer;
 
-        &:focus,
-        &--active,
-        &:hover {
-            color: var(--jkl-color-text-default);
-            background-color: var(--jkl-color-background-interactive-hover);
+        &[aria-expanded="true"] .jkl-text-input-wrapper {
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        }
+
+        &__no-hits-message {
+            padding: var(--jkl-autosuggest-option-padding);
+
+            @include jkl.text-style("text-small");
+            color: var(--jkl-color-text-subdued);
+        }
+
+        &__menu {
+            background-color: var(--jkl-color-background-container-high);
+            border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
+            border-top: none;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-sizing: border-box;
+            position: absolute;
+            inset: 100% jkl.rem(-1px) auto;
+            margin: 0;
+            padding: 0;
+            max-height: 60vh;
+            overflow-y: auto;
+            width: calc(100% + jkl.rem(2px));
+            z-index: jkl.$z-index--dropdown;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        &__item-list {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        &__item {
+            @include jkl.text-style("text-small");
+            color: unset;
+            display: flex; // avoids wrapping long names "under" the focus arrow
+            align-items: center;
+            border: 0; // removes native styling
+            background-color: var(--jkl-color-background-interactive);
+            min-height: var(--jkl-autosuggest-option-height);
+            text-align: left;
+
+            @include jkl.motion;
+            transition-property: color, background-color;
+            position: relative;
+            padding: var(--jkl-autosuggest-option-padding);
+            cursor: pointer;
+
+            &:focus,
+            &--active,
+            &:hover {
+                color: var(--jkl-color-text-default);
+                background-color: var(--jkl-color-background-interactive-hover);
+            }
         }
     }
 }

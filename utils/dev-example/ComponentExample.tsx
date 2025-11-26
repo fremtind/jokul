@@ -11,7 +11,6 @@ export interface Props {
     component: FC<ExampleComponentProps>;
     title?: string;
     scrollable?: boolean;
-    noDensity?: boolean;
     knobs?: {
         boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;

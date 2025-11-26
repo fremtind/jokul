@@ -1,10 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import {
-    DescriptionDetail,
-    DescriptionList,
-    DescriptionTerm,
-} from "../../description-list/index.js";
+import { DescriptionList } from "../../description-list/index.js";
 import { Flex } from "../../flex/index.js";
 import { Link } from "../../link/index.js";
 import { BETA_Help as Help } from "../Help.js";
@@ -65,13 +61,15 @@ export const Help2: Story = {
     },
     render: (args) => (
         <DescriptionList>
-            <DescriptionTerm>Område</DescriptionTerm>
-            <DescriptionDetail data-layout-density="compact">
-                <Flex gap="xs">
-                    <p>Hele verden</p>
-                    <Help {...args} />
-                </Flex>
-            </DescriptionDetail>
+            <DescriptionList.Item
+                terms="Område"
+                details={
+                    <Flex gap="xs">
+                        <p>Hele verden</p>
+                        <Help {...args} />
+                    </Flex>
+                }
+            />
         </DescriptionList>
     ),
 };

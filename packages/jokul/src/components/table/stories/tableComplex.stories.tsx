@@ -1,12 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { Fragment, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { faktura } from "../../../../../../storybook-public/data/table-data.js";
 import { Button } from "../../button/index.js";
-import {
-    DescriptionDetail,
-    DescriptionList,
-    DescriptionTerm,
-} from "../../description-list/index.js";
+import { DescriptionList } from "../../description-list/index.js";
 import { Link } from "../../link/index.js";
 import { Select } from "../../select/index.js";
 import { TextInput } from "../../text-input/index.js";
@@ -205,43 +201,40 @@ export const TableComplex: Story = {
                                                                 ) =>
                                                                     columnIndex ===
                                                                         rowIndex && (
-                                                                        <Fragment
+                                                                        <DescriptionList.Item
                                                                             key={
                                                                                 rowIndex
                                                                             }
-                                                                        >
-                                                                            <DescriptionTerm>
-                                                                                {
-                                                                                    column
-                                                                                }
-                                                                            </DescriptionTerm>
-                                                                            <DescriptionDetail>
-                                                                                {cell.toLocaleString()}
-                                                                            </DescriptionDetail>
-                                                                        </Fragment>
+                                                                            terms={
+                                                                                column
+                                                                            }
+                                                                            details={cell.toLocaleString()}
+                                                                        />
                                                                     ),
                                                             ),
                                                     )}
-                                                    <DescriptionTerm>
-                                                        Faktura
-                                                    </DescriptionTerm>
-                                                    <DescriptionDetail>
-                                                        <Link
-                                                            external
-                                                            target={"_blank"}
-                                                            href={"#"}
-                                                        >
-                                                            Åpne i ny fane
-                                                        </Link>
-                                                    </DescriptionDetail>
-                                                    <DescriptionDetail>
-                                                        <Link
-                                                            download={`${row[3]} ${new Date(row[0] as Date).toLocaleDateString()}`}
-                                                            href={"#"}
-                                                        >
-                                                            Last ned
-                                                        </Link>
-                                                    </DescriptionDetail>
+                                                    <DescriptionList.Item
+                                                        terms="Faktura"
+                                                        details={[
+                                                            <Link
+                                                                key="1"
+                                                                external
+                                                                target={
+                                                                    "_blank"
+                                                                }
+                                                                href={"#"}
+                                                            >
+                                                                Åpne i ny fane
+                                                            </Link>,
+                                                            <Link
+                                                                key="2"
+                                                                download={`${row[3]} ${new Date(row[0] as Date).toLocaleDateString()}`}
+                                                                href={"#"}
+                                                            >
+                                                                Last ned
+                                                            </Link>,
+                                                        ]}
+                                                    />
                                                 </DescriptionList>
                                             }
                                         >

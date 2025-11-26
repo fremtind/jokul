@@ -13,7 +13,6 @@ import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 import { NativeSelect } from "../select/NativeSelect.js";
 import { TextInput } from "../text-input/TextInput.js";
-import { useTableContext } from "./tableContext.js";
 import type { TablePaginationProps } from "./types.js";
 
 function clamp(min: number, num: number, max: number): number {
@@ -36,7 +35,6 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
             rowsPerPage,
             rowsPerPageItems,
             className,
-            density,
             id: idProp,
             withGoToPage = false,
             onChange,
@@ -52,7 +50,6 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
         const id = useId(idProp || "jkl-table-pagination", {
             generateSuffix: !idProp,
         });
-        const { density: contextDensity } = useTableContext();
 
         const showAll = rowsPerPage <= 0;
         const numberOfPages = showAll
@@ -133,7 +130,6 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                 className={clsx("jkl-table-pagination", className)}
                 {...rest}
                 id={id}
-                data-density={density || contextDensity}
                 ref={ref}
             >
                 <div className="jkl-table-pagination__left">

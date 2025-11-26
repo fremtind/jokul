@@ -8,9 +8,9 @@ import type { NativeSelectProps } from "./types.js";
 export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
     (props, ref) => {
         const {
+            "data-size": dataSize,
             label,
             className,
-            density,
             errorLabel,
             helpLabel,
             inline,
@@ -29,7 +29,6 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 
         const inputGroupProps = {
             label,
-            density,
             errorLabel,
             helpLabel,
             labelProps,
@@ -43,6 +42,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
             <InputGroup
                 {...inputGroupProps}
                 data-testid="jkl-select"
+                data-size={dataSize}
                 className={clsx("jkl-select", className, {
                     "jkl-select--inline": inline,
                     "jkl-select--invalid": !!errorLabel || invalid,

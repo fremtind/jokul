@@ -7,9 +7,9 @@ import type { TextInputProps } from "./types.js";
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
     (props, ref) => {
         const {
+            "data-size": dataSize,
             label,
             className,
-            density,
             errorLabel,
             helpLabel,
             inline,
@@ -22,7 +22,6 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
         } = props;
         const inputGroupProps = {
             label,
-            density,
             errorLabel,
             helpLabel,
             labelProps,
@@ -37,8 +36,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                 className={clsx(className, "jkl-text-input", {
                     "jkl-text-input--inline": inline,
                 })}
+                data-size={dataSize}
                 data-testid="jkl-text-input"
-                density={inline ? "compact" : density}
             >
                 <BaseTextInput ref={ref} {...rest} className={inputClassName} />
             </InputGroup>

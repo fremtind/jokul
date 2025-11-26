@@ -6,10 +6,7 @@ import {
     RadioButtonGroup,
 } from "../../packages/jokul/src/components/radio-button/index.js";
 import { Select } from "../../packages/jokul/src/components/select/index.js";
-import type {
-    ColorScheme,
-    Density,
-} from "../../packages/jokul/src/core/types.js";
+import type { ColorScheme, Size } from "../../packages/jokul/src/core/types.js";
 import {
     useId,
     useLocalStorage,
@@ -30,7 +27,7 @@ export interface Props {
     component: FC<ExampleComponentProps>;
     title?: string;
     scrollable?: boolean;
-    noDensity?: boolean;
+    noSize?: boolean;
     knobs?: {
         boolProps?: Array<BoolProp>;
         choiceProps?: Array<ChoiceProp>;
@@ -43,7 +40,7 @@ export interface Props {
 export const ExampleBase: FC<Props> = ({
     component,
     knobs = {},
-    noDensity = false,
+    noSize = false,
     title = "Komponent",
     codeExample,
     scrollable,
@@ -55,10 +52,7 @@ export const ExampleBase: FC<Props> = ({
         "jkl-example-theme",
         "light",
     );
-    const [density, setDensity] = useLocalStorage<Density>(
-        "jkl-example-density",
-        "comfortable",
-    );
+    const [size, setSize] = useLocalStorage<Size>("jkl-example-size", "medium");
     const [screenshotMode, setScreenshotMode] = useState(false);
 
     const [boolValues, setBoolValues] = useState<Dictionary<boolean>>(
@@ -97,10 +91,10 @@ export const ExampleBase: FC<Props> = ({
             <C
                 boolValues={boolValues}
                 choiceValues={choiceValues}
-                displayValues={{ density, theme }}
+                displayValues={{ size, theme }}
             />
         );
-    }, [component, boolValues, choiceValues, density, theme]);
+    }, [component, boolValues, choiceValues, size, theme]);
 
     const [hasMounted, setHasMounted] = useState(false);
     useEffect(() => {
@@ -111,7 +105,7 @@ export const ExampleBase: FC<Props> = ({
     }
 
     return (
-        <ExampleContextProvider state={{ theme, density }}>
+        <ExampleContextProvider state={{ theme, size }}>
             <button
                 type="button"
                 id="screenshot-mode-toggle"
@@ -127,7 +121,7 @@ export const ExampleBase: FC<Props> = ({
                 >
                     <div
                         data-testid="component-example"
-                        data-layout-density={density}
+                        data-size={size}
                         data-theme={theme}
                         data-example-text={title}
                         className={`jkl jkl-portal-component-example__example-wrapper ${
@@ -138,8 +132,8 @@ export const ExampleBase: FC<Props> = ({
                             scrollable
                                 ? "jkl-portal-component-example__example-wrapper--scrollable"
                                 : ""
-                        } ${density === "comfortable" ? "jkl-body" : ""} ${
-                            density === "compact" ? "jkl-small" : ""
+                        } ${size === "medium" ? "jkl-body" : ""} ${
+                            size === "small" ? "jkl-small" : ""
                         }`.trim()}
                         style={style}
                         data-test-mode={
@@ -149,7 +143,7 @@ export const ExampleBase: FC<Props> = ({
                         {example}
                     </div>
                     <aside
-                        data-layout-density="compact"
+                        data-size="small"
                         className="jkl-portal-component-example__example-options"
                     >
                         <>
@@ -274,30 +268,34 @@ export const ExampleBase: FC<Props> = ({
                                         Dark
                                     </RadioButton>
                                 </RadioButtonGroup>
-                                {noDensity ? null : (
+                                {noSize ? null : (
                                     <RadioButtonGroup
                                         className="jkl-spacing-8--top"
-                                        name={`${uid}-density`}
-                                        legend="Tetthet"
-                                        value={density}
+                                        name={`${uid}-size`}
+                                        legend="Størrelse"
+                                        value={size}
                                         labelProps={{ variant: "small" }}
                                         onChange={(e) =>
-                                            setDensity(
-                                                e.target.value as Density,
-                                            )
+                                            setSize(e.target.value as Size)
                                         }
                                     >
                                         <RadioButton
-                                            value="comfortable"
-                                            data-testid="density-default"
+                                            value="small"
+                                            data-testid="size-small"
+                                        >
+                                            Small
+                                        </RadioButton>
+                                        <RadioButton
+                                            value="medium"
+                                            data-testid="size-default"
                                         >
                                             Default
                                         </RadioButton>
                                         <RadioButton
-                                            value="compact"
-                                            data-testid="density-compact"
+                                            value="large"
+                                            data-testid="size-large"
                                         >
-                                            Compact
+                                            Large
                                         </RadioButton>
                                     </RadioButtonGroup>
                                 )}

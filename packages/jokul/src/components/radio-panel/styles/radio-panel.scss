@@ -1,20 +1,10 @@
-@use "../../../core/jkl/" as jkl;
 @use "sass:string";
+@use "../../../core/jkl";
 @use "../../input-panel/styles/input-panel";
 
 $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
 @layer jokul.components {
-    @keyframes #{$_radio-panel-dot-animation-name} {
-        0% {
-            transform: scale(0.8);
-        }
-
-        100% {
-            transform: scale(1);
-        }
-    }
-
     .jkl-radio-panel {
         --radio-dot-color: transparent;
         --radio-ring-color: transparent;
@@ -26,8 +16,6 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             display: inline-block;
             position: relative;
 
-            height: jkl.rem(24px);
-            width: jkl.rem(24px);
             border-radius: 50%;
             border: jkl.rem(1px) solid var(--jkl-color-border-action);
             background-color: var(--radio-ring-color);
@@ -77,6 +65,16 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
         [aria-invalid="true"] &:has(:checked) {
             --radio-dot-color: var(--jkl-color-text-on-alert);
+        }
+    }
+
+    @keyframes #{$_radio-panel-dot-animation-name} {
+        0% {
+            transform: scale(0.8);
+        }
+
+        100% {
+            transform: scale(1);
         }
     }
 }

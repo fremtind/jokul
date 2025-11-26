@@ -1,0 +1,12 @@
+@use "../../jkl";
+
+@layer jokul.theme {
+    :root {
+        --jkl-border-radius-none: 0;
+        --jkl-border-radius-xs: #{jkl.rem(4px)};
+        --jkl-border-radius-s: #{jkl.rem(8px)};
+        --jkl-border-radius-m: #{jkl.rem(12px)};
+        --jkl-border-radius-l: #{jkl.rem(16px)};
+        --jkl-border-radius-full: 9999px;
+    }
+}
