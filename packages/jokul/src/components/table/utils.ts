@@ -12,27 +12,24 @@ export const useSortableTableHeader = (
         newSortDirection: TableSortDirection,
     ) => void,
 ) => {
-    const calculateNewSortParameters = (
-        sortKey: string,
-    ): TableSortDirection => {
-        if (sortKey === activeSortKey && activeSortDirection === "desc") {
-            return "asc";
-        }
+    const getSortProps = (columnKey: string) => {
+        const isCurrentSortKey = activeSortKey === columnKey;
+        const currentDirection = isCurrentSortKey
+            ? activeSortDirection
+            : "none";
 
-        return "desc";
-    };
+        const nextDirectionMap: Record<string, TableSortDirection> = {
+            asc: "desc",
+            desc: "none",
+            none: "asc",
+        };
 
-    const handleClick = (sortKey: string) => {
-        const newSortParameters = calculateNewSortParameters(sortKey);
-        onChange(sortKey, newSortParameters);
-    };
+        const nextDirection = nextDirectionMap[currentDirection] ?? "asc";
 
-    const getSortProps = (sortKey: string) => {
         return {
             sortable: {
-                onClick: () => handleClick(sortKey),
-                direction:
-                    activeSortKey === sortKey ? activeSortDirection : undefined,
+                onClick: () => onChange(columnKey, nextDirection),
+                direction: currentDirection,
             },
         };
     };

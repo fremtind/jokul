@@ -3,21 +3,22 @@
 @include jkl.comfortable-density-variables {
     @include jkl.declare-font-variables("jkl-table-header", "body");
 
-    --jkl-table-header-padding: 0 #{jkl.$spacing-8} #{jkl.rem(7px)}
-        #{jkl.$spacing-8};
+    --jkl-table-header-padding-inline: var(--jkl-spacing-12);
+    --jkl-table-header-padding-block: var(--jkl-spacing-8);
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-table-header", "small");
 
-    --jkl-table-header-padding: 0 #{jkl.$spacing-8} #{jkl.rem(3px)}
-        #{jkl.$spacing-8};
+    --jkl-table-header-padding-inline: var(--jkl-spacing-8);
+    --jkl-table-header-padding-block: var(--jkl-spacing-4);
 }
 
 .jkl-table-header {
     @include jkl.use-font-variables("jkl-table-header");
 
-    padding: var(--jkl-table-header-padding);
+    padding-block: var(--jkl-table-header-padding-block);
+    padding-inline: var(--jkl-table-header-padding-inline);
     text-align: left;
     white-space: nowrap;
 
@@ -30,7 +31,7 @@
     }
 
     &--bold {
-        font-weight: jkl.$typography-weight-bold;
+        font-weight: var(--jkl-typography-weight-bold);
     }
 
     &--sortable {
@@ -43,23 +44,9 @@
     }
 
     &__arrows {
-        @include jkl.motion("entrance", "energetic");
-        transition-property: opacity;
-        display: inline-block;
-        margin-bottom: jkl.$unit-02;
-        margin-left: jkl.$unit-05;
-        vertical-align: middle;
-        opacity: 0;
-
-        // Via jkl-icon--inherit. Duplisert her for å få en konstant bredde på
-        // kolonnen så vi unngår layout shifts når man bytter kolonnen det sorteres
-        // på. Wrapperen er nødvendig for at vi skal unngå at pila animeres i det
-        // man skifter kolonne (den må være u-rendret fram til kolonnen blir sortert).
-        width: calc(1em / 20 * 24);
-
-        &--active {
-            opacity: 1;
-        }
+        display: flex;
+        gap: var(--jkl-spacing-4);
+        align-items: center;
     }
 
     @mixin _responsive-table-header {

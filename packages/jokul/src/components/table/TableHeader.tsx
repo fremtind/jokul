@@ -1,10 +1,17 @@
 import clsx from "clsx";
 import React, { forwardRef, type MouseEventHandler } from "react";
-import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
+import { ChevronDownIcon, ChevronUpIcon, Icon } from "../icon/index.js";
 import { useTableContext } from "./tableContext.js";
 import type { TableHeaderProps } from "./types.js";
 
-export type TableSortDirection = "asc" | "desc";
+export type TableSortDirection = "asc" | "desc" | "none";
+
+const SortableArrows = ({ direction }: { direction: TableSortDirection }) => {
+    if (direction === "desc") return <ChevronDownIcon />;
+    if (direction === "asc") return <ChevronUpIcon />;
+
+    return <Icon>unfold_more</Icon>;
+};
 
 const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
     (props, ref) => {
@@ -30,11 +37,11 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
         return (
             <th
                 className={clsx("jkl-table-header", className, {
-                    ["jkl-table-header--bold"]: bold,
-                    ["jkl-table-header--align-right"]: align === "right",
-                    ["jkl-table-header--align-center"]: align === "center",
-                    ["jkl-table-header--sr-only"]: srOnly,
-                    ["jkl-table-header--sortable"]:
+                    "jkl-table-header--bold": bold,
+                    "jkl-table-header--align-right": align === "right",
+                    "jkl-table-header--align-center": align === "center",
+                    "jkl-table-header--sr-only": srOnly,
+                    "jkl-table-header--sortable":
                         typeof sortable !== "undefined",
                 })}
                 scope={scope}
@@ -43,23 +50,12 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
                 data-density={density || contextDensity}
                 ref={ref}
             >
-                {children}
-                {sortable && (
-                    <div
-                        className={clsx("jkl-table-header__arrows", {
-                            "jkl-table-header__arrows--active": Boolean(
-                                sortable.direction,
-                            ),
-                        })}
-                    >
-                        {sortable.direction && (
-                            <ArrowVerticalAnimated
-                                pointingDown={sortable.direction === "desc"}
-                                bold
-                            />
-                        )}
-                    </div>
-                )}
+                <div className="jkl-table-header__arrows">
+                    {children}
+                    {sortable && (
+                        <SortableArrows direction={sortable.direction} />
+                    )}
+                </div>
             </th>
         );
     },
