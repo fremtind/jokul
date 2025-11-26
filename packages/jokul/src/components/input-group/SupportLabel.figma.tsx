@@ -10,11 +10,11 @@ figma.connect(
             'import { SupportLabel } from "@fremtind/jokul/components/input-group";',
         ],
         props: {
-            labelType: figma.enum("Type", {
+            labelType: figma.enum("Variant", {
                 Help: "help",
                 Error: "error",
             }),
-            label: figma.enum("Type", {
+            label: figma.enum("Variant", {
                 Help: figma.textContent("Support Text"),
                 Error: figma.textContent("Error Text"),
             }),
