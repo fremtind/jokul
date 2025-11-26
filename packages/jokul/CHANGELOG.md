@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.3
+
+### Patch Changes
+
+- ddf8429: Fikser en feil der det ikke gikk an å importere stilarkene til beta-komponentene `DescriptionList` og `NavLink` med `@use` i Sass-stilark.
+
 ## 1.7.2
 
 ### Patch Changes
