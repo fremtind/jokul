@@ -1,5 +1,20 @@
 # Change Log
 
+## 3.4.0
+
+### Minor Changes
+
+- a3a203d: Tydeligere visuell indikasjon på hvilke kolonner som er sorterbare, samt nye sorteringsikoner.
+- b447808: - `RadioPanel` og `CheckboxPanel` setter nå `value` tilsvarende `label` by default.
+  - `RadioPanelGroup` er markert som deprecated. Bruk heller `FieldGroup`.
+- 75839aa: Endrer alle steder vi har brukt gamle brand-farger direkte i komponentene til å bruke semantiske fargetokens. Dette angår stort sett utgående komponenter, og skal ikke ha betydning for utseende.
+
+### Patch Changes
+
+- 0eda9e8: Skeleton-loadere er nå utformet med en CSS-maske, slik at fargen på sveipet i animasjonen alltid matcher bakgrunnsfargen loaderen er plassert på.
+- 6dc3dd2: Korrigerte ModalInstance-typedefinisjonen og oppdaterte returtypen til useModal, slik at instance ikke lenger er typet som any.
+- f33b677: Legger tilbake fontskalering for iOS basert på brukerinnstillinger, på en måte om ikke overskriver fonten vår i designsystemet.
+
 ## 3.3.1
 
 ### Patch Changes
