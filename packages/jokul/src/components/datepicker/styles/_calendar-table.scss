@@ -1,27 +1,29 @@
 @use "../../../core/jkl";
 
-.jkl-calendar-table {
-    // Calendar table heading (weekday names)
-    // ======================================
+@layer jokul.components {
+    .jkl-calendar-table {
+        // Calendar table heading (weekday names)
+        // ======================================
 
-    th {
-        @include jkl.text-style("small");
-        padding-bottom: var(--jkl-unit-10);
-    }
+        th {
+            @include jkl.text-style("small");
+            padding-bottom: var(--jkl-unit-10);
+        }
 
-    // Calendar table styles
-    // =====================
+        // Calendar table styles
+        // =====================
 
-    td {
-        text-align: center;
-    }
+        td {
+            text-align: center;
+        }
 
-    td + td,
-    th + th {
-        padding-left: jkl.rem(4px); // space between columns
-    }
+        td + td,
+        th + th {
+            padding-left: calc(var(--jkl-unit-10) / 2);
+        }
 
-    tr + tr > td {
-        padding-top: jkl.rem(4px); // space between rows
+        tr + tr > td {
+            padding-top: calc(var(--jkl-unit-10) / 2); // space between rows
+        }
     }
 }

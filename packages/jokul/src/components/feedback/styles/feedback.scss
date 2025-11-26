@@ -3,111 +3,111 @@
 @use "../../../core/jkl";
 
 $_smiley-size: jkl.rem(40px);
-$_smileys-max-width: $_smiley-size
-    * 9; // 5 smileys med fire like store mellomrom
+$_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomrom
 $_show-animation-name: jkl-show-#{string.unique-id()};
 
-@keyframes #{$_show-animation-name} {
-    from {
-        transform: translate3d(0, 0.5rem, 0);
-        opacity: 0;
-    }
-}
+@layer jokul.components {
+    .jkl-feedback {
+        max-width: jkl.rem(550px);
 
-.jkl-feedback {
-    max-width: jkl.rem(550px);
+        &__submit-wrapper {
+            width: 100%;
+            transition-property: height;
 
-    &__submit-wrapper {
-        width: 100%;
-        transition-property: height;
+            @include jkl.motion(standard, expressive);
 
-        @include jkl.motion(standard, expressive);
+            &--hidden {
+                display: none;
+            }
+        }
 
-        &--hidden {
-            display: none;
+        &__step-counter {
+            color: var(--jkl-color-text-subdued);
+            margin-bottom: var(--jkl-unit-20);
+
+            @include jkl.text-style("body");
+        }
+
+        &__fade-in {
+            animation: $_show-animation-name 0.25s ease-out;
+        }
+
+        &__buttons {
+            display: flex;
+        }
+
+        @keyframes #{$_show-animation-name} {
+            from {
+                transform: translate3d(0, 0.5rem, 0);
+                opacity: 0;
+            }
         }
     }
 
-    &__step-counter {
-        color: var(--jkl-color-text-subdued);
-        margin-bottom: jkl.$unit-20;
-
-        @include jkl.text-style("body");
-    }
-
-    &__fade-in {
-        animation: $_show-animation-name 0.25s ease-out;
-    }
-
-    &__buttons {
+    .jkl-feedback-smileys {
+        margin-top: var(--jkl-unit-10);
         display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: $_smileys-max-width;
+        flex-wrap: nowrap;
+        gap: jkl.$spacing-12;
     }
-}
 
-.jkl-feedback-smileys {
-    margin-top: jkl.$unit-10;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: $_smileys-max-width;
-    flex-wrap: nowrap;
-    gap: jkl.$spacing-12;
-}
-
-.jkl-feedback-smiley-option {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    height: $_smiley-size;
-    width: $_smiley-size;
-    color: var(--jkl-color-text-subdued);
-    transform: translate3d(0, 0, 0);
-
-    @include jkl.motion;
-    transition-property: transform, color;
-
-    @include jkl.forced-colors-svg-fallback(
-        $stroke: ButtonFace,
-        $fill: ButtonText,
-    );
-
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        opacity: 0;
+    .jkl-feedback-smiley-option {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        height: $_smiley-size;
+        width: $_smiley-size;
+        color: var(--jkl-color-text-subdued);
+        transform: translate3d(0, 0, 0);
 
         @include jkl.motion;
-        transition-property: opacity;
-    }
+        transition-property: transform, color;
 
-    &::after {
-        inset: jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px);
-        box-shadow: 0 0 0 jkl.rem(2px) currentColor;
-    }
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonFace,
+            $fill: ButtonText,
+        );
 
-    &::before {
-        inset: 0;
-        box-shadow: 0 jkl.rem(2px) jkl.rem(30px) rgb(0 0 0 / 10%);
-    }
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0;
 
-    &:hover {
-        color: var(--jkl-color-text-default);
-    }
+            @include jkl.motion;
+            transition-property: opacity;
+        }
 
-    input:checked + & {
-        color: var(--jkl-color-text-default);
-        transform: translate3d(0, -20%, 0);
+        &::after {
+            inset: jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px);
+            box-shadow: 0 0 0 jkl.rem(2px) currentColor;
+        }
 
         &::before {
-            opacity: 1;
+            inset: 0;
+            box-shadow: 0 jkl.rem(2px) jkl.rem(30px) rgb(0 0 0 / 10%);
         }
-    }
 
-    input:focus + &::after {
-        @include jkl.keyboard-navigation {
-            opacity: 1;
+        &:hover {
+            color: var(--jkl-color-text-default);
+        }
+
+        input:checked + & {
+            color: var(--jkl-color-text-default);
+            transform: translate3d(0, -20%, 0);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        input:focus + &::after {
+            @include jkl.keyboard-navigation {
+                opacity: 1;
+            }
         }
     }
 }

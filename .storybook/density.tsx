@@ -1,22 +1,20 @@
 import type { ReactRenderer } from "@storybook/nextjs";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
 export const densities = [
-    { title: "Kompakt", value: "compact", icon: "collapse" },
-    { title: "Komfortabelt", value: "comfortable", icon: "expandalt" },
+    { title: "Liten", value: "small" },
+    { title: "Medium", value: "medium" },
+    { title: "Stor", value: "large" },
 ];
 
-const applyDensity = (
-    element: HTMLElement,
-    density: string,
-) => {
+const applyDensity = (element: HTMLElement, density: string) => {
     element.classList.add("jkl");
-    element.dataset.layoutDensity = density;
+    element.dataset.size = density;
 };
 
 const clearDensity = (element: HTMLElement) => {
-    element.dataset.layoutDensity = undefined;
+    element.dataset.size = undefined;
 };
 
 export const densityGlobal = {

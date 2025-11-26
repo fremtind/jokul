@@ -1,85 +1,73 @@
 @use "../../../core/jkl";
 
-@include jkl.comfortable-density-variables {
-    --jkl-calendar-date-size: #{jkl.rem(38px)};
-
-    @include jkl.declare-font-variables("jkl-calendar-date", "body");
-
-    @include jkl.small-device {
-        --jkl-calendar-date-size: #{jkl.rem(36px)};
-
-        @include jkl.declare-font-variables("jkl-calendar-date", "small");
-    }
+@layer jokul.components {
 
     // Custom tweaks for iPhone SE
     @include jkl.screen-to(375px) {
-        --jkl-calendar-date-size: #{jkl.rem(32px)};
-    }
-}
-
-@include jkl.compact-density-variables {
-    --jkl-calendar-date-size: #{jkl.rem(32px)};
-
-    @include jkl.declare-font-variables("jkl-calendar-date", "small");
-}
-
-.jkl-calendar-date-button {
-    @include jkl.use-font-variables("jkl-calendar-date");
-    appearance: none;
-    position: relative;
-
-    box-sizing: border-box;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    height: var(--jkl-calendar-date-size);
-    width: var(--jkl-calendar-date-size);
-    border-radius: 50%;
-    background-color: transparent;
-    color: var(--jkl-color);
-
-    margin: var(--jkl-calendar-date-margin);
-
-    padding: 0;
-    padding-top: jkl.$unit-02; // adjust visual alignment of text
-
-    @include jkl.motion("entrance", "energetic");
-    transition-property: color, background-color, box-shadow;
-
-    @include jkl.reset-outline;
-
-    &[data-adjacent="true"] {
-        @include jkl.text-style("small");
-        padding: 0; // reset vertical alignment of text
-        color: var(--jkl-color-text-subdued);
+        --jkl-calendar-date-size: var(--jkl-unit-40);
     }
 
-    &[aria-current="date"] {
-        font-weight: jkl.$typography-weight-bold;
-    }
+    .jkl-calendar-date-button {
+        --jkl-calendar-date-size: var(--jkl-unit-50);
 
-    // Other dates
-    &:hover:not(:disabled) {
-        background-color: var(--jkl-color-background-interactive-hover);
-        cursor: pointer;
-    }
+        @include jkl.use-font-variables("jkl-calendar-date");
 
-    // Selected date
-    &[aria-pressed="true"] {
-        background-color: var(--jkl-color-background-container-inverted);
-        color: var(--jkl-color-text-inverted);
-        cursor: pointer;
+        appearance: none;
+        position: relative;
 
-        &:hover {
-            color: var(--jkl-color);
+        box-sizing: border-box;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        height: var(--jkl-calendar-date-size);
+        width: var(--jkl-calendar-date-size);
+        border-radius: 50%;
+        background-color: transparent;
+        color: var(--jkl-color);
+
+        margin: var(--jkl-calendar-date-margin);
+
+        padding: 0;
+        padding-top: var(--jkl-unit-02); // adjust visual alignment of text
+
+        @include jkl.motion("entrance", "energetic");
+        transition-property: color, background-color, box-shadow;
+
+        @include jkl.reset-outline;
+
+        &[data-adjacent="true"] {
+            @include jkl.text-style("small");
+            padding: 0; // reset vertical alignment of text
+            color: var(--jkl-color-text-subdued);
         }
-    }
 
-    &:disabled {
-        color: color(from var(--jkl-color-text-subdued) srgb r g b / 70%);
-    }
+        &[aria-current="date"] {
+            font-weight: jkl.$typography-weight-bold;
+        }
 
-    &:focus-visible {
-        @include jkl.focus-outline;
+        // Other dates
+        &:hover:not(:disabled) {
+            background-color: var(--jkl-color-background-interactive-hover);
+            cursor: pointer;
+        }
+
+        // Selected date
+        &[aria-pressed="true"] {
+            background-color: var(--jkl-color-background-container-inverted);
+            color: var(--jkl-color-text-inverted);
+            cursor: pointer;
+
+            &:hover {
+                color: var(--jkl-color);
+            }
+        }
+
+        &:disabled {
+            color: color(from var(--jkl-color-text-subdued) srgb r g b / 70%);
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+        }
     }
 }

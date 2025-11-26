@@ -11,13 +11,13 @@
         tr {
             display: flex;
             justify-content: space-between;
-            padding-bottom: jkl.$spacing-8;
+            padding-bottom: var(--jkl-unit-10);
         }
 
         th,
         td {
             flex-basis: 50%;
-            padding-right: jkl.$spacing-16;
+            padding-right: var(--jkl-unit-20);
 
             &:first-child {
                 text-align: left;
@@ -38,11 +38,11 @@
         & > tfoot {
             border-top: jkl.rem(1px) solid var(--jkl-color-border-separator-strong);
             border-bottom: jkl.rem(1px) solid var(--jkl-color-border-separator-strong);
-            padding-top: jkl.$spacing-8;
+            padding-top: var(--jkl-unit-10);
 
             th,
             td {
-                font-weight: jkl.$typography-weight-bold;
+                font-weight: var(--jkl-typography-weight-bold);
             }
         }
     }
