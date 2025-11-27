@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { FormErrorMessage as MessageComponent } from "../FormErrorMessage.js";
+import { FormErrorMessage } from "../FormErrorMessage.js";
 import "../styles/_index.scss";
 
 const meta = {
-    title: "Komponenter/Message",
-    component: MessageComponent,
+    title: "Komponenter/Message/Form Error Message",
+    component: FormErrorMessage,
     parameters: {
         layout: "centered",
     },
     tags: ["autodocs"],
-} satisfies Meta<typeof MessageComponent>;
+} satisfies Meta<typeof FormErrorMessage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const FormErrorMessage: Story = {
+export const _FormErrorMessage: Story = {
     args: {
         errors: ["Du må oppgi fornavn", "Du må oppgi etternavn"],
         isSubmitted: true,

@@ -3,4 +3,5 @@ import type { Density } from "../../core/types.js";
 
 export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
     density?: Density;
+    variant?: "neutral" | "info" | "error" | "warning" | "success";
 }

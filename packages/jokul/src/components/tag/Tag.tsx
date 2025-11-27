@@ -2,9 +2,7 @@ import clsx from "clsx";
 import React, { type FC } from "react";
 import type { TagProps } from "./types.js";
 
-type Variant = "info" | "error" | "warning" | "success";
-
-function getDisplayName(variant?: Variant) {
+function getDisplayName(variant?: TagProps["variant"]) {
     switch (variant) {
         case "info":
             return "InfoTag";
@@ -19,7 +17,8 @@ function getDisplayName(variant?: Variant) {
     }
 }
 
-function tagFactory(variant?: Variant) {
+// Vil fjernes etterhvert :-)
+function tagFactory(variant?: TagProps["variant"]) {
     const Tag: FC<TagProps> = ({ className, density, children, ...rest }) => (
         <span
             className={clsx(
@@ -42,8 +41,32 @@ function tagFactory(variant?: Variant) {
     return Tag;
 }
 
-export const Tag = tagFactory();
+export const Tag = ({ className, density, variant = "neutral", children, ...rest } : TagProps) => (
+    <span
+        className={clsx(
+            "jkl-tag", `jkl-tag--${variant}`,
+            className,
+        )}
+        data-density={density}
+        {...rest}
+    >
+            {children}
+        </span>
+);
+
+/**
+ * @deprecated bruk {@link Tag} med variant="info"
+ */
 export const InfoTag = tagFactory("info");
+/**
+ * @deprecated bruk {@link Tag} med variant="error"
+ */
 export const ErrorTag = tagFactory("error");
+/**
+ * @deprecated bruk {@link Tag} med variant="warning"
+ */
 export const WarningTag = tagFactory("warning");
+/**
+ * @deprecated bruk {@link Tag} med variant="success"
+ */
 export const SuccessTag = tagFactory("success");

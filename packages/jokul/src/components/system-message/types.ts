@@ -13,4 +13,10 @@ export interface SystemMessageProps extends WithChildren {
         handleDismiss: () => void;
         buttonTitle?: string;
     };
+    /**
+     * Setter type melding.
+     *
+     * @default "info"
+     */
+    variant?: "info" | "success" | "warning" | "error";
 }
