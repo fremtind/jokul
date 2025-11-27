@@ -12,7 +12,20 @@ const meta = {
             maxLength: 200,
             hideProgress: false,
         },
-        autoExpand: true,
+        autoExpand: false,
+        inline: false,
+        rows: 7,
+        startOpen: true,
+        readOnly: false,
+        disabled: false,
+        errorLabel: "",
+    },
+    argTypes: {
+        rows: {
+            control: {
+                min: 3,
+            },
+        },
     },
 } satisfies Meta<typeof TextAreaComponent>;
 
@@ -26,28 +39,29 @@ export const TextArea: Story = {
     },
 };
 
-export const TextAreaWithCounterAndAutoExpand: Story = {};
-
-export const WithError: Story = {
+export const Rows: Story = {
     args: {
-        label: "Beskriv skaden",
-        errorLabel: "Du må beskrive skaden for å fortsette",
-    },
-};
-
-export const Compact: Story = {
-    args: {
-        label: "Kommentarer",
-        density: "compact",
         rows: 3,
     },
 };
 
-export const ReadOnly: Story = {
+export const Counter: Story = {
     args: {
-        label: "Tidligere registrert informasjon",
-        readOnly: true,
-        value: "Kunde rapporterte vannlekkasje i kjeller 15. mars kl. 08:30. Skaden oppstod som følge av frostsprengt rør under kjøkkengulvet. Rørlegger tilkalt samme dag.",
-        description: "Denne informasjonen kan ikke endres",
+        counter: {
+            maxLength: 400,
+            hideProgress: false,
+        },
+    },
+};
+
+export const AutoExpand: Story = {
+    args: {
+        autoExpand: true,
+    },
+};
+
+export const _Error: Story = {
+    args: {
+        errorLabel: "Du må beskrive skaden for å fortsette",
     },
 };
