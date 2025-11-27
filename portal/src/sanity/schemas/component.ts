@@ -190,6 +190,7 @@ export const component = defineType({
                 { type: "jokul_storybook" },
                 { type: "jokul_codeBlock" },
                 { type: "jokul_doAndDont" },
+                { type: "jokul_messageBox" },
             ],
         }),
         defineField({
