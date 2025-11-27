@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: start;
-    padding-top: var(--jkl-unit-15);
+    padding: var(--jkl-unit-20);
     position: sticky;
     top: 0;
     background-color: var(--jkl-color-background-container);

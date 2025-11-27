@@ -1,6 +1,7 @@
 @use "@fremtind/jokul/styles/core";
 @use "@fremtind/jokul/styles/fonts" with (
-    $webfonts-dir: "../../src/fonts" // Dette er relativt til webfonts.sccs-fila i jokul-pakka
+    $webfonts-dir: "../../src/fonts"
+        // Dette er relativt til webfonts.sccs-fila i jokul-pakka
 );
 @use "@fremtind/jokul/styles/styles";
 @use "@fremtind/jokul/styles/core/jkl";
@@ -18,7 +19,6 @@ body {
 
 .jkl-portal-layout {
     max-width: var(--max-width);
-    padding: var(--jkl-spacing-16);
     margin-inline: auto;
 
     @media (width >=940px) {
@@ -60,6 +60,7 @@ samp {
 
 main {
     display: grid;
+    padding: var(--jkl-spacing-16);
 }
 
 article header {
