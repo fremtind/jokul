@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useEffect, useState } from "react";
+import { faktura } from "../../../../../../storybook-public/data/table-data.js";
 import { Button } from "../../button/index.js";
 import { Link } from "../../link/index.js";
 import { Select } from "../../select/index.js";
@@ -11,7 +12,6 @@ import { TableCell } from "../TableCell.js";
 import { TableHead } from "../TableHead.js";
 import { TableHeader } from "../TableHeader.js";
 import { TableRow } from "../TableRow.js";
-import { faktura } from "./data.js";
 
 import "../styles/_index.scss";
 import "../../description-list/styles/_index.scss";

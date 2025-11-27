@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Link } from "../Link.js";
 import "../styles/_index.scss";
-import * as url from "../../file/stories/cow.jpg";
+import * as url from "../../../../../../storybook-public/images/cow.jpg";
 import { Flex } from "../../flex/index.js";
 
 const meta: Meta = {

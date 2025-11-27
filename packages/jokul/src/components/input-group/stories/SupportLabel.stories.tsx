@@ -5,7 +5,7 @@ import { SupportLabel } from "../SupportLabel.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
-    title: "Komponenter/InputGroup/SupportLabel",
+    title: "Komponenter/SupportLabel",
     component: SupportLabel,
     argTypes: {
         label: {
