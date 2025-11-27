@@ -1,4 +1,5 @@
 export {
+    SystemMessage,
     InfoSystemMessage,
     WarningSystemMessage,
     ErrorSystemMessage,

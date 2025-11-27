@@ -1,4 +1,5 @@
 export {
+    Message,
     InfoMessage,
     ErrorMessage,
     SuccessMessage,
