@@ -1,5 +1,39 @@
 # Change Log
 
+## 3.5.0
+
+### Minor Changes
+
+- f055f7e: `System Message` tar nå inn variant, istedenfor å måtte bruke flere typer System Messages. Markert egendefinerte System Messages som deprecated.
+
+  ```typescript jsx
+  // Før
+  <ErrorSystemMessage>...</ErrorSystemMessage>
+
+  // Etter
+  <SystemMessage variant="error">...</SystemMessage>
+  ```
+
+- 97c4200: Tag tar nå inn variant, istedenfor å måtte bruke flere typer tags. Markert egendefinerte tags som deprecated.
+
+  ```typescript jsx
+  // Før
+  <ErrorTag>...</ErrorTag>
+
+  // Etter
+  <Tag variant="error">...</Tag>
+  ```
+
+- 29ff5ae: `Message` tar nå inn variant, istedenfor å måtte bruke flere typer meldinger. Markert egendefinerte messages som deprecated.
+
+  ```typescript jsx
+  // Før
+  <ErrorMessage>...</ErrorMessage>
+
+  // Etter
+  <Message variant="error">...</Message>
+  ```
+
 ## 3.4.0
 
 ### Minor Changes
