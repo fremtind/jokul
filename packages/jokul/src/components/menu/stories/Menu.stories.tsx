@@ -1,37 +1,28 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Button } from "../../button/Button.js";
-import { ChevronDownIcon } from "../../icon/index.js";
-import { Menu as MenuComponent } from "../Menu.js";
+import { Menu } from "../Menu.js";
 import { MenuItem } from "../MenuItem.js";
+
 import "../styles/_index.scss";
+import { HamburgerIcon } from "../../icon/index.js";
 
 const meta = {
     title: "Komponenter/Menu/Menu",
-    component: MenuComponent,
-} satisfies Meta<typeof MenuComponent>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const Menu: Story = {
-    argTypes: {
-        isOpen: {
-            control: { disable: true },
-        },
-    },
+    component: Menu,
     args: {
+        openOnHover: false,
+        keepOpenOnClickOutside: false,
+        initialPlacement: "bottom-start",
         triggerElement: (
             <Button
                 variant="ghost"
-                icon={<ChevronDownIcon bold />}
                 iconPosition="right"
-                data-testid="open-menu"
+                icon={<HamburgerIcon />}
             >
                 Meny
             </Button>
         ),
-        keepOpenOnClickOutside: false,
         children: (
             <>
                 <MenuItem as="a" href="#forsikringene-dine">
@@ -43,7 +34,7 @@ export const Menu: Story = {
                 <MenuItem as="a" href="#skadesakene-dine">
                     Skadesakene dine
                 </MenuItem>
-                <MenuComponent
+                <Menu
                     triggerElement={
                         <MenuItem expandable={true}>Skjemaoppgaver</MenuItem>
                     }
@@ -57,12 +48,21 @@ export const Menu: Story = {
                     <MenuItem as="a" href="#oppsigelse">
                         Oppsigelse av forsikring
                     </MenuItem>
-                </MenuComponent>
+                </Menu>
                 <MenuItem as="a" href="#kontakt-oss">
                     Kontakt oss
                 </MenuItem>
             </>
         ),
     },
-    render: ({ isOpen, ...args }) => <MenuComponent {...args} />,
-};
+    argTypes: {
+        isOpen: {
+            control: { disable: true },
+        },
+    },
+} satisfies Meta<typeof Menu>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const _Menu: Story = {};
