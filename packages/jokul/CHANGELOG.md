@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.5.1
+
+### Patch Changes
+
+- 6766086: Sørger for at komponentene `Message` og `SystemMessage` er eksportert riktig fra Jøkul-pakken.
+
 ## 3.5.0
 
 ### Minor Changes
