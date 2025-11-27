@@ -4,7 +4,7 @@ import { Label } from "../Label.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
-    title: "Komponenter/InputGroup/Label",
+    title: "Komponenter/Label",
     component: Label,
 } satisfies Meta<typeof Label>;
 
