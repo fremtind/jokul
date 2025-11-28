@@ -12,7 +12,7 @@ const applyDensity = (
     density: string,
 ) => {
     element.classList.add("jkl");
-    element.dataset.layoutDensity = density;
+    element.dataset.layoutDensity = density.value;
 };
 
 const clearDensity = (element: HTMLElement) => {

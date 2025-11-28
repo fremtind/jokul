@@ -9,7 +9,7 @@ export const themes = [
 
 const applyTheme = (element: HTMLElement, theme: string) => {
     element.classList.add("jkl");
-    element.dataset.theme = theme;
+    element.dataset.theme = theme.value;
 };
 
 const clearTheme = (element: HTMLElement) => {
