@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Flex } from "../../flex/index.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
@@ -9,9 +9,6 @@ const meta: Meta = {
     title: "Komponenter/Select",
     component: Select,
     subcomponents: { PopupTip },
-    parameters: {
-        layout: "centered",
-    },
     argTypes: {
         className: {
             table: {
@@ -75,7 +72,6 @@ const meta: Meta = {
         width: "20ch",
         searchable: false,
     },
-    tags: ["autodocs", "forms"],
 };
 
 export default meta;

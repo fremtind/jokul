@@ -1,12 +1,15 @@
-import type { ReactRenderer } from "@storybook/react";
+import type { ReactRenderer } from "@storybook/nextjs";
 import React, { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
-export const densities = [undefined, "compact", "comfortable"] as const;
+export const densities = [
+    { title: "Kompakt", value: "compact", icon: "collapse" },
+    { title: "Komfortabelt", value: "comfortable", icon: "expandalt" },
+];
 
 const applyDensity = (
     element: HTMLElement,
-    density: (typeof densities)[number],
+    density: string,
 ) => {
     element.classList.add("jkl");
     element.dataset.layoutDensity = density;
@@ -17,15 +20,10 @@ const clearDensity = (element: HTMLElement) => {
 };
 
 export const densityGlobal = {
-    description: "Størrelse for eksemplet",
     toolbar: {
-        title: "Størrelse",
+        title: "Density",
         icon: "unfold",
-        items: [
-            { title: "Automatisk", value: densities[0], icon: "browser" },
-            { title: "Compact", value: densities[1], icon: "collapse" },
-            { title: "Comfortable", value: densities[2], icon: "expandalt" },
-        ],
+        items: densities,
         dynamicTitle: true,
     },
 };

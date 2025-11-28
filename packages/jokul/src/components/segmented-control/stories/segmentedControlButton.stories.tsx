@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 
 import { SegmentedControl } from "../SegmentedControl.js";
@@ -11,9 +11,6 @@ import "../../link/styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/SegmentedControl/SegmentedControlButton",
     component: SegmentedControlButton,
-    parameters: {
-        layout: "centered",
-    },
     args: {
         separated: true,
         value: "Auto",
@@ -26,7 +23,6 @@ const meta: Meta = {
             </SegmentedControl>
         ),
     ],
-    tags: ["autodocs"],
 };
 
 export default meta;

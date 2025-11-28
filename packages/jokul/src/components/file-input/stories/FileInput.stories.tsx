@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import "../styles/_index.scss";
 import { Button, PrimaryButton } from "../../button/index.js";
@@ -12,10 +12,6 @@ const meta = {
     title: "Komponenter/File/FileInput",
     component: FileInput,
     subcomponents: { File, Dropzone, MaxSize, Button },
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof FileInput>;
 
 export default meta;

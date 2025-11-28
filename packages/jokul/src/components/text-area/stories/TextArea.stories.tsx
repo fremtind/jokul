@@ -1,13 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { TextArea as TextAreaComponent } from "../TextArea.js";
 import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/TextArea",
     component: TextAreaComponent,
-    parameters: {
-        layout: "centered",
-    },
     args: {
         label: "Tilleggsinformasjon",
         description: "Legg til relevant informasjon som kan påvirke saken.",
@@ -17,7 +14,6 @@ const meta = {
         },
         autoExpand: true,
     },
-    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof TextAreaComponent>;
 
 export default meta;

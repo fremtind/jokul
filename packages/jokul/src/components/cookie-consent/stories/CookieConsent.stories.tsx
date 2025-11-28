@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { type FC } from "react";
 import type { WithChildren } from "../../../core/types.js";
 import { PrimaryButton } from "../../button/Button.js";
@@ -13,15 +13,11 @@ import "../../link/styles/_index.scss";
 const meta = {
     title: "Komponenter/CookieConsent",
     component: CookieConsentProvider,
-    parameters: {
-        layout: "centered",
-    },
     args: {
         cookieName: "demo-consent-cookie",
         functional: true,
         statistics: true,
     },
-    tags: ["autodocs"],
 } satisfies Meta<typeof CookieConsentProvider>;
 
 export default meta;

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import "../styles/_index.scss";
 import { PopupTip as PopuptipComponent } from "../PopupTip.js";
@@ -6,7 +6,6 @@ import { PopupTip as PopuptipComponent } from "../PopupTip.js";
 const meta = {
     title: "Komponenter/Popuptip",
     component: PopuptipComponent,
-    tags: ["autodocs"],
     argTypes: {
         delay: { control: "number" },
         initialOpen: { control: "boolean" },

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Button } from "../Button.js";
 import type { ButtonVariant } from "../types.js";
@@ -9,10 +9,6 @@ import { CopyIcon } from "../../icon/index.js";
 const meta = {
     title: "Visuelle regresjonstester/Button",
     component: Button,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["visual"],
 } satisfies Meta<typeof Button>;
 
 export default meta;

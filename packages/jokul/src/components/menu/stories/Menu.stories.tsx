@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Button } from "../../button/Button.js";
 import { ChevronDownIcon } from "../../icon/index.js";
@@ -9,10 +9,6 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/Menu/Menu",
     component: MenuComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof MenuComponent>;
 
 export default meta;

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { Button } from "../../button/index.js";
 import { Icon } from "../Icon.js";
@@ -46,10 +46,6 @@ import "../../button/styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/Ikoner",
     component: Icon,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
     argTypes: {
         variant: {
             control: "radio",
@@ -67,7 +63,7 @@ export default meta;
 
 type Story = StoryObj<typeof Icon>;
 
-const allIcons = [
+export const allIcons = [
     ArrowDownIcon,
     ArrowLeftIcon,
     ArrowNorthEastIcon,

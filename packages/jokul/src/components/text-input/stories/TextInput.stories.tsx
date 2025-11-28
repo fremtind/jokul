@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Flex } from "../../flex/index.js";
 import { IconButton } from "../../icon-button/index.js";
@@ -10,14 +10,6 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/TextInput/TextInput",
     component: TextInputComponent,
-    parameters: {
-        layout: "centered",
-        controls: {
-            expanded: true,
-            sort: "alpha",
-        },
-    },
-    tags: ["autodocs", "forms"],
     argTypes: {
         type: {
             control: "text",
@@ -58,9 +50,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const TextInput: Story = {
-    args: {},
-};
+export const TextInput: Story = {};
 
 /**
  * Ved å bruke unit og align sammen vil du få et godt utgangspunkt for

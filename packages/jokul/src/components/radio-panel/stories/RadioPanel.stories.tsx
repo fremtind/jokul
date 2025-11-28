@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { Button } from "../../button/index.js";
 import { Flex } from "../../flex/index.js";
@@ -10,10 +10,6 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/RadioPanel",
     component: RadioPanelComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
     args: {
         label: "Livsforsikring",
         description:

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import "../styles/_index.scss";
 import { Loader } from "../Loader.js";
@@ -17,7 +17,6 @@ const meta = {
         variant: { control: "select" },
         role: { control: "text" },
     },
-    tags: ["autodocs"],
 } satisfies Meta<typeof Loader>;
 
 export default meta;

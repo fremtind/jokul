@@ -1,12 +1,34 @@
-import type { Preview } from "@storybook/react";
-import React from "react";
+import type { Preview } from "@storybook/nextjs";
+import {INITIAL_VIEWPORTS} from "storybook/viewport";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
-import { backgroundOptions } from "./backgrounds.js";
-import { densities, densityDecorator, densityGlobal } from "./density.js";
-import { themeDecorator, themeGlobal, themes } from "./theme.js";
+import { densityDecorator, densityGlobal } from "./density.js";
+import { themeDecorator, themeGlobal } from "./theme.js";
 import "./global.scss";
 
 initTabListener();
+
+const backgroundOptions = [
+    {
+        name: "Page",
+        value: "var(--jkl-color-background-page)",
+    },
+    {
+        name: "Page variant",
+        value: "var(--jkl-color-background-page-variant)",
+    },
+    {
+        name: "Container",
+        value: "var(--jkl-color-background-container)",
+    },
+    {
+        name: "Container low",
+        value: "var(--jkl-color-background-container-low)",
+    },
+    {
+        name: "Container high",
+        value: "var(--jkl-color-background-container-high)",
+    },
+];
 
 const preview: Preview = {
     globalTypes: {
@@ -14,42 +36,35 @@ const preview: Preview = {
         density: densityGlobal,
     },
     initialGlobals: {
-        theme: themes[0], // Automatisk dark/light
-        density: densities[0],
-        backgrounds: { value: "pageVariant" },
+        theme: undefined,
+        density: undefined,
     },
-    decorators: [
-        (Story) => (
-            <div style={{ padding: "1em" }}>
-                <Story />
-            </div>
-        ),
-        themeDecorator,
-        densityDecorator,
-    ],
+    decorators: [themeDecorator, densityDecorator],
+    tags: ["autodocs"],
     parameters: {
         backgrounds: {
             options: backgroundOptions,
+            grid: {
+                cellSize: 4,
+                opacity: 0.2,
+                cellAmount: 4,
+            },
+        },
+        viewport: {
+            options: INITIAL_VIEWPORTS,
         },
         layout: "centered",
         controls: {
-            sort: "alpha",
-            matchers: {
-                color: /(background|color)$/i,
-                date: /Date$/i,
-            },
+            sort: "requiredFirst",
         },
         docs: {
             toc: {
-                title: "Innhold",
                 disable: false,
-                unsafeTocbotOptions: {
-                    orderedList: false,
-                },
             },
             controls: {
-                sort: "alpha",
+                sort: "requiredFirst",
             },
+            codePanel: true,
         },
     },
     argTypes: {
