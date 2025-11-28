@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Image } from "../Image.js";
 import type { ImageProps } from "../types.js";
@@ -14,10 +14,6 @@ const thumbnail = "/images/thumbnail.jpg";
 export default {
     title: "Komponenter/Image",
     component: Image,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs", "embedded content"],
     args: {
         src: dog400,
         srcSet: `${dog400} 400w, ${dog800} 800w, ${dog1200} 1200w, ${dog1920} 1920w`,

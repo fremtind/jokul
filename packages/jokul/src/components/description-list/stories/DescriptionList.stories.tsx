@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import {
     DescriptionDetail,
@@ -14,10 +14,6 @@ const meta: Meta = {
         DescriptionDetail,
         DescriptionTerm,
     },
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs", "grouping content"],
 } satisfies Meta<typeof DescriptionList>;
 
 export default meta;

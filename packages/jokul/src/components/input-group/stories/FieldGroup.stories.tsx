@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Checkbox } from "../../checkbox/Checkbox.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
@@ -9,14 +9,10 @@ import "../../checkbox/styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/InputGroup/FieldGroup",
     component: FieldGroup,
-    parameters: {
-        layout: "centered",
-    },
     args: {
         description:
             "Velg metoden som gjør det enklest for oss å få kontakt med deg i jobb-tider.",
     },
-    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof FieldGroup>;
 
 export default meta;

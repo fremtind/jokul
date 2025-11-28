@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import React from "react";
 import { Button } from "../../button/index.js";
@@ -12,7 +12,6 @@ const meta = {
     title: "Komponenter/Tooltip",
     component: TooltipComponent,
     subcomponents: { TooltipTrigger, TooltipContent },
-    tags: ["autodocs"],
     argTypes: {
         delay: { control: "number" },
         initialOpen: { control: "boolean" },

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { BaseTextInput } from "../../text-input/BaseTextInput.js";
 import { InputGroup } from "../InputGroup.js";
@@ -8,13 +8,9 @@ import "../../text-input/styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/InputGroup",
     component: InputGroup,
-    parameters: {
-        layout: "centered",
-    },
     args: {
         description: "Fødselsnummer består av 11 siffer.",
     },
-    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof InputGroup>;
 
 export default meta;

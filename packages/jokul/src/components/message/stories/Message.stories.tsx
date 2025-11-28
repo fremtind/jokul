@@ -1,14 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Message } from "../Message.js";
 import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/Message",
     component: Message,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof Message>;
 
 export default meta;

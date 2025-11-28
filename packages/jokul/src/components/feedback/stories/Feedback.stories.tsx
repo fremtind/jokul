@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import "../styles/_index.scss";
 import { Feedback } from "../Feedback.js";
@@ -7,10 +7,6 @@ import { defaultOptions } from "../questions/smileyUtils.js";
 const meta = {
     title: "Komponenter/Feedback",
     component: Feedback,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof Feedback>;
 
 export default meta;

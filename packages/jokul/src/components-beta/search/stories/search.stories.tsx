@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { Button } from "../../../components/button/index.js";
 import { Card } from "../../../components/card/Card.jsx";

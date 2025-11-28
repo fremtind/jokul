@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { OrderedList } from "../List.js";
 import { ListItem } from "../ListItem.js";
@@ -11,7 +11,6 @@ const meta = {
     subcomponents: {
         ListItem,
     },
-    tags: ["autodocs", "grouping content"],
 } satisfies Meta<typeof OrderedList>;
 
 export default meta;

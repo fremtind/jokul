@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Label } from "../Label.js";
 import "../styles/_index.scss";
@@ -6,10 +6,6 @@ import "../styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/InputGroup/Label",
     component: Label,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof Label>;
 
 export default meta;

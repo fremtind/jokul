@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { Pagination as PaginationComponent } from "../Pagination.js";
 import "../styles/_index.scss";
@@ -6,10 +6,6 @@ import "../styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/Pagination",
     component: PaginationComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof PaginationComponent>;
 
 export default meta;

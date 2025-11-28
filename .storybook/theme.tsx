@@ -1,10 +1,13 @@
-import type { ReactRenderer } from "@storybook/react";
+import type { ReactRenderer } from "@storybook/nextjs";
 import React, { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
-export const themes = [undefined, "light", "dark"] as const;
+export const themes = [
+    { title: "Lyst", value: "light", icon: "sun" },
+    { title: "Mørkt", value: "dark", icon: "moon" },
+];
 
-const applyTheme = (element: HTMLElement, theme: (typeof themes)[number]) => {
+const applyTheme = (element: HTMLElement, theme: string) => {
     element.classList.add("jkl");
     element.dataset.theme = theme;
 };
@@ -14,15 +17,10 @@ const clearTheme = (element: HTMLElement) => {
 };
 
 export const themeGlobal = {
-    description: "Fargetema for eksemplet",
     toolbar: {
-        title: "Fargetema",
+        title: "Tema",
         icon: "paintbrush",
-        items: [
-            { title: "Automatisk", value: themes[0], icon: "contrast" },
-            { title: "Lyst", value: themes[1], icon: "sun" },
-            { title: "Mørkt", value: themes[2], icon: "moon" },
-        ],
+        items: themes,
         dynamicTitle: true,
     },
 };

@@ -1,13 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { NativeSelect } from "../NativeSelect.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
     title: "Komponenter/Select/Native",
     component: NativeSelect,
-    parameters: {
-        layout: "centered",
-    },
     argTypes: {
         className: {
             table: {
@@ -68,7 +65,6 @@ const meta: Meta = {
         },
         width: "20ch",
     },
-    tags: ["autodocs", "forms"],
 };
 
 export default meta;

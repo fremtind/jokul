@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useEffect, useState } from "react";
 import { Button } from "../../button/Button.js";
 import { BETA_Help } from "../../help/Help.jsx";
@@ -33,10 +33,6 @@ const meta = {
         ModalOverlay,
         ModalTitle,
     },
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof ModalComponent>;
 
 export default meta;

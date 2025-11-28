@@ -1,19 +1,16 @@
-import { mergeConfig } from "vite";
-import react from "@vitejs/plugin-react";
 import type { StorybookConfig } from "@storybook/react-vite";
+import react from "@vitejs/plugin-react";
+import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
-    stories: ["../packages/jokul/**/*.stories.@(ts|tsx)"],
-    staticDirs: ["../storybook-public"],
-    addons: [
-        "@storybook/addon-essentials",
-        "@chromatic-com/storybook",
-        "@storybook/addon-interactions",
-        "@storybook/addon-a11y",
-        "@storybook/addon-storysource",
+    stories: [
+        "../packages/jokul/**/*.stories.@(ts|tsx|md|mdx)",
+        "./docs/*.mdx",
     ],
+    staticDirs: ["../storybook-public"],
+    addons: ["@storybook/addon-docs"],
     features: {
-        backgroundsStoryGlobals: true,
+        backgrounds: true,
     },
     framework: {
         name: "@storybook/react-vite",

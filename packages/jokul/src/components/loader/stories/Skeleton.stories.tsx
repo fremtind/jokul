@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import "../styles/_index.scss";
 import { SkeletonAnimation } from "../skeletons/SkeletonAnimation.js";
@@ -23,7 +23,6 @@ const meta = {
             control: "number",
         },
     },
-    tags: ["autodocs"],
 } satisfies Meta<typeof SkeletonTable>;
 
 export default meta;

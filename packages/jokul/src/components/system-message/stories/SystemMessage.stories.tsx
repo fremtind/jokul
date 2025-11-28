@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { SystemMessage } from "../SystemMessage.js";
 
 import "../styles/_index.scss";
@@ -6,9 +6,6 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/SystemMessage",
     component: SystemMessage,
-    parameters: {
-        layout: "fullscreen",
-    },
     args: {
         dismissed: false,
         dismissAction: {
@@ -21,7 +18,6 @@ const meta = {
         role: "status",
         variant: "info",
     },
-    tags: ["autodocs"],
 } satisfies Meta<typeof SystemMessage>;
 
 export default meta;

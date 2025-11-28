@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { Popover as PopoverComponent } from "../Popover.js";
 import "../../button/styles/_index.scss";
@@ -7,10 +7,6 @@ import "../styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/Popover/PopoverUncontrolled",
     component: PopoverComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof PopoverComponent>;
 
 export default meta;

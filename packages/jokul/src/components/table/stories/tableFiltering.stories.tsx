@@ -1,17 +1,17 @@
-import type {Meta, StoryObj} from "@storybook/react";
-import React, {useEffect, useState} from "react";
-import {Button} from "../../button/index.js";
-import {Link} from "../../link/index.js";
-import {Select} from "../../select/index.js";
-import {TextInput} from "../../text-input/index.js";
-import {Table} from "../Table.js";
-import {TableBody} from "../TableBody.js";
-import {TableCaption} from "../TableCaption.js";
-import {TableCell} from "../TableCell.js";
-import {TableHead} from "../TableHead.js";
-import {TableHeader} from "../TableHeader.js";
-import {TableRow} from "../TableRow.js";
-import {faktura} from "./data.js";
+import type { Meta, StoryObj } from "@storybook/nextjs";
+import React, { useEffect, useState } from "react";
+import { Button } from "../../button/index.js";
+import { Link } from "../../link/index.js";
+import { Select } from "../../select/index.js";
+import { TextInput } from "../../text-input/index.js";
+import { Table } from "../Table.js";
+import { TableBody } from "../TableBody.js";
+import { TableCaption } from "../TableCaption.js";
+import { TableCell } from "../TableCell.js";
+import { TableHead } from "../TableHead.js";
+import { TableHeader } from "../TableHeader.js";
+import { TableRow } from "../TableRow.js";
+import { faktura } from "./data.js";
 
 import "../styles/_index.scss";
 import "../../description-list/styles/_index.scss";
@@ -31,10 +31,6 @@ const meta = {
         TableRow,
         TableCell,
     },
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof Table>;
 
 export default meta;
@@ -74,7 +70,7 @@ export const TableFiltering: Story = {
         }, [search, status]);
 
         return (
-            <div style={{width: "90dvw"}}>
+            <div style={{ width: "90dvw" }}>
                 <aside
                     style={{
                         display: "flex",
@@ -91,7 +87,7 @@ export const TableFiltering: Story = {
                     />
                     <Select
                         items={[
-                            {label: "Alle statuser", value: ""},
+                            { label: "Alle statuser", value: "" },
                             "Faktura",
                             "Påminnelse",
                             "Inkasso",

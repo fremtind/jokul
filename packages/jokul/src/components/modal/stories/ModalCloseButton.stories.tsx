@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import "../styles/_index.scss";
 import React from "react";
 import { IconButton } from "../../icon-button/IconButton.js";
@@ -8,10 +8,6 @@ import { ModalCloseButton as ModalCloseButtonComponent } from "../Modal.js";
 const meta = {
     title: "Komponenter/Modal/ModalCloseButton",
     component: ModalCloseButtonComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof ModalCloseButtonComponent>;
 
 export default meta;
