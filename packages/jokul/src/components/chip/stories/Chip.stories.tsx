@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState, useEffect } from "react";
 import { Flex } from "../../flex/Flex.jsx";
 import { FieldGroup } from "../../input-group/index.js";
@@ -8,15 +8,6 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/Chip",
     component: ChipComponent,
-    tags: ["autodocs", "forms"],
-    parameters: {
-        docs: {
-            description: {
-                component:
-                    "Chips er interaktive merkelapper for å vise og administrere valg, filtre og verdier.",
-            },
-        },
-    },
     argTypes: {
         children: {
             control: "text",
@@ -62,14 +53,6 @@ export const Filter: Story = {
     args: {
         variant: "filter",
         size: "small",
-    },
-    parameters: {
-        docs: {
-            description: {
-                story: "Dette eksemplet viser hvordan `Chip` med `filter`-varianten kan brukes for å filtrere forsikringsprodukter.",
-            },
-        },
-        layout: "start",
     },
     render: ({ variant, ...args }) => {
         const insuranceProducts = [
@@ -173,7 +156,6 @@ export const Input: Story = {
                 story: "Dette eksemplet viser hvordan `Chip` med `input`-varianten kan brukes for å vise en liste med valgte elementer, for eksempel tilleggsdekninger, som brukeren kan fjerne.",
             },
         },
-        layout: "start",
     },
     render: (args) => {
         const initialCoverages = ["Leiebil", "Førerulykke", "Utvidet veihjelp"];

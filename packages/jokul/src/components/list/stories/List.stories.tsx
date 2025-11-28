@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { List } from "../List.js";
 import { CheckListItem, CrossListItem } from "../ListItem.js";
@@ -12,7 +12,6 @@ const meta = {
         CheckListItem,
         CrossListItem,
     },
-    tags: ["autodocs", "grouping content"],
 } satisfies Meta<typeof List>;
 
 export default meta;

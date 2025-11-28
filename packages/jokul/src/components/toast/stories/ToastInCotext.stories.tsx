@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { Button } from "../../button/index.js";
 import { Toast as ToastComponent, type ToastProps } from "../Toast.js";
@@ -10,7 +10,6 @@ import "../../button/styles/_index.scss";
 const meta = {
     title: "Komponenter/Toast",
     component: ToastComponent,
-    tags: ["autodocs"],
     argTypes: {
         state: { table: { disable: true } },
         toast: {

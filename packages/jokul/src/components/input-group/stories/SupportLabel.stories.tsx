@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { SupportLabel } from "../SupportLabel.js";
 
@@ -7,10 +7,6 @@ import "../styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/InputGroup/SupportLabel",
     component: SupportLabel,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
     argTypes: {
         label: {
             control: "text",

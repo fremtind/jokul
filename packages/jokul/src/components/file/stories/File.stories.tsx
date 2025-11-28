@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import "../../file-input/styles/_index.scss";
 import { Button } from "../../button/index.js";
@@ -17,10 +17,6 @@ const meta = {
     title: "Komponenter/File/File",
     component: File,
     subcomponents: { Button },
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
     argTypes: {
         state: {
             control: "select",

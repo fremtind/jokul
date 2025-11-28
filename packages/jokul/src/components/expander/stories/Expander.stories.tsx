@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { CalendarIcon } from "../../icon/index.js";
 import { ExpandablePanel } from "../ExpandablePanel.js";
@@ -9,9 +9,6 @@ import "../styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/Expander",
     component: ExpandablePanel,
-    parameters: {
-        layout: "centered",
-    },
     args: {
         expandDirection: "down",
         icon: <CalendarIcon />,
@@ -22,7 +19,6 @@ const meta: Meta = {
             options: ["up", "down"],
         },
     },
-    tags: ["autodocs", "interactive elements"],
 };
 
 export default meta;
@@ -74,9 +70,6 @@ export const ExpanderInPanel: Story = {
 };
 
 export const ExpanderFlipped: Story = {
-    parameters: {
-        layout: "fullscreen",
-    },
     args: {
         expandDirection: "up",
     },

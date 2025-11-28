@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import "../styles/_index.scss";
 import { NavTab } from "../NavTab.js";
@@ -10,7 +10,6 @@ const meta = {
     subcomponents: {
         NavTab,
     },
-    tags: ["autodocs"],
 } satisfies Meta<typeof Tabs>;
 
 export default meta;

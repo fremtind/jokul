@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import "../styles/_index.scss";
 import { ModalOverlay as ModalOverlayComponent } from "../Modal.js";
 import type { ModalInstance } from "../useModal.js";
@@ -12,10 +12,6 @@ interface ExtendedModalComponentProps {
 const meta = {
     title: "Komponenter/Modal/ModalOverlay",
     component: ModalOverlayComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<ExtendedModalComponentProps>;
 
 export default meta;

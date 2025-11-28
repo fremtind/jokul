@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Link } from "../Link.js";
 import "../styles/_index.scss";
@@ -8,10 +8,6 @@ import { Flex } from "../../flex/index.js";
 const meta: Meta = {
     title: "Komponenter/Link",
     component: Link,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs", "links"],
     argTypes: {
         href: {
             control: "text",
