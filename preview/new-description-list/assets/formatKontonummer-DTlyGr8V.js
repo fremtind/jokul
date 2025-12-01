@@ -1,0 +1,1 @@
+import{N as n}from"./formatNumber-CM0sh02i.js";const e={full:/^(\d{4})(\d{2})(\d{5})$/,partial:/^(\d{4})(\d{1,2})?(\d{1,5})?$/};function f(r,t){const o=r.replace(/\W/g,""),l=t?.partial?e.partial:e.full,a=o.match(l);return a?a.slice(1).filter(Boolean).join(t?.separator||n):r}export{f};

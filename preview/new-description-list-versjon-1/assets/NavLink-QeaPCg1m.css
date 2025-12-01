@@ -1,0 +1,1 @@
+.jkl-navlink--beta{display:grid;grid-template-columns:1fr auto;align-items:center;column-gap:2em}.jkl-navlink--beta .title,.jkl-navlink--beta .description{grid-column:1}.jkl-navlink--beta:has(.description) .title{font-weight:700}.jkl-navlink--beta:before{content:"arrow_forward"/"";font-family:Fremtind Material Symbols;align-self:center;grid-column:2;grid-row:1/span 999}
