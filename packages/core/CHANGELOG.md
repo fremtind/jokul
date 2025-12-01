@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [14.10.8](https://github.com/fremtind/jokul/compare/@fremtind/jkl-core@14.10.7...@fremtind/jkl-core@14.10.8) (2025-12-01)
+
+### Bug Fixes
+
+- rett opp fontskalering for iOS ([b5b668e](https://github.com/fremtind/jokul/commit/b5b668e0312fdad1de8bc8900aebba67c9042e56))
+
 ## 14.10.5 (2025-02-18)
 
 ### Bug Fixes

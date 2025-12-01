@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jkl-chip-react",
-    "version": "1.0.20",
+    "version": "1.0.21",
     "publishConfig": {
         "access": "public"
     },
@@ -36,9 +36,9 @@
         "dev": "run-p dev:*"
     },
     "dependencies": {
-        "@fremtind/jkl-chip": "^1.0.16",
-        "@fremtind/jkl-core": "^14.10.7",
-        "@fremtind/jkl-icons-react": "^9.2.9",
+        "@fremtind/jkl-chip": "^1.0.17",
+        "@fremtind/jkl-core": "^14.10.8",
+        "@fremtind/jkl-icons-react": "^9.2.10",
         "classnames": "^2.5.1"
     },
     "peerDependencies": {
