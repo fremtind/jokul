@@ -9,7 +9,7 @@ figma.connect(
         imports: ['import { Tag } from "@fremtind/jokul/components/tag";'],
         props: {
             children: figma.string("Text"),
-            variant: figma.enum("Variant", {
+            variant: figma.enum("Type", {
                 Error: "error",
                 Warning: "warning",
                 Success: "success",
