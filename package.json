@@ -50,7 +50,7 @@
     },
     "dependencies": {
         "fs-extra": "^11.3.1",
-        "glob": "^8.1.0",
+        "glob": "^9.0.0",
         "nodemon": "^2.0.22",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
@@ -90,7 +90,7 @@
         "clsx": "^2.1.1",
         "commitizen": "^4.3.1",
         "esbuild": "^0.25.5",
-        "express": "^4.21.2",
+        "express": "^4.22.0",
         "express-http-proxy": "^2.1.1",
         "gh-pages": "5.0.0",
         "husky": "^9.1.7",
