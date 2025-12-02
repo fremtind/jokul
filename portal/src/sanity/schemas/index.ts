@@ -8,6 +8,7 @@ import { doAndDont } from "./doAndDont";
 import { fundamentals } from "./fundamentals";
 import { kortFortalt } from "./kortFortalt";
 import { linkCard } from "./linkCard";
+import { messageBox } from "./messageBox";
 import { storybook, storybookStory } from "./storybook";
 import { table } from "./table";
 
@@ -25,4 +26,5 @@ export const schemaTypes = [
     doAndDont,
     fundamentals,
     table,
+    messageBox,
 ];

@@ -13,6 +13,13 @@
  */
 
 // Source: schema.json
+export type Jokul_messageBox = {
+  _type: "jokul_messageBox";
+  messageType?: "info" | "warning" | "success" | "error";
+  title?: string;
+  message?: string;
+};
+
 export type Jokul_table = {
   _type: "jokul_table";
   head?: Array<{
@@ -426,7 +433,9 @@ export type Jokul_component = {
     _key: string;
   } & Jokul_codeBlock | {
     _key: string;
-  } & Jokul_doAndDont>;
+  } & Jokul_doAndDont | {
+    _key: string;
+  } & Jokul_messageBox>;
   related_components?: {
     components?: Array<{
       _ref: string;
@@ -563,7 +572,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Jokul_component | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Jokul_messageBox | Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Jokul_component | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/blog.ts
 // Variable: blogPostsQuery
@@ -962,6 +971,13 @@ export type ComponentBySlugQueryResult = {
       alt?: string;
       _type: "image";
     };
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_messageBox";
+    messageType?: "error" | "info" | "success" | "warning";
+    title?: string;
+    message?: string;
     markDefs: null;
   } | {
     _key: string;

@@ -20,6 +20,7 @@ import {
     OrderedList,
     UnorderedList,
 } from "./list";
+import { MessageBox } from "./messageBox/MessageBox";
 import { Storybook } from "./storybook-story/Storybook";
 import { Table } from "./table/Table";
 import { CodeBlock } from "./typography/Typography";
@@ -41,6 +42,7 @@ const jokulBlockTypes = {
     jokul_linkCard: LinkCard,
     jokul_doAndDont: DoAndDont,
     jokul_table: Table,
+    jokul_messageBox: MessageBox,
     image: function ImageRenderer({
         value,
     }: {
