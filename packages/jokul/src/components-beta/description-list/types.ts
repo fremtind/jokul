@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "react";
+import type { HTMLAttributes, ReactNode } from "react";
 
 export type DescriptionListProps = HTMLAttributes<HTMLDListElement> & {
     /**
@@ -13,11 +13,19 @@ export type DescriptionListProps = HTMLAttributes<HTMLDListElement> & {
     showSeparators?: boolean;
 };
 
-export type DescriptionListItemProps = Omit<
-    HTMLAttributes<HTMLDivElement>,
-    "className"
-> & {
+export type DescriptionListItemProps = HTMLAttributes<HTMLDivElement> & {
+    /**
+     * Tittel/Term som beskrives.
+     */
     title: string;
+    /**
+     * Verdi/Beskrivelse til tittelen.
+     */
     value: string;
-    supportText?: string;
+    /**
+     * SupportText rendres som et dd-element, og støtter kun et
+     * utvalg under-elementer. Les mer om elementene som
+     * støttes: https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#flow_content.
+     */
+    supportText?: string | ReactNode;
 };
