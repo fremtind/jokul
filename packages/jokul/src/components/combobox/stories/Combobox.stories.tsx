@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import type { ComboboxValuePair } from "../../combobox/types.js";
 import { Combobox } from "../Combobox.js";
 
@@ -47,76 +47,6 @@ const items: ComboboxValuePair[] = [
 const meta = {
     title: "Komponenter/Combobox",
     component: Combobox,
-    parameters: {
-        layout: "centered",
-    },
-    argTypes: {
-        className: {
-            table: {
-                disable: true,
-            },
-        },
-        id: {
-            table: {
-                disable: true,
-            },
-        },
-        "data-testautoid": {
-            table: {
-                disable: true,
-            },
-        },
-        density: {
-            table: {
-                disable: true,
-            },
-        },
-        onBlur: {
-            table: {
-                disable: true,
-            },
-        },
-        onFocus: {
-            table: {
-                disable: true,
-            },
-        },
-        onChange: {
-            table: {
-                disable: true,
-            },
-        },
-        children: {
-            table: {
-                disable: true,
-            },
-        },
-        "data-testid": {
-            table: {
-                disable: true,
-            },
-        },
-        style: {
-            table: {
-                disable: true,
-            },
-        },
-        supportLabelProps: {
-            table: {
-                disable: true,
-            },
-        },
-        render: {
-            table: {
-                disable: true,
-            },
-        },
-        tooltip: {
-            table: {
-                disable: true,
-            },
-        },
-    },
     args: {
         placeholder: "Velg",
         inline: false,
@@ -130,7 +60,6 @@ const meta = {
         description: "Du kan velge flere, dersom flere passer",
         onChange: () => "",
     },
-    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof Combobox>;
 
 export default meta;

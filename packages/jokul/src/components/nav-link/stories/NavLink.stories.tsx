@@ -1,14 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { NavLink as NavLinkComponent } from "../NavLink.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
     title: "Komponenter/NavLink",
     component: NavLinkComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs", "links"],
     argTypes: {
         href: {
             control: "text",

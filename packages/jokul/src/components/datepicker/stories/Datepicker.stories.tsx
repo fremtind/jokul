@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { DatePicker as DatePickerComponent } from "../DatePicker.js";
 import "../styles/_index.scss";
@@ -6,9 +6,6 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/DatePicker",
     component: DatePickerComponent,
-    parameters: {
-        layout: "centered",
-    },
     args: {
         action: {
             disabled: false,
@@ -58,7 +55,6 @@ const meta = {
             readOnly: false,
         },
     },
-    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof DatePickerComponent>;
 
 export default meta;

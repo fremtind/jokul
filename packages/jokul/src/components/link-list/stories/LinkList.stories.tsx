@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { LinkList } from "../LinkList.js";
 import "../styles/_index.scss";
@@ -6,10 +6,6 @@ import "../styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/LinkList",
     component: LinkList,
-    parameters: {
-        layout: "fullscreen",
-    },
-    tags: ["autodocs"],
     argTypes: {
         variant: {
             control: "radio",

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { ProgressBar as ProgressBarComponent } from "../ProgressBar.js";
 import "../styles/_index.scss";
 import React from "react";
@@ -6,10 +6,6 @@ import React from "react";
 const meta: Meta = {
     title: "Komponenter/ProgressBar",
     component: ProgressBarComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof ProgressBarComponent>;
 
 export default meta;

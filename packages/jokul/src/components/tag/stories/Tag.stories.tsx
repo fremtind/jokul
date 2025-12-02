@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Tag } from "../Tag.js";
 
 import "../styles/_index.scss";
@@ -6,7 +6,6 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/Tag",
     component: Tag,
-    tags: ["autodocs"],
     args: {
         children: "Under behandling",
         variant: "neutral",

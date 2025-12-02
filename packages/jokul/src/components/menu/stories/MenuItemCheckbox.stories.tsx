@@ -1,14 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { MenuItemCheckbox as MenuItemCheckboxComponent } from "../MenuItemCheckbox.js";
 import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/Menu/MenuItemCheckbox",
     component: MenuItemCheckboxComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof MenuItemCheckboxComponent>;
 
 export default meta;

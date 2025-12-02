@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { Button } from "../../components/button/Button.jsx";
 import type { UseAnimatedHeightOptions } from "../useAnimatedHeight/types.js";

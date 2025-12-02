@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { CardImage } from "../../card/CardImage.js";
 import { Flex } from "../../flex/index.js";
@@ -15,11 +15,6 @@ const dog1200 = "/images/dog-1200.jpg";
 const meta = {
     title: "Komponenter/Card",
     component: Card,
-    parameters: {
-        layout: "centered",
-        docs: { toc: true },
-    },
-    tags: ["autodocs"],
     args: {
         clickable: false,
     },

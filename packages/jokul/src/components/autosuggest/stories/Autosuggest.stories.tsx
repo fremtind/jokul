@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { PopupTip } from "../../tooltip/index.js";
 import { Autosuggest as AutosuggestComponent } from "../Autosuggest.js";
@@ -8,45 +8,6 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/Autosuggest",
     component: AutosuggestComponent,
-    parameters: {
-        layout: "centered",
-    },
-    argTypes: {
-        className: {
-            table: {
-                disable: true,
-            },
-        },
-        density: {
-            table: {
-                disable: true,
-            },
-        },
-        onChange: {
-            table: {
-                disable: true,
-            },
-        },
-        onConfirm: {
-            table: {
-                disable: true,
-            },
-        },
-        onStateChange: {
-            table: {
-                disable: true,
-            },
-        },
-        onInputValueChange: {
-            table: {
-                disable: true,
-            },
-        },
-        allItems: {
-            control: "select",
-        },
-    },
-    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof AutosuggestComponent>;
 
 export default meta;

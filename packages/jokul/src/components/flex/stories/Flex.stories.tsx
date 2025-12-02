@@ -1,4 +1,4 @@
-import type { Meta, StoryFn, StoryObj } from "@storybook/react";
+import type { Meta, StoryFn, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import tokens from "../../../core/tokens.js";
 import { Flex } from "../Flex.js";
@@ -17,7 +17,6 @@ const gapValues = spacingSteps.flatMap((step) => [
 const meta = {
     title: "Komponenter/Flex",
     component: Flex,
-    tags: ["autodocs"],
     argTypes: {
         children: {
             description: "`React.ReactNode`",

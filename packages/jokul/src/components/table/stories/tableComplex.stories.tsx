@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { Button } from "../../button/index.js";
 import {
@@ -41,10 +41,6 @@ const meta = {
         TableRow,
         TableCell,
     },
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs"],
 } satisfies Meta<typeof Table>;
 
 export default meta;

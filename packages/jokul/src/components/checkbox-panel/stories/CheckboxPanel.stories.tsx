@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { CheckboxPanel as CheckboxPanelComponent } from "../CheckboxPanel.js";
 import "../styles/_index.scss";
@@ -9,10 +9,6 @@ import { FieldGroup } from "../../input-group/index.js";
 const meta = {
     title: "Komponenter/CheckboxPanel",
     component: CheckboxPanelComponent,
-    parameters: {
-        layout: "padded",
-    },
-    tags: ["autodocs", "forms"],
     args: {
         label: "Livsforsikring",
         description:
@@ -76,7 +72,6 @@ export const VelgDekningForReiseforsikring: Story = {
 };
 
 export const ControlledCheckboxPanel: Story = {
-    tags: ["dev"],
     name: "Controlled",
     render: (args) => {
         const [checked, setChecked] = useState(true);

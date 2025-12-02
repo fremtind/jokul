@@ -1,14 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import { BaseTextInput as TextInputComponent } from "../BaseTextInput.js";
 import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/TextInput/BaseTextInput",
     component: TextInputComponent,
-    parameters: {
-        controls: { expanded: true, sort: "alpha" },
-    },
-    tags: ["autodocs", "forms"],
     argTypes: {
         value: {
             control: "text",

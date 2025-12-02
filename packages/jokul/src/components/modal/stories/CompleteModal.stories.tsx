@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Button } from "../../button/Button.js";
 import {
@@ -20,7 +20,6 @@ const meta = {
     parameters: {
         layout: "centered",
     },
-    tags: ["autodocs"],
 } satisfies Meta<typeof ModalContainer>;
 
 export default meta;

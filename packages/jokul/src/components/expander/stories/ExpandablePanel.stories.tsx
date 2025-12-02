@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Flex } from "../../flex/Flex.jsx";
 import { ExpandablePanel } from "../ExpandablePanel.jsx";
@@ -10,9 +10,6 @@ const meta: Meta = {
     title: "Komponenter/ExpandablePanel",
     component: ExpandablePanel,
     subcomponents: { Expander, ExpandablePanelContent },
-    parameters: {
-        layout: "centered",
-    },
     decorators: [
         (Story) => (
             <div
@@ -31,7 +28,6 @@ const meta: Meta = {
             options: ["fill", "stroke"],
         },
     },
-    tags: ["autodocs"],
 };
 
 export default meta;

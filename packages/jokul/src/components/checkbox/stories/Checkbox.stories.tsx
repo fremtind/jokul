@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { FieldGroup } from "../../input-group/index.js";
 import { Checkbox as CheckboxComponent } from "../Checkbox.js";
@@ -7,15 +7,11 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/Checkbox",
     component: CheckboxComponent,
-    parameters: {
-        layout: "centered",
-    },
     args: {
         value: "kjekk",
         name: "checkbox",
         children: "Kjekk boks",
     },
-    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof CheckboxComponent>;
 
 export default meta;

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { SummaryTable as SummaryTableComponent } from "../SummaryTable.js";
 import { SummaryTableRow } from "../SummaryTableRow.js";
@@ -7,10 +7,6 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/SummaryTable",
     component: SummaryTableComponent,
-    parameters: {
-        layout: "centered",
-    },
-    tags: ["autodocs", "tabular data"],
 } satisfies Meta<typeof SummaryTableComponent>;
 
 export default meta;

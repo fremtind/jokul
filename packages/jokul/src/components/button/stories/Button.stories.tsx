@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Button } from "../Button.js";
 import "../styles/_index.scss";
@@ -8,12 +8,6 @@ import { CheckIcon, CloseIcon, PlusIcon } from "../../icon/index.js";
 const meta = {
     title: "Komponenter/Button",
     component: Button,
-    parameters: {
-        layout: "centered",
-        docs: {
-            toc: true,
-        },
-    },
     args: {
         type: "button",
         children: "Knapp",
@@ -23,14 +17,9 @@ const meta = {
             showLoader: false,
             textDescription: "Laster inn avtaler",
         },
+        iconPosition: "left",
     },
     argTypes: {
-        iconLeft: {
-            table: { disable: true },
-        },
-        iconRight: {
-            table: { disable: true },
-        },
         iconPosition: {
             control: { type: "radio" },
             options: ["left", "right"],
@@ -39,14 +28,7 @@ const meta = {
             control: "select",
             options: ["primary", "secondary", "ghost"],
         },
-        ref: {
-            table: { disable: true },
-        },
-        as: {
-            table: { disable: true },
-        },
     },
-    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof Button>;
 
 export default meta;
