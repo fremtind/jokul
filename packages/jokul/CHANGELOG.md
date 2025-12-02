@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.4
+
+### Patch Changes
+
+- 5d91fb6: Legg til støtte for ReactNode i supportText, og className i DescriptionListItem.tsx
+
 ## 1.7.3
 
 ### Patch Changes
