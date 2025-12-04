@@ -18,7 +18,7 @@
         "@fremtind/jokul": "workspace:*",
         "@mdx-js/loader": "^3.1.0",
         "@mdx-js/react": "^3.1.1",
-        "@next/mdx": "^16.0.3",
+        "@next/mdx": "^16.0.7",
         "@portabletext/react": "^5.0.0",
         "@portabletext/types": "^3.0.0",
         "@sanity/client": "^7.12.1",
@@ -32,8 +32,8 @@
         "cross-env": "^10.1.0",
         "dompurify": "^3.2.5",
         "graphql": "^16.8.1",
-        "next": "16.0.3",
-        "next-sanity": "^11.6.7",
+        "next": "16.0.7",
+        "next-sanity": "^11.6.10",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-live": "^4.1.8",
@@ -44,12 +44,12 @@
         "winston": "^3.17.0"
     },
     "devDependencies": {
-        "@eslint/eslintrc": "^3.3.1",
+        "@eslint/eslintrc": "^3.3.3",
         "@types/node": "^24.10.1",
         "@types/react": "^18.3.20",
         "@types/react-dom": "^18.3.6",
         "eslint": "^9.25.1",
-        "eslint-config-next": "16.0.3",
+        "eslint-config-next": "16.0.7",
         "typescript": "^5.8.3"
     },
     "engines": {
