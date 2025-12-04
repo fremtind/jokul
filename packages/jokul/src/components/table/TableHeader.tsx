@@ -38,8 +38,6 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
             <th
                 className={clsx("jkl-table-header", className, {
                     "jkl-table-header--bold": bold,
-                    "jkl-table-header--align-right": align === "right",
-                    "jkl-table-header--align-center": align === "center",
                     "jkl-table-header--sr-only": srOnly,
                     "jkl-table-header--sortable":
                         typeof sortable !== "undefined",
@@ -50,7 +48,7 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
                 data-density={density || contextDensity}
                 ref={ref}
             >
-                <div className="jkl-table-header__arrows">
+                <div className="jkl-table-header__arrows" data-align={align}>
                     {children}
                     {sortable && (
                         <SortableArrows direction={sortable.direction} />
