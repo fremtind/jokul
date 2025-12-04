@@ -22,14 +22,6 @@
     text-align: left;
     white-space: nowrap;
 
-    &--align-center {
-        text-align: center;
-    }
-
-    &--align-right {
-        text-align: right;
-    }
-
     &--bold {
         font-weight: var(--jkl-typography-weight-bold);
     }
@@ -47,6 +39,14 @@
         display: flex;
         gap: var(--jkl-spacing-4);
         align-items: center;
+
+        &[data-align="center"] {
+            justify-content: center;
+        }
+
+        &[data-align="right"] {
+            justify-content: end;
+        }
     }
 
     @mixin _responsive-table-header {
