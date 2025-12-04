@@ -1,6 +1,7 @@
 import * as matchers from "@testing-library/jest-dom/matchers";
 import { cleanup } from "@testing-library/react";
 import { toHaveNoViolations } from "jest-axe";
+import "vi-canvas-mock";
 import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
 
 expect.extend(matchers);

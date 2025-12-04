@@ -5,7 +5,7 @@ import {
     type DownshiftProps,
     type PropGetters,
 } from "downshift";
-import React, { type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { InputGroup } from "../input-group/InputGroup.js";
 import ControllerButton from "./ControllerButton.js";
