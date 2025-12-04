@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.5.3
+
+### Patch Changes
+
+- 28d545e: Fiks bug som gjorde at `align`-propen ikke fungerte i `TableHead`
+
 ## 3.5.2
 
 ### Patch Changes
