@@ -10,6 +10,7 @@ on:
             - "**/*.ts"
             - "**/*.tsx"
             - "pnpm-lock.yaml"
+    workflow_dispatch:
 
 jobs:
     deploy:
