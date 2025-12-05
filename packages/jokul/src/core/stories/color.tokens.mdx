@@ -1,0 +1,62 @@
+import {ColorItem, ColorPalette, Meta, Subtitle, Title} from "@storybook/addon-docs/blocks";
+import tokens from "../tokens.ts";
+
+<Meta title="Tokens/Farger" />
+
+<Title>Farger</Title>
+
+<Subtitle>NB: Navnene på tokens stemmer ikke 100%. Du må sette inn bindestrek før de store bokstavene</Subtitle>
+
+<h2>Text</h2>
+
+<ColorPalette>
+    {Object.keys(tokens.color.text).map((token) => {
+        return (<ColorItem title={token}
+                           subtitle={`var(--jkl-color-text-${token})`}
+                           colors={[tokens.color.text[token]["light"], [tokens.color.text[token]["dark"]]]}/>)
+    })}
+</ColorPalette>
+
+<h2>Border</h2>
+
+<ColorPalette>
+    {Object.keys(tokens.color.border).map((token) => {
+        return (<ColorItem title={token}
+                           subtitle={`var(--jkl-color-border-${token})`}
+                           colors={[tokens.color.border[token]["light"], [tokens.color.border[token]["dark"]]]}/>)
+    })}
+</ColorPalette>
+
+<h2>Brand</h2>
+
+<ColorPalette>
+    {Object.keys(tokens.color.brand).map((token) => (
+            <ColorItem title={token} subtitle={`var(--jkl-color-brand-${token})`} colors={[tokens.color.brand[token]]}/>
+    ))}
+</ColorPalette>
+
+<h2>Background</h2>
+
+<ColorPalette>
+    {Object.keys(tokens.color.background).map((token) => {
+        if(!tokens.color.background[token]["dark"])
+        {
+            return Object.keys(tokens.color.background[token]).map((t) => <ColorItem title={`${token} - ${t}`}
+                                                                                     subtitle={`var(--jkl-color-background-${token}-${t})`}
+                                                                                     colors={[tokens.color.background[token][t]["light"], [tokens.color.background[token][t]["dark"]]]}/>)
+        }
+        return (<ColorItem title={token}
+                           subtitle={`var(--jkl-color-background-${token})`}
+                           colors={[tokens.color.background[token]["light"], [tokens.color.background[token]["dark"]]]}/>)
+    })}
+</ColorPalette>
+
+<h2>Functional</h2>
+
+<ColorPalette>
+    {Object.keys(tokens.color.functional).map((token) => {
+        return (<ColorItem title={token}
+                           subtitle={`var(--jkl-color-functional-${token})`}
+                           colors={[tokens.color.functional[token]]}/>)
+    })}
+</ColorPalette>

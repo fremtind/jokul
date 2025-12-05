@@ -1,0 +1,32 @@
+import {Meta, Title} from "@storybook/addon-docs/blocks";
+import tokens from "../tokens.ts";
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow
+} from "../../components/table/index.ts";
+
+<Meta title="Tokens/Breakpoints" />
+
+<Title>Breakpoints</Title>
+
+<Table fullWidth caption={<TableCaption>Oversikt over breakpoint tokens</TableCaption>}>
+    <TableHead>
+            <TableRow>
+                <TableHeader>Navn</TableHeader>
+                <TableHeader>Verdi</TableHeader>
+            </TableRow>
+    </TableHead>
+    <TableBody>
+        {Object.keys(tokens.breakpoint).map((token) => (
+            <TableRow>
+                <TableCell>{token}</TableCell>
+                <TableCell>{tokens.breakpoint[token]}</TableCell>
+            </TableRow>
+        ))}
+    </TableBody>
+</Table>

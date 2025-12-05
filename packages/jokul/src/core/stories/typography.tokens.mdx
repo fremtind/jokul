@@ -1,0 +1,16 @@
+import {Meta, Title, Typeset} from "@storybook/addon-docs/blocks";
+import tokens from "../tokens.ts";
+
+<Meta title="Tokens/Typografi" />
+
+export const SampleText = 'Fremtind er ett av Norges største forsikringsselskap. Vi er eid av SpareBank 1 Gruppen, DNB og Eika Gruppen.';
+
+
+<Title>Typografi</Title>
+
+<Typeset
+    fontSizes={Object.keys(tokens.typography.font.size).map((size) => size)}
+    fontFamily={"Fremtind Grotesk"}
+    fontWeight={tokens.typography.weight.normal}
+    sampleText={SampleText}
+/>

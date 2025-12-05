@@ -5,6 +5,7 @@ import { mergeConfig } from "vite";
 const config: StorybookConfig = {
     stories: [
         "../packages/jokul/**/*.stories.@(ts|tsx|md|mdx)",
+        "../packages/jokul/**/*.tokens.mdx",
         "./docs/*.mdx",
     ],
     staticDirs: ["../storybook-public"],
