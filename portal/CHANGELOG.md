@@ -1,5 +1,11 @@
 # portal
 
+## 1.4.19
+
+### Patch Changes
+
+- ab0480c: Oppdater Next.js til nyeste versjon for å tette et kritisk sikkerhetshull i React Server Components.
+
 ## 1.4.18
 
 ### Patch Changes
