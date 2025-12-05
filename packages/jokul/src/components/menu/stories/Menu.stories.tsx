@@ -16,7 +16,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Menu: Story = {
     argTypes: {
-        isOpen: {
+        open: {
             control: { disable: true },
         },
     },
@@ -64,5 +64,5 @@ export const Menu: Story = {
             </>
         ),
     },
-    render: ({ isOpen, ...args }) => <MenuComponent {...args} />,
+    render: ({ open, ...args }) => <MenuComponent {...args} />,
 };
