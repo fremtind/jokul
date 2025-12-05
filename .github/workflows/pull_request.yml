@@ -131,43 +131,24 @@ jobs:
                 if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
                 run: pnpm ci:test
 
-    code_connect:
-        name: Sjekk Figma Code Connect
-        needs: changes
-        # Vi vil alltid kjøre denne jobben, men avgjør om tester skal kjøres
-        # ut fra om vi er i merge-køen eller det er endringer i koden.
-        if: ${{ always() }}
-        runs-on: ubuntu-latest
-        permissions:
-            actions: read
-            contents: read
-        steps:
-            -   name: Checkout
-                uses: actions/checkout@v3
-
-            -   name: Setup pnpm
-                uses: pnpm/action-setup@v4
-
-            -   name: Setup Node
-                uses: actions/setup-node@v4
-                with:
-                    node-version-file: '.nvmrc'
-                    cache: "pnpm"
-
-            -   name: "Ingen endringer i kode, hopp over"
-                if: github.event_name != 'merge_group' && needs.changes.outputs.code_changes == 'false'
-                run: echo "Ingen endringer i kode, hopper over tester og linting."
-
-                # Steget må være med, men vil være cachet
-            -   name: Installer avhengigheter
-                if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
-                run: pnpm install
-
             -   name: Sjekk Figma Code Connect
+                id: code_connect
                 if: github.event_name != 'merge_group' && needs.changes.outputs.components == 'true'
+                continue-on-error: true
                 run: pnpm -r figma:test
                 env:
                   FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_CODE_CONNECT_TOKEN }}
+            
+            -   name: Si fra om feil i Figma Connect
+                if: steps.code_connect.outcome == 'failure'
+                uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+                with:
+                    header: reminders
+                    GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                    append: true
+                    message: |
+                        > [!WARNING]
+                        > @${{ github.event.sender.login }}, Figma Code Connect feilet.
 
     preview:
         name: Publiser forhåndsvisning
