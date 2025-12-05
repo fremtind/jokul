@@ -1,0 +1,95 @@
+name: Synkroniser develop til main
+
+on:
+    workflow_dispatch:
+
+run-name: Opprett PR fra develop til main
+
+jobs:
+    create-sync-pr:
+        name: Opprett PR med endringer fra develop
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+
+            - name: Konfigurer Git
+              run: |
+                  git config user.name "fremtind-bot"
+                  git config user.email "noreply@fremtind.no"
+
+            - name: Finn commits som skal synkroniseres
+              id: find-commits
+              run: |
+                  # Finn alle commits i develop som ikke er i main
+                  commits=$(git log main..develop --pretty=format:"%H %s" --reverse)
+                  
+                  # Filtrer bort commits som starter med "RELEASING" eller er merket develop-only
+                  filtered_commits=$(echo "$commits" | grep -v -E "^[a-f0-9]+ (RELEASING|\[develop-only\])" || true)
+                  
+                  if [ -z "$filtered_commits" ]; then
+                      echo "Ingen commits å synkronisere"
+                      echo "has_commits=false" >> $GITHUB_OUTPUT
+                      exit 0
+                  fi
+                  
+                  echo "has_commits=true" >> $GITHUB_OUTPUT
+                  
+                  # Lagre commit-hasher for cherry-picking
+                  echo "$filtered_commits" | awk '{print $1}' > /tmp/commits_to_pick.txt
+                  
+                  # Lag commit-liste for PR-beskrivelse
+                  echo "commits<<EOF" >> $GITHUB_OUTPUT
+                  echo "$filtered_commits" | while read hash message; do
+                      short_hash=$(echo $hash | cut -c1-7)
+                      echo "- $short_hash: $message"
+                  done >> $GITHUB_OUTPUT
+                  echo "EOF" >> $GITHUB_OUTPUT
+                  
+                  # Tell antall commits
+                  commit_count=$(echo "$filtered_commits" | wc -l | tr -d ' ')
+                  echo "commit_count=$commit_count" >> $GITHUB_OUTPUT
+
+            - name: Opprett ny branch fra main
+              if: steps.find-commits.outputs.has_commits == 'true'
+              run: |
+                  branch_name="sync-develop-to-main-$(date +%Y%m%d-%H%M%S)"
+                  echo "branch_name=$branch_name" >> $GITHUB_ENV
+                  git checkout -b $branch_name main
+
+            - name: Cherry-pick commits
+              if: steps.find-commits.outputs.has_commits == 'true'
+              run: |
+                  while read commit_hash; do
+                      echo "Cherry-picking $commit_hash"
+                      git cherry-pick $commit_hash
+                  done < /tmp/commits_to_pick.txt
+
+            - name: Push branch
+              if: steps.find-commits.outputs.has_commits == 'true'
+              run: |
+                  git push origin ${{ env.branch_name }}
+
+            - name: Opprett Pull Request
+              if: steps.find-commits.outputs.has_commits == 'true'
+              env:
+                  GH_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+              run: |
+                  gh pr create \
+                      --base main \
+                      --head ${{ env.branch_name }} \
+                      --title "Synkroniser develop til main" \
+                      --body "Denne PR-en synkroniserer endringer fra \`develop\` til \`main\`.
+
+                  **Antall commits:** ${{ steps.find-commits.outputs.commit_count }}
+
+                  **Commits som inkluderes:**
+                  ${{ steps.find-commits.outputs.commits }}
+
+                  _Automatisk opprettet av workflow_"
