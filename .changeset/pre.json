@@ -8,5 +8,5 @@
         "@fremtind/stylelint-config-jkl": "8.1.0",
         "portal": "1.4.16"
     },
-    "changesets": []
+    "changesets": ["free-breads-tap", "polite-rings-begin"]
 }
