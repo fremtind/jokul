@@ -3,7 +3,7 @@ name: Publiser nye versjoner
 on:
     push:
         branches:
-            - main
+            - develop
 
 run-name: Publiser endrede pakker. Siste commit er ${{ github.event.head_commit.message }}
 

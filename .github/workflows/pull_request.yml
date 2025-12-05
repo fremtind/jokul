@@ -2,11 +2,9 @@ name: Pull request
 
 on:
     pull_request:
-        branches: [ "main" ]
-    merge_group:
-        types: [ checks_requested ]
+        branches: [ "develop" ]
 
-run-name: Bygg og test ${{ github.event_name == 'pull_request' && github.event.pull_request.title || github.ref_name }}
+run-name: Bygg og test ${{ github.event.pull_request.title }}
 
 env:
     PREFIX_PATHS: true
@@ -15,7 +13,6 @@ jobs:
     changes:
         name: Sjekk for endringer
         runs-on: ubuntu-latest
-        if: github.event_name == 'pull_request'
         permissions:
             actions: write
             contents: read
@@ -70,7 +67,7 @@ jobs:
             -   name: Minn om dokumentasjon
                 # Dette legger til en kommentar i PRen hvis det er endringer i pakkene uten at det er lagt til
                 # et changeset eller stories, avhengig av hva som er endret.
-                if: github.event_name != 'merge_group' && (steps.code_changes.outputs.jokul == 'true' && steps.documentation.outputs.changeset == 'false') || (steps.code_changes.outputs.components == 'true' && steps.documentation.outputs.stories == 'false')
+                if: (steps.code_changes.outputs.jokul == 'true' && steps.documentation.outputs.changeset == 'false') || (steps.code_changes.outputs.components == 'true' && steps.documentation.outputs.stories == 'false')
                 uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
                 with:
                     header: reminders
@@ -115,20 +112,20 @@ jobs:
                     cache: "pnpm"
 
             -   name: "Ingen endringer i kode, hopp over"
-                if: github.event_name != 'merge_group' && needs.changes.outputs.code_changes == 'false'
+                if: needs.changes.outputs.code_changes == 'false'
                 run: echo "Ingen endringer i kode, hopper over tester og linting."
 
                 # Steget må være med, men vil være cachet
             -   name: Installer avhengigheter
-                if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
+                if: needs.changes.outputs.code_changes == 'true'
                 run: pnpm install
 
             -   name: Bygg pakker
-                if: github.event_name == 'merge_group'  || needs.changes.outputs.code_changes == 'true'
+                if: needs.changes.outputs.code_changes == 'true'
                 run: pnpm build
 
             -   name: Lint og test
-                if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
+                if: needs.changes.outputs.code_changes == 'true'
                 run: pnpm ci:test
 
     code_connect:
@@ -155,16 +152,16 @@ jobs:
                     cache: "pnpm"
 
             -   name: "Ingen endringer i kode, hopp over"
-                if: github.event_name != 'merge_group' && needs.changes.outputs.code_changes == 'false'
+                if: needs.changes.outputs.code_changes == 'false'
                 run: echo "Ingen endringer i kode, hopper over tester og linting."
 
                 # Steget må være med, men vil være cachet
             -   name: Installer avhengigheter
-                if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
+                if: needs.changes.outputs.code_changes == 'true'
                 run: pnpm install
 
             -   name: Sjekk Figma Code Connect
-                if: github.event_name != 'merge_group' && needs.changes.outputs.components == 'true'
+                if: needs.changes.outputs.components == 'true'
                 run: pnpm -r figma:test
                 env:
                   FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_CODE_CONNECT_TOKEN }}
@@ -172,7 +169,7 @@ jobs:
     preview:
         name: Publiser forhåndsvisning
         needs: changes
-        if: github.event_name != 'merge_group' && (needs.changes.outputs.components == 'true' || needs.changes.outputs.stories == 'true')
+        if: needs.changes.outputs.components == 'true' || needs.changes.outputs.stories == 'true'
         runs-on: ubuntu-latest
         env:
             PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
