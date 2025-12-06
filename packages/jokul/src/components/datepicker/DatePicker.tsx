@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { startOfDay } from "date-fns";
+import dayjs from "dayjs";
 import React, {
     type ChangeEvent,
     type FocusEvent,
@@ -70,11 +70,11 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
 
         const disableBeforeDate = parseDateString(disableBefore);
         const minDate = disableBeforeDate
-            ? startOfDay(disableBeforeDate)
+            ? dayjs(disableBeforeDate).startOf("day").toDate()
             : undefined;
         const disableAfterDate = parseDateString(disableAfter);
         const maxDate = disableAfterDate
-            ? startOfDay(disableAfterDate)
+            ? dayjs(disableAfterDate).startOf("day").toDate()
             : undefined;
 
         const [date, setDate] = useState(
