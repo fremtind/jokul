@@ -10,18 +10,15 @@
     "keywords": [],
     "license": "MIT",
     "sideEffects": ["*.css", "*.scss"],
-    "files": ["./build", "./styles", "./src/fonts"],
-    "main": "./build/cjs/index.cjs",
+    "files": ["./dist", "./styles", "./src/fonts"],
     "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "default": "./dist/index.js"
+        },
         "./core": {
-            "import": {
-                "types": "./build/es/core/index.d.ts",
-                "default": "./build/es/core/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/core/index.d.cts",
-                "default": "./build/cjs/core/index.cjs"
-            }
+            "types": "./dist/core/index.d.ts",
+            "default": "./dist/core/index.js"
         },
         "./core/tokens.less": "./src/core/tokens.less",
         "./styles/core": "./styles/core/core.scss",
@@ -30,604 +27,21 @@
         "./styles": "./styles/styles.scss",
         "./styles/*": "./styles/*",
         "./tailwind": {
-            "import": {
-                "types": "./build/es/tailwind/index.d.ts",
-                "default": "./build/es/tailwind/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/tailwind/index.d.cts",
-                "default": "./build/cjs/tailwind/index.cjs"
-            }
+            "types": "./dist/tailwind/index.d.ts",
+            "default": "./dist/tailwind/index.js"
         },
         "./hooks": {
-            "import": {
-                "types": "./build/es/hooks/index.d.ts",
-                "default": "./build/es/hooks/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/hooks/index.d.cts",
-                "default": "./build/cjs/hooks/index.cjs"
-            }
+            "types": "./dist/hooks/index.d.ts",
+            "default": "./dist/hooks/index.js"
         },
         "./utilities": {
-            "import": {
-                "types": "./build/es/utilities/index.d.ts",
-                "default": "./build/es/utilities/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/utilities/index.d.cts",
-                "default": "./build/cjs/utilities/index.cjs"
-            }
+            "types": "./dist/utilities/index.d.ts",
+            "default": "./dist/utilities/index.js"
         },
-        "./styles/components/autosuggest": "./styles/components/autosuggest/_index.scss",
-        "./autosuggest": {
-            "import": {
-                "types": "./build/es/components/autosuggest/index.d.ts",
-                "default": "./build/es/components/autosuggest/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/autosuggest/index.d.cts",
-                "default": "./build/cjs/components/autosuggest/index.cjs"
-            }
-        },
-        "./styles/components/breadcrumb": "./styles/components/breadcrumb/_index.scss",
-        "./breadcrumb": {
-            "import": {
-                "types": "./build/es/components/breadcrumb/index.d.ts",
-                "default": "./build/es/components/breadcrumb/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/breadcrumb/index.d.cts",
-                "default": "./build/cjs/components/breadcrumb/index.cjs"
-            }
-        },
-        "./styles/components/button": "./styles/components/button/_index.scss",
-        "./button": {
-            "import": {
-                "types": "./build/es/components/button/index.d.ts",
-                "default": "./build/es/components/button/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/button/index.d.cts",
-                "default": "./build/cjs/components/button/index.cjs"
-            }
-        },
-        "./styles/components/card": "./styles/components/card/_index.scss",
-        "./card": {
-            "import": {
-                "types": "./build/es/components/card/index.d.ts",
-                "default": "./build/es/components/card/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/card/index.d.cts",
-                "default": "./build/cjs/components/card/index.cjs"
-            }
-        },
-        "./styles/components/checkbox": "./styles/components/checkbox/_index.scss",
-        "./checkbox": {
-            "import": {
-                "types": "./build/es/components/checkbox/index.d.ts",
-                "default": "./build/es/components/checkbox/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/checkbox/index.d.cts",
-                "default": "./build/cjs/components/checkbox/index.cjs"
-            }
-        },
-        "./styles/components/checkbox-panel": "./styles/components/checkbox-panel/_index.scss",
-        "./checkbox-panel": {
-            "import": {
-                "types": "./build/es/components/checkbox-panel/index.d.ts",
-                "default": "./build/es/components/checkbox-panel/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/checkbox-panel/index.d.cts",
-                "default": "./build/cjs/components/checkbox-panel/index.cjs"
-            }
-        },
-        "./styles/components/chip": "./styles/components/chip/_index.scss",
-        "./chip": {
-            "import": {
-                "types": "./build/es/components/chip/index.d.ts",
-                "default": "./build/es/components/chip/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/chip/index.d.cts",
-                "default": "./build/cjs/components/chip/index.cjs"
-            }
-        },
-        "./styles/components/combobox": "./styles/components/combobox/_index.scss",
-        "./combobox": {
-            "import": {
-                "types": "./build/es/components/combobox/index.d.ts",
-                "default": "./build/es/components/combobox/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/combobox/index.d.cts",
-                "default": "./build/cjs/components/combobox/index.cjs"
-            }
-        },
-        "./styles/components/cookie-consent": "./styles/components/cookie-consent/_index.scss",
-        "./cookie-consent": {
-            "import": {
-                "types": "./build/es/components/cookie-consent/index.d.ts",
-                "default": "./build/es/components/cookie-consent/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/cookie-consent/index.d.cts",
-                "default": "./build/cjs/components/cookie-consent/index.cjs"
-            }
-        },
-        "./styles/components/countdown": "./styles/components/countdown/_index.scss",
-        "./countdown": {
-            "import": {
-                "types": "./build/es/components/countdown/index.d.ts",
-                "default": "./build/es/components/countdown/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/countdown/index.d.cts",
-                "default": "./build/cjs/components/countdown/index.cjs"
-            }
-        },
-        "./styles/components/datepicker": "./styles/components/datepicker/_index.scss",
-        "./datepicker": {
-            "import": {
-                "types": "./build/es/components/datepicker/index.d.ts",
-                "default": "./build/es/components/datepicker/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/datepicker/index.d.cts",
-                "default": "./build/cjs/components/datepicker/index.cjs"
-            }
-        },
-        "./styles/components/description-list": "./styles/components/description-list/_index.scss",
-        "./description-list": {
-            "import": {
-                "types": "./build/es/components/description-list/index.d.ts",
-                "default": "./build/es/components/description-list/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/description-list/index.d.cts",
-                "default": "./build/cjs/components/description-list/index.cjs"
-            }
-        },
-        "./styles/components/expander": "./styles/components/expander/_index.scss",
-        "./expander": {
-            "import": {
-                "types": "./build/es/components/expander/index.d.ts",
-                "default": "./build/es/components/expander/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/expander/index.d.cts",
-                "default": "./build/cjs/components/expander/index.cjs"
-            }
-        },
-        "./styles/components/feedback": "./styles/components/feedback/_index.scss",
-        "./feedback": {
-            "import": {
-                "types": "./build/es/components/feedback/index.d.ts",
-                "default": "./build/es/components/feedback/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/feedback/index.d.cts",
-                "default": "./build/cjs/components/feedback/index.cjs"
-            }
-        },
-        "./styles/components/file": "./styles/components/file/_index.scss",
-        "./file": {
-            "import": {
-                "types": "./build/es/components/file/index.d.ts",
-                "default": "./build/es/components/file/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/file/index.d.cts",
-                "default": "./build/cjs/components/file/index.cjs"
-            }
-        },
-        "./styles/components/file-input": "./styles/components/file-input/_index.scss",
-        "./file-input": {
-            "import": {
-                "types": "./build/es/components/file-input/index.d.ts",
-                "default": "./build/es/components/file-input/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/file-input/index.d.cts",
-                "default": "./build/cjs/components/file-input/index.cjs"
-            }
-        },
-        "./styles/components/flex": "./styles/components/flex/_index.scss",
-        "./flex": {
-            "import": {
-                "types": "./build/es/components/flex/index.d.ts",
-                "default": "./build/es/components/flex/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/flex/index.d.cts",
-                "default": "./build/cjs/components/flex/index.cjs"
-            }
-        },
-        "./styles/components/icon": "./styles/components/icon/_index.scss",
-        "./icon": {
-            "import": {
-                "types": "./build/es/components/icon/index.d.ts",
-                "default": "./build/es/components/icon/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/icon/index.d.cts",
-                "default": "./build/cjs/components/icon/index.cjs"
-            }
-        },
-        "./styles/components/icon-button": "./styles/components/icon-button/_index.scss",
-        "./icon-button": {
-            "import": {
-                "types": "./build/es/components/icon-button/index.d.ts",
-                "default": "./build/es/components/icon-button/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/icon-button/index.d.cts",
-                "default": "./build/cjs/components/icon-button/index.cjs"
-            }
-        },
-        "./styles/components/image": "./styles/components/image/_index.scss",
-        "./image": {
-            "import": {
-                "types": "./build/es/components/image/index.d.ts",
-                "default": "./build/es/components/image/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/image/index.d.cts",
-                "default": "./build/cjs/components/image/index.cjs"
-            }
-        },
-        "./styles/components/input-group": "./styles/components/input-group/_index.scss",
-        "./input-group": {
-            "import": {
-                "types": "./build/es/components/input-group/index.d.ts",
-                "default": "./build/es/components/input-group/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/input-group/index.d.cts",
-                "default": "./build/cjs/components/input-group/index.cjs"
-            }
-        },
-        "./styles/components/link": "./styles/components/link/_index.scss",
-        "./link": {
-            "import": {
-                "types": "./build/es/components/link/index.d.ts",
-                "default": "./build/es/components/link/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/link/index.d.cts",
-                "default": "./build/cjs/components/link/index.cjs"
-            }
-        },
-        "./styles/components/link-list": "./styles/components/link-list/_index.scss",
-        "./link-list": {
-            "import": {
-                "types": "./build/es/components/link-list/index.d.ts",
-                "default": "./build/es/components/link-list/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/link-list/index.d.cts",
-                "default": "./build/cjs/components/link-list/index.cjs"
-            }
-        },
-        "./styles/components/list": "./styles/components/list/_index.scss",
-        "./list": {
-            "import": {
-                "types": "./build/es/components/list/index.d.ts",
-                "default": "./build/es/components/list/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/list/index.d.cts",
-                "default": "./build/cjs/components/list/index.cjs"
-            }
-        },
-        "./styles/components/loader": "./styles/components/loader/_index.scss",
-        "./loader": {
-            "import": {
-                "types": "./build/es/components/loader/index.d.ts",
-                "default": "./build/es/components/loader/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/loader/index.d.cts",
-                "default": "./build/cjs/components/loader/index.cjs"
-            }
-        },
-        "./styles/components/logo": "./styles/components/logo/_index.scss",
-        "./logo": {
-            "import": {
-                "types": "./build/es/components/logo/index.d.ts",
-                "default": "./build/es/components/logo/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/logo/index.d.cts",
-                "default": "./build/cjs/components/logo/index.cjs"
-            }
-        },
-        "./styles/components/menu": "./styles/components/menu/_index.scss",
-        "./menu": {
-            "import": {
-                "types": "./build/es/components/menu/index.d.ts",
-                "default": "./build/es/components/menu/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/menu/index.d.cts",
-                "default": "./build/cjs/components/menu/index.cjs"
-            }
-        },
-        "./styles/components/message": "./styles/components/message/_index.scss",
-        "./message": {
-            "import": {
-                "types": "./build/es/components/message/index.d.ts",
-                "default": "./build/es/components/message/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/message/index.d.cts",
-                "default": "./build/cjs/components/message/index.cjs"
-            }
-        },
-        "./styles/components/modal": "./styles/components/modal/_index.scss",
-        "./modal": {
-            "import": {
-                "types": "./build/es/components/modal/index.d.ts",
-                "default": "./build/es/components/modal/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/modal/index.d.cts",
-                "default": "./build/cjs/components/modal/index.cjs"
-            }
-        },
-        "./styles/components/nav-link": "./styles/components/nav-link/_index.scss",
-        "./nav-link": {
-            "import": {
-                "types": "./build/es/components/nav-link/index.d.ts",
-                "default": "./build/es/components/nav-link/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/nav-link/index.d.cts",
-                "default": "./build/cjs/components/nav-link/index.cjs"
-            }
-        },
-        "./styles/components/pagination": "./styles/components/pagination/_index.scss",
-        "./pagination": {
-            "import": {
-                "types": "./build/es/components/pagination/index.d.ts",
-                "default": "./build/es/components/pagination/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/pagination/index.d.cts",
-                "default": "./build/cjs/components/pagination/index.cjs"
-            }
-        },
-        "./styles/components/popover": "./styles/components/popover/_index.scss",
-        "./popover": {
-            "import": {
-                "types": "./build/es/components/popover/index.d.ts",
-                "default": "./build/es/components/popover/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/popover/index.d.cts",
-                "default": "./build/cjs/components/popover/index.cjs"
-            }
-        },
-        "./styles/components/progress-bar": "./styles/components/progress-bar/_index.scss",
-        "./progress-bar": {
-            "import": {
-                "types": "./build/es/components/progress-bar/index.d.ts",
-                "default": "./build/es/components/progress-bar/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/progress-bar/index.d.cts",
-                "default": "./build/cjs/components/progress-bar/index.cjs"
-            }
-        },
-        "./styles/components/radio-button": "./styles/components/radio-button/_index.scss",
-        "./radio-button": {
-            "import": {
-                "types": "./build/es/components/radio-button/index.d.ts",
-                "default": "./build/es/components/radio-button/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/radio-button/index.d.cts",
-                "default": "./build/cjs/components/radio-button/index.cjs"
-            }
-        },
-        "./styles/components/radio-panel": "./styles/components/radio-panel/_index.scss",
-        "./radio-panel": {
-            "import": {
-                "types": "./build/es/components/radio-panel/index.d.ts",
-                "default": "./build/es/components/radio-panel/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/radio-panel/index.d.cts",
-                "default": "./build/cjs/components/radio-panel/index.cjs"
-            }
-        },
-        "./styles/components/select": "./styles/components/select/_index.scss",
-        "./select": {
-            "import": {
-                "types": "./build/es/components/select/index.d.ts",
-                "default": "./build/es/components/select/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/select/index.d.cts",
-                "default": "./build/cjs/components/select/index.cjs"
-            }
-        },
-        "./styles/components/search": "./styles/components-beta/search/_index.scss",
-        "./search": {
-            "import": {
-                "types": "./build/es/components-beta/search/index.d.ts",
-                "default": "./build/es/components-beta/search/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components-beta/search/index.d.cts",
-                "default": "./build/cjs/components-beta/search/index.cjs"
-            }
-        },
-        "./styles/components/segmented-control": "./styles/components/segmented-control/_index.scss",
-        "./segmented-control": {
-            "import": {
-                "types": "./build/es/components/segmented-control/index.d.ts",
-                "default": "./build/es/components/segmented-control/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/segmented-control/index.d.cts",
-                "default": "./build/cjs/components/segmented-control/index.cjs"
-            }
-        },
-        "./segmented-control-button": {
-            "import": {
-                "types": "./build/es/components/segmented-control/index.d.ts",
-                "default": "./build/es/components/segmented-control/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/segmented-control/index.d.cts",
-                "default": "./build/cjs/components/segmented-control/index.cjs"
-            }
-        },
-        "./styles/components/summary-table": "./styles/components/summary-table/_index.scss",
-        "./summary-table": {
-            "import": {
-                "types": "./build/es/components/summary-table/index.d.ts",
-                "default": "./build/es/components/summary-table/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/summary-table/index.d.cts",
-                "default": "./build/cjs/components/summary-table/index.cjs"
-            }
-        },
-        "./styles/components/system-message": "./styles/components/system-message/_index.scss",
-        "./system-message": {
-            "import": {
-                "types": "./build/es/components/system-message/index.d.ts",
-                "default": "./build/es/components/system-message/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/system-message/index.d.cts",
-                "default": "./build/cjs/components/system-message/index.cjs"
-            }
-        },
-        "./styles/components/table": "./styles/components/table/_index.scss",
-        "./table": {
-            "import": {
-                "types": "./build/es/components/table/index.d.ts",
-                "default": "./build/es/components/table/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/table/index.d.cts",
-                "default": "./build/cjs/components/table/index.cjs"
-            }
-        },
-        "./styles/components/table-of-contents": "./styles/components/table-of-contents/_index.scss",
-        "./table-of-contents": {
-            "import": {
-                "types": "./build/es/components/table-of-contents/index.d.ts",
-                "default": "./build/es/components/table-of-contents/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/table-of-contents/index.d.cts",
-                "default": "./build/cjs/components/table-of-contents/index.cjs"
-            }
-        },
-        "./styles/components/tabs": "./styles/components/tabs/_index.scss",
-        "./tabs": {
-            "import": {
-                "types": "./build/es/components/tabs/index.d.ts",
-                "default": "./build/es/components/tabs/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/tabs/index.d.cts",
-                "default": "./build/cjs/components/tabs/index.cjs"
-            }
-        },
-        "./styles/components/tag": "./styles/components/tag/_index.scss",
-        "./tag": {
-            "import": {
-                "types": "./build/es/components/tag/index.d.ts",
-                "default": "./build/es/components/tag/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/tag/index.d.cts",
-                "default": "./build/cjs/components/tag/index.cjs"
-            }
-        },
-        "./styles/components/text-area": "./styles/components/text-area/_index.scss",
-        "./text-area": {
-            "import": {
-                "types": "./build/es/components/text-area/index.d.ts",
-                "default": "./build/es/components/text-area/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/text-area/index.d.cts",
-                "default": "./build/cjs/components/text-area/index.cjs"
-            }
-        },
-        "./styles/components/text-input": "./styles/components/text-input/_index.scss",
-        "./text-input": {
-            "import": {
-                "types": "./build/es/components/text-input/index.d.ts",
-                "default": "./build/es/components/text-input/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/text-input/index.d.cts",
-                "default": "./build/cjs/components/text-input/index.cjs"
-            }
-        },
-        "./styles/components/toast": "./styles/components/toast/_index.scss",
-        "./toast": {
-            "import": {
-                "types": "./build/es/components/toast/index.d.ts",
-                "default": "./build/es/components/toast/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/toast/index.d.cts",
-                "default": "./build/cjs/components/toast/index.cjs"
-            }
-        },
-        "./styles/components/toggle-switch": "./styles/components/toggle-switch/_index.scss",
-        "./toggle-switch": {
-            "import": {
-                "types": "./build/es/components/toggle-switch/index.d.ts",
-                "default": "./build/es/components/toggle-switch/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/toggle-switch/index.d.cts",
-                "default": "./build/cjs/components/toggle-switch/index.cjs"
-            }
-        },
-        "./styles/components/tooltip": "./styles/components/tooltip/_index.scss",
-        "./tooltip": {
-            "import": {
-                "types": "./build/es/components/tooltip/index.d.ts",
-                "default": "./build/es/components/tooltip/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/tooltip/index.d.cts",
-                "default": "./build/cjs/components/tooltip/index.cjs"
-            }
-        },
-        "./styles/components/help": "./styles/components/help/_index.scss",
-        "./help": {
-            "import": {
-                "types": "./build/es/components/help/index.d.ts",
-                "default": "./build/es/components/help/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/help/index.d.cts",
-                "default": "./build/cjs/components/help/index.cjs"
-            }
-        },
-        "./screen-reader-only": {
-            "import": {
-                "types": "./build/es/components/screen-reader-only/index.d.ts",
-                "default": "./build/es/components/screen-reader-only/index.js"
-            },
-            "require": {
-                "types": "./build/cjs/components/screen-reader-only/index.d.cts",
-                "default": "./build/cjs/components/screen-reader-only/index.cjs"
-            }
+        "./styles/components/*": "./styles/components/*/_index.scss",
+        "./*": {
+            "types": "./dist/components/*/index.d.ts",
+            "default": "./dist/components/*/index.js"
         }
     },
     "scripts": {
@@ -635,7 +49,7 @@
         "build": "pnpm run /compile:*/",
         "dev": "babel --out-dir=. dev-server.mjs && node dev-server.js",
         "compile:style": "node build-styles.mjs",
-        "compile:scripts": "vite build --config vite.build.config.mjs",
+        "compile:scripts": "tsdown",
         "test": "vitest --config vite.test.config.mjs",
         "figma:test": "figma connect publish --dry-run",
         "figma:publish": "figma connect publish"
@@ -648,22 +62,18 @@
         "@floating-ui/react": "0.24.1 - 0.27",
         "@react-aria/toast": "3.0.0-beta.18",
         "@react-stately/toast": "3.0.0-beta.7",
-        "date-fns": "2.30.0 - 4",
-        "react-a11y-dialog": "^6.2.0",
-        "tailwindcss": "^3.4.17"
+        "react-a11y-dialog": "^6.2.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.28.3",
         "@babel/preset-react": "^7.27.1",
         "@figma/code-connect": "^1.3.8",
-        "@rollup/plugin-terser": "^0.4.4",
         "@types/react": "18.3.1",
-        "@vitejs/plugin-react": "^4.7.0",
-        "@vitejs/plugin-react-swc": "^3.11.0",
         "autoprefixer": "^10.4.21",
         "change-case": "^5.4.4",
         "cssnano": "^7.1.0",
         "cssnano-preset-lite": "^4.0.4",
+        "dayjs": "^1.11.19",
         "glob": "^11.0.3",
         "ink": "^5.1.0",
         "ink-select-input": "^6.0.0",
@@ -679,9 +89,10 @@
         "sass-embedded": "^1.90.0",
         "style-dictionary": "^5.0.1",
         "tailwindcss": "^3.4.17",
+        "tsdown": "0.17.0",
         "tsx": "^4.20.6",
-        "vite": "^7.1.2",
-        "vite-plugin-dts": "^4.5.4",
+        "vi-canvas-mock": "^1.0.0",
+        "vite": "npm:rolldown-vite@latest",
         "vitest": "^3.2.4",
         "vitest-axe": "^0.1.0"
     },

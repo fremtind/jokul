@@ -17,7 +17,7 @@
         "erasableSyntaxOnly": true,
         "verbatimModuleSyntax": true,
         "esModuleInterop": true,
-        "baseUrl": "./",
+        "paths": {"*": ["./*"]},
         "skipLibCheck": true
     },
     "exclude": ["**/node_modules", "**/.*", "**/build", "**/dist"],

@@ -1,10 +1,9 @@
-import React from "react";
-import { SummaryTableRow } from "./SummaryTableRow.js";
+import { SummaryTableRow } from "../SummaryTableRow.jsx";
 
 const SOFT_HYPHEN = "\u00AD";
 
-export const mockHeader = ["Product", "Price"] as [string, string];
-export const mockBody = (
+const mockHeader = ["Product", "Price"] as [string, string];
+const mockBody = (
     <>
         <SummaryTableRow
             header={`Uføre${SOFT_HYPHEN}pensjon`}
@@ -30,7 +29,7 @@ export const mockBody = (
         />
     </>
 );
-export const mockFooter = (
+const mockFooter = (
     <>
         <SummaryTableRow header="Total sum" content="693,50 kr/mnd" />
         <SummaryTableRow

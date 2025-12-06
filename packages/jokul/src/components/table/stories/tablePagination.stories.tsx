@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Flex } from "../../flex/Flex.jsx";
 import { Link } from "../../link/index.js";
@@ -24,7 +24,7 @@ const meta = {
         layout: "centered",
     },
     tags: ["autodocs"],
-} satisfies Meta<typeof Table>;
+} satisfies Meta<typeof TablePagination>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
