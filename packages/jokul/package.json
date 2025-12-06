@@ -648,7 +648,6 @@
         "@floating-ui/react": "0.24.1 - 0.27",
         "@react-aria/toast": "3.0.0-beta.18",
         "@react-stately/toast": "3.0.0-beta.7",
-        "date-fns": "2.30.0 - 4",
         "react-a11y-dialog": "^6.2.0",
         "tailwindcss": "^3.4.17"
     },
@@ -664,6 +663,7 @@
         "change-case": "^5.4.4",
         "cssnano": "^7.1.0",
         "cssnano-preset-lite": "^4.0.4",
+        "dayjs": "^1.11.19",
         "glob": "^11.0.3",
         "ink": "^5.1.0",
         "ink-select-input": "^6.0.0",
