@@ -1,4 +1,3 @@
-import React from "react";
 import type { SkeletonButtonProps } from "../types.js";
 import { SkeletonElement } from "./SkeletonElement.js";
 

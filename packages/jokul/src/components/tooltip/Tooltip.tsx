@@ -13,13 +13,8 @@ import {
     useInteractions,
     useRole,
 } from "@floating-ui/react";
-import React, {
-    type FC,
-    createContext,
-    useContext,
-    useRef,
-    useState,
-} from "react";
+import type React from "react";
+import { type FC, createContext, useContext, useRef, useState } from "react";
 import type { WithChildren } from "../../core/types.js";
 import type { TooltipProps } from "./types.js";
 

@@ -6,7 +6,7 @@ import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
 import type { PortableTextTypeComponentProps } from "next-sanity";
 import NextLink from "next/link";
-import React, { type FC } from "react";
+import type { FC } from "react";
 
 import "./storybook.scss";
 

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import type React from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { DismissButton } from "../message/DismissButton.js";
 import { MessageIcon } from "./common/MessageIcon.js";

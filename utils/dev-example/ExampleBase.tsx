@@ -1,4 +1,5 @@
-import React, { type FC, useEffect, useMemo, useState } from "react";
+import type React from "react";
+import { type FC, useEffect, useMemo, useState } from "react";
 import { Checkbox } from "../../packages/jokul/src/components/checkbox/index.js";
 import { FieldGroup } from "../../packages/jokul/src/components/input-group/index.js";
 import {

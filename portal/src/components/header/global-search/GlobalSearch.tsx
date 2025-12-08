@@ -11,7 +11,7 @@ import {
     useModal,
 } from "@fremtind/jokul/modal";
 import { BETA_Search } from "@fremtind/jokul/search";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import styles from "../header.module.scss";
 

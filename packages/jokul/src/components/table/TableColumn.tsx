@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import type { TableColumnProps } from "./types.js";
 
 const TableColumn = forwardRef<HTMLTableColElement, TableColumnProps>(

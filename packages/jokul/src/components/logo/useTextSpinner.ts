@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver/useIntersectionObserver.js";
 export function useTextSpinner<T extends HTMLElement | SVGElement>(
     ref: React.RefObject<T>,

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { useState } from "react";
+import { useState } from "react";
 import "../styles/_index.scss";
 import { Button, PrimaryButton } from "../../button/index.js";
 import { File } from "../../file/File.js";

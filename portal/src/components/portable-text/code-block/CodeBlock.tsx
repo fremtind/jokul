@@ -2,7 +2,8 @@
 
 import { Button } from "@fremtind/jokul/button";
 import { useBrowserPreferences } from "@fremtind/jokul/hooks";
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import html from "react-syntax-highlighter/dist/esm/languages/prism/markup";
 import scss from "react-syntax-highlighter/dist/esm/languages/prism/scss";

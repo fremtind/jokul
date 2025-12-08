@@ -6,7 +6,7 @@ import {
     waitFor,
 } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";

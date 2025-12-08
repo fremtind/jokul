@@ -1,10 +1,5 @@
-import React, {
-    forwardRef,
-    useCallback,
-    useEffect,
-    useReducer,
-    useRef,
-} from "react";
+import type React from "react";
+import { forwardRef, useCallback, useEffect, useReducer, useRef } from "react";
 import { flushSync } from "react-dom";
 import type { Density } from "../../../core/types.js";
 import { useId } from "../../../hooks/useId/useId.js";

@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, { forwardRef, useRef } from "react";
+import type React from "react";
+import { forwardRef, useRef } from "react";
 import { InputGroup } from "../../components/input-group/index.js";
 import { SearchButton } from "./SearchButton.js";
 import type { SearchInputProps } from "./types.js";

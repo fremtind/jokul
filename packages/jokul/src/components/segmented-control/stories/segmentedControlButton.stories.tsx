@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 
 import { SegmentedControl } from "../SegmentedControl.js";
 import { SegmentedControlButton } from "../SegmentedControlButton.js";

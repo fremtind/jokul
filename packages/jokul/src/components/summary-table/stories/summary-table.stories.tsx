@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { SummaryTable as SummaryTableComponent } from "../SummaryTable.js";
 import { SummaryTableRow } from "../SummaryTableRow.js";
 import "../styles/_index.scss";

@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, {
+import type React from "react";
+import {
     type FC,
     type FocusEvent,
     type KeyboardEvent,
@@ -10,19 +11,19 @@ import React, {
     useRef,
     useState,
 } from "react";
-import {useAnimatedHeight} from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
-import {useId} from "../../hooks/useId/useId.js";
-import {useListNavigation} from "../../hooks/useListNavigation/useListNavigation.js";
-import type {ValuePair} from "../../utilities/valuePair.js";
-import {Chip} from "../chip/Chip.js";
-import {IconButton} from "../icon-button/IconButton.js";
-import {CheckIcon} from "../icon/icons/CheckIcon.js";
-import {ArrowVerticalAnimated} from "../icon/icons/animated/ArrowVerticalAnimated.js";
-import {InputGroup} from "../input-group/InputGroup.js";
-import {Tooltip} from "../tooltip/Tooltip.js";
-import {TooltipContent} from "../tooltip/TooltipContent.js";
-import {TooltipTrigger} from "../tooltip/TooltipTrigger.js";
-import type {ComboboxProps, ComboboxValuePair} from "./types.js";
+import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
+import { useId } from "../../hooks/useId/useId.js";
+import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
+import type { ValuePair } from "../../utilities/valuePair.js";
+import { Chip } from "../chip/Chip.js";
+import { IconButton } from "../icon-button/IconButton.js";
+import { CheckIcon } from "../icon/icons/CheckIcon.js";
+import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
+import { InputGroup } from "../input-group/InputGroup.js";
+import { Tooltip } from "../tooltip/Tooltip.js";
+import { TooltipContent } from "../tooltip/TooltipContent.js";
+import { TooltipTrigger } from "../tooltip/TooltipTrigger.js";
+import type { ComboboxProps, ComboboxValuePair } from "./types.js";
 
 export function getComboboxValuePair(
     item: string | ComboboxValuePair,
@@ -48,7 +49,7 @@ export const Combobox: FC<ComboboxProps> = ({
     name,
     className,
     invalid,
-                                                description,
+    description,
     hasTagHover,
 }) => {
     const listId = useId(id || "jkl-combobox", { generateSuffix: !id });

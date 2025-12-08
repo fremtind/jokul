@@ -1,5 +1,5 @@
 import type { ReactRenderer } from "@storybook/nextjs";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
 export const densities = [
@@ -7,10 +7,7 @@ export const densities = [
     { title: "Komfortabelt", value: "comfortable", icon: "expandalt" },
 ];
 
-const applyDensity = (
-    element: HTMLElement,
-    density: string,
-) => {
+const applyDensity = (element: HTMLElement, density: string) => {
     element.classList.add("jkl");
     element.dataset.layoutDensity = density;
 };

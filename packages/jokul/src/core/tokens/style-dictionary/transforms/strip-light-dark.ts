@@ -1,7 +1,7 @@
 import type {
-    TransformedToken,
-    Transform,
     DesignToken,
+    Transform,
+    TransformedToken,
 } from "style-dictionary/types";
 
 const excludeFromTokenPath = (token: TransformedToken, exclude: string[]) =>

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { LogoStamp as LogoStampComponent } from "../LogoStamp.js";
 import { FraSB1ogDNB } from "../text-paths/FraSB1ogDNB.js";
 import "../styles/_index.scss";

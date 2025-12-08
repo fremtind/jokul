@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { Link } from "../Link.js";
 import "../styles/_index.scss";
 import * as url from "../../file/stories/cow.jpg";

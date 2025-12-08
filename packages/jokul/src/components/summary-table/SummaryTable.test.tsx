@@ -1,9 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import React from "react";
 import { expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import { SummaryTable } from "./SummaryTable.js";
-import { mockProps } from "./mocks.js";
+import { mockProps } from "./development/mockContent.js";
 
 it("renders footer when footer is specified in props", () => {
     render(<SummaryTable {...mockProps} />);

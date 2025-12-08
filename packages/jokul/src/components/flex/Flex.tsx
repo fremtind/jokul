@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import type React from "react";
+import { forwardRef } from "react";
 import { SlotComponent } from "../../utilities/index.js";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import {

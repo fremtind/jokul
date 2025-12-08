@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useAnimatedHeightBetween } from "../../hooks/useAnimatedHeight/useAnimatedHeightBetween.js";
 import { ExpanderContext } from "./context.js";
 import type {

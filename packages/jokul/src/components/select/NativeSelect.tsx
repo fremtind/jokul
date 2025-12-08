@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { getValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup } from "../input-group/InputGroup.js";

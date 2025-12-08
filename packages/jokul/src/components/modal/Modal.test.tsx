@@ -1,6 +1,6 @@
 import { type RenderOptions, act, render } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";

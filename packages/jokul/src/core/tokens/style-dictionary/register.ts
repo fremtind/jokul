@@ -1,11 +1,11 @@
 import StyleDictionary from "style-dictionary";
 
 import {
-    javascriptEsmFormat,
+    cssDynamicColorVariablesFormat,
     cssThemeVariablesFormat,
+    javascriptEsmFormat,
     scssThemeVariablesFormat,
     tailwindCssColorsFormat,
-    cssDynamicColorVariablesFormat,
 } from "./formats/index.js";
 
 import { stripLightDarkTransform } from "./transforms/index.js";

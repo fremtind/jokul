@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import type React from "react";
 import { DescriptionListItem } from "./DescriptionListItem.js";
 import type { DescriptionListProps } from "./types.js";
 

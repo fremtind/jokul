@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import type { FC } from "react";
 import type { SummaryTableRowProps } from "./types.js";
 
 export const SummaryTableRow: FC<SummaryTableRowProps> = ({

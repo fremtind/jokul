@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { SupportLabel } from "../input-group/SupportLabel.js";
 import { BaseRadioButton } from "./BaseRadioButton.js";

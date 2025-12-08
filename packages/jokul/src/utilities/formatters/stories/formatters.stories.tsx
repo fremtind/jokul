@@ -1,5 +1,4 @@
 import type { Meta } from "@storybook/nextjs";
-import React from "react";
 import {
     DescriptionDetail,
     DescriptionList,

@@ -1,6 +1,5 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React from "react";
 import { describe, expect, it, vi } from "vitest";
 import { Popover } from "./Popover.js";
 

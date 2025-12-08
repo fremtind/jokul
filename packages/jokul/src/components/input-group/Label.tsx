@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { type FC } from "react";
+import type { FC } from "react";
 import type { LabelProps } from "./types.js";
 
 export const Label: FC<LabelProps> = ({

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Flex } from "../../flex/Flex.jsx";
 import { FieldGroup } from "../../input-group/index.js";
 import { Chip as ChipComponent } from "../Chip.js";
