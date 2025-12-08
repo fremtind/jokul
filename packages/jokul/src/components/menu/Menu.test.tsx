@@ -1,6 +1,5 @@
 import { type RenderOptions, act, render } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React from "react";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 import { IconButton } from "../icon-button/IconButton.js";

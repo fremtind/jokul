@@ -1,5 +1,5 @@
 import { render, renderHook, screen, waitFor } from "@testing-library/react";
-import React from "react";
+import type React from "react";
 import { beforeEach, describe, expect, it } from "vitest";
 import type { WithChildren } from "../../core/types.js";
 import { CookieConsent } from "./CookieConsent.js";

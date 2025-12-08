@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../../button/index.js";
 import { Link } from "../../link/index.js";
 import { Select } from "../../select/index.js";

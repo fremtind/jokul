@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { Flex } from "../../flex/index.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { Select } from "../Select.js";

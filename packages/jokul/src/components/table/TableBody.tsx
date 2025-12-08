@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext.js";
 import type { TableBodyProps } from "./types.js";
 

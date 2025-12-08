@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { type FC } from "react";
+import type { FC } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { Label } from "./Label.js";
 import { SupportLabel } from "./SupportLabel.js";

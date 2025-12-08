@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { Checkbox } from "../../checkbox/Checkbox.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { FieldGroup } from "../FieldGroup.js";

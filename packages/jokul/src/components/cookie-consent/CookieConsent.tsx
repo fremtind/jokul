@@ -1,4 +1,4 @@
-import React, { type FormEventHandler, useEffect, useId } from "react";
+import { type FormEventHandler, useEffect, useId } from "react";
 import ReactDOM from "react-dom";
 import { Button } from "../button/Button.js";
 import { Flex } from "../flex/index.js";

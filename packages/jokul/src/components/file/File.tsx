@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { type ComponentProps, type FC, useId } from "react";
+import { type ComponentProps, type FC, useId } from "react";
 import { formatBytes } from "../../utilities/index.js";
 import { Button } from "../button/index.js";
 import { useFileInputContext } from "../file-input/internal/fileInputContext.js";

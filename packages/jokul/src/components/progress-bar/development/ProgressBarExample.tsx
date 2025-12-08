@@ -1,4 +1,4 @@
-import React, { type FC, useState } from "react";
+import { type FC, useState } from "react";
 import type { ExampleKnobsProps } from "utils/dev-example/index.js";
 import { IconButton } from "../../icon-button/IconButton.js";
 import { ChevronLeftIcon, ChevronRightIcon } from "../../icon/index.js";

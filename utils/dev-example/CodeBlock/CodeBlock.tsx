@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import diff from "react-syntax-highlighter/dist/esm/languages/prism/diff";
 import sass from "react-syntax-highlighter/dist/esm/languages/prism/sass";

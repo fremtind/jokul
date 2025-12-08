@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-
-import React from "react";
 import { Button } from "../../button/index.js";
 import "../styles/_index.scss";
 import { Icon } from "../../icon/index.js";

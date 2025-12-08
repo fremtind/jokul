@@ -1,5 +1,4 @@
 import { figma } from "@figma/code-connect";
-import React from "react";
 import { HamburgerIcon } from "../HamburgerIcon.jsx";
 
 figma.connect(

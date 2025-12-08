@@ -1,10 +1,5 @@
 import clsx from "clsx";
-import React, {
-    forwardRef,
-    useEffect,
-    useImperativeHandle,
-    useRef,
-} from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import type { CheckboxProps } from "./types.js";
 

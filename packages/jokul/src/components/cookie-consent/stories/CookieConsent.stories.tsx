@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { type FC } from "react";
+import type { FC } from "react";
 import type { WithChildren } from "../../../core/types.js";
 import { PrimaryButton } from "../../button/Button.js";
 import { CookieConsent as CookieConsentComponent } from "../CookieConsent.js";

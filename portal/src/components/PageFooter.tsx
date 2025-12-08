@@ -2,7 +2,6 @@
 
 import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
-import { getURL } from "next/dist/shared/lib/utils";
 import styles from "../app/(frontend)/komponenter/[slug]/component.module.scss";
 
 type ComponentFooterProps = {

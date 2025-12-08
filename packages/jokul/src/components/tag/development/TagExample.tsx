@@ -1,4 +1,5 @@
-import React, { type FC } from "react";
+import type React from "react";
+import type { FC } from "react";
 import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "../Tag.js";
 

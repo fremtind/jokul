@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { ArrowDownIcon } from "../../components/icon/index.js";
 import { InputGroup } from "../../components/input-group/InputGroup.js";
 import type { SelectProps } from "./types.js";

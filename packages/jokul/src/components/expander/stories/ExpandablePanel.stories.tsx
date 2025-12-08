@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { Flex } from "../../flex/Flex.jsx";
 import { ExpandablePanel } from "../ExpandablePanel.jsx";
 import { ExpandablePanelContent } from "../ExpandablePanelContent.jsx";

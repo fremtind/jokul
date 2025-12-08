@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useState, type FC } from "react";
+import { type FC, useState } from "react";
 import { QuestionIcon } from "../icon/icons/QuestionIcon.js";
 import { Tooltip } from "./Tooltip.js";
 import { TooltipContent } from "./TooltipContent.js";

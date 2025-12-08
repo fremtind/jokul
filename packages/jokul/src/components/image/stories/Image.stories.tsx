@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { Image } from "../Image.js";
 import type { ImageProps } from "../types.js";
 import "../styles/_index.scss";

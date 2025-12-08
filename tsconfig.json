@@ -10,7 +10,7 @@
         ],
         "module": "NodeNext",
         "moduleResolution": "NodeNext",
-        "jsx": "preserve",
+        "jsx": "react-jsx",
         "strict": true,
         "noUnusedLocals": true,
         "noImplicitReturns": true,

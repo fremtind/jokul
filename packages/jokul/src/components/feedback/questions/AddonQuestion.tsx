@@ -1,4 +1,5 @@
-import React, { type ChangeEventHandler, useEffect, useState } from "react";
+import type React from "react";
+import { type ChangeEventHandler, useEffect, useState } from "react";
 import { TextArea } from "../../text-area/TextArea.js";
 import { useFeedbackContext } from "../feedbackContext.js";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";

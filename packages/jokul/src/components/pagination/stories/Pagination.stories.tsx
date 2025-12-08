@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Pagination as PaginationComponent } from "../Pagination.js";
 import "../styles/_index.scss";
 

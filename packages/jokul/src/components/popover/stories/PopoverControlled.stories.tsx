@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { useEffect, useState } from "react";
+import type React from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../../button/Button.js";
 import { Popover as PopoverComponent } from "../Popover.js";
 import "../../button/styles/_index.scss";

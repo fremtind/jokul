@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 
 const dayMonthYearRegex = /^(\d\d?)[\W](\d\d?)[\W](\d{4}|\d{2})$/;
 const yearMonthDayRegex = /^(\d{4}|\d{2})[\W](\d\d?)[\W](\d\d?)$/;

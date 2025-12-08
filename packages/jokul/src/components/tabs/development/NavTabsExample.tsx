@@ -1,10 +1,4 @@
-import React, {
-    type FC,
-    type MouseEvent,
-    useEffect,
-    useMemo,
-    useState,
-} from "react";
+import { type FC, type MouseEvent, useEffect, useMemo, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,

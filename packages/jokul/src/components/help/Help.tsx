@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import React from "react";
 import { Button } from "../button/index.js";
 import { Icon } from "../icon/Icon.js";
 import type { HelpProps } from "./types.js";

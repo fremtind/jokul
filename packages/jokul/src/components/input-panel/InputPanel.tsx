@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { type ForwardedRef, forwardRef } from "react";
+import { type ForwardedRef, forwardRef } from "react";
 import { Checkbox } from "../checkbox/index.js";
 import { RadioButton } from "../radio-button/index.js";
 import type { InputPanelProps } from "./types.js";

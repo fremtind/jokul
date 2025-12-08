@@ -1,5 +1,4 @@
 import { figma } from "@figma/code-connect";
-import React from "react";
 import { Message } from "./Message.js";
 
 figma.connect(

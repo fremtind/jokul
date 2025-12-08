@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "../../button/index.js";
 import { Flex } from "../../flex/index.js";
 import { FieldGroup } from "../../input-group/index.js";

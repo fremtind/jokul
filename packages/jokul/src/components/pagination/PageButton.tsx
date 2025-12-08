@@ -1,4 +1,4 @@
-import React, { clsx } from "clsx";
+import { clsx } from "clsx";
 import type { FC, MouseEventHandler } from "react";
 
 export const PageButton: FC<{

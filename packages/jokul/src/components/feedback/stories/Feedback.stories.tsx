@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import "../styles/_index.scss";
 import { Feedback } from "../Feedback.js";
 import { defaultOptions } from "../questions/smileyUtils.js";

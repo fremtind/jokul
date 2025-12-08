@@ -1,4 +1,4 @@
-import React, { type ComponentPropsWithoutRef, type FC } from "react";
+import type { ComponentPropsWithoutRef, FC } from "react";
 import { formatBytes } from "../../../utilities/formatters/bytes/formatBytes.js";
 import { useFileInputContext } from "./fileInputContext.js";
 

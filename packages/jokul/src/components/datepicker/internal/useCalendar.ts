@@ -22,7 +22,8 @@ import dayjs from "dayjs";
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import {
     type CalendarMonth,
     type DateInfo,

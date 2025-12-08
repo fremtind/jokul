@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import "../styles/_index.scss";
-import React from "react";
 import { IconButton } from "../../icon-button/IconButton.js";
 import { CloseIcon } from "../../icon/icons/CloseIcon.js";
 import { ModalCloseButton as ModalCloseButtonComponent } from "../Modal.js";

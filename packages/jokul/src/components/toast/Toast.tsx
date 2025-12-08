@@ -1,7 +1,7 @@
 import { type AriaToastProps, useToast } from "@react-aria/toast";
 import type { QueuedToast, ToastState } from "@react-stately/toast";
 import clsx from "clsx";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
 import { Button } from "../button/Button.js";
 import { Countdown } from "../countdown/Countdown.js";

@@ -1,6 +1,5 @@
 import { act, cleanup, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 import { Feedback } from "./Feedback.js";

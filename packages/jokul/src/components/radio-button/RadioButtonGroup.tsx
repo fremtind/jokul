@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import type { FC } from "react";
 import { FieldGroup } from "../input-group/FieldGroup.js";
 import { RadioGroupContextProvider } from "./radioGroupContext.js";
 import type { RadioButtonGroupProps } from "./types.js";

@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import tokens from "../../core/tokens.js";
 import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";

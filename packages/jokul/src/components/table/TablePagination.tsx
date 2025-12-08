@@ -1,11 +1,11 @@
 import clsx from "clsx";
-import React, {
+import {
+    type ChangeEventHandler,
     forwardRef,
     useCallback,
     useEffect,
     useId,
     useState,
-    type ChangeEventHandler,
 } from "react";
 import { Pagination } from "../pagination/Pagination.js";
 import { NativeSelect } from "../select/NativeSelect.js";

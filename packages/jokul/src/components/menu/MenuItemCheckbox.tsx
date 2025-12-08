@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import React, {
-    forwardRef,
+import {
     type KeyboardEventHandler,
     type MouseEventHandler,
+    forwardRef,
 } from "react";
 import {
     type SwipeChangeHandler,

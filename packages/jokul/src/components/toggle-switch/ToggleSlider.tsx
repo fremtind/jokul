@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, {
+import {
     type FC,
     Fragment,
     type MouseEventHandler,

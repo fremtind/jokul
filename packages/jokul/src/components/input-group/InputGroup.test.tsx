@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React from "react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import { PopupTip } from "../tooltip/PopupTip.js";

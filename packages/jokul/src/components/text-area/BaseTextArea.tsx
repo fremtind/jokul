@@ -1,8 +1,9 @@
-import React, {
+import type React from "react";
+import {
     type ChangeEvent,
     type FocusEvent,
-    forwardRef,
     type RefObject,
+    forwardRef,
     useEffect,
     useRef,
     useState,

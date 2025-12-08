@@ -1,5 +1,4 @@
 import { clsx } from "clsx";
-import React from "react";
 import { RadioButton } from "../radio-button/index.js";
 import type { SegmentedControlButtonProps } from "./types.js";
 

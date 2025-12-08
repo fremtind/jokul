@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import "../styles/_index.scss";
 import { Tab } from "../Tab.js";
 import { TabList } from "../TabList.js";

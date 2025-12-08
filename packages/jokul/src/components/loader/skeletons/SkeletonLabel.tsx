@@ -1,4 +1,3 @@
-import React from "react";
 import type { SkeletonLabelProps } from "../types.js";
 import { SkeletonElement } from "./SkeletonElement.js";
 

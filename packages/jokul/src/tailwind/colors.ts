@@ -8,14 +8,18 @@ const colors = {
     "background-container": "var(--jkl-color-background-container)",
     "background-container-low": "var(--jkl-color-background-container-low)",
     "background-container-high": "var(--jkl-color-background-container-high)",
-    "background-container-inverted": "var(--jkl-color-background-container-inverted)",
-    "background-container-subdued": "var(--jkl-color-background-container-subdued)",
+    "background-container-inverted":
+        "var(--jkl-color-background-container-inverted)",
+    "background-container-subdued":
+        "var(--jkl-color-background-container-subdued)",
     "background-input-base": "var(--jkl-color-background-input-base)",
     "background-input-focus": "var(--jkl-color-background-input-focus)",
     "background-action": "var(--jkl-color-background-action)",
     "background-interactive": "var(--jkl-color-background-interactive)",
-    "background-interactive-hover": "var(--jkl-color-background-interactive-hover)",
-    "background-interactive-selected": "var(--jkl-color-background-interactive-selected)",
+    "background-interactive-hover":
+        "var(--jkl-color-background-interactive-hover)",
+    "background-interactive-selected":
+        "var(--jkl-color-background-interactive-selected)",
     "background-alert-neutral": "var(--jkl-color-background-alert-neutral)",
     "background-alert-info": "var(--jkl-color-background-alert-info)",
     "background-alert-success": "var(--jkl-color-background-alert-success)",

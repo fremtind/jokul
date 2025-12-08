@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import type { Density } from "../../core/index.js";
 import type { FileProps } from "../file/types.js";
 import type { FieldGroupProps } from "../input-group/index.js";

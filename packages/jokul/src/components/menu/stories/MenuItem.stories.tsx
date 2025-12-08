@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { InfoIcon } from "../../icon/index.js";
 import { MenuItem as MenuItemComponent } from "../MenuItem.js";
 import "../styles/_index.scss";

@@ -1,4 +1,4 @@
-import React, { type ChangeEvent, type FC, useState } from "react";
+import { type ChangeEvent, type FC, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,

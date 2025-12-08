@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Countdown as CountdownComponent } from "../Countdown.js";
 import "../styles/_index.scss";
-import React, { type FC, useState } from "react";
+import { type FC, useState } from "react";
 import type { WithChildren } from "../../../core/types.js";
 import { PrimaryButton } from "../../button/Button.js";
 import { Flex } from "../../flex/Flex.js";

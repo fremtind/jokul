@@ -1,4 +1,3 @@
-import React from "react";
 import { DevExample } from "utils/dev-example/DevExample.js";
 import { LinkExample, knobs as linkKnobs } from "./LinkExample.js";
 

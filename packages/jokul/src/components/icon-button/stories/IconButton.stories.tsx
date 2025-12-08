@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { PenIcon } from "../../icon/icons/PenIcon.js";
 import { IconButton } from "../IconButton.js";
 import "../styles/_index.scss";

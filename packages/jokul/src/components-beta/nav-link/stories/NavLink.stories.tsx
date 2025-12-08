@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { BETA_NavLink } from "../index.js";
 
 import "../styles/_index.scss";

@@ -1,6 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { useClickOutside } from "./useClickOutside.js";
 

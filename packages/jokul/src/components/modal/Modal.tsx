@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import type React from "react";
+import { forwardRef } from "react";
 import { IconButton } from "../icon-button/IconButton.js";
 import type { IconButtonProps } from "../icon-button/types.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";

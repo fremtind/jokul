@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import type React from "react";
+import { forwardRef } from "react";
 import { Expander } from "../expander/Expander.js";
 import { TableCell } from "./TableCell.js";
 import { useTableContext } from "./tableContext.js";

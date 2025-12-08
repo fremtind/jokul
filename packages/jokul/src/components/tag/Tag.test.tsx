@@ -1,5 +1,4 @@
 import { render, screen } from "@testing-library/react";
-import React from "react";
 import { describe, expect, it } from "vitest";
 import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "./Tag.js";
 

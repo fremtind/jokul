@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import type { FC } from "react";
 import type { WithChildren } from "../../../core/types.js";
 import type { FeedbackOption } from "../types.js";
 

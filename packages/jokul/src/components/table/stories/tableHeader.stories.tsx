@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { Table } from "../Table.js";
 import { TableCaption } from "../TableCaption.js";
 import { TableCell } from "../TableCell.js";

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { List } from "../List.js";
 import { CheckListItem, CrossListItem } from "../ListItem.js";
 import "../styles/_index.scss";

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { Select } from "../Select.js";
 import "../styles/_index.scss";
 

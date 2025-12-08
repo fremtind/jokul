@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { TableSectionContextProvider } from "./tableSectionContext.js";
 import type { TableFooterProps } from "./types.js";
 

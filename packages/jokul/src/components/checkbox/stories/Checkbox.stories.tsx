@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { FieldGroup } from "../../input-group/index.js";
 import { Checkbox as CheckboxComponent } from "../Checkbox.js";
 import "../styles/_index.scss";

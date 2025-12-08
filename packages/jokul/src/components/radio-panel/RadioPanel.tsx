@@ -1,4 +1,4 @@
-import React, { type ForwardedRef, forwardRef } from "react";
+import { type ForwardedRef, forwardRef } from "react";
 import { InputPanel } from "../input-panel/InputPanel.js";
 import type { RadioPanelProps } from "./types.js";
 

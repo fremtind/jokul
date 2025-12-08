@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { Table } from "./Table.js";
 import { TableBody } from "./TableBody.js";
 import { TableCaption } from "./TableCaption.js";

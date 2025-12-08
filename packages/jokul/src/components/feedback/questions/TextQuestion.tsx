@@ -1,9 +1,5 @@
-import React, {
-    type ChangeEventHandler,
-    useEffect,
-    useMemo,
-    useRef,
-} from "react";
+import type React from "react";
+import { type ChangeEventHandler, useEffect, useMemo, useRef } from "react";
 import { TextArea } from "../../text-area/TextArea.js";
 import { useFeedbackContext } from "../feedbackContext.js";
 import { useFollowUpContext } from "../followup/followupContext.js";

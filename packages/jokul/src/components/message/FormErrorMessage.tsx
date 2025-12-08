@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef, useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { Message } from "./Message.js";
 import type { FormErrorMessageProps } from "./types.js";

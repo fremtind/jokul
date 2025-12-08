@@ -1,6 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React, { useState } from "react";
+import { useState } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 import { Icon } from "../icon/Icon.js";

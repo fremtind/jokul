@@ -1,6 +1,6 @@
+import type { Dictionary, File, Format } from "style-dictionary/types";
 import { fileHeader } from "style-dictionary/utils";
 import { PREFIX } from "../config.js";
-import type { Dictionary, File, Format } from "style-dictionary/types";
 
 const tailwindCssColorsFormat: Format = {
     name: "tailwindcss/colors",

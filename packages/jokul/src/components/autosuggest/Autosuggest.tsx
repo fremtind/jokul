@@ -1,5 +1,5 @@
 import type { StateChangeOptions } from "downshift";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import BaseAutosuggest from "./BaseAutosuggest.js";
 import type { AutosuggestProps } from "./types.js";
 import { filter } from "./utils.js";

@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import type React from "react";
+import { forwardRef } from "react";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 import { OpenInNewIcon } from "../icon/icons/OpenInNewIcon.js";

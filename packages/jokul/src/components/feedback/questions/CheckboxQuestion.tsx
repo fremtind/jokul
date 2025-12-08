@@ -1,4 +1,5 @@
-import React, { type ChangeEventHandler, useEffect, useRef } from "react";
+import type React from "react";
+import { type ChangeEventHandler, useEffect, useRef } from "react";
 import { Checkbox } from "../../checkbox/Checkbox.js";
 import { FieldGroup } from "../../input-group/FieldGroup.js";
 import { useFollowUpContext } from "../followup/followupContext.js";

@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, { useId } from "react";
+import type React from "react";
+import { useId } from "react";
 import { LinkListLink } from "./LinkListLink.js";
 import type { LinkListProps } from "./types.js";
 

@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { formatNumber } from "../../../utilities/index.js";
 import { DescriptionList } from "../DescriptionList.js";
 import { DescriptionListItem } from "../DescriptionListItem.jsx";

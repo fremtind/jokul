@@ -1,5 +1,4 @@
 import { figma } from "@figma/code-connect";
-import React from "react";
 import { InfoIcon } from "../InfoIcon.jsx";
 
 figma.connect(

@@ -1,4 +1,4 @@
-import React, { type ComponentPropsWithRef, type FC, forwardRef } from "react";
+import { type ComponentPropsWithRef, type FC, forwardRef } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,

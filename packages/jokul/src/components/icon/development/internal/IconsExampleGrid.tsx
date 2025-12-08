@@ -1,4 +1,5 @@
-import React, { type CSSProperties } from "react";
+import type React from "react";
+import type { CSSProperties } from "react";
 import "./icons-example-grid.scss";
 import type { WithChildren } from "../../../../core/types.js";
 

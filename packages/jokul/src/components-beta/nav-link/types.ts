@@ -1,4 +1,4 @@
-import React from "react";
+import type React from "react";
 import type { PolymorphicPropsWithRef } from "../../utilities/index.js";
 
 export type NavLinkProps<ElementType extends React.ElementType> =

@@ -1,5 +1,6 @@
 import clsx from "clsx";
-import React, { forwardRef, useCallback } from "react";
+import type React from "react";
+import { forwardRef, useCallback } from "react";
 import type { PolymorphicRef } from "../../utilities/index.js";
 import type { NavTabProps } from "./types.js";
 

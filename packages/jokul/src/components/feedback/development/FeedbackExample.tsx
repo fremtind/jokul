@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import type { FC } from "react";
 import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { Feedback } from "../Feedback.js";
 import { PRESETS } from "../presets.js";

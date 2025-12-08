@@ -37,7 +37,13 @@
                 "noImplicitBoolean": "off",
                 "noParameterAssign": "warn"
             },
-            "suspicious": { "noExplicitAny": "warn", "noArrayIndexKey": "warn" }
+            "suspicious": {
+                "noExplicitAny": "warn",
+                "noArrayIndexKey": "warn"
+            },
+            "correctness": {
+                "noUnusedImports": "warn"
+            }
         },
         "ignore": [
             "actions/",
@@ -47,7 +53,6 @@
         ]
     },
     "javascript": {
-        "jsxRuntime": "reactClassic",
         "formatter": {
             "jsxQuoteStyle": "double",
             "quoteProperties": "asNeeded",

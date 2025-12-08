@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import dayjs from "dayjs";
-import React, {
+import type React from "react";
+import {
     type ChangeEvent,
     type FocusEvent,
     type KeyboardEvent,

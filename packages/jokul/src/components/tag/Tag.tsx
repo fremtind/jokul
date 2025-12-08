@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { type FC } from "react";
+import type { FC } from "react";
 import type { TagProps } from "./types.js";
 
 function getDisplayName(variant?: TagProps["variant"]) {
@@ -41,17 +41,20 @@ function tagFactory(variant?: TagProps["variant"]) {
     return Tag;
 }
 
-export const Tag = ({ className, density, variant = "neutral", children, ...rest } : TagProps) => (
+export const Tag = ({
+    className,
+    density,
+    variant = "neutral",
+    children,
+    ...rest
+}: TagProps) => (
     <span
-        className={clsx(
-            "jkl-tag", `jkl-tag--${variant}`,
-            className,
-        )}
+        className={clsx("jkl-tag", `jkl-tag--${variant}`, className)}
         data-density={density}
         {...rest}
     >
-            {children}
-        </span>
+        {children}
+    </span>
 );
 
 /**

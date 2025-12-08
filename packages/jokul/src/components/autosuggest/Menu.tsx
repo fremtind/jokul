@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import type { PropGetters } from "downshift";
-import React, { type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface MenuProps<T> {
     downshiftProps: Pick<PropGetters<T>, "getMenuProps" | "getItemProps">;

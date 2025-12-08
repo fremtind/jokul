@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { Logo as LogoComponent } from "../Logo.js";
 import "../styles/_index.scss";
 

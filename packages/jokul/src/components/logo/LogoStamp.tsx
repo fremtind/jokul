@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import type { LogoStampProps } from "./types.js";
 import { useTextSpinner } from "./useTextSpinner.js";

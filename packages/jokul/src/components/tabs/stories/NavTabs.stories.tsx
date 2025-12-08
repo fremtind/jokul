@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import "../styles/_index.scss";
 import { NavTab } from "../NavTab.js";
 import { NavTabs as Tabs } from "../NavTabs.js";

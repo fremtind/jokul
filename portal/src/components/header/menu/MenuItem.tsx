@@ -1,9 +1,9 @@
 "use client";
 
-import type { PropsWithChildren } from "react";
+import clsx from "clsx";
 import Link, { type LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
+import type { PropsWithChildren } from "react";
 import styles from "./menu.module.scss";
 
 type MenuItemProps = PropsWithChildren<

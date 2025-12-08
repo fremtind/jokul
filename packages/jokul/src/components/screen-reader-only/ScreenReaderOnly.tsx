@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import type { FC } from "react";
 import type { ScreenReaderOnlyProps } from "./types.js";
 
 export const ScreenReaderOnly: FC<ScreenReaderOnlyProps> = ({

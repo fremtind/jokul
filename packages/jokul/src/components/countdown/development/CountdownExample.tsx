@@ -1,4 +1,4 @@
-import React, { type FC, useState } from "react";
+import { type FC, useState } from "react";
 import type { ExampleKnobsProps } from "utils/dev-example/index.js";
 import { PrimaryButton, TertiaryButton } from "../../button/index.js";
 import { Countdown } from "../Countdown.js";
