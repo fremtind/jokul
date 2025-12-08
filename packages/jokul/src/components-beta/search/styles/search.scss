@@ -38,13 +38,14 @@
         border: var(--border);
 
         &::before {
-            font-family: "Fremtind Material Symbols";
             content: attr(data-icon) / "";
             display: inline-flex;
             align-items: center;
             justify-content: center;
             height: 100%;
             grid-column: 1;
+
+            @include jkl.use-font-family("Fremtind Material Symbols");
         }
 
         &:has(.clear-button) {
@@ -82,9 +83,10 @@
 
         &::before {
             content: "close" / "";
-            font-family: "Fremtind Material Symbols";
             z-index: 1;
             line-height: 1.25lh;
+
+            @include jkl.use-font-family("Fremtind Material Symbols");
         }
 
         &::after {

@@ -58,7 +58,7 @@
             "icon content dismiss";
         grid-template-columns: auto 1fr auto;
 
-        @include jkl.text-style("body");
+        @include jkl.text-style("paragraph-body");
 
         &__progress {
             grid-area: progress;

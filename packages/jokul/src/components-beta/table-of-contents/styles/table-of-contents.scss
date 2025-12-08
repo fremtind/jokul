@@ -9,7 +9,7 @@
         .jkl-table-of-contents-title {
             margin-block-end: var(--jkl-unit-05);
 
-            @include jkl.text-style("small");
+            @include jkl.text-style("paragraph-small");
         }
 
         & .jkl-table-of-contents-item {

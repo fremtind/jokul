@@ -37,8 +37,8 @@
         grid-column: 1 / -1;
 
         @container description-list (width < 30ch) {
-            grid-template-columns: 1fr;
             --spacing: var(--jkl-spacing-s);
+            grid-template-columns: 1fr;
 
             .title,
             .value {

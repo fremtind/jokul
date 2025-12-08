@@ -4,7 +4,7 @@
     .jkl-table-cell {
         --jkl-table-cell-padding: var(--jkl-unit-15);
 
-        @include jkl.use-font-variables("jkl-table-cell");
+        @include jkl.text-style("text-body");
         padding: var(--jkl-table-cell-padding);
         position: relative;
         text-align: left;

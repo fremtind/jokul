@@ -5,7 +5,9 @@
         --jkl-table-header-padding-inline: var(--jkl-unit-15);
         --jkl-table-header-padding-block: var(--jkl-unit-10);
 
-        @include jkl.use-font-variables("jkl-table-header");
+        @include jkl.text-style("text-small") {
+            font-weight: jkl.$typography-weight-bold;
+        };
 
         padding-block: var(--jkl-table-header-padding-block);
         padding-inline: var(--jkl-table-header-padding-inline);

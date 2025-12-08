@@ -69,7 +69,7 @@
                     padding: var(--jkl-text-input-padding);
                     color: var(--text-color);
 
-                    @include jkl.text-style("small");
+                    @include jkl.text-style("text-small");
                 }
 
                 &-progress {

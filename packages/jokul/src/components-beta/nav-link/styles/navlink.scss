@@ -14,9 +14,9 @@
     padding: var(--jkl-spacing-s);
     border-radius: 0;
 
-    @include jkl.text-style("body");
-
+    @include jkl.text-style("paragraph-body");
     @include jkl.motion("easeInBounceOut", "productive");
+
     transition-property: background-color;
 
     .title,
@@ -32,17 +32,18 @@
 
     &::after {
         content: "arrow_forward" / "";
-        font-family: "Fremtind Material Symbols";
         align-self: center;
         grid-column: 2;
         grid-row: 1 / span 999;
         translate: 0;
 
+        @include jkl.use-font-family("Fremtind Material Symbols");
         @include jkl.motion("easeInBounceOut", "productive");
         transition-property: translate;
     }
 
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
         background-color: var(--jkl-color-background-interactive-selected);
 
         &::after {
@@ -60,7 +61,7 @@
         border-end-end-radius: var(--border-radius);
     }
 
-    &:has( + .jkl-navlink--beta) {
+    &:has(+ .jkl-navlink--beta) {
         border-block-end: var(--separator);
     }
 }

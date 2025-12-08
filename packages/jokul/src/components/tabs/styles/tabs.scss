@@ -2,17 +2,12 @@
 @use "../../../core/jkl";
 
 @layer jokul.components {
-    @include jkl.small-device {
-        --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-30) var(--jkl-unit-15) var(--jkl-unit-02);
-        --jkl-tab-padding-inline-end: var(--jkl-unit-30);
-    }
-
     .jkl-tabs {
         width: 100%;
     }
 
     .jkl-tablist {
-        --jkl-tab-padding-inline-end: var(--jkl-unit-50);
+        --padding-inline-end: var(--jkl-unit-50);
         --text-color: var(--jkl-color-text-interactive);
         --line-color: var(--jkl-color-border-separator);
         --indicator-color: var(--jkl-color-border-separator-hover);
@@ -43,7 +38,7 @@
                 position: absolute;
                 position-anchor: --active-tab;
                 height: 2px;
-                width: calc(anchor-size(inline) - var(--jkl-tab-padding-inline-end));
+                width: calc(anchor-size(inline) - var(--padding-inline-end));
                 inset-block-start: calc(anchor(end) - 2px);
                 inset-inline-start: calc(anchor(--active-tab start));
                 background-color: var(--indicator-color);
@@ -54,12 +49,11 @@
     }
 
     .jkl-tab {
-        --jkl-tab-padding-inline-end: var(--jkl-unit-50);
-        --jkl-tab-padding: var(--jkl-unit-10) var(--jkl-unit-50) var(--jkl-unit-15) var(--jkl-unit-02);
+        --padding-inline-end: var(--jkl-unit-50);
 
-        @include jkl.use-font-variables("jkl-tab");
+        @include jkl.text-style("text-body");
         color: var(--text-color);
-        padding: var(--jkl-tab-padding);
+        padding: var(--jkl-unit-10) var(--padding-inline-end) var(--jkl-unit-10) var(--jkl-unit-05);
         border: none;
         background-color: transparent;
         cursor: pointer;
@@ -91,7 +85,7 @@
                     content: "";
                     position: absolute;
                     height: 2px;
-                    width: calc(100% - var(--jkl-tab-padding-inline-end));
+                    width: calc(100% - var(--padding-inline-end));
                     inset-block-end: 0;
                     inset-inline-start: 0;
                     background-color: var(--indicator-color);

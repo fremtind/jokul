@@ -6,10 +6,6 @@ $_focus-ring-distance: jkl.rem(-1px); // Negativ margin for å unngå subpixel m
 $_focus-ring-width: jkl.rem(2px);
 
 @layer jokul.components {
-    @include jkl.small-device {
-        --content-padding: var(--jkl-unit-15);
-    }
-
     .jkl-tooltip-trigger {
         all: unset;
 
@@ -21,10 +17,10 @@ $_focus-ring-width: jkl.rem(2px);
     }
 
     .jkl-tooltip-content {
-        --content-padding: var(--jkl-unit-20);
+        --content-padding: var(--jkl-unit-15);
         --background-color: var(--jkl-color-background-container-inverted);
 
-        @include jkl.text-style("small");
+        @include jkl.text-style("paragraph-small");
         background-color: var(--background-color);
         color: var(--jkl-color-text-inverted);
         display: inline-block;
