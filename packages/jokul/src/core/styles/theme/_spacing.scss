@@ -1,0 +1,41 @@
+@layer jokul.theme {
+    :root,
+    [data-size] {
+        --jkl-unit-10: var(--jkl-unit-base);
+        --jkl-unit-15: calc(var(--jkl-unit-base) * 1.5);
+        --jkl-unit-20: calc(var(--jkl-unit-base) * 2);
+        --jkl-unit-25: calc(var(--jkl-unit-base) * 2.5);
+        --jkl-unit-30: calc(var(--jkl-unit-base) * 3);
+        --jkl-unit-40: calc(var(--jkl-unit-base) * 4);
+        --jkl-unit-50: calc(var(--jkl-unit-base) * 5);
+        --jkl-unit-60: calc(var(--jkl-unit-base) * 6);
+        --jkl-unit-70: calc(var(--jkl-unit-base) * 7);
+        --jkl-unit-80: calc(var(--jkl-unit-base) * 8);
+        --jkl-unit-90: calc(var(--jkl-unit-base) * 9);
+        --jkl-unit-130: calc(var(--jkl-unit-base) * 13);
+        --jkl-unit-210: calc(var(--jkl-unit-base) * 21);
+        --jkl-unit-02: calc(var(--jkl-unit-base) * .25);
+        --jkl-unit-05: calc(var(--jkl-unit-base) * .5);
+        --jkl-spacing-none: 0;
+        --jkl-spacing-xxs: calc(var(--jkl-unit-base) * .5);
+        --jkl-spacing-xs: var(--jkl-unit-base);
+        --jkl-spacing-s: calc(var(--jkl-unit-base) * 2);
+        --jkl-spacing-m: calc(var(--jkl-unit-base) * 3);
+        --jkl-spacing-l: calc(var(--jkl-unit-base) * 5);
+        --jkl-spacing-xl: calc(var(--jkl-unit-base) * 8);
+        --jkl-spacing-2xl: calc(var(--jkl-unit-base) * 13);
+    }
+
+    [data-size="small"] {
+        --jkl-unit-base: #{jkl.rem(6px)};
+    }
+
+    :root,
+    [data-size="medium"] {
+        --jkl-unit-base: #{jkl.rem(8px)};
+    }
+
+    [data-size="large"] {
+        --jkl-unit-base: #{jkl.rem(10px)};
+    }
+}

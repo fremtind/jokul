@@ -8,7 +8,7 @@
 
     width: 100%;
 
-    @include jkl.text-style("body");
+    @include jkl.text-style("text-body");
 
     input[type="search"] {
         appearance: none;
@@ -20,7 +20,9 @@
 
         @include jkl.reset-outline;
 
-        &::-webkit-search-cancel-button, &::-webkit-calendar-picker-indicator, &::-webkit-search-results-button {
+        &::-webkit-search-cancel-button,
+        &::-webkit-calendar-picker-indicator,
+        &::-webkit-search-results-button {
             appearance: none;
             display: none !important;
         }
@@ -67,7 +69,8 @@
         cursor: pointer;
         color: var(--jkl-color-text-default);
 
-        &::before, &::after {
+        &::before,
+        &::after {
             display: inline-grid;
             align-items: center;
             justify-content: center;

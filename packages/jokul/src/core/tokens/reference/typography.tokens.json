@@ -65,11 +65,9 @@
             }
         },
         "lineHeight": {
-            "none": { "value": 1, "type": "typography" },
-            "small": { "value": 1.1, "type": "typography" },
-            "regular": { "value": 1.2, "type": "typography" },
-            "medium": { "value": 1.3, "type": "typography" },
-            "large": { "value": 1.4, "type": "typography" }
+            "flush": { "value": 1, "type": "typography" },
+            "tight": { "value": 1.3, "type": "typography" },
+            "relaxed": { "value": 1.6, "type": "typography" }
         },
         "style": {
             "title": {
