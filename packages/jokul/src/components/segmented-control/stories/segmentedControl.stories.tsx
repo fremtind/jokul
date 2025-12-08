@@ -35,7 +35,7 @@ export const Basic: Story = {
     },
     render: (args) => (
         <SegmentedControl {...args}>
-            <SegmentedControlButton value="Vi" name="basic">
+            <SegmentedControlButton value="Vi" name="basic" defaultChecked>
                 Vi
             </SegmentedControlButton>
             <SegmentedControlButton value="Står" name="basic">

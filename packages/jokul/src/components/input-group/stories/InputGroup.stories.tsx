@@ -6,7 +6,7 @@ import "../styles/_index.scss";
 import "../../text-input/styles/_index.scss";
 
 const meta: Meta = {
-    title: "Komponenter/InputGroup",
+    title: "Komponenter/Input Group",
     component: InputGroup,
     args: {
         description: "Fødselsnummer består av 11 siffer.",
