@@ -22,13 +22,7 @@
  * SOFTWARE.
  */
 
-import {
-    addDays,
-    differenceInCalendarMonths,
-    isBefore,
-    isToday,
-    startOfDay,
-} from "date-fns";
+import dayjs from "dayjs";
 import React from "react";
 import type { ValuePair } from "../../../utilities/valuePair.js";
 import type { YearsToShow } from "../types.js";
@@ -64,10 +58,7 @@ export function subtractMonth({
 }): number {
     if (offset > 1 && minDate) {
         const { firstDayOfMonth } = calendars[0];
-        const diffInMonths = differenceInCalendarMonths(
-            firstDayOfMonth,
-            minDate,
-        );
+        const diffInMonths = dayjs(minDate).diff(firstDayOfMonth, "months");
         if (diffInMonths < offset) {
             offset = diffInMonths;
         }
@@ -205,10 +196,7 @@ export function addMonth({
 }): number {
     if (offset > 1 && maxDate) {
         const { lastDayOfMonth } = calendars[calendars.length - 1];
-        const diffInMonths = differenceInCalendarMonths(
-            maxDate,
-            lastDayOfMonth,
-        );
+        const diffInMonths = dayjs(maxDate).diff(lastDayOfMonth, "months");
         if (diffInMonths < offset) {
             offset = diffInMonths;
         }
@@ -234,12 +222,10 @@ export function isBackDisabled({
     if (!minDate) {
         return false;
     }
-    const { firstDayOfMonth } = calendars[0];
-    const firstDayOfMonthMinusOne = addDays(firstDayOfMonth, -1);
-    if (isBefore(firstDayOfMonthMinusOne, minDate)) {
-        return true;
-    }
-    return false;
+
+    return dayjs(calendars[0].firstDayOfMonth)
+        .subtract(1, "day")
+        .isBefore(minDate);
 }
 
 /**
@@ -260,12 +246,10 @@ export function isForwardDisabled({
     if (!maxDate) {
         return false;
     }
-    const { lastDayOfMonth } = calendars[calendars.length - 1];
-    const lastDayOfMonthPlusOne = addDays(lastDayOfMonth, 1);
-    if (isBefore(maxDate, lastDayOfMonthPlusOne)) {
-        return true;
-    }
-    return false;
+
+    return dayjs(calendars.at(-1)?.lastDayOfMonth)
+        .add(1, "day")
+        .isAfter(maxDate);
 }
 
 type GetCalendarProps = {
@@ -337,20 +321,20 @@ export function getCalendars({
  * @returns {Date} The actual start date
  */
 function getStartDate(date: Date, minDate?: Date, maxDate?: Date): Date {
-    let startDate = startOfDay(date);
+    let startDate = dayjs(date).startOf("day");
     if (minDate) {
-        const minDateNormalized = startOfDay(minDate);
-        if (isBefore(startDate, minDateNormalized)) {
+        const minDateNormalized = dayjs(minDate).startOf("day");
+        if (startDate.isBefore(minDateNormalized)) {
             startDate = minDateNormalized;
         }
     }
     if (maxDate) {
-        const maxDateNormalized = startOfDay(maxDate);
-        if (isBefore(maxDateNormalized, startDate)) {
+        const maxDateNormalized = dayjs(maxDate).startOf("day");
+        if (startDate.isAfter(maxDateNormalized)) {
             startDate = maxDateNormalized;
         }
     }
-    return startDate;
+    return startDate.toDate();
 }
 
 type GetMonthsProps = {
@@ -419,7 +403,7 @@ function getMonths({
             date,
             selected: isSelected(selectedDates, date),
             selectable: isSelectable(minDate, maxDate, date),
-            today: isToday(date),
+            today: dayjs().isSame(date, "day"),
             prevMonth: false,
             nextMonth: false,
         };
@@ -501,10 +485,10 @@ function fillFrontWeek({
     let firstDay = (firstDayOfMonth.getDay() + 7 - firstDayOfWeek) % 7;
 
     if (showOutsideDays) {
-        const lastDayOfPrevMonth = addDays(firstDayOfMonth, -1);
-        const prevDate = lastDayOfPrevMonth.getDate();
-        const prevDateMonth = lastDayOfPrevMonth.getMonth();
-        const prevDateYear = lastDayOfPrevMonth.getFullYear();
+        const lastDayOfPrevMonth = dayjs(firstDayOfMonth).subtract(1, "day");
+        const prevDate = lastDayOfPrevMonth.date();
+        const prevDateMonth = lastDayOfPrevMonth.month();
+        const prevDateYear = lastDayOfPrevMonth.year();
 
         // Fill out front week for days from
         // preceding month with dates from previous month.
@@ -585,9 +569,9 @@ function fillBackWeek({
     let lastDay = (lastDayOfMonth.getDay() + 7 - firstDayOfWeek) % 7;
 
     if (showOutsideDays) {
-        const firstDayOfNextMonth = addDays(lastDayOfMonth, 1);
-        const nextDateMonth = firstDayOfNextMonth.getMonth();
-        const nextDateYear = firstDayOfNextMonth.getFullYear();
+        const firstDayOfNextMonth = dayjs(lastDayOfMonth).add(1, "day");
+        const nextDateMonth = firstDayOfNextMonth.month();
+        const nextDateYear = firstDayOfNextMonth.year();
 
         // Fill out back week for days from
         // following month with dates from next month.
@@ -685,7 +669,8 @@ function isSelected(
     return dates.some((selectedDate) => {
         if (
             selectedDate instanceof Date &&
-            startOfDay(selectedDate).getTime() === startOfDay(date).getTime()
+            dayjs(selectedDate).startOf("day").valueOf() ===
+                dayjs(date).startOf("day").valueOf()
         ) {
             return true;
         }
@@ -707,8 +692,8 @@ function isSelectable(
     date: Date,
 ): boolean {
     if (
-        (minDate && isBefore(date, minDate)) ||
-        (maxDate && isBefore(maxDate, date))
+        (minDate && dayjs(date).isBefore(minDate)) ||
+        (maxDate && dayjs(date).isAfter(maxDate))
     ) {
         return false;
     }

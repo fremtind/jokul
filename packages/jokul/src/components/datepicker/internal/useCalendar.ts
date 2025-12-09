@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 /***
  * MIT License
  *
@@ -21,7 +22,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-import { startOfDay } from "date-fns";
 import React, { useState } from "react";
 import {
     type CalendarMonth,
@@ -171,7 +171,7 @@ export type UseCalendarResult = {
 };
 
 export function useCalendar({
-    date = startOfDay(new Date()),
+    date = dayjs().startOf("day").toDate(),
     maxDate,
     minDate,
     monthsToDisplay = 1,
