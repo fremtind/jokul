@@ -69,11 +69,11 @@
     }
 
     .jkl-modal-body {
-        @include jkl.text-style("heading-3");
+        @include jkl.text-style("paragraph-body");
     }
 
     .jkl-modal-title {
-        @include jkl.text-style("paragraph-body");
+        @include jkl.text-style("heading-3");
     }
 
     .jkl-modal-actions {
