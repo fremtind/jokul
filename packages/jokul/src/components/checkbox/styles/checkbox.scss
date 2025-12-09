@@ -4,7 +4,9 @@
 @use "../../../core/jkl/colors";
 
 $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
-$_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.unique-id()};
+$_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.unique-id(
+
+    )};
 
 @layer jokul.components {
     @include jkl.small-device {
@@ -22,7 +24,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         --text-color: var(--jkl-color-text-default);
         --background-color: transparent;
 
-        @include jkl.use-font-variables("jkl-checkbox");
+        @include jkl.text-style("text-small");
 
         display: flex;
         flex-wrap: wrap;
@@ -41,14 +43,17 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
 
             &:checked {
                 + .jkl-checkbox__label .jkl-checkbox__check-mark::after {
-                    animation: $_checkbox-checked-animation-name jkl.timing("productive") ease-in-out forwards;
+                    animation: $_checkbox-checked-animation-name
+                        jkl.timing("productive") ease-in-out forwards;
                     opacity: 1;
                 }
             }
 
             &:indeterminate:not(:checked) {
-                + .jkl-checkbox__label .jkl-checkbox__indeterminate-mark::after {
-                    animation: $_checkbox-indeterminate-animation-name jkl.timing("productive") ease-in-out forwards;
+                + .jkl-checkbox__label
+                    .jkl-checkbox__indeterminate-mark::after {
+                    animation: $_checkbox-indeterminate-animation-name
+                        jkl.timing("productive") ease-in-out forwards;
                     opacity: 1;
                 }
             }
@@ -86,7 +91,13 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         }
 
         &__text {
-            margin: calc((var(--jkl-checkbox-height) - var(--jkl-checkbox-line-height)) * 0.5) 0;
+            margin: calc(
+                    (
+                            var(--jkl-checkbox-height) -
+                                var(--jkl-checkbox-line-height)
+                        ) * 0.5
+                )
+                0;
             translate: 0 jkl.rem(1px);
 
             @include jkl.motion;
@@ -99,7 +110,10 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
             height: var(--jkl-checkbox-box-size);
             width: var(--jkl-checkbox-box-size);
 
-            margin-block: calc((var(--jkl-checkbox-height) - var(--jkl-checkbox-box-size)) * 0.5);
+            margin-block: calc(
+                (var(--jkl-checkbox-height) - var(--jkl-checkbox-box-size)) *
+                    0.5
+            );
             margin-inline-end: var(--jkl-unit-10);
             align-self: flex-start;
             flex-shrink: 0; // Don't allow the mark to shrink in case of really long text

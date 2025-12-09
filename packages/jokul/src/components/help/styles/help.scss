@@ -21,7 +21,7 @@
         }
 
         .title {
-            @include jkl.text-style("body") {
+            @include jkl.text-style("heading-2") {
                 font-weight: bold;
             }
         }

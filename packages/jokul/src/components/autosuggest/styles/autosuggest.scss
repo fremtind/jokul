@@ -1,6 +1,5 @@
 @use "../../../core/jkl";
 
-
 @layer jokul.components {
     .jkl-autosuggest {
         --jkl-autosuggest-menu-padding: var(--jkl-unit-20) var(--jkl-unit-10) 0;
@@ -9,7 +8,9 @@
         --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
         --jkl-autosuggest-option-padding: 0 var(--jkl-unit-15);
         --jkl-autosuggest-option-height: #{jkl.rem(48px)};
-        --jkl-autosuggest-no-hits-message-font-size: var(--jkl-small-font-size);
+        --jkl-autosuggest-no-hits-message-font-size: var(
+            --jkl-typography-body-small-font-size
+        );
 
         display: flex;
         flex-direction: column;
@@ -49,7 +50,7 @@
         }
 
         &__item {
-            @include jkl.use-font-variables("jkl-autosuggest-item");
+            @include jkl.text-style("text-small");
             color: unset;
             display: flex; // avoids wrapping long names "under" the focus arrow
             align-items: center;

@@ -34,7 +34,7 @@
             }
 
             &__drag-text {
-                @include jkl.use-font-variables("jkl-file-input-drag");
+                @include jkl.text-style("paragraph-small");
 
                 @include jkl.small-device {
                     display: none;
@@ -71,7 +71,7 @@
         }
 
         &__max-size-text {
-            @include jkl.use-font-variables("jkl-file-size-hint");
+            @include jkl.text-style("text-small");
             color: var(--jkl-color-text-subdued);
             margin-top: var(--jkl-unit-30);
         }
@@ -101,7 +101,7 @@
             }
 
             .jkl-file-input__call-to-action {
-                @include jkl.use-font-variables("jkl-file-size-hint");
+                @include jkl.text-style("text-small");
 
                 gap: #{jkl.$unit-15};
                 flex-direction: row;

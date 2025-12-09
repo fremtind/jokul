@@ -22,7 +22,7 @@ $_container-width--compact: jkl.rem(320px);
         }
 
         &__info-text {
-            @include jkl.text-style("small");
+            @include jkl.text-style("paragraph-small");
         }
 
         &__checkbox {

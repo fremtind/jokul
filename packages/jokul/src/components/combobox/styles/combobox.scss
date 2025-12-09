@@ -6,7 +6,8 @@
 @layer jokul.components {
     .jkl-combobox {
         --jkl-combobox-button-padding: var(--jkl-unit-10);
-        --jkl-combobox-button-active-value-padding: var(--jkl-unit-10) var(--jkl-unit-05) var(--jkl-unit-5) var(--jkl-unit-10);
+        --jkl-combobox-button-active-value-padding: var(--jkl-unit-10)
+            var(--jkl-unit-05) var(--jkl-unit-5) var(--jkl-unit-10);
         --jkl-combobox-input-height: #{jkl.rem(48px)};
         --jkl-combobox-actions-right: var(--jkl-unit-10);
         --jkl-combobox-actions-top: #{jkl.rem(4px)};
@@ -61,7 +62,8 @@
 
             &:hover {
                 border-color: var(--jkl-color-border-input-focus);
-                box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
+                box-shadow: 0 0 0 jkl.rem(1px)
+                    var(--jkl-color-border-input-focus);
 
                 & ~ .jkl-combobox__arrow {
                     transform: translateY(calc(-50% + #{jkl.rem(3px)}));
@@ -75,7 +77,7 @@
 
         &__button,
         &__search-input {
-            @include jkl.use-font-variables("jkl-combobox");
+            @include jkl.text-style("text-small");
             width: 100%;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -105,8 +107,10 @@
             @include jkl.motion;
             transition-property: transform, color;
 
-            @include jkl.forced-colors-svg-fallback($stroke: CanvasText,
-                $fill: CanvasText);
+            @include jkl.forced-colors-svg-fallback(
+                $stroke: CanvasText,
+                $fill: CanvasText
+            );
         }
 
         &__menu {
@@ -123,11 +127,14 @@
             border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
             border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
             box-sizing: border-box;
-            max-height: calc(calc(var(--jkl-combobox-max-shown-options, 5) + 0.5) * var(--jkl-combobox-input-height));
+            max-height: calc(
+                calc(var(--jkl-combobox-max-shown-options, 5) + 0.5) *
+                    var(--jkl-combobox-input-height)
+            );
         }
 
         &__option {
-            @include jkl.use-font-variables("jkl-combobox-text");
+            @include jkl.text-style("text-small");
             @include jkl.motion;
             display: flex;
             align-items: center;
@@ -146,7 +153,7 @@
             }
 
             &-description {
-                @include jkl.text-style("small");
+                @include jkl.text-style("text-small");
                 color: var(--jkl-color-text-subdued);
                 display: block;
                 width: 100%;

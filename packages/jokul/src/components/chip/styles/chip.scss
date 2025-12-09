@@ -15,7 +15,7 @@
     --background-color: transparent;
     --border-width: #{jkl.rem(1px)};
 
-    @include jkl.text-style("heading-5");
+    @include jkl.text-style("text-small");
 
     cursor: pointer;
     position: relative;

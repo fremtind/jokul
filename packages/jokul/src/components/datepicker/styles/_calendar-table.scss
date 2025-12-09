@@ -6,7 +6,7 @@
         // ======================================
 
         th {
-            @include jkl.text-style("small");
+            @include jkl.text-style("text-small");
             padding-bottom: var(--jkl-unit-10);
         }
 

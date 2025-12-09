@@ -25,7 +25,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
             color: var(--jkl-color-text-subdued);
             margin-bottom: var(--jkl-unit-20);
 
-            @include jkl.text-style("body");
+            @include jkl.text-style("paragraph-small");
         }
 
         &__fade-in {
@@ -66,8 +66,9 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
         @include jkl.motion;
         transition-property: transform, color;
 
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonFace,
-            $fill: ButtonText,
+        @include jkl.forced-colors-svg-fallback(
+            $stroke: ButtonFace,
+            $fill: ButtonText
         );
 
         &::before,

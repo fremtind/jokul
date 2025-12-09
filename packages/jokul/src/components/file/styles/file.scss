@@ -15,11 +15,13 @@
         --bg: transparent;
 
         &__content {
-            @include jkl.motion("standard",
+            @include jkl.motion(
+                "standard",
                 "snappy",
                 background-color,
                 border-color,
-                color);
+                color
+            );
 
             color: var(--jkl-color-text-default);
             padding: var(--jkl-file-padding);
@@ -27,14 +29,16 @@
             border-radius: var(--border-radius);
             background: var(--bg);
             display: grid;
-            grid-template-columns: var(--jkl-file-thumbnail-width) 1fr var(--jkl-file-button-width);
+            grid-template-columns: var(--jkl-file-thumbnail-width) 1fr var(
+                    --jkl-file-button-width
+                );
             grid-template-areas: "image text button";
             gap: var(--jkl-file-gap);
             align-items: center;
             height: fit-content;
 
             &__name {
-                @include jkl.text-style("small");
+                @include jkl.text-style("paragraph-small");
                 grid-area: text;
                 /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
                 word-break: break-word;
@@ -90,7 +94,8 @@
             .jkl-file__content {
                 grid-template-columns: 1fr var(--jkl-file-button-width);
                 grid-template-rows: var(--jkl-file-thumbnail-max-height) auto;
-                grid-template-areas: "image image"
+                grid-template-areas:
+                    "image image"
                     "text button";
             }
         }
@@ -98,7 +103,7 @@
         // If the file is not an image
         &:not([data-state*="loading"]) {
             .jkl-file__content__thumbnail:not(:has(img[src]))::before {
-                @include jkl.text-style("small");
+                @include jkl.text-style("paragraph-small");
 
                 content: attr(data-filetype);
             }
@@ -131,11 +136,13 @@
                         }
 
                         50% {
-                            transform: var(--scale-end) rotate(calc(var(--rotation) + 0.5turn));
+                            transform: var(--scale-end)
+                                rotate(calc(var(--rotation) + 0.5turn));
                         }
 
                         100% {
-                            transform: var(--scale) rotate(calc(var(--rotation) + 1turn));
+                            transform: var(--scale)
+                                rotate(calc(var(--rotation) + 1turn));
                         }
                     }
                 }
