@@ -3,7 +3,7 @@
 @layer jokul.components {
     .jkl-menu-item {
         --jkl-menu-item-height: var(--jkl-unit-60);
-        --jkl-menu-item-padding: var(--jkl-unit-10) var(--jkl-unit-30);
+        --jkl-menu-item-padding: var(--jkl-unit-15) var(--jkl-unit-30);
         --background-color: var(--jkl-color-background-interactive);
 
         background-color: var(--background-color);
@@ -14,7 +14,7 @@
         box-sizing: border-box;
         user-select: none;
 
-        @include jkl.use-font-variables("jkl-menu-item");
+        @include jkl.text-style("text-body");
         display: flex;
         align-items: center;
         gap: var(--jkl-unit-10);

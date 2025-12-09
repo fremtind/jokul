@@ -14,8 +14,8 @@ $_message-width--compact: jkl.rem(440px);
         --jkl-message-icon-top: var(--jkl-unit-30);
         --jkl-message-title-margin: 0 0 var(--jkl-unit-05) 0;
         --jkl-message-dismiss-button-size: var(--jkl-unit-50);
-        --jkl-message-gap: var(--jkl-unit-15);
-        --jkl-message-padding: var(--jkl-unit-20) var(--jkl-unit-15);
+        --jkl-message-gap: var(--jkl-unit-20);
+        --jkl-message-padding: var(--jkl-unit-25) var(--jkl-unit-15);
 
         @include jkl.from-medium-device {
             --jkl-message-gap: var(--jkl-unit-20);
@@ -51,13 +51,13 @@ $_message-width--compact: jkl.rem(440px);
         }
 
         &__message {
-            @include jkl.use-font-variables("jkl-message-content");
+            @include jkl.text-style("paragraph-body");
 
             margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
         }
 
         &__title {
-            @include jkl.use-font-variables("jkl-message-title");
+            @include jkl.text-style("heading-5");
             margin: var(--jkl-message-title-margin);
 
             & ~ .jkl-message__message {
