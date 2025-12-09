@@ -8,9 +8,6 @@
         --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
         --jkl-autosuggest-option-padding: 0 var(--jkl-unit-15);
         --jkl-autosuggest-option-height: #{jkl.rem(48px)};
-        --jkl-autosuggest-no-hits-message-font-size: var(
-            --jkl-typography-body-small-font-size
-        );
 
         display: flex;
         flex-direction: column;
@@ -22,8 +19,9 @@
         }
 
         &__no-hits-message {
-            font-size: var(--jkl-autosuggest-no-hits-message-font-size);
             padding: var(--jkl-autosuggest-option-padding);
+
+            @include jkl.text-style("text-small");
         }
 
         &__menu {

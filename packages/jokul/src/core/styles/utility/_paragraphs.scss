@@ -2,17 +2,17 @@
 
 @layer jokul.utility {
     .jkl-body {
-        @include jkl.text-style("body");
+        @include jkl.text-style("paragraph-body");
     }
 
     .jkl-bold {
-        @include jkl.text-style("body") {
+        @include jkl.text-style("paragraph-body") {
             --jkl-icon-weight: #{jkl.$icon-weight-bold};
             font-weight: jkl.$typography-weight-bold;
         }
     }
 
     .jkl-small {
-        @include jkl.text-style("small");
+        @include jkl.text-style("paragraph-small");
     }
 }

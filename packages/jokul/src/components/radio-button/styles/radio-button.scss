@@ -9,11 +9,8 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 @layer jokul.components {
     .jkl-radio-button {
         --jkl-radio-button-dot-padding: var(--jkl-unit-05);
-        --jkl-radio-button-height: var(--jkl-unit-60);
-        --jkl-radio-button-line-height: var(--jkl-unit-40);
         --jkl-radio-button-size: var(--jkl-unit-30);
         --jkl-radio-button-text-margin: calc((var(--jkl-radio-button-height) - var(--jkl-radio-button-line-height)) * 0.5) 0;
-        --jkl-radio-button-dot-margin: calc((var(--jkl-radio-button-height) - var(--jkl-radio-button-size)) * 0.5) var(--jkl-spacing-8) calc((var(--jkl-radio-button-height) - var(--jkl-radio-button-size)) * 0.5) 0;
         --jkl-radio-button-dot-size: calc(var(--jkl-radio-button-size) - (2 * var(--jkl-radio-button-dot-padding)));
         --jkl-radio-button-text-transform: translate3d(0, #{jkl.rem(1px)}, 0);
         --ring-color: var(--jkl-color-border-action);
@@ -22,18 +19,10 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         --text-color: var(--jkl-color-text-default);
 
         display: flex;
-        min-height: var(--jkl-radio-button-height);
         color: var(--text-color);
         position: relative;
 
         @include jkl.reset-outline;
-
-        @include jkl.small-device {
-            --jkl-radio-button-height: var(--jkl-unit-40);
-            --jkl-radio-button-line-height: var(--jkl-unit-30);
-            --jkl-radio-button-size: var(--jkl-unit-30);
-            --jkl-radio-button-dot-size: calc(var(--jkl-radio-button-size) - (2 * var(--jkl-radio-button-dot-padding)));
-        }
 
         &__input {
             position: absolute;
@@ -77,6 +66,8 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             cursor: pointer;
             display: flex;
             align-items: center;
+            padding-block: var(--jkl-unit-10);
+            gap: var(--jkl-unit-10);
 
             @include jkl.text-style("text-body");
 
@@ -93,7 +84,6 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             display: inline-block;
             position: relative;
             box-sizing: border-box;
-            margin: var(--jkl-radio-button-dot-margin);
             flex-shrink: 0;
 
             height: var(--jkl-radio-button-size);
@@ -132,7 +122,6 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
         &__text {
             display: inline-block;
-            margin: var(--jkl-radio-button-text-margin);
             transform: var(--jkl-radio-button-text-transform);
         }
 
@@ -143,7 +132,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         &--inline {
             display: inline-flex;
             margin-top: unset;
-            margin-right: jkl.$spacing-24;
+            margin-right: var(--jkl-unit-30);
         }
 
         + .jkl-form-support-label {

@@ -35,7 +35,7 @@
         @include jkl.reset-outline;
 
         &[data-adjacent="true"] {
-            @include jkl.text-style("small");
+            @include jkl.text-style("text-small");
             padding: 0; // reset vertical alignment of text
             color: var(--jkl-color-text-subdued);
         }
