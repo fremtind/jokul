@@ -18,7 +18,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
         --jkl-form-support-label-icon-margin: 0 -#{$_icon-size} -#{jkl.rem(6px)} 0;
         --color: var(--jkl-color-text-subdued);
 
-        @include jkl.use-font-variables("jkl-form-support-label");
+        @include jkl.text-style("text-small");
         @include jkl.motion("standard", "lazy");
 
         display: flex;
@@ -63,17 +63,17 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
         color: var(--jkl-color-text-default);
 
         &--small {
-            @include jkl.use-font-variables("jkl-label-small");
+            @include jkl.text-style("text-small");
             margin: var(--jkl-label-small-margin);
         }
 
         &--medium {
-            @include jkl.use-font-variables("jkl-label-medium");
+            @include jkl.text-style("text-body");
             margin: var(--jkl-label-medium-margin);
         }
 
         &--large {
-            @include jkl.use-font-variables("jkl-label-large");
+            @include jkl.text-style("text-large");
             margin: var(--jkl-label-large-margin);
         }
 
@@ -83,7 +83,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     }
 
     .jkl-input-group-description {
-        @include jkl.text-style("small");
+        @include jkl.text-style("text-small");
         color: var(--jkl-color-text-subdued);
         margin: var(--jkl-label-medium-margin);
         max-inline-size: 50ch;

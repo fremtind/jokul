@@ -8,6 +8,8 @@
         overflow-wrap: anywhere;
         width: 100%;
 
+        @include jkl.text-style("text-body");
+
         tr {
             display: flex;
             justify-content: space-between;

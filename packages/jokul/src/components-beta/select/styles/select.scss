@@ -74,7 +74,7 @@
         }
 
         @include jkl.motion;
-        @include jkl.use-font-variables("jkl-select");
+        @include jkl.text-style("text-body");
 
         @include jkl.keyboard-navigation {
             &:focus-visible,

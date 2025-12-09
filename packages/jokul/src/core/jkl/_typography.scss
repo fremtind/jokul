@@ -113,7 +113,7 @@ $text-styles: (
     }
 
     @else {
-        @error "No text style with the name #{$style} was found. Try one of these: #{map.keys($new-text-styles)}";
+        @error "No text style with the name #{$style} was found. Try one of these: #{map.keys($text-styles)}";
     }
 }
 

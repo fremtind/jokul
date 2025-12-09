@@ -30,7 +30,9 @@
                 height: 100%;
                 align-items: center;
 
-                @include jkl.use-font-variables("jkl-checkbox");
+                @include jkl.text-style("text-body") {
+                    font-weight: jkl.$typography-weight-bold;
+                };
             }
 
             & label,
@@ -56,7 +58,7 @@
             padding-block-end: var(--jkl-spacing-none);
             line-height: initial;
 
-            @include jkl.use-font-variables("jkl-checkbox");
+            @include jkl.text-style("paragraph-body");
             @include jkl.motion;
             transition-property: height;
         }

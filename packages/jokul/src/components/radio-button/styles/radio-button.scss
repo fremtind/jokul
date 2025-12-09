@@ -78,7 +78,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             display: flex;
             align-items: center;
 
-            @include jkl.use-font-variables("jkl-radio-button-label");
+            @include jkl.text-style("text-body");
 
             &:hover > .jkl-radio-button__dot {
                 outline: 1px solid var(--ring-color);

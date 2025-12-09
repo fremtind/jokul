@@ -42,7 +42,7 @@ $_dismiss-animation-duration: jkl.timing("lazy");
         }
 
         &__message {
-            @include jkl.use-font-variables("jkl-system-message-message");
+            @include jkl.text-style("text-body");
             margin: var(--jkl-system-message-message-margin);
         }
 
