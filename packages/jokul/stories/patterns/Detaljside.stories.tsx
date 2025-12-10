@@ -18,7 +18,7 @@ import "../../src/components/link-list/styles/_index.scss";
 import "../../src/components/tooltip/styles/_index.scss";
 
 const meta = {
-    title: "Mønstre/Detaljside",
+    title: "Skjermbilder/Detaljside",
     component: () => null,
     parameters: {
         layout: "fullscreen",
@@ -67,7 +67,7 @@ export const Detaljside: Story = {
                     <Card padding="xl" asChild variant="high">
                         <Flex
                             direction="column"
-                            gap="xl"
+                            gap="l"
                             style={{ flexBasis: 999 }}
                         >
                             <Flex as="hgroup" direction="column" gap="m">
@@ -91,7 +91,12 @@ export const Detaljside: Story = {
                                 <time>24.10.24</time> &ndash;{" "}
                                 <time>24.09.25</time>
                             </p>
-                            <Button variant="primary">Meld skade</Button>
+                            <Button
+                                style={{ alignSelf: "center" }}
+                                variant="primary"
+                            >
+                                Meld skade
+                            </Button>
                         </Flex>
                     </Card>
                     <Card style={{ flexBasis: 999 }}>

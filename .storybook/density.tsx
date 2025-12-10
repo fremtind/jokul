@@ -19,7 +19,7 @@ const clearDensity = (element: HTMLElement) => {
 
 export const densityGlobal = {
     toolbar: {
-        title: "Density",
+        title: "Størrelse",
         icon: "unfold",
         items: densities,
         dynamicTitle: true,

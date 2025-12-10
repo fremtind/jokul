@@ -1,4 +1,6 @@
+@use "sass:map";
 @use "../../jkl";
+@use "../../jkl/typography";
 
 @layer jokul.utility {
     .jkl-body {
@@ -14,5 +16,13 @@
 
     .jkl-small {
         @include jkl.text-style("paragraph-small");
+    }
+
+    @each $style, $_ in typography.$text-styles {
+        .jkl-#{$style} {
+            @each $property, $value in map.get(typography.$text-styles, $style) {
+                #{$property}: $value;
+            }
+        }
     }
 }
