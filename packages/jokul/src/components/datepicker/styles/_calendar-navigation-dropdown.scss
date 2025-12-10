@@ -1,52 +1,55 @@
 @use "../../../core/jkl";
 
-.jkl-calendar-navigation-dropdown {
-    // Størrelsen til medium ikon
-    --chevron-size: #{jkl.rem(24px)};
+@layer jokul.components {
+    .jkl-calendar-navigation-dropdown {
+        // Størrelsen til medium ikon
+        --chevron-size: #{jkl.rem(24px)};
 
-    display: inline-flex;
-    align-items: center;
+        display: inline-flex;
+        align-items: center;
 
-    & > * {
-        cursor: pointer;
-    }
-
-    &__select {
-        appearance: none;
-
-        @include jkl.text-style("small") {
-            font-weight: jkl.$typography-weight-bold;
-        }
-        background-color: transparent;
-        color: inherit;
-        border-radius: 0;
-        border: none;
-        text-align: end;
-        text-align-last: end;
-        height: jkl.rem(40px);
-        margin: 0;
-        padding: 0;
-        padding-inline-end: var(--chevron-size);
-
-        @include jkl.reset-outline;
-
-        & option {
-            color: var(--jkl-color-text-default);
-            background-color: var(--jkl-color-background-container-high);
-            text-align: left;
+        & > * {
+            cursor: pointer;
         }
 
-        &:focus-visible {
-            @include jkl.focus-outline;
+        &__select {
+            appearance: none;
+
+            @include jkl.text-style("text-small") {
+                font-weight: jkl.$typography-weight-bold;
+            }
+
+            background-color: transparent;
+            color: inherit;
+            border-radius: 0;
+            border: none;
+            text-align: end;
+            text-align-last: end;
+            height: jkl.rem(40px);
+            margin: 0;
+            padding: 0;
+            padding-inline-end: var(--chevron-size);
+
+            @include jkl.reset-outline;
+
+            & option {
+                color: var(--jkl-color-text-default);
+                background-color: var(--jkl-color-background-container-high);
+                text-align: left;
+            }
+
+            &:focus-visible {
+                @include jkl.focus-outline;
+            }
         }
-    }
 
-    &__chevron {
-        margin-left: calc(var(--chevron-size) * -1);
-        pointer-events: none;
-    }
+        &__chevron {
+            margin-left: calc(var(--chevron-size) * -1);
+            pointer-events: none;
+        }
 
-    & + & {
-        margin-inline-start: var(--jkl-unit-10);
+        & + & {
+            margin-inline-start: var(--jkl-unit-10);
+        }
     }
 }

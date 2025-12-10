@@ -19,7 +19,7 @@
         @include base-styles;
 
         &--bold {
-            --jkl-icon-weight: #{jkl.$icon-weight-bold};
+            --jkl-icon-weight: var(--jkl-icon-weight-bold);
         }
 
         &--filled {

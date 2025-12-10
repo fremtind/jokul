@@ -1,6 +1,6 @@
-@use "../../../core/jkl" as jkl;
+@use "../../../core/jkl";
 
-@layer components {
+@layer jokul.components {
     .jkl-input-panel {
         --outer-border-color: var(--jkl-color-border-input);
         --outer-border-thickness: #{jkl.rem(1px)};
@@ -23,13 +23,16 @@
             gap: jkl.rem(8px);
             cursor: pointer;
             position: relative;
-            padding: var(--jkl-spacing-s) var(--jkl-spacing-m);
+            padding: var(--jkl-unit-20) var(--jkl-unit-30);
 
             &__amount {
                 display: flex;
                 height: 100%;
                 align-items: center;
-                @include jkl.use-font-variables("jkl-checkbox");
+
+                @include jkl.text-style("text-body") {
+                    font-weight: jkl.$typography-weight-bold;
+                };
             }
 
             & label,
@@ -51,11 +54,11 @@
         &__description {
             height: 0;
             overflow: hidden;
-            padding-inline: var(--jkl-spacing-m);
+            padding-inline: var(--jkl-unit-30);
             padding-block-end: var(--jkl-spacing-none);
             line-height: initial;
-            @include jkl.use-font-variables("jkl-checkbox");
 
+            @include jkl.text-style("paragraph-body");
             @include jkl.motion;
             transition-property: height;
         }
@@ -71,7 +74,7 @@
 
             .jkl-input-panel__description {
                 height: auto;
-                padding-block-end: var(--jkl-spacing-s);
+                padding-block-end: var(--jkl-unit-20);
             }
         }
 

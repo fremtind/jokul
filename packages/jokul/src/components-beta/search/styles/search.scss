@@ -8,7 +8,7 @@
 
     width: 100%;
 
-    @include jkl.text-style("body");
+    @include jkl.text-style("text-body");
 
     input[type="search"] {
         appearance: none;
@@ -20,7 +20,9 @@
 
         @include jkl.reset-outline;
 
-        &::-webkit-search-cancel-button, &::-webkit-calendar-picker-indicator, &::-webkit-search-results-button {
+        &::-webkit-search-cancel-button,
+        &::-webkit-calendar-picker-indicator,
+        &::-webkit-search-results-button {
             appearance: none;
             display: none !important;
         }
@@ -36,13 +38,14 @@
         border: var(--border);
 
         &::before {
-            font-family: "Fremtind Material Symbols";
             content: attr(data-icon) / "";
             display: inline-flex;
             align-items: center;
             justify-content: center;
             height: 100%;
             grid-column: 1;
+
+            @include jkl.use-font-family("Fremtind Material Symbols");
         }
 
         &:has(.clear-button) {
@@ -67,7 +70,8 @@
         cursor: pointer;
         color: var(--jkl-color-text-default);
 
-        &::before, &::after {
+        &::before,
+        &::after {
             display: inline-grid;
             align-items: center;
             justify-content: center;
@@ -79,9 +83,10 @@
 
         &::before {
             content: "close" / "";
-            font-family: "Fremtind Material Symbols";
             z-index: 1;
             line-height: 1.25lh;
+
+            @include jkl.use-font-family("Fremtind Material Symbols");
         }
 
         &::after {
