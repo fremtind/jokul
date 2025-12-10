@@ -36,6 +36,7 @@ const poolside = "/images/poolside.jpg";
 
 const Header = () => (
     <Flex
+        data-size="medium"
         gap="l"
         justifyContent="space-between"
         alignItems="center"
@@ -55,11 +56,12 @@ export const Detaljside: Story = {
         return (
             <Flex
                 direction="column"
-                gap="m"
+                gap="s"
                 style={{
+                    padding: "var(--jkl-unit-20)",
                     maxWidth: "calc(500px + var(--jkl-unit-10) * 40)",
                     marginInline: "auto",
-                    marginBlock: "var(--jkl-spacing-64)",
+                    marginBlock: "0",
                 }}
             >
                 <Header />
@@ -73,7 +75,7 @@ export const Detaljside: Story = {
                             <Flex as="hgroup" direction="column" gap="m">
                                 <p className="jkl-small">Reiseforsikring for</p>
                                 <h1
-                                    className="jkl-heading-1"
+                                    className="jkl-heading-2"
                                     style={
                                         {
                                             "text-box":
