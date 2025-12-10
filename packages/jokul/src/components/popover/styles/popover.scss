@@ -15,5 +15,6 @@
         z-index: jkl.$z-index--floating;
         box-shadow: 0 4px 20px 0 var(--jkl-datepicker-box-shadow);
         background-color: var(--jkl-color-background-container-high);
+        border-radius: var(--jkl-border-radius-m);
     }
 }

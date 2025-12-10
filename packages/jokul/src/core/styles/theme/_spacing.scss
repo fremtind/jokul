@@ -29,7 +29,7 @@
     }
 
     [data-size="small"] {
-        --jkl-unit-base: #{jkl.rem(6px)};
+        --jkl-unit-base: #{jkl.rem(5px)};
     }
 
     :root,
@@ -38,6 +38,6 @@
     }
 
     [data-size="large"] {
-        --jkl-unit-base: #{jkl.rem(10px)};
+        --jkl-unit-base: #{jkl.rem(11px)};
     }
 }

@@ -2,7 +2,6 @@
 @use "../../../core/jkl";
 
 @mixin wrapper-styles {
-    --jkl-text-input-height: var(--jkl-unit-60);
     --jkl-text-input-padding: var(--jkl-text-input-vertical-padding) var(--jkl-text-input-horizontal-padding);
     --jkl-text-input-vertical-padding: var(--jkl-unit-15);
     --jkl-text-input-horizontal-padding: var(--jkl-unit-15);
@@ -15,14 +14,13 @@
     --border-color: var(--jkl-color-border-input);
     --placeholder-color: var(--jkl-color-text-subdued);
 
-    border-radius: jkl.rem(3px);
+    border-radius: var(--jkl-border-radius-m);
     box-sizing: border-box;
     max-width: 100%;
 
     position: relative;
     display: flex;
     align-items: center;
-    height: var(--jkl-text-input-height);
 
     @include jkl.text-style("text-body"); // eg. Component/Input
     @include jkl.motion;

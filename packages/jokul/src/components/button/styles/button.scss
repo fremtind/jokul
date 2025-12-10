@@ -19,9 +19,9 @@
 
         display: inline-block;
 
-        font-weight: var(--jkl-typography-weight-bold);
-        font-size: var(--jkl-button-font-size);
-        line-height: var(--jkl-button-line-height);
+        @include jkl.text-style("text-body") {
+            font-weight: jkl.$typography-weight-bold;
+        }
 
         cursor: pointer;
         user-select: none;
