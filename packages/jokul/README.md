@@ -163,7 +163,13 @@ For en full liste over utilities kan du kikke i [utilities-mappa](src/utilities/
 
 ## Tailwind
 
-Jøkul har støtte for Tailwind gjennom et offisielt preset du kan legge til i Tailwind-konfigurasjonen din. For øyeblikket støttes kun Tailwind versjon 3.
+Jøkul har støtte for Tailwind gjennom et offisielt preset du kan legge til i Tailwind-konfigurasjonen din.
+
+Hvis du bruker Tailwind sammen med Jøkul anbefaler vi at du [skrur av Tailwind sine egne reset-regler](https://v3.tailwindcss.com/docs/preflight#disabling-preflight) (preflight), ettersom de kan overskrive Jøkul sine egne grunnstiler.
+
+### Versjon 3
+
+Dersom du bruker versjon 3 av Tailwind kan du legge til vårt preset i konfigurasjonen på denne måten:
 
 ```ts
 import { jokulPreset } from "@fremtind/jokul/tailwind";
@@ -175,7 +181,14 @@ export default {
 };
 ```
 
-Hvis du bruker Tailwind sammen med Jøkul anbefaler vi at du [skrur av Tailwind sine egne reset-regler](https://v3.tailwindcss.com/docs/preflight#disabling-preflight) (preflight), ettersom de kan overskrive Jøkul sine egne grunnstiler.
+### Versjon 4
+
+Dersom du bruker versjon 4 av Tailwind laster du inn vårt theme rett etter importen av Tailwind:
+
+```css
+@import "tailwindcss";
+@import "@fremtind/jokul/tailwind/v4";
+```
 
 ### Farger
 

@@ -10,7 +10,7 @@
     "keywords": [],
     "license": "MIT",
     "sideEffects": ["*.css", "*.scss"],
-    "files": ["./build", "./styles", "./src/fonts"],
+    "files": ["./build", "./styles", "./src/fonts", "./src/tailwind/v4"],
     "main": "./build/cjs/index.cjs",
     "exports": {
         "./core": {
@@ -29,6 +29,7 @@
         "./styles/fonts": "./styles/fonts/_index.scss",
         "./styles": "./styles/styles.scss",
         "./styles/*": "./styles/*",
+        "./tailwind/v4": "./src/tailwind/v4/jokul-tailwind.css",
         "./tailwind": {
             "import": {
                 "types": "./build/es/tailwind/index.d.ts",

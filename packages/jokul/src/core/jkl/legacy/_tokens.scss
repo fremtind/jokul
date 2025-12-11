@@ -79,6 +79,8 @@ $icon-weight-normal: 300 !default;
 $icon-weight-bold: 400 !default;
 $typography-weight-normal: 400 !default;
 $typography-weight-bold: 700 !default;
+$typography-font-weight-normal: 400 !default;
+$typography-font-weight-bold: 700 !default;
 $typography-font-size-16: 1rem !default;
 $typography-font-size-18: 1.125rem !default;
 $typography-font-size-20: 1.25rem !default;
@@ -99,6 +101,60 @@ $typography-line-height-40: 2.5rem !default;
 $typography-line-height-44: 2.75rem !default;
 $typography-line-height-52: 3.25rem !default;
 $typography-line-height-64: 4rem !default;
+$typography-style-title-small-font-size: 2.25rem !default;
+$typography-style-title-small-line-height: 2.75rem !default;
+$typography-style-title-small-font-weight: 400 !default;
+$typography-style-title-base-font-size: 3.5rem !default;
+$typography-style-title-base-line-height: 4rem !default;
+$typography-style-title-base-font-weight: 400 !default;
+$typography-style-title-small-small-font-size: 1.875rem !default;
+$typography-style-title-small-small-line-height: 2.25rem !default;
+$typography-style-title-small-small-font-weight: 400 !default;
+$typography-style-title-small-base-font-size: 2.75rem !default;
+$typography-style-title-small-base-line-height: 3.25rem !default;
+$typography-style-title-small-base-font-weight: 400 !default;
+$typography-style-heading-1-small-font-size: 1.625rem !default;
+$typography-style-heading-1-small-line-height: 2rem !default;
+$typography-style-heading-1-small-font-weight: 400 !default;
+$typography-style-heading-1-base-font-size: 2.25rem !default;
+$typography-style-heading-1-base-line-height: 2.75rem !default;
+$typography-style-heading-1-base-font-weight: 400 !default;
+$typography-style-heading-2-small-font-size: 1.4375rem !default;
+$typography-style-heading-2-small-line-height: 2rem !default;
+$typography-style-heading-2-small-font-weight: 400 !default;
+$typography-style-heading-2-base-font-size: 1.75rem !default;
+$typography-style-heading-2-base-line-height: 2.5rem !default;
+$typography-style-heading-2-base-font-weight: 400 !default;
+$typography-style-heading-3-small-font-size: 1.3125rem !default;
+$typography-style-heading-3-small-line-height: 1.75rem !default;
+$typography-style-heading-3-small-font-weight: 700 !default;
+$typography-style-heading-3-base-font-size: 1.5625rem !default;
+$typography-style-heading-3-base-line-height: 2rem !default;
+$typography-style-heading-3-base-font-weight: 700 !default;
+$typography-style-heading-4-small-font-size: 1.125rem !default;
+$typography-style-heading-4-small-line-height: 1.5rem !default;
+$typography-style-heading-4-small-font-weight: 700 !default;
+$typography-style-heading-4-base-font-size: 1.3125rem !default;
+$typography-style-heading-4-base-line-height: 1.75rem !default;
+$typography-style-heading-4-base-font-weight: 700 !default;
+$typography-style-heading-5-small-font-size: 1rem !default;
+$typography-style-heading-5-small-line-height: 1.5rem !default;
+$typography-style-heading-5-small-font-weight: 700 !default;
+$typography-style-heading-5-base-font-size: 1rem !default;
+$typography-style-heading-5-base-line-height: 1.5rem !default;
+$typography-style-heading-5-base-font-weight: 700 !default;
+$typography-style-body-small-font-size: 1.125rem !default;
+$typography-style-body-small-line-height: 1.75rem !default;
+$typography-style-body-small-font-weight: 400 !default;
+$typography-style-body-base-font-size: 1.25rem !default;
+$typography-style-body-base-line-height: 2rem !default;
+$typography-style-body-base-font-weight: 400 !default;
+$typography-style-small-small-font-size: 1rem !default;
+$typography-style-small-small-line-height: 1.5rem !default;
+$typography-style-small-small-font-weight: 400 !default;
+$typography-style-small-base-font-size: 1rem !default;
+$typography-style-small-base-line-height: 1.5rem !default;
+$typography-style-small-base-font-weight: 400 !default;
 $typography-title-small-font-size: 2.25rem !default;
 $typography-title-small-line-height: 2.75rem !default;
 $typography-title-small-font-weight: 400 !default;
@@ -257,6 +313,10 @@ $tokens: (
       'bold': $typography-weight-bold
     ),
     'font': (
+      'weight': (
+        'normal': $typography-font-weight-normal,
+        'bold': $typography-font-weight-bold
+      ),
       'size': (
         '16': $typography-font-size-16,
         '18': $typography-font-size-18,
@@ -282,6 +342,116 @@ $tokens: (
         '44': $typography-line-height-44,
         '52': $typography-line-height-52,
         '64': $typography-line-height-64
+      )
+    ),
+    'style': (
+      'title': (
+        'small': (
+          'fontSize': $typography-style-title-small-font-size,
+          'lineHeight': $typography-style-title-small-line-height,
+          'fontWeight': $typography-style-title-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-title-base-font-size,
+          'lineHeight': $typography-style-title-base-line-height,
+          'fontWeight': $typography-style-title-base-font-weight
+        )
+      ),
+      'title-small': (
+        'small': (
+          'fontSize': $typography-style-title-small-small-font-size,
+          'lineHeight': $typography-style-title-small-small-line-height,
+          'fontWeight': $typography-style-title-small-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-title-small-base-font-size,
+          'lineHeight': $typography-style-title-small-base-line-height,
+          'fontWeight': $typography-style-title-small-base-font-weight
+        )
+      ),
+      'heading-1': (
+        'small': (
+          'fontSize': $typography-style-heading-1-small-font-size,
+          'lineHeight': $typography-style-heading-1-small-line-height,
+          'fontWeight': $typography-style-heading-1-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-heading-1-base-font-size,
+          'lineHeight': $typography-style-heading-1-base-line-height,
+          'fontWeight': $typography-style-heading-1-base-font-weight
+        )
+      ),
+      'heading-2': (
+        'small': (
+          'fontSize': $typography-style-heading-2-small-font-size,
+          'lineHeight': $typography-style-heading-2-small-line-height,
+          'fontWeight': $typography-style-heading-2-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-heading-2-base-font-size,
+          'lineHeight': $typography-style-heading-2-base-line-height,
+          'fontWeight': $typography-style-heading-2-base-font-weight
+        )
+      ),
+      'heading-3': (
+        'small': (
+          'fontSize': $typography-style-heading-3-small-font-size,
+          'lineHeight': $typography-style-heading-3-small-line-height,
+          'fontWeight': $typography-style-heading-3-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-heading-3-base-font-size,
+          'lineHeight': $typography-style-heading-3-base-line-height,
+          'fontWeight': $typography-style-heading-3-base-font-weight
+        )
+      ),
+      'heading-4': (
+        'small': (
+          'fontSize': $typography-style-heading-4-small-font-size,
+          'lineHeight': $typography-style-heading-4-small-line-height,
+          'fontWeight': $typography-style-heading-4-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-heading-4-base-font-size,
+          'lineHeight': $typography-style-heading-4-base-line-height,
+          'fontWeight': $typography-style-heading-4-base-font-weight
+        )
+      ),
+      'heading-5': (
+        'small': (
+          'fontSize': $typography-style-heading-5-small-font-size,
+          'lineHeight': $typography-style-heading-5-small-line-height,
+          'fontWeight': $typography-style-heading-5-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-heading-5-base-font-size,
+          'lineHeight': $typography-style-heading-5-base-line-height,
+          'fontWeight': $typography-style-heading-5-base-font-weight
+        )
+      ),
+      'body': (
+        'small': (
+          'fontSize': $typography-style-body-small-font-size,
+          'lineHeight': $typography-style-body-small-line-height,
+          'fontWeight': $typography-style-body-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-body-base-font-size,
+          'lineHeight': $typography-style-body-base-line-height,
+          'fontWeight': $typography-style-body-base-font-weight
+        )
+      ),
+      'small': (
+        'small': (
+          'fontSize': $typography-style-small-small-font-size,
+          'lineHeight': $typography-style-small-small-line-height,
+          'fontWeight': $typography-style-small-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-small-base-font-size,
+          'lineHeight': $typography-style-small-base-line-height,
+          'fontWeight': $typography-style-small-base-font-weight
+        )
       )
     ),
     'title': (

@@ -116,6 +116,7 @@ export default {
     typography: {
         weight: { normal: "400", bold: "700" },
         font: {
+            weight: { normal: "400", bold: "700" },
             size: {
                 16: "1rem",
                 18: "1.125rem",
@@ -141,6 +142,116 @@ export default {
                 44: "2.75rem",
                 52: "3.25rem",
                 64: "4rem",
+            },
+        },
+        style: {
+            title: {
+                small: {
+                    fontSize: "2.25rem",
+                    lineHeight: "2.75rem",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "3.5rem",
+                    lineHeight: "4rem",
+                    fontWeight: "400",
+                },
+            },
+            titleSmall: {
+                small: {
+                    fontSize: "1.875rem",
+                    lineHeight: "2.25rem",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "2.75rem",
+                    lineHeight: "3.25rem",
+                    fontWeight: "400",
+                },
+            },
+            heading_1: {
+                small: {
+                    fontSize: "1.625rem",
+                    lineHeight: "2rem",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "2.25rem",
+                    lineHeight: "2.75rem",
+                    fontWeight: "400",
+                },
+            },
+            heading_2: {
+                small: {
+                    fontSize: "1.4375rem",
+                    lineHeight: "2rem",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "1.75rem",
+                    lineHeight: "2.5rem",
+                    fontWeight: "400",
+                },
+            },
+            heading_3: {
+                small: {
+                    fontSize: "1.3125rem",
+                    lineHeight: "1.75rem",
+                    fontWeight: "700",
+                },
+                base: {
+                    fontSize: "1.5625rem",
+                    lineHeight: "2rem",
+                    fontWeight: "700",
+                },
+            },
+            heading_4: {
+                small: {
+                    fontSize: "1.125rem",
+                    lineHeight: "1.5rem",
+                    fontWeight: "700",
+                },
+                base: {
+                    fontSize: "1.3125rem",
+                    lineHeight: "1.75rem",
+                    fontWeight: "700",
+                },
+            },
+            heading_5: {
+                small: {
+                    fontSize: "1rem",
+                    lineHeight: "1.5rem",
+                    fontWeight: "700",
+                },
+                base: {
+                    fontSize: "1rem",
+                    lineHeight: "1.5rem",
+                    fontWeight: "700",
+                },
+            },
+            body: {
+                small: {
+                    fontSize: "1.125rem",
+                    lineHeight: "1.75rem",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "1.25rem",
+                    lineHeight: "2rem",
+                    fontWeight: "400",
+                },
+            },
+            small: {
+                small: {
+                    fontSize: "1rem",
+                    lineHeight: "1.5rem",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "1rem",
+                    lineHeight: "1.5rem",
+                    fontWeight: "400",
+                },
             },
         },
         title: {
