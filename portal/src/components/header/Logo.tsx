@@ -42,7 +42,7 @@ export const Logo = () => {
         case isChristmas:
             return (
                 <>
-                    <span className={clsx(styles.holiday, styles.christmas)}>
+                    <span className={clsx(styles.holiday)}>
                         God J<s>øk</s>ul
                     </span>{" "}
                     🎄
