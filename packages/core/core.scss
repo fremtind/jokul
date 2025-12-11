@@ -33,8 +33,10 @@
 
 :root {
     @supports (font: -apple-system-body) {
-        /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-        font: -apple-system-body;
+        @media (pointer: coarse) {
+            /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+            font: -apple-system-body;
+        }
     }
 
     @each $level, $values in typography.$text-styles {
