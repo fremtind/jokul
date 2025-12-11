@@ -1,3 +1,4 @@
+/* stylelint-disable color-named */
 @use "@fremtind/jokul/styles/core/jkl";
 
 .header {
@@ -7,7 +8,7 @@
     padding: var(--jkl-unit-20);
     position: sticky;
     top: 0;
-    background-color: var(--jkl-color-background-container);
+    background-color: var(--jkl-color-background-page-variant);
     z-index: 1;
 
     p {
@@ -32,15 +33,13 @@
             --grandient-rotation: 90deg;
             --text-opacity: 25%;
 
-            background: linear-gradient(
-                    var(--grandient-rotation),
+            background: linear-gradient(var(--grandient-rotation),
                     var(--color-1),
                     var(--color-2),
                     var(--color-3),
                     var(--color-4),
                     var(--color-5),
-                    var(--color-6)
-            );
+                    var(--color-6));
             background-clip: text;
             color: rgb(from currentColor r g b / var(--text-opacity));
         }
@@ -58,11 +57,6 @@
             --color-2: yellow;
             --color-4: orange;
             --text-opacity: 25%;
-        }
-
-        .christmas {
-            --color-1: red;
-            --text-opacity: 50%;
         }
 
         .halloween {
