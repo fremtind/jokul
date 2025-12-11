@@ -39,6 +39,7 @@ jobs:
                   echo "registry=https://registry.npmjs.org/" >> .npmrc
                   echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
                   npm whoami
+                  npm --version
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
