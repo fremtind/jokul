@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.6.0
+
+### Minor Changes
+
+- 7fe2a5f: Bytt ut `date-fns` med `dayjs` for behandling av datoer i kalenderen.
+
+  For å gjøre oss klare for å droppe CommonJS i biblioteket bytter vi vekk fra `date-fns` for å håndtere datoer i kalenderen i `DatePicker`. Pakken har en del feil i genereringen av typer, som gjør at man kan få feil ved import/bygg avhengig av om man bruker CJS eller ESM.
+
+  Siden `date-fns` var en relativt stor pakke var den behandlet som en _optional dependency_, slik at du selv måtte installere den for å bruke `DatePicker`. `dayjs` er en så liten pakke at vi har bygget inn relevant kode i kalenderen. Dermed får du én avhengighet mindre av å bruke Jøkul 🎉
+
+### Patch Changes
+
+- 7f19854: Skrur av uønsket fontskalering i MacOS
+
+  Begrens fontskalering for Apple-enheter til bare å gjelde enheter med touch som hovedinput (som iPhone) for å unngå uønskede effekter i Safari i MacOS.
+
 ## 3.5.3
 
 ### Patch Changes
