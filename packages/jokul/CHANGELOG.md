@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.7.5
+
+### Patch Changes
+
+- de03873: Skrur av uønsket fontskalering i MacOS
+
+  Begrens fontskalering for Apple-enheter til bare å gjelde enheter med touch som hovedinput (som iPhone) for å unngå uønskede effekter i Safari i MacOS.
+
 ## 1.7.4
 
 ### Patch Changes
