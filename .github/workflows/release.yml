@@ -15,6 +15,7 @@ jobs:
             published: ${{ steps.changesets.outputs.published }}
             publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
         permissions:
+            id-token: write # OIDC for publisering til NPM: https://docs.npmjs.com/trusted-publishers
             contents: write
             packages: write
             pull-requests: write
@@ -28,19 +29,12 @@ jobs:
             - name: Setup Node
               uses: actions/setup-node@v4
               with:
+                  registry-url: 'https://registry.npmjs.org/'
                   node-version-file: '.nvmrc'
                   cache: "pnpm"
 
             - name: Installer avhengigheter
               run: pnpm install --frozen-lockfile
-
-            - name: Autentiser mot NPM
-              run: |
-                  echo "registry=https://registry.npmjs.org/" >> .npmrc
-                  echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-                  npm whoami
-              env:
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Versjonering eller publisering med Changesets
               id: changesets
@@ -49,8 +43,6 @@ jobs:
                   publish: "pnpm release"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
             - name: Bytt registry til GitHub Packages
               if: steps.changesets.outputs.published == 'true'
