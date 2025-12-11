@@ -1,0 +1,8 @@
+import{j as a}from"./jsx-runtime-BbjHj44Y.js";import{c as v}from"./clsx-B-dksMZM.js";import{R as h}from"./index-C6mWTJJr.js";import{A as u}from"./ArrowRightIcon-BDFxSAq-.js";import{A as w}from"./ArrowLeftIcon-DflDjibC.js";import"./_commonjsHelpers-BosuxZz1.js";import"./Icon-CZwjvlw8.js";const s=h.forwardRef(function(i,m){const{active:l=!1,back:n=!1,className:c,children:p,as:f="a",...d}=i,k=f;return a.jsxs(k,{ref:m,className:v("jkl-nav-link",{"jkl-nav-link--active":l,"jkl-nav-link--back":n},c),...d,children:[n&&a.jsx(w,{variant:"small",className:"jkl-nav-link__icon"}),p,!n&&a.jsx(u,{variant:"small",className:"jkl-nav-link__icon"})]})});s.__docgenInfo={description:"",methods:[],displayName:"NavLink",props:{as:{required:!1,tsType:{name:"ElementType"},description:`Her kan du angi hva slags element komponenten skal rendres
+som. Det kan enten være en string for native HTML elementer
+eller en komponent (som Link fra react-router og lignende).`},ref:{required:!1,tsType:{name:'ReactComponentPropsWithRef["ref"]',raw:'React.ComponentPropsWithRef<ElementType>["ref"]'},description:""}}};const T={title:"Komponenter/NavLink",component:s,parameters:{layout:"centered"},tags:["autodocs"],argTypes:{href:{control:"text",defaultValue:"https://www.fremtind.no"}}},e={args:{children:"NavLink",href:"https://www.fremtind.no"}};var r,t,o;e.parameters={...e.parameters,docs:{...(r=e.parameters)==null?void 0:r.docs,source:{originalSource:`{
+  args: {
+    children: "NavLink",
+    href: "https://www.fremtind.no"
+  }
+}`,...(o=(t=e.parameters)==null?void 0:t.docs)==null?void 0:o.source}}};const A=["NavLink"];export{e as NavLink,A as __namedExportsOrder,T as default};

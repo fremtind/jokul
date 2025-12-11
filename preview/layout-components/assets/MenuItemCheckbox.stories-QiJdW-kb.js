@@ -1,0 +1,14 @@
+import{j as n}from"./jsx-runtime-D9p_MChh.js";import{c as _}from"./clsx-B-dksMZM.js";import{r as R}from"./index-CRL2yuNo.js";import{u as T}from"./useSwipeGesture-BBJTpXsK.js";import{C as N}from"./CheckIcon-DGlTyc0x.js";/* empty css               */import"./_commonjsHelpers-gnU0ypJ3.js";import"./Icon-BsB2AusX.js";const i=R.forwardRef((u,k)=>{const{"aria-checked":s,className:h,children:v,icon:c,onChange:e,onClick:o,onPointerCancel:x,onPointerDown:f,onPointerMove:w,onPointerUp:E,onKeyDown:r,...j}=u,g=t=>{t.preventDefault(),e==null||e(t,!s),o==null||o(t)},M=(t,m)=>{m!==s&&(e==null||e(t,m))},b=t=>{t.key==="Enter"?e==null||e(t,!s):t.key===" "&&(t.preventDefault(),e==null||e(t,!s)),r==null||r(t)},{gestureHandlers:y}=T({onClick:g,onChange:M,onPointerCancel:x,onPointerDown:f,onPointerMove:w,onPointerUp:E});return n.jsxs("div",{ref:k,tabIndex:-1,...j,role:"menuitemcheckbox","aria-checked":s,className:_("jkl-menu-item","jkl-menu-item--checkbox",h),...y,onKeyDown:b,children:[c&&n.jsx("span",{className:"jkl-menu-item__icon",children:c}),n.jsx("div",{className:"jkl-menu-item__content",children:v}),n.jsx("div",{className:"jkl-toggle-switch",children:n.jsx("div",{className:"jkl-toggle-switch-widget",children:n.jsxs("div",{className:"jkl-toggle-switch-widget__slider",children:[n.jsx("div",{className:"jkl-toggle-switch-widget__knob"}),n.jsx(N,{variant:"small",bold:!0,className:"jkl-toggle-switch-widget__indicator"})]})})})]})});i.displayName="MenuItemCheckbox";i.__docgenInfo={description:"",methods:[],displayName:"MenuItemCheckbox",props:{"aria-checked":{required:!0,tsType:{name:"boolean"},description:""},icon:{required:!1,tsType:{name:"ReactNode"},description:"Et ikon som vises før innholdet i menypunktet"},onChange:{required:!1,tsType:{name:"intersection",raw:`SwipeChangeHandler<HTMLDivElement> &
+((
+    event:
+        | React.KeyboardEvent<HTMLDivElement>
+        | React.PointerEvent<HTMLDivElement>,
+    pressed: boolean,
+) => void)`,elements:[{name:"signature",type:"function",raw:`(
+    event: React.MouseEvent<T> | React.PointerEvent<T>,
+    pressed: boolean,
+) => void`,signature:{arguments:[{type:{name:"union",raw:"React.MouseEvent<T> | React.PointerEvent<T>",elements:[{name:"ReactMouseEvent",raw:"React.MouseEvent<T>",elements:[{name:"HTMLDivElement"}]},{name:"ReactPointerEvent",raw:"React.PointerEvent<T>",elements:[{name:"HTMLDivElement"}]}]},name:"event"},{type:{name:"boolean"},name:"pressed"}],return:{name:"void"}}},{name:"unknown"}]},description:""}},composes:["Omit"]};const S={title:"Komponenter/Menu/MenuItemCheckbox",component:i,parameters:{layout:"centered"},tags:["autodocs"]},a={args:{"aria-checked":!1}};var l,d,p;a.parameters={...a.parameters,docs:{...(l=a.parameters)==null?void 0:l.docs,source:{originalSource:`{
+  args: {
+    "aria-checked": false
+  }
+}`,...(p=(d=a.parameters)==null?void 0:d.docs)==null?void 0:p.source}}};const O=["MenuItemCheckbox"];export{a as MenuItemCheckbox,O as __namedExportsOrder,S as default};

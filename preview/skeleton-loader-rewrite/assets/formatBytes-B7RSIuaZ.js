@@ -1,0 +1,1 @@
+import{f as t}from"./formatNumber-C5i6XT6A.js";const i=" ",a=i;function e(r,m){return r>=1e5?`${t(Number(r/1e3/1e3),{maximumFractionDigits:1,...m})}${a}MB`:`${t(r/1e3,{maximumFractionDigits:2,...m})}${a}KB`}export{i as N,e as f,a as n};

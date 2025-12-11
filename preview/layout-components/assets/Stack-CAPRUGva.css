@@ -1,0 +1,1 @@
+.jkl-stack{display:block}.jkl-stack>*+*{margin-block-start:var(--gap, var(--jkl-unit-30))}.jkl-stack[data-recursive] *+*{margin-block-start:var(--gap, var(--jkl-unit-30))}

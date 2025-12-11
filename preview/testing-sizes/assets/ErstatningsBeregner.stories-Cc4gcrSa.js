@@ -1,0 +1,41 @@
+import{j as e,r as C}from"./iframe-XXWDj_k0.js";import{a as i}from"./DescriptionList-RaUdWkiR.js";import{B as u}from"./Button-BqE5XfOP.js";import{C as p}from"./Card-Bu69xVus.js";import{F as a}from"./Flex-D2TCajRY.js";import{R as j}from"./RadioButton-BG9YJ_mY.js";import{R as S}from"./RadioButtonGroup-cngBo2FX.js";import{E as R,a as I}from"./ExpandableTableRow-DV7tEEds.js";import{f as k,d as b,b as x,c as s,a as d,e as v}from"./TableRow-D02LYiEQ.js";import{T as f}from"./TableBody-CLiyelmL.js";import{T as g}from"./TextInput-DqD7lgSf.js";import{S as T}from"./Select-CewMg_3X.js";import{T as K}from"./TrashCanIcon-dLrSFsta.js";import{P as y}from"./PlusIcon-CaDISl9v.js";import{f as t}from"./formatNumber-C5i6XT6A.js";import"./preload-helper-PPVm8Dsz.js";import"./clsx-B-dksMZM.js";import"./usePreviousValue-BM4IPd0t.js";import"./Loader-B-6tRH1P.js";import"./useDelayedRender-CK5k7ifp.js";import"./SlotComponent-YW0u6-qR.js";import"./mergeRefs-nXp4u0MO.js";import"./tokens-d2GYn7oW.js";import"./useId-DhUCm8x_.js";import"./SupportLabel-DJmM-NTW.js";import"./WarningIcon-CWO9u6HD.js";import"./Icon-BjQbLDKK.js";import"./BaseRadioButton-tH3zmR_B.js";import"./FieldGroup-C5eM7IIb.js";import"./Label-CnlzOfH3.js";import"./useAnimatedHeight-DwHHceQV.js";import"./useBrowserPreferences-L-YH2Io9.js";import"./Expander-CqyovKer.js";import"./ChevronDownIcon-7bTN6JMZ.js";import"./ChevronUpIcon-DlK0JZLL.js";import"./InputGroup-BRcn9jli.js";import"./BaseTextInput-ddicrJSp.js";import"./IconButton-CSj8-Eec.js";import"./ArrowDownIcon-CckP0wvB.js";const Te={title:"Skjermbilder/Erstatningsberegner",parameters:{layout:"fullscreen"}},F=()=>e.jsx(p,{padding:"l",asChild:!0,children:e.jsxs(a,{as:"section",gap:"m",direction:"column",children:[e.jsx("h2",{className:"jkl-heading-3",children:"Oppvaskmaskin"}),e.jsxs(a,{direction:"row",children:[e.jsx(T,{label:"Antall",defaultValue:1,children:e.jsx("option",{value:1,children:"1"})}),e.jsx(g,{label:"Gjenstand",defaultValue:"Oppvaskmaskin (Hvitevare - Elektronikk)"}),e.jsx(g,{label:"Modell",defaultValue:"W2IHD526A"}),e.jsx(a,{asChild:!0,alignItems:"center",children:e.jsxs(S,{legend:"Kjøp",children:[e.jsx(j,{value:"ny",name:"kjop",children:"Kjøpt ny"},"ny"),e.jsx(j,{value:"brukt",name:"kjop",children:"Kjøpt brukt"},"brukt")]})})]})]})}),H=()=>e.jsx(p,{padding:"l",asChild:!0,children:e.jsxs(a,{as:"section",gap:"m",direction:"column",children:[e.jsx("h2",{className:"jkl-heading-3",children:"Aldersfradrag"}),e.jsxs(a,{direction:"column",alignItems:"start",style:{maxWidth:"fit-content"},children:[e.jsxs(T,{label:"Vurdert standard",defaultValue:"Høy",children:[e.jsx("option",{value:"Høy",children:"Høy"}),e.jsx("option",{value:"Middels",children:"Middels"}),e.jsx("option",{value:"Lav",children:"Lav"})]}),e.jsx(g,{label:"Antatt levetid",defaultValue:"10"}),e.jsxs(a,{style:{width:"100%",justifyContent:"space-between"},children:[e.jsx("p",{className:"jkl-text-small",children:"Sum aldersfradrag"}),e.jsx("p",{className:"jkl-text-small",children:"40 %"})]})]})]})}),V=[{title:"Pris på tilsvarende",value:`${t(10500)} kr`},{title:"Fratrekk for alder (4 år)",value:`${t(4200)} kr`},{title:"Fratrekk for egenandel",value:`${t(-2e3)} kr`},{title:"Avkortning (40%)",value:`${t(-1050)} kr`},{title:"Sum gavekort på Elkjøp",value:`${t(4300)} kr`}],A=[{title:"Uten gavekortrabatten på 9 %",value:`${t(-387)} kr`},{title:"Sum kontant",value:`${t(3913)} kr`}],B=()=>e.jsx(p,{padding:"l",children:e.jsxs(a,{direction:"column",children:[e.jsx("p",{className:"jkl-heading-3",children:"Forklaring til kunde"}),e.jsx("p",{className:"jkl-paragraph-body",children:"Vi har funnet Samsung 55” TU55CU7105KXXC på Power og vurdert den til å være tilsvarende TV-en du hadde og har basert verdivurderingen på dette."}),e.jsxs(a,{direction:"column",children:[e.jsx(i,{alignment:"justified",showSeparators:!0,children:V.map(r=>e.jsx(i.Item,{title:r.title,value:r.value},r.value))}),e.jsx(i,{alignment:"justified",showSeparators:!0,children:A.map(r=>e.jsx(i.Item,{title:r.title,value:r.value},r.value))})]}),e.jsx("p",{className:"jkl-paragraph-body",children:"Dersom du mener vi har valgt feil pris på tilsvarende for det som ble skadet, kan du gjerne ta kontakt med oss. Vi trenger da å vite hva du mener er feil, og hvilket produkt du mener vi skal ta utgangspunkt i."}),e.jsx(u,{variant:"ghost",icon:e.jsx(y,{}),style:{alignSelf:"start"},children:"Legg til nærmere forklaring"})]})}),c={columns:["Kilde","Pris","Lenke","Butikk","Oppgjørsform","Info"],rows:[["3. part",13990,"https://www.elkjop.no/product/tv-lyd-og-","Elkjøp","Gavekort Elkjøp",""]]},N=()=>e.jsx(p,{as:"section",padding:"l",children:e.jsxs(a,{direction:"column",alignItems:"start",children:[e.jsx("p",{className:"jkl-heading-3",children:"Tilsvarende gjenstand"}),e.jsxs(k,{caption:e.jsx(v,{srOnly:!0,children:"Fakturaoversikt"}),fullWidth:!0,children:[e.jsx(b,{children:e.jsxs(x,{children:[e.jsx(s,{bold:!0},"cta-add"),c.columns.slice(0,6).map(r=>e.jsx(s,{bold:!0,children:r},r)),e.jsx(s,{bold:!0},"cta-delete")]})}),e.jsx(f,{children:c.rows.map((r,m)=>e.jsxs(x,{children:[e.jsx(d,{children:e.jsx(j,{value:""})},"cta-add"),r.slice(0,6).map((n,l)=>e.jsx(d,{"data-th":c.columns[l],children:n.toLocaleString()},r[l])),e.jsx(d,{children:e.jsx(u,{variant:"ghost",icon:e.jsx(K,{})})},"cta-delete")]},r[m]))})]}),e.jsx(u,{variant:"ghost",icon:e.jsx(y,{}),children:"Ny tilsvarende gjenstand"})]})}),h={columns:["Gjenstand","Antall","Modell","Aldersfradrag","Avkortning","Kjøpt","Oppgjørsform","Pris","Erstatningssum","Status"],rows:[["TV",1,"TU65DU8505KXX","40% (4år)","0%","Ny","Gavekort Power",7e3,"kr 4300 (kr 3913)","Klar"],["TV",1,"Apple TV 4K","40% (5år)","0%","Brukt","Gavekort Power",3845,"kr 2200 (kr 1998)","Klar"]]},o={name:"Erstatningsberegner",parameters:{docs:{description:{story:"Eksempel på beregning av erstatningssum med tabell og detaljer"}},layout:"fullscreen"},render:({variant:r,...m})=>e.jsxs(k,{fullWidth:!0,caption:e.jsx(v,{children:"Eksempel på ekspanderbare rader"}),children:[e.jsx(b,{children:e.jsxs(x,{children:[h.columns.map(n=>e.jsx(s,{bold:!0,children:n},n)),e.jsx(s,{})]})}),e.jsx(f,{children:h.rows.map((n,l)=>C.createElement(R,{...m,key:n[l],isOpen:l===1,expandedChildren:e.jsxs(a,{direction:"column",children:[e.jsx(F,{}),e.jsx(N,{}),e.jsxs(a,{layout:"5.7",children:[e.jsx(H,{}),e.jsx(B,{})]})]})},e.jsx(I,{}),n.map((w,E)=>e.jsx(d,{children:w.toLocaleString()},n[E]))))})]})};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  name: "Erstatningsberegner",
+  parameters: {
+    docs: {
+      description: {
+        story: "Eksempel på beregning av erstatningssum med tabell og detaljer"
+      }
+    },
+    layout: "fullscreen"
+  },
+  render: ({
+    variant,
+    ...args
+  }) => {
+    return <Table fullWidth={true} caption={<TableCaption>Eksempel på ekspanderbare rader</TableCaption>}>
+                <TableHead>
+                    <TableRow>
+                        {erstatningsberegner.columns.map(column => <TableHeader key={column} bold>
+                                {column}
+                            </TableHeader>)}
+                        <TableHeader />
+                    </TableRow>
+                </TableHead>
+                <TableBody>
+                    {erstatningsberegner.rows.map((row, rowIndex) => <ExpandableTableRow {...args} key={row[rowIndex]} isOpen={rowIndex === 1} expandedChildren={<Flex direction="column">
+                                    <Oppvaskmaskin />
+                                    <TilsvarendeGjenstand />
+                                    <Flex layout={"5.7"}>
+                                        <Aldersfradrag />
+                                        <ForklaringTilKunde />
+                                    </Flex>
+                                </Flex>}>
+                            <ExpandableTableRowController />
+                            {row.map((cell, cellIndex) => <TableCell key={row[cellIndex]}>
+                                    {cell.toLocaleString()}
+                                </TableCell>)}
+                        </ExpandableTableRow>)}
+                </TableBody>
+            </Table>;
+  }
+}`,...o.parameters?.docs?.source}}};const ye=["ErstatningsBeregner"];export{o as ErstatningsBeregner,ye as __namedExportsOrder,Te as default};
