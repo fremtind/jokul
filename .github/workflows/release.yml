@@ -1,98 +1,92 @@
 name: Publiser nye versjoner
 
 on:
-    push:
-        branches:
-            - "jokul-2.x"
+  push:
+    branches:
+      - "jokul-2.x"
 
 run-name: Publiser endrede pakker. Siste commit er ${{ github.event.head_commit.message }}
 
 jobs:
-    changesets-release:
-        name: Versjoner eller publiser pakker med Changesets
-        runs-on: ubuntu-latest
-        outputs:
-            published: ${{ steps.changesets.outputs.published }}
-            publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
-        permissions:
-            contents: write
-            packages: write
-            pull-requests: write
-        steps:
-            - name: Checkout Repo
-              uses: actions/checkout@v3
+  changesets-release:
+    name: Versjoner eller publiser pakker med Changesets
+    runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
+      publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
+    permissions:
+      id-token: write # OIDC for publisering til NPM: https://docs.npmjs.com/trusted-publishers
+      contents: write
+      packages: write
+      pull-requests: write
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
 
-            - name: Setup pnpm
-              uses: pnpm/action-setup@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
 
-            - name: Setup Node
-              uses: actions/setup-node@v4
-              with:
-                  node-version-file: ".nvmrc"
-                  cache: "pnpm"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
 
-            - name: Installer avhengigheter
-              run: pnpm install --frozen-lockfile
+      - name: Installer avhengigheter
+        run: |
+          pnpm install --frozen-lockfile
+          npm install -g npm@latest
+          npm --version
 
-            - name: Autentiser mot NPM
-              run: |
-                  echo "registry=https://registry.npmjs.org/" >> .npmrc
-                  echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> .npmrc
-                  npm whoami
-              env:
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Versjonering eller publisering med Changesets
+        id: changesets
+        uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
+        with:
+          publish: "pnpm release"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Versjonering eller publisering med Changesets
-              id: changesets
-              uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
-              with:
-                  publish: "pnpm release"
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Bytt registry til GitHub Packages
+        if: steps.changesets.outputs.published == 'true'
+        uses: actions/setup-node@v4
+        with:
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@fremtind"
 
-            - name: Bytt registry til GitHub Packages
-              if: steps.changesets.outputs.published == 'true'
-              uses: actions/setup-node@v4
-              with:
-                  registry-url: "https://npm.pkg.github.com"
-                  scope: "@fremtind"
+      - name: Tilbakestill endringer i .npmrc
+        # Unngår å få feil ved publisering pga. unclean git status
+        run: git checkout .npmrc
 
-            - name: Tilbakestill endringer i .npmrc
-              # Unngår å få feil ved publisering pga. unclean git status
-              run: git checkout .npmrc
+      - name: Reinstaller pakker etter actions/setup-node
+        if: steps.changesets.outputs.published == 'true'
+        run: pnpm install --frozen-lockfile
 
-            - name: Reinstaller pakker etter actions/setup-node
-              if: steps.changesets.outputs.published == 'true'
-              run: pnpm install --frozen-lockfile
+      - name: Publiser pakker til GitHub Packages
+        if: steps.changesets.outputs.published == 'true'
+        run: pnpm -r publish --tag version-2 --publish-branch jokul-2.x
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Publiser pakker til GitHub Packages
-              if: steps.changesets.outputs.published == 'true'
-              run: pnpm -r publish --tag version-2 --publish-branch jokul-2.x
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  trigger-release-notification:
+    name: Gi beskjed om publiserte pakker
+    runs-on: ubuntu-latest
+    needs: [changesets-release]
+    if: needs.changesets-release.outputs.published == 'true'
+    steps:
+      - name: Hent informasjon om commit
+        id: commit-info
+        run: |
+          echo "committer_name=$(git log -1 --pretty=format:'%an')" >> $GITHUB_OUTPUT
+          echo "committer_email=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_OUTPUT
 
-    trigger-release-notification:
-        name: Gi beskjed om publiserte pakker
-        runs-on: ubuntu-latest
-        needs: [changesets-release]
-        if: needs.changesets-release.outputs.published == 'true'
-        steps:
-            - name: Hent informasjon om commit
-              id: commit-info
-              run: |
-                  echo "committer_name=$(git log -1 --pretty=format:'%an')" >> $GITHUB_OUTPUT
-                  echo "committer_email=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_OUTPUT
-
-            - name: Send notification om release
-              env:
-                  DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-              run: |
-                  curl -L \
-                    -X POST \
-                    -H "Accept: application/vnd.github+json" \
-                    -H "Authorization: Bearer $DEPLOY_TOKEN" \
-                    -H "X-GitHub-Api-Version: 2022-11-28" \
-                    https://api.github.com/repos/fremtind/jokul-portal-deploy/actions/workflows/notify-jokul-release.yaml/dispatches \
-                    -d '{"ref":"main","published_packages":"${{ needs.changesets-release.outputs.publishedPackages }}","committer_name":"${{ steps.commit-info.outputs.committer_name }}","committer_email":"${{ steps.commit-info.outputs.committer_email }}"}'
+      - name: Send notification om release
+        env:
+          DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        run: |
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $DEPLOY_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/fremtind/jokul-portal-deploy/actions/workflows/notify-jokul-release.yaml/dispatches \
+            -d '{"ref":"main","published_packages":"${{ needs.changesets-release.outputs.publishedPackages }}","committer_name":"${{ steps.commit-info.outputs.committer_name }}","committer_email":"${{ steps.commit-info.outputs.committer_email }}"}'
