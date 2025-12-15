@@ -1,5 +1,5 @@
 import type { Preview } from "@storybook/nextjs";
-import {INITIAL_VIEWPORTS} from "storybook/viewport";
+import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
 import { densityDecorator, densityGlobal } from "./density.js";
 import { themeDecorator, themeGlobal } from "./theme.js";
@@ -43,6 +43,7 @@ const preview: Preview = {
     tags: ["autodocs"],
     parameters: {
         backgrounds: {
+            value: backgroundOptions[0].value,
             options: backgroundOptions,
             grid: {
                 cellSize: 4,

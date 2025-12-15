@@ -6,6 +6,21 @@ import { PopupTip as PopuptipComponent } from "../PopupTip.js";
 const meta = {
     title: "Komponenter/Popuptip",
     component: PopuptipComponent,
+    args: {
+        content: (
+            <p>
+                Avtalen er betalt av arbeidsgiveren din. Du betaler ingenting.
+            </p>
+        ),
+        delay: 0,
+        initialOpen: false,
+        placement: "top",
+    },
+    decorators: (Story) => (
+        <p>
+            Avtalepris: 0 kr/mnd. <Story />
+        </p>
+    ),
     argTypes: {
         delay: { control: "number" },
         initialOpen: { control: "boolean" },
@@ -19,20 +34,4 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Popuptip: Story = {
-    args: {
-        content: (
-            <p>
-                Avtalen er betalt av arbeidsgiveren din. Du betaler ingenting.
-            </p>
-        ),
-        delay: 0,
-        initialOpen: false,
-        placement: "top",
-    },
-    render: (args) => (
-        <p>
-            Avtalepris: 0 kr/mnd. <PopuptipComponent {...args} />
-        </p>
-    ),
-};
+export const Popuptip: Story = {};

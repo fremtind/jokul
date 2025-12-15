@@ -4,7 +4,6 @@ import { CardImage } from "../../card/CardImage.js";
 import { Flex } from "../../flex/index.js";
 import { CheckIcon, CopyIcon } from "../../icon/index.js";
 import { Image } from "../../image/Image.jsx";
-import { InfoTag } from "../../tag/index.js";
 import { Card } from "../Card.js";
 import { CARD_PADDINGS, CARD_VARIANTS } from "../types.js";
 
@@ -144,8 +143,22 @@ export const LinkCard: Story = {
     args: {
         padding: "l",
         variant: "high",
-        children: "e",
+        children: (
+            <Flex direction="column" gap="none xl">
+                <Flex direction="column" gap="s">
+                    <p className="jkl-heading-2">Hus</p>
+                    <p>Kittel Nielsens vei 88 1163 Oslo</p>
+                </Flex>
+                <Flex fill>
+                    <hr />
+                </Flex>
+                <Flex>
+                    <p>311 kr/mnd</p>
+                </Flex>
+            </Flex>
+        ),
         clickable: true,
+        "aria-label": "Kittel Nielsens vei 88 1163 Oslo: Husforsirking",
     },
     render: ({ ...args }) => (
         <Card
@@ -154,37 +167,21 @@ export const LinkCard: Story = {
             href="#"
             asChild={false}
             aria-label="Husforsikring"
-        >
-            <Flex direction="column" gap="none xl">
-                <div>
-                    <InfoTag>Fornyelse</InfoTag>
-                </div>
-                <Flex direction="column" gap="s">
-                    <p className="jkl-heading-2">Hus</p>
-                    <p>Kittel Nielsens vei 88 1163 Oslo</p>
-                </Flex>
-            </Flex>
-            <hr />
-            <Flex>
-                <p>311 kr/mnd</p>
-            </Flex>
-        </Card>
+        />
     ),
 };
 
 export const FullImageCard: Story = {
     name: "Card med heldekkende bilde",
     args: {
-        children: null,
-    },
-    render: (args) => (
-        <Card {...args} style={{ width: "500px" }}>
+        children: (
             <CardImage
                 as={Image}
                 src={dog1200}
                 alt="En hund"
                 placement="full"
             />
-        </Card>
-    ),
+        ),
+    },
+    render: (args) => <Card {...args} style={{ width: "500px" }} />,
 };

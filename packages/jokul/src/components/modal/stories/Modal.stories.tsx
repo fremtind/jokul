@@ -16,10 +16,7 @@ import {
 } from "../Modal.js";
 import { useModal } from "../useModal.js";
 
-import "../../button/styles/_index.scss";
 import "../styles/_index.scss";
-import "../../input-group/styles/_index.scss";
-import "../../text-input/styles/_index.scss";
 
 const meta = {
     title: "Komponenter/Modal",
@@ -33,6 +30,10 @@ const meta = {
         ModalOverlay,
         ModalTitle,
     },
+    parameters: {
+        layout: "centered",
+    },
+    tags: ["autodocs"],
 } satisfies Meta<typeof ModalComponent>;
 
 export default meta;
