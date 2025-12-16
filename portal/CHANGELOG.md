@@ -1,5 +1,11 @@
 # portal
 
+## 1.4.22
+
+### Patch Changes
+
+- a81007c: Oppdaterer Next.js og tilhørende pakker for å få med tetting av sikkerhetshull.
+
 ## 1.4.21
 
 ### Patch Changes
