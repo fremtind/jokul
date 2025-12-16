@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
 import { GhostButton } from "../../button/Button.js";
-import { ChevronDownIcon, ErrorIcon } from "../../icon/index.js";
+import { ChevronDownIcon } from "../../icon/index.js";
 import { Menu as MenuComponent } from "../Menu.js";
 import { MenuItem } from "../MenuItem.js";
 import "../styles/_index.scss";
@@ -30,27 +30,35 @@ export const Menu: Story = {
             </GhostButton>
         ),
         keepOpenOnClickOutside: false,
-        children: (
-            <>
-                <MenuItem>Forsikringsprofil</MenuItem>
-                <MenuComponent
-                    triggerElement={
-                        <MenuItem expandable={true}>Dokumenter</MenuItem>
-                    }
-                >
-                    {" "}
-                    <MenuItem as="a" href="https://jokul.fremtind.no/">
-                        Jøkuls hjemmeside
-                    </MenuItem>
-                    <MenuItem as="a" href="https://fremtind.no/">
-                        Fremtind Forsikring
-                    </MenuItem>
-                </MenuComponent>
-
-                <MenuItem icon={<ErrorIcon />}>Skadesaker</MenuItem>
-            </>
-        ),
-        isOpen: false,
+        children: null,
     },
-    render: ({ ...args }) => <MenuComponent {...args} />,
+    render: ({ isOpen, children, ...args }) => (
+        <MenuComponent {...args}>
+            <MenuItem as="a" href="#forsikringene-dine">
+                Forsikringene dine
+            </MenuItem>
+            <MenuItem onClick={() => console.log("test")}>Meld skade</MenuItem>
+            <MenuItem as="a" href="#skadesakene-dine">
+                Skadesakene dine
+            </MenuItem>
+            <MenuComponent
+                triggerElement={
+                    <MenuItem expandable={true}>Skjemaoppgaver</MenuItem>
+                }
+            >
+                <MenuItem as="a" href="#flytte-forsikring">
+                    Flytte forsikring
+                </MenuItem>
+                <MenuItem onClick={() => console.log("test")}>
+                    Endre forsikring
+                </MenuItem>
+                <MenuItem as="a" href="#oppsigelse">
+                    Oppsigelse av forsikring
+                </MenuItem>
+            </MenuComponent>
+            <MenuItem as="a" href="#kontakt-oss">
+                Kontakt oss
+            </MenuItem>
+        </MenuComponent>
+    ),
 };
