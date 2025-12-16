@@ -12,8 +12,8 @@ function getWidthAsStyle(
     }
 
     if (maxLength) {
-        // adapt to maxLength, but capped at 40ch
-        const length = `${Math.min(maxLength, 40)}ch`;
+        // adapt to maxLength, but capped at 15em
+        const length = `${Math.min(maxLength, 15)}em`;
         const padding = "24px"; // left + right padding
         return { width: `calc(${length} + ${padding})` };
     }
