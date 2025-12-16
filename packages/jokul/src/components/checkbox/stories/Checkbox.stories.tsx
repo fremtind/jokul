@@ -19,17 +19,24 @@ type Story = StoryObj<typeof meta>;
 
 export const Checkbox: Story = {};
 
-export const CheckboxGroup: Story = {
-    render: (args) => {
+type CheckboxGroupArgs = React.ComponentProps<typeof CheckboxComponent> & {
+    helpLabel?: string;
+};
+
+export const CheckboxGroup: StoryObj<CheckboxGroupArgs> = {
+    args: {
+        helpLabel: "Du kan velge én eller flere typer kjeks",
+    },
+    render: ({ helpLabel, ...checkboxArgs }) => {
         return (
-            <FieldGroup legend="Velg kjeks">
-                <CheckboxComponent {...args} value="ritz">
+            <FieldGroup legend="Velg kjeks" helpLabel={helpLabel}>
+                <CheckboxComponent {...checkboxArgs} value="ritz">
                     Ritz
                 </CheckboxComponent>
-                <CheckboxComponent {...args} value="biscoff">
+                <CheckboxComponent {...checkboxArgs} value="biscoff">
                     Biscoff
                 </CheckboxComponent>
-                <CheckboxComponent {...args} value="tuc">
+                <CheckboxComponent {...checkboxArgs} value="tuc">
                     Tuc Paprika
                 </CheckboxComponent>
             </FieldGroup>
