@@ -26,9 +26,9 @@ import clsx from "clsx";
 import React, { forwardRef, useEffect, useRef, useState, useId } from "react";
 import { useBrowserPreferences } from "../../hooks/index.js";
 import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
+import { SlotComponent } from "../../utilities/index.js";
 import type { MenuProps } from "./types.js";
 import { useMenuWideEvents } from "./useMenuWideEvents.js";
-import { SlotComponent } from "../../utilities/index.js";
 
 function getTranslation(side: Side, value = 0) {
     switch (side) {
@@ -219,9 +219,6 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                                             ] = node;
                                                         },
                                                         onClick(event) {
-                                                            child.props.onClick?.(
-                                                                event as React.MouseEvent<HTMLButtonElement>,
-                                                            );
                                                             if (
                                                                 event.defaultPrevented
                                                             ) {
