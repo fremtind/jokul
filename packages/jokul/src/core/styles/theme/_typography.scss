@@ -3,49 +3,36 @@
 @use "../../jkl/typography";
 
 @layer jokul.theme {
-    :root {
-        --jkl-line-height-flush: 1;
-        --jkl-line-height-tight: 1.3;
-        --jkl-line-height-relaxed: 1.6;
-    }
+  :root {
+    --jkl-line-height-flush: 1;
+    --jkl-line-height-tight: 1.3;
+    --jkl-line-height-relaxed: 1.6;
+  }
 
-    :root,
-    [data-size] {
-        --jkl-font-size-1: #{jkl.rem(14px)};
-        --jkl-font-size-2: #{jkl.rem(16px)};
-        --jkl-font-size-3: #{jkl.rem(18px)};
-        --jkl-font-size-4: #{jkl.rem(20px)};
-        --jkl-font-size-5: #{jkl.rem(24px)};
-        --jkl-font-size-6: #{jkl.rem(28px)};
-        --jkl-font-size-7: #{jkl.rem(32px)};
-        --jkl-font-size-8: #{jkl.rem(40px)};
-        --jkl-font-size-9: #{jkl.rem(48px)};
-        --jkl-font-size-10: #{jkl.rem(56px)};
-    }
+  :root,
+  [data-size] {
+    --jkl-font-size-1: #{jkl.rem(14px)};
+    --jkl-font-size-2: #{jkl.rem(16px)};
+    --jkl-font-size-3: #{jkl.rem(18px)};
+    --jkl-font-size-4: #{jkl.rem(20px)};
+    --jkl-font-size-5: #{jkl.rem(24px)};
+    --jkl-font-size-6: #{jkl.rem(28px)};
+    --jkl-font-size-7: #{jkl.rem(32px)};
+    --jkl-font-size-8: #{jkl.rem(40px)};
+    --jkl-font-size-9: #{jkl.rem(48px)};
+    --jkl-font-size-10: #{jkl.rem(56px)};
+  }
 
-    [data-size="small"] {
-        --jkl-font-size-1: #{jkl.rem(12px)};
-        --jkl-font-size-2: #{jkl.rem(14px)};
-        --jkl-font-size-3: #{jkl.rem(16px)};
-        --jkl-font-size-4: #{jkl.rem(18px)};
-        --jkl-font-size-5: #{jkl.rem(20px)};
-        --jkl-font-size-6: #{jkl.rem(24px)};
-        --jkl-font-size-7: #{jkl.rem(28px)};
-        --jkl-font-size-8: #{jkl.rem(32px)};
-        --jkl-font-size-9: #{jkl.rem(40px)};
-        --jkl-font-size-10: #{jkl.rem(48px)};
-    }
-
-    [data-size="large"] {
-        --jkl-font-size-1: #{jkl.rem(16px)};
-        --jkl-font-size-2: #{jkl.rem(18px)};
-        --jkl-font-size-3: #{jkl.rem(20px)};
-        --jkl-font-size-4: #{jkl.rem(24px)};
-        --jkl-font-size-5: #{jkl.rem(28px)};
-        --jkl-font-size-6: #{jkl.rem(32px)};
-        --jkl-font-size-7: #{jkl.rem(40px)};
-        --jkl-font-size-8: #{jkl.rem(44px)};
-        --jkl-font-size-9: #{jkl.rem(50px)};
-        --jkl-font-size-10: #{jkl.rem(56px)};
-    }
+  [data-size="small"] {
+    --jkl-font-size-1: #{jkl.rem(12px)};
+    --jkl-font-size-2: #{jkl.rem(14px)};
+    --jkl-font-size-3: #{jkl.rem(16px)};
+    --jkl-font-size-4: #{jkl.rem(18px)};
+    --jkl-font-size-5: #{jkl.rem(20px)};
+    --jkl-font-size-6: #{jkl.rem(24px)};
+    --jkl-font-size-7: #{jkl.rem(28px)};
+    --jkl-font-size-8: #{jkl.rem(32px)};
+    --jkl-font-size-9: #{jkl.rem(40px)};
+    --jkl-font-size-10: #{jkl.rem(48px)};
+  }
 }
