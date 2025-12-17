@@ -4,11 +4,15 @@ export default defineConfig({
     dts: true,
     platform: "browser",
     minify: true,
+    sourcemap: true,
+    // Disse tilsvarer eksportene i package.json
     entry: [
-        "src/*/!(development|integration|documentation|stories)/!(*.figma|*.test|*.spec|*.stories).{ts,tsx}",
-        // "src/*/!(development|integration|documentation|stories)/(index|types).ts",
-        "src/**/index.ts",
         "src/index.ts",
+        "src/core/index.ts",
+        "src/tailwind/index.ts",
+        "src/hooks/index.ts",
+        "src/utilities/index.ts",
+        "src/components/**/index.ts",
     ],
-    external: ["react", "react-dom", "react-hook-form", /^tailwind/],
+    external: ["react", "react-dom", /^tailwind/],
 });

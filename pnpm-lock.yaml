@@ -230,12 +230,24 @@ importers:
 
   packages/jokul:
     dependencies:
+      '@floating-ui/react':
+        specifier: 0.24.1 - 0.27
+        version: 0.27.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-aria/toast':
+        specifier: 3.0.0-beta.18
+        version: 3.0.0-beta.18(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@react-stately/toast':
+        specifier: 3.0.0-beta.7
+        version: 3.0.0-beta.7(react@18.3.1)
       downshift:
         specifier: ^7.6.2
         version: 7.6.2(react@18.3.1)
       match-sorter:
         specifier: ^6.3.4
         version: 6.4.0
+      react-a11y-dialog:
+        specifier: ^6.2.0
+        version: 6.2.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@babel/cli':
         specifier: ^7.28.3
@@ -306,9 +318,6 @@ importers:
       style-dictionary:
         specifier: ^5.0.1
         version: 5.1.1
-      tailwindcss:
-        specifier: ^3.4.17
-        version: 3.4.18(tsx@4.20.6)(yaml@2.8.1)
       tsdown:
         specifier: 0.17.0
         version: 0.17.0(@typescript/native-preview@7.0.0-dev.20251204.1)(typescript@5.9.3)
@@ -328,18 +337,9 @@ importers:
         specifier: ^0.1.0
         version: 0.1.0(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@1.21.7)(jsdom@26.1.0)(lightningcss@1.30.2)(sass-embedded@1.93.3)(sass@1.94.0)(terser@5.44.1)(tsx@4.20.6)(yaml@2.8.1))
     optionalDependencies:
-      '@floating-ui/react':
-        specifier: 0.24.1 - 0.27
-        version: 0.27.16(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@react-aria/toast':
-        specifier: 3.0.0-beta.18
-        version: 3.0.0-beta.18(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@react-stately/toast':
-        specifier: 3.0.0-beta.7
-        version: 3.0.0-beta.7(react@18.3.1)
-      react-a11y-dialog:
-        specifier: ^6.2.0
-        version: 6.2.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      tailwindcss:
+        specifier: ^3.0.0 || ^4.0.0
+        version: 3.4.18(tsx@4.20.6)(yaml@2.8.1)
 
   packages/stylelint-config-jkl:
     dependencies:
@@ -11482,7 +11482,8 @@ snapshots:
       ansi-styles: 6.2.3
       is-fullwidth-code-point: 4.0.0
 
-  '@alloc/quick-lru@5.2.0': {}
+  '@alloc/quick-lru@5.2.0':
+    optional: true
 
   '@architect/asap@7.0.10':
     dependencies:
@@ -13199,7 +13200,6 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       tabbable: 6.3.0
-    optional: true
 
   '@floating-ui/utils@0.2.10': {}
 
@@ -13209,30 +13209,25 @@ snapshots:
       '@formatjs/intl-localematcher': 0.6.2
       decimal.js: 10.6.0
       tslib: 2.8.1
-    optional: true
 
   '@formatjs/fast-memoize@2.2.7':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@formatjs/icu-messageformat-parser@2.11.4':
     dependencies:
       '@formatjs/ecma402-abstract': 2.3.6
       '@formatjs/icu-skeleton-parser': 1.8.16
       tslib: 2.8.1
-    optional: true
 
   '@formatjs/icu-skeleton-parser@1.8.16':
     dependencies:
       '@formatjs/ecma402-abstract': 2.3.6
       tslib: 2.8.1
-    optional: true
 
   '@formatjs/intl-localematcher@0.6.2':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@humanfs/core@0.19.1': {}
 
@@ -13569,23 +13564,19 @@ snapshots:
   '@internationalized/date@3.10.0':
     dependencies:
       '@swc/helpers': 0.5.17
-    optional: true
 
   '@internationalized/message@3.1.8':
     dependencies:
       '@swc/helpers': 0.5.17
       intl-messageformat: 10.7.18
-    optional: true
 
   '@internationalized/number@3.6.5':
     dependencies:
       '@swc/helpers': 0.5.17
-    optional: true
 
   '@internationalized/string@3.2.7':
     dependencies:
       '@swc/helpers': 0.5.17
-    optional: true
 
   '@isaacs/balanced-match@4.0.1': {}
 
@@ -14350,7 +14341,6 @@ snapshots:
       '@swc/helpers': 0.5.17
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-    optional: true
 
   '@react-aria/interactions@3.25.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -14361,7 +14351,6 @@ snapshots:
       '@swc/helpers': 0.5.17
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-    optional: true
 
   '@react-aria/landmark@3.0.0-beta.17(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -14372,13 +14361,11 @@ snapshots:
       use-sync-external-store: 1.6.0(react@18.3.1)
     transitivePeerDependencies:
       - react-dom
-    optional: true
 
   '@react-aria/ssr@3.9.10(react@18.3.1)':
     dependencies:
       '@swc/helpers': 0.5.17
       react: 18.3.1
-    optional: true
 
   '@react-aria/toast@3.0.0-beta.18(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -14393,7 +14380,6 @@ snapshots:
       react: 18.3.1
     transitivePeerDependencies:
       - react-dom
-    optional: true
 
   '@react-aria/utils@3.31.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
@@ -14405,36 +14391,30 @@ snapshots:
       clsx: 2.1.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-    optional: true
 
   '@react-stately/flags@3.1.2':
     dependencies:
       '@swc/helpers': 0.5.17
-    optional: true
 
   '@react-stately/toast@3.0.0-beta.7(react@18.3.1)':
     dependencies:
       '@swc/helpers': 0.5.17
       react: 18.3.1
       use-sync-external-store: 1.6.0(react@18.3.1)
-    optional: true
 
   '@react-stately/utils@3.10.8(react@18.3.1)':
     dependencies:
       '@swc/helpers': 0.5.17
       react: 18.3.1
-    optional: true
 
   '@react-types/button@3.14.1(react@18.3.1)':
     dependencies:
       '@react-types/shared': 3.32.1(react@18.3.1)
       react: 18.3.1
-    optional: true
 
   '@react-types/shared@3.32.1(react@18.3.1)':
     dependencies:
       react: 18.3.1
-    optional: true
 
   '@rexxars/react-json-inspector@9.0.1(react@18.3.1)':
     dependencies:
@@ -15595,7 +15575,6 @@ snapshots:
   '@swc/helpers@0.5.17':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@swc/types@0.1.25':
     dependencies:
@@ -16320,7 +16299,6 @@ snapshots:
   a11y-dialog@7.5.3:
     dependencies:
       focusable-selectors: 0.4.0
-    optional: true
 
   abort-controller@3.0.0:
     dependencies:
@@ -16461,7 +16439,8 @@ snapshots:
 
   arg@4.1.3: {}
 
-  arg@5.0.2: {}
+  arg@5.0.2:
+    optional: true
 
   argparse@1.0.10:
     dependencies:
@@ -16888,7 +16867,8 @@ snapshots:
       pascal-case: 3.1.2
       tslib: 2.8.1
 
-  camelcase-css@2.0.1: {}
+  camelcase-css@2.0.1:
+    optional: true
 
   camelcase-keys@6.2.2:
     dependencies:
@@ -17677,7 +17657,8 @@ snapshots:
     dependencies:
       dequal: 2.0.3
 
-  didyoumean@1.2.2: {}
+  didyoumean@1.2.2:
+    optional: true
 
   diff-sequences@29.6.3: {}
 
@@ -17695,7 +17676,8 @@ snapshots:
 
   direction@1.0.4: {}
 
-  dlv@1.1.3: {}
+  dlv@1.1.3:
+    optional: true
 
   doc-path@4.1.1: {}
 
@@ -18627,8 +18609,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  focusable-selectors@0.4.0:
-    optional: true
+  focusable-selectors@0.4.0: {}
 
   follow-redirects@1.15.11(debug@4.4.3):
     optionalDependencies:
@@ -19410,7 +19391,6 @@ snapshots:
       '@formatjs/fast-memoize': 2.2.7
       '@formatjs/icu-messageformat-parser': 2.11.4
       tslib: 2.8.1
-    optional: true
 
   ipaddr.js@1.9.1: {}
 
@@ -19849,7 +19829,8 @@ snapshots:
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
-  jiti@1.21.7: {}
+  jiti@1.21.7:
+    optional: true
 
   jiti@2.6.1: {}
 
@@ -21027,7 +21008,8 @@ snapshots:
 
   object-assign@4.1.1: {}
 
-  object-hash@3.0.0: {}
+  object-hash@3.0.0:
+    optional: true
 
   object-inspect@1.13.4: {}
 
@@ -21467,11 +21449,13 @@ snapshots:
       postcss-value-parser: 4.2.0
       read-cache: 1.0.0
       resolve: 1.22.11
+    optional: true
 
   postcss-js@4.1.0(postcss@8.5.6):
     dependencies:
       camelcase-css: 2.0.1
       postcss: 8.5.6
+    optional: true
 
   postcss-load-config@6.0.1(jiti@1.21.7)(postcss@8.5.6)(tsx@4.20.6)(yaml@2.8.1):
     dependencies:
@@ -21481,6 +21465,7 @@ snapshots:
       postcss: 8.5.6
       tsx: 4.20.6
       yaml: 2.8.1
+    optional: true
 
   postcss-loader@8.2.0(postcss@8.5.6)(typescript@5.9.3)(webpack@5.102.1(@swc/core@1.15.3(@swc/helpers@0.5.17))(esbuild@0.25.12)):
     dependencies:
@@ -21559,6 +21544,7 @@ snapshots:
     dependencies:
       postcss: 8.5.6
       postcss-selector-parser: 6.1.2
+    optional: true
 
   postcss-normalize-charset@7.0.1(postcss@8.5.6):
     dependencies:
@@ -21636,6 +21622,7 @@ snapshots:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
+    optional: true
 
   postcss-selector-parser@7.1.0:
     dependencies:
@@ -21837,7 +21824,6 @@ snapshots:
       prop-types: 15.8.1
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-    optional: true
 
   react-clientside-effect@1.2.8(react@18.3.1):
     dependencies:
@@ -21972,6 +21958,7 @@ snapshots:
   read-cache@1.0.0:
     dependencies:
       pify: 2.3.0
+    optional: true
 
   read-pkg-up@7.0.1:
     dependencies:
@@ -23457,8 +23444,7 @@ snapshots:
 
   sync-message-port@1.1.3: {}
 
-  tabbable@6.3.0:
-    optional: true
+  tabbable@6.3.0: {}
 
   table@6.9.0:
     dependencies:
@@ -23495,6 +23481,7 @@ snapshots:
     transitivePeerDependencies:
       - tsx
       - yaml
+    optional: true
 
   tapable@2.3.0: {}
 

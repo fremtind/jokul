@@ -55,14 +55,15 @@
         "figma:publish": "figma connect publish"
     },
     "dependencies": {
-        "downshift": "^7.6.2",
-        "match-sorter": "^6.3.4"
-    },
-    "optionalDependencies": {
         "@floating-ui/react": "0.24.1 - 0.27",
         "@react-aria/toast": "3.0.0-beta.18",
         "@react-stately/toast": "3.0.0-beta.7",
+        "downshift": "^7.6.2",
+        "match-sorter": "^6.3.4",
         "react-a11y-dialog": "^6.2.0"
+    },
+    "optionalDependencies": {
+        "tailwindcss": "^3.0.0 || ^4.0.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.28.3",
