@@ -46,7 +46,6 @@ export const Icon: IconComponent = React.forwardRef(function Icon<
             className={clsx("jkl-icon", className, {
                 "jkl-icon--filled": filled,
                 "jkl-icon--bold": bold,
-                [`jkl-icon--${variant}`]: !!variant,
             })}
             {...iconProps}
         >
