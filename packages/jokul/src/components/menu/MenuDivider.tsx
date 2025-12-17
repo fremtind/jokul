@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { type HTMLAttributes, type FC } from "react";
+import type { FC, HTMLAttributes } from "react";
 
 export const MenuDivider: FC<HTMLAttributes<HTMLHRElement>> = (props) => {
     const { className, ...hrProps } = props;

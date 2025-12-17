@@ -1,12 +1,13 @@
-import React, {
-    type ChangeEventHandler,
-    type ColgroupHTMLAttributes,
-    type ColHTMLAttributes,
-    type HTMLAttributes,
-    type ReactNode,
-    type TableHTMLAttributes,
-    type TdHTMLAttributes,
-    type ThHTMLAttributes,
+import type React from "react";
+import type {
+    ChangeEventHandler,
+    ColHTMLAttributes,
+    ColgroupHTMLAttributes,
+    HTMLAttributes,
+    ReactNode,
+    TableHTMLAttributes,
+    TdHTMLAttributes,
+    ThHTMLAttributes,
 } from "react";
 import type { Density, WithChildren } from "../../core/types.js";
 import type { TableSortProps } from "./utils.js";

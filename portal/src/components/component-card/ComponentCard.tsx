@@ -1,7 +1,7 @@
 "use client";
 
 import { ComponentThumbnail } from "@/components/component-card/ComponentThumbnail";
-import type {ComponentCardQueryResult} from "@/sanity/types";
+import type { ComponentCardQueryResult } from "@/sanity/types";
 import {
     type UserPreferences,
     useUserPreferences,

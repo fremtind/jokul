@@ -1,5 +1,5 @@
 import type { ReactRenderer } from "@storybook/nextjs";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
 export const themes = [

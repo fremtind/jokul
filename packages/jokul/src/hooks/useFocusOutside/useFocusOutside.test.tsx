@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { useFocusOutside } from "./useFocusOutside.js";
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { DevExample } from "utils/dev-example/DevExample.js";
 import { NavLinkExample, knobs as navLinkKnobs } from "./NavLinkExample.js";
 

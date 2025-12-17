@@ -1,9 +1,5 @@
-import React, {
-    type ChangeEventHandler,
-    Fragment,
-    useId,
-    useMemo,
-} from "react";
+import type React from "react";
+import { type ChangeEventHandler, Fragment, useId, useMemo } from "react";
 import { FieldGroup } from "../../input-group/FieldGroup.js";
 import { useFollowUpContext } from "../followup/followupContext.js";
 import { useMainQuestionContext } from "../main-question/mainQuestionContext.js";

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import type { ChipProps } from "./types.js";

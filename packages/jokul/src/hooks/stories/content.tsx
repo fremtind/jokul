@@ -1,5 +1,3 @@
-import React from "react";
-
 const content1 = (
     <>
         <p className="jkl-body">

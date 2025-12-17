@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef, useId } from "react";
+import { forwardRef, useId } from "react";
 import { FieldGroup } from "../../components/input-group/FieldGroup.js";
 import { Dropzone } from "./internal/Dropzone.js";
 import { Input } from "./internal/Input.js";

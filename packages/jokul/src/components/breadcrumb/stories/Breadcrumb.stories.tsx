@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Breadcrumb } from "../Breadcrumb.js";
 import { BreadcrumbItem } from "../BreadcrumbItem.js";
 import "../styles/_index.scss";
-import React from "react";
 
 const meta = {
     title: "Komponenter/Breadcrumb",

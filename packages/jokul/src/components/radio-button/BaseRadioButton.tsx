@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import type { BaseRadioButtonProps } from "./types.js";
 

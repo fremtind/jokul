@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { Button } from "../../button/Button.js";
 import {
     Modal,

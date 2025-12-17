@@ -1,6 +1,6 @@
 import { type RenderOptions, act, render } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import React, { useState } from "react";
+import { useState } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
 import { Combobox } from "./Combobox.js";

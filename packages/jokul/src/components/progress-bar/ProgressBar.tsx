@@ -1,4 +1,4 @@
-import React, { type FC } from "react";
+import type { FC } from "react";
 import type { ProgressBarProps } from "./types.js";
 
 export const calculatePercentage = (current: number, total: number): number =>

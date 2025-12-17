@@ -1,4 +1,3 @@
-import React from "react";
 import { InputPanel } from "../input-panel/InputPanel.js";
 import type { CheckboxPanelProps } from "./types.js";
 

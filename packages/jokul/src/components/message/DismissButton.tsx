@@ -1,4 +1,4 @@
-import React, { type ButtonHTMLAttributes, forwardRef } from "react";
+import { type ButtonHTMLAttributes, forwardRef } from "react";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
 
 export interface DismissButtonProps

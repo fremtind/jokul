@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { FieldGroup } from "../../input-group/FieldGroup.js";
 import { CheckListItem, CrossListItem, List } from "../../list/index.js";

@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import React from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import type { LogoProps } from "./types.js";
 

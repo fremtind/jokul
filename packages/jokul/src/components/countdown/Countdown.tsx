@@ -1,4 +1,4 @@
-import React, { useState, type CSSProperties, type FC, useEffect } from "react";
+import { type CSSProperties, type FC, useEffect, useState } from "react";
 import type { CountdownProps } from "./types.js";
 
 export const Countdown: FC<CountdownProps> = ({

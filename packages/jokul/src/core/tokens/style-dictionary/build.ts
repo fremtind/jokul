@@ -1,5 +1,5 @@
 import StyleDictionary from "style-dictionary";
-import { legacyDesignTokensConfig, designTokensConfig } from "./config.js";
+import { designTokensConfig, legacyDesignTokensConfig } from "./config.js";
 import "./register.js";
 
 async function build() {

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { useTableContext } from "./tableContext.js";
 import type { TableCellProps } from "./types.js";
 

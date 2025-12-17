@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import "../styles/_index.scss";
 import { Loader } from "../Loader.js";
 

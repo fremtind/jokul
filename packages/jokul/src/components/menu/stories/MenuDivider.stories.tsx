@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { MenuDivider as MenuDividerComponent } from "../MenuDivider.js";
 import "../styles/_index.scss";
 

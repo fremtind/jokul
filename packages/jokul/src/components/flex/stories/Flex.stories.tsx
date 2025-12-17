@@ -1,5 +1,4 @@
 import type { Meta, StoryFn, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import tokens from "../../../core/tokens.js";
 import { Flex } from "../Flex.js";
 import { LAYOUTS } from "../types.js";

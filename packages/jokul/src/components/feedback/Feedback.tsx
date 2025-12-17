@@ -1,4 +1,4 @@
-import React, { type ReactElement, type ReactNode, useState } from "react";
+import { type ReactElement, type ReactNode, useState } from "react";
 import type { BaseTextAreaProps } from "../text-area/types.js";
 import { FeedbackContextProvider } from "./feedbackContext.js";
 import { Followup } from "./followup/Followup.js";

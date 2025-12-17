@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { InputGroup } from "../input-group/InputGroup.js";
 import { BaseTextArea } from "./BaseTextArea.js";
 import type { TextAreaProps } from "./types.js";

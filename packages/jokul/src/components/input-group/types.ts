@@ -44,7 +44,7 @@ export type InputGroupProps = WithOptionalChildren &
             SupportLabelProps,
             "id" | "errorLabel" | "helpLabel" | "density"
         >;
-    description?: string;
+        description?: string;
         tooltip?: ReactNode;
         style?: CSSProperties;
         render?: (props: InputProps) => JSX.Element;

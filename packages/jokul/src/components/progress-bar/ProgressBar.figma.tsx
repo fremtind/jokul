@@ -1,5 +1,4 @@
 import { figma } from "@figma/code-connect";
-import React from "react";
 import { Countdown } from "../countdown/Countdown.js";
 import { ProgressBar } from "./ProgressBar.js";
 

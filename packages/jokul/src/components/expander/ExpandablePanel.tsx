@@ -2,12 +2,12 @@ import clsx from "clsx";
 import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ExpandablePanelContent } from "./ExpandablePanelContent.js";
+import { Expander } from "./Expander.jsx";
 import { ExpanderContext } from "./context.js";
 import type {
     ExpandablePanelComponent,
     ExpandablePanelProps,
 } from "./types.js";
-import { Expander } from "./Expander.jsx";
 
 export const ExpandablePanel = Object.assign(
     React.forwardRef(function ExpandablePanel<

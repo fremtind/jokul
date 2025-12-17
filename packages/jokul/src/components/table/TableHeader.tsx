@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef, type MouseEventHandler } from "react";
+import { type MouseEventHandler, forwardRef } from "react";
 import { ChevronDownIcon, ChevronUpIcon, Icon } from "../icon/index.js";
 import { useTableContext } from "./tableContext.js";
 import type { TableHeaderProps } from "./types.js";

@@ -1,4 +1,4 @@
-import React, { StrictMode, type FC } from "react";
+import { type FC, StrictMode } from "react";
 import {
     ComponentExample,
     type Props as ComponentExampleProps,

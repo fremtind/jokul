@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import "../../file-input/styles/_index.scss";
 import { Button } from "../../button/index.js";
 import { Flex } from "../../flex/index.js";

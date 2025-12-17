@@ -1,4 +1,4 @@
-import React, { createContext, type FC, useContext } from "react";
+import { type FC, createContext, useContext } from "react";
 import type { WithChildren } from "../../core/types.js";
 import type { BaseTextAreaProps } from "../text-area/types.js";
 

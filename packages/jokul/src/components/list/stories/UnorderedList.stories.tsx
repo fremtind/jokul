@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
 import { UnorderedList } from "../List.js";
 import { ListItem } from "../ListItem.js";
 import "../styles/_index.scss";

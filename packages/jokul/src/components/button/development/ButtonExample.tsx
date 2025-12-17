@@ -1,4 +1,5 @@
-import React, { type FC, useCallback, useState } from "react";
+import type React from "react";
+import { type FC, useCallback, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
