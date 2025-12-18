@@ -44,10 +44,9 @@ $_focus-ring-width: jkl.rem(2px);
         background-color: transparent;
         padding: 0;
         display: inline-flex;
-        align-items: center;
+        align-items: baseline;
         color: var(--jkl-color-text-interactive);
-        transform: translateY(max(0.16em, jkl.rem(4px))); // Cap på 4px
-        font-size: 1.2em;
+        transform: translateY(min(0.25em, jkl.rem(6px)));
         border-radius: 9999px;
 
         @include jkl.reset-outline;
