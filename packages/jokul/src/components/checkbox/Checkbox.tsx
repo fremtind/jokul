@@ -1,10 +1,5 @@
 import clsx from "clsx";
-import React, {
-    forwardRef,
-    useEffect,
-    useImperativeHandle,
-    useRef,
-} from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import type { CheckboxProps } from "./types.js";
 
@@ -55,6 +50,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                 })}
                 data-density={density}
             >
+                <label htmlFor={inputId} className="jkl-checkbox__label">
+                    {children}
+                </label>
                 <input
                     id={inputId}
                     ref={inputRef}
@@ -66,13 +64,6 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                     checked={checked}
                     {...rest}
                 />
-                <label htmlFor={inputId} className="jkl-checkbox__label">
-                    <span className="jkl-checkbox__mark">
-                        <span className="jkl-checkbox__indeterminate-mark" />
-                        <span className="jkl-checkbox__check-mark" />
-                    </span>
-                    <span className="jkl-checkbox__text">{children}</span>
-                </label>
             </div>
         );
     },
