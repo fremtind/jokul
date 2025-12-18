@@ -9,12 +9,6 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
     )};
 
 @layer jokul.components {
-    @include jkl.small-device {
-        --jkl-checkbox-height: var(--jkl-unit-50);
-        --jkl-checkbox-box-size: var(--jkl-unit-30);
-        --jkl-checkbox-line-height: var(--jkl-unit-30);
-    }
-
     .jkl-checkbox {
         --jkl-checkbox-height: var(--jkl-unit-60);
         --jkl-checkbox-box-size: var(--jkl-unit-30);
@@ -24,7 +18,7 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         --text-color: var(--jkl-color-text-default);
         --background-color: transparent;
 
-        @include jkl.text-style("text-small");
+        @include jkl.text-style("text-body");
 
         display: flex;
         flex-wrap: wrap;
@@ -91,6 +85,8 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
         }
 
         &__text {
+            display: flex;
+            align-self: center;
             margin: calc(
                     (
                             var(--jkl-checkbox-height) -
@@ -102,6 +98,8 @@ $_checkbox-indeterminate-animation-name: jkl-checkbox-indeterminate-#{string.uni
 
             @include jkl.motion;
             transition-property: color;
+
+            @include jkl.text-style("text-body");
         }
 
         &__mark {
