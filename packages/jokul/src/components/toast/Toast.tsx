@@ -1,10 +1,11 @@
 import { type AriaToastProps, useToast } from "@react-aria/toast";
 import type { QueuedToast, ToastState } from "@react-stately/toast";
 import clsx from "clsx";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
 import { Button } from "../button/Button.js";
 import { Countdown } from "../countdown/Countdown.js";
+import { Flex } from "../flex/Flex.jsx";
 import { IconButton } from "../icon-button/IconButton.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import { ErrorIcon } from "../icon/icons/ErrorIcon.js";
@@ -97,50 +98,59 @@ export function Toast<T extends ToastContent>({
                 }
             }}
         >
-            <span className="jkl-toast__progress">
-                {props.toast.timeout ? (
-                    <Countdown
-                        from={props.toast.timeout}
-                        isPaused={isPaused}
-                        onAnimationEnd={(e) => {
-                            // Avoid triggering the toast's onAnimationEnd handler so we still get our exit animation
-                            e.stopPropagation();
-                        }}
-                    />
-                ) : null}
-            </span>
-            {getIcon(props.toast.variant)}
-            <div
-                {...titleProps}
-                className="jkl-toast__content"
-                aria-live="assertive"
-            >
-                {title && (
-                    <p className="jkl-toast__title">{announceReady && title}</p>
-                )}
-                <p className="jkl-toast__message">{announceReady && content}</p>
-                {props.toast.action && (
-                    <div className="jkl-toast__action">
-                        <Button
-                            variant="secondary"
-                            density="compact"
-                            onClick={props.toast.action.onClick}
-                        >
-                            {props.toast.action.label}
-                        </Button>
-                    </div>
-                )}
-            </div>
-            <IconButton
-                data-theme={!props.toast.variant ? undefined : "light"}
-                aria-label="Lukk varsel"
-                className="jkl-toast__dismiss-button"
-                onClick={() => {
-                    state.close(props.toast.key);
-                }}
-            >
-                <CloseIcon />
-            </IconButton>
+            {props.toast.timeout ? (
+                <Countdown
+                    className="jkl-toast__progress"
+                    from={props.toast.timeout}
+                    isPaused={isPaused}
+                    data-theme="light"
+                    onAnimationEnd={(e) => {
+                        // Avoid triggering the toast's onAnimationEnd handler so we still get our exit animation
+                        e.stopPropagation();
+                    }}
+                />
+            ) : null}
+            <Flex alignItems="start" gap="xs">
+                {getIcon(props.toast.variant)}
+                <Flex
+                    {...titleProps}
+                    direction="column"
+                    gap="xs"
+                    className="jkl-toast__content"
+                    aria-live="assertive"
+                >
+                    {title && (
+                        <p className="jkl-toast__title">
+                            {announceReady && title}
+                        </p>
+                    )}
+                    <p className="jkl-toast__message">
+                        {announceReady && content}
+                    </p>
+                    {props.toast.action && (
+                        <div className="jkl-toast__action">
+                            <Button
+                                variant="secondary"
+                                density="compact"
+                                data-theme="light"
+                                onClick={props.toast.action.onClick}
+                            >
+                                {props.toast.action.label}
+                            </Button>
+                        </div>
+                    )}
+                </Flex>
+                <IconButton
+                    data-theme={!props.toast.variant ? undefined : "light"}
+                    aria-label="Lukk varsel"
+                    className="jkl-toast__dismiss-button"
+                    onClick={() => {
+                        state.close(props.toast.key);
+                    }}
+                >
+                    <CloseIcon />
+                </IconButton>
+            </Flex>
         </div>
     );
 }

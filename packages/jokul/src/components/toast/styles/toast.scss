@@ -4,13 +4,7 @@
 @use "../../../core/jkl/colors";
 
 @layer jokul.components {
-    @include jkl.small-device {
-        --jkl-toast-padding: var(--jkl-unit-15);
-    }
-
     .jkl-toast-region {
-        --jkl-toast-padding: var(--jkl-unit-20);
-
         z-index: jkl.$z-index--floating;
         background: transparent;
         display: flex;
@@ -40,73 +34,55 @@
     .jkl-toast {
         --background-color: var(--jkl-color-background-container-high);
         --text-color: var(--jkl-color-text-default);
+        --jkl-toast-padding: var(--jkl-unit-20);
 
         color: var(--text-color);
         background-color: var(--background-color);
         border-radius: 4px;
         box-sizing: border-box;
-        display: grid;
         align-items: start;
         overflow: hidden;
-        width: 100%;
-        max-width: min(30rem, 85vw);
+        width: clamp(15em, 100%, min(30rem, 85vw));
         padding: var(--jkl-toast-padding);
-        padding-top: 0;
-
-        grid-template-areas:
-            "progress progress progress"
-            "icon content dismiss";
-        grid-template-columns: auto 1fr auto;
+        position: relative;
 
         @include jkl.text-style("paragraph-body");
 
         &__progress {
-            grid-area: progress;
-            margin-bottom: var(--jkl-unit-20);
-            margin-inline: calc(-1 * var(--jkl-toast-padding)); // Motvirk padding for å gå kant i kant.
+            --bar-color: var(--text-color);
+            --track-color: transparent;
 
-            .jkl-countdown {
-                --bar-color: var(--text-color);
-                --track-color: transparent;
-                border-radius: 0;
-            }
+            border-radius: 0;
+            position: absolute;
+            inset: 0 0 auto;
         }
 
         &__icon {
-            grid-area: icon;
-            margin-right: var(--jkl-unit-15);
-
             @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+            
+            .jkl-toast:not(:has(.jkl-toast__title)) & {
+                margin-block-start: jkl.rem(1px);
+            }
+            
+            .jkl-toast:has(.jkl-toast__title) & {
+                margin-block-start: 0;
+            }
         }
 
         &__content {
-            grid-area: content;
+            flex-grow: 1;
+            flex-basis: 100vw;
         }
 
         &__action {
             margin-top: var(--jkl-unit-15);
         }
 
-        &__message {
-            margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
-        }
-
         &__title {
-            margin: 0 0 var(--jkl-unit-05) 0;
-
-            @include jkl.text-style("heading-4");
-
-            & ~ .jkl-toast__message {
-                margin-top: 0; // Unset offset satt for å aligne med ikon hvis uten tittel.
-            }
+            @include jkl.text-style("heading-5");
         }
 
         &__dismiss-button {
-            grid-area: dismiss;
-            justify-self: end;
-            position: relative;
-            margin-left: var(--jkl-toast-gap);
-
             background-color: transparent;
             padding: 0;
             cursor: pointer;
@@ -121,11 +97,10 @@
 
             // Sørg for å ha en stor nok touch target.
             &::after {
-                --tap-increment: calc((#{jkl.rem(44px)} - #{jkl.rem(20px)}) / 2 * -1);
+                --tap-size: 44px;
                 content: "";
                 position: absolute;
-                inset: var(--tap-increment) var(--tap-increment) var(--tap-increment) var(--tap-increment);
-                border-radius: jkl.rem(3px);
+                inset: calc((var(--tap-size) - 100%) / 2 * -1);
             }
         }
 
