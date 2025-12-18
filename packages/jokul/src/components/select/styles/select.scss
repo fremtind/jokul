@@ -6,12 +6,12 @@
 
 @layer jokul.components {
     .jkl-select {
-        --jkl-select-input-height: var(--jkl-unit-40);
         --jkl-select-arrow-right: var(--jkl-unit-05);
-        --jkl-select-button-padding: var(--jkl-unit-05) var(--jkl-unit-40) var(--jkl-unit-05) var(--jkl-unit-10);
-        --jkl-select-search-input-padding: var(--jkl-unit-05) var(--jkl-unit-10);
-        --jkl-select-native-padding: var(--jkl-unit-05) var(--jkl-unit-30) var(--jkl-unit-05) var(--jkl-unit-05);
-        --jkl-select-option-padding: var(--jkl-unit-05) var(--jkl-unit-10);
+        --border-width: #{jkl.rem(1px)};
+
+        /* Vi må trekke fra bredden til rammen for å få riktig høyde */
+        --button-padding: calc(var(--jkl-unit-15) - var(--border-width)) calc(0.75em - var(--border-width));
+        --option-padding: var(--jkl-unit-05) 0.75em;
 
         display: block;
         position: relative;
@@ -55,7 +55,6 @@
 
         &__search-input {
             box-sizing: border-box;
-            padding: var(--jkl-select-search-input-padding);
             color: var(--jkl-color-text-subdued);
         }
 
@@ -69,11 +68,16 @@
             cursor: pointer;
 
             height: var(--jkl-select-input-height);
-            border-radius: jkl.rem(3px);
-            border: jkl.rem(1px) solid var(--jkl-color-border-input);
+            border-radius: var(--jkl-border-radius-m);
+            border: var(--border-width) solid var(--jkl-color-border-input);
             box-shadow: 0 0 0 jkl.rem(1px) transparent;
             text-align: left;
             width: 100%;
+            
+            padding: var(--button-padding);
+
+            /* Øk padding for å gi plass til ikonet */
+            padding-inline-end: calc(0.75em + 1.3em);
 
             transition-property: color, border-color, box-shadow;
 
@@ -115,18 +119,10 @@
             }
         }
 
-        &__button {
-            padding: var(--jkl-select-button-padding);
-        }
-
-        & select.jkl-select__button {
-            padding: var(--jkl-select-native-padding);
-        }
-
         &__arrow {
             pointer-events: none;
             position: absolute;
-            right: var(--jkl-select-arrow-right);
+            right: 0.75em;
             top: 50%;
             color: var(--jkl-color-text-default);
 
@@ -177,11 +173,11 @@
             border: 0; // removes native styling
             width: 100%;
             background-color: inherit;
-            min-height: var(--jkl-select-input-height);
+            min-height: min(var(--jkl-unit-60), 3rem);
             text-align: left;
             transition-property: color, background-color;
             position: relative;
-            padding: var(--jkl-select-option-padding);
+            padding: var(--option-padding);
             cursor: pointer;
 
             @include jkl.motion;
