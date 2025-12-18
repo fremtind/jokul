@@ -73,7 +73,6 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
                     <div className="jkl-toggle-switch-widget__slider">
                         <div className="jkl-toggle-switch-widget__knob" />
                         <CheckIcon
-                            variant="small"
                             bold
                             className="jkl-toggle-switch-widget__indicator"
                         />

@@ -2,11 +2,12 @@
 
 @layer jokul.components {
     .jkl-autosuggest {
+        --border-radius: var(--jkl-border-radius-m);
         --jkl-autosuggest-menu-padding: var(--jkl-unit-20) var(--jkl-unit-10) 0;
         --jkl-autosuggest-controller-button-width: auto;
         --jkl-autosuggest-controller-button-padding: 0 var(--jkl-unit-15);
         --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
-        --jkl-autosuggest-option-padding: 0 var(--jkl-unit-15);
+        --jkl-autosuggest-option-padding: var(--jkl-unit-10) 0.75em;
         --jkl-autosuggest-option-height: #{jkl.rem(48px)};
 
         display: flex;
@@ -15,7 +16,7 @@
         position: relative;
 
         &[aria-expanded="true"] .jkl-text-input-wrapper {
-            border-radius: jkl.rem(3px) jkl.rem(3px) 0 0;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
         }
 
         &__no-hits-message {
@@ -28,7 +29,7 @@
             background-color: var(--jkl-color-background-container-high);
             border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
             border-top: none;
-            border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-sizing: border-box;
             position: absolute;
             inset: 100% jkl.rem(-1px) auto;

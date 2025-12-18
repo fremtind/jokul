@@ -8,6 +8,7 @@
     .jkl-select {
         --jkl-select-arrow-right: var(--jkl-unit-05);
         --border-width: #{jkl.rem(1px)};
+        --border-radius: var(--jkl-border-radius-m);
 
         /* Vi må trekke fra bredden til rammen for å få riktig høyde */
         --button-padding: calc(var(--jkl-unit-15) - var(--border-width)) calc(0.75em - var(--border-width));
@@ -68,7 +69,7 @@
             cursor: pointer;
 
             height: var(--jkl-select-input-height);
-            border-radius: var(--jkl-border-radius-m);
+            border-radius: var(--border-radius);
             border: var(--border-width) solid var(--jkl-color-border-input);
             box-shadow: 0 0 0 jkl.rem(1px) transparent;
             text-align: left;
@@ -148,7 +149,7 @@
             background-color: var(--jkl-color-background-container-high);
             border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
             border-top: none;
-            border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-sizing: border-box;
 
             overflow-y: auto;

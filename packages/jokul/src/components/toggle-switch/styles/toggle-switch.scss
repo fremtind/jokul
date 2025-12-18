@@ -92,6 +92,7 @@
         height: var(--jkl-toggle-switch-knob-size);
         width: var(--jkl-toggle-switch-knob-size);
         color: var(--icon-color);
+        font-size: var(--jkl-font-size-1);
 
         @include jkl.motion;
         transition-property: translate;
