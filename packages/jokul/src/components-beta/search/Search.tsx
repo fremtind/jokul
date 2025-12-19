@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, useRef } from "react";
 import { InputGroup } from "../../components/input-group/index.js";
+import { mergeRefs } from "../../utilities/mergeRefs.js";
 import { SearchButton } from "./SearchButton.js";
 import type { SearchInputProps } from "./types.js";
 
@@ -36,18 +37,8 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
             description,
         };
 
-        const internalRef = useRef<HTMLInputElement | null>(null);
-
-        const ref = (instance: HTMLInputElement | null) => {
-            internalRef.current = instance;
-            if (forwardedRef) {
-                if (typeof forwardedRef === "function") {
-                    forwardedRef(instance);
-                } else {
-                    forwardedRef.current = instance;
-                }
-            }
-        };
+        const internalRef = useRef<HTMLInputElement>(null);
+        const ref = mergeRefs(internalRef, forwardedRef);
 
         const handleClick = () => {
             if (internalRef.current) {

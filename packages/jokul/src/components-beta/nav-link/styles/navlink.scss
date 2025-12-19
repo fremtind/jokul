@@ -1,4 +1,5 @@
 @use "../../../core/jkl/index" as jkl;
+@use "../../../components/icon/styles/base-styles" as icon;
 
 .jkl-navlink--beta {
     --border-radius: 4px;
@@ -32,12 +33,11 @@
 
     &::after {
         content: "arrow_forward" / "";
-        align-self: center;
         grid-column: 2;
         grid-row: 1 / span 999;
         translate: 0;
 
-        @include jkl.use-font-family("Fremtind Material Symbols");
+        @include icon.base-styles;
         @include jkl.motion("easeInBounceOut", "productive");
         transition-property: translate;
     }

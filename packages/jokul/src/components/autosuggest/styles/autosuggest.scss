@@ -23,6 +23,7 @@
             padding: var(--jkl-autosuggest-option-padding);
 
             @include jkl.text-style("text-small");
+            color: var(--jkl-color-text-subdued);
         }
 
         &__menu {

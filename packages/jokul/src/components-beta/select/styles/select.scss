@@ -9,8 +9,8 @@
     --background-color: var(transparent);
     --color: var(--jkl-color-text-default);
     --box-shadow: 0 0 0 jkl.rem(1px) transparent;
-    --input-height: #{jkl.$unit-60};
-    --button-padding: #{jkl.$unit-10} #{jkl.rem(36px)} #{jkl.$unit-10} #{jkl.$unit-15};
+    --border-width: #{jkl.rem(1px)};
+    --button-padding: calc(var(--jkl-unit-15) - var(--border-width));
     --arrow-right: #{jkl.$unit-02};
 
     display: block;
@@ -42,6 +42,7 @@
         color: var(--color);
         box-shadow: var(--box-shadow);
         padding: var(--button-padding);
+        padding-inline-end: calc(var(--button-padding) + 1.3em);
         height: var(--input-height);
         grid-column: 1 / -1;
         appearance: none;
@@ -49,8 +50,8 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         cursor: pointer;
-        border: jkl.rem(1px) solid var(--border-color);
-        border-radius: jkl.rem(3px);
+        border: var(--border-width) solid var(--border-color);
+        border-radius: var(--jkl-border-radius-m);
         text-align: left;
         width: 100%;
         transition-property: color, border-color, box-shadow;
@@ -93,6 +94,6 @@
     & .jkl-icon {
         pointer-events: none;
         grid-column: 2;
-        padding-inline-end: var(--arrow-right);
+        padding-inline-end: var(--button-padding);
     }
 }

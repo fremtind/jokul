@@ -1,4 +1,5 @@
 @use "../../../core/jkl";
+@use "../../../components/icon/styles/base-styles" as icon;
 
 .jkl-link-list--beta {
     --border: 1px solid var(--jkl-color-border-separator);
@@ -35,15 +36,14 @@
             box-sizing: border-box;
             padding: var(--jkl-unit-20);
 
-
+            @include jkl.text-style("text-body");
             @include jkl.motion("standard", "productive");
             transition-property: background;
 
             &::after {
                 content: "arrow_forward" / "";
-                font-weight: 300;
 
-                @include jkl.use-font-family("Fremtind Material Symbols");
+                @include icon.base-styles;
                 @include jkl.motion("standard", "productive");
                 transition-property: translate;
             }

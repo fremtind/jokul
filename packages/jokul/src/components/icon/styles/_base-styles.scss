@@ -20,6 +20,6 @@
   display: inline-block;
   -webkit-font-smoothing: antialiased;
 
-  @include jkl.motion("standard", "productive");
+  @include jkl.motion("standard", "energetic");
   transition-property: font-variation-settings, transform;
 }

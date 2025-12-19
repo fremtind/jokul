@@ -1,10 +1,11 @@
 @use "../../../core/jkl/index" as jkl;
-@use "../../../shared/input/styles/shared-input-styles" as shared;
+@use "../../../components/icon/styles/base-styles" as icon;
 
 .jkl-search--beta {
     --icon-size: var(--jkl-text-input-height);
-    --border-radius: 3px;
-    --border: 1px solid var(--jkl-color-border-input);
+    --border-radius: var(--jkl-border-radius-m);
+    --border-width: 1px;
+    --border: var(--border-width) solid var(--jkl-color-border-input);
 
     width: 100%;
 
@@ -14,11 +15,11 @@
         appearance: none;
         padding: 0;
         background-color: transparent;
-        height: 100%;
         color: var(--jkl-color-text-default);
         grid-column: 2 / 3;
 
         @include jkl.reset-outline;
+        @include jkl.text-style("text-body");
 
         &::-webkit-search-cancel-button,
         &::-webkit-calendar-picker-indicator,
@@ -31,11 +32,12 @@
     .input-wrapper {
         box-sizing: border-box;
         display: grid;
-        grid-template-columns: var(--icon-size) 1fr;
+        grid-template-columns: 1.3em 1fr;
+        gap: 0.25em;
+        border: var(--border);
         border-radius: var(--border-radius);
         padding-inline-end: 0;
-        height: var(--jkl-text-input-height);
-        border: var(--border);
+        padding: calc(var(--jkl-unit-15) - var(--border-width));
 
         &::before {
             content: attr(data-icon) / "";
@@ -49,7 +51,7 @@
         }
 
         &:has(.clear-button) {
-            grid-template-columns: var(--icon-size) 1fr var(--icon-size);
+            grid-template-columns: 1.3em 1fr 1.3em;
         }
     }
 
@@ -61,6 +63,7 @@
     }
 
     .clear-button {
+        position: relative;
         display: grid;
         appearance: none;
         background-color: transparent;
@@ -69,9 +72,10 @@
         padding: 0;
         cursor: pointer;
         color: var(--jkl-color-text-default);
+        border-radius: 100%;
 
-        &::before,
-        &::after {
+        &::before {
+            content: "close" / "";
             display: inline-grid;
             align-items: center;
             justify-content: center;
@@ -79,29 +83,26 @@
             align-self: center;
             grid-row: 1;
             grid-column: 1;
-        }
-
-        &::before {
-            content: "close" / "";
             z-index: 1;
-            line-height: 1.25lh;
 
-            @include jkl.use-font-family("Fremtind Material Symbols");
+            @include icon.base-styles;
         }
 
         &::after {
+            --tap-size: 1.25lh;
             content: "";
-            background-color: transparent;
-            height: 1.25lh;
-            aspect-ratio: 1;
-            border-radius: 100%;
+            position: absolute;
+            inset: calc((var(--tap-size) - 100%) / 2 * -1);
+            background-color: var(--jkl-color-text-default);
+            opacity: 0;
+            border-radius: inherit;
 
             @include jkl.motion;
-            transition-property: background-color;
+            transition-property: opacity;
         }
 
         &:hover::after {
-            background-color: var(--jkl-color-background-interactive-hover);
+            opacity: 0.15;
         }
 
         &:focus-visible {

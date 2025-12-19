@@ -8,14 +8,17 @@
 
     .input-wrapper {
         border-inline-end: 0;
-        border-radius: 3px 0 0 3px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     button.jkl-search-submit {
-        height: var(--jkl-text-input-height);
-        border-radius: 0 3px 3px 0;
+        height: 100%;
         border: var(--border);
         border-inline-start: 0;
+        border-radius: var(--jkl-border-radius-m);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
         min-width: unset;
 
         &::before {
