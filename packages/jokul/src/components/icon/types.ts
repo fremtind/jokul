@@ -4,6 +4,7 @@ export interface IconProps {
     as?: "div" | "span";
     "data-testid"?: string;
     /**
+     * @deprecated Størrelsen settes nå automatisk etter fontstørrelse.
      * Størrelsesvarianten til ikonet. `"small"` er 16px med 20px bounding box,
      * og `"medium"` er 20px med 24px bounding box.
      * `"inherit"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).

@@ -20,7 +20,7 @@
             }
         }
 
-        &__remtind {
+        &__fremtind {
             opacity: 1;
         }
 
@@ -33,7 +33,7 @@
                 }
             }
 
-            & .jkl-logo__remtind {
+            & .jkl-logo__fremtind {
                 transition-delay: 0ms;
                 opacity: 0;
                 transform: translateX(-5%);
@@ -49,7 +49,7 @@
                 transition: transform jkl.timing("expressive") ease-in;
             }
 
-            & .jkl-logo__remtind {
+            & .jkl-logo__fremtind {
                 transition:
                     opacity jkl.timing("expressive") jkl.timing("energetic") ease-in,
                     transform jkl.timing("expressive") ease;

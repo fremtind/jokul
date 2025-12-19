@@ -21,7 +21,6 @@ export const ArrowVerticalAnimated: FC<ArrowVerticalAnimatedProps> = ({
     <div
         {...rest}
         className={clsx(
-            "jkl-icon",
             "jkl-icon--animated",
             {
                 "jkl-icon--bold": bold,

@@ -3,6 +3,7 @@ import React from "react";
 import { PopupTip } from "../../tooltip/index.js";
 import { Autosuggest as AutosuggestComponent } from "../Autosuggest.js";
 import { countries } from "./countryList.js";
+
 import "../styles/_index.scss";
 
 const meta = {

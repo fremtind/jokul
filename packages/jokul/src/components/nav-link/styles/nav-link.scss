@@ -5,7 +5,7 @@
         color: var(--jkl-color-text-default);
 
         box-sizing: border-box;
-        font-weight: jkl.$typography-weight-normal;
+        font-weight: var(--jkl-typography-weight-normal);
         text-decoration: none;
         position: relative;
 

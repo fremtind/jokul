@@ -2,29 +2,30 @@
 // Do not edit directly, this file was auto-generated.
 
 
-$unit-10: 0.5rem;
-$unit-15: calc(var(--jkl-unit-10) * 1.5);
-$unit-20: calc(var(--jkl-unit-10) * 2);
-$unit-25: calc(var(--jkl-unit-10) * 2.5);
-$unit-30: calc(var(--jkl-unit-10) * 3);
-$unit-40: calc(var(--jkl-unit-10) * 4);
-$unit-50: calc(var(--jkl-unit-10) * 5);
-$unit-60: calc(var(--jkl-unit-10) * 6);
-$unit-70: calc(var(--jkl-unit-10) * 7);
-$unit-80: calc(var(--jkl-unit-10) * 8);
-$unit-90: calc(var(--jkl-unit-10) * 9);
-$unit-130: calc(var(--jkl-unit-10) * 13);
-$unit-210: calc(var(--jkl-unit-10) * 21);
-$unit-02: calc(var(--jkl-unit-10) * .25);
-$unit-05: calc(var(--jkl-unit-10) * .5);
+$unit-10: var(--jkl-unit-base);
+$unit-15: calc(var(--jkl-unit-base) * 1.5);
+$unit-20: calc(var(--jkl-unit-base) * 2);
+$unit-25: calc(var(--jkl-unit-base) * 2.5);
+$unit-30: calc(var(--jkl-unit-base) * 3);
+$unit-40: calc(var(--jkl-unit-base) * 4);
+$unit-50: calc(var(--jkl-unit-base) * 5);
+$unit-60: calc(var(--jkl-unit-base) * 6);
+$unit-70: calc(var(--jkl-unit-base) * 7);
+$unit-80: calc(var(--jkl-unit-base) * 8);
+$unit-90: calc(var(--jkl-unit-base) * 9);
+$unit-130: calc(var(--jkl-unit-base) * 13);
+$unit-210: calc(var(--jkl-unit-base) * 21);
+$unit-base: 0.5rem;
+$unit-02: calc(var(--jkl-unit-base) * .25);
+$unit-05: calc(var(--jkl-unit-base) * .5);
 $spacing-none: 0;
-$spacing-xxs: calc(var(--jkl-unit-10) * .5);
-$spacing-xs: 0.5rem;
-$spacing-s: calc(var(--jkl-unit-10) * 2);
-$spacing-m: calc(var(--jkl-unit-10) * 3);
-$spacing-l: calc(var(--jkl-unit-10) * 5);
-$spacing-xl: calc(var(--jkl-unit-10) * 8);
-$spacing-2xl: calc(var(--jkl-unit-10) * 13);
+$spacing-xxs: calc(var(--jkl-unit-base) * .5);
+$spacing-xs: var(--jkl-unit-base);
+$spacing-s: calc(var(--jkl-unit-base) * 2);
+$spacing-m: calc(var(--jkl-unit-base) * 3);
+$spacing-l: calc(var(--jkl-unit-base) * 5);
+$spacing-xl: calc(var(--jkl-unit-base) * 8);
+$spacing-2xl: calc(var(--jkl-unit-base) * 13);
 
 // Dynamiske variabler for farge, via referanse til CSS-variabler
 $color-background-page: var(--jkl-color-background-page);

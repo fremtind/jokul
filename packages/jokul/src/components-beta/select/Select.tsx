@@ -51,7 +51,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props) => {
                         )}
                         {props.children}
                     </select>
-                    <ArrowDownIcon variant="medium" />
+                    <ArrowDownIcon />
                 </div>
             )}
         />

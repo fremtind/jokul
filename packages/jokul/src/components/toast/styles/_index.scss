@@ -1,4 +1,6 @@
 @forward "toast";
+@use "../../button/styles" as button;
+@use "../../countdown/styles" as countdown;
+@use "../../flex/styles" as flex;
 @use "../../icon/styles" as icon;
 @use "../../icon-button/styles" as icon-button;
-@use "../../countdown/styles" as countdown;

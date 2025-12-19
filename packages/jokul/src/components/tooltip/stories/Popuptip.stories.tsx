@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
-import "../styles/_index.scss";
 import { PopupTip as PopuptipComponent } from "../PopupTip.js";
+import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/Popuptip",

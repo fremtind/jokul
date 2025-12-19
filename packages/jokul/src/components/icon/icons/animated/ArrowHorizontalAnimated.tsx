@@ -21,7 +21,6 @@ export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
     <div
         {...rest}
         className={clsx(
-            "jkl-icon",
             "jkl-icon--animated",
             { "jkl-icon--bold": bold, [`jkl-icon--${variant}`]: !!variant },
             "jkl-animated-horizontal-arrows",

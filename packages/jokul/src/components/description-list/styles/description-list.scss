@@ -12,22 +12,22 @@
         overflow-wrap: break-word;
 
         &:not(:first-of-type) {
-            margin-top: jkl.$spacing-8;
+            margin-top: var(--jkl-unit-10);
         }
     }
 
     .jkl-description-list__detail {
-        margin-left: jkl.$spacing-24;
+        margin-left: var(--jkl-unit-30);
         grid-column-start: 2;
     }
 
     .jkl-description-list__detail + .jkl-description-list__detail {
-        margin-top: jkl.$spacing-8;
+        margin-top: var(--jkl-unit-10);
     }
 
     .jkl-description-list__term + .jkl-description-list__detail {
         &:not(:first-of-type) {
-            margin-top: jkl.$spacing-8;
+            margin-top: var(--jkl-unit-10);
         }
     }
 }
@@ -36,10 +36,10 @@
     .jkl-description-list {
         &__term {
             font-weight: jkl.$typography-weight-bold;
-            margin-bottom: jkl.$spacing-4;
+            margin-bottom: var(--jkl-unit-05);
 
             &:not(:first-child) {
-                margin-top: jkl.$spacing-12;
+                margin-top: var(--jkl-unit-20);
             }
         }
 
@@ -48,7 +48,7 @@
         }
 
         &__detail + &__detail {
-            margin-top: jkl.$spacing-4;
+            margin-top: var(--jkl-unit-05);
         }
 
         @include jkl.from-medium-device {

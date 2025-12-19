@@ -11,17 +11,6 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
         inherits: true;
     }
 
-    @keyframes --jkl-skeleton-sweep {
-        0%,
-        67% {
-            --jkl-skeleton-sweeper-position: 0%;
-        }
-
-        100% {
-            --jkl-skeleton-sweeper-position: calc(100% + var(--jkl-skeleton-sweeper-width));
-        }
-    }
-
     .jkl-skeleton-animation {
         --jkl-skeleton-element-color: var(--jkl-color-background-container-low);
         --jkl-skeleton-sweep-duration: 4500ms;
@@ -53,21 +42,21 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
     .jkl-skeleton-input {
         display: flex;
         flex-direction: column;
-        gap: jkl.$spacing-12;
+        gap: var(--jkl-spacing-12);
 
         &__checkbox {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
-            gap: jkl.$spacing-8;
+            gap: var(--jkl-spacing-8);
         }
 
         @include jkl.small-device {
-            gap: jkl.$spacing-8;
+            gap: var(--jkl-spacing-8);
         }
 
         &--compact::after {
-            gap: jkl.$spacing-8;
+            gap: var(--jkl-spacing-8);
         }
     }
 
@@ -84,30 +73,30 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
         }
 
         &__header {
-            padding: jkl.$spacing-12 jkl.$spacing-8;
+            padding: var(--jkl-unit-20) var(--jkl-unit-10);
         }
 
         &__row {
-            padding: jkl.$spacing-16 jkl.$spacing-8;
+            padding: var(--jkl-unit-20) var(--jkl-unit-10);
         }
 
         @include jkl.small-device {
             &__header {
-                padding: jkl.$spacing-8 jkl.$spacing-4;
+                padding: var(--jkl-unit-10) var(--jkl-unit-05);
             }
 
             &__row {
-                padding: jkl.$spacing-12 jkl.$spacing-4;
+                padding: var(--jkl-unit-20) var(--jkl-unit-05);
             }
         }
 
         &--compact::after {
             &__header {
-                padding: jkl.$spacing-8 jkl.$spacing-4;
+                padding: var(--jkl-unit-10) var(--jkl-unit-05);
             }
 
             &__row {
-                padding: jkl.$spacing-12 jkl.$spacing-4;
+                padding: var(--jkl-unit-20) var(--jkl-unit-05);
             }
         }
 
@@ -132,6 +121,17 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
         70%,
         100% {
             opacity: 1;
+        }
+    }
+
+    @keyframes --jkl-skeleton-sweep {
+        0%,
+        67% {
+            --jkl-skeleton-sweeper-position: 0%;
+        }
+
+        100% {
+            --jkl-skeleton-sweeper-position: calc(100% + var(--jkl-skeleton-sweeper-width));
         }
     }
 }
