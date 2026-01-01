@@ -75,14 +75,14 @@ jobs:
 
             - name: Upload Playwright report on failure
               if: ${{ failure() }}
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v6
               with:
                   name: playwright-report-${{ matrix.SHARD }}.tar.gz
                   path: playwright-report/
 
             - name: Upload Playwright test-results on failure
               if: ${{ failure() }}
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v6
               with:
                   name: test-results-${{ matrix.SHARD }}.tar.gz
                   path: test-results/
@@ -94,7 +94,7 @@ jobs:
 
             - name: Upload screenshots
               if: steps.check.outputs.new-screenshots == 'true'
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v6
               with:
                   name: playwright-screenshots-${{ matrix.SHARD }}
                   path: |
