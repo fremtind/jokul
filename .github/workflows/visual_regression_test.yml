@@ -114,7 +114,7 @@ jobs:
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
             - name: Download screenshots
-              uses: actions/download-artifact@v4
+              uses: actions/download-artifact@v7
               with:
                   pattern: playwright-screenshots-*
                   path: packages/jokul/src/components
