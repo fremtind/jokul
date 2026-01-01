@@ -86,7 +86,7 @@
         "@types/testing-library__jest-dom": "^5.14.9",
         "@vitejs/plugin-react": "^4.7.0",
         "@vitejs/plugin-react-swc": "^3.11.0",
-        "browserslist": "^4.25.2",
+        "browserslist": "^4.28.1",
         "clsx": "^2.1.1",
         "commitizen": "^4.3.1",
         "esbuild": "^0.25.5",
