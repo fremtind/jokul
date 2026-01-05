@@ -9,8 +9,9 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
 import { Flex } from "@fremtind/jokul/flex";
 import { NavLink } from "@fremtind/jokul/nav-link";
-import imageUrlBuilder from "@sanity/image-url";
+import { createImageUrlBuilder } from "@sanity/image-url";
 import { logger } from "logger";
+import type { Metadata } from "next";
 import styles from "./component.module.scss";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
@@ -21,7 +22,7 @@ type Props = {
     params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
 
     const { data: component } = await sanityFetch({
@@ -53,7 +54,7 @@ export default async function Page({ params }: Props) {
         time: `${Math.round(performance.now() - initialTime)}ms`,
     });
 
-    const builder = imageUrlBuilder(client);
+    const builder = createImageUrlBuilder(client);
 
     function urlFor(source?: { asset?: { _ref: string } }) {
         return source?.asset?._ref ? builder.image(source).url() : undefined;

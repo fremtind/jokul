@@ -5,7 +5,7 @@ import { Flex } from "@fremtind/jokul/flex";
 import { GreenCheckIcon, RedCrossIcon } from "@fremtind/jokul/icon";
 import type { PortableTextTypeComponentProps } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageObject } from "@sanity/image-url/lib/types/types";
+import type { SanityImageObject } from "@sanity/image-url";
 import type { FC } from "react";
 
 import styles from "./doAndDont.module.scss";
