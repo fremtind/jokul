@@ -4,12 +4,14 @@
     @include jkl.declare-font-variables("jkl-table-cell", "body");
 
     --jkl-table-cell-padding: var(--jkl-spacing-12);
+    --jkl-table-expand-padding: var(--jkl-spacing-16);
 }
 
 @include jkl.compact-density-variables {
     @include jkl.declare-font-variables("jkl-table-cell", "small");
 
     --jkl-table-cell-padding: var(--jkl-spacing-8);
+    --jkl-table-expand-padding: var(--jkl-spacing-8);
 }
 
 .jkl-table-cell {
@@ -73,6 +75,8 @@
         align-items: center;
         width: fit-content;
         margin-left: auto;
+        margin-block: calc(var(--jkl-table-cell-padding) * -1);
+        padding: var(--jkl-table-expand-padding);
     }
 }
 
