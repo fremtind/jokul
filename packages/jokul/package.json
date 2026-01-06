@@ -642,7 +642,7 @@
         "figma:publish": "figma connect publish"
     },
     "dependencies": {
-        "downshift": "^7.6.2",
+        "downshift": "^9.0.13",
         "match-sorter": "^6.3.4"
     },
     "optionalDependencies": {
