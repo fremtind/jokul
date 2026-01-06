@@ -23,7 +23,7 @@
         "stylelint": "^16.0.0"
     },
     "devDependencies": {
-        "stylelint": "^16.20.0"
+        "stylelint": "^16.26.1"
     },
     "repository": {
         "type": "git",
