@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.7.6
+
+### Patch Changes
+
+- 17bbfc8: Fikser en bug der `onClick`-eventet sendt inn til `MenuItem` ble trigget to ganger.
+- a2df805: Endrer automatisk lengde på `TextInput` når man setter `maxLength`, slik at innholdet i feltet ikke blir kuttet av.
+
 ## 1.7.5
 
 ### Patch Changes
