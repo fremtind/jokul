@@ -4,7 +4,7 @@ import { ComponentThumbnail } from "@/components/component-card/ComponentThumbna
 import type { ComponentBySlugQueryResult } from "@/sanity/types";
 import { Card } from "@fremtind/jokul/card";
 import { Link } from "@fremtind/jokul/link";
-import type { SanityImageObject } from "@sanity/image-url/lib/types/types";
+import type { SanityImageObject } from "@sanity/image-url";
 import clsx from "clsx";
 import type { PortableTextMarkComponentProps } from "next-sanity";
 import NextLink from "next/link";

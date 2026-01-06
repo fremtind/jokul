@@ -5,7 +5,7 @@ import type { PortableTextReactComponents } from "@portabletext/react";
 import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
 import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageObject } from "@sanity/image-url/lib/types/types";
+import type { SanityImageObject } from "@sanity/image-url";
 import type { FC, ReactNode } from "react";
 import slugify from "slugify";
 import { DoAndDont } from "./do-and-dont/DoAndDont";

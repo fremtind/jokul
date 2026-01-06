@@ -23,7 +23,7 @@
         "@portabletext/types": "^3.0.0",
         "@sanity/client": "^7.12.1",
         "@sanity/icons": "^3.7.0",
-        "@sanity/image-url": "^1.1.0",
+        "@sanity/image-url": "^2.0.2",
         "@sanity/locale-nb-no": "^1.1.19",
         "@sanity/ui": "^3.1.11",
         "@sanity/vision": "^4.15.0",
@@ -48,7 +48,7 @@
         "@types/node": "^24.10.1",
         "@types/react": "^18.3.20",
         "@types/react-dom": "^18.3.6",
-        "eslint": "^9.25.1",
+        "eslint": "^9.39.2",
         "eslint-config-next": "16.0.10",
         "typescript": "^5.8.3"
     },

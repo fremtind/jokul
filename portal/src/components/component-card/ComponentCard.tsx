@@ -1,13 +1,13 @@
 "use client";
 
 import { ComponentThumbnail } from "@/components/component-card/ComponentThumbnail";
-import type {ComponentCardQueryResult} from "@/sanity/types";
+import type { ComponentCardQueryResult } from "@/sanity/types";
 import {
     type UserPreferences,
     useUserPreferences,
 } from "@/utils/user-preferences";
 import { Card } from "@fremtind/jokul/card";
-import type { SanityImageObject } from "@sanity/image-url/lib/types/types";
+import type { SanityImageObject } from "@sanity/image-url";
 import NextLink from "next/link";
 
 import styles from "./component-card.module.scss";
