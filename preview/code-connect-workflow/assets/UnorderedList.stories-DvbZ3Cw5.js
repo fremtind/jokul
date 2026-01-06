@@ -1,6 +1,0 @@
-import{j as s}from"./jsx-runtime-BOJBhsC5.js";import"./index-Bv6P490N.js";import{b as r,U as n}from"./ListItem-Demij_On.js";/* empty css               *//* empty css               */import"./_commonjsHelpers-DaWZu8wl.js";import"./clsx-B-dksMZM.js";const p={title:"Komponenter/List/Unordered List",component:n,subcomponents:{ListItem:r},tags:["autodocs","grouping content"]},o=["Regntøy (jakke og bukse)","Tynn vindjakke og turbukse (med god fukttransport)","Undertøy i ull/ullblanding + ekstra skift","Sokker med mye ull og god passform + ekstra skift","Ullgenser/jakke eller tynn dunjakke","Ekstra lue","Ullvotter eller andre vanter/votter som er varme selv når de er våte","Lette innesko/inneklær","Fjellstøvler og gjerne gamasjer","Shorts og t-skjorte (ull/kunstfiber) hvis det er meldt varmt vær"],e={args:{"aria-label":"Bekledningsliste",children:o.map(t=>s.jsx(r,{children:t},t))}};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
-  args: {
-    "aria-label": "Bekledningsliste",
-    children: bekledningsliste.map(gjenstand => <ListItem key={gjenstand}>{gjenstand}</ListItem>)
-  }
-}`,...e.parameters?.docs?.source}}};const u=["Unordered_List"];export{e as Unordered_List,u as __namedExportsOrder,p as default};
