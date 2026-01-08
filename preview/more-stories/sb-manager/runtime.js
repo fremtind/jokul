@@ -1988,7 +1988,7 @@ var react_default = __REACT__, { Children, Component, Fragment, Profiler, PureCo
 var channels_default = __STORYBOOK_CHANNELS__, { Channel, HEARTBEAT_INTERVAL, HEARTBEAT_MAX_LATENCY, PostMessageTransport, WebsocketTransport, createBrowserChannel } = __STORYBOOK_CHANNELS__;
 
 // global-externals:storybook/internal/core-events
-var core_events_default = __STORYBOOK_CORE_EVENTS__, { ARGTYPES_INFO_REQUEST, ARGTYPES_INFO_RESPONSE, CHANNEL_CREATED, CHANNEL_WS_DISCONNECT, CONFIG_ERROR, CREATE_NEW_STORYFILE_REQUEST, CREATE_NEW_STORYFILE_RESPONSE, CURRENT_STORY_WAS_SET, DOCS_PREPARED, DOCS_RENDERED, FILE_COMPONENT_SEARCH_REQUEST, FILE_COMPONENT_SEARCH_RESPONSE, FORCE_REMOUNT, FORCE_RE_RENDER, GLOBALS_UPDATED, NAVIGATE_URL, OPEN_IN_EDITOR_REQUEST, OPEN_IN_EDITOR_RESPONSE, PLAY_FUNCTION_THREW_EXCEPTION, PRELOAD_ENTRIES, PREVIEW_BUILDER_PROGRESS, PREVIEW_INITIALIZED, PREVIEW_KEYDOWN, REGISTER_SUBSCRIPTION, REQUEST_WHATS_NEW_DATA, RESET_STORY_ARGS, RESULT_WHATS_NEW_DATA, SAVE_STORY_REQUEST, SAVE_STORY_RESPONSE, SELECT_STORY, SET_CONFIG, SET_CURRENT_STORY, SET_FILTER, SET_GLOBALS, SET_INDEX, SET_STORIES, SET_WHATS_NEW_CACHE, SHARED_STATE_CHANGED, SHARED_STATE_SET, STORIES_COLLAPSE_ALL, STORIES_EXPAND_ALL, STORY_ARGS_UPDATED, STORY_CHANGED, STORY_ERRORED, STORY_FINISHED, STORY_HOT_UPDATED, STORY_INDEX_INVALIDATED, STORY_MISSING, STORY_PREPARED, STORY_RENDERED, STORY_RENDER_PHASE_CHANGED, STORY_SPECIFIED, STORY_THREW_EXCEPTION, STORY_UNCHANGED, TELEMETRY_ERROR, TOGGLE_WHATS_NEW_NOTIFICATIONS, UNHANDLED_ERRORS_WHILE_PLAYING, UPDATE_GLOBALS, UPDATE_QUERY_PARAMS, UPDATE_STORY_ARGS } = __STORYBOOK_CORE_EVENTS__;
+var core_events_default = __STORYBOOK_CORE_EVENTS__, { ARGTYPES_INFO_REQUEST, ARGTYPES_INFO_RESPONSE, CHANNEL_CREATED, CHANNEL_WS_DISCONNECT, CONFIG_ERROR, CREATE_NEW_STORYFILE_REQUEST, CREATE_NEW_STORYFILE_RESPONSE, CURRENT_STORY_WAS_SET, DOCS_PREPARED, DOCS_RENDERED, FILE_COMPONENT_SEARCH_REQUEST, FILE_COMPONENT_SEARCH_RESPONSE, FORCE_REMOUNT, FORCE_RE_RENDER, GLOBALS_UPDATED, MANAGER_INERT_ATTRIBUTE_CHANGED, NAVIGATE_URL, OPEN_IN_EDITOR_REQUEST, OPEN_IN_EDITOR_RESPONSE, PLAY_FUNCTION_THREW_EXCEPTION, PRELOAD_ENTRIES, PREVIEW_BUILDER_PROGRESS, PREVIEW_INITIALIZED, PREVIEW_KEYDOWN, REGISTER_SUBSCRIPTION, REQUEST_WHATS_NEW_DATA, RESET_STORY_ARGS, RESULT_WHATS_NEW_DATA, SAVE_STORY_REQUEST, SAVE_STORY_RESPONSE, SELECT_STORY, SET_CONFIG, SET_CURRENT_STORY, SET_FILTER, SET_GLOBALS, SET_INDEX, SET_STORIES, SET_WHATS_NEW_CACHE, SHARED_STATE_CHANGED, SHARED_STATE_SET, STORIES_COLLAPSE_ALL, STORIES_EXPAND_ALL, STORY_ARGS_UPDATED, STORY_CHANGED, STORY_ERRORED, STORY_FINISHED, STORY_HOT_UPDATED, STORY_INDEX_INVALIDATED, STORY_MISSING, STORY_PREPARED, STORY_RENDERED, STORY_RENDER_PHASE_CHANGED, STORY_SPECIFIED, STORY_THREW_EXCEPTION, STORY_UNCHANGED, TELEMETRY_ERROR, TOGGLE_WHATS_NEW_NOTIFICATIONS, UNHANDLED_ERRORS_WHILE_PLAYING, UPDATE_GLOBALS, UPDATE_QUERY_PARAMS, UPDATE_STORY_ARGS } = __STORYBOOK_CORE_EVENTS__;
 
 // ../node_modules/@storybook/global/dist/index.mjs
 var scope = (() => {
@@ -4800,7 +4800,7 @@ var MINIMUM_CONTENT_WIDTH_PX = 100, layoutStateIsEqual = (state, other) => state
 var types_default = __STORYBOOK_TYPES__, { Addon_TypesEnum, CoreWebpackCompiler, Feature, SupportedBuilder, SupportedFramework, SupportedLanguage, SupportedRenderer } = __STORYBOOK_TYPES__;
 
 // src/core-events/index.ts
-var events = /* @__PURE__ */ ((events2) => (events2.CHANNEL_WS_DISCONNECT = "channelWSDisconnect", events2.CHANNEL_CREATED = "channelCreated", events2.CONFIG_ERROR = "configError", events2.STORY_INDEX_INVALIDATED = "storyIndexInvalidated", events2.STORY_SPECIFIED = "storySpecified", events2.SET_CONFIG = "setConfig", events2.SET_STORIES = "setStories", events2.SET_INDEX = "setIndex", events2.SET_CURRENT_STORY = "setCurrentStory", events2.CURRENT_STORY_WAS_SET = "currentStoryWasSet", events2.FORCE_RE_RENDER = "forceReRender", events2.FORCE_REMOUNT = "forceRemount", events2.PRELOAD_ENTRIES = "preloadStories", events2.STORY_PREPARED = "storyPrepared", events2.DOCS_PREPARED = "docsPrepared", events2.STORY_CHANGED = "storyChanged", events2.STORY_UNCHANGED = "storyUnchanged", events2.STORY_RENDERED = "storyRendered", events2.STORY_FINISHED = "storyFinished", events2.STORY_MISSING = "storyMissing", events2.STORY_ERRORED = "storyErrored", events2.STORY_THREW_EXCEPTION = "storyThrewException", events2.STORY_RENDER_PHASE_CHANGED = "storyRenderPhaseChanged", events2.STORY_HOT_UPDATED = "storyHotUpdated", events2.PLAY_FUNCTION_THREW_EXCEPTION = "playFunctionThrewException", events2.UNHANDLED_ERRORS_WHILE_PLAYING = "unhandledErrorsWhilePlaying", events2.UPDATE_STORY_ARGS = "updateStoryArgs", events2.STORY_ARGS_UPDATED = "storyArgsUpdated", events2.RESET_STORY_ARGS = "resetStoryArgs", events2.SET_FILTER = "setFilter", events2.SET_GLOBALS = "setGlobals", events2.UPDATE_GLOBALS = "updateGlobals", events2.GLOBALS_UPDATED = "globalsUpdated", events2.REGISTER_SUBSCRIPTION = "registerSubscription", events2.PREVIEW_INITIALIZED = "previewInitialized", events2.PREVIEW_KEYDOWN = "previewKeydown", events2.PREVIEW_BUILDER_PROGRESS = "preview_builder_progress", events2.SELECT_STORY = "selectStory", events2.STORIES_COLLAPSE_ALL = "storiesCollapseAll", events2.STORIES_EXPAND_ALL = "storiesExpandAll", events2.DOCS_RENDERED = "docsRendered", events2.SHARED_STATE_CHANGED = "sharedStateChanged", events2.SHARED_STATE_SET = "sharedStateSet", events2.NAVIGATE_URL = "navigateUrl", events2.UPDATE_QUERY_PARAMS = "updateQueryParams", events2.REQUEST_WHATS_NEW_DATA = "requestWhatsNewData", events2.RESULT_WHATS_NEW_DATA = "resultWhatsNewData", events2.SET_WHATS_NEW_CACHE = "setWhatsNewCache", events2.TOGGLE_WHATS_NEW_NOTIFICATIONS = "toggleWhatsNewNotifications", events2.TELEMETRY_ERROR = "telemetryError", events2.FILE_COMPONENT_SEARCH_REQUEST = "fileComponentSearchRequest", events2.FILE_COMPONENT_SEARCH_RESPONSE = "fileComponentSearchResponse", events2.SAVE_STORY_REQUEST = "saveStoryRequest", events2.SAVE_STORY_RESPONSE = "saveStoryResponse", events2.ARGTYPES_INFO_REQUEST = "argtypesInfoRequest", events2.ARGTYPES_INFO_RESPONSE = "argtypesInfoResponse", events2.CREATE_NEW_STORYFILE_REQUEST = "createNewStoryfileRequest", events2.CREATE_NEW_STORYFILE_RESPONSE = "createNewStoryfileResponse", events2.OPEN_IN_EDITOR_REQUEST = "openInEditorRequest", events2.OPEN_IN_EDITOR_RESPONSE = "openInEditorResponse", events2))(events || {});
+var events = /* @__PURE__ */ ((events2) => (events2.CHANNEL_WS_DISCONNECT = "channelWSDisconnect", events2.CHANNEL_CREATED = "channelCreated", events2.CONFIG_ERROR = "configError", events2.STORY_INDEX_INVALIDATED = "storyIndexInvalidated", events2.STORY_SPECIFIED = "storySpecified", events2.SET_CONFIG = "setConfig", events2.SET_STORIES = "setStories", events2.SET_INDEX = "setIndex", events2.SET_CURRENT_STORY = "setCurrentStory", events2.CURRENT_STORY_WAS_SET = "currentStoryWasSet", events2.FORCE_RE_RENDER = "forceReRender", events2.FORCE_REMOUNT = "forceRemount", events2.PRELOAD_ENTRIES = "preloadStories", events2.STORY_PREPARED = "storyPrepared", events2.DOCS_PREPARED = "docsPrepared", events2.STORY_CHANGED = "storyChanged", events2.STORY_UNCHANGED = "storyUnchanged", events2.STORY_RENDERED = "storyRendered", events2.STORY_FINISHED = "storyFinished", events2.STORY_MISSING = "storyMissing", events2.STORY_ERRORED = "storyErrored", events2.STORY_THREW_EXCEPTION = "storyThrewException", events2.STORY_RENDER_PHASE_CHANGED = "storyRenderPhaseChanged", events2.STORY_HOT_UPDATED = "storyHotUpdated", events2.PLAY_FUNCTION_THREW_EXCEPTION = "playFunctionThrewException", events2.UNHANDLED_ERRORS_WHILE_PLAYING = "unhandledErrorsWhilePlaying", events2.UPDATE_STORY_ARGS = "updateStoryArgs", events2.STORY_ARGS_UPDATED = "storyArgsUpdated", events2.RESET_STORY_ARGS = "resetStoryArgs", events2.SET_FILTER = "setFilter", events2.SET_GLOBALS = "setGlobals", events2.UPDATE_GLOBALS = "updateGlobals", events2.GLOBALS_UPDATED = "globalsUpdated", events2.REGISTER_SUBSCRIPTION = "registerSubscription", events2.PREVIEW_INITIALIZED = "previewInitialized", events2.PREVIEW_KEYDOWN = "previewKeydown", events2.PREVIEW_BUILDER_PROGRESS = "preview_builder_progress", events2.SELECT_STORY = "selectStory", events2.STORIES_COLLAPSE_ALL = "storiesCollapseAll", events2.STORIES_EXPAND_ALL = "storiesExpandAll", events2.DOCS_RENDERED = "docsRendered", events2.SHARED_STATE_CHANGED = "sharedStateChanged", events2.SHARED_STATE_SET = "sharedStateSet", events2.NAVIGATE_URL = "navigateUrl", events2.UPDATE_QUERY_PARAMS = "updateQueryParams", events2.REQUEST_WHATS_NEW_DATA = "requestWhatsNewData", events2.RESULT_WHATS_NEW_DATA = "resultWhatsNewData", events2.SET_WHATS_NEW_CACHE = "setWhatsNewCache", events2.TOGGLE_WHATS_NEW_NOTIFICATIONS = "toggleWhatsNewNotifications", events2.TELEMETRY_ERROR = "telemetryError", events2.FILE_COMPONENT_SEARCH_REQUEST = "fileComponentSearchRequest", events2.FILE_COMPONENT_SEARCH_RESPONSE = "fileComponentSearchResponse", events2.SAVE_STORY_REQUEST = "saveStoryRequest", events2.SAVE_STORY_RESPONSE = "saveStoryResponse", events2.ARGTYPES_INFO_REQUEST = "argtypesInfoRequest", events2.ARGTYPES_INFO_RESPONSE = "argtypesInfoResponse", events2.CREATE_NEW_STORYFILE_REQUEST = "createNewStoryfileRequest", events2.CREATE_NEW_STORYFILE_RESPONSE = "createNewStoryfileResponse", events2.OPEN_IN_EDITOR_REQUEST = "openInEditorRequest", events2.OPEN_IN_EDITOR_RESPONSE = "openInEditorResponse", events2.MANAGER_INERT_ATTRIBUTE_CHANGED = "managerInertAttributeChanged", events2))(events || {});
 var {
   CHANNEL_WS_DISCONNECT: CHANNEL_WS_DISCONNECT2,
   CHANNEL_CREATED: CHANNEL_CREATED2,
@@ -4861,7 +4861,8 @@ var {
   ARGTYPES_INFO_REQUEST: ARGTYPES_INFO_REQUEST2,
   ARGTYPES_INFO_RESPONSE: ARGTYPES_INFO_RESPONSE2,
   OPEN_IN_EDITOR_REQUEST: OPEN_IN_EDITOR_REQUEST2,
-  OPEN_IN_EDITOR_RESPONSE: OPEN_IN_EDITOR_RESPONSE2
+  OPEN_IN_EDITOR_RESPONSE: OPEN_IN_EDITOR_RESPONSE2,
+  MANAGER_INERT_ATTRIBUTE_CHANGED: MANAGER_INERT_ATTRIBUTE_CHANGED2
 } = events;
 
 // src/manager/components/panel/Panel.tsx
@@ -4892,7 +4893,11 @@ var TabErrorBoundary = class extends Component {
   height: "100%",
   display: "flex",
   flexDirection: "column"
-}), PreRenderAddons = ({ panels }) => Object.entries(panels).map(([k2, v2]) => react_default.createElement(StatelessTabPanel, { key: k2, name: k2, hasScrollbar: !1 }, react_default.createElement(TabErrorBoundary, { key: k2 }, v2.render({ active: !0 })))), AddonPanel2 = react_default.memo(({ panels, shortcuts, actions, selectedPanel = null, panelPosition = "right" }) => {
+});
+function renderChild(RenderProp) {
+  return react_default.createElement(RenderProp, { active: !0 });
+}
+var PreRenderAddons = ({ panels }) => Object.entries(panels).map(([k2, v2]) => react_default.createElement(StatelessTabPanel, { key: k2, name: k2, hasScrollbar: !1 }, react_default.createElement(TabErrorBoundary, { key: k2 }, renderChild(v2.render)))), AddonPanel2 = react_default.memo(({ panels, shortcuts, actions, selectedPanel = null, panelPosition = "right" }) => {
   let { isDesktop, setMobilePanelOpen } = useLayout(), emptyState = react_default.createElement(
     EmptyTabContent,
     {
@@ -6544,6 +6549,7 @@ var SUPPORTED_FRAMEWORKS = [
   "preact-vite" /* PREACT_VITE */,
   "react-native-web-vite" /* REACT_NATIVE_WEB_VITE */,
   "react-vite" /* REACT_VITE */,
+  "solid" /* SOLID */,
   "svelte-vite" /* SVELTE_VITE */,
   "sveltekit" /* SVELTEKIT */,
   "vue3-vite" /* VUE3_VITE */,
@@ -10739,7 +10745,7 @@ var CodeWrapper = styled.div(({ theme }) => ({
         },
         {
           id: "renderComponent",
-          label: "Render a component",
+          label: "Render your first component",
           criteria: "A story finished rendering successfully",
           subscribe: ({ api, done }) => api.on(
             STORY_FINISHED,
@@ -10804,7 +10810,6 @@ export const Primary: Story = {
         },
         {
           id: "moreComponents",
-          after: ["renderComponent"],
           label: "Add 5 components",
           content: ({ api }) => react_default.createElement(react_default.Fragment, null, react_default.createElement("p", null, "Storybook gets better as you add more components. Start with the easy ones, like Button or Avatar, and work your way up to more complex components, like Select, Autocomplete, or even full pages."), react_default.createElement(
             "img",
@@ -10838,7 +10843,6 @@ export const Primary: Story = {
         },
         {
           id: "moreStories",
-          after: ["renderComponent"],
           label: "Add 20 stories",
           content: ({ api }) => react_default.createElement(react_default.Fragment, null, react_default.createElement("p", null, "More stories for your components means better documentation and more test coverage."), react_default.createElement(
             "img",
@@ -10885,7 +10889,6 @@ export const Primary: Story = {
       items: [
         {
           id: "controls",
-          after: ["renderComponent"],
           label: "Change a story with Controls",
           available: () => !!globalThis?.FEATURES?.controls,
           criteria: "Story args are updated",
@@ -10914,7 +10917,6 @@ export const Primary: Story = {
         },
         {
           id: "viewports",
-          after: ["renderComponent"],
           label: "Check responsiveness with Viewports",
           available: () => !!globalThis?.FEATURES?.viewport,
           criteria: "Viewport global is updated",
@@ -10943,7 +10945,6 @@ export const Primary: Story = {
         },
         {
           id: "organizeStories",
-          after: ["renderComponent"],
           label: "Group your components",
           criteria: "A root node exists in the index",
           subscribe: subscribeToIndex(
@@ -11084,7 +11085,6 @@ export default {
         },
         {
           id: "writeInteractions",
-          after: ["renderComponent"],
           label: "Test functionality with interactions",
           available: () => !!globalThis?.FEATURES?.interactions,
           criteria: "At least one story with a play or test function",
@@ -18249,7 +18249,7 @@ var groupByType = (filters) => filters.reduce(
     if (!(count === 0 && type === "built-in"))
       return {
         id: `filter-${type}-${id}`,
-        content: react_default.createElement(ActionList.HoverItem, { targetId: `filter-${type}-${id}` }, react_default.createElement(ActionList.Action, { as: "label", tabIndex: -1, tooltip: toggleTooltip }, react_default.createElement(ActionList.Icon, null, isExcluded ? react_default.createElement(DeleteIcon, null) : isIncluded ? null : icon, react_default.createElement(
+        content: react_default.createElement(ActionList.HoverItem, { targetId: `filter-${type}-${id}` }, react_default.createElement(ActionList.Action, { as: "label", ariaLabel: !1, tabIndex: -1, tooltip: toggleTooltip }, react_default.createElement(ActionList.Icon, null, isExcluded ? react_default.createElement(DeleteIcon, null) : isIncluded ? null : icon, react_default.createElement(
           Form.Checkbox,
           {
             checked: isChecked,
@@ -18304,6 +18304,7 @@ var groupByType = (filters) => filters.reduce(
   ))), links.map((group) => react_default.createElement(ActionList, { key: group.map((link) => link.id).join("_") }, group.map((link) => react_default.createElement(Fragment, { key: link.id }, link.content)))), !hasUserTags && react_default.createElement(ActionList, { as: "div" }, react_default.createElement(ActionList.Item, { as: "div" }, react_default.createElement(
     ActionList.Link,
     {
+      ariaLabel: !1,
       href: api.getDocsUrl({ subpath: "writing-stories/tags#custom-tags" }),
       target: "_blank"
     },
@@ -18690,7 +18691,19 @@ var App = ({ managerLayoutState, setManagerLayoutState, pages, hasTab }) => {
   let { setMobileAboutOpen } = useLayout(), { enableShortcuts = !0 } = addons.getConfig();
   return useEffect(() => {
     document.body.setAttribute("data-shortcuts-enabled", enableShortcuts ? "true" : "false");
-  }, [enableShortcuts]), react_default.createElement(react_default.Fragment, null, react_default.createElement(Global, { styles: createGlobal }), react_default.createElement(
+  }, [enableShortcuts]), useEffect(() => {
+    let rootElement = document.getElementById("root");
+    if (!rootElement)
+      return;
+    let observer = new MutationObserver(() => {
+      let hasInert = rootElement.hasAttribute("inert");
+      addons.getChannel().emit(core_events_default.MANAGER_INERT_ATTRIBUTE_CHANGED, hasInert);
+    });
+    return observer.observe(rootElement, {
+      attributes: !0,
+      attributeFilter: ["inert"]
+    }), () => observer.disconnect();
+  }, []), react_default.createElement(react_default.Fragment, null, react_default.createElement(Global, { styles: createGlobal }), react_default.createElement(
     Layout,
     {
       hasTab,
@@ -19372,7 +19385,9 @@ var ShortcutsScreen = class extends Component {
     };
     this.renderKeyInput = () => {
       let { shortcutKeys, addonsShortcutLabels } = this.state;
-      return Object.entries(shortcutKeys).map(([feature, { shortcut }]) => react_default.createElement(Row, { key: feature }, react_default.createElement(Description, null, shortcutLabels[feature] || addonsShortcutLabels[feature]), react_default.createElement(
+      return Object.entries(shortcutKeys).filter(
+        ([feature]) => shortcutLabels[feature] !== void 0 || addonsShortcutLabels && addonsShortcutLabels[feature]
+      ).map(([feature, { shortcut }]) => react_default.createElement(Row, { key: feature }, react_default.createElement(Description, null, shortcutLabels[feature] || addonsShortcutLabels[feature]), react_default.createElement(
         TextInput,
         {
           spellCheck: "false",
