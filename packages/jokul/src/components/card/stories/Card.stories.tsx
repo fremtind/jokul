@@ -142,34 +142,31 @@ export const CopyCard: Story = {
 export const LinkCard: Story = {
     name: "Card som lenke",
     args: {
+        as: "a",
+        href: "#",
         padding: "l",
         variant: "high",
-        children: "e",
+        asChild: false,
+        "aria-label": "Husforsikring",
+        children: (
+            <>
+                <Flex direction="column" gap="none xl">
+                    <div>
+                        <InfoTag>Fornyelse</InfoTag>
+                    </div>
+                    <Flex direction="column" gap="s">
+                        <p className="jkl-heading-2">Hus</p>
+                        <p>Kittel Nielsens vei 88 1163 Oslo</p>
+                    </Flex>
+                </Flex>
+                <hr />
+                <Flex>
+                    <p>311 kr/mnd</p>
+                </Flex>
+            </>
+        ),
         clickable: true,
     },
-    render: ({ ...args }) => (
-        <Card
-            {...args}
-            as="a"
-            href="#"
-            asChild={false}
-            aria-label="Husforsikring"
-        >
-            <Flex direction="column" gap="none xl">
-                <div>
-                    <InfoTag>Fornyelse</InfoTag>
-                </div>
-                <Flex direction="column" gap="s">
-                    <p className="jkl-heading-2">Hus</p>
-                    <p>Kittel Nielsens vei 88 1163 Oslo</p>
-                </Flex>
-            </Flex>
-            <hr />
-            <Flex>
-                <p>311 kr/mnd</p>
-            </Flex>
-        </Card>
-    ),
 };
 
 export const FullImageCard: Story = {
