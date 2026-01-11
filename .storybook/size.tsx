@@ -2,41 +2,40 @@ import type { ReactRenderer } from "@storybook/nextjs";
 import { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
-export const densities = [
+export const sizes = [
     { title: "Liten", value: "small" },
     { title: "Medium", value: "medium" },
     { title: "Stor", value: "large" },
 ];
 
-const applyDensity = (element: HTMLElement, density: string) => {
+const applySize = (element: HTMLElement, size: string) => {
     element.classList.add("jkl");
-    element.dataset.size = density;
+    element.dataset.size = size || "medium";
 };
 
-const clearDensity = (element: HTMLElement) => {
+const clearSize = (element: HTMLElement) => {
     element.dataset.size = undefined;
 };
 
-export const densityGlobal = {
+export const sizeGlobal = {
     toolbar: {
         title: "Størrelse",
         icon: "unfold",
-        items: densities,
+        items: sizes,
         dynamicTitle: true,
     },
 };
 
-export const densityDecorator: DecoratorFunction<ReactRenderer> = (
+export const sizeDecorator: DecoratorFunction<ReactRenderer> = (
     Story,
     context,
 ) => {
     useEffect(() => {
         const body = window.document.body;
-        clearDensity(body);
-        applyDensity(body, context.globals.density);
+        clearSize(body);
+        applySize(body, context.globals.size);
 
-        return () => clearDensity(body);
-    }, [context.globals.density]);
-
+        return () => clearSize(body);
+    }, [context.globals.size]);
     return <Story />;
 };

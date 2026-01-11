@@ -43,12 +43,11 @@ export const TooltipExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
                 <TooltipTrigger onClick={copyToClipboard}>
                     <Button
                         className="jkl-spacing-8--left"
-                        data-density="compact"
                         variant="ghost"
                         icon={<CopyIcon />}
                     />
                 </TooltipTrigger>
-                <TooltipContent data-layout-density="comfortable">
+                <TooltipContent>
                     {copied ? (
                         <span aria-live="assertive">Kopiert</span>
                     ) : (

@@ -16,7 +16,6 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
         children,
         helpLabel,
         errorLabel,
-        density,
         description,
         "data-testautoid": testAutoId,
         ...rest
@@ -41,10 +40,9 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
             data-testautoid={testAutoId}
             {...rest}
             aria-describedby={describedBy}
-            data-density={density}
         >
             <legend className="jkl-field-group__legend">
-                <Label {...labelProps} density={density}>
+                <Label {...labelProps}>
                     {tooltip ? (
                         <>
                             <span style={{ whiteSpace: "normal" }}>
@@ -68,7 +66,6 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
                     label={supportText}
                     labelType={supportTextType}
                     id={supportId}
-                    density={density}
                 />
             )}
         </fieldset>

@@ -40,7 +40,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
             helpLabel,
             errorLabel,
             invalid,
-            density,
             days,
             months,
             monthLabel,
@@ -255,7 +254,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                 ref={datepickerRef}
                 label={label}
                 labelProps={labelProps}
-                density={density}
                 helpLabel={helpLabel}
                 errorLabel={errorLabel}
                 supportLabelProps={supportLabelProps}
@@ -270,7 +268,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                         className="jkl-datepicker__input"
                         name={name}
                         defaultValue={defaultValue}
-                        density={density}
                         value={value}
                         type="text"
                         placeholder={placeholder}
@@ -308,7 +305,6 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                                 <Popover.Content initialFocus={-1} padding={24}>
                                     <Calendar
                                         ref={calendarRef}
-                                        density={density}
                                         date={date}
                                         minDate={minDate}
                                         maxDate={maxDate}

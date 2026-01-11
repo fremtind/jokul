@@ -10,7 +10,6 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
         const {
             className,
             children,
-            density,
             errorLabel,
             helpLabel,
             inline,
@@ -63,7 +62,6 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                 className={clsx(className, "jkl-input-group", {
                     "jkl-input-group--inline": inline,
                 })}
-                data-density={density}
                 {...rest}
             >
                 <Label
@@ -75,7 +73,6 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                         whiteSpace: hasTooltip ? "nowrap" : undefined,
                         ...labelProps?.style,
                     }}
-                    density={density}
                 >
                     {hasTooltip ? (
                         <>
@@ -99,7 +96,6 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                     label={supportText}
                     labelType={supportTextType}
                     id={supportId}
-                    density={density}
                 />
             </div>
         );

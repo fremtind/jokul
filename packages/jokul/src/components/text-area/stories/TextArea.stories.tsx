@@ -35,14 +35,6 @@ export const WithError: Story = {
     },
 };
 
-export const Compact: Story = {
-    args: {
-        label: "Kommentarer",
-        density: "compact",
-        rows: 3,
-    },
-};
-
 export const ReadOnly: Story = {
     args: {
         label: "Tidligere registrert informasjon",

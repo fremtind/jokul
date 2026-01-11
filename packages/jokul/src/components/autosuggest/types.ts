@@ -1,16 +1,12 @@
 import type { StateChangeOptions } from "downshift";
 import type { ReactNode } from "react";
-import type { Density } from "../../core/types.js";
 import type { LabelProps } from "../input-group/types.js";
 import type { SupportLabelProps } from "../input-group/types.js";
 
 export type CommonProps = (
     | {
           label: string;
-          labelProps?: Omit<
-              LabelProps,
-              "children" | "density" | "htmlFor" | "standAlone"
-          >;
+          labelProps?: Omit<LabelProps, "children" | "htmlFor" | "standAlone">;
           inputId?: null;
           labelId?: null;
       }
@@ -29,11 +25,10 @@ export type CommonProps = (
     helpLabel?: string;
     supportLabelProps?: Omit<
         SupportLabelProps,
-        "id" | "errorLabel" | "helpLabel" | "density"
+        "id" | "errorLabel" | "helpLabel"
     >;
     tooltip?: ReactNode;
     variant?: "large" | "medium" | "small";
-    density?: Density;
     placeholder?: string;
     /** @deprecated Bruk noHits med text og evt. defaultverdier for items */
     noHitsMessage?: ReactNode;

@@ -4,7 +4,7 @@ import type {
     InputHTMLAttributes,
     ReactNode,
 } from "react";
-import type { DataTestAutoId, Density } from "../../core/types.js";
+import type { DataTestAutoId } from "../../core/types.js";
 
 export interface CheckboxProps
     extends DataTestAutoId,
@@ -15,7 +15,6 @@ export interface CheckboxProps
     checked?: boolean;
     inline?: boolean;
     className?: string;
-    density?: Density;
     invalid?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;
     onFocus?: FocusEventHandler<HTMLInputElement>;

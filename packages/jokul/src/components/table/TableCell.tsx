@@ -1,14 +1,9 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
-import { useTableContext } from "./tableContext.js";
 import type { TableCellProps } from "./types.js";
 
 const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
-    (
-        { align = "left", verticalAlign = "top", className, density, ...rest },
-        ref,
-    ) => {
-        const { density: contextDensity } = useTableContext();
+    ({ align = "left", verticalAlign = "top", className, ...rest }, ref) => {
         return (
             <td
                 className={clsx("jkl-table-cell", className, {
@@ -18,7 +13,6 @@ const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>(
                         verticalAlign === "center",
                 })}
                 {...rest}
-                data-density={density || contextDensity}
                 ref={ref}
             />
         );

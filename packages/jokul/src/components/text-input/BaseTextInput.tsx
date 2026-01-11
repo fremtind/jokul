@@ -28,7 +28,6 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
             align = "left",
             "aria-invalid": ariaInvalid,
             className = "",
-            density,
             maxLength,
             style,
             type = "text",
@@ -65,7 +64,6 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
                     })}
                 {action && !actionButton && (
                     <IconButton
-                        density={density}
                         className={clsx(
                             "jkl-text-input-action-button",
                             action.className,

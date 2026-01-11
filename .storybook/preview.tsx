@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/nextjs";
-import {INITIAL_VIEWPORTS} from "storybook/viewport";
+import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
-import { densityDecorator, densityGlobal } from "./density.js";
+import { sizeDecorator, sizeGlobal } from "./size.js";
 import { themeDecorator, themeGlobal } from "./theme.js";
 import "./global.scss";
 
@@ -33,13 +33,13 @@ const backgroundOptions = [
 const preview: Preview = {
     globalTypes: {
         theme: themeGlobal,
-        density: densityGlobal,
+        size: sizeGlobal,
     },
     initialGlobals: {
         theme: undefined,
-        density: undefined,
+        size: undefined,
     },
-    decorators: [themeDecorator, densityDecorator],
+    decorators: [themeDecorator, sizeDecorator],
     tags: ["autodocs"],
     parameters: {
         backgrounds: {

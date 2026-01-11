@@ -2,13 +2,13 @@ import React from "react";
 import type { SkeletonLabelProps } from "../types.js";
 import { SkeletonElement } from "./SkeletonElement.js";
 
-export const SkeletonLabel = ({ density, ...rest }: SkeletonLabelProps) => {
-    const compact = density === "compact";
+export const SkeletonLabel = ({ ...rest }: SkeletonLabelProps) => {
+    // Bruker CSS-variabler for bredde og høyde, skalerer automatisk med data-size
     return (
         <SkeletonElement
             {...rest}
-            width={compact ? 100 : 115}
-            height={compact ? 12 : 16}
+            width="var(--jkl-unit-130)"
+            height="var(--jkl-unit-20)"
         />
     );
 };

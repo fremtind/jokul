@@ -10,7 +10,6 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
         const {
             label = "Søk",
             className,
-            density,
             errorLabel,
             helpLabel,
             labelProps = { srOnly: true },
@@ -28,7 +27,6 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
 
         const inputGroupProps = {
             label,
-            density,
             errorLabel,
             helpLabel,
             labelProps,

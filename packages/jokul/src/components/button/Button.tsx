@@ -12,7 +12,6 @@ export const Button = React.forwardRef(function Button<
         as = "button",
         children,
         className,
-        density,
         onTouchStart,
         onAnimationEnd,
         loader,
@@ -45,7 +44,6 @@ export const Button = React.forwardRef(function Button<
         <Component
             {...ariaLive}
             data-loading={showLoader}
-            data-density={density}
             className={cn("jkl-button", `jkl-button--${variant}`, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}
             {...rest}
