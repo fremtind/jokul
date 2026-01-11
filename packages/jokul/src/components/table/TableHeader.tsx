@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import React, { forwardRef, type MouseEventHandler } from "react";
 import { ChevronDownIcon, ChevronUpIcon, Icon } from "../icon/index.js";
-import { useTableContext } from "./tableContext.js";
 import type { TableHeaderProps } from "./types.js";
 
 export type TableSortDirection = "asc" | "desc" | "none";
@@ -17,7 +16,6 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
     (props, ref) => {
         const {
             bold = true,
-            density,
             sortable,
             className,
             scope = "col",
@@ -27,7 +25,6 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
             onClick,
             ...rest
         } = props;
-        const { density: contextDensity } = useTableContext();
 
         const handleClick: MouseEventHandler<HTMLTableCellElement> = (e) => {
             onClick?.(e);
@@ -45,7 +42,6 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
                 scope={scope}
                 onClick={handleClick}
                 {...rest}
-                data-density={density || contextDensity}
                 ref={ref}
             >
                 <div className="jkl-table-header__arrows" data-align={align}>

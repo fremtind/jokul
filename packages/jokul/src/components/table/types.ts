@@ -8,13 +8,12 @@ import React, {
     type TdHTMLAttributes,
     type ThHTMLAttributes,
 } from "react";
-import type { Density, WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../core/types.js";
 import type { TableSortProps } from "./utils.js";
 
 export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {
     /** Beskrivelse av tabellen for skjermlesere */
     caption?: string;
-    density?: Density;
     collapseToList?: boolean;
     rows: React.ReactNode[][];
     columns: string[];
@@ -29,7 +28,6 @@ export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {
 export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
     caption: ReactNode;
     children: ReactNode;
-    density?: Density;
     /** Bryt ned til en stablet listevisning på små skjermer. NB: husk å sette `data-th` på hver celle! */
     collapseToList?: boolean;
     /** Setter width: 100% */
@@ -46,7 +44,6 @@ export interface TableCaptionProps
 }
 
 export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
-    density?: Density;
     /**
      * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal innholdet være venstrejustert, men for eksempel summer er høyrejustert.
      * @default "left"
@@ -77,7 +74,6 @@ export interface TableHeadProps
 export interface TableHeaderProps
     extends ThHTMLAttributes<HTMLTableCellElement> {
     bold?: boolean;
-    density?: Density;
     /**
      * Velg mellom venstrejustering og høyrejustering av innholdet. Typisk skal header følge innholdet i radene.
      * @default "left"
@@ -95,7 +91,6 @@ export interface TableHeaderProps
 export interface TablePaginationProps {
     className?: string;
     id?: string;
-    density?: Density;
     /**
      * @default 0
      */
@@ -182,7 +177,6 @@ export interface ExpandableTableRowControllerProps extends TableCellProps {
 }
 
 export type TableContext = {
-    density?: Density;
     collapseToList: boolean;
     setHasStickyHead: (hasStcikyHead: boolean) => void;
 };

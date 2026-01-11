@@ -5,7 +5,6 @@ import type { BreadcrumbItemProps, BreadcrumbProps } from "./types.js";
 export const Breadcrumb = ({
     className,
     children,
-    density,
     ...rest
 }: BreadcrumbProps): JSX.Element => {
     const numberOfChildren = React.Children.count(children);
@@ -13,7 +12,6 @@ export const Breadcrumb = ({
         <nav
             aria-label="Sti"
             className={clsx("jkl-breadcrumb", className)}
-            data-layout-density={density}
             {...rest}
         >
             <ol className="jkl-breadcrumb__list">

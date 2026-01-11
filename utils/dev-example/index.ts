@@ -1,7 +1,4 @@
-import type {
-    ColorScheme,
-    Density,
-} from "../../packages/jokul/src/core/types.js";
+import type { ColorScheme, Size } from "../../packages/jokul/src/core/types.js";
 
 export { ComponentExample } from "./ComponentExample.js";
 export { DevExample } from "./DevExample.js";
@@ -18,7 +15,7 @@ export interface ExampleComponentProps {
 }
 
 export interface DisplayValues {
-    density: Density;
+    size: Size;
     theme: ColorScheme;
 }
 

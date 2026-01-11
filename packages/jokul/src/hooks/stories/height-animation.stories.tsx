@@ -108,9 +108,7 @@ export const UseAutoAnimatedHeight: Story = {
             <section ref={animationRef} className="auto-animation-example">
                 <p className="jkl-heading-2">Lorem Ipsum</p>
                 {content}
-                <Button data-density="compact" onClick={changeContent}>
-                    Endre innhold
-                </Button>
+                <Button onClick={changeContent}>Endre innhold</Button>
             </section>
         );
     },

@@ -6,7 +6,6 @@ export const NavTabs = ({
     "aria-label": ariaLabel,
     children,
     className,
-    density = "comfortable",
     ...rest
 }: NavTabsProps) => {
     const [tabsRect, setTabsRect] = useState<DOMRect>();
@@ -33,15 +32,10 @@ export const NavTabs = ({
         if (activeRef.current) {
             setActiveRect(activeRef.current.getBoundingClientRect());
         }
-    }, [selectedIndex, density]);
+    }, [selectedIndex]);
 
     return (
-        <div
-            {...rest}
-            data-layout-density={density}
-            className={clsx("jkl-tabs", className)}
-            ref={scrollRef}
-        >
+        <div {...rest} className={clsx("jkl-tabs", className)} ref={scrollRef}>
             <div
                 role="tablist"
                 aria-label={ariaLabel}
@@ -68,7 +62,11 @@ export const NavTabs = ({
                         bottom: -1,
                         width:
                             (activeRect?.width || 0) -
-                            (density === "compact" ? 32 : 38),
+                            (Number.parseFloat(
+                                getComputedStyle(
+                                    document.documentElement,
+                                ).getPropertyValue("--jkl-unit-50"),
+                            ) || 40),
                     }}
                 />
             </div>

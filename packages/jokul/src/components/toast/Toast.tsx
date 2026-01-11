@@ -131,7 +131,6 @@ export function Toast<T extends ToastContent>({
                         <div className="jkl-toast__action">
                             <Button
                                 variant="secondary"
-                                density="compact"
                                 data-theme="light"
                                 onClick={props.toast.action.onClick}
                             >

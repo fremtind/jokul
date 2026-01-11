@@ -11,7 +11,6 @@ function systemFactory(
     const SystemMessage: React.FC<SystemMessageProps> = ({
         id,
         className,
-        density,
         maxContentWidth,
         paddingLeft,
         role = "status",
@@ -37,7 +36,6 @@ function systemFactory(
                         "jkl-system-message--dismissed": dismissed,
                     },
                 )}
-                data-density={density}
             >
                 <div
                     className="jkl-system-message__content"
@@ -71,7 +69,6 @@ function systemFactory(
 export const SystemMessage: React.FC<SystemMessageProps> = ({
     id,
     className,
-    density,
     maxContentWidth,
     paddingLeft,
     role = "status",
@@ -98,7 +95,6 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
                     "jkl-system-message--dismissed": dismissed,
                 },
             )}
-            data-density={density}
         >
             <div
                 className="jkl-system-message__content"

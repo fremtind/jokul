@@ -11,7 +11,6 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             invalid,
             className,
             inline = false,
-            density,
             "data-testautoid": testAutoId,
             checked,
             indeterminate,
@@ -48,7 +47,6 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                     "jkl-checkbox--inline": inline,
                     "jkl-checkbox--error": invalid,
                 })}
-                data-density={density}
             >
                 <label htmlFor={inputId} className="jkl-checkbox__label">
                     {children}

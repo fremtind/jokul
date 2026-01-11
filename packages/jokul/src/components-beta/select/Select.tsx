@@ -8,7 +8,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props) => {
     const {
         label,
         className,
-        density,
         errorLabel,
         helpLabel,
         labelProps,
@@ -22,7 +21,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props) => {
 
     const inputGroupProps = {
         label,
-        density,
         errorLabel,
         helpLabel,
         labelProps,

@@ -1,12 +1,10 @@
 import clsx from "clsx";
 import React, { forwardRef, useEffect, useState } from "react";
-import { useTableContext } from "./tableContext.js";
 import { useTableSectionContext } from "./tableSectionContext.js";
 import type { TableRowProps } from "./types.js";
 
 const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
     ({ className, clickable, children, ...rest }, ref) => {
-        const { density } = useTableContext();
         const { isTableBody } = useTableSectionContext();
 
         const [clicked, setClicked] = useState(clickable?.isClicked || false);
@@ -51,7 +49,6 @@ const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
                     }
                     tabIndex={0}
                     {...rest}
-                    data-density={density}
                     ref={ref}
                 >
                     {children}
@@ -64,7 +61,6 @@ const TableRow = forwardRef<HTMLTableRowElement, TableRowProps>(
                 className={clsx("jkl-table-row", className)}
                 {...rest}
                 ref={ref}
-                data-density={density}
             >
                 {children}
             </tr>

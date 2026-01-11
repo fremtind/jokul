@@ -119,9 +119,9 @@ export class TestHelper {
         return this;
     }
 
-    async setDensity(value: "compact" | "default") {
+    async setSize(value: "small" | "default" | "large") {
         await this._page
-            .getByTestId(`density-${value}`)
+            .getByTestId(`size-${value}`)
             .first()
             .check({ force: true });
         return this;
@@ -186,7 +186,7 @@ export class TestHelper {
         selector?: string;
         focusElement?: string;
     } = {}) {
-        await this.setDensity("default");
+        await this.setSize("default");
         await this.setTheme("light");
         await before?.();
         await this.snapshot("default", selector);
@@ -196,19 +196,19 @@ export class TestHelper {
         }
         await after?.();
 
-        await this.setDensity("default");
+        await this.setSize("default");
         await this.setTheme("dark");
         await before?.();
         await this.snapshot("default-dark", selector);
         await after?.();
 
-        await this.setDensity("compact");
+        await this.setSize("small");
         await this.setTheme("light");
         await before?.();
         await this.snapshot("compact-light", selector);
         await after?.();
 
-        await this.setDensity("compact");
+        await this.setSize("small");
         await this.setTheme("dark");
         await before?.();
         await this.snapshot("compact-dark", selector);
