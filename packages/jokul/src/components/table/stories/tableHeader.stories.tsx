@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
+import { skadesaker } from "../../../../../../storybook-public/data/table-data.js";
 import { Table } from "../Table.js";
 import { TableCaption } from "../TableCaption.js";
 import { TableCell } from "../TableCell.js";
 import { TableHead } from "../TableHead.js";
 import { TableHeader } from "../TableHeader.js";
 import { TableRow } from "../TableRow.js";
-import { skadesaker } from "./data.js";
 
 import "../styles/_index.scss";
 
