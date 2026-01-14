@@ -1,7 +1,7 @@
 @use "../../../core/jkl/index" as jkl;
 @use "../../../shared/input/styles/shared-input-styles" as shared;
 
-.jkl-search--beta:has(button.jkl-search-submit){
+.jkl-search--beta:has(button.jkl-search-submit) {
     display: grid;
     grid-template-columns: 1fr max-content;
     align-items: end;
@@ -16,7 +16,7 @@
         height: 100%;
         border: var(--border);
         border-inline-start: 0;
-        border-radius: var(--jkl-border-radius-m);
+        border-radius: var(--jkl-border-radius-s);
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         min-width: unset;

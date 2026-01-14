@@ -1,9 +1,12 @@
+@use "../../jkl";
+
 @layer jokul.theme {
-    :root, [data-size] {
-        --jkl-border-radius-xs: var(--jkl-unit-02);
-        --jkl-border-radius-s: var(--jkl-unit-05);
-        --jkl-border-radius-m: var(--jkl-unit-10);
-        --jkl-border-radius-l: var(--jkl-unit-15);
-        --jkl-border-radius-xl: var(--jkl-unit-20);
+    :root {
+        --jkl-border-radius-none: 0;
+        --jkl-border-radius-xs: #{jkl.rem(4px)};
+        --jkl-border-radius-s: #{jkl.rem(8px)};
+        --jkl-border-radius-m: #{jkl.rem(12px)};
+        --jkl-border-radius-l: #{jkl.rem(16px)};
+        --jkl-border-radius-full: 9999px;
     }
 }
