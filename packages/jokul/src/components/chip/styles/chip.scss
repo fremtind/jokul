@@ -2,14 +2,10 @@
 @use "../../../core/jkl";
 
 .jkl-chip {
-    --padding-inline-s: var(--jkl-unit-15);
-    --padding-inline-l: var(--jkl-unit-20);
-    --padding-icon-s: var(--jkl-unit-10);
-    --padding-icon-l: var(--jkl-unit-15);
-    --height-l: var(--jkl-unit-50);
-    --height-s: var(--jkl-unit-40);
-    --gap-s: var(--jkl-unit-05);
-    --gap-l: var(--jkl-unit-10);
+    --padding-inline: var(--jkl-unit-15);
+    --padding-icon: var(--jkl-unit-10);
+    --height: var(--jkl-unit-40);
+    --gap: var(--jkl-unit-05);
     --text-color: var(--jkl-color-text-default);
     --border-color: var(--jkl-color-border-separator);
     --background-color: transparent;
@@ -27,9 +23,9 @@
     align-items: center;
     text-align: initial;
     white-space: nowrap;
-    gap: var(--gap, var(--gap-s));
-    padding: 0 var(--padding-inline, var(--padding-inline-s));
-    min-height: var(--height, var(--height-s));
+    gap: var(--gap);
+    padding: 0 var(--padding-inline);
+    min-height: var(--height);
 
     @include jkl.forced-colors-mode {
         border: 2px none CanvasText;
@@ -70,20 +66,6 @@
                 --text-color: Canvas;
             }
         }
-    }
-
-    &--small {
-        --padding-inline: var(--padding-inline-s);
-        --gap: var(--gap-s);
-        --padding-icon: var(--padding-icon-s);
-        --height: var(--height-s);
-    }
-
-    &--large {
-        --padding-inline: var(--padding-inline-l);
-        --gap: var(--gap-l);
-        --padding-icon: var(--padding-icon-l);
-        --height: var(--height-l);
     }
 
     &:has(.jkl-icon) {
