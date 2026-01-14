@@ -8,10 +8,11 @@
     .jkl-select {
         --jkl-select-arrow-right: var(--jkl-unit-05);
         --border-width: #{jkl.rem(1px)};
-        --border-radius: var(--jkl-border-radius-m);
+        --border-radius: var(--jkl-border-radius-s);
 
         /* Vi må trekke fra bredden til rammen for å få riktig høyde */
-        --button-padding: calc(var(--jkl-unit-15) - var(--border-width)) calc(0.75em - var(--border-width));
+        --button-padding: calc(var(--jkl-unit-15) - var(--border-width))
+            calc(0.75em - var(--border-width));
         --option-padding: var(--jkl-unit-05) 0.75em;
 
         display: block;
@@ -74,7 +75,7 @@
             box-shadow: 0 0 0 jkl.rem(1px) transparent;
             text-align: left;
             width: 100%;
-            
+
             padding: var(--button-padding);
 
             /* Øk padding for å gi plass til ikonet */
@@ -91,7 +92,8 @@
 
             &:hover {
                 border-color: var(--jkl-color-border-input-focus);
-                box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
+                box-shadow: 0 0 0 jkl.rem(1px)
+                    var(--jkl-color-border-input-focus);
 
                 & ~ .jkl-select__arrow {
                     transform: translateY(calc(-50% + #{jkl.rem(3px)}));
@@ -131,8 +133,10 @@
             transition-property: transform, color;
 
             @include jkl.motion;
-            @include jkl.forced-colors-svg-fallback($stroke: CanvasText,
-                $fill: CanvasText);
+            @include jkl.forced-colors-svg-fallback(
+                $stroke: CanvasText,
+                $fill: CanvasText
+            );
 
             .jkl-select:has([aria-invalid="true"]) & {
                 color: var(--jkl-color-text-on-alert);
@@ -154,7 +158,10 @@
 
             overflow-y: auto;
             // Sett makshøyde på listen til høyden av (maxShownOptions + 0.5) ganger høyden på ett enlinjes valg
-            max-height: calc(calc(var(--jkl-select-max-shown-options, 5) + 0.5) * var(--jkl-select-input-height));
+            max-height: calc(
+                calc(var(--jkl-select-max-shown-options, 5) + 0.5) *
+                    var(--jkl-select-input-height)
+            );
 
             transition-property: height;
 
@@ -218,7 +225,8 @@
                 border-bottom-right-radius: 0;
                 border-color: var(--jkl-color-border-input-focus);
                 background-color: var(--jkl-color-background-container-high);
-                box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
+                box-shadow: 0 0 0 jkl.rem(1px)
+                    var(--jkl-color-border-input-focus);
 
                 &:hover ~ .jkl-select__arrow {
                     transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
@@ -239,7 +247,6 @@
         }
 
         @include jkl.forced-colors-mode {
-
             // Vi er en button (hvis ikke native) og får ButtonText, men vi later som vi er en select, og den har CanvasText
             & .jkl-select__button,
             & .jkl-select__search-input {
