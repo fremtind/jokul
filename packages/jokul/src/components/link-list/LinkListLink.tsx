@@ -3,7 +3,7 @@ import React from "react";
 import type {
     PolymorphicPropsWithRef,
     PolymorphicRef,
-} from "../../utilities/index.js";
+} from "../../utilities/polymorphism/polymorphism.js";
 
 export const LinkListLink = React.forwardRef(function LinkListLink<
     ElementType extends React.ElementType = "a",
