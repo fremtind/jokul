@@ -514,27 +514,23 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                             </div>
                         )}
                     </div>
-                    <div className="jkl-combobox__actions">
-                        <IconButton
-                            id={buttonId}
-                            onFocus={handleFocus}
-                            onBlur={handleBlur}
-                            className="jkl-combobox__button"
-                            data-testid="jkl-combobox__button"
-                            aria-label="Åpne meny"
-                            aria-expanded={showMenu}
-                            aria-controls={listId}
-                            onClick={() => setShowMenu((previous) => !previous)}
-                            onMouseDown={(e) => {
-                                e.preventDefault();
-                                inputRef.current?.focus();
-                            }}
-                        >
-                            <ArrowVerticalAnimated
-                                pointingDown={isPointingDown}
-                            />
-                        </IconButton>
-                    </div>
+                    <IconButton
+                        id={buttonId}
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
+                        className="jkl-text-input-action-button"
+                        data-testid="jkl-combobox__button"
+                        aria-label="Åpne meny"
+                        aria-expanded={showMenu}
+                        aria-controls={listId}
+                        onClick={() => setShowMenu((previous) => !previous)}
+                        onMouseDown={(e) => {
+                            e.preventDefault();
+                            inputRef.current?.focus();
+                        }}
+                    >
+                        <ArrowVerticalAnimated pointingDown={isPointingDown} />
+                    </IconButton>
                 </div>
             )}
         />
