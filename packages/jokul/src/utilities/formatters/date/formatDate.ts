@@ -23,14 +23,14 @@ export function formatDateString(
     input: string,
     options?: FormatDateStringOptions,
 ): string {
-    const strippedInput = input.replace(/\D/g, "");
+    const digits = input.replace(/\D/g, "");
     const regex = options?.partial ? DATE_REGEX.partial : DATE_REGEX.full;
 
-    const match = strippedInput.match(regex);
+    if (!digits.match(regex)) return input;
 
-    if (!match) {
-        return input;
-    }
-
-    return match.slice(1).filter(Boolean).join(".");
+    if (digits.length <= 1) return digits;
+    if (digits.length === 2) return `${digits}.`;
+    if (digits.length === 3) return `${digits.slice(0, 2)}.${digits.slice(2)}`;
+    if (digits.length === 4) return `${digits.slice(0, 2)}.${digits.slice(2)}.`;
+    return `${digits.slice(0, 2)}.${digits.slice(2, 4)}.${digits.slice(4)}`;
 }
