@@ -12,7 +12,7 @@ export const TableOfContents = ({
 
     return (
         <nav
-            className={clsx("jkl-table-of-contents--beta", className)}
+            className={clsx("jkl-table-of-contents", className)}
             aria-labelledby={`list-${id}-label`}
         >
             <p className="jkl-table-of-contents-title" id={`list-${id}-label`}>

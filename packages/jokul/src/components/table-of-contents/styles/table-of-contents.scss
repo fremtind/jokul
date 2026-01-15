@@ -1,7 +1,7 @@
 @use "../../../core/jkl";
 
 @layer jokul.components {
-    .jkl-table-of-contents--beta {
+    .jkl-table-of-contents {
         --ordered-item-padding: var(--jkl-unit-10);
         --border: 1px solid var(--jkl-color-border-separator);
         --text-color: var(--jkl-color-text-default);

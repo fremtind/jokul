@@ -15,7 +15,7 @@ const sites = [
 ].sort();
 
 const meta: Meta = {
-    title: "Beta/Table of contents",
+    title: "Komponenter/Table of contents",
     component: TableOfContents,
     subcomponents: {
         TableOfContentsLink,
