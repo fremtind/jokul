@@ -74,7 +74,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
         }
 
         &--medium {
-            @include jkl.text-style("text-body");
+            @include jkl.text-style("text-medium");
             margin: var(--jkl-label-medium-margin);
         }
 
@@ -89,7 +89,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     }
 
     .jkl-input-group-description {
-        @include jkl.text-style("text-body");
+        @include jkl.text-style("text-medium");
         color: var(--jkl-color-text-subdued);
         margin: var(--jkl-label-medium-margin);
         max-inline-size: 50ch;

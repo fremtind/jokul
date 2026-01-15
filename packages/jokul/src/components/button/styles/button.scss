@@ -19,7 +19,7 @@
 
         display: inline-block;
 
-        @include jkl.text-style("text-body") {
+        @include jkl.text-style("text-medium") {
             font-weight: jkl.$typography-weight-bold;
         }
 
@@ -104,7 +104,11 @@
         }
 
         &:hover {
-            background-color: color-mix(in srgb, var(--background-color), var(--text-color) 15%);
+            background-color: color-mix(
+                in srgb,
+                var(--background-color),
+                var(--text-color) 15%
+            );
 
             @media (forced-colors: active) {
                 @include jkl.focus-outline;
@@ -135,11 +139,15 @@
             padding-inline: var(--jkl-button-tertiary-padding-icon);
 
             &:has(.jkl-icon:first-child) {
-                padding-inline: var(--jkl-button-tertiary-padding-icon) calc(var(--jkl-button-tertiary-padding-icon) * 2);
+                padding-inline: var(--jkl-button-tertiary-padding-icon)
+                    calc(var(--jkl-button-tertiary-padding-icon) * 2);
             }
 
             &:has(.jkl-icon:last-child) {
-                padding-inline: calc(var(--jkl-button-tertiary-padding-icon) * 2) var(--jkl-button-tertiary-padding-icon);
+                padding-inline: calc(
+                        var(--jkl-button-tertiary-padding-icon) * 2
+                    )
+                    var(--jkl-button-tertiary-padding-icon);
             }
         }
     }

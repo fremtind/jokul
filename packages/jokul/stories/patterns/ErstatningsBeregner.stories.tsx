@@ -131,7 +131,7 @@ const ForklaringTilKunde = () => {
         <Card padding="l">
             <Flex direction="column">
                 <p className="jkl-heading-3">Forklaring til kunde</p>
-                <p className="jkl-paragraph-body">
+                <p className="jkl-paragraph-medium">
                     Vi har funnet Samsung 55” TU55CU7105KXXC på Power og vurdert
                     den til å være tilsvarende TV-en du hadde og har basert
                     verdivurderingen på dette.
@@ -156,7 +156,7 @@ const ForklaringTilKunde = () => {
                         ))}
                     </DescriptionList>
                 </Flex>
-                <p className="jkl-paragraph-body">
+                <p className="jkl-paragraph-medium">
                     Dersom du mener vi har valgt feil pris på tilsvarende for
                     det som ble skadet, kan du gjerne ta kontakt med oss. Vi
                     trenger da å vite hva du mener er feil, og hvilket produkt

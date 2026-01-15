@@ -66,9 +66,9 @@ const AvtaleTilBehandling = ({ text = "Li Liv", amount = 500000 }) => (
                 wrap="wrap"
                 fill
             >
-                <p className="jkl-text-body">{text}</p>
+                <p className="jkl-text-medium">{text}</p>
                 <Flex fill gap="none">
-                    <p className="jkl-text-body">{formatNumber(amount)} kr</p>
+                    <p className="jkl-text-medium">{formatNumber(amount)} kr</p>
                     <Flex justifyContent="end">
                         <ChevronDownIcon />
                     </Flex>
@@ -86,7 +86,7 @@ const ArkivKort = ({
     children = (
         <>
             <p className="jkl-bold">Anbefaling</p>
-            <p className="jkl-paragraph-body">
+            <p className="jkl-paragraph-medium">
                 Økt tillegg
                 <br />
                 Eksisterende sak under arbeid Innhent opplysninger fra lege
@@ -147,7 +147,7 @@ const Sidebar = () => (
         <Flex direction="column">
             <Flex as="header" direction="column" gap="none">
                 <Flex justifyContent="space-between" alignItems="center">
-                    <p className="jkl-text-body">Saksinformasjon</p>
+                    <p className="jkl-text-medium">Saksinformasjon</p>
                     <Button icon={<PenIcon />} aria-label="Rediger" />
                 </Flex>
                 <BETA_DescriptionList>
@@ -379,7 +379,7 @@ const Aktivitetskort = ({
             >
                 <Flex direction="column" gap="none">
                     <h3 className="jkl-heading-3">{tittel}</h3>
-                    <p className="jkl-text-body">{sakOgDato}</p>
+                    <p className="jkl-text-medium">{sakOgDato}</p>
                 </Flex>
                 <Expander />
             </Flex>
@@ -427,7 +427,7 @@ const Main = () => (
                         >
                             <Flex direction="column" gap="none">
                                 <p className="jkl-bold">Prosessnavn</p>
-                                <p className="jkl-text-body">Undertittel</p>
+                                <p className="jkl-text-medium">Undertittel</p>
                             </Flex>
                             <Flex>
                                 <Expander>Prosessvalg</Expander>

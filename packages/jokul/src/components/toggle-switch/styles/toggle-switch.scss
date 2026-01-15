@@ -28,7 +28,7 @@
     gap: var(--jkl-unit-10);
     touch-action: none; // Forhindrer at siden flytter på seg når man drar i toggle
 
-    @include jkl.text-style("text-body");
+    @include jkl.text-style("text-medium");
     @include jkl.reset-outline;
 
     @include jkl.forced-colors-mode {
@@ -40,7 +40,12 @@
     [aria-checked="true"] > & {
         --indicator-color: var(--jkl-color-background-container-inverted);
         --knob-color: var(--jkl-color-text-inverted);
-        --knob-position: calc(var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--switch-padding) * 2);
+        --knob-position: calc(
+            var(--jkl-toggle-switch-width) - var(
+                    --jkl-toggle-switch-knob-size
+                ) - var(--switch-padding) *
+                2
+        );
     }
 
     &[disabled] {

@@ -4,11 +4,11 @@
 
 @layer jokul.utility {
     .jkl-body {
-        @include jkl.text-style("paragraph-body");
+        @include jkl.text-style("paragraph-medium");
     }
 
     .jkl-bold {
-        @include jkl.text-style("paragraph-body") {
+        @include jkl.text-style("paragraph-medium") {
             --jkl-icon-weight: #{jkl.$icon-weight-bold};
             font-weight: jkl.$typography-weight-bold;
         }
@@ -20,7 +20,8 @@
 
     @each $style, $_ in typography.$text-styles {
         .jkl-#{$style} {
-            @each $property, $value in map.get(typography.$text-styles, $style) {
+            @each $property, $value in map.get(typography.$text-styles, $style)
+            {
                 #{$property}: $value;
             }
         }

@@ -3,15 +3,25 @@
 @use "../../../core/jkl";
 @use "../../../core/jkl/colors";
 
-
 $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
 
 @layer jokul.components {
     .jkl-radio-button {
         --jkl-radio-button-dot-padding: var(--jkl-unit-05);
         --jkl-radio-button-size: var(--jkl-unit-30);
-        --jkl-radio-button-text-margin: calc((var(--jkl-radio-button-height) - var(--jkl-radio-button-line-height)) * 0.5) 0;
-        --jkl-radio-button-dot-size: calc(var(--jkl-radio-button-size) - (2 * var(--jkl-radio-button-dot-padding)));
+        --jkl-radio-button-text-margin: calc(
+                (
+                        var(--jkl-radio-button-height) - var(
+                                --jkl-radio-button-line-height
+                            )
+                    ) *
+                    0.5
+            )
+            0;
+        --jkl-radio-button-dot-size: calc(
+            var(--jkl-radio-button-size) -
+                (2 * var(--jkl-radio-button-dot-padding))
+        );
         --jkl-radio-button-text-transform: translate3d(0, #{jkl.rem(1px)}, 0);
         --ring-color: var(--jkl-color-border-action);
         --dot-color: transparent;
@@ -33,14 +43,18 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             &:checked {
                 + .jkl-radio-button__label > .jkl-radio-button__dot::after {
                     --dot-color: var(--jkl-color-border-action);
-                    animation: $_radio-button-dot-animation-name jkl.timing("productive") ease;
+                    animation: $_radio-button-dot-animation-name
+                        jkl.timing("productive") ease;
 
                     @include jkl.forced-colors-mode {
                         background-color: ButtonText;
                     }
                 }
 
-                .jkl-radio-button--error & + .jkl-radio-button__label > .jkl-radio-button__dot::after {
+                .jkl-radio-button--error
+                    &
+                    + .jkl-radio-button__label
+                    > .jkl-radio-button__dot::after {
                     --background-color: var(--jkl-color-background-alert-error);
                     --dot-color: var(--jkl-color-text-on-alert);
                 }
@@ -69,7 +83,7 @@ $_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
             padding-block: var(--jkl-unit-10);
             gap: var(--jkl-unit-10);
 
-            @include jkl.text-style("text-body");
+            @include jkl.text-style("text-medium");
 
             &:hover > .jkl-radio-button__dot {
                 outline: 1px solid var(--ring-color);

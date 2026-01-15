@@ -23,7 +23,7 @@
     display: flex;
     align-items: center;
 
-    @include jkl.text-style("text-body"); // eg. Component/Input
+    @include jkl.text-style("text-medium"); // eg. Component/Input
     @include jkl.motion;
     transition-property: color, box-shadow, background-color;
 
@@ -114,7 +114,7 @@
     -webkit-appearance: none;
     color: inherit;
 
-    @include jkl.text-style("text-body"); // Eg. Component/Input
+    @include jkl.text-style("text-medium"); // Eg. Component/Input
     @include jkl.reset-outline;
     @include jkl.remove-inner-outer-button;
 
