@@ -9,7 +9,7 @@
 
     width: 100%;
 
-    @include jkl.text-style("text-body");
+    @include jkl.text-style("text-medium");
 
     input[type="search"] {
         appearance: none;
@@ -19,7 +19,7 @@
         grid-column: 2 / 3;
 
         @include jkl.reset-outline;
-        @include jkl.text-style("text-body");
+        @include jkl.text-style("text-medium");
 
         &::-webkit-search-cancel-button,
         &::-webkit-calendar-picker-indicator,

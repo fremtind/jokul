@@ -14,7 +14,7 @@
         box-sizing: border-box;
         user-select: none;
 
-        @include jkl.text-style("text-body");
+        @include jkl.text-style("text-medium");
         display: flex;
         align-items: center;
         gap: var(--jkl-unit-10);

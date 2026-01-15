@@ -5,7 +5,7 @@
     --border: 1px solid var(--jkl-color-border-separator);
     --text-color: var(--jkl-color-text-default);
 
-    @include jkl.text-style("paragraph-body");
+    @include jkl.text-style("paragraph-medium");
 
     .jkl-link-list-title {
         margin-block-end: var(--jkl-unit-10);
@@ -36,7 +36,7 @@
             box-sizing: border-box;
             padding: var(--jkl-unit-20);
 
-            @include jkl.text-style("text-body");
+            @include jkl.text-style("text-medium");
             @include jkl.motion("standard", "productive");
             transition-property: background;
 

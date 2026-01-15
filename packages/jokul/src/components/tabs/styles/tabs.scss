@@ -51,9 +51,10 @@
     .jkl-tab {
         --padding-inline-end: var(--jkl-unit-50);
 
-        @include jkl.text-style("text-body");
+        @include jkl.text-style("text-medium");
         color: var(--text-color);
-        padding: var(--jkl-unit-10) var(--padding-inline-end) var(--jkl-unit-10) var(--jkl-unit-05);
+        padding: var(--jkl-unit-10) var(--padding-inline-end) var(--jkl-unit-10)
+            var(--jkl-unit-05);
         border: none;
         background-color: transparent;
         cursor: pointer;

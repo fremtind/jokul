@@ -12,7 +12,10 @@ $_dismiss-animation-duration: jkl.timing("lazy");
         --jkl-system-message-icon-padding: #{jkl.rem(3px)} 0 0 0;
         --jkl-system-message-content-padding: var(--jkl-unit-30);
         --jkl-system-message-dismiss-button-size: var(--jkl-unit-40);
-        --jkl-system-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)} auto;
+        --jkl-system-message-dismiss-button-margin: -#{jkl.rem(
+                6.5px
+            )} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)}
+            auto;
         --jkl-system-message-message-margin: 0 var(--jkl-spacing-20);
         --background-color: var(--jkl-color-background-alert-neutral);
         --text-color: var(--jkl-color-text-on-alert);
@@ -42,7 +45,7 @@ $_dismiss-animation-duration: jkl.timing("lazy");
         }
 
         &__message {
-            @include jkl.text-style("text-body");
+            @include jkl.text-style("text-medium");
             margin: var(--jkl-system-message-message-margin);
         }
 

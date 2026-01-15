@@ -84,7 +84,7 @@
             transition-property: color, border-color, box-shadow;
 
             @include jkl.motion;
-            @include jkl.text-style("text-body");
+            @include jkl.text-style("text-medium");
 
             &--active-value {
                 color: var(--jkl-color-text-default);
@@ -189,7 +189,7 @@
             cursor: pointer;
 
             @include jkl.motion;
-            @include jkl.text-style("text-body");
+            @include jkl.text-style("text-medium");
 
             /* For å unngå "dobbel" markering skrur vi av markering på hover i React-
         komponenten med data-focus="controlled". Uten dette satt vil valgene
