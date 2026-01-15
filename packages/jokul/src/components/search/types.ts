@@ -3,7 +3,7 @@ import type {
     InputHTMLAttributes,
     ReactNode,
 } from "react";
-import type { InputGroupProps } from "../../components/input-group/types.js";
+import type { InputGroupProps } from "../input-group/types.js";
 
 export type SearchInputProps = Omit<
     InputGroupProps,

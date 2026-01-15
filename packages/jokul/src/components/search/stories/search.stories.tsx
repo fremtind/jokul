@@ -1,29 +1,28 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
-import { Button } from "../../../components/button/index.js";
-import { Card } from "../../../components/card/Card.js";
-import { Flex } from "../../../components/flex/index.js";
-import { Icon, SearchIcon } from "../../../components/icon/index.js";
-import { List, ListItem } from "../../../components/list/index.js";
-import { MenuItem } from "../../../components/menu/index.js";
+import { Button } from "../../button/index.js";
+import { Card } from "../../card/index.js";
+import { Flex } from "../../flex/index.js";
+import { Icon, SearchIcon } from "../../icon/index.js";
+import { List, ListItem } from "../../list/index.js";
+import { MenuItem } from "../../menu/index.js";
 import {
     Modal,
     ModalBody,
     ModalContainer,
     ModalOverlay,
     useModal,
-} from "../../../components/modal/index.js";
-import { Popover } from "../../../components/popover/index.js";
+} from "../../modal/index.js";
+import { Popover } from "../../popover/index.js";
 import { BETA_Select } from "../../select/index.js";
 import { Search } from "../Search.js";
 import { SearchButton } from "../SearchButton.js";
-import { BETA_Search } from "../index.js";
 import { SearchButtonStory } from "./search-button.stories.js";
 
 import "../styles/_index.scss";
 
 const meta: Meta = {
-    title: "Beta/Search",
+    title: "Komponenter/Search",
     component: Search,
     subcomponents: {
         SearchButton,
@@ -302,7 +301,7 @@ export const SearchHeaderButton: Story = {
                     <ModalOverlay {...overlay} />
                     <Modal {...modal}>
                         <Flex as={ModalBody} gap="m" direction="column">
-                            <BETA_Search
+                            <Search
                                 {...args}
                                 value={searchString}
                                 onChange={(e) =>

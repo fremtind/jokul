@@ -10,7 +10,7 @@ import {
     ModalOverlay,
     useModal,
 } from "@fremtind/jokul/modal";
-import { BETA_Search } from "@fremtind/jokul/search";
+import { Search } from "@fremtind/jokul/search";
 import React, { useEffect, useState } from "react";
 
 import styles from "../header.module.scss";
@@ -42,7 +42,7 @@ export const GlobalSearch = () => {
                     <ModalOverlay {...overlay} />
                     <Modal {...modal}>
                         <ModalBody>
-                            <BETA_Search
+                            <Search
                                 label="Søk i Jøkul"
                                 labelProps={{ variant: "large" }}
                                 placeholder=""

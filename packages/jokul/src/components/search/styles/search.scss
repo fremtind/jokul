@@ -1,7 +1,7 @@
 @use "../../../core/jkl/index" as jkl;
 @use "../../../components/icon/styles/base-styles" as icon;
 
-.jkl-search--beta {
+.jkl-search {
     --icon-size: var(--jkl-text-input-height);
     --border-radius: var(--jkl-border-radius-s);
     --border-width: 1px;

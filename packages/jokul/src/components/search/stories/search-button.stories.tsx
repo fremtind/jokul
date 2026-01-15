@@ -5,7 +5,7 @@ import { Search } from "../Search.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {
-    title: "Beta/Search/SearchButton",
+    title: "Komponenter/Search/SearchButton",
     component: SearchButton,
     parameters: {
         layout: "centered",

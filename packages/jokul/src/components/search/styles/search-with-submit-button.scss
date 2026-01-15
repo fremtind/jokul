@@ -1,7 +1,7 @@
 @use "../../../core/jkl/index" as jkl;
 @use "../../../shared/input/styles/shared-input-styles" as shared;
 
-.jkl-search--beta:has(button.jkl-search-submit) {
+.jkl-search:has(button.jkl-search-submit) {
     display: grid;
     grid-template-columns: 1fr max-content;
     align-items: end;

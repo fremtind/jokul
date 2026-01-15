@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, useRef } from "react";
-import { InputGroup } from "../../components/input-group/index.js";
 import { mergeRefs } from "../../utilities/mergeRefs.js";
+import { InputGroup } from "../input-group/index.js";
 import { SearchButton } from "./SearchButton.js";
 import type { SearchInputProps } from "./types.js";
 
@@ -52,11 +52,11 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
         };
 
         return (
-            <div className={clsx("jkl-search--beta", className)}>
+            <div className={clsx("jkl-search", className)}>
                 <InputGroup
                     {...inputGroupProps}
                     label={label}
-                    data-testid="jkl-select--beta"
+                    data-testid="jkl-search"
                     render={(inputProps) => (
                         <div className="input-wrapper" data-icon={icon}>
                             <input
