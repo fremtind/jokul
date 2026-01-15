@@ -2,6 +2,7 @@
 @use "sass:math";
 @use "../../../core/jkl";
 @use "../../../core/jkl/colors";
+@use "../../../shared/input/styles/shared-input-styles" as shared;
 
 @layer jokul.components {
     .jkl-combobox {
@@ -10,8 +11,8 @@
             var(--jkl-unit-05) var(--jkl-unit-5) var(--jkl-unit-10);
         --jkl-combobox-input-height: #{jkl.rem(48px)};
         --jkl-combobox-actions-right: var(--jkl-unit-10);
-        --jkl-combobox-actions-top: #{jkl.rem(4px)};
-        --jkl-combobox-chips-gap: 4px;
+        --jkl-combobox-actions-top: var(--jkl-unit-05);
+        --jkl-combobox-chips-gap: var(--jkl-unit-05);
         --jkl-combobox-search-input-padding: var(--jkl-combobox-button-padding);
         --jkl-combobox-native-padding: 0 var(--jkl-unit-50) 0 var(--jkl-unit-10);
         --jkl-combobox-option-padding: var(--jkl-unit-10) var(--jkl-unit-15);
@@ -37,16 +38,11 @@
             gap: 1ch;
             cursor: pointer;
 
-            padding: var(--jkl-combobox-button-padding);
-            border-radius: jkl.rem(3px);
-            border: jkl.rem(1px) solid var(--jkl-color-border-input);
-            box-shadow: 0 0 0 jkl.rem(1px) transparent;
+            @include shared.wrapper_styles;
 
-            @include jkl.motion;
-            transition-property: color, border-color, box-shadow;
-
-            &--active-value {
-                padding: var(--jkl-combobox-button-active-value-padding);
+            /* Juster padding når det vises chips for valgte elementer */
+            &--active-value .jkl-combobox__chips {
+                padding: jkl.rem(7.5px);
             }
 
             @include jkl.keyboard-navigation {
@@ -60,44 +56,19 @@
                 outline: none;
             }
 
-            &:hover {
-                border-color: var(--jkl-color-border-input-focus);
-                box-shadow: 0 0 0 jkl.rem(1px)
-                    var(--jkl-color-border-input-focus);
-
-                & ~ .jkl-combobox__arrow {
-                    transform: translateY(calc(-50% + #{jkl.rem(3px)}));
-                }
+            &:hover ~ .jkl-combobox__arrow {
+                transform: translateY(calc(-50% + #{jkl.rem(3px)}));
             }
-        }
-
-        &__button {
-            padding: 0;
-        }
-
-        &__button,
-        &__search-input {
-            @include jkl.text-style("text-small");
-            width: 100%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-
-            background-color: var(--jkl-color-background-input-base);
-            color: var(--jkl-color-text-default);
-            cursor: pointer;
-            text-align: left;
-            display: flex;
-
-            @include jkl.motion;
-            transition-property: color, border-color, box-shadow;
         }
 
         &__search-input {
             border: none;
             outline: none;
-            align-self: end;
+            padding: 0;
             flex: 1 1 1ch;
             max-height: var(--jkl-combobox-search-input-height);
+
+            @include shared.input-styles;
         }
 
         &__arrow {
@@ -116,7 +87,7 @@
         &__menu {
             @include jkl.motion;
             transition-property: height;
-            top: 100%;
+            top: calc(100% - 1px);
             overflow-y: auto;
             position: absolute;
             color: var(--jkl-color-text-default);
@@ -168,18 +139,13 @@
             padding: var(--jkl-combobox-option-padding);
         }
 
-        &__actions {
-            display: flex;
-            gap: jkl.$unit-05;
-            margin-block-start: var(--jkl-combobox-actions-top);
-        }
-
         &__chips {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             gap: var(--jkl-combobox-chips-gap);
             width: 100%;
+            padding: var(--jkl-text-input-padding);
 
             .jkl-chip {
                 white-space: break-spaces;
@@ -213,6 +179,11 @@
         }
 
         &--menu-open {
+            .jkl-combobox__wrapper {
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+
             .jkl-combobox__wrapper:hover .jkl-combobox__actions {
                 transform: translateY(#{jkl.rem(-3px)});
             }
