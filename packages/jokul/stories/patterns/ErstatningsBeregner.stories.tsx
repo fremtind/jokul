@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import { DescriptionList } from "../../src/components-beta/description-list/DescriptionList.js";
-import { Button } from "../../src/components/button/Button.js";
-import { Card } from "../../src/components/card/Card.js";
-import { Flex } from "../../src/components/flex/Flex.js";
+import { Button } from "../../src/components/button/Button.jsx";
+import { Card } from "../../src/components/card/Card.jsx";
+import { DescriptionList } from "../../src/components/description-list/DescriptionList.js";
+import { Flex } from "../../src/components/flex/Flex.jsx";
 import { PlusIcon, TrashCanIcon } from "../../src/components/icon/index.js";
 import { RadioButton } from "../../src/components/radio-button/RadioButton.js";
 import { RadioButtonGroup } from "../../src/components/radio-button/RadioButtonGroup.js";

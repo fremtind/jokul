@@ -6,7 +6,7 @@ import {
     Combobox,
     type ComboboxPartialChangeEvent,
 } from "../../src/components/combobox/index.js";
-import { BETA_DescriptionList } from "../../src/components/description-list/index.js";
+import { DescriptionList } from "../../src/components/description-list/index.js";
 import {
     ExpandablePanel,
     Expander,
@@ -150,16 +150,16 @@ const Sidebar = () => (
                     <p className="jkl-text-medium">Saksinformasjon</p>
                     <Button icon={<PenIcon />} aria-label="Rediger" />
                 </Flex>
-                <BETA_DescriptionList>
-                    <BETA_DescriptionList.Item
+                <DescriptionList>
+                    <DescriptionList.Item
                         title="Startdato"
                         value={new Date().toLocaleDateString()}
                     />
-                    <BETA_DescriptionList.Item
+                    <DescriptionList.Item
                         title="Kunde-id"
                         value="261189 45897"
                     />
-                </BETA_DescriptionList>
+                </DescriptionList>
             </Flex>
             <ExpandablePanel>
                 <ExpandablePanel.Header>
@@ -281,12 +281,12 @@ const ArkivSidebar = () => (
                 <p className="jkl-bold">Dekning 4</p>
             </ArkivKort>
             <ArkivKort tittel="Opprettet sak">
-                <BETA_DescriptionList>
-                    <BETA_DescriptionList.Item
+                <DescriptionList>
+                    <DescriptionList.Item
                         title="Hendelsesdato"
                         value={new Date().toLocaleDateString()}
                     />
-                </BETA_DescriptionList>
+                </DescriptionList>
             </ArkivKort>
             <Card asChild padding="m">
                 <Flex gap="s">
@@ -303,10 +303,10 @@ const Aktivitetskort = ({
     sakOgDato = "1. LI Livsforsikring, 23.11.2023",
     children = (
         <Flex direction="column">
-            <BETA_DescriptionList>
-                <BETA_DescriptionList.Item title="AHV" value="Devlis bedømt" />
-                <BETA_DescriptionList.Item title="T100" value="E66" />
-            </BETA_DescriptionList>
+            <DescriptionList>
+                <DescriptionList.Item title="AHV" value="Devlis bedømt" />
+                <DescriptionList.Item title="T100" value="E66" />
+            </DescriptionList>
 
             <RadioButtonGroup legend="Bedømmelse" inline>
                 <RadioButton value="1" name="e">

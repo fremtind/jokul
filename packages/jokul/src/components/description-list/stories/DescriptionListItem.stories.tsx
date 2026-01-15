@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { formatNumber } from "../../../utilities/index.js";
-import { DescriptionListItem } from "../DescriptionListItem.js";
-import { BETA_DescriptionList } from "../index.js";
+import { DescriptionList, DescriptionListItem } from "../index.js";
 
 import "../styles/_index.scss";
 
 const meta: Meta = {
-    title: "Beta/Description List/Description List Item",
+    title: "Komponenter/Description List/Item",
     component: DescriptionListItem,
     parameters: {
         layout: "padded",
@@ -18,16 +17,16 @@ const meta: Meta = {
         },
     },
     args: {
-        title: "Supergavekort fra GoGift",
-        value: `${formatNumber(100150)} kr`,
+        terms: "Supergavekort fra GoGift",
+        details: `${formatNumber(100150)} kr`,
         supportText: "",
     },
     decorators: [
         (Story) => (
-            <BETA_DescriptionList alignment="horizontal">
+            <DescriptionList alignment="horizontal">
                 {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
                 <Story />
-            </BETA_DescriptionList>
+            </DescriptionList>
         ),
     ],
     tags: ["autodocs", "grouping content"],
