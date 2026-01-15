@@ -31,7 +31,7 @@
                 height: 100%;
                 align-items: center;
 
-                @include jkl.text-style("text-body") {
+                @include jkl.text-style("text-medium") {
                     font-weight: jkl.$typography-weight-bold;
                 }
             }
@@ -59,7 +59,7 @@
             padding-block-end: var(--jkl-spacing-none);
             line-height: initial;
 
-            @include jkl.text-style("paragraph-body");
+            @include jkl.text-style("paragraph-medium");
             @include jkl.motion;
             transition-property: height;
         }

@@ -8,165 +8,165 @@ $_message-width: jkl.rem(560px);
 $_message-width--compact: jkl.rem(440px);
 
 @layer jokul.components {
-  .jkl-message {
-    --jkl-message-icon-left: var(--jkl-unit-20);
-    --jkl-message-icon-top: var(--jkl-unit-30);
-    --jkl-message-title-margin: 0 0 var(--jkl-unit-05) 0;
-    --jkl-message-dismiss-button-size: var(--jkl-unit-50);
-    --jkl-message-gap: var(--jkl-unit-20);
-    --jkl-message-padding: var(--jkl-unit-25) var(--jkl-unit-15);
-    --background-color: var(--jkl-color-background-alert-neutral);
-    --text-color: var(--jkl-color-text-on-alert);
+    .jkl-message {
+        --jkl-message-icon-left: var(--jkl-unit-20);
+        --jkl-message-icon-top: var(--jkl-unit-30);
+        --jkl-message-title-margin: 0 0 var(--jkl-unit-05) 0;
+        --jkl-message-dismiss-button-size: var(--jkl-unit-50);
+        --jkl-message-gap: var(--jkl-unit-20);
+        --jkl-message-padding: var(--jkl-unit-25) var(--jkl-unit-15);
+        --background-color: var(--jkl-color-background-alert-neutral);
+        --text-color: var(--jkl-color-text-on-alert);
 
-    width: 100%;
-    max-width: $_message-width;
-    padding: var(--jkl-message-padding);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border-radius: jkl.rem(4px);
-    box-sizing: border-box;
+        width: 100%;
+        max-width: $_message-width;
+        padding: var(--jkl-message-padding);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        border-radius: jkl.rem(4px);
+        box-sizing: border-box;
 
-    display: grid;
-    align-items: start;
-    grid-template-areas: "icon content dismiss";
-    grid-template-columns: auto 1fr auto;
+        display: grid;
+        align-items: start;
+        grid-template-areas: "icon content dismiss";
+        grid-template-columns: auto 1fr auto;
 
-    @include jkl.text-style("paragraph-body");
+        @include jkl.text-style("paragraph-medium");
 
-    &:has(.jkl-message__title) {
-      @include jkl.text-style("heading-5");
+        &:has(.jkl-message__title) {
+            @include jkl.text-style("heading-5");
+        }
+
+        &__icon {
+            grid-area: icon;
+            margin-right: var(--jkl-message-gap);
+
+            @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+        }
+
+        &__content {
+            grid-area: content;
+        }
+
+        &__message {
+            @include jkl.text-style("paragraph-medium");
+
+            margin-top: jkl.rem(
+                -2px
+            ); // Offset for å aligne med ikon hvis uten tittel.
+        }
+
+        &__title {
+            @include jkl.text-style("heading-5");
+            margin: var(--jkl-message-title-margin);
+
+            & ~ .jkl-message__message {
+                margin-top: 0; // Unset offset satt for å aligne med ikon hvis uten tittel.
+            }
+        }
+
+        &__dismiss-button {
+            grid-area: dismiss;
+            justify-self: end;
+            position: relative;
+
+            background-color: transparent;
+            padding: 0;
+            cursor: pointer;
+
+            color: inherit;
+
+            display: grid;
+            place-content: center;
+
+            @include jkl.reset-outline;
+            @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+
+            @include jkl.forced-colors-mode {
+                background-color: ButtonFace;
+            }
+
+            // Sørg for å ha en stor nok touch target.
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                width: var(--jkl-message-dismiss-button-size);
+                height: var(--jkl-message-dismiss-button-size);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            &:hover {
+                color: var(--jkl-color-text-interactive-hover);
+
+                @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+            }
+
+            &:focus-visible {
+                @include jkl.focus-outline;
+            }
+        }
+
+        &--full {
+            max-width: 100%;
+        }
+
+        &--info {
+            --background-color: var(--jkl-color-background-alert-info);
+        }
+
+        &--warning {
+            --background-color: var(--jkl-color-background-alert-warning);
+        }
+
+        &--error {
+            --background-color: var(--jkl-color-background-alert-error);
+        }
+
+        &--success {
+            --background-color: var(--jkl-color-background-alert-success);
+        }
+
+        &--dismissed {
+            animation: $_dismiss-animation-name $_dismiss-animation-duration
+                ease-in-out forwards;
+            transition: visibility 0ms $_dismiss-animation-duration;
+            visibility: hidden;
+        }
+
+        @include jkl.forced-colors-mode {
+            border: 2px solid CanvasText;
+
+            &--info {
+                border-style: dotted;
+            }
+
+            &--warning {
+                border-style: dashed;
+            }
+
+            &--error {
+                border-style: double;
+                border-width: 4px;
+            }
+        }
     }
 
-    &__icon {
-      grid-area: icon;
-      margin-right: var(--jkl-message-gap);
-
-      @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+    .jkl-form-error-message {
+        padding-bottom: jkl.$unit-50;
     }
 
-    &__content {
-      grid-area: content;
+    @keyframes #{$_dismiss-animation-name} {
+        from {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+        }
+
+        to {
+            opacity: 0;
+            transform: translate3d(0, -50%, 0);
+        }
     }
-
-    &__message {
-      @include jkl.text-style("paragraph-body");
-
-      margin-top: jkl.rem(
-        -2px
-      ); // Offset for å aligne med ikon hvis uten tittel.
-    }
-
-    &__title {
-      @include jkl.text-style("heading-5");
-      margin: var(--jkl-message-title-margin);
-
-      & ~ .jkl-message__message {
-        margin-top: 0; // Unset offset satt for å aligne med ikon hvis uten tittel.
-      }
-    }
-
-    &__dismiss-button {
-      grid-area: dismiss;
-      justify-self: end;
-      position: relative;
-
-      background-color: transparent;
-      padding: 0;
-      cursor: pointer;
-
-      color: inherit;
-
-      display: grid;
-      place-content: center;
-
-      @include jkl.reset-outline;
-      @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
-
-      @include jkl.forced-colors-mode {
-        background-color: ButtonFace;
-      }
-
-      // Sørg for å ha en stor nok touch target.
-      &::after {
-        content: "";
-        position: absolute;
-        display: block;
-        width: var(--jkl-message-dismiss-button-size);
-        height: var(--jkl-message-dismiss-button-size);
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      &:hover {
-        color: var(--jkl-color-text-interactive-hover);
-
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
-      }
-
-      &:focus-visible {
-        @include jkl.focus-outline;
-      }
-    }
-
-    &--full {
-      max-width: 100%;
-    }
-
-    &--info {
-      --background-color: var(--jkl-color-background-alert-info);
-    }
-
-    &--warning {
-      --background-color: var(--jkl-color-background-alert-warning);
-    }
-
-    &--error {
-      --background-color: var(--jkl-color-background-alert-error);
-    }
-
-    &--success {
-      --background-color: var(--jkl-color-background-alert-success);
-    }
-
-    &--dismissed {
-      animation: $_dismiss-animation-name $_dismiss-animation-duration
-        ease-in-out forwards;
-      transition: visibility 0ms $_dismiss-animation-duration;
-      visibility: hidden;
-    }
-
-    @include jkl.forced-colors-mode {
-      border: 2px solid CanvasText;
-
-      &--info {
-        border-style: dotted;
-      }
-
-      &--warning {
-        border-style: dashed;
-      }
-
-      &--error {
-        border-style: double;
-        border-width: 4px;
-      }
-    }
-  }
-
-  .jkl-form-error-message {
-    padding-bottom: jkl.$unit-50;
-  }
-
-  @keyframes #{$_dismiss-animation-name} {
-    from {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-
-    to {
-      opacity: 0;
-      transform: translate3d(0, -50%, 0);
-    }
-  }
 }

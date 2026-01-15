@@ -80,7 +80,7 @@
                     "type": "typography"
                 },
                 "lineHeight": {
-                    "value": "{typography.lineHeight.small}",
+                    "value": "{typography.lineHeight.tight}",
                     "type": "typography"
                 },
                 "fontWeight": {

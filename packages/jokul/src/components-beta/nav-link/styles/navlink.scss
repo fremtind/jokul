@@ -15,7 +15,7 @@
     padding: var(--jkl-spacing-s);
     border-radius: 0;
 
-    @include jkl.text-style("paragraph-body");
+    @include jkl.text-style("paragraph-medium");
     @include jkl.motion("easeInBounceOut", "productive");
 
     transition-property: background-color;

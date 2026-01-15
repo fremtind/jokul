@@ -8,7 +8,7 @@
         overflow-wrap: anywhere;
         width: 100%;
 
-        @include jkl.text-style("text-body");
+        @include jkl.text-style("text-medium");
 
         tr {
             display: flex;
@@ -38,8 +38,10 @@
         }
 
         & > tfoot {
-            border-top: jkl.rem(1px) solid var(--jkl-color-border-separator-strong);
-            border-bottom: jkl.rem(1px) solid var(--jkl-color-border-separator-strong);
+            border-top: jkl.rem(1px) solid
+                var(--jkl-color-border-separator-strong);
+            border-bottom: jkl.rem(1px) solid
+                var(--jkl-color-border-separator-strong);
             padding-top: var(--jkl-unit-10);
 
             th,

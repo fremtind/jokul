@@ -69,7 +69,7 @@
     }
 
     .jkl-modal-body {
-        @include jkl.text-style("paragraph-body");
+        @include jkl.text-style("paragraph-medium");
     }
 
     .jkl-modal-title {

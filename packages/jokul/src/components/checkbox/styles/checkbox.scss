@@ -6,11 +6,11 @@
 
 @layer jokul.components {
     @include jkl.light-mode-variables {
-    	--jkl-checkbox-error-color: #AB2E43;
+        --jkl-checkbox-error-color: #ab2e43;
     }
-    
+
     @include jkl.dark-mode-variables {
-    	--jkl-checkbox-error-color: #D79BA5;
+        --jkl-checkbox-error-color: #d79ba5;
     }
 
     .jkl-checkbox {
@@ -19,7 +19,7 @@
         --text-color: var(--jkl-color-text-default);
         --background-color: transparent;
 
-        @include jkl.text-style("text-body");
+        @include jkl.text-style("text-medium");
 
         display: flex;
         flex-wrap: wrap;
@@ -44,37 +44,37 @@
             @include jkl.motion;
             transition-property: color;
 
-            @include jkl.text-style("text-body");
+            @include jkl.text-style("text-medium");
 
             &:hover,
             &:active {
                 --jkl-icon-weight: #{jkl.$icon-weight-bold};
             }
-            
+
             &::before {
                 content: "check_box_outline_blank";
                 margin-inline-end: 0.25em;
-    
+
                 @include icon.base-styles;
             }
-            
+
             &:has(+ :checked)::before {
                 content: "check_box";
 
                 --jkl-icon-fill: 1;
             }
-            
+
             &:has(+ :indeterminate:not(:checked))::before {
                 content: "indeterminate_check_box";
 
                 --jkl-icon-fill: 1;
             }
-            
+
             &:has(+ [aria-invalid="true"])::before {
                 color: var(--jkl-checkbox-error-color);
             }
         }
-        
+
         & + & {
             margin-top: 0.75em;
         }
