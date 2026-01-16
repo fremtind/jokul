@@ -1,42 +1,91 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import React, { useEffect, useState } from "react";
+import { Button } from "../../button/Button.js";
+import { Flex } from "../../flex/Flex.js";
+import {
+    Modal,
+    ModalActions,
+    ModalBody,
+    ModalTitle,
+} from "../../modal/index.js";
+import { CompleteModal } from "../../modal/stories/CompleteModal.stories.js";
 import { Countdown as CountdownComponent } from "../Countdown.js";
 import "../styles/_index.scss";
-import React, { type FC, useState } from "react";
-import type { WithChildren } from "../../../core/types.js";
-import { PrimaryButton } from "../../button/Button.js";
-import { Flex } from "../../flex/Flex.js";
+import ModalBodyStories from "../../modal/stories/ModalBody.stories.js";
+import ModalTitleStories from "../../modal/stories/ModalTitle.stories.js";
 
 const meta = {
     title: "Komponenter/Countdown",
     component: CountdownComponent,
+    args: {
+        from: 5000,
+        isPaused: false,
+    },
 } satisfies Meta<typeof CountdownComponent>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const Wrapper: FC<WithChildren> = ({ children }) => {
-    const [key, setKey] = useState(0);
+export const Countdown: Story = {
+    decorators: (Story) => {
+        const [key, setKey] = useState(0);
 
-    return (
-        <Flex style={{ width: 500 }} direction="column" gap="m">
-            <div key={key}>{children}</div>
-            <PrimaryButton
-                onClick={() => setKey(Date.now())}
-                style={{ width: 200 }}
-            >
-                Restart
-            </PrimaryButton>
-        </Flex>
-    );
+        return (
+            <Flex direction="column" gap="m">
+                <div key={key}>
+                    <Story />
+                </div>
+                <Button variant="secondary" onClick={() => setKey(Date.now())}>
+                    Gjenta
+                </Button>
+            </Flex>
+        );
+    },
 };
 
-export const Countdown: Story = {
+export const SessionTimeout: Story = {
     args: {
-        from: 5000,
+        from: 60000,
     },
-    decorators: (Story) => (
-        <Wrapper>
-            <Story />
-        </Wrapper>
-    ),
+    render: (args) => {
+        const [key, setKey] = useState(0);
+        const [sessionTimeout, setSessionTimeout] = useState(
+            args.from / 1000 || 0,
+        );
+
+        useEffect(() => {
+            if (sessionTimeout <= 0) {
+                return;
+            }
+            setTimeout(() => setSessionTimeout(sessionTimeout - 1), 1000);
+        }, [sessionTimeout]);
+
+        return (
+            <Modal
+                {...CompleteModal.args}
+                role="document"
+                key={key}
+                style={{ minWidth: "400px" }}
+            >
+                <ModalTitle {...ModalTitleStories.args}>
+                    Er du fortsatt der?
+                </ModalTitle>
+                <ModalBody {...ModalBodyStories.args}>
+                    <Flex direction="column">
+                        <p>Du blir logget ut om {sessionTimeout} sekund(er)</p>
+                        <CountdownComponent {...args} />
+                    </Flex>
+                </ModalBody>
+                <ModalActions>
+                    <Button
+                        variant="primary"
+                        onClick={() => setKey(Date.now())}
+                    >
+                        Jeg er her!
+                    </Button>
+                    <Button>Logg ut</Button>
+                </ModalActions>
+            </Modal>
+        );
+    },
 };
