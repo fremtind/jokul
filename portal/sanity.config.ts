@@ -1,6 +1,7 @@
 import { dataset, projectId } from "@/sanity/env";
 import { schemaTypes } from "@/sanity/schemas";
 import { nbNOLocale } from "@sanity/locale-nb-no";
+import { table } from "@sanity/table";
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { presentationTool } from "sanity/presentation";
@@ -16,6 +17,7 @@ export default defineConfig({
         structureTool(),
         visionTool(),
         nbNOLocale(),
+        table(),
         presentationTool({
             previewUrl: {
                 previewMode: {

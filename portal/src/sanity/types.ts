@@ -22,16 +22,11 @@ export type Jokul_messageBox = {
 
 export type Jokul_table = {
   _type: "jokul_table";
-  head?: Array<{
-    cells?: Array<string>;
-    _type: "head_row";
-    _key: string;
-  }>;
-  body?: Array<{
-    cells?: Array<string>;
-    _type: "body_row";
-    _key: string;
-  }>;
+  caption?: string;
+  table?: Table;
+  show_caption?: boolean;
+  sticky_header?: boolean;
+  copy_button?: boolean;
 };
 
 export type Jokul_fundamentals = {
@@ -277,7 +272,9 @@ export type Jokul_temaside = {
     _key: string;
   } & Jokul_codeBlock | {
     _key: string;
-  } & Jokul_storybook>;
+  } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_table>;
   related_components?: Array<{
     _ref: string;
     _type: "reference";
@@ -346,7 +343,9 @@ export type Jokul_blog_post = {
     _key: string;
   } & Jokul_codeBlock | {
     _key: string;
-  } & Jokul_storybook>;
+  } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_table>;
 };
 
 export type Jokul_component = {
@@ -435,7 +434,9 @@ export type Jokul_component = {
     _key: string;
   } & Jokul_doAndDont | {
     _key: string;
-  } & Jokul_messageBox>;
+  } & Jokul_messageBox | {
+    _key: string;
+  } & Jokul_table>;
   related_components?: {
     components?: Array<{
       _ref: string;
@@ -474,6 +475,18 @@ export type Jokul_component = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+};
+
+export type Table = {
+  _type: "table";
+  rows?: Array<{
+    _key: string;
+  } & TableRow>;
+};
+
+export type TableRow = {
+  _type: "tableRow";
+  cells?: Array<string>;
 };
 
 export type SanityImagePaletteSwatch = {
@@ -572,7 +585,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_messageBox | Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Jokul_component | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Jokul_messageBox | Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Jokul_component | Table | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/blog.ts
 // Variable: blogPostsQuery
@@ -602,6 +615,8 @@ export type BlogPostBySlugQueryResult = {
   } & Jokul_linkCard | {
     _key: string;
   } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_table | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -651,6 +666,8 @@ export type KomIGangQueryResult = {
   } & Jokul_linkCard | {
     _key: string;
   } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_table | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -984,6 +1001,15 @@ export type ComponentBySlugQueryResult = {
     _type: "jokul_storybook";
     story?: Jokul_storybookStory;
     code?: Jokul_codeBlock;
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_table";
+    caption?: string;
+    table?: Table;
+    show_caption?: boolean;
+    sticky_header?: boolean;
+    copy_button?: boolean;
     markDefs: null;
   }> | null;
   related_components: {
