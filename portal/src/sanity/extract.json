@@ -1557,6 +1557,13 @@
             "name": "jokul_codeBlock"
           },
           "optional": true
+        },
+        "height": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
         }
       }
     }

@@ -17,6 +17,10 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
 
     const story = value.story;
     const codeExample = value.code;
+    const height = value.height;
+
+    const storybookExampleHeight =
+        typeof height === "number" ? `${height}` : undefined;
 
     if (!story) {
         return null;
@@ -45,6 +49,14 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
             <iframe
                 title={story.storyName}
                 className="storybook-example"
+                style={
+                    storybookExampleHeight
+                        ? ({
+                              "--storybook-example-height":
+                                  storybookExampleHeight,
+                          } as React.CSSProperties)
+                        : undefined
+                }
                 src={`${STORYBOOK_URL}/iframe.html?viewMode=story&id=${story.storyId}&globals=backgrounds.value:page;backgrounds.grid:!false`}
             />
             {codeExample?.code && (
