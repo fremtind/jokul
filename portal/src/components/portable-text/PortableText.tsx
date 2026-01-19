@@ -1,5 +1,6 @@
 "use client";
 
+import { QuestionsAndAnswers } from "@/components/portable-text/q-and-a/QuestionsAndAnswers";
 import { client } from "@/sanity/lib/client";
 import type { PortableTextReactComponents } from "@portabletext/react";
 import { PortableText as PortableTextReact } from "@portabletext/react";
@@ -42,6 +43,7 @@ const jokulBlockTypes = {
     jokul_linkCard: LinkCard,
     jokul_doAndDont: DoAndDont,
     jokul_table: Table,
+    jokul_qa: QuestionsAndAnswers,
     jokul_messageBox: MessageBox,
     image: function ImageRenderer({
         value,
