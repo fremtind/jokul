@@ -214,6 +214,7 @@ export type Jokul_storybook = {
   _type: "jokul_storybook";
   story?: Jokul_storybookStory;
   code?: Jokul_codeBlock;
+  height?: number;
 };
 
 export type Jokul_codeBlock = {
@@ -984,6 +985,7 @@ export type ComponentBySlugQueryResult = {
     _type: "jokul_storybook";
     story?: Jokul_storybookStory;
     code?: Jokul_codeBlock;
+    height?: number;
     markDefs: null;
   }> | null;
   related_components: {
