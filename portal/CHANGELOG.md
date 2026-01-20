@@ -1,5 +1,11 @@
 # portal
 
+## 1.4.24
+
+### Patch Changes
+
+- 5841745: justerbar høyde for Storybook-iframe i portalen
+
 ## 1.4.23
 
 ### Patch Changes
