@@ -3,6 +3,7 @@
 @layer jokul.theme {
     :root,
     [data-size] {
+        --jkl-unit-0: 0;
         --jkl-unit-10: var(--jkl-unit-base);
         --jkl-unit-15: calc(var(--jkl-unit-base) * 1.5);
         --jkl-unit-20: calc(var(--jkl-unit-base) * 2);
@@ -15,10 +16,30 @@
         --jkl-unit-70: calc(var(--jkl-unit-base) * 7);
         --jkl-unit-80: calc(var(--jkl-unit-base) * 8);
         --jkl-unit-90: calc(var(--jkl-unit-base) * 9);
+        --jkl-unit-100: calc(var(--jkl-unit-base) * 10);
         --jkl-unit-130: calc(var(--jkl-unit-base) * 13);
         --jkl-unit-210: calc(var(--jkl-unit-base) * 21);
+        --jkl-unit-base: 0.5rem;
         --jkl-unit-02: calc(var(--jkl-unit-base) * .25);
         --jkl-unit-05: calc(var(--jkl-unit-base) * .5);
+        --jkl-spacing-0: 0;
+        --jkl-spacing-2: 0.125rem;
+        --jkl-spacing-4: 0.25rem;
+        --jkl-spacing-8: 0.5rem;
+        --jkl-spacing-12: 0.75rem;
+        --jkl-spacing-16: 1rem;
+        --jkl-spacing-20: 1.25rem;
+        --jkl-spacing-24: 1.5rem;
+        --jkl-spacing-28: 1.75rem;
+        --jkl-spacing-32: 2rem;
+        --jkl-spacing-40: 2.5rem;
+        --jkl-spacing-48: 3rem;
+        --jkl-spacing-56: 3.5rem;
+        --jkl-spacing-64: 4rem;
+        --jkl-spacing-72: 4.5rem;
+        --jkl-spacing-80: 5rem;
+        --jkl-spacing-104: 6.5rem;
+        --jkl-spacing-168: 10.5rem;
         --jkl-spacing-none: 0;
         --jkl-spacing-xxs: calc(var(--jkl-unit-base) * .5);
         --jkl-spacing-xs: var(--jkl-unit-base);
