@@ -191,6 +191,7 @@ export const component = defineType({
                 { type: "jokul_codeBlock" },
                 { type: "jokul_doAndDont" },
                 { type: "jokul_messageBox" },
+                { type: "jokul_table" },
             ],
         }),
         defineField({
