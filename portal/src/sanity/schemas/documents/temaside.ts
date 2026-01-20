@@ -50,6 +50,8 @@ export const temaside = defineType({
                 { type: "image" },
                 { type: "jokul_codeBlock" },
                 { type: "jokul_storybook" },
+                { type: "jokul_table" },
+                { type: "jokul_qa" },
             ],
         }),
         defineField({

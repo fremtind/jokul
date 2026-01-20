@@ -13,6 +13,34 @@
  */
 
 // Source: schema.json
+export type Jokul_qa = {
+  _type: "jokul_qa";
+  title?: string;
+  faq?: Array<{
+    question?: string;
+    answer?: Array<{
+      children?: Array<{
+        marks?: Array<string>;
+        text?: string;
+        _type: "span";
+        _key: string;
+      }>;
+      style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+      listItem?: "bullet" | "number";
+      markDefs?: Array<{
+        href?: string;
+        _type: "link";
+        _key: string;
+      }>;
+      level?: number;
+      _type: "block";
+      _key: string;
+    }>;
+    _type: "faqitem";
+    _key: string;
+  }>;
+};
+
 export type Jokul_messageBox = {
   _type: "jokul_messageBox";
   messageType?: "info" | "warning" | "success" | "error";
@@ -22,16 +50,11 @@ export type Jokul_messageBox = {
 
 export type Jokul_table = {
   _type: "jokul_table";
-  head?: Array<{
-    cells?: Array<string>;
-    _type: "head_row";
-    _key: string;
-  }>;
-  body?: Array<{
-    cells?: Array<string>;
-    _type: "body_row";
-    _key: string;
-  }>;
+  caption?: string;
+  table?: Table;
+  show_caption?: boolean;
+  sticky_header?: boolean;
+  copy_button?: boolean;
 };
 
 export type Jokul_fundamentals = {
@@ -82,7 +105,9 @@ export type Jokul_fundamentals = {
     _key: string;
   } & Jokul_doAndDont | {
     _key: string;
-  } & Jokul_table>;
+  } & Jokul_table | {
+    _key: string;
+  } & Jokul_qa>;
 };
 
 export type SanityImageCrop = {
@@ -278,7 +303,11 @@ export type Jokul_temaside = {
     _key: string;
   } & Jokul_codeBlock | {
     _key: string;
-  } & Jokul_storybook>;
+  } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_table | {
+    _key: string;
+  } & Jokul_qa>;
   related_components?: Array<{
     _ref: string;
     _type: "reference";
@@ -347,7 +376,18 @@ export type Jokul_blog_post = {
     _key: string;
   } & Jokul_codeBlock | {
     _key: string;
-  } & Jokul_storybook>;
+  } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_table | {
+    _key: string;
+  } & Jokul_qa>;
+};
+
+export type Table = {
+  _type: "table";
+  rows?: Array<{
+    _key: string;
+  } & TableRow>;
 };
 
 export type Jokul_component = {
@@ -477,6 +517,11 @@ export type Jokul_component = {
   };
 };
 
+export type TableRow = {
+  _type: "tableRow";
+  cells?: Array<string>;
+};
+
 export type SanityImagePaletteSwatch = {
   _type: "sanity.imagePaletteSwatch";
   background?: string;
@@ -573,7 +618,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_messageBox | Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Jokul_component | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Table | Jokul_component | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/blog.ts
 // Variable: blogPostsQuery
@@ -602,7 +647,11 @@ export type BlogPostBySlugQueryResult = {
     _key: string;
   } & Jokul_linkCard | {
     _key: string;
+  } & Jokul_qa | {
+    _key: string;
   } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_table | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -651,7 +700,11 @@ export type KomIGangQueryResult = {
     _key: string;
   } & Jokul_linkCard | {
     _key: string;
+  } & Jokul_qa | {
+    _key: string;
   } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_table | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -1132,6 +1185,8 @@ export type FundamentalsBySlugQueryResult = {
   } & Jokul_doAndDont | {
     _key: string;
   } & Jokul_linkCard | {
+    _key: string;
+  } & Jokul_qa | {
     _key: string;
   } & Jokul_storybook | {
     _key: string;
