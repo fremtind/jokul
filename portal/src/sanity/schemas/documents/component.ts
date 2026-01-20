@@ -4,9 +4,9 @@ import {
     EarthGlobeIcon,
 } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { componentPageLink } from "./links/componentPageLink";
+import { componentPageLink } from "../links/componentPageLink";
 
-import "./lists/usageList.scss";
+import "../lists/usageList.scss";
 import { COMPONENT_CATEGORIES } from "@/utils/user-preferences";
 
 const MAX_LENGTH = 70;
@@ -191,7 +191,6 @@ export const component = defineType({
                 { type: "jokul_codeBlock" },
                 { type: "jokul_doAndDont" },
                 { type: "jokul_messageBox" },
-                { type: "jokul_table" },
             ],
         }),
         defineField({
