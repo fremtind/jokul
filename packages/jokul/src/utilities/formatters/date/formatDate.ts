@@ -26,11 +26,18 @@ export function formatDateString(
     const digits = input.replace(/\D/g, "");
     const regex = options?.partial ? DATE_REGEX.partial : DATE_REGEX.full;
 
-    if (!digits.match(regex)) return input;
+    const match = digits.match(regex);
 
-    if (digits.length <= 1) return digits;
-    if (digits.length === 2) return `${digits}.`;
-    if (digits.length === 3) return `${digits.slice(0, 2)}.${digits.slice(2)}`;
-    if (digits.length === 4) return `${digits.slice(0, 2)}.${digits.slice(2)}.`;
-    return `${digits.slice(0, 2)}.${digits.slice(2, 4)}.${digits.slice(4)}`;
+    if (!match) return digits;
+
+    const [, dd, mm, yyyy] = match;
+
+    const parts = [dd, mm, yyyy].filter(Boolean);
+    let out = parts.join(".");
+
+    if ((digits.length === 2 || digits.length === 4) && !out.endsWith(".")) {
+        out += ".";
+    }
+
+    return out;
 }
