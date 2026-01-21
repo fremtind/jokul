@@ -6,6 +6,8 @@ import { doAndDont } from "./doAndDont";
 import { blogPost } from "./documents/blogPost";
 import { component } from "./documents/component";
 import { fundamentals } from "./documents/fundamentals";
+import { story } from "./documents/story";
+import { examples } from "./examples";
 import { kortFortalt } from "./kortFortalt";
 import { linkCard } from "./linkCard";
 import { messageBox } from "./messageBox";
@@ -20,6 +22,8 @@ export const schemaTypes = [
     componentProps,
     codeExample,
     codeBlock,
+    examples,
+    story,
     storybook,
     storybookStory,
     kortFortalt,

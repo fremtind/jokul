@@ -11,5 +11,20 @@ export const fundamentalsQuery = defineQuery(
 );
 
 export const fundamentalsBySlugQuery = defineQuery(
-    `*[_type == "jokul_fundamentals" && slug.current == $slug][0]`,
+    `*[_type == "jokul_fundamentals" && slug.current == $slug][0] {...,
+    article[]{
+            ...,
+            _type == "jokul_examples" => {
+                ...,
+                title,
+                examples[]->{
+                  title,
+                  id,
+                  description,
+                  height,
+                  inert
+                },
+            },
+        },
+    }`,
 );

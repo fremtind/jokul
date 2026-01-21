@@ -6,6 +6,9 @@ export const storybook = defineType({
     title: "Eksempel fra Storybook",
     type: "object",
     icon: ComponentIcon,
+    deprecated: {
+        reason: "Bruk den nye Eksempler modulen",
+    },
     fields: [
         defineField({
             name: "story",
