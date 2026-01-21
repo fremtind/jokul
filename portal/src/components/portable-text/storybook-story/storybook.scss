@@ -1,12 +1,120 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
 
-.storybook-example {
-    border: 0;
-    width: 100%;
-    max-width: 100%;
-    height: calc(var(--storybook-example-height, 360) * #{jkl.rem(1px)});
-    border-radius: jkl.rem(4px);
-    min-height: jkl.rem(120px);
-    max-height: 100vh;
+.storybook-item {
+    height: 100%;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    align-items: end;
+    --storybook-example-height: 360px;
+
+    iframe {
+        border: 0;
+        width: 100%;
+        max-width: 100%;
+        height: calc(var(--storybook-example-height, 360) * #{jkl.rem(1px)});
+        aspect-ratio: 1;
+        border-radius: jkl.rem(4px);
+    }
+
+    .info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        position: relative;
+        gap: 1ex 1em;
+        padding-block-start: 0.5lh;
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            inset: 0;
+            border-block-start: 1px solid var(--jkl-color-border-separator);
+        }
+
+        .description {
+            grid-column: 1 / -1;
+            @include jkl.text-style("small");
+        }
+
+        a {
+            grid-row: 1;
+            grid-column: 2;
+            text-align: end;
+            align-self: flex-start;
+            margin-block-start: 2px;
+            color: var(--jkl-color-text-subdued);
+
+            @include jkl.text-style("small");
+        }
+    }
+}
+
+.carousel {
+    --carousel-width: 100%;
+    --carousel-controls-height: 1lh;
+    --carousel-item-gap: 2ch;
+    --max-width: 40ch;
+
+    width: var(--carousel-width);
+    display: flex;
+    gap: var(--carousel-item-gap);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    anchor-name: --carousel;
+    scroll-marker-group: after;
+    margin: 0;
+    margin-block-end: var(--carousel-controls-height);
+    padding: 0;
+    padding-block-end: 4px;
+    list-style: none;
+
+    &::scroll-marker-group {
+        display: flex;
+        gap: 1ch;
+        position: fixed;
+        position-anchor: --carousel;
+        flex-wrap: wrap;
+        //noinspection CssInvalidPropertyValue,CssInvalidFunction
+        right: anchor(right);
+        //noinspection CssInvalidPropertyValue,CssInvalidFunction
+        bottom: calc(anchor(bottom) - 1.2lh);
+    }
+
+    li {
+        width: calc(var(--carousel-width) - calc(33% + calc(var(--carousel-item-gap) * 2)));
+        max-width: var(--max-width);
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        counter-increment: item 1;
+
+        &::scroll-marker {
+            color: inherit;
+            content: counter(item);
+            text-decoration: none;
+            border-radius: 4px;
+            text-box-trim: trim-end;
+            padding-inline: 1ch;
+            border: 1px solid var(--jkl-color-border-separator);
+            background: transparent;
+            @include jkl.motion("standard", "productive", background, color, border-color);
+        }
+
+        &::scroll-marker:target-current {
+            background: var(--jkl-color-background-action);
+            color: var(--jkl-color-text-on-action);
+            border-color: var(--jkl-color-background-action);
+        }
+    }
+
+    &:has(li:only-of-type) {
+        &, li {
+            display: contents;
+
+            .storybook-item {
+                max-width: var(--max-width);
+            }
+        }
+    }
 }

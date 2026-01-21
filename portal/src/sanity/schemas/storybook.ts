@@ -1,77 +1,44 @@
-import { ComponentIcon } from "@sanity/icons";
+import { InlineElementIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { StorybookInput } from "../components/StorybookStoryInput";
 export const storybook = defineType({
     name: "jokul_storybook",
     title: "Eksempel fra Storybook",
     type: "object",
-    icon: ComponentIcon,
+    icon: InlineElementIcon,
     fields: [
         defineField({
-            name: "story",
-            title: "Velg story",
-            description: "Velg story fra Storybook",
-            type: "jokul_storybookStory",
-            validation: (Rule) => Rule.required(),
+            name: "title",
+            type: "string",
         }),
         defineField({
-            name: "code",
-            title: "Eksempelkode",
-            type: "jokul_codeBlock",
-            options: {
-                collapsed: true,
-            },
-        }),
-        defineField({
-            name: "height",
-            title: "Høyde på eksempel (px)",
-            initialValue: 360,
-            description:
-                "Valgfri høyde på Storybook-eksempelet. Bruk lavere verdi for små eksempler.",
-            type: "number",
-            validation: (Rule) => Rule.min(120).max(1200),
+            name: "stories",
+            title: "Stories",
+            type: "array",
+            validation: (Rule) => Rule.unique(),
+            of: [
+                {
+                    type: "reference",
+                    name: "jokul_storybookStory",
+                    to: [{ type: "jokul_storybookStory" }],
+                },
+            ],
         }),
     ],
     preview: {
         select: {
-            title: "story.storyName",
+            story1: "stories.0.storyName",
+            story2: "stories.1.storyName",
+            story3: "stories.2.storyName",
+            story4: "stories.3.storyName",
         },
-        prepare({ title }) {
-            return {
-                title: title ? title : "Story uten navn",
-            };
-        },
-    },
-});
+        prepare({ story1, story2, story3, story4 }) {
+            console.log(story1, story2, story3);
+            const stories = [story1, story2, story3, story4].filter(Boolean);
+            const count = stories ? stories.length : "Ingen";
 
-export const storybookStory = defineType({
-    name: "jokul_storybookStory",
-    title: "Story fra Storybook",
-    type: "object",
-    fields: [
-        defineField({
-            name: "storyId",
-            title: "ID for story",
-            type: "string",
-            validation: (Rule) => Rule.required(),
-        }),
-        defineField({
-            name: "storyName",
-            title: "Navn på story",
-            type: "string",
-            readOnly: true,
-        }),
-    ],
-    components: {
-        input: StorybookInput,
-    },
-    preview: {
-        select: {
-            storyName: "storyName",
-        },
-        prepare(select) {
             return {
-                title: select.storyName,
+                title: `${count} stories`,
+                subtitle: stories.map((s) => s).join(", "),
             };
         },
     },

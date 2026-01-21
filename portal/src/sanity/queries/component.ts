@@ -20,6 +20,16 @@ export const componentBySlugQuery =
         },
         documentation_article[]{
             ...,
+            _type == "jokul_storybook" => {
+    ...,
+    title,
+    stories[]->{
+      storyName,
+      storyId,
+      storyDescription,
+      height
+    },
+  },
             _type == "jokul_componentKortFortalt" => {
                 ...,
                 bruk[]{
