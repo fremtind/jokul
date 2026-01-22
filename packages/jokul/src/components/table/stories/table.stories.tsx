@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
+import { Button } from "../../button/index.js";
+import { Icon } from "../../icon/index.js";
 import { Table } from "../Table.js";
 import { TableBody } from "../TableBody.js";
 import { TableCaption } from "../TableCaption.js";
@@ -12,8 +14,6 @@ import { useSortableTableHeader } from "../utils.js";
 import { faktura, skadesaker } from "./data.js";
 
 import "../styles/_index.scss";
-import "../../description-list/styles/_index.scss";
-import "../../link/styles/_index.scss";
 
 const meta = {
     title: "Komponenter/Table",
@@ -26,24 +26,14 @@ const meta = {
         TableRow,
         TableCell,
     },
-} satisfies Meta<typeof Table>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
-
-export const TableStory: Story = {
-    name: "Table",
     args: {
         collapseToList: true,
         fullWidth: true,
         caption: (
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
         ),
-        children: "",
-    },
-    render: (args) => (
-        <div style={{ width: "90dvw" }}>
-            <Table {...args}>
+        children: (
+            <>
                 <TableHead sticky={true}>
                     <TableRow>
                         {skadesaker.columns.map((column, index) => (
@@ -72,10 +62,15 @@ export const TableStory: Story = {
                         </TableRow>
                     ))}
                 </TableBody>
-            </Table>
-        </div>
-    ),
-};
+            </>
+        ),
+    },
+} satisfies Meta<typeof Table>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const TableStory: Story = {};
 
 export const StortableTable: Story = {
     name: "useSortableTableHeader",
@@ -83,7 +78,6 @@ export const StortableTable: Story = {
         caption: (
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
         ),
-        children: "",
     },
     render: (args) => {
         const [sortBy, setSortBy] = useState(faktura.columns[0]);
@@ -160,6 +154,17 @@ export const StortableTable: Story = {
                                         {cell.toLocaleString()}
                                     </TableCell>
                                 ))}
+                                <TableCell>
+                                    {
+                                        <Button
+                                            variant="ghost"
+                                            icon={<Icon>download</Icon>}
+                                            iconPosition="right"
+                                        >
+                                            Last ned
+                                        </Button>
+                                    }
+                                </TableCell>
                             </TableRow>
                         ))}
                 </TableBody>

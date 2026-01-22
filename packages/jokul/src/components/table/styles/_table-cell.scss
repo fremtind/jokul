@@ -4,11 +4,24 @@
     .jkl-table-cell {
         --jkl-table-cell-padding: var(--jkl-unit-15);
 
-        @include jkl.text-style("text-medium");
         padding: var(--jkl-table-cell-padding);
         position: relative;
         text-align: left;
         vertical-align: top;
+
+        @include jkl.text-style("text-medium");
+
+        &:has(.jkl-button) {
+            --jkl-table-cell-padding: var(--jkl-unit-05);
+
+            .jkl-button {
+                padding-block: var(--jkl-unit-10);
+
+                .jkl-button__text {
+                    overflow: visible;
+                }
+            }
+        }
 
         &--vertical-align-center {
             vertical-align: baseline;
