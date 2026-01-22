@@ -104,6 +104,17 @@
                 "default": "./build/cjs/components/card/index.cjs"
             }
         },
+        "./styles/components/carousel": "./styles/components/carousel/_index.scss",
+        "./carousel": {
+            "import": {
+                "types": "./build/es/components/carousel/index.d.ts",
+                "default": "./build/es/components/carousel/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/carousel/index.d.cts",
+                "default": "./build/cjs/components/carousel/index.cjs"
+            }
+        },
         "./styles/components/checkbox": "./styles/components/checkbox/_index.scss",
         "./checkbox": {
             "import": {

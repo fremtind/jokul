@@ -23,7 +23,7 @@ export const StorybookStoryItem = ({ story }: Props) => {
     }
 
     return (
-        <Card padding="m" className="storybook-item" variant="outlined">
+        <Card padding="m" className="storybook-item" variant="high">
             <iframe
                 title={storyName}
                 src={`${STORYBOOK_URL}/iframe.html?viewMode=story&id=${storyId}&globals=backgrounds.value:page;backgrounds.grid:!false`}

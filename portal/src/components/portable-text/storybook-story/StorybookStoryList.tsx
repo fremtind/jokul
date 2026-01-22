@@ -1,4 +1,5 @@
 import type { Jokul_storybookStory } from "@/sanity/types";
+import { Carousel } from "@fremtind/jokul/carousel";
 import { Flex } from "@fremtind/jokul/flex";
 import type { PortableTextTypeComponentProps } from "next-sanity";
 import React, { type FC } from "react";
@@ -18,18 +19,14 @@ export const StorybookStoryList: FC<PortableTextTypeComponentProps<Props>> = ({
         return null;
     }
 
-    console.log(stories);
-
     return (
         <Flex direction="column" gap="s">
             {title && <h2>{title}</h2>}
-            <ul className="carousel">
+            <Carousel>
                 {stories.map((story) => (
-                    <li key={story._id}>
-                        <StorybookStoryItem story={story} key={story._id} />
-                    </li>
+                    <StorybookStoryItem story={story} key={story._id} />
                 ))}
-            </ul>
+            </Carousel>
         </Flex>
     );
 };

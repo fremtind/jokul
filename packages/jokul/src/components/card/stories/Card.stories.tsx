@@ -62,36 +62,35 @@ export const ImageCard: Story = {
     args: {
         variant: "high",
         padding: "m",
-        children: "",
+        children: (
+            <>
+                <CardImage
+                    src={dog1200}
+                    alt=""
+                    style={{
+                        overflow: "hidden",
+                        objectFit: "cover",
+                        aspectRatio: 16 / 9,
+                    }}
+                />
+
+                <Flex direction="column" gap="s">
+                    <Flex direction="column" gap="xs">
+                        <p className="jkl-heading-2">Se forsikringene mine</p>
+                        <p>
+                            Du vil alltid ha en oversikt over forsikringene dine
+                            på forsikringsoversikten.
+                        </p>
+                    </Flex>
+                </Flex>
+            </>
+        ),
         clickable: true,
         as: "a",
         href: "#",
         "aria-label": "Se forsikringene mine",
         style: { maxWidth: "420px" },
     },
-    render: ({ ...args }) => (
-        <Card {...args} asChild={false}>
-            <CardImage
-                src={dog1200}
-                alt=""
-                style={{
-                    overflow: "hidden",
-                    objectFit: "cover",
-                    aspectRatio: 16 / 9,
-                }}
-            />
-
-            <Flex direction="column" gap="s">
-                <Flex direction="column" gap="xs">
-                    <p className="jkl-heading-2">Se forsikringene mine</p>
-                    <p>
-                        Du vil alltid ha en oversikt over forsikringene dine på
-                        forsikringsoversikten.
-                    </p>
-                </Flex>
-            </Flex>
-        </Card>
-    ),
 };
 
 export const CopyCard: Story = {

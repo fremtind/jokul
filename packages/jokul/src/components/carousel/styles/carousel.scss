@@ -1,0 +1,162 @@
+@use "../../../core/jkl";
+
+@layer jkl.components {
+    .jkl-carousel {
+        --item-gap: 1rem;
+        --marker-height: 1lh;
+        --marker-margin: 0.8ex;
+        --anchor-name: --carousel;
+
+        width: 100%;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        gap: var(--item-gap);
+        padding-block-end: var(--marker-margin);
+        margin-block-end: calc(var(--marker-height) + var(--marker-margin));
+        list-style: none;
+
+        .jkl-carousel-item {
+            width: calc(80% - calc(var(--item-gap) * 2));
+            max-width: var(--max-width);
+            flex-shrink: 0;
+        }
+
+        // Carousel spesifikk kode
+        overflow-x: scroll;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+        scrollbar-gutter: stable;
+        scrollbar-color: var(--jkl-color-text-default)  var(--jkl-color-text-default);
+        scroll-snap-stop: always;
+        container-type: scroll-state;
+        container-name: scroller;
+        anchor-name: var(--anchor-name);
+        anchor-scope: all;
+
+        &[data-scrollbar="false"] {
+            scrollbar-width: none;
+        }
+
+        &[data-snap-type="mandatory"] {
+            scroll-snap-type: x mandatory;
+        }
+
+        &[data-snap-type="proximity"] {
+            scroll-snap-type: x proximity;
+        }
+
+        &[data-snap-align="start"] {
+            .jkl-carousel-item {
+                scroll-snap-align: start;
+            }
+        }
+
+        &[data-snap-align="center"] {
+            .jkl-carousel-item {
+                scroll-snap-align: center;
+            }
+        }
+
+        &[data-snap-align="end"] {
+            .jkl-carousel-item {
+                scroll-snap-align: end;
+            }
+        }
+
+        &[data-controls="none"] {
+            --marker-height: 0;
+            --marker-margin: 0;
+        }
+
+        &[data-controls="arrows"], &[data-controls="both"] {
+            &::scroll-button(*) {
+                position: absolute;
+                min-height: var(--marker-height);
+                min-width: var(--marker-height);
+                font-family: "Fremtind Material Symbols", "Fremtind Material Symbols Fallback", sans-serif;
+                font-size: inherit;
+                border: 1px solid var(--jkl-color-border-separator);
+                aspect-ratio: 1;
+                border-radius: 50%;
+                background: none;
+                color: var(--jkl-color-text-default);
+                cursor: pointer;
+                position-anchor: var(--anchor-name);
+                @include jkl.motion("standard", "productive", opacity, border-color);
+            }
+
+            &::scroll-button(*):not(:disabled):hover {
+                border-color: var(--jkl-color-border-separator-hover);
+            }
+
+            &::scroll-button(*):disabled {
+                opacity: 0.3;
+                cursor: unset;
+            }
+
+            &::scroll-button(left) {
+                content: "chevron_left";
+                left: anchor(left);
+                bottom: calc(anchor(bottom) - var(--marker-height) - var(--marker-margin));
+            }
+
+            &::scroll-button(right) {
+                content: "chevron_right";
+                right: anchor(right);
+                bottom: calc(anchor(bottom) - var(--marker-height) - var(--marker-margin));
+            }
+        }
+
+        &[data-controls="numbers"], &[data-controls="both"] {
+            scroll-marker-group: after;
+
+            &::scroll-marker-group {
+                position: absolute;
+                height: var(--marker-height);
+                width: 75%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1ch;
+                position-anchor: var(--anchor-name);
+                position-area: bottom center;
+                margin-top: 2px;
+            }
+
+            .jkl-carousel-item {
+                counter-increment: item 1;
+
+                &::scroll-marker {
+                    display: inline-block;
+                    text-box-trim: trim-start;
+                    color: var(--jkl-color-text-subdued);
+                    content: counter(item);
+                    text-decoration: none;
+                    border-block-end: 1px solid transparent;
+                    @include jkl.motion("standard", "productive", border, color);
+                }
+
+                &::scroll-marker:target-current {
+                    color: var(--jkl-color-text-default);
+                    border-block-end-color: var(--jkl-color-border-separator-strong);
+                }
+            }
+        }
+
+        &:has(.jkl-carousel-item:only-of-type) {
+            &::scroll-button(*),
+            &::scroll-marker-group {
+                display: none;
+            }
+
+            &, .jkl-carousel-item {
+                display: contents;
+
+                > * {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
