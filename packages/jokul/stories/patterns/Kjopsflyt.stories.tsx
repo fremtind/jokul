@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import { Select } from "../../src/components-beta/select/Select.jsx";
-import { Button } from "../../src/components/button/Button.jsx";
-import { Flex } from "../../src/components/flex/Flex.jsx";
-import { FieldGroup } from "../../src/components/input-group/FieldGroup.jsx";
-import { RadioPanel } from "../../src/components/radio-panel/RadioPanel.jsx";
-import { TextInput } from "../../src/components/text-input/TextInput.jsx";
+import { Select } from "../../src/components-beta/select/Select.js";
+import { Button } from "../../src/components/button/Button.js";
+import { Flex } from "../../src/components/flex/Flex.js";
+import { FieldGroup } from "../../src/components/input-group/FieldGroup.js";
+import { RadioPanel } from "../../src/components/radio-panel/RadioPanel.js";
+import { TextInput } from "../../src/components/text-input/TextInput.js";
 
 const meta: Meta = {
     title: "Skjermbilder/Kjøpsflyt",

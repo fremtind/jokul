@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { formatNumber } from "../../../utilities/index.js";
-import { DescriptionListItem } from "../DescriptionListItem.jsx";
+import { DescriptionListItem } from "../DescriptionListItem.js";
 import { BETA_DescriptionList } from "../index.js";
 
 import "../styles/_index.scss";

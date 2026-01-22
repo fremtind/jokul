@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { Button } from "../../../components/button/index.js";
-import { Card } from "../../../components/card/Card.jsx";
+import { Card } from "../../../components/card/Card.js";
 import { Flex } from "../../../components/flex/index.js";
 import { Icon, SearchIcon } from "../../../components/icon/index.js";
 import { List, ListItem } from "../../../components/list/index.js";
@@ -18,7 +18,7 @@ import { BETA_Select } from "../../select/index.js";
 import { Search } from "../Search.js";
 import { SearchButton } from "../SearchButton.js";
 import { BETA_Search } from "../index.js";
-import { SearchButtonStory } from "./search-button.stories.jsx";
+import { SearchButtonStory } from "./search-button.stories.js";
 
 import "../styles/_index.scss";
 

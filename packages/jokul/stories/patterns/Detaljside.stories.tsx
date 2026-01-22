@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { type CSSProperties } from "react";
-import { Button } from "../../src/components/button/Button.jsx";
+import { Button } from "../../src/components/button/Button.js";
 import { Card, CardImage } from "../../src/components/card/index.js";
 import {
     ExpandablePanel,
     Expander,
 } from "../../src/components/expander/index.js";
-import { Flex } from "../../src/components/flex/Flex.jsx";
+import { Flex } from "../../src/components/flex/Flex.js";
 import { CopyIcon, HamburgerIcon } from "../../src/components/icon/index.js";
 import { BETA_LinkList } from "../../src/components/link-list/index.js";
-import { NavLink } from "../../src/components/nav-link/NavLink.jsx";
-import { PopupTip } from "../../src/components/tooltip/PopupTip.jsx";
+import { NavLink } from "../../src/components/nav-link/NavLink.js";
+import { PopupTip } from "../../src/components/tooltip/PopupTip.js";
 
 import "../../src/components/button/styles/_index.scss";
 import "../../src/components/expander/styles/_index.scss";

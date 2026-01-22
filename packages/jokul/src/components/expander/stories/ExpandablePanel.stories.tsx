@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import { Flex } from "../../flex/Flex.jsx";
-import { ExpandablePanel } from "../ExpandablePanel.jsx";
-import { ExpandablePanelContent } from "../ExpandablePanelContent.jsx";
-import { Expander } from "../Expander.jsx";
+import { Flex } from "../../flex/Flex.js";
+import { ExpandablePanel } from "../ExpandablePanel.js";
+import { ExpandablePanelContent } from "../ExpandablePanelContent.js";
+import { Expander } from "../Expander.js";
 import "../styles/_index.scss";
 
 const meta: Meta = {

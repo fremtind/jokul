@@ -3,7 +3,7 @@ import React from "react";
 import { CardImage } from "../../card/CardImage.js";
 import { Flex } from "../../flex/index.js";
 import { CheckIcon, CopyIcon } from "../../icon/index.js";
-import { Image } from "../../image/Image.jsx";
+import { Image } from "../../image/Image.js";
 import { InfoTag } from "../../tag/index.js";
 import { Card } from "../Card.js";
 import { CARD_PADDINGS, CARD_VARIANTS } from "../types.js";

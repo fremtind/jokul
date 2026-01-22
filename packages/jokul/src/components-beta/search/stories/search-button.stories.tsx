@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { SearchButton } from "../SearchButton.jsx";
-import { Search } from "../Search.jsx";
+import { SearchButton } from "../SearchButton.js";
+import { Search } from "../Search.js";
 
 import "../styles/_index.scss";
 
@@ -27,7 +27,7 @@ export default meta;
 
 type Story = StoryObj<typeof SearchButton>;
 
-import { SearchWithButton } from "./search.stories.jsx";
+import { SearchWithButton } from "./search.stories.js";
 export const SearchButtonStory: Story = {
     name: "Search Button",
     args: {
