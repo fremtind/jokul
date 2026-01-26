@@ -44,13 +44,6 @@
             max-width: 35ch;
         }
 
-        @include jkl.text-style("body") {
-            font-size: clamp(
-                var(--jkl-typography-font-size-16),
-                0.7308rem + 0.7692vw,
-                var(--jkl-typography-font-size-20)
-            );
-            line-height: 1.6;
-        }
+        @include jkl.text-style("paragraph-small");
     }
 }
