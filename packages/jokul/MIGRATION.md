@@ -143,6 +143,32 @@ Etter:
 </LinkList>
 ```
 
+#### Vi går vekk fra beta-varianten av Description List
+
+Vi har ikke vært så fornøyd med det nye APIet i `BETA_DescriptionList`, så vi har i stedet valgt å ta inn de visuelle endringene og den nye funksjonaliteten inn i dagens `DescriptionList`-komponent.
+
+Hvis du ikke har tatt i bruk beta-versjonen trenger du ikke å gjøre noe!
+
+Hvis du har brukt beta-komponenten kan endringen tilbake de slik ut:
+```diff
+- <BETA_DescriptionList alignment="justified" showSeparators={true}>
++ <DescriptionList alignment="justified" separators={true}>
+-     <BETA_DescriptionList.Item
+-         title="Dekning"
+-         value="Kasko"
+-     >
++     <DescriptionTerm>Dekning</DescriptionTerm>
++     <DescriptionDetail>Kasko</DescriptioDetail>
+-     <BETA_DescriptionList.Item
+-         title="Egenandel"
+-         value={["2 000 kr for glass", "6 000 kr for øvrige skader"]}
+-     >
++     <DescriptionTerm>Egenandel</DescriptionTerm>
++     <DescriptionDetail>2 000 kr for glass</DescriptioDetail>
++     <DescriptionDetail>6 000 kr for øvrige skader</DescriptioDetail>
+- </BETA_DescriptionList>
++ </DescriptionList>
+```
 
 ## Oppgradering av Jøkul til versjon 1.x.x
 

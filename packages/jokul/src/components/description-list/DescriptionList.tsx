@@ -32,7 +32,7 @@ export const DescriptionTerm: FC<DescriptionTermProps> = ({
 }) => {
     return (
         <>
-            <hr />
+            <hr aria-hidden />
             <dt
                 {...rest}
                 className={clsx("jkl-description-list__term", className)}

@@ -16,15 +16,7 @@ const meta: Meta = {
     },
     args: {
         alignment: "horizontal",
-        separators: true,
-    },
-    argTypes: {
-        alignment: {
-            options: ["horizontal", "vertical", "justified"],
-        },
-    },
-    parameters: {
-        layout: "padded",
+        separators: false,
     },
 } satisfies Meta<typeof DescriptionList>;
 
@@ -34,35 +26,19 @@ type Story = StoryObj<typeof meta>;
 
 export const DescriptionListStory: Story = {
     name: "DescriptionList",
-    args: {
-        children: (
-            <>
-                <DescriptionTerm>Dekning</DescriptionTerm>
-                <DescriptionDetail>Kasko</DescriptionDetail>
-
-                <DescriptionTerm>Egenandel</DescriptionTerm>
-                <DescriptionTerm>Egenandel</DescriptionTerm>
-                <DescriptionTerm>Egenandel</DescriptionTerm>
-                <DescriptionDetail>2 000 kr for glass</DescriptionDetail>
-                <DescriptionDetail>
-                    6 000 kr for øvrige skader
-                </DescriptionDetail>
-                <DescriptionDetail>
-                    6 000 kr for øvrige skader
-                </DescriptionDetail>
-                <DescriptionDetail>
-                    6 000 kr for øvrige skader
-                </DescriptionDetail>
-                <DescriptionDetail>
-                    6 000 kr for øvrige skader
-                </DescriptionDetail>
-                <DescriptionDetail>
-                    6 000 kr for øvrige skader
-                </DescriptionDetail>
-
-                <DescriptionTerm>Sjåfør under 23 år</DescriptionTerm>
-                <DescriptionDetail>Nei</DescriptionDetail>
-            </>
-        ),
+    parameters: {
+        layout: "padded",
     },
+    render: (args) => (
+        <DescriptionList {...args}>
+            <DescriptionTerm>Dekning</DescriptionTerm>
+            <DescriptionDetail>Kasko</DescriptionDetail>
+
+            <DescriptionTerm>Egenandel</DescriptionTerm>
+            <DescriptionDetail>2 000 kr for glass</DescriptionDetail>
+            <DescriptionDetail>6 000 kr for øvrige skader</DescriptionDetail>
+            <DescriptionTerm>Sjåfør under 23 år</DescriptionTerm>
+            <DescriptionDetail>Nei</DescriptionDetail>
+        </DescriptionList>
+    ),
 };
