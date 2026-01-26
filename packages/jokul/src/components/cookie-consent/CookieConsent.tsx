@@ -14,11 +14,8 @@ import {
 } from "../modal/Modal.js";
 import { useModal } from "../modal/useModal.js";
 import { useInternalState } from "./CookieConsentContext.js";
-import {
-    convertBooleanConsentObjectToConsentObject,
-    setConsentCookie,
-} from "./cookieConsentUtils.js";
-import type { Consent, CookieConsentProps } from "./types.js";
+import { setConsentCookie } from "./cookieConsentUtils.js";
+import type { Consent, ConsentState, CookieConsentProps } from "./types.js";
 
 export const CookieConsent = ({
     blocking,
@@ -31,7 +28,6 @@ export const CookieConsent = ({
         cookieName,
         cookieDomain,
         cookiePath,
-        requirement,
         isOpen,
         setIsOpen,
         updateCurrentConsents,
@@ -73,30 +69,19 @@ export const CookieConsent = ({
             onAccept({
                 functional: "denied",
                 statistics: "denied",
+                marketing: "denied",
             });
         }
 
         return null;
     }
 
-    const accept = (
-        selection = convertBooleanConsentObjectToConsentObject(
-            {
-                functional: true,
-                statistics: true,
-            },
-            requirement,
-        ),
-    ) => {
-        const selectionWithoutEmptyValues = Object.fromEntries(
-            Object.entries(selection).filter(
-                ([, value]) => typeof value !== "undefined",
-            ),
-        );
-
+    const updateCookies = (state: ConsentState) => {
         const updatedConsent: Consent = {
             ...currentConsent,
-            ...selectionWithoutEmptyValues,
+            functional: state,
+            statistics: state,
+            marketing: "denied",
         };
 
         setConsentCookie({
@@ -108,25 +93,13 @@ export const CookieConsent = ({
 
         updateCurrentConsents();
 
-        onAccept?.(updatedConsent);
-
         instance?.hide();
     };
 
     const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
 
-        const formData = new FormData(e.currentTarget);
-
-        const newConsents = convertBooleanConsentObjectToConsentObject(
-            {
-                functional: formData.get("functional") === "true",
-                statistics: formData.get("statistics") === "true",
-            },
-            requirement,
-        );
-
-        accept(newConsents);
+        updateCookies("denied");
     };
 
     return ReactDOM.createPortal(
@@ -163,16 +136,17 @@ export const CookieConsent = ({
                     <ModalActions>
                         <Button
                             variant="secondary"
-                            data-testid="jkl-cookie-consent-godta-alle"
+                            data-testid="jkl-cookie-consent-godta"
                             type="button"
-                            onClick={() => accept()}
+                            onClick={() => updateCookies("accepted")}
                         >
                             Ja, det er greit
                         </Button>
                         <Button
                             variant="secondary"
-                            data-testid="jkl-cookie-consent-godta"
-                            type="submit"
+                            data-testid="jkl-cookie-consent-nekt"
+                            type="button"
+                            onClick={() => updateCookies("denied")}
                         >
                             Nei takk
                         </Button>

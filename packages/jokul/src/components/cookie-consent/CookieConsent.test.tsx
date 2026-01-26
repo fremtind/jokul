@@ -16,31 +16,11 @@ describe("CookieConsent", () => {
                 consent: {
                     functional: null,
                     statistics: null,
+                    marketing: null,
                 },
                 name: "demo-consent-cookie",
                 maxAge: -1,
             });
-        });
-
-        it("updates partial consents correctly", async () => {
-            render(
-                <CookieConsentProvider
-                    cookieName="demo-consent-cookie"
-                    functional={false}
-                    statistics={true}
-                >
-                    <CookieConsent
-                        blocking={true}
-                        aboutPage="https://www.fremtind.no/informasjonskapsler"
-                    />
-                </CookieConsentProvider>,
-            );
-
-            await screen.getByTestId("jkl-cookie-consent-godta-alle").click();
-
-            expect(document.cookie).toEqual(
-                'demo-consent-cookie={"functional":null,"statistics":"accepted"}',
-            );
         });
 
         it("can accept all available cookies", async () => {
@@ -49,6 +29,7 @@ describe("CookieConsent", () => {
                     cookieName="demo-consent-cookie"
                     functional={true}
                     statistics={true}
+                    marketing={true}
                 >
                     <CookieConsent
                         blocking={true}
@@ -57,10 +38,10 @@ describe("CookieConsent", () => {
                 </CookieConsentProvider>,
             );
 
-            await screen.getByTestId("jkl-cookie-consent-godta-alle").click();
+            await screen.getByTestId("jkl-cookie-consent-godta").click();
 
             expect(document.cookie).toEqual(
-                'demo-consent-cookie={"functional":"accepted","statistics":"accepted"}',
+                'demo-consent-cookie={"functional":"accepted","statistics":"accepted","marketing":"denied"}',
             );
         });
     });
@@ -69,7 +50,7 @@ describe("CookieConsent", () => {
         beforeEach(() => {
             setConsentCookie({
                 consent: {
-                    functional: null,
+                    functional: "accepted",
                     statistics: "accepted",
                 },
                 name: "demo-consent-cookie",
@@ -100,16 +81,17 @@ describe("CookieConsent", () => {
             await waitFor(() => {
                 expect(result.current?.consents).toEqual({
                     statistics: "accepted",
-                    functional: null,
+                    functional: "accepted",
                 });
             });
 
-            await screen.getByTestId("jkl-cookie-consent-godta-alle").click();
+            await screen.getByTestId("jkl-cookie-consent-godta").click();
 
             await waitFor(() => {
                 expect(result.current?.consents).toEqual({
                     statistics: "accepted",
                     functional: "accepted",
+                    marketing: "denied",
                 });
             });
         });
