@@ -1,6 +1,6 @@
 "use client";
 
-import { LinkList } from "@fremtind/jokul/link-list";
+import { TableOfContents } from "@fremtind/jokul/table-of-contents";
 import { useEffect, useState } from "react";
 import slugify from "slugify";
 
@@ -34,12 +34,15 @@ export const ComponentNav = () => {
     }, []);
 
     return (
-        <LinkList label="Innhold" hideLabel className="jkl-body">
+        <TableOfContents label="Innhold" className="jkl-body">
             {headings.map((heading) => (
-                <LinkList.Link href={`#${heading.slug}`} key={heading.slug}>
+                <TableOfContents.Link
+                    href={`#${heading.slug}`}
+                    key={heading.slug}
+                >
                     {heading.text}
-                </LinkList.Link>
+                </TableOfContents.Link>
             ))}
-        </LinkList>
+        </TableOfContents>
     );
 };

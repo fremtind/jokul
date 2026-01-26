@@ -6,7 +6,7 @@
     }
 
     .date {
-        @include jkl.text-style("small") {
+        @include jkl.text-style("text-small") {
             @include jkl.use-font-family("Fremtind Grotesk Mono");
             color: var(--jkl-color-text-subdued);
         }

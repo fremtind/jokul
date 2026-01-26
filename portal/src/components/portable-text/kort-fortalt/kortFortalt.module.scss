@@ -9,7 +9,7 @@
     h3 {
         margin-block-end: jkl.$spacing-8;
 
-        @include jkl.text-style("body") {
+        @include jkl.text-style("paragraph-medium") {
             font-weight: bold;
         }
     }
