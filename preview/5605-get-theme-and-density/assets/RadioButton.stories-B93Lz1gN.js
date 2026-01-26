@@ -1,0 +1,9 @@
+import{j as n,r as m}from"./iframe-rzzW3gX2.js";import{c as s}from"./contactChoices-BqDGeJnV.js";import{R as e}from"./RadioButton-Dr6cyLwT.js";import i from"./BaseRadioButton.stories-CaboBL2u.js";import{F as d}from"./FieldGroup-B7mpF4ls.js";import"./preload-helper-PPVm8Dsz.js";import"./useId-Dq47MGjr.js";import"./SupportLabel-CnmQAMKg.js";import"./clsx-B-dksMZM.js";import"./WarningIcon-UTSw5B72.js";import"./Icon-rzk6z11L.js";import"./BaseRadioButton-BJcGDW1i.js";import"./Label-BvHD4lEe.js";const h={title:"Komponenter/Radio Button",component:e,args:{...i.args,children:"Radio button"}},o={name:"Radio Button"},t={render:a=>n.jsx(d,{legend:"Kontaktmetoder",children:s.map(r=>m.createElement(e,{...o.args,...a,key:r,value:r,name:"kontaktmetode"},r))})};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  name: "Radio Button"
+}`,...o.parameters?.docs?.source}}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  render: args => <FieldGroup legend={"Kontaktmetoder"}>
+            {contactChoices.map(value => <RadioButton {...RadioButtonStory.args} {...args} key={value} value={value} name="kontaktmetode">
+                    {value}
+                </RadioButton>)}
+        </FieldGroup>
+}`,...t.parameters?.docs?.source}}};const E=["RadioButtonStory","RadioButtonGroup"];export{t as RadioButtonGroup,o as RadioButtonStory,E as __namedExportsOrder,h as default};
