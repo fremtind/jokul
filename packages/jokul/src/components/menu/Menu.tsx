@@ -25,7 +25,7 @@ import {
 import clsx from "clsx";
 import React, { forwardRef, useEffect, useRef, useState, useId } from "react";
 import { useBrowserPreferences } from "../../hooks/index.js";
-import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
+import { getThemeAndSize } from "../../utilities/getThemeAndSize.js";
 import { SlotComponent } from "../../utilities/index.js";
 import type { MenuProps } from "./types.js";
 import { useMenuWideEvents } from "./useMenuWideEvents.js";
@@ -126,7 +126,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
 
         // Siden menyen rendres på rot må vi hente lokal dark/light-verdi fra triggeren
         // Vi må gjøre dette for å ta hensyn til at tema kan styres lokalt for deler av UIet
-        const { theme, density } = getThemeAndDensity(
+        const { theme, size } = getThemeAndSize(
             refs.reference.current as HTMLElement,
         );
 
@@ -183,7 +183,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                             <div
                                 className={clsx("jkl jkl-menu", className)}
                                 data-theme={theme}
-                                data-layout-density={density}
+                                data-size={size}
                                 role="menu"
                                 data-placement={placement}
                                 aria-live="assertive"
