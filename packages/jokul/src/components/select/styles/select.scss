@@ -50,10 +50,6 @@
     & select {
         appearance: none;
 
-        &::ms-expand {
-            display: none;
-        }
-
         &:-moz-focusring {
             color: transparent;
             text-shadow: 0 0 0 var(--jkl-color-text-subdued);
