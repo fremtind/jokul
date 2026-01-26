@@ -108,14 +108,14 @@
             }
 
             .description {
-                @include jkl.text-style("small");
+                @include jkl.text-style("paragraph-small");
             }
 
             a {
                 margin-block-start: 2px;
                 color: var(--jkl-color-text-subdued);
 
-                @include jkl.text-style("small");
+                @include jkl.text-style("paragraph-small");
             }
         }
     }
