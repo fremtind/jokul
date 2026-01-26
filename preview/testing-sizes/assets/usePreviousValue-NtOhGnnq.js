@@ -1,1 +1,0 @@
-import{r as e}from"./iframe-W-C0B6po.js";const u=t=>{const r=e.useRef();return e.useEffect(()=>{r.current=t}),r.current};export{u};

@@ -1,1 +1,0 @@
-const c=t=>{if(!t)return{};const e=getComputedStyle(t),o=Number.parseInt(e.getPropertyValue("--jkl-background-color").replace("#",""),16)<16777215/2?"dark":"light",r=e.getPropertyValue("--jkl-density")==='"compact"'?"compact":"comfortable";return{theme:o,density:r}};export{c as g};
