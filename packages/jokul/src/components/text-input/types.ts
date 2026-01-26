@@ -4,7 +4,6 @@ import type {
     MouseEventHandler,
     ReactNode,
 } from "react";
-import type { Density } from "../../core/types.js";
 import type { IconProps } from "../icon/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
 
@@ -23,7 +22,6 @@ export interface BaseTextInputProps
      *
      */
     action?: Action;
-    density?: Density;
     /**
      * Benevnelse for feltet. Unngå å bruke både benevnelse og handling samtidig
      * @example "kr"

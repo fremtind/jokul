@@ -29,7 +29,6 @@ function messageFactory(messageType: MessageProps["variant"]) {
             id,
             title,
             fullWidth,
-            density,
             className = "",
             dismissed,
             dismissAction,
@@ -61,7 +60,6 @@ function messageFactory(messageType: MessageProps["variant"]) {
                     },
                 )}
                 role={role}
-                data-density={density}
             >
                 {getIcon(messageType)}
                 <div className="jkl-message__content" data-theme="light">
@@ -92,7 +90,6 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
             id,
             title,
             fullWidth,
-            density,
             className = "",
             dismissed,
             dismissAction,
@@ -125,7 +122,6 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
                     },
                 )}
                 role={role}
-                data-density={density}
             >
                 {getIcon(variant)}
                 <div className="jkl-message__content" data-theme="light">

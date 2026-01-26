@@ -91,16 +91,16 @@ describe("Button", () => {
         expect(screen.getByTestId("test")).toHaveClass("test-class");
     });
 
-    it("applies compact mode", () => {
+    it("applies large size", () => {
         render(
-            <Button data-testid="test" density="compact" onClick={() => {}}>
+            <Button data-testid="test" data-size="large" onClick={() => {}}>
                 test
             </Button>,
         );
 
         expect(screen.getByTestId("test")).toHaveAttribute(
-            "data-density",
-            "compact",
+            "data-size",
+            "large",
         );
     });
 
@@ -165,11 +165,11 @@ describe("a11y", () => {
             expect(results).toHaveNoViolations();
         });
 
-        it(`${buttonVariant} should be a11y compliant in compact mode`, async () => {
+        it(`${buttonVariant} should be a11y compliant in small size`, async () => {
             const { container } = render(
                 <Button
                     variant={buttonVariant}
-                    density="compact"
+                    data-size="small"
                     onClick={() => {}}
                 >
                     {buttonVariant}

@@ -8,7 +8,7 @@ export interface DataTestAutoId {
 
 export type ColorScheme = "light" | "dark";
 
-export type Density = "comfortable" | "compact";
+export type Size = "small" | "medium" | "large";
 
 export type Easing = keyof typeof tokens.motion.easing;
 export type Timing = keyof typeof tokens.motion.timing;

@@ -7,14 +7,13 @@ import type { IconButtonProps } from "./types.js";
  */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
     (props, ref) => {
-        const { className, children, density, ...rest } = props;
+        const { className, children, ...rest } = props;
         return (
             <button
                 ref={ref}
                 type="button"
                 className={clsx("jkl-icon-button", className)}
                 data-testid="jkl-icon-button"
-                data-density={density}
                 {...rest}
             >
                 {children}

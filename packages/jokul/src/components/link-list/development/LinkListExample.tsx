@@ -1,51 +1,21 @@
 import React, { type FC } from "react";
-import type {
-    ExampleComponentProps,
-    ExampleKnobsProps,
-} from "utils/dev-example/index.js";
+import type { ExampleComponentProps } from "utils/dev-example/index.js";
 import { LinkList } from "../LinkList.js";
 
-export const knobs: ExampleKnobsProps = {};
+const links = [
+    "Ledige stillinger",
+    "Hvorfor Fremtind?",
+    "Fordeler og goder",
+    "Kultur",
+    "Teknologi",
+];
 
-export const OrderedLinkListExample: FC<ExampleComponentProps> = () => (
-    <LinkList variant="ordered">
-        <LinkList.Item>
-            <LinkList.Link href="#">Ledige stillinger</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="#">Hvorfor Fremtind?</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="#">Fordeler og goder</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="#">Kultur</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="#">Teknologi</LinkList.Link>
-        </LinkList.Item>
-    </LinkList>
-);
-
-export const UnorderedLinkListExample: FC = () => (
-    <LinkList variant="unordered">
-        <LinkList.Item>
-            <LinkList.Link href="#">SpareBank 1</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="#">DNB</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="#">LOfavør</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="#">Norsk Sykepleierforbund</LinkList.Link>
-        </LinkList.Item>
-        <LinkList.Item>
-            <LinkList.Link href="#">
-                En tekst som går over flere linjer for å se hvordan pilen
-                oppfører seg når den ikke bare skal midtstilles i lenken
+export const LinkListExample: FC<ExampleComponentProps> = () => (
+    <LinkList label="Om forsikringen din" hideLabel>
+        {links.map((link) => (
+            <LinkList.Link href="#" key={link}>
+                {link}
             </LinkList.Link>
-        </LinkList.Item>
+        ))}
     </LinkList>
 );

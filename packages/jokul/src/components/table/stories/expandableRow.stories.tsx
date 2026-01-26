@@ -1,11 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { Fragment } from "react";
+import React from "react";
 import { faktura } from "../../../../../../storybook-public/data/table-data.js";
-import {
-    DescriptionDetail,
-    DescriptionList,
-    DescriptionTerm,
-} from "../../description-list/index.js";
 import { Link } from "../../link/index.js";
 import { ExpandableTableRow } from "../ExpandableTableRow.js";
 import { ExpandableTableRowController } from "../ExpandableTableRowController.js";
@@ -21,6 +16,9 @@ import { _ExpandableTableRowController as ExpandableTableRowControllerStory } fr
 import { TableStory } from "./table.stories.js";
 
 import "../styles/_index.scss";
+import { fn } from "storybook/test";
+import { DescriptionList } from "../../description-list/index.js";
+import { DescriptionListStory } from "../../description-list/stories/DescriptionList.stories.js";
 
 const meta = {
     title: "Komponenter/Table/Expandable Table Row",
@@ -35,39 +33,16 @@ const meta = {
         key: 1,
         clickable: {
             isClicked: false,
-            onClick: (e) => console.log(e.target),
+            onClick: fn(),
             markClickedRows: true,
         },
         colSpan: 100,
         expandedChildren: (
-            <DescriptionList>
-                {faktura.columns.map((column, columnIndex) =>
-                    faktura.rows[0].map(
-                        (cell, rowIndex) =>
-                            columnIndex === rowIndex && (
-                                <Fragment key={rowIndex}>
-                                    <DescriptionTerm>{column}</DescriptionTerm>
-                                    <DescriptionDetail>
-                                        {cell.toLocaleString()}
-                                    </DescriptionDetail>
-                                </Fragment>
-                            ),
-                    ),
-                )}
-                <DescriptionTerm>Faktura</DescriptionTerm>
-                <DescriptionDetail>
-                    <Link external target={"_blank"} href={"#"}>
-                        Åpne i ny fane
-                    </Link>
-                </DescriptionDetail>
-                <DescriptionDetail>
-                    <Link
-                        download={`${faktura.rows[3]} ${new Date(faktura.rows[0][0] as Date).toLocaleDateString()}`}
-                        href={"#"}
-                    >
-                        Last ned
-                    </Link>
-                </DescriptionDetail>
+            <DescriptionList
+                {...DescriptionListStory.args}
+                alignment="horizontal"
+            >
+                {DescriptionListStory.args?.children}
             </DescriptionList>
         ),
         isOpen: false,
@@ -84,8 +59,8 @@ const meta = {
         >
             <TableHead>
                 <TableRow>
-                    {faktura.columns.slice(0, 4).map((column, index) => (
-                        <TableHeader key={index} bold>
+                    {faktura.columns.slice(0, 4).map((column) => (
+                        <TableHeader key={column} bold>
                             {column}
                         </TableHeader>
                     ))}

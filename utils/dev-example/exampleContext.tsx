@@ -1,17 +1,17 @@
 import React, { createContext, useContext } from "react";
 import type {
     ColorScheme,
-    Density,
+    Size,
     WithChildren,
 } from "../../packages/jokul/src/core/types.js";
 
 type ExampleContext = {
-    density: Density;
+    size: Size;
     theme: ColorScheme;
 };
 
 const exampleContext = createContext<ExampleContext>({
-    density: "comfortable",
+    size: "medium",
     theme: "light",
 });
 

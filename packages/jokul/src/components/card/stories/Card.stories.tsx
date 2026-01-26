@@ -3,7 +3,8 @@ import React from "react";
 import { CardImage } from "../../card/CardImage.js";
 import { Flex } from "../../flex/index.js";
 import { CheckIcon, CopyIcon } from "../../icon/index.js";
-import { Image } from "../../image/Image.jsx";
+import { Image } from "../../image/Image.js";
+import { InfoTag } from "../../tag/index.js";
 import { Card } from "../Card.js";
 import { CARD_PADDINGS, CARD_VARIANTS } from "../types.js";
 
@@ -141,34 +142,31 @@ export const CopyCard: Story = {
 export const LinkCard: Story = {
     name: "Card som lenke",
     args: {
+        as: "a",
+        href: "#",
         padding: "l",
         variant: "high",
+        asChild: false,
+        "aria-label": "Husforsikring",
         children: (
-            <Flex direction="column" gap="none xl">
-                <Flex direction="column" gap="s">
-                    <p className="jkl-heading-2">Hus</p>
-                    <p>Kittel Nielsens vei 88 1163 Oslo</p>
+            <>
+                <Flex direction="column" gap="none xl">
+                    <div>
+                        <InfoTag>Fornyelse</InfoTag>
+                    </div>
+                    <Flex direction="column" gap="s">
+                        <p className="jkl-heading-2">Hus</p>
+                        <p>Kittel Nielsens vei 88 1163 Oslo</p>
+                    </Flex>
                 </Flex>
-                <Flex fill>
-                    <hr />
-                </Flex>
+                <hr />
                 <Flex>
                     <p>311 kr/mnd</p>
                 </Flex>
-            </Flex>
+            </>
         ),
         clickable: true,
-        "aria-label": "Kittel Nielsens vei 88 1163 Oslo: Husforsirking",
     },
-    render: ({ ...args }) => (
-        <Card
-            {...args}
-            as="a"
-            href="#"
-            asChild={false}
-            aria-label="Husforsikring"
-        />
-    ),
 };
 
 export const FullImageCard: Story = {

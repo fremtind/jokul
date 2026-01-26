@@ -58,10 +58,6 @@ const meta: Meta = {
     parameters: {
         layout: "padded",
     },
-    args: {
-        alignment: "horizontal",
-        showSeparators: false,
-    },
     argTypes: {
         alignment: {
             options: ["horizontal", "vertical", "justified"],

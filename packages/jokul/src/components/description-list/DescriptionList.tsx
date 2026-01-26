@@ -9,10 +9,17 @@ import type {
 export const DescriptionList: FC<DescriptionListProps> = ({
     children,
     className,
+    separators = false,
+    alignment = "horizontal",
     ...rest
 }) => {
     return (
-        <dl {...rest} className={clsx("jkl-description-list", className)}>
+        <dl
+            {...rest}
+            className={clsx("jkl-description-list", className)}
+            data-separators={separators}
+            data-alignment={alignment}
+        >
             {children}
         </dl>
     );
@@ -24,9 +31,15 @@ export const DescriptionTerm: FC<DescriptionTermProps> = ({
     ...rest
 }) => {
     return (
-        <dt {...rest} className={clsx("jkl-description-list__term", className)}>
-            {children}
-        </dt>
+        <>
+            <div className="seperator" />
+            <dt
+                {...rest}
+                className={clsx("jkl-description-list__term", className)}
+            >
+                {children}
+            </dt>
+        </>
     );
 };
 

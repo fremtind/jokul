@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Button } from "../Button.js";
 import "../styles/_index.scss";
-import { Flex } from "../../flex/Flex.jsx";
+import { Flex } from "../../flex/Flex.js";
 import { CheckIcon, CloseIcon, PlusIcon } from "../../icon/index.js";
 
 const meta = {

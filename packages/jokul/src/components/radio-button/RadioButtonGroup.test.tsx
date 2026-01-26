@@ -145,12 +145,12 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("compact radio buttons should be a11y compliant", async () => {
+    it("small size radio buttons should be a11y compliant", async () => {
         const { container } = render(
             <RadioButtonGroup
                 legend="Er du fornøyd?"
                 name="happy"
-                density="compact"
+                data-size="small"
             >
                 <RadioButton value="y">Ja</RadioButton>
                 <RadioButton value="n">Nei</RadioButton>

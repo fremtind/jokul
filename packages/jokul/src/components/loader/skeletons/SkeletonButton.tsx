@@ -2,15 +2,11 @@ import React from "react";
 import type { SkeletonButtonProps } from "../types.js";
 import { SkeletonElement } from "./SkeletonElement.js";
 
-export const SkeletonButton = ({
-    style,
-    density,
-    ...rest
-}: SkeletonButtonProps) => {
+export const SkeletonButton = ({ style, ...rest }: SkeletonButtonProps) => {
     return (
         <SkeletonElement
             {...rest}
-            height={density === "compact" ? 24 : 40}
+            height="var(--jkl-unit-40)"
             style={{ borderRadius: "999px", ...style }}
         />
     );

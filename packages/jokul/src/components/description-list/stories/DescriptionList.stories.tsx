@@ -14,6 +14,18 @@ const meta: Meta = {
         DescriptionDetail,
         DescriptionTerm,
     },
+    args: {
+        alignment: "horizontal",
+        separators: true,
+    },
+    argTypes: {
+        alignment: {
+            options: ["horizontal", "vertical", "justified"],
+        },
+    },
+    parameters: {
+        layout: "padded",
+    },
 } satisfies Meta<typeof DescriptionList>;
 
 export default meta;
@@ -22,17 +34,21 @@ type Story = StoryObj<typeof meta>;
 
 export const DescriptionListStory: Story = {
     name: "DescriptionList",
-    render: () => (
-        <DescriptionList>
-            <DescriptionTerm>Dekning</DescriptionTerm>
-            <DescriptionDetail>Kasko</DescriptionDetail>
+    args: {
+        children: (
+            <>
+                <DescriptionTerm>Dekning</DescriptionTerm>
+                <DescriptionDetail>Kasko</DescriptionDetail>
 
-            <DescriptionTerm>Egenandel</DescriptionTerm>
-            <DescriptionDetail>2 000 kr for glass</DescriptionDetail>
-            <DescriptionDetail>6 000 kr for øvrige skader</DescriptionDetail>
+                <DescriptionTerm>Egenandel</DescriptionTerm>
+                <DescriptionDetail>2 000 kr for glass</DescriptionDetail>
+                <DescriptionDetail>
+                    6 000 kr for øvrige skader
+                </DescriptionDetail>
 
-            <DescriptionTerm>Sjåfør under 23 år</DescriptionTerm>
-            <DescriptionDetail>Nei</DescriptionDetail>
-        </DescriptionList>
-    ),
+                <DescriptionTerm>Sjåfør under 23 år</DescriptionTerm>
+                <DescriptionDetail>Nei</DescriptionDetail>
+            </>
+        ),
+    },
 };

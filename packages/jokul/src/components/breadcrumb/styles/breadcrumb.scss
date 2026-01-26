@@ -1,38 +1,41 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-.jkl-breadcrumb {
-    a[aria-current] {
-        text-decoration: none;
-        background-image: none;
-        color: var(--jkl-color-text-interactive);
 
-        &:hover {
-            cursor: default;
-            color: var(--jkl-color-text-interactive-hover);
+@layer jokul.components {
+    .jkl-breadcrumb {
+        a[aria-current] {
+            text-decoration: none;
             background-image: none;
+            color: var(--jkl-color-text-interactive);
+
+            &:hover {
+                cursor: default;
+                color: var(--jkl-color-text-interactive-hover);
+                background-image: none;
+            }
         }
-    }
 
-    a:focus-visible {
-        @include jkl.focus-outline;
-    }
+        a:focus-visible {
+            @include jkl.focus-outline;
+        }
 
-    &__list {
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-        margin: 0;
-        padding-inline-start: 0;
-    }
+        &__list {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            margin: 0;
+            padding-inline-start: 0;
+        }
 
-    &__item {
-        margin-bottom: jkl.$unit-10;
-        white-space: nowrap;
-    }
+        &__item {
+            margin-bottom: var(--jkl-unit-10);
+            white-space: nowrap;
+        }
 
-    &__item-separator {
-        padding-left: jkl.$unit-10;
-        padding-right: jkl.$unit-10;
+        &__item-separator {
+            padding-left: var(--jkl-unit-10);
+            padding-right: var(--jkl-unit-10);
+        }
     }
 }

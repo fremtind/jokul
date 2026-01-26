@@ -1,5 +1,4 @@
 import type { ChangeEventHandler, InputHTMLAttributes, ReactNode } from "react";
-import type { Density } from "../../core/types.js";
 import type {
     FieldGroupProps,
     SupportLabelProps,
@@ -7,7 +6,6 @@ import type {
 
 export interface BaseRadioButtonProps extends RadioButtonProps {
     inline?: boolean;
-    density?: Density;
     invalid?: boolean;
     onChange?: ChangeEventHandler<HTMLInputElement>;
 }
@@ -25,7 +23,7 @@ export interface RadioButtonProps
     helpLabel?: ReactNode;
     supportLabelProps?: Omit<
         SupportLabelProps,
-        "id" | "errorLabel" | "helpLabel" | "density"
+        "id" | "errorLabel" | "helpLabel"
     >;
 }
 
@@ -48,5 +46,4 @@ export interface RadioButtonGroupProps
      * @default false
      */
     inline?: boolean;
-    density?: Density;
 }

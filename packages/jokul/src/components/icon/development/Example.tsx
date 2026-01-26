@@ -10,7 +10,7 @@ import { IconsExample, iconsExampleKnobs } from "./IconsExample.js";
 export default function Example() {
     return (
         <>
-            <div data-layout-density="compact">
+            <div>
                 <h2 className="jkl-heading-2">
                     Heading{" "}
                     <ArrowDownIcon

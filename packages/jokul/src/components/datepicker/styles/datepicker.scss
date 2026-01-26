@@ -1,47 +1,49 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
 @use "calendar";
 @use "calendar-navigation";
 @use "calendar-navigation-dropdown";
 @use "calendar-table";
 @use "calendar-date-button";
+@use "../../../core/jkl";
 
-.jkl-datepicker {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-
-    @include jkl.reset-outline;
-
-    &__input-wrapper {
+@layer jokul.components {
+    .jkl-datepicker {
         position: relative;
-        display: contents;
-    }
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
-    & &__input {
-        // Juster padding for bedre balanse når det vises tall
-        padding-top: calc(var(--jkl-text-input-vertical-padding) + 0.08em);
-        padding-bottom: calc(var(--jkl-text-input-vertical-padding) - 0.08em);
-    }
+        @include jkl.reset-outline;
 
-    &__calendar-wrapper {
-        position: absolute;
-        top: calc(100% + #{jkl.rem(14px)});
-        left: 0;
-        z-index: jkl.$z-index--dropdown;
-    }
-
-    @include jkl.small-device {
-        &__calendar-wrapper {
-            left: -1.15rem;
+        &__input-wrapper {
+            position: relative;
+            display: contents;
         }
-    }
 
-    // Custom tweaks for iPhone SE
-    @include jkl.screen-to(375px) {
+        & &__input {
+            // Juster padding for bedre balanse når det vises tall
+            padding-top: calc(var(--jkl-text-input-vertical-padding) + 0.08em);
+            padding-bottom: calc(var(--jkl-text-input-vertical-padding) - 0.08em);
+        }
+
         &__calendar-wrapper {
-            left: -2.5rem;
+            position: absolute;
+            top: calc(100% + #{jkl.rem(14px)});
+            left: 0;
+            z-index: jkl.$z-index--dropdown;
+        }
+
+        @include jkl.small-device {
+            &__calendar-wrapper {
+                left: -1.15rem;
+            }
+        }
+
+        // Custom tweaks for iPhone SE
+        @include jkl.screen-to(375px) {
+            &__calendar-wrapper {
+                left: -2.5rem;
+            }
         }
     }
 }

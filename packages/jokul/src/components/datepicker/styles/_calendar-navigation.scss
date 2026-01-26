@@ -1,12 +1,14 @@
 @use "../../../core/jkl";
 
-.jkl-calendar-navigation {
-    border: 0;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    box-sizing: border-box;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+@layer jokul.components {
+    .jkl-calendar-navigation {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
 }

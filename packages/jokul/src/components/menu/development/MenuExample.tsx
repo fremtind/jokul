@@ -29,9 +29,8 @@ export const MenuExample: FC<ExampleComponentProps> = ({
             ? choiceValues?.["isOpen"] === "true"
             : undefined;
 
-    /* Force a re-render whenever theme or density changes */
-    const key =
-        displayValues?.theme || `none${displayValues?.density}` || "none";
+    /* Force a re-render whenever theme or size changes */
+    const key = displayValues?.theme || `${displayValues?.size}` || "none";
 
     const CustomLink = forwardRef<
         HTMLAnchorElement,

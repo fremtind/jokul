@@ -13,7 +13,6 @@ export const BaseRadioButton = forwardRef<
         checked,
         children,
         label,
-        density,
         inline,
         invalid,
         name,
@@ -30,7 +29,6 @@ export const BaseRadioButton = forwardRef<
                 "jkl-radio-button--inline": inline,
                 "jkl-radio-button--error": invalid,
             })}
-            data-density={density}
         >
             <input
                 name={name}

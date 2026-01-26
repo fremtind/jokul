@@ -6,172 +6,153 @@
 $_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
 $_dismiss-animation-duration: jkl.timing("lazy");
 
-@include jkl.comfortable-density-variables {
-    --jkl-system-message-icon-height: #{jkl.rem(24px)};
-    --jkl-system-message-icon-padding: #{jkl.rem(3px)} 0 0 0;
-    --jkl-system-message-content-padding: #{jkl.$spacing-24};
-    --jkl-system-message-dismiss-button-size: #{jkl.rem(44px)};
-    --jkl-system-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(
- 18px)
-}
+@layer jokul.components {
+    .jkl-system-message {
+        --jkl-system-message-icon-height: var(--jkl-unit-30);
+        --jkl-system-message-icon-padding: #{jkl.rem(3px)} 0 0 0;
+        --jkl-system-message-content-padding: var(--jkl-unit-30);
+        --jkl-system-message-dismiss-button-size: var(--jkl-unit-40);
+        --jkl-system-message-dismiss-button-margin: -#{jkl.rem(
+                6.5px
+            )} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)}
+            auto;
+        --jkl-system-message-message-margin: 0 var(--jkl-spacing-20);
+        --background-color: var(--jkl-color-background-alert-neutral);
+        --text-color: var(--jkl-color-text-on-alert);
 
--#{jkl.rem(6.5px)} auto;
---jkl-system-message-message-margin: 0 #{jkl.$spacing-16};
-
-@include jkl.declare-font-variables("jkl-system-message-message", "body");
-}
-
-@include jkl.compact-density-variables {
-    --jkl-system-message-icon-height: #{jkl.rem(20px)};
-    --jkl-system-message-icon-padding: #{jkl.rem(1px)} 0 0 0;
-    --jkl-system-message-content-padding: #{jkl.$spacing-8};
-    --jkl-system-message-dismiss-button-size: #{jkl.rem(32px)};
-    --jkl-system-message-dismiss-button-margin: -#{jkl.rem(3px)} -#{jkl.rem(
- 6px)
-}
-
--#{jkl.rem(4.5px)} auto;
---jkl-system-message-message-margin: 0 #{jkl.$spacing-12};
-
-@include jkl.declare-font-variables("jkl-system-message-message", "small");
-}
-
-.jkl-system-message {
-    --background-color: var(--jkl-color-background-alert-neutral);
-    --text-color: var(--jkl-color-text-on-alert);
-
-    width: 100%;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    transition-behavior: allow-discrete;
-    box-sizing: border-box;
-
-    &__content {
-        box-sizing: border-box;
-        padding: var(--jkl-system-message-content-padding);
-        display: grid;
-        grid-template-columns: min-content 1fr min-content;
-        align-items: flex-start;
         width: 100%;
-        margin: 0 auto;
-    }
+        background-color: var(--background-color);
+        color: var(--text-color);
+        transition-behavior: allow-discrete;
+        box-sizing: border-box;
 
-    &__icon {
-        height: var(--jkl-system-message-icon-height);
-        margin: var(--jkl-system-message-icon-padding);
-        flex-shrink: 0;
-
-        @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
-    }
-
-    &__message {
-        @include jkl.use-font-variables("jkl-system-message-message");
-        margin: var(--jkl-system-message-message-margin);
-    }
-
-    &__dismiss-button {
-        background-color: transparent;
-        padding: 0;
-        cursor: pointer;
-        display: grid;
-        place-content: center;
-        position: relative;
-        flex-shrink: 0;
-        margin-top: jkl.rem(3px); // visual alignment with text
-        color: inherit;
-
-        // Sørg for å ha en stor nok touch target.
-        &::after {
-            content: "";
-            position: absolute;
-            display: block;
-            width: var(--jkl-system-message-dismiss-button-size);
-            height: var(--jkl-system-message-dismiss-button-size);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        &__content {
+            box-sizing: border-box;
+            padding: var(--jkl-system-message-content-padding);
+            display: grid;
+            grid-template-columns: min-content 1fr min-content;
+            align-items: flex-start;
+            width: 100%;
+            margin: 0 auto;
         }
 
-        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+        &__icon {
+            height: var(--jkl-system-message-icon-height);
+            margin: var(--jkl-system-message-icon-padding);
+            flex-shrink: 0;
 
-        @include jkl.forced-colors-mode {
-            background-color: ButtonFace;
+            @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
         }
 
-        @include jkl.reset-outline;
+        &__message {
+            @include jkl.text-style("text-medium");
+            margin: var(--jkl-system-message-message-margin);
+        }
 
-        &:hover {
-            color: var(--jkl-color-text-interactive-hover);
+        &__dismiss-button {
+            background-color: transparent;
+            padding: 0;
+            cursor: pointer;
+            display: grid;
+            place-content: center;
+            position: relative;
+            flex-shrink: 0;
+            margin-top: jkl.rem(3px); // visual alignment with text
+            color: inherit;
+
+            // Sørg for å ha en stor nok touch target.
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                width: var(--jkl-system-message-dismiss-button-size);
+                height: var(--jkl-system-message-dismiss-button-size);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
 
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
-        }
-
-        &:focus-visible {
-            @include jkl.focus-outline;
 
             @include jkl.forced-colors-mode {
-                outline: 2px solid ButtonText;
-                outline-offset: 2px;
+                background-color: ButtonFace;
+            }
+
+            @include jkl.reset-outline;
+
+            &:hover {
+                color: var(--jkl-color-text-interactive-hover);
+
+                @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+            }
+
+            &:focus-visible {
+                @include jkl.focus-outline;
+
+                @include jkl.forced-colors-mode {
+                    outline: 2px solid ButtonText;
+                    outline-offset: 2px;
+                }
+            }
+        }
+
+        &__message,
+        &__message:last-child {
+            margin-bottom: 0;
+        }
+
+        &--dismissed {
+            animation: $_dismiss-animation-name jkl.timing("lazy") forwards;
+            transition: block jkl.timing("lazy") jkl.timing("lazy");
+        }
+
+        &--info {
+            --background-color: var(--jkl-color-background-alert-info);
+        }
+
+        &--warning {
+            --background-color: var(--jkl-color-background-alert-warning);
+        }
+
+        &--error {
+            --background-color: var(--jkl-color-background-alert-error);
+        }
+
+        &--success {
+            --background-color: var(--jkl-color-background-alert-success);
+        }
+
+        @include jkl.forced-colors-mode {
+            border: 2px solid CanvasText;
+
+            &--info {
+                border-style: dotted;
+            }
+
+            &--warning {
+                border-style: dashed;
+            }
+
+            &--error {
+                border-style: double;
+                border-width: 4px;
             }
         }
     }
 
-    &__message,
-    &__message:last-child {
-        margin-bottom: 0;
-    }
-
-    &--dismissed {
-        animation: $_dismiss-animation-name jkl.timing("lazy") forwards;
-        transition: block jkl.timing("lazy") jkl.timing("lazy");
-    }
-
-    &--info {
-        --background-color: var(--jkl-color-background-alert-info);
-    }
-
-    &--warning {
-        --background-color: var(--jkl-color-background-alert-warning);
-    }
-
-    &--error {
-        --background-color: var(--jkl-color-background-alert-error);
-    }
-
-    &--success {
-        --background-color: var(--jkl-color-background-alert-success);
-    }
-
-    @include jkl.forced-colors-mode {
-        border: 2px solid CanvasText;
-
-        &--info {
-            border-style: dotted;
+    @keyframes #{$_dismiss-animation-name} {
+        from {
+            opacity: 1;
+            transform: translateY(0);
+            filter: saturate(1);
+            display: block;
         }
 
-        &--warning {
-            border-style: dashed;
+        to {
+            opacity: 0;
+            transform: translateY(-10%);
+            filter: saturate(0.7);
+            display: none;
         }
-
-        &--error {
-            border-style: double;
-            border-width: 4px;
-        }
-    }
-}
-
-@keyframes #{$_dismiss-animation-name} {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-        filter: saturate(1);
-        display: block;
-    }
-
-    to {
-        opacity: 0;
-        transform: translateY(-10%);
-        filter: saturate(0.7);
-        display: none;
     }
 }

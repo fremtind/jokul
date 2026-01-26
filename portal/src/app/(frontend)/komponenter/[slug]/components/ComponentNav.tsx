@@ -34,13 +34,11 @@ export const ComponentNav = () => {
     }, []);
 
     return (
-        <LinkList variant="ordered" className="jkl-body">
+        <LinkList label="Innhold" hideLabel className="jkl-body">
             {headings.map((heading) => (
-                <LinkList.Item key={heading.slug}>
-                    <LinkList.Link href={`#${heading.slug}`}>
-                        {heading.text}
-                    </LinkList.Link>
-                </LinkList.Item>
+                <LinkList.Link href={`#${heading.slug}`} key={heading.slug}>
+                    {heading.text}
+                </LinkList.Link>
             ))}
         </LinkList>
     );

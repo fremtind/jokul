@@ -10,7 +10,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             autoExpand,
             className,
             counter,
-            density,
             errorLabel,
             helpLabel,
             inline,
@@ -24,7 +23,6 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         } = props;
         const inputGroupProps = {
             label,
-            density,
             errorLabel,
             helpLabel,
             labelProps,

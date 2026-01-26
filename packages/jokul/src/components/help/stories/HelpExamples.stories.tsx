@@ -66,7 +66,7 @@ export const Help2: Story = {
     render: (args) => (
         <DescriptionList>
             <DescriptionTerm>Område</DescriptionTerm>
-            <DescriptionDetail data-layout-density="compact">
+            <DescriptionDetail>
                 <Flex gap="xs">
                     <p>Hele verden</p>
                     <Help {...args} />
