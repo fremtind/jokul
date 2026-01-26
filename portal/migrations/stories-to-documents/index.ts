@@ -1,3 +1,4 @@
+/*
 import type { Jokul_storybook } from "@/sanity/types";
 import {
     at,
@@ -61,3 +62,4 @@ export default defineMigration({
         },
     },
 });
+*/
