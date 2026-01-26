@@ -1,6 +1,8 @@
 "use client";
 
+import { ExampleList } from "@/components/portable-text/examples/ExampleList";
 import { QuestionsAndAnswers } from "@/components/portable-text/q-and-a/QuestionsAndAnswers";
+import { Storybook } from "@/components/portable-text/storybook-story/Storybook";
 import { client } from "@/sanity/lib/client";
 import type { PortableTextReactComponents } from "@portabletext/react";
 import { PortableText as PortableTextReact } from "@portabletext/react";
@@ -22,7 +24,6 @@ import {
     UnorderedList,
 } from "./list";
 import { MessageBox } from "./messageBox/MessageBox";
-import { Storybook } from "./storybook-story/Storybook";
 import { Table } from "./table/Table";
 import { CodeBlock } from "./typography/Typography";
 
@@ -37,6 +38,7 @@ function urlFor(source: SanityImageObject) {
 }
 
 const jokulBlockTypes = {
+    jokul_examples: ExampleList,
     jokul_storybook: Storybook,
     jokul_componentKortFortalt: KortFortalt,
     jokul_codeBlock: CodeBlock,
@@ -89,7 +91,6 @@ export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
             internalLink: ({ value, children }) => {
                 const { slug = {} } = value;
                 const href = `/${slug.current}`;
-                console.log(value);
                 return <a href={href}>{children}</a>;
             },
         },

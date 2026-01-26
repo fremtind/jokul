@@ -1,0 +1,122 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.examples {
+    --item-gap-y: 2ex;
+    --item-gap-x: 2em;
+    --item-gap: var(--item-gap-y) var(--item-gap-x);
+
+    list-style: none;
+    padding-inline-start: 0;
+    margin: 0;
+    display: flex;
+    gap: var(--item-gap);
+
+    &, &.list {
+        flex-direction: column;
+    }
+
+    &.gallery {
+        --item-gap: 1ex;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20ch, 1fr));
+    }
+
+    &.carousel {
+        --carousel-width: 100%;
+        --carousel-controls-height: 1lh;
+        --item-gap-x: 2ch;
+
+        flex-direction: row;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scroll-snap-type: x mandatory;
+        anchor-name: --carousel;
+        anchor-scope: all;
+        scroll-marker-group: after;
+        margin-block-end: var(--carousel-controls-height);
+        padding-block-end: 4px;
+
+        &::scroll-marker-group {
+            display: flex;
+            gap: 1ch;
+            position: fixed;
+            position-anchor: --carousel;
+            flex-wrap: wrap;
+            //noinspection CssInvalidPropertyValue,CssInvalidFunction
+            right: anchor(right);
+            //noinspection CssInvalidPropertyValue,CssInvalidFunction
+            bottom: calc(anchor(bottom) - 1.2lh);
+        }
+
+        li {
+            width: calc(var(--carousel-width) - calc(33% + calc(var(--item-gap-x) * 2)));
+            flex-shrink: 0;
+            scroll-snap-align: center;
+            counter-increment: item 1;
+
+            &::scroll-marker {
+                color: inherit;
+                content: counter(item);
+                text-decoration: none;
+                border-radius: 4px;
+                text-box-trim: trim-end;
+                padding-inline: 1ch;
+                border: 1px solid var(--jkl-color-border-separator);
+                background: transparent;
+                @include jkl.motion("standard", "productive", background, color, border-color);
+            }
+
+            &::scroll-marker:target-current {
+                background: var(--jkl-color-background-action);
+                color: var(--jkl-color-text-on-action);
+                border-color: var(--jkl-color-background-action);
+            }
+        }
+
+        &:has(li:only-of-type) {
+            &, li {
+                display: contents;
+            }
+        }
+    }
+
+    .example {
+        height: 100%;
+        --example-height: 360px;
+
+        iframe {
+            border: 0;
+            width: 100%;
+            max-width: 100%;
+            height: calc(var(--example-height, 360) * #{jkl.rem(1px)});
+            aspect-ratio: 1;
+            border-radius: jkl.rem(4px);
+        }
+
+        .info {
+            position: relative;
+            gap: 1ex 1em;
+            padding-block-start: 0.5lh;
+
+            &::before {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                inset: 0;
+                border-block-start: 1px solid var(--jkl-color-border-separator);
+            }
+
+            .description {
+                @include jkl.text-style("small");
+            }
+
+            a {
+                margin-block-start: 2px;
+                color: var(--jkl-color-text-subdued);
+
+                @include jkl.text-style("small");
+            }
+        }
+    }
+}
