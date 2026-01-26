@@ -1,4 +1,4 @@
-import React, { type FormEventHandler, useEffect, useId } from "react";
+import React, { useEffect, useId } from "react";
 import ReactDOM from "react-dom";
 import { Button } from "../button/Button.js";
 import { Flex } from "../flex/index.js";
@@ -14,11 +14,8 @@ import {
 } from "../modal/Modal.js";
 import { useModal } from "../modal/useModal.js";
 import { useInternalState } from "./CookieConsentContext.js";
-import {
-    convertBooleanConsentObjectToConsentObject,
-    setConsentCookie,
-} from "./cookieConsentUtils.js";
-import type { Consent, CookieConsentProps } from "./types.js";
+import { setConsentCookie } from "./cookieConsentUtils.js";
+import type { Consent, ConsentState, CookieConsentProps } from "./types.js";
 
 export const CookieConsent = ({
     blocking,
@@ -31,7 +28,6 @@ export const CookieConsent = ({
         cookieName,
         cookieDomain,
         cookiePath,
-        requirement,
         isOpen,
         setIsOpen,
         updateCurrentConsents,
@@ -69,34 +65,21 @@ export const CookieConsent = ({
 
     // Cookies are disabled in the browser
     if (typeof navigator !== "undefined" && !navigator.cookieEnabled) {
-        if (onAccept) {
-            onAccept({
-                functional: "denied",
-                statistics: "denied",
-            });
-        }
+        onAccept?.({
+            functional: "denied",
+            statistics: "denied",
+            marketing: "denied",
+        });
 
         return null;
     }
 
-    const accept = (
-        selection = convertBooleanConsentObjectToConsentObject(
-            {
-                functional: true,
-                statistics: true,
-            },
-            requirement,
-        ),
-    ) => {
-        const selectionWithoutEmptyValues = Object.fromEntries(
-            Object.entries(selection).filter(
-                ([, value]) => typeof value !== "undefined",
-            ),
-        );
-
+    const updateCookies = (state: ConsentState) => {
         const updatedConsent: Consent = {
             ...currentConsent,
-            ...selectionWithoutEmptyValues,
+            functional: state,
+            statistics: state,
+            marketing: "denied",
         };
 
         setConsentCookie({
@@ -106,27 +89,11 @@ export const CookieConsent = ({
             path: cookiePath,
         });
 
-        updateCurrentConsents();
-
         onAccept?.(updatedConsent);
 
+        updateCurrentConsents();
+
         instance?.hide();
-    };
-
-    const onSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(e.currentTarget);
-
-        const newConsents = convertBooleanConsentObjectToConsentObject(
-            {
-                functional: formData.get("functional") === "true",
-                statistics: formData.get("statistics") === "true",
-            },
-            requirement,
-        );
-
-        accept(newConsents);
     };
 
     return ReactDOM.createPortal(
@@ -136,7 +103,7 @@ export const CookieConsent = ({
             data-cookie-consent-open={isOpen}
         >
             <ModalOverlay {...modalConfig.overlay} />
-            <Modal component="form" {...modalConfig.modal} {...{ onSubmit }}>
+            <Modal {...modalConfig.modal}>
                 <ModalHeader>
                     <ModalTitle {...modalConfig.title}>
                         Får vi bruke valgfrie informasjonskapsler?
@@ -146,14 +113,14 @@ export const CookieConsent = ({
                     <Flex direction="column" gap="m">
                         <p>
                             Vi ønsker å samle anonym statistikk for å forstå
-                            hvordan nettsidene våre brukes. Det hjelper oss
-                            til å gjøre innhold og løsninger bedre og mer
+                            hvordan nettsidene våre brukes. Det hjelper oss til
+                            å gjøre innhold og løsninger bedre og mer
                             brukervennlige.
                         </p>
                         <p>
                             <Link href={aboutPage} target="_blank">
-                                Les mer om hvilke informasjonskapsler vi
-                                lagrer her
+                                Les mer om hvilke informasjonskapsler vi lagrer
+                                her
                             </Link>
                             .
                         </p>
@@ -162,16 +129,17 @@ export const CookieConsent = ({
                 <ModalActions>
                     <Button
                         variant="secondary"
-                        data-testid="jkl-cookie-consent-godta-alle"
+                        data-testid="jkl-cookie-consent-godta"
                         type="button"
-                        onClick={() => accept()}
+                        onClick={() => updateCookies("accepted")}
                     >
                         Ja, det er greit
                     </Button>
                     <Button
                         variant="secondary"
-                        data-testid="jkl-cookie-consent-godta"
-                        type="submit"
+                        data-testid="jkl-cookie-consent-nekt"
+                        type="button"
+                        onClick={() => updateCookies("denied")}
                     >
                         Nei takk
                     </Button>
