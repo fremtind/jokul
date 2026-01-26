@@ -1,25 +1,59 @@
 import clsx from "clsx";
-import React from "react";
-import { DescriptionListItem } from "./DescriptionListItem.js";
-import type { DescriptionListProps } from "./types.js";
+import React, { type FC } from "react";
+import type {
+    DescriptionDetailProps,
+    DescriptionListProps,
+    DescriptionTermProps,
+} from "./types.js";
 
-export const DescriptionList = ({
-    className,
-    alignment = "horizontal",
-    showSeparators = false,
+export const DescriptionList: FC<DescriptionListProps> = ({
     children,
+    className,
+    separators = false,
+    alignment = "horizontal",
     ...rest
-}: DescriptionListProps): React.JSX.Element => {
+}) => {
     return (
         <dl
             {...rest}
             className={clsx("jkl-description-list", className)}
+            data-separators={separators}
             data-alignment={alignment}
-            data-separators={showSeparators}
         >
             {children}
         </dl>
     );
 };
 
-DescriptionList.Item = DescriptionListItem;
+export const DescriptionTerm: FC<DescriptionTermProps> = ({
+    children,
+    className,
+    ...rest
+}) => {
+    return (
+        <>
+            <hr />
+            <dt
+                {...rest}
+                className={clsx("jkl-description-list__term", className)}
+            >
+                {children}
+            </dt>
+        </>
+    );
+};
+
+export const DescriptionDetail: FC<DescriptionDetailProps> = ({
+    children,
+    className,
+    ...rest
+}) => {
+    return (
+        <dd
+            {...rest}
+            className={clsx("jkl-description-list__detail", className)}
+        >
+            {children}
+        </dd>
+    );
+};
