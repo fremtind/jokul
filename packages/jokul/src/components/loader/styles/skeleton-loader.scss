@@ -130,16 +130,6 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
             }
         }
 
-        &--compact::after {
-            &__header {
-                padding: jkl.$spacing-8 jkl.$spacing-4;
-            }
-
-            &__row {
-                padding: jkl.$spacing-12 jkl.$spacing-4;
-            }
-        }
-
         @include jkl.forced-colors-mode {
             // Vi kan ikke bruke "gradient-trikset" for å skape den samme effekten,
             // så vi må tenke annerledes. Bruk gjennomsiktighet for å indikere at
