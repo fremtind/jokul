@@ -1,16 +1,22 @@
 import React from "react";
-import { DescriptionList } from "../DescriptionList.js";
+import {
+    DescriptionDetail as DD,
+    DescriptionTerm as DT,
+    DescriptionList,
+} from "../DescriptionList.js";
 
 export const DescriptionListExample: React.FC = () => {
     return (
         <DescriptionList>
-            <DescriptionList.Item terms="Dekning" details="Kasko" />
-            <DescriptionList.Item
-                terms="Egenandel"
-                details="2 000 kr for glass"
-                supportText="6 000 kr for øvrige skader"
-            />
-            <DescriptionList.Item terms="Sjåfør under 23 år" details="Nei" />
+            <DT>Dekning</DT>
+            <DD>Kasko</DD>
+
+            <DT>Egenandel</DT>
+            <DD>2 000 kr for glass</DD>
+            <DD>6 000 kr for øvrige skader</DD>
+
+            <DT>Sjåfør under 23 år</DT>
+            <DD>Nei</DD>
         </DescriptionList>
     );
 };
