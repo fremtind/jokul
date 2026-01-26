@@ -16,9 +16,9 @@ describe("Label", () => {
         });
     }
 
-    it("renders the expected result for compact", () => {
-        const { getByText } = render(<Label density="compact">Hello</Label>);
-        expect(getByText("Hello")).toHaveAttribute("data-density", "compact");
+    it("renders the expected result for size small", () => {
+        const { getByText } = render(<Label data-size="small">Hello</Label>);
+        expect(getByText("Hello")).toHaveAttribute("data-size", "small");
     });
 
     it("renders the expected class for srOnly", () => {

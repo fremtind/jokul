@@ -1,0 +1,112 @@
+@use "../../../core/jkl/index" as jkl;
+@use "../../../components/icon/styles/base-styles" as icon;
+
+.jkl-search {
+    --icon-size: var(--jkl-text-input-height);
+    --border-radius: var(--jkl-border-radius-s);
+    --border-width: 1px;
+    --border: var(--border-width) solid var(--jkl-color-border-input);
+
+    width: 100%;
+
+    @include jkl.text-style("text-medium");
+
+    input[type="search"] {
+        appearance: none;
+        padding: 0;
+        background-color: transparent;
+        color: var(--jkl-color-text-default);
+        grid-column: 2 / 3;
+
+        @include jkl.reset-outline;
+        @include jkl.text-style("text-medium");
+
+        &::-webkit-search-cancel-button,
+        &::-webkit-calendar-picker-indicator,
+        &::-webkit-search-results-button {
+            appearance: none;
+            display: none !important;
+        }
+    }
+
+    .input-wrapper {
+        box-sizing: border-box;
+        display: grid;
+        grid-template-columns: 1.3em 1fr;
+        gap: 0.25em;
+        border: var(--border);
+        border-radius: var(--border-radius);
+        padding-inline-end: 0;
+        padding: calc(var(--jkl-unit-15) - var(--border-width));
+
+        &::before {
+            content: attr(data-icon) / "";
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            grid-column: 1;
+
+            @include jkl.use-font-family("Fremtind Material Symbols");
+        }
+
+        &:has(.clear-button) {
+            grid-template-columns: 1.3em 1fr 1.3em;
+        }
+    }
+
+    // Nettlesere har ulik støtte for begge disse metodene, så begge må være med per 12. november 2025
+    &:has(input:not(:valid), input:placeholder-shown) {
+        .clear-button {
+            display: none;
+        }
+    }
+
+    .clear-button {
+        position: relative;
+        display: grid;
+        appearance: none;
+        background-color: transparent;
+        border: 0;
+        height: 100%;
+        padding: 0;
+        cursor: pointer;
+        color: var(--jkl-color-text-default);
+        border-radius: 100%;
+
+        &::before {
+            content: "close" / "";
+            display: inline-grid;
+            align-items: center;
+            justify-content: center;
+            place-self: center;
+            align-self: center;
+            grid-row: 1;
+            grid-column: 1;
+            z-index: 1;
+
+            @include icon.base-styles;
+        }
+
+        &::after {
+            --tap-size: 1.25lh;
+            content: "";
+            position: absolute;
+            inset: calc((var(--tap-size) - 100%) / 2 * -1);
+            background-color: var(--jkl-color-text-default);
+            opacity: 0;
+            border-radius: inherit;
+
+            @include jkl.motion;
+            transition-property: opacity;
+        }
+
+        &:hover::after {
+            opacity: 0.15;
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+        }
+    }
+}

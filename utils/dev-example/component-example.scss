@@ -52,7 +52,7 @@
             left: jkl.$spacing-16;
             content: attr(data-example-text);
 
-            @include jkl.text-style("small");
+            @include jkl.text-style("text-small");
         }
 
         &[data-test-mode="e2e-screenshot"] {
@@ -78,7 +78,7 @@
     &__example-options-header {
         margin-bottom: jkl.$spacing-12;
 
-        @include jkl.text-style("small");
+        @include jkl.text-style("text-small");
 
         &:not(:first-child) {
             margin-top: jkl.$spacing-24;
@@ -91,7 +91,7 @@
         & .jkl-label.jkl-label--small {
             color: var(--jkl-color-text-subdued);
 
-            @include jkl.text-style("small");
+            @include jkl.text-style("text-small");
         }
     }
 

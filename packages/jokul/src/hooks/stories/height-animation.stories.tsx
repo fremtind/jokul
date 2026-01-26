@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
-import { Button } from "../../components/button/Button.jsx";
+import { Button } from "../../components/button/Button.js";
 import type { UseAnimatedHeightOptions } from "../useAnimatedHeight/types.js";
 import { useAnimatedHeight } from "../useAnimatedHeight/useAnimatedHeight.js";
 import { useAnimatedHeightBetween } from "../useAnimatedHeight/useAnimatedHeightBetween.js";
@@ -8,7 +8,7 @@ import { useAutoAnimatedHeight } from "../useAnimatedHeight/useAutoAnimateHeight
 
 import "../../components/button/styles/_index.scss";
 import "./styles.scss";
-import { randomContentBlock } from "./content.jsx";
+import { randomContentBlock } from "./content.js";
 
 const meta = {
     title: "Hooks/Animasjon av høyde",
@@ -108,9 +108,7 @@ export const UseAutoAnimatedHeight: Story = {
             <section ref={animationRef} className="auto-animation-example">
                 <p className="jkl-heading-2">Lorem Ipsum</p>
                 {content}
-                <Button data-density="compact" onClick={changeContent}>
-                    Endre innhold
-                </Button>
+                <Button onClick={changeContent}>Endre innhold</Button>
             </section>
         );
     },

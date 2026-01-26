@@ -18,7 +18,7 @@ import {
 } from "@floating-ui/react";
 import clsx from "clsx";
 import * as React from "react";
-import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
+import { getThemeAndSize } from "../../utilities/getThemeAndSize.js";
 import type { PopoverOptions } from "./types.js";
 
 const usePopover = ({
@@ -219,9 +219,9 @@ const PopoverContent = React.forwardRef<
 
     const referenceElement = refs.reference.current as ReferenceElement;
 
-    const { theme, density } = isCustomPositioned(referenceElement)
-        ? getThemeAndDensity(referenceElement.contextElement)
-        : getThemeAndDensity(referenceElement);
+    const { theme, size } = isCustomPositioned(referenceElement)
+        ? getThemeAndSize(referenceElement.contextElement)
+        : getThemeAndSize(referenceElement);
 
     const floatingPortalRef = React.useRef<HTMLElement | null>(null);
 
@@ -245,7 +245,7 @@ const PopoverContent = React.forwardRef<
             >
                 <div
                     data-theme={theme}
-                    data-layout-density={density}
+                    data-size={size}
                     className={clsx("jkl jkl-popover", className)}
                     ref={ref}
                     style={

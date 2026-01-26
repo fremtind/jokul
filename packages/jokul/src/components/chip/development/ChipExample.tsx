@@ -14,11 +14,6 @@ export const chipExampleKnobs: ExampleKnobsProps = {
             values: ["input", "filter"],
             defaultValue: 0,
         },
-        {
-            name: "Size",
-            values: ["small", "large"],
-            defaultValue: 0,
-        },
     ],
 };
 
@@ -49,7 +44,6 @@ const ExampleChipWrapper: React.FC<ExampleComponentProps> = ({
     choiceValues,
 }) => {
     const variant = choiceValues?.["Variant"] as ChipVariant;
-    const size = choiceValues?.["Size"] as "small" | "large";
 
     const [inputDismissed, setInputDismissed] = useState<boolean[]>(
         Array(chipInputLabels.length).fill(false),
@@ -97,7 +91,6 @@ const ExampleChipWrapper: React.FC<ExampleComponentProps> = ({
                           variant="filter"
                           onClick={() => handleClick(index)}
                           selected={option.selected}
-                          size={size}
                       >
                           {option.title}
                       </Chip>
@@ -109,7 +102,6 @@ const ExampleChipWrapper: React.FC<ExampleComponentProps> = ({
                                   key={label}
                                   variant="input"
                                   onClick={() => handleClick(index)}
-                                  size={size}
                               >
                                   {label}
                               </Chip>

@@ -9,10 +9,6 @@ figma.connect(
         imports: ['import { Chip } from "@fremtind/jokul/components/chip";'],
         variant: { Variant: "Filter" },
         props: {
-            size: figma.enum("Size", {
-                Small: "small",
-                Large: "large",
-            }),
             children: figma.string("Text"),
             selected: figma.enum("Variant", {
                 "Filter Selected": true,
@@ -28,10 +24,6 @@ figma.connect(
     {
         imports: ['import { Chip } from "@fremtind/jokul/components/chip";'],
         props: {
-            size: figma.enum("Size", {
-                Small: "small",
-                Large: "large",
-            }),
             children: figma.string("Text"),
         },
         example: (props) => <Chip variant="input" {...props} />,

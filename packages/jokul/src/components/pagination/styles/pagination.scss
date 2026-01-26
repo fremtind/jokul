@@ -1,49 +1,52 @@
 @use "../../../core/jkl";
 
-$_button-size: jkl.rem(32px);
+@layer jokul.components {
+    .jkl-pagination {
+        display: flex;
 
-.jkl-pagination {
-    display: flex;
+        &__pages {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+            margin: 0;
+            padding: 0;
+        }
+    }
 
-    &__pages {
-        list-style: none;
+    .jkl-pagination-button {
+        --button-size: var(--jkl-unit-40);
+
+        all: unset;
         display: flex;
         align-items: center;
-        flex-wrap: nowrap;
-        margin: 0;
-        padding: 0;
-    }
-}
-
-.jkl-pagination-button {
-    all: unset;
-    display: flex;
-    justify-content: center;
-    height: $_button-size;
-    min-width: $_button-size;
-    text-align: center;
-    cursor: pointer;
-    user-select: none;
-    border-radius: jkl.rem(3px);
-    color: jkl.$color-text-interactive;
-
-    &:hover:not(:focus) {
-        color: jkl.$color-text-interactive-hover;
-    }
-
-    &:focus-visible {
-        @include jkl.focus-outline;
-    }
-
-    &--current {
-        @include jkl.no-grow-bold;
-    }
-
-    &--elipsis {
-        display: block;
-        user-select: none;
+        justify-content: center;
+        height: var(--button-size);
+        min-width: var(--button-size);
         text-align: center;
-        height: $_button-size;
-        width: $_button-size;
+        cursor: pointer;
+        user-select: none;
+        border-radius: jkl.rem(3px);
+        color: var(--jkl-color-text-interactive);
+
+        &:hover:not(:focus) {
+            color: var(--jkl-color-text-interactive-hover);
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+        }
+
+        &--current {
+            @include jkl.no-grow-bold;
+        }
+
+        &--elipsis {
+            display: block;
+            user-select: none;
+            text-align: center;
+            height: var(--button-size);
+            width: var(--button-size);
+        }
     }
 }

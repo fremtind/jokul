@@ -5,7 +5,7 @@ import type {
     FocusEvent,
     KeyboardEvent,
 } from "react";
-import type { DataTestAutoId, Density } from "../../core/types.js";
+import type { DataTestAutoId } from "../../core/types.js";
 import type { InputGroupProps, LabelProps } from "../input-group/types.js";
 
 export type DateValidationError =
@@ -122,7 +122,6 @@ export interface DatePickerProps
      * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
      */
     invalid?: boolean;
-    density?: Density;
     /**
      * @deprecated Kalenderen viser nå alltid kontroller for å navigere mellom år og måneder.
      * Denne prop'en gjør ikke lenger noe og kan fjernes.

@@ -41,11 +41,12 @@ export const TextArea: Story = {
 
 export const Rows: Story = {
     args: {
-        rows: 3,
+        label: "Beskriv skaden",
+        errorLabel: "Du må beskrive skaden for å fortsette",
     },
 };
 
-export const Counter: Story = {
+export const ReadOnly: Story = {
     args: {
         counter: {
             maxLength: 400,

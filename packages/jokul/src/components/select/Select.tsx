@@ -50,7 +50,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             searchable = false,
             inline = false,
             defaultPrompt = "Velg",
-            density,
             width,
             maxShownOptions = 5,
             style,
@@ -477,7 +476,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             ...style,
                         } as CSSProperties
                     }
-                    density={density}
                     label={label}
                     labelProps={{
                         id: labelId,

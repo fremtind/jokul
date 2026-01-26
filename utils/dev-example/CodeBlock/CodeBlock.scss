@@ -26,7 +26,7 @@
     padding: jkl.$spacing-12;
     max-width: min(#{jkl.rem(750px)}, 50vw);
 
-    @include jkl.text-style("small");
+    @include jkl.text-style("paragraph-small");
 
     @include jkl.small-device {
         width: calc(100% - #{jkl.$spacing-40});
@@ -45,7 +45,7 @@
         content: attr(data-language);
 
         @include jkl.use-font-family("Fremtind Grotesk");
-        @include jkl.text-style("small");
+        @include jkl.text-style("text-small");
     }
 
     &__code {

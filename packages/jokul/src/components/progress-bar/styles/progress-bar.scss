@@ -2,6 +2,8 @@
 @use "../../../core/jkl";
 @use "../../../shared/track/styles/track";
 
+$_downcount: jkl-downcount-#{string.unique-id()};
+
 @layer jokul.components {
     .jkl-progress-bar {
         @include track.track;
@@ -12,8 +14,6 @@
             @include jkl.motion("standard", "productive");
         }
     }
-
-    $_downcount: jkl-downcount-#{string.unique-id()};
 
     @keyframes #{$_downcount} {
         from {

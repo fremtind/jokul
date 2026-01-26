@@ -1,141 +1,142 @@
 @use "../../../core/jkl";
 
-.jkl-expandable {
-    background-color: var(--jkl-color-background-container-low);
-    // A transparent border will be visible in forced colors mode and replace
-    // the role of the background-color in separating the component from other content
-    border: 1px solid transparent;
-    border-radius: var(--border-radius);
-    box-sizing: border-box;
-    width: 100%;
-    overflow: hidden;
-
-    &__content[data-expanded="true"] {
-        height: auto;
-    }
-
-    &__content[data-expanded="false"] {
-        height: 0;
-    }
-
-    &[data-visible-content="true"] .jkl-expander {
-        border-bottom: 1px solid transparent;
-    }
-
-    &__content-wrapper {
-        padding: jkl.rem(16px);
-    }
-
-    &--stroke {
-        border-color: var(--jkl-color-border-separator);
-        background-color: transparent;
-
-        border-radius: 0;
-        border-radius: var(--border-top-left-radius)
-            var(--border-top-right-radius) var(--border-bottom-right-radius)
-            var(--border-bottom-left-radius);
-    }
-
-    &__wrapper {
-        --border-radius: #{jkl.rem(4px)};
-        --outline-offset: 3px;
-        --border-top-left-radius: 0;
-        --border-top-right-radius: 0;
-        --border-bottom-left-radius: 0;
-        --border-bottom-right-radius: 0;
-
-        position: relative;
-
-        & + & {
-            // Matches every expandable that follows directly after another
-            .jkl-expandable--stroke {
-                border-top: none;
-            }
-        }
-
-        &:first-child {
-            --border-top-left-radius: var(--border-radius);
-            --border-top-right-radius: var(--border-radius);
-        }
-
-        &:last-child {
-            --border-bottom-left-radius: var(--border-radius);
-            --border-bottom-right-radius: var(--border-radius);
-        }
-
-        &:has(.jkl-expander:focus-visible) {
-            &:has(.jkl-expandable--stroke) {
-                --outline-offset: -1px;
-            }
-
-            .jkl-expandable__focus-container {
-                @include jkl.focus-outline;
-                outline-offset: var(--outline-offset);
-            }
-        }
-
-        &:has(:focus-visible):first-child:last-child {
-            --outline-offset: 3px;
-        }
-    }
-
-    &__focus-container {
+@layer jokul.components {
+    .jkl-expandable {
+        background-color: var(--jkl-color-background-container-low);
+        // A transparent border will be visible in forced colors mode and replace
+        // the role of the background-color in separating the component from other content
+        border: 1px solid transparent;
         border-radius: var(--border-radius);
-        position: absolute;
-        inset: 0;
-    }
-}
+        box-sizing: border-box;
+        width: 100%;
+        overflow: hidden;
 
-.jkl-expander {
-    box-sizing: border-box;
-    background: none;
-    appearance: none;
-    border: none;
-    text-align: left;
-    width: 100%;
-    padding: jkl.rem(16px);
-    cursor: pointer;
-    color: var(--jkl-color);
-
-    display: flex;
-    gap: jkl.rem(8px);
-    align-items: center;
-
-    /* Removes the default disclosure triangle without breaking semantics */
-    list-style: none;
-
-    &::-webkit-details-marker {
-        display: none;
-    }
-
-    &__label {
-        flex-grow: 1;
-    }
-
-    &__chevron {
-        user-select: none;
-        transition-property: transform;
-        transform: rotate(0turn);
-        text-align: right;
-    }
-
-    &--open {
-        .jkl-expander__label {
-            @include jkl.no-grow-bold;
+        &__content[data-expanded="true"] {
+            height: auto;
         }
 
-        .jkl-expander__chevron {
-            transform: rotate(-0.5turn);
+        &__content[data-expanded="false"] {
+            height: 0;
+        }
 
-            @include jkl.motion("standard", "snappy");
+        &[data-visible-content="true"] .jkl-expander {
+            border-bottom: 1px solid transparent;
+        }
+
+        &__content-wrapper {
+            padding: var(--jkl-unit-20)
+        }
+
+        &--stroke {
+            border-color: var(--jkl-color-border-separator);
+            background-color: transparent;
+
+            border-radius: 0;
+            border-radius: var(--border-top-left-radius) var(--border-top-right-radius) var(--border-bottom-right-radius) var(--border-bottom-left-radius);
+        }
+
+        &__wrapper {
+            --border-radius: #{jkl.rem(4px)};
+            --outline-offset: 3px;
+            --border-top-left-radius: 0;
+            --border-top-right-radius: 0;
+            --border-bottom-left-radius: 0;
+            --border-bottom-right-radius: 0;
+
+            position: relative;
+
+            & + & {
+
+                // Matches every expandable that follows directly after another
+                .jkl-expandable--stroke {
+                    border-top: none;
+                }
+            }
+
+            &:first-child {
+                --border-top-left-radius: var(--border-radius);
+                --border-top-right-radius: var(--border-radius);
+            }
+
+            &:last-child {
+                --border-bottom-left-radius: var(--border-radius);
+                --border-bottom-right-radius: var(--border-radius);
+            }
+
+            &:has(.jkl-expander:focus-visible) {
+                &:has(.jkl-expandable--stroke) {
+                    --outline-offset: -1px;
+                }
+
+                .jkl-expandable__focus-container {
+                    @include jkl.focus-outline;
+                    outline-offset: var(--outline-offset);
+                }
+            }
+
+            &:has(:focus-visible):first-child:last-child {
+                --outline-offset: 3px;
+            }
+        }
+
+        &__focus-container {
+            border-radius: var(--border-radius);
+            position: absolute;
+            inset: 0;
         }
     }
 
-    @media (hover: hover) {
-        &:hover {
-            background-color: var(--jkl-color-background-interactive-selected);
-        }
-    }
+    .jkl-expander {
+        box-sizing: border-box;
+        background: none;
+        appearance: none;
+        border: none;
+        text-align: left;
+        width: 100%;
+        padding: var(--jkl-unit-20);
+        cursor: pointer;
+        color: var(--jkl-color);
 
-    @include jkl.reset-outline;
+        display: flex;
+        gap: jkl.rem(8px);
+        align-items: center;
+
+        /* Removes the default disclosure triangle without breaking semantics */
+        list-style: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &__label {
+            flex-grow: 1;
+        }
+
+        &__chevron {
+            user-select: none;
+            transition-property: transform;
+            transform: rotate(0turn);
+            text-align: right;
+        }
+
+        &--open {
+            .jkl-expander__label {
+                @include jkl.no-grow-bold;
+            }
+
+            .jkl-expander__chevron {
+                transform: rotate(-0.5turn);
+
+                @include jkl.motion("standard", "snappy");
+            }
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--jkl-color-background-interactive-selected);
+            }
+        }
+
+        @include jkl.reset-outline;
+    }
 }
