@@ -1,11 +1,13 @@
+import type { Size } from "../core/types.js";
+
 /*
- * For komponenter som mountes utenfor roten av applikasjonen vil styring av theme og density
+ * For komponenter som mountes utenfor roten av applikasjonen vil styring av theme og size
  * via data-attributter satt på rot ikke fungere. Denne util'en kan brukes av slike komponenter
  * for å finne riktige verdier ved å sende inn et element som er mountet innenfor applikasjonen
  */
-export const getThemeAndDensity = (
+export const getThemeAndSize = (
     element: Element | undefined,
-): { theme?: string; density?: string } => {
+): { theme?: string; size?: Size } => {
     if (!element) return {};
 
     const computedStyles = getComputedStyle(element);
@@ -23,10 +25,9 @@ export const getThemeAndDensity = (
             ? "dark"
             : "light";
 
-    const density =
-        computedStyles.getPropertyValue("--jkl-density") === '"compact"'
-            ? "compact"
-            : "comfortable";
+    const size = element.closest("[data-size]")?.getAttribute("data-size") as
+        | Size
+        | undefined;
 
-    return { theme, density };
+    return { theme, size };
 };

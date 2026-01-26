@@ -10,7 +10,7 @@ import clsx from "clsx";
 import React, { type HTMLProps, forwardRef } from "react";
 import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
 import { useId } from "../../hooks/useId/useId.js";
-import { getThemeAndDensity } from "../../utilities/getThemeAndDensity.js";
+import { getThemeAndSize } from "../../utilities/getThemeAndSize.js";
 import { useTooltipContext } from "./Tooltip.js";
 
 function getTranslation(side: Side, value = 0) {
@@ -72,7 +72,7 @@ export const TooltipContent = forwardRef<
 
     // Siden tooltipet rendres på rot må vi hente lokal dark/light-verdi fra triggeren
     // Vi må gjøre dette for å ta hensyn til at tema kan styres lokalt for deler av UIet
-    const { density, theme } = getThemeAndDensity(
+    const { size, theme } = getThemeAndSize(
         refs.reference.current as HTMLElement,
     );
 
@@ -114,7 +114,7 @@ export const TooltipContent = forwardRef<
                                 data-placement={placement}
                                 data-testid={"tooltip-content"}
                                 data-theme={theme}
-                                data-layout-density={density}
+                                data-size={size}
                                 className={clsx(
                                     "jkl-tooltip-content",
                                     className,
