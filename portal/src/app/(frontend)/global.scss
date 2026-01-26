@@ -50,7 +50,7 @@ p,
 li {
     max-width: 55ch;
 
-    @include jkl.text-style("body");
+    @include jkl.text-style("paragraph-medium");
 }
 
 code,
@@ -72,7 +72,7 @@ article header {
     container-type: inline-size;
     box-sizing: border-box;
 
-    @include jkl.text-style("body");
+    @include jkl.text-style("paragraph-medium");
 
     > * + * {
         margin-block-start: 1lh;
@@ -127,6 +127,6 @@ article header {
 .date {
     color: var(--jkl-color-text-subdued);
 
-    @include jkl.text-style("small");
+    @include jkl.text-style("text-small");
     @include jkl.use-font-family("Fremtind Grotesk Mono");
 }

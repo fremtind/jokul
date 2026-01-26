@@ -2,33 +2,6 @@
 @use "../../../core/jkl";
 
 @layer jokul.components {
-    @include jkl.comfortable-density-variables {
-        @include jkl.declare-font-variables("jkl-modal-body", "body");
-        @include jkl.declare-font-variables("jkl-modal-title", "heading-3");
-
-        --jkl-modal-padding: #{jkl.$unit-50};
-        --jkl-modal-min-width: #{jkl.rem(220px)};
-        --jkl-modal-max-width: #{jkl.rem(660px)};
-        --jkl-modal-header-margin: 0 0 #{jkl.$unit-20};
-        --jkl-modal-actions-margin: #{jkl.$unit-50} 0 0 0;
-
-        @include jkl.small-device {
-            --jkl-modal-padding: #{jkl.$unit-40};
-            --jkl-modal-header-margin: 0 0 #{jkl.$unit-15};
-            --jkl-modal-actions-margin: #{jkl.$unit-40} 0 0 0;
-        }
-    }
-
-    @include jkl.compact-density-variables {
-        @include jkl.declare-font-variables("jkl-modal-body", "small");
-        @include jkl.declare-font-variables("jkl-modal-title", "heading-4");
-
-        --jkl-modal-padding: #{jkl.$unit-30};
-        --jkl-modal-header-margin: 0 0 #{jkl.$unit-10};
-        --jkl-modal-actions-margin: #{jkl.$unit-30} 0 0 0;
-        --jkl-modal-min-width: #{jkl.rem(220px)};
-    }
-
     .jkl-modal-container,
     .jkl-modal-overlay {
         position: fixed;
@@ -49,6 +22,10 @@
     }
 
     .jkl-modal {
+        --jkl-modal-padding: var(--jkl-unit-50);
+        --jkl-modal-min-width: #{jkl.rem(220px)};
+        --jkl-modal-max-width: #{jkl.rem(660px)};
+
         margin: auto;
         z-index: jkl.$z-index--modal;
         position: relative;
@@ -72,11 +49,17 @@
         }
 
         @include jkl.small-device {
-            margin: auto jkl.$unit-30;
+            margin: auto var(--jkl-unit-30);
         }
     }
 
     .jkl-modal-header {
+        --jkl-modal-header-margin: 0 0 var(--jkl-unit-20);
+
+        @include jkl.small-device {
+            --jkl-modal-header-margin: 0 0 var(--jkl-unit-15);
+        }
+
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -86,18 +69,24 @@
     }
 
     .jkl-modal-body {
-        @include jkl.use-font-variables("jkl-modal-body");
+        @include jkl.text-style("paragraph-medium");
     }
 
     .jkl-modal-title {
-        @include jkl.use-font-variables("jkl-modal-title");
+        @include jkl.text-style("heading-3");
     }
 
     .jkl-modal-actions {
+        --jkl-modal-actions-margin: var(--jkl-unit-50) 0 0 0;
+
+        @include jkl.small-device {
+            --jkl-modal-actions-margin: var(--jkl-unit-40) 0 0 0;
+        }
+
         margin: var(--jkl-modal-actions-margin);
         display: flex;
         flex-direction: column;
-        gap: jkl.$unit-20;
+        gap: var(--jkl-unit-20);
 
         @include jkl.screen-from(60ch) {
             flex-direction: row-reverse;

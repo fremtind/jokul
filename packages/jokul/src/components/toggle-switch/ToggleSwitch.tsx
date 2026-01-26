@@ -11,7 +11,6 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
             "aria-pressed": ariaPressed = false,
             children,
             className,
-            density,
             id,
             onChange,
             ...rest
@@ -64,7 +63,6 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
                 id={uid}
                 ref={ref}
                 aria-pressed={pressed}
-                data-density={density}
                 {...buttonProps}
                 {...(buttonProps.disabled ? {} : gestureHandlers)}
             >
@@ -73,7 +71,6 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
                     <div className="jkl-toggle-switch-widget__slider">
                         <div className="jkl-toggle-switch-widget__knob" />
                         <CheckIcon
-                            variant="small"
                             bold
                             className="jkl-toggle-switch-widget__indicator"
                         />

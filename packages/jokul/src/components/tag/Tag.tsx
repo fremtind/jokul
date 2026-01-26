@@ -19,7 +19,7 @@ function getDisplayName(variant?: TagProps["variant"]) {
 
 // Vil fjernes etterhvert :-)
 function tagFactory(variant?: TagProps["variant"]) {
-    const Tag: FC<TagProps> = ({ className, density, children, ...rest }) => (
+    const Tag: FC<TagProps> = ({ className, children, ...rest }) => (
         <span
             className={clsx(
                 "jkl-tag",
@@ -31,7 +31,6 @@ function tagFactory(variant?: TagProps["variant"]) {
                 },
                 className,
             )}
-            data-density={density}
             {...rest}
         >
             {children}
@@ -41,17 +40,18 @@ function tagFactory(variant?: TagProps["variant"]) {
     return Tag;
 }
 
-export const Tag = ({ className, density, variant = "neutral", children, ...rest } : TagProps) => (
+export const Tag = ({
+    className,
+    variant = "neutral",
+    children,
+    ...rest
+}: TagProps) => (
     <span
-        className={clsx(
-            "jkl-tag", `jkl-tag--${variant}`,
-            className,
-        )}
-        data-density={density}
+        className={clsx("jkl-tag", `jkl-tag--${variant}`, className)}
         {...rest}
     >
-            {children}
-        </span>
+        {children}
+    </span>
 );
 
 /**

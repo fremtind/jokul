@@ -6,6 +6,9 @@ export const storybook = defineType({
     title: "Eksempel fra Storybook",
     type: "object",
     icon: ComponentIcon,
+    deprecated: {
+        reason: "Bruk den nye Eksempler modulen",
+    },
     fields: [
         defineField({
             name: "story",
@@ -21,6 +24,15 @@ export const storybook = defineType({
             options: {
                 collapsed: true,
             },
+        }),
+        defineField({
+            name: "height",
+            title: "Høyde på eksempel (px)",
+            initialValue: 360,
+            description:
+                "Valgfri høyde på Storybook-eksempelet. Bruk lavere verdi for små eksempler.",
+            type: "number",
+            validation: (Rule) => Rule.min(120).max(1200),
         }),
     ],
     preview: {

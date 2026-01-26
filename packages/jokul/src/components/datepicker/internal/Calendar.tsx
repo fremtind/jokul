@@ -6,7 +6,6 @@ import React, {
     useRef,
 } from "react";
 import { flushSync } from "react-dom";
-import type { Density } from "../../../core/types.js";
 import { useId } from "../../../hooks/useId/useId.js";
 import { Button } from "../../button/Button.js";
 import { ArrowLeftIcon } from "../../icon/icons/ArrowLeftIcon.js";
@@ -33,7 +32,6 @@ interface CalendarProps
         "date" | "onOffsetChanged" | "offset" | "firstDayOfWeek" | "selected"
     > {
     date: Date | null;
-    density?: Density;
     defaultSelected?: Date;
     days?: string[];
     months?: string[];
@@ -65,7 +63,6 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
         const {
             date,
             defaultSelected,
-            density,
             minDate,
             maxDate,
             days = defaultDays,

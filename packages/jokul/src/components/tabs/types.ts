@@ -1,4 +1,4 @@
-import type { Density, WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../core/types.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/index.js";
 
 export type NavTabProps<ElementType extends React.ElementType> =
@@ -21,7 +21,6 @@ export type NavTabProps<ElementType extends React.ElementType> =
 export interface NavTabsProps extends WithChildren {
     "aria-label"?: string;
     className?: string;
-    density?: Density;
     id?: string;
 }
 
@@ -40,7 +39,6 @@ export interface TabPanelProps extends WithChildren {
 
 export interface TabsProps extends WithChildren {
     className?: string;
-    density?: Density;
     onChange?: (tabIndex: number) => void;
     defaultTab?: number;
 }

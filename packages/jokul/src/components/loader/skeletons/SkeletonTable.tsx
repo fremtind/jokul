@@ -8,7 +8,6 @@ import type {
 
 export const SkeletonTable = ({
     className,
-    density,
     width,
     style,
     ...rest
@@ -18,7 +17,6 @@ export const SkeletonTable = ({
             className={clsx("jkl-skeleton-table", className)}
             style={{ width, ...style }}
             {...rest}
-            data-density={density}
         />
     );
 };

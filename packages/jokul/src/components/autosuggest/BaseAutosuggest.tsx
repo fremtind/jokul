@@ -37,7 +37,6 @@ function BaseAutosuggest<T>({
     leadText,
     errorLabel,
     helpLabel,
-    density,
     variant = "small",
     noHitsMessage,
     maxNumberOfHits,
@@ -85,7 +84,6 @@ function BaseAutosuggest<T>({
                         {...getRootProps()}
                         label={label}
                         className={clsx("jkl-autosuggest", className)}
-                        density={density}
                         labelProps={{
                             variant,
                             ...labelProps,
@@ -100,17 +98,7 @@ function BaseAutosuggest<T>({
                         render={(inputProps) => (
                             <>
                                 {leadText && (
-                                    <p
-                                        className={clsx(
-                                            "jkl-spacing-24--bottom",
-                                            {
-                                                "jkl-body":
-                                                    density !== "compact",
-                                                "jkl-small":
-                                                    density === "compact",
-                                            },
-                                        )}
-                                    >
+                                    <p className="jkl-spacing-24--bottom">
                                         {leadText}
                                     </p>
                                 )}

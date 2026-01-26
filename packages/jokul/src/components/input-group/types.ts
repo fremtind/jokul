@@ -1,7 +1,7 @@
 import type { CSSProperties, FieldsetHTMLAttributes, ReactNode } from "react";
 import type {
     DataTestAutoId,
-    Density,
+    Size,
     WithChildren,
     WithOptionalChildren,
 } from "../../core/types.js";
@@ -10,16 +10,15 @@ export interface FieldGroupProps
     extends DataTestAutoId,
         FieldsetHTMLAttributes<HTMLFieldSetElement> {
     legend: string;
-    labelProps?: Omit<LabelProps, "children" | "density">;
+    labelProps?: Omit<LabelProps, "children">;
     supportLabelProps?: Omit<
         SupportLabelProps,
-        "id" | "errorLabel" | "helpLabel" | "density"
+        "id" | "errorLabel" | "helpLabel"
     >;
     tooltip?: ReactNode;
     className?: string;
     helpLabel?: string;
     errorLabel?: string;
-    density?: Density;
     description?: string;
 }
 
@@ -34,17 +33,17 @@ export type InputGroupProps = WithOptionalChildren &
         id?: string;
         className?: string;
         "data-testid"?: string;
-        density?: Density;
+        "data-size"?: Size;
         errorLabel?: ReactNode;
         helpLabel?: ReactNode;
         inline?: boolean;
         label: ReactNode;
-        labelProps?: Omit<LabelProps, "children" | "density">;
+        labelProps?: Omit<LabelProps, "children">;
         supportLabelProps?: Omit<
             SupportLabelProps,
-            "id" | "errorLabel" | "helpLabel" | "density"
+            "id" | "errorLabel" | "helpLabel"
         >;
-    description?: string;
+        description?: string;
         tooltip?: ReactNode;
         style?: CSSProperties;
         render?: (props: InputProps) => JSX.Element;
@@ -55,7 +54,6 @@ export type LabelVariant = "small" | "medium" | "large";
 export interface LabelProps extends WithChildren {
     id?: string;
     variant?: LabelVariant;
-    density?: Density;
     srOnly?: boolean;
     standAlone?: boolean;
     htmlFor?: string;
@@ -91,7 +89,6 @@ export interface SupportLabelProps {
      *        id={supportId}
      *        label={errorLabel}
      *        labelType="error"
-     *        density={density}
      *      />
      *    </div>
      *  );
@@ -118,7 +115,6 @@ export interface SupportLabelProps {
      * @default "help"
      */
     labelType?: SupportLabelType;
-    density?: Density;
     className?: string;
     srOnly?: boolean;
 }

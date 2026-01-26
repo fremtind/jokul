@@ -5,8 +5,7 @@
     border: 0;
     width: 100%;
     max-width: 100%;
-    aspect-ratio: 1;
+    max-height: calc(var(--storybook-example-height, 360) * #{jkl.rem(1px)});
     border-radius: jkl.rem(4px);
     min-height: jkl.rem(120px);
-    max-height: 100vh;
 }

@@ -1,14 +1,17 @@
-import { temaside } from "@/sanity/schemas/temaside";
-import { blogPost } from "./blogPost";
+import { temaside } from "@/sanity/schemas/documents/temaside";
 import { codeBlock } from "./codeBlock";
 import { codeExample } from "./codeExample";
-import { component } from "./component";
 import { componentProps } from "./componentProps";
 import { doAndDont } from "./doAndDont";
-import { fundamentals } from "./fundamentals";
+import { blogPost } from "./documents/blogPost";
+import { component } from "./documents/component";
+import { fundamentals } from "./documents/fundamentals";
+import { story } from "./documents/story";
+import { examples } from "./examples";
 import { kortFortalt } from "./kortFortalt";
 import { linkCard } from "./linkCard";
 import { messageBox } from "./messageBox";
+import { questionsAndAnswers } from "./questionsAndAnswers";
 import { storybook, storybookStory } from "./storybook";
 import { table } from "./table";
 
@@ -19,6 +22,8 @@ export const schemaTypes = [
     componentProps,
     codeExample,
     codeBlock,
+    examples,
+    story,
     storybook,
     storybookStory,
     kortFortalt,
@@ -27,4 +32,5 @@ export const schemaTypes = [
     fundamentals,
     table,
     messageBox,
+    questionsAndAnswers,
 ];

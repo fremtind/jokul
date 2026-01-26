@@ -319,19 +319,19 @@ describe("Select", () => {
         expect(getByTestId("jkl-native-select")).toHaveValue("");
     });
 
-    it("can be forced into compact mode", () => {
+    it("can be forced into size small", () => {
         const screen = setup(
             <Select
                 name="count"
                 items={["1", "2"]}
                 label="test"
-                density="compact"
+                data-size="small"
             />,
         );
 
         expect(screen.getByTestId("jkl-select")).toHaveAttribute(
-            "data-density",
-            "compact",
+            "data-size",
+            "small",
         );
     });
 
@@ -1285,11 +1285,11 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 
-    it("compact select should be a11y compliant", async () => {
+    it("small size select should be a11y compliant", async () => {
         const { container } = setup(
             <Select
                 name="items"
-                density="compact"
+                data-size="small"
                 label="Select"
                 items={["1", "2"]}
                 value="1"

@@ -389,6 +389,9 @@ importers:
       '@sanity/locale-nb-no':
         specifier: ^1.1.19
         version: 1.1.27(sanity@4.15.0(@emotion/is-prop-valid@1.2.2)(@portabletext/sanity-bridge@1.2.2(@sanity/schema@4.15.0(@types/react@18.3.1)(debug@4.4.3))(@sanity/types@4.15.0(@types/react@18.3.1)))(@types/node@24.10.1)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.93.3)(sass@1.94.0)(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))
+      '@sanity/table':
+        specifier: ^2.0.1
+        version: 2.0.1(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(sanity@4.15.0(@emotion/is-prop-valid@1.2.2)(@portabletext/sanity-bridge@1.2.2(@sanity/schema@4.15.0(@types/react@18.3.1)(debug@4.4.3))(@sanity/types@4.15.0(@types/react@18.3.1)))(@types/node@24.10.1)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.93.3)(sass@1.94.0)(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@sanity/ui':
         specifier: ^3.1.11
         version: 3.1.11(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -3103,6 +3106,12 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
+  '@sanity/incompatible-plugin@1.0.5':
+    resolution: {integrity: sha512-9JGAacbElUPy9Chghd+sllIiM3jAcraZdD65bWYWUVKkghOsf1L/+jFLz1rcAuvrA9o2s7Y+T75BNcXuLwRcvw==}
+    peerDependencies:
+      react: 18.3.1
+      react-dom: 18.3.1
+
   '@sanity/insert-menu@2.1.0':
     resolution: {integrity: sha512-vzl1jxkPYoEm8Hxin4KOT1gVTecUIKGgO9uxmd9Ur/BTsZatmBsO8jLvBKHgDa2JtHM1oJJhBQIbXUD3zIUvuQ==}
     engines: {node: '>=20.19'}
@@ -3213,6 +3222,13 @@ packages:
 
   '@sanity/signed-urls@2.0.1':
     resolution: {integrity: sha512-/u++FnDbaXDWHiHxG1Q4rbGsKRPf6lmTKsXeZ3bbbty/kNHDhVRUA5mRA+TtXlbPrse4ksv3a2vAerKNUNDZOw==}
+
+  '@sanity/table@2.0.1':
+    resolution: {integrity: sha512-+zLvXZOdll1a80YYyzWCUeDzQzq9OHsht9I1O13/QmKqcfqgMpgmDKzpw9zgplyq5pwtOH4g+uATAgms/yDQ2w==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      react: 18.3.1
+      sanity: ^3.0.0 || ^4.0.0 || ^5.0.0
 
   '@sanity/telemetry@0.8.1':
     resolution: {integrity: sha512-YybPb6s3IO2HmHZ4dLC3JCX+IAwAnVk5/qmhH4CWbC3iL/VsikRbz4FfOIIIt0cj2UOKrahL/wpSPBR/3quQzg==}
@@ -14541,6 +14557,11 @@ snapshots:
       - '@types/react'
       - supports-color
 
+  '@sanity/incompatible-plugin@1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+
   '@sanity/insert-menu@2.1.0(@emotion/is-prop-valid@1.2.2)(@sanity/types@4.15.0(@types/react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
     dependencies:
       '@sanity/icons': 3.7.4(react@18.3.1)
@@ -14772,6 +14793,19 @@ snapshots:
     dependencies:
       '@noble/ed25519': 3.0.0
       '@noble/hashes': 2.0.1
+
+  '@sanity/table@2.0.1(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(sanity@4.15.0(@emotion/is-prop-valid@1.2.2)(@portabletext/sanity-bridge@1.2.2(@sanity/schema@4.15.0(@types/react@18.3.1)(debug@4.4.3))(@sanity/types@4.15.0(@types/react@18.3.1)))(@types/node@24.10.1)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.93.3)(sass@1.94.0)(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1))(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))':
+    dependencies:
+      '@sanity/icons': 3.7.4(react@18.3.1)
+      '@sanity/incompatible-plugin': 1.0.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@sanity/ui': 3.1.11(@emotion/is-prop-valid@1.2.2)(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
+      react: 18.3.1
+      sanity: 4.15.0(@emotion/is-prop-valid@1.2.2)(@portabletext/sanity-bridge@1.2.2(@sanity/schema@4.15.0(@types/react@18.3.1)(debug@4.4.3))(@sanity/types@4.15.0(@types/react@18.3.1)))(@types/node@24.10.1)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.93.3)(sass@1.94.0)(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.20.6)(typescript@5.9.3)(yaml@2.8.1)
+    transitivePeerDependencies:
+      - '@emotion/is-prop-valid'
+      - react-dom
+      - react-is
+      - styled-components
 
   '@sanity/telemetry@0.8.1(react@18.3.1)':
     dependencies:

@@ -6,7 +6,6 @@ import { useDelayedRender } from "../useDelayedRender.js";
 export const SkeletonAnimation = ({
     className,
     delay = 0,
-    density,
     textDescription = "Vennligst vent",
     ...rest
 }: SkeletonAnimationProps) => {
@@ -22,7 +21,6 @@ export const SkeletonAnimation = ({
             aria-busy="true"
             aria-label={textDescription}
             {...rest}
-            data-density={density}
         />
     );
 };

@@ -5,27 +5,14 @@ import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import type { ChipProps } from "./types.js";
 
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
-    {
-        className,
-        variant,
-        onClick,
-        children,
-        selected,
-        size = "small",
-        ...rest
-    },
+    { className, variant, onClick, children, selected, ...rest },
     ref,
 ) {
     return (
         <button
             type="button"
             ref={ref}
-            className={clsx(
-                "jkl-chip",
-                `jkl-chip--${size}`,
-                `jkl-chip--${variant}`,
-                className,
-            )}
+            className={clsx("jkl-chip", `jkl-chip--${variant}`, className)}
             onClick={onClick}
             aria-pressed={selected}
             {...rest}

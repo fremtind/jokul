@@ -21,7 +21,7 @@
     .description {
         margin-bottom: auto;
 
-        @include jkl.text-style("small") {
+        @include jkl.text-style("paragraph-small") {
             color: var(--jkl-color-text-subdued);
             word-wrap: break-word;
         }

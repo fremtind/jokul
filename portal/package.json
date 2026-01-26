@@ -1,7 +1,7 @@
 {
     "name": "portal",
     "private": true,
-    "version": "1.4.23",
+    "version": "1.4.25",
     "description": "Dokumentasjonsportal for Jøkul designsystem",
     "license": "MIT",
     "type": "module",
@@ -25,6 +25,7 @@
         "@sanity/icons": "^3.7.0",
         "@sanity/image-url": "^2.0.2",
         "@sanity/locale-nb-no": "^1.1.19",
+        "@sanity/table": "^2.0.1",
         "@sanity/ui": "^3.1.11",
         "@sanity/vision": "^4.15.0",
         "@types/mdx": "^2.0.13",

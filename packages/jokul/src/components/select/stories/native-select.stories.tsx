@@ -21,11 +21,6 @@ const meta: Meta = {
                 disable: true,
             },
         },
-        density: {
-            table: {
-                disable: true,
-            },
-        },
         onBlur: {
             table: {
                 disable: true,
