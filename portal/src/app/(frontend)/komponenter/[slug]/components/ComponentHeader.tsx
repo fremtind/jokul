@@ -2,9 +2,10 @@
 
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
+import jokul from "@fremtind/jokul/package.json";
 import { ComponentHeaderLink } from "./ComponentHeaderLink";
 
-import { InfoMessage, WarningMessage } from "@fremtind/jokul/message";
+import { InfoMessage, Message, WarningMessage } from "@fremtind/jokul/message";
 import styles from "./componentHeader.module.scss";
 
 type ComponentHeaderProps = {
@@ -33,7 +34,10 @@ export const ComponentHeader = ({
                 <div>
                     {name && (
                         <h1 className={styles.name} lang="en">
-                            {name}
+                            {name}{" "}
+                            <span className="jkl-text-small">
+                                v{jokul.version}
+                            </span>
                         </h1>
                     )}
                     {description && (
@@ -41,18 +45,20 @@ export const ComponentHeader = ({
                             {description}
                         </p>
                     )}
-                    <div className={styles.status}>
-                        {status?.value === "deprecated" && (
-                            <WarningMessage title="Deprecated">
+                    {status && (
+                        <div className={styles.status}>
+                            <Message
+                                variant={
+                                    status.value === "deprecated"
+                                        ? "warning"
+                                        : "info"
+                                }
+                                title="Deprecated"
+                            >
                                 {status.statusDescription}
-                            </WarningMessage>
-                        )}
-                        {status?.value === "beta" && (
-                            <InfoMessage title="Beta">
-                                {status.statusDescription}
-                            </InfoMessage>
-                        )}
-                    </div>
+                            </Message>
+                        </div>
+                    )}
                 </div>
                 {links && (
                     <Flex gap="s" className={styles.external_links}>
