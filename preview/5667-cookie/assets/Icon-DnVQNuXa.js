@@ -1,0 +1,3 @@
+import{R as i,j as l}from"./iframe-DRZpUSIF.js";import{c}from"./clsx-B-dksMZM.js";const p=i.forwardRef(function(e,n){const{bold:o,children:r,className:s,filled:t,variant:d,...a}=e;return l.jsx("span",{"aria-hidden":!0,ref:n,className:c("jkl-icon",s,{"jkl-icon--filled":t,"jkl-icon--bold":o}),...a,children:r})});p.__docgenInfo={description:"",methods:[],displayName:"Icon",props:{as:{required:!1,tsType:{name:"ElementType"},description:`Her kan du angi hva slags element komponenten skal rendres
+som. Det kan enten være en string for native HTML elementer
+eller en komponent (som Link fra react-router og lignende).`},ref:{required:!1,tsType:{name:'ReactComponentPropsWithRef["ref"]',raw:'React.ComponentPropsWithRef<As>["ref"]'},description:""}}};export{p as I};
