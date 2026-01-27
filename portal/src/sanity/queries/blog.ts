@@ -27,11 +27,13 @@ export const blogPostBySlugQuery = defineQuery(
             _type == "jokul_examples" => {
     ...,
     title,
-    stories[]->{
-      storyName,
-      storyId,
-      storyDescription,
-    },
+    examples[]->{
+                  title,
+                  id,
+                  description,
+                  height,
+                  inert
+                },
   },
   },
     }`,
