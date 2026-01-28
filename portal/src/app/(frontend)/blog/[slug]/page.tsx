@@ -5,12 +5,13 @@ import { blogPostBySlugQuery } from "@/sanity/queries/blog";
 
 import { ArticleHeader } from "@/components/article/header";
 import { logger } from "logger";
+import type { Metadata } from "next";
 
 type Props = {
     params: Promise<{ slug: string }>;
 };
 
-export async function generateMetadata({ params }: Props) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const slug = (await params).slug;
 
     const { data: blogPost } = await sanityFetch({
