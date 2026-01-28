@@ -684,6 +684,21 @@
                 },
                 "rest": {
                   "type": "inline",
+                  "name": "jokul_code"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
                   "name": "jokul_codeBlock"
                 }
               },
@@ -1610,6 +1625,61 @@
           "type": "boolean"
         },
         "optional": true
+      },
+      "code": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "code"
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "code",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "code"
+          }
+        },
+        "language": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "filename": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "code": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "highlightedLines": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "array",
+            "of": {
+              "type": "number"
+            }
+          },
+          "optional": true
+        }
       }
     }
   },
@@ -1755,6 +1825,37 @@
           "type": "objectAttribute",
           "value": {
             "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "jokul_code",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "jokul_code"
+          }
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "code": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "code"
           },
           "optional": true
         }
@@ -2109,6 +2210,21 @@
                       }
                     }
                   }
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_code"
                 }
               },
               {
@@ -2670,6 +2786,21 @@
                       }
                     }
                   }
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_code"
                 }
               },
               {
@@ -3356,6 +3487,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_componentKortFortalt"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_code"
                 }
               },
               {

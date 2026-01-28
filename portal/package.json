@@ -20,6 +20,7 @@
         "@mdx-js/react": "^3.1.1",
         "@next/mdx": "^16.1.6",
         "@portabletext/react": "^5.0.0",
+        "@sanity/code-input": "^6.0.4",
         "@portabletext/types": "^3.0.1",
         "@sanity/client": "^7.14.1",
         "@sanity/icons": "^3.7.0",

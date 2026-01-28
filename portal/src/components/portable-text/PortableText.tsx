@@ -1,6 +1,7 @@
 "use client";
 
 import { ExampleList } from "@/components/portable-text/examples/ExampleList";
+import { NewCodeBlock } from "@/components/portable-text/new-code-block/CodeBlock";
 import { QuestionsAndAnswers } from "@/components/portable-text/q-and-a/QuestionsAndAnswers";
 import { client } from "@/sanity/lib/client";
 import type { PortableTextReactComponents } from "@portabletext/react";
@@ -39,6 +40,7 @@ function urlFor(source: SanityImageObject) {
 const jokulBlockTypes = {
     jokul_examples: ExampleList,
     jokul_componentKortFortalt: KortFortalt,
+    jokul_code: NewCodeBlock,
     jokul_codeBlock: CodeBlock,
     jokul_linkCard: LinkCard,
     jokul_doAndDont: DoAndDont,
