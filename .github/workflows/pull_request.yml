@@ -2,7 +2,7 @@ name: Pull request
 
 on:
     pull_request:
-        branches: [ "main" ]
+        branches: [ "jokul-3.x" ]
     merge_group:
         types: [ checks_requested ]
 
@@ -138,7 +138,7 @@ jobs:
                 run: pnpm -r figma:test
                 env:
                   FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_CODE_CONNECT_TOKEN }}
-            
+
             -   name: Si fra om feil i Figma Connect
                 if: steps.code_connect.outcome == 'failure'
                 uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
