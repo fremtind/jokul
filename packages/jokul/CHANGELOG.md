@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.5
+
+### Patch Changes
+
+- 3d91c3e: Fikser syntax-feil som gjorde at stilark ga byggfeil
+
 ## 2.1.4
 
 ### Patch Changes
