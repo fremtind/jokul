@@ -24,6 +24,12 @@ export const blogPostBySlugQuery = defineQuery(
     `*[_type == "jokul_blog_post" && slug.current == $slug][0] {...,
     article[]{
             ...,
+            _type == "jokul_code" => {
+                ...,
+                title,
+                code,
+                language,
+          },
             _type == "jokul_examples" => {
     ...,
     title,
@@ -32,7 +38,8 @@ export const blogPostBySlugQuery = defineQuery(
                   id,
                   description,
                   height,
-                  inert
+                  inert,
+                  code
                 },
   },
   },

@@ -1,5 +1,6 @@
 import { dataset, projectId } from "@/sanity/env";
 import { schemaTypes } from "@/sanity/schemas";
+import { codeInput } from "@sanity/code-input";
 import { nbNOLocale } from "@sanity/locale-nb-no";
 import { table } from "@sanity/table";
 import { visionTool } from "@sanity/vision";
@@ -18,6 +19,7 @@ export default defineConfig({
         visionTool(),
         nbNOLocale(),
         table(),
+        codeInput(),
         presentationTool({
             previewUrl: {
                 previewMode: {

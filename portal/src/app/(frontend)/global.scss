@@ -55,7 +55,7 @@ li {
 
 code,
 samp {
-    @include jkl.use-font-family("Fremtind Grotesk Mono");
+    font-family: monospace;
 }
 
 main {
@@ -110,17 +110,17 @@ article header {
         @include jkl.text-style("heading-5");
     }
 
-    code,
-    samp {
-        @include jkl.use-font-family("Fremtind Grotesk Mono");
-    }
-
     code {
         display: inline-block;
         background-color: var(--jkl-color-background-container-low);
         font-size: 0.9em;
         padding: 0 var(--jkl-unit-10);
-        border-radius: jkl.rem(2px);
+        border-radius: var(--jkl-border-radius-xs);
+        border: 1px solid var(--jkl-color-border-separator);
+    }
+
+    pre code {
+        border: none;
     }
 }
 

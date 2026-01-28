@@ -5,6 +5,9 @@ export const codeExample = defineType({
     name: "jokul_codeExample",
     title: "Kodeeksempel",
     type: "object",
+    deprecated: {
+        reason: "Bruk den nye blokken",
+    },
     fields: [
         defineField({
             name: "showEditor",
