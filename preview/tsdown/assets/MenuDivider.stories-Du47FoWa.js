@@ -1,3 +1,0 @@
-import{j as o}from"./iframe-DVuwCucA.js";import{c as i}from"./clsx-B-dksMZM.js";/* empty css               */import"./preload-helper-PPVm8Dsz.js";const r=s=>{const{className:n,...t}=s;return o.jsx("hr",{className:i("jkl-menu-divider",n),...t})};r.__docgenInfo={description:"",methods:[],displayName:"MenuDivider"};const p={title:"Komponenter/Menu/MenuDivider",component:r},e={render:()=>o.jsx(r,{})};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
-  render: () => <MenuDividerComponent />
-}`,...e.parameters?.docs?.source}}};const u=["MenuDivider"];export{e as MenuDivider,u as __namedExportsOrder,p as default};
