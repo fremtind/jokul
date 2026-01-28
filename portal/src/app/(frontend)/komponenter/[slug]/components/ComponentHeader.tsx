@@ -5,7 +5,7 @@ import { Flex } from "@fremtind/jokul/flex";
 import jokul from "@fremtind/jokul/package.json";
 import { ComponentHeaderLink } from "./ComponentHeaderLink";
 
-import { InfoMessage, Message, WarningMessage } from "@fremtind/jokul/message";
+import { Message } from "@fremtind/jokul/message";
 import styles from "./componentHeader.module.scss";
 
 type ComponentHeaderProps = {
@@ -45,7 +45,7 @@ export const ComponentHeader = ({
                             {description}
                         </p>
                     )}
-                    {status && (
+                    {status?.value && (
                         <div className={styles.status}>
                             <Message
                                 variant={
@@ -53,7 +53,11 @@ export const ComponentHeader = ({
                                         ? "warning"
                                         : "info"
                                 }
-                                title="Deprecated"
+                                title={
+                                    status.value === "deprecated"
+                                        ? "Deprecated"
+                                        : "Beta"
+                                }
                             >
                                 {status.statusDescription}
                             </Message>

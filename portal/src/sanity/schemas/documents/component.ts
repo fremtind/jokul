@@ -59,7 +59,7 @@ export const component = defineType({
                     title: "Status",
                     type: "string",
                     options: {
-                        list: ["deprecated", "alpha", "beta", "stabil"],
+                        list: ["deprecated", "beta"],
                         layout: "dropdown",
                     },
                 }),
