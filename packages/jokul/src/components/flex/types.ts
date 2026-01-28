@@ -3,15 +3,16 @@ import tokens from "../../core/tokens.js";
 import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
-export type Spacing = keyof typeof tokens.semanticSpacing;
-export type Breakpoint = keyof typeof tokens.breakpoint;
-
 export type Responsive<T> = Partial<Record<Breakpoint, T>>;
 export function isResponsive<T>(value: unknown): value is Responsive<T> {
     return Object.keys(tokens.breakpoint).includes(
         Object.keys(value as Responsive<T>)[0],
     );
 }
+
+export type SemanticSpacing = keyof typeof tokens.semanticSpacing;
+export type StaticSpacing = keyof typeof tokens.spacing;
+export type Breakpoint = keyof typeof tokens.breakpoint;
 
 export const LAYOUTS = [
     "auto",
@@ -32,9 +33,29 @@ export const LAYOUTS = [
 
 export type Layout = (typeof LAYOUTS)[number];
 export type Center = "m" | "l" | "xl" | "2xl" | boolean;
-export type Gap = `${Spacing}` | `${Spacing} ${Spacing}`;
+export type SemanticGap =
+    | `${SemanticSpacing}`
+    | `${SemanticSpacing} ${SemanticSpacing}`;
+export type StaticGap =
+    | `${StaticSpacing}`
+    | `${StaticSpacing} ${StaticSpacing}`;
+export type Gap = SemanticGap | StaticGap;
 
-type FlexBaseProps = {
+type FlexGapProps =
+    | {
+          gapType: "static";
+          gap?: StaticGap | Responsive<StaticGap>;
+      }
+    | {
+          gapType: "responsive";
+          gap?: SemanticGap | Responsive<SemanticGap>;
+      }
+    | {
+          gapType?: undefined;
+          gap?: Gap | Responsive<Gap>;
+      };
+
+type FlexBaseProps = FlexGapProps & {
     alignItems?: "normal" | "start" | "center" | "end" | "baseline" | "stretch";
     alignContent?:
         | "normal"
@@ -49,7 +70,6 @@ type FlexBaseProps = {
     center?: Center;
     direction?: "row" | "column" | "row-reverse" | "column-reverse";
     fill?: boolean;
-    gap?: Gap | Responsive<Gap>;
     inline?: boolean;
     textAlign?: "left" | "right" | "center";
     justifyContent?:

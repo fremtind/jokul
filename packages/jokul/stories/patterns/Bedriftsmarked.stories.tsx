@@ -333,8 +333,7 @@ export const Forsikringsoversikt: Story = {
                                         gap="m"
                                         wrap="wrap"
                                         style={{
-                                            padding:
-                                                "var(--jkl-spacing-m) var(--jkl-spacing-0)",
+                                            padding: "var(--jkl-spacing-m) 0",
                                         }}
                                     >
                                         {[1, 2, 3, 4, 5, 6, 7].map((number) => (

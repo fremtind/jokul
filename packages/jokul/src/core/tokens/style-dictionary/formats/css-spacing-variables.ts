@@ -2,8 +2,8 @@ import type { Dictionary, File, Format } from "style-dictionary/types";
 import { fileHeader, formattedVariables } from "style-dictionary/utils";
 import { PREFIX } from "../config.js";
 
-const cssThemeVariablesFormat: Format = {
-    name: "css/theme-variables",
+const cssSpacingVariablesFormat: Format = {
+    name: "css/spacing-variables",
     format: async ({
         dictionary,
         file,
@@ -27,4 +27,4 @@ ${formattedVariables({
     },
 };
 
-export default cssThemeVariablesFormat;
+export default cssSpacingVariablesFormat;

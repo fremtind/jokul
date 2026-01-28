@@ -1,23 +1,29 @@
 import StyleDictionary from "style-dictionary";
 
 import {
-    javascriptEsmFormat,
+    cssColorVariablesFormat,
+    cssSizeVariablesFormat,
+    cssSpacingVariablesFormat,
     cssThemeVariablesFormat,
-    scssThemeVariablesFormat,
+    javascriptEsmFormat,
+    scssColorVariablesFormat,
+    scssSizeVariablesFormat,
     tailwindCssColorsFormat,
-    cssDynamicColorVariablesFormat,
 } from "./formats/index.js";
 
 import { stripLightDarkTransform } from "./transforms/index.js";
 
-import { isColor, isSpacing } from "./filters/index.js";
+import { isColor, isSize, isSpacing, isUnit } from "./filters/index.js";
 
 // Formats
 StyleDictionary.registerFormat(javascriptEsmFormat);
 StyleDictionary.registerFormat(cssThemeVariablesFormat);
-StyleDictionary.registerFormat(scssThemeVariablesFormat);
 StyleDictionary.registerFormat(tailwindCssColorsFormat);
-StyleDictionary.registerFormat(cssDynamicColorVariablesFormat);
+StyleDictionary.registerFormat(cssColorVariablesFormat);
+StyleDictionary.registerFormat(cssSizeVariablesFormat);
+StyleDictionary.registerFormat(cssSpacingVariablesFormat);
+StyleDictionary.registerFormat(scssColorVariablesFormat);
+StyleDictionary.registerFormat(scssSizeVariablesFormat);
 
 // Transforms
 StyleDictionary.registerTransform(stripLightDarkTransform);
@@ -25,24 +31,28 @@ StyleDictionary.registerTransform(stripLightDarkTransform);
 // Filters
 StyleDictionary.registerFilter(isColor);
 StyleDictionary.registerFilter(isSpacing);
+StyleDictionary.registerFilter(isSize);
+StyleDictionary.registerFilter(isUnit);
 
 StyleDictionary.registerTransformGroup({
     name: "typescript",
     transforms: ["name/camel"],
 });
 
+const baseCssTransforms = [...StyleDictionary.hooks.transformGroups.css];
+const baseScssTransforms = [...StyleDictionary.hooks.transformGroups.scss];
+
 StyleDictionary.registerTransformGroup({
     name: "css",
-    transforms: [
-        ...StyleDictionary.hooks.transformGroups.css,
-        "strip/light-dark",
-    ],
+    transforms: [...baseCssTransforms, "strip/light-dark"],
+});
+
+StyleDictionary.registerTransformGroup({
+    name: "css-color",
+    transforms: baseCssTransforms,
 });
 
 StyleDictionary.registerTransformGroup({
     name: "scss",
-    transforms: [
-        ...StyleDictionary.hooks.transformGroups.scss,
-        "strip/light-dark",
-    ],
+    transforms: [...baseScssTransforms, "strip/light-dark"],
 });

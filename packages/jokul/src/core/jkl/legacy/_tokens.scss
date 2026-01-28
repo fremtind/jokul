@@ -55,16 +55,22 @@ $motion-easing-entrance: ease-out !default;
 $motion-easing-exit: ease-in !default;
 $motion-easing-ease-in-bounce-out: cubic-bezier(0, 0, 0.375, 1.17) !default;
 $motion-easing-focus: cubic-bezier(0.6, 0.2, 0.35, 1) !default;
-$spacing-0: 0rem !default;
+$spacing-0: 0 !default;
 $spacing-2: 0.125rem !default;
 $spacing-4: 0.25rem !default;
 $spacing-8: 0.5rem !default;
 $spacing-12: 0.75rem !default;
 $spacing-16: 1rem !default;
+$spacing-20: 1.25rem !default;
 $spacing-24: 1.5rem !default;
+$spacing-28: 1.75rem !default;
 $spacing-32: 2rem !default;
 $spacing-40: 2.5rem !default;
+$spacing-48: 3rem !default;
+$spacing-56: 3.5rem !default;
 $spacing-64: 4rem !default;
+$spacing-72: 4.5rem !default;
+$spacing-80: 5rem !default;
 $spacing-104: 6.5rem !default;
 $spacing-168: 10.5rem !default;
 $semantic-spacing-none: 0 !default;
@@ -284,10 +290,16 @@ $tokens: (
     '8': $spacing-8,
     '12': $spacing-12,
     '16': $spacing-16,
+    '20': $spacing-20,
     '24': $spacing-24,
+    '28': $spacing-28,
     '32': $spacing-32,
     '40': $spacing-40,
+    '48': $spacing-48,
+    '56': $spacing-56,
     '64': $spacing-64,
+    '72': $spacing-72,
+    '80': $spacing-80,
     '104': $spacing-104,
     '168': $spacing-168
   ),
