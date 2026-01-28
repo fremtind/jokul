@@ -17,7 +17,7 @@ const meta = {
             showLoader: false,
             textDescription: "Laster inn avtaler",
         },
-        hidden: true,
+        hidden: false,
         iconPosition: "left",
     },
     argTypes: {
