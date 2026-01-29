@@ -13,6 +13,7 @@
         --border: 1px solid var(--jkl-color-border-separator);
         --border-radius: 2px;
         --bg: transparent;
+        --transition-time: #{jkl.$motion-timing-expressive};
 
         &__content {
             @include jkl.motion(
@@ -53,38 +54,58 @@
                 grid-area: button;
             }
 
-            &__thumbnail {
-                width: 100%;
-                aspect-ratio: var(--jkl-file-thumbnail-aspect-ratio);
-                object-fit: cover;
-                max-height: var(--jkl-file-thumbnail-max-height);
-                grid-area: image;
-                position: relative;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: var(--jkl-color-background-container-low);
-                border-radius: 2px;
-                overflow: hidden;
-                container-type: inline-size;
+        &__thumbnail {
+            width: 100%;
+            aspect-ratio: var(--jkl-file-thumbnail-aspect-ratio);
+            object-fit: cover;
+            max-height: var(--jkl-file-thumbnail-max-height);
+            grid-area: image;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--jkl-color-background-container-low);
+            border-radius: 2px;
+            overflow: hidden;
+            container-type: inline-size;
+            anchor-name: --thumb;
+            anchor-scope: all;
+            outline: 1px solid color-mix(in srgb, currentColor 3%, transparent);
 
-                img {
-                    z-index: 0;
+            &::before, &::after {
+                position: absolute;
+                z-index: 1;
+            }
 
-                    &[src] {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
+            &::after {
+                content: "" / "Laster opp";
+                position-anchor: --thumb;
+                position-area: center;
+                height: 25%;
+                border-radius: 1px;
+                aspect-ratio: 1;
+                scale: 0;
+                background: var(--text-color);
+                animation: spin 5s infinite forwards linear;
+                transition:  display var(--transition-time) allow-discrete ease-in, scale var(--transition-time) ease-in;
+
+                @starting-style {
+                    scale: 0;
                 }
+            }
 
-                &::before,
-                &::after {
-                    position: absolute;
-                    z-index: 1;
+            img {
+                opacity: 1;
+                transition:  opacity var(--transition-time) ease-in-out;
+
+                &[src] {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
             }
         }
+    }
 
         // Card view
         &[class*="card"] {
@@ -109,45 +130,19 @@
             }
         }
 
-        // Loading state
-        &[data-state="loading"]:not(:has(.jkl-file__support-label)) {
-            .jkl-file__content__thumbnail {
-                img {
-                    opacity: 0.25;
-                }
+    // Loading state
+    &[data-state="loading"]:not(:has(.jkl-file__support-label)) {
+        .jkl-file__content__thumbnail {
+            img {
+                opacity: 0;
+            }
 
-                &::after {
-                    --scale: scale(0.3, 0.3);
-                    --scale-end: scale(0.1, 0.1);
-                    --rotation: 45deg;
-
-                    content: "" / "Laster opp";
-                    height: 100%;
-                    min-height: 24px;
-                    max-height: 2lh;
-                    aspect-ratio: 1;
-                    background: var(--text-color);
-                    transform: var(--scale) rotate(var(--rotation));
-                    animation: pulse 2500ms linear forwards infinite;
-
-                    @keyframes pulse {
-                        0% {
-                            transform: var(--scale) rotate(var(--rotation));
-                        }
-
-                        50% {
-                            transform: var(--scale-end)
-                                rotate(calc(var(--rotation) + 0.5turn));
-                        }
-
-                        100% {
-                            transform: var(--scale)
-                                rotate(calc(var(--rotation) + 1turn));
-                        }
-                    }
-                }
+            &::after {
+                display: block;
+                scale: 1;
             }
         }
+    }
 
         // Error state
         &[data-state="error"] {
@@ -162,6 +157,15 @@
                 --link-color: var(--text-color);
                 --jkl-color-border-action: currentColor;
             }
+        }
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0turn);
+        }
+        to {
+            transform: rotate(1turn);
         }
     }
 }
