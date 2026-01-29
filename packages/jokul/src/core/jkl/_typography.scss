@@ -2,93 +2,80 @@
 @use "sass:map";
 @use "sass:list";
 @use "screens";
-@use "tokens" as *;
+@use "spacing-tokens";
+@use "color-tokens";
 @use "legacy/tokens" as *;
 @use "responsive-units";
 
 /// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.
 $text-styles: (
-    "title": (
-        "font-size": var(--jkl-font-size-10),
+    "title": ("font-size": var(--jkl-font-size-10),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
-    "title-small": (
-        "font-size": var(--jkl-font-size-9),
+    "title-small": ("font-size": var(--jkl-font-size-9),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
-    "heading-1": (
-        "font-size": var(--jkl-font-size-8),
+    "heading-1": ("font-size": var(--jkl-font-size-8),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
-    "heading-2": (
-        "font-size": var(--jkl-font-size-7),
+    "heading-2": ("font-size": var(--jkl-font-size-7),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
-    "heading-3": (
-        "font-size": var(--jkl-font-size-6),
+    "heading-3": ("font-size": var(--jkl-font-size-6),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-bold,
         "--jkl-icon-weight": $icon-weight-bold,
     ),
-    "heading-4": (
-        "font-size": var(--jkl-font-size-5),
+    "heading-4": ("font-size": var(--jkl-font-size-5),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-bold,
         "--jkl-icon-weight": $icon-weight-bold,
     ),
-    "heading-5": (
-        "font-size": var(--jkl-font-size-4),
+    "heading-5": ("font-size": var(--jkl-font-size-4),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-bold,
         "--jkl-icon-weight": $icon-weight-bold,
     ),
-    "paragraph-large": (
-        "font-size": var(--jkl-font-size-5),
+    "paragraph-large": ("font-size": var(--jkl-font-size-5),
         "line-height": var(--jkl-line-height-relaxed),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
-    "paragraph-medium": (
-        "font-size": var(--jkl-font-size-3),
+    "paragraph-medium": ("font-size": var(--jkl-font-size-3),
         "line-height": var(--jkl-line-height-relaxed),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
-    "paragraph-small": (
-        "font-size": var(--jkl-font-size-2),
+    "paragraph-small": ("font-size": var(--jkl-font-size-2),
         "line-height": var(--jkl-line-height-relaxed),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
         "--jkl-icon-size": 1.2em,
     ),
-    "text-large": (
-        "font-size": var(--jkl-font-size-5),
+    "text-large": ("font-size": var(--jkl-font-size-5),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
-    "text-medium": (
-        "font-size": var(--jkl-font-size-3),
+    "text-medium": ("font-size": var(--jkl-font-size-3),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
-    "text-small": (
-        "font-size": var(--jkl-font-size-2),
+    "text-small": ("font-size": var(--jkl-font-size-2),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
-    "text-micro": (
-        "font-size": var(--jkl-font-size-1),
+    "text-micro": ("font-size": var(--jkl-font-size-1),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
@@ -117,7 +104,9 @@ $text-styles: (
         }
 
         @content;
-    } @else {
+    }
+
+    @else {
         @error "No text style with the name #{$style} was found. Try one of these: #{map.keys($text-styles)}";
     }
 }
@@ -174,22 +163,28 @@ $_valid-font-family-values: (
         @error "#{$font} will not be used for font-family. Valid options are: #{$_valid-font-family-values}.";
     }
 
-    @if $font == "Fremtind Grotesk Mono" {
+    @if $font =="Fremtind Grotesk Mono" {
         font-family:
             "Fremtind Grotesk Mono",
             "Adjusted Courier New Fallback",
             -apple-system,
             BlinkMacSystemFont,
             monospace;
-    } @else if $font == "Fremtind Grotesk Display" {
+    }
+
+    @else if $font =="Fremtind Grotesk Display" {
         font-family:
             "Fremtind Grotesk Display", "Adjusted Arial Display Fallback",
             Arial, sans-serif;
-    } @else if $font == "Fremtind Material Symbols" {
+    }
+
+    @else if $font =="Fremtind Material Symbols" {
         font-family:
             "Fremtind Material Symbols", "Fremtind Material Symbols Fallback",
             monospace;
-    } @else {
+    }
+
+    @else {
         font-family:
             "Fremtind Grotesk", "Adjusted Arial Fallback", Arial, sans-serif;
     }

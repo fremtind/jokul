@@ -19,7 +19,9 @@
 }
 
 $jokul-breakpoints: map.get(jkl.$tokens, "breakpoint");
-$jokul-spacing: map.get(jkl.$tokens, "semantic-spacing");
+$jokul-semantic-spacing: map.get(jkl.$tokens, "semantic-spacing");
+$jokul-static-spacing: map.get(jkl.$tokens, "spacing");
+$jokul-spacing: map.merge($jokul-semantic-spacing, $jokul-static-spacing);
 
 // Map for å generere klasser for uniforme (jevnt fordelte) kolonner.
 // Nøkkelen (key) representerer antall elementer, og verdien (value) er hvor mange

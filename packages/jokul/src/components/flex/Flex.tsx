@@ -22,7 +22,8 @@ export const Flex = forwardRef(function Flex<
         className,
         direction = "row",
         fill,
-        gap = "m",
+        gap: gapProp,
+        gapType = "static",
         inline,
         justifyContent,
         layout = {},
@@ -30,6 +31,8 @@ export const Flex = forwardRef(function Flex<
         wrap = "nowrap",
         ...rest
     } = props;
+
+    const gap = gapProp ?? (gapType === "static" ? "24" : "m");
 
     const Tag = asChild ? SlotComponent : as;
     const gaps = toObjectEntries(gap).flatMap(([breakpoint, gap]) => {

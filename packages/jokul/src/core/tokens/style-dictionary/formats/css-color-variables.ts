@@ -1,15 +1,33 @@
-import type { Dictionary, File, Format } from "style-dictionary/types";
+import type {
+    Dictionary,
+    File,
+    Format,
+    TransformedToken,
+} from "style-dictionary/types";
 import { fileHeader, formattedVariables } from "style-dictionary/utils";
 import { PREFIX } from "../config.js";
 
-const cssDynamicColorVariablesFormat: Format = {
-    name: "css/dynamic-color-variables",
+const stripSchemeFromPath = (path: string[]) =>
+    path.filter((step) => step !== "light" && step !== "dark").join("-");
+
+const normalizeTokenName = (token: TransformedToken) => ({
+    ...token,
+    name: stripSchemeFromPath(token.path),
+});
+
+const cssColorVariablesFormat: Format = {
+    name: "css/color-variables",
     format: async ({
         dictionary,
         file,
-    }: { dictionary: Dictionary; file: File }) => {
+    }: {
+        dictionary: Dictionary;
+        file: File;
+    }) => {
         const dynamicColorTokens = (scheme: string) =>
-            dictionary.allTokens.filter((token) => token.path.includes(scheme));
+            dictionary.allTokens
+                .filter((token) => token.path.includes(scheme))
+                .map(normalizeTokenName);
 
         return `${await fileHeader({ file })}
 /* stylelint-disable */
@@ -38,4 +56,4 @@ ${formattedVariables({
     },
 };
 
-export default cssDynamicColorVariablesFormat;
+export default cssColorVariablesFormat;

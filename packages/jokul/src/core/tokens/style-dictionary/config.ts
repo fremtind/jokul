@@ -22,12 +22,9 @@ export const legacyDesignTokensConfig: Config = {
             buildPath: "./src/core/jkl/legacy/",
             files: [
                 {
-                    destination: "_dynamic-colors.scss",
-                    format: "scss/theme-variables",
-                    filter: (token) =>
-                        token.path.some((word) =>
-                            ["light", "dark"].includes(word),
-                        ),
+                    destination: "_color-tokens.scss",
+                    format: "scss/color-variables",
+                    filter: (token) => token.path.includes("light"),
                 },
                 {
                     destination: "_tokens.scss",
@@ -50,8 +47,19 @@ export const legacyDesignTokensConfig: Config = {
                         !token.filePath.includes("semantic"),
                 },
                 {
+                    destination: "_legacy-spacing-tokens.scss",
+                    format: "css/spacing-variables",
+                    filter: "isSpacing",
+                },
+            ],
+        },
+        cssColor: {
+            transformGroup: "css-color",
+            buildPath: "./src/core/styles/theme/",
+            files: [
+                {
                     destination: "_legacy-color-tokens.scss",
-                    format: "css/dynamic-color-variables",
+                    format: "css/color-variables",
                     filter: (token: DesignToken) =>
                         token.filePath.includes("semantic"),
                 },
@@ -80,15 +88,20 @@ export const designTokensConfig: Config = {
             buildPath: "./src/core/jkl/",
             files: [
                 {
-                    destination: "_tokens.scss",
-                    format: "scss/theme-variables",
+                    destination: "_color-tokens.scss",
+                    format: "scss/color-variables",
                     filter: (token: DesignToken) =>
-                        token.type === "spacing" ||
+                        token.path.includes("light") &&
                         ["border", "text", "background"].includes(
                             typeof token.attributes?.type === "string"
                                 ? token.attributes.type
                                 : "",
                         ),
+                },
+                {
+                    destination: "_size-tokens.scss",
+                    format: "scss/size-variables",
+                    filter: "isSize",
                 },
             ],
         },
@@ -97,19 +110,25 @@ export const designTokensConfig: Config = {
             buildPath: "./src/core/styles/theme/",
             files: [
                 {
-                    destination: "_tokens.scss",
-                    format: "css/theme-variables",
-                    filter: (token: DesignToken) => token.type === "spacing",
+                    destination: "_spacing-tokens.scss",
+                    format: "css/spacing-variables",
+                    filter: "isSpacing",
                 },
+                {
+                    destination: "_size-tokens.scss",
+                    format: "css/size-variables",
+                    filter: "isSize",
+                },
+            ],
+        },
+        cssColor: {
+            transformGroup: "css-color",
+            buildPath: "./src/core/styles/theme/",
+            files: [
                 {
                     destination: "_color-tokens.scss",
-                    format: "css/dynamic-color-variables",
+                    format: "css/color-variables",
                     filter: "isColor",
-                },
-                {
-                    destination: "_spacing-tokens.scss",
-                    format: "css/theme-variables",
-                    filter: "isSpacing",
                 },
             ],
         },

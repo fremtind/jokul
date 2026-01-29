@@ -1,0 +1,30 @@
+import type { Dictionary, File, Format } from "style-dictionary/types";
+import { fileHeader, formattedVariables } from "style-dictionary/utils";
+import { PREFIX } from "../config.js";
+
+const cssSpacingVariablesFormat: Format = {
+    name: "css/spacing-variables",
+    format: async ({
+        dictionary,
+        file,
+    }: {
+        dictionary: Dictionary;
+        file: File;
+    }) => {
+        return `${await fileHeader({ file })}
+@layer jokul.theme {
+    :root {
+${formattedVariables({
+    dictionary,
+    format: "css",
+    formatting: {
+        indentation: "        ",
+        prefix: `--${PREFIX}-`,
+    },
+})}
+    }
+}`;
+    },
+};
+
+export default cssSpacingVariablesFormat;

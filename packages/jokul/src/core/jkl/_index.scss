@@ -1,4 +1,4 @@
-@forward "legacy";
+@forward "legacy" hide $spacing-0, $spacing-2, $spacing-4, $spacing-8, $spacing-12, $spacing-16, $spacing-20, $spacing-24, $spacing-28, $spacing-32, $spacing-40, $spacing-48, $spacing-56, $spacing-64, $spacing-72, $spacing-80, $spacing-104, $spacing-168;
 @forward "colors" hide varslingsfarge;
 @forward "convert";
 @forward "helpers";
@@ -12,7 +12,9 @@
 @forward "shadows";
 @forward "spacing" hide $spacing, $combinations, $positions;
 @forward "theme";
-@forward "tokens" hide $color-background-page, $color-border-subdued, $color-text-default, $color-text-subdued;
+@forward "spacing-tokens";
+@forward "color-tokens" hide $color-background-page, $color-border-subdued, $color-text-default, $color-text-subdued;
+@forward "size-tokens";
 @forward "typography" hide $text-styles;
 @forward "underline";
 @forward "z-index";

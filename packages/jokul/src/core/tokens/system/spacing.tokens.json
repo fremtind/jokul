@@ -1,12 +1,30 @@
 {
     "spacing": {
-        "none": { "value": "0", "type": "spacing" },
-        "xxs": { "value": "{unit.05}", "type": "spacing" },
-        "xs": { "value": "{unit.10}", "type": "spacing" },
-        "s": { "value": "{unit.20}", "type": "spacing" },
-        "m": { "value": "{unit.30}", "type": "spacing" },
-        "l": { "value": "{unit.50}", "type": "spacing" },
-        "xl": { "value": "{unit.80}", "type": "spacing" },
-        "2xl": { "value": "{unit.130}", "type": "spacing" }
+        "0": { "value": "0", "type": "spacing" },
+        "2": { "value": "0.125rem", "type": "spacing" },
+        "4": { "value": "0.25rem", "type": "spacing" },
+        "8": { "value": "0.5rem", "type": "spacing" },
+        "12": { "value": "0.75rem", "type": "spacing" },
+        "16": { "value": "1rem", "type": "spacing" },
+        "20": { "value": "1.25rem", "type": "spacing" },
+        "24": { "value": "1.5rem", "type": "spacing" },
+        "28": { "value": "1.75rem", "type": "spacing" },
+        "32": { "value": "2rem", "type": "spacing" },
+        "40": { "value": "2.5rem", "type": "spacing" },
+        "48": { "value": "3rem", "type": "spacing" },
+        "56": { "value": "3.5rem", "type": "spacing" },
+        "64": { "value": "4rem", "type": "spacing" },
+        "72": { "value": "4.5rem", "type": "spacing" },
+        "80": { "value": "5rem", "type": "spacing" },
+        "104": { "value": "6.5rem", "type": "spacing" },
+        "168": { "value": "10.5rem", "type": "spacing" },
+        "none": { "value": "0", "type": "size" },
+        "xxs": { "value": "{unit.05}", "type": "size" },
+        "xs": { "value": "{unit.10}", "type": "size" },
+        "s": { "value": "{unit.20}", "type": "size" },
+        "m": { "value": "{unit.30}", "type": "size" },
+        "l": { "value": "{unit.50}", "type": "size" },
+        "xl": { "value": "{unit.80}", "type": "size" },
+        "2xl": { "value": "{unit.130}", "type": "size" }
     }
 }
