@@ -86,7 +86,7 @@ export const Detaljside: Story = {
                                     Per Andreas Hansen med familie
                                 </h1>
                             </Flex>
-                            <p>
+                            <p style={{ padding: "var(--jkl-unit-20) 0" }}>
                                 248 kr/mnd.
                                 <PopupTip content="Beløpet vil variere hver måned" />
                                 <br />
@@ -119,6 +119,100 @@ export const Detaljside: Story = {
                     </ExpandablePanel.Content>
                 </ExpandablePanel>
                 <LinkList label="Navigasjon">
+                    {[
+                        "Hva dekker forsikringen?",
+                        "Reisekort",
+                        "SmartDelay+",
+                        "Reise SMS",
+                        "Hjelp",
+                    ].map((title) => (
+                        <LinkList.Link key={title}>{title}</LinkList.Link>
+                    ))}
+                </LinkList>
+                <Button
+                    className="jkl-spacing-24--top"
+                    style={{ alignSelf: "center" }}
+                >
+                    Avslutt forsikring
+                </Button>
+            </Flex>
+        );
+    },
+};
+
+export const DetaljsideMedUlikeSizes: Story = {
+    render: () => {
+        return (
+            <Flex
+                direction="column"
+                gap="s"
+                style={{
+                    padding: "var(--jkl-unit-20)",
+                    maxWidth: "calc(500px + var(--jkl-unit-10) * 40)",
+                    marginInline: "auto",
+                    marginBlock: "0",
+                }}
+            >
+                <Header />
+                <Flex gap="m">
+                    <Card padding="xl" asChild variant="high">
+                        <Flex
+                            direction="column"
+                            gap="l"
+                            style={{ flexBasis: 999 }}
+                        >
+                            <Flex as="hgroup" direction="column" gap="m">
+                                <p className="jkl-small" data-size="medium">
+                                    Reiseforsikring for
+                                </p>
+                                <h1
+                                    className="jkl-heading-2"
+                                    style={
+                                        {
+                                            "text-box":
+                                                "trim-both cap alphabetic",
+                                        } as CSSProperties
+                                    }
+                                >
+                                    Per Andreas Hansen med familie
+                                </h1>
+                            </Flex>
+
+                            <p style={{ padding: "var(--jkl-unit-20) 0" }}>
+                                248 kr/mnd.
+                                <PopupTip content="Beløpet vil variere hver måned" />
+                                <br />
+                                <time>24.10.24</time> &ndash;{" "}
+                                <time>24.09.25</time>
+                            </p>
+
+                            <Button
+                                style={{ alignSelf: "center" }}
+                                variant="primary"
+                                data-size="large"
+                            >
+                                Meld skade
+                            </Button>
+                        </Flex>
+                    </Card>
+                    <Card style={{ flexBasis: 999 }}>
+                        <CardImage
+                            height="110%"
+                            style={{
+                                minWidth: "auto",
+                            }}
+                            placement="full"
+                            src={poolside}
+                        />
+                    </Card>
+                </Flex>
+                <ExpandablePanel variant="fill">
+                    <Expander>Forsikringsdetaljer</Expander>
+                    <ExpandablePanel.Content>
+                        Her kommer nyttig informasjon om forsikringen
+                    </ExpandablePanel.Content>
+                </ExpandablePanel>
+                <LinkList data-size="medium" label="Navigasjon">
                     {[
                         "Hva dekker forsikringen?",
                         "Reisekort",
