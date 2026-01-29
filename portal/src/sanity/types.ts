@@ -432,7 +432,7 @@ export type Jokul_component = {
   slug?: Slug;
   short_description?: string;
   status?: {
-    value?: "deprecated" | "alpha" | "beta" | "stabil";
+    value?: "deprecated" | "beta";
     statusDescription?: string;
   };
   categories?: Array<string>;
@@ -664,7 +664,7 @@ export type BlogPostsQueryResult = Array<{
   date: string;
 }>;
 // Variable: blogPostBySlugQuery
-// Query: *[_type == "jokul_blog_post" && slug.current == $slug][0] {...,    article[]{            ...,            _type == "jokul_examples" => {    ...,    title,    stories[]->{      storyName,      storyId,      storyDescription,    },  },  },    }
+// Query: *[_type == "jokul_blog_post" && slug.current == $slug][0] {...,    article[]{            ...,            _type == "jokul_examples" => {    ...,    title,    examples[]->{                  title,                  id,                  description,                  height,                  inert                },  },  },    }
 export type BlogPostBySlugQueryResult = {
   _id: string;
   _type: "jokul_blog_post";
@@ -713,15 +713,14 @@ export type BlogPostBySlugQueryResult = {
     _key: string;
     _type: "jokul_examples";
     title: string | null;
-    examples?: Array<{
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      _key: string;
-      [internalGroqTypeReferenceTo]?: "jokul_story";
-    }>;
+    examples: Array<{
+      title: string | null;
+      id: string | null;
+      description: string | null;
+      height: 100 | 1000 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | null;
+      inert: boolean | null;
+    }> | null;
     layout?: "carousel" | "gallery" | "list";
-    stories: null;
   } | {
     _key: string;
     _type: "jokul_linkCard";
@@ -943,7 +942,7 @@ export type ComponentBySlugQueryResult = {
   slug: string | null;
   short_description?: string;
   status?: {
-    value?: "alpha" | "beta" | "deprecated" | "stabil";
+    value?: "beta" | "deprecated";
     statusDescription?: string;
   };
   categories?: Array<string>;
@@ -1482,7 +1481,7 @@ import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"jokul_blog_post\"]{\n        name,\n        slug,\n        short_description,\n        \"date\": _createdAt,\n        _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert\n                },\n          },\n    } | order(_createdAt desc)": BlogPostsQueryResult;
-    "*[_type == \"jokul_blog_post\" && slug.current == $slug][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_examples\" => {\n    ...,\n    title,\n    stories[]->{\n      storyName,\n      storyId,\n      storyDescription,\n    },\n  },\n  },\n    }": BlogPostBySlugQueryResult;
+    "*[_type == \"jokul_blog_post\" && slug.current == $slug][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_examples\" => {\n    ...,\n    title,\n    examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert\n                },\n  },\n  },\n    }": BlogPostBySlugQueryResult;
     "*[_type == \"jokul_blog_post\" && slug.current == \"kom-i-gang\"][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_examples\" => {\n    ...,\n    title,\n    stories[]->{\n      storyName,\n      storyId,\n      storyDescription,\n    },\n  },\n  },\n    }": KomIGangQueryResult;
     "*[_type == \"jokul_component\"]{\n    name,\n    short_description,\n    \"slug\": slug.current,\n    figma_image,\n    image,\n    imageDark,\n    related_components,\n    categories\n} | order(name)": ComponentsQueryResult;
     "*[_type == \"jokul_component\" && slug.current == $slug][0] {\n        ...,\n        \"slug\": slug.current,\n        \"component_example_card\": component_example_card{\n            \"url\": asset->url\n        },\n        documentation_article[]{\n            ...,\n            _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert\n                },\n              },\n            _type == \"jokul_componentKortFortalt\" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                }\n            },\n            markDefs[] {\n                ...,\n                _type == \"componentPageLink\" => {\n                    component-> {\n                        \"slug\": slug.current,\n                        name,\n                        short_description,\n                        image,\n                        imageDark,\n                    }\n                },\n            }\n        },\n        related_components {\n            components[]->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                image,\n                imageDark,\n                related_components,\n                categories\n            }\n        }\n    }": ComponentBySlugQueryResult;
