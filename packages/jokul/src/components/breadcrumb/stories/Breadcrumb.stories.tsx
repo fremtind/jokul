@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import { Link } from "../../../components/link/Link.js";
 import { Breadcrumb } from "../Breadcrumb.js";
 import { BreadcrumbItem } from "../BreadcrumbItem.js";
 import "../styles/_index.scss";
@@ -17,15 +18,13 @@ export const _Breadcrumb: Story = {
     args: {
         children: [
             <BreadcrumbItem key={0}>
-                <a href="#top">Hjem</a>
+                <Link target="#top">Hjem</Link>
             </BreadcrumbItem>,
             <BreadcrumbItem key={1}>
-                <a href="#top">Komponenter</a>
+                <Link target="#top">Komponenter</Link>
             </BreadcrumbItem>,
             <BreadcrumbItem key={2}>
-                <a href="#top" aria-current="page">
-                    Breadcrumb
-                </a>
+                <Link target="#top">Breadcrumb</Link>
             </BreadcrumbItem>,
         ],
     },

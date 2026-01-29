@@ -1,19 +1,12 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-
 @layer jokul.components {
     .jkl-breadcrumb {
-        a[aria-current] {
+        a[aria-current],
+        a[aria-current] * {
             text-decoration: none;
             background-image: none;
-            color: var(--jkl-color-text-interactive);
-
-            &:hover {
-                cursor: default;
-                color: var(--jkl-color-text-interactive-hover);
-                background-image: none;
-            }
         }
 
         a:focus-visible {
@@ -31,6 +24,7 @@
         &__item {
             margin-bottom: var(--jkl-unit-10);
             white-space: nowrap;
+            cursor: pointer;
         }
 
         &__item-separator {
