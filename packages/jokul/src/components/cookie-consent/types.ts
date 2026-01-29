@@ -7,6 +7,7 @@ export type ConsentRequirement = Partial<Record<keyof Consent, boolean>>;
 export type Consent = {
     functional?: ConsentState;
     statistics?: ConsentState;
+    marketing?: ConsentState;
 };
 
 export interface CookieConsentProps {
