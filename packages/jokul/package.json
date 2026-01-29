@@ -672,7 +672,7 @@
         "cssnano": "^7.1.0",
         "cssnano-preset-lite": "^4.0.4",
         "dayjs": "^1.11.19",
-        "glob": "^11.0.3",
+        "glob": "^9.0.0",
         "ink": "^5.1.0",
         "ink-select-input": "^6.0.0",
         "jsdom": "^26.1.0",
