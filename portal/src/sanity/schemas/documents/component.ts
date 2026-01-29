@@ -186,6 +186,7 @@ export const component = defineType({
                 { type: "image" },
                 { type: "jokul_componentProps" },
                 { type: "jokul_componentKortFortalt" },
+                { type: "jokul_code" },
                 { type: "jokul_codeExample" },
                 { type: "jokul_examples" },
                 { type: "jokul_storybook" },

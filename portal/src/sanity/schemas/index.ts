@@ -1,4 +1,5 @@
 import { temaside } from "@/sanity/schemas/documents/temaside";
+import { code } from "./code";
 import { codeBlock } from "./codeBlock";
 import { codeExample } from "./codeExample";
 import { componentProps } from "./componentProps";
@@ -20,6 +21,7 @@ export const schemaTypes = [
     blogPost,
     temaside,
     componentProps,
+    code,
     codeExample,
     codeBlock,
     examples,

@@ -55,6 +55,7 @@ export const blogPost = defineType({
                 { type: "block" },
                 { type: "jokul_linkCard" },
                 { type: "image" },
+                { type: "jokul_code" },
                 { type: "jokul_codeBlock" },
                 { type: "jokul_examples" },
                 { type: "jokul_storybook" },
