@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @use "../../../core/jkl";
 
-
 @layer jokul.components {
     .jkl-breadcrumb {
         a[aria-current] {
@@ -14,6 +13,12 @@
                 color: var(--jkl-color-text-interactive-hover);
                 background-image: none;
             }
+        }
+
+        a:not([aria-current]) {
+            text-decoration: underline;
+            text-underline-offset: jkl.rem(3px);
+            text-decoration-thickness: jkl.rem(1px);
         }
 
         a:focus-visible {
