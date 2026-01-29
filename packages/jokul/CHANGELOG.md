@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- 042209a: Fikser syntax-feil som gjorde at stilark ga byggfeil
+
 ## 4.0.0
 
 ### Major Changes
