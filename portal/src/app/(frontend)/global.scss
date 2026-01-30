@@ -1,10 +1,13 @@
 @use "@fremtind/jokul/styles/core";
-@use "@fremtind/jokul/styles/fonts" with (
-    $webfonts-dir: "../../src/fonts"
-        // Dette er relativt til webfonts.sccs-fila i jokul-pakka
+@use "@fremtind/jokul/styles/fonts" with ($webfonts-dir: "../../src/fonts"
+    // Dette er relativt til webfonts.sccs-fila i jokul-pakka
 );
 @use "@fremtind/jokul/styles/styles";
 @use "@fremtind/jokul/styles/core/jkl";
+
+* {
+    box-sizing: border-box;
+}
 
 html {
     scroll-behavior: smooth;
@@ -18,10 +21,14 @@ body {
 }
 
 .jkl-portal-layout {
+    --portal-header-height: #{jkl.rem(80px)};
+
     max-width: var(--max-width);
     margin-inline: auto;
 
     @media (width >=940px) {
+        --portal-header-height: #{jkl.rem(90px)};
+
         padding: 0;
 
         main {

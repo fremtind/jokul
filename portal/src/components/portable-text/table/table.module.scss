@@ -1,5 +1,6 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
 .table {
+    --jkl-table-head-sticky-offset: var(--portal-header-height);
     max-width: 55ch;
 }
