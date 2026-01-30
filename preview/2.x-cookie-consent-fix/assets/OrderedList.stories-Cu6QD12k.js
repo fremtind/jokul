@@ -1,0 +1,6 @@
+import{j as s}from"./jsx-runtime-DqZpzl9T.js";import"./index-siqcju79.js";import{b as t,O as n}from"./ListItem-DecmzA2x.js";/* empty css               *//* empty css               */import"./_commonjsHelpers-DaWZu8wl.js";import"./clsx-B-dksMZM.js";const u={title:"Komponenter/List/Ordered List",component:n,subcomponents:{ListItem:t},tags:["autodocs","grouping content"]},o=["Planlegg turen og meld fra hvor du går","Tilpass turen etter evne og forhold","Ta hensyn til vær- og skredvarsel","Vær forberedt på uvær og kulde, selv på korte turer","Ta med nødvendig utstyr for å kunne hjelpe deg selv og andre","Ta trygge veivalg. Gjenkjenn skredfarlig terreng og usikker is","Bruk kart og kompass. Vit alltid hvor du er","Vend i tide, det er ingen skam å snu","Spar på kreftene og søk ly om nødvendig"],e={args:{"aria-label":"Fjellvettreglene",children:o.map(r=>s.jsx(t,{children:r},r))}};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  args: {
+    "aria-label": "Fjellvettreglene",
+    children: fjellvettreglene.map(regel => <ListItem key={regel}>{regel}</ListItem>)
+  }
+}`,...e.parameters?.docs?.source}}};const c=["Ordered_List"];export{e as Ordered_List,c as __namedExportsOrder,u as default};
