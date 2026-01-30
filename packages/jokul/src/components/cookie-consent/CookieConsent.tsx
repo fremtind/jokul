@@ -137,47 +137,45 @@ export const CookieConsent = ({
         >
             <ModalOverlay {...modalConfig.overlay} />
             <Modal component="form" {...modalConfig.modal} {...{ onSubmit }}>
-                <form>
-                    <ModalHeader>
-                        <ModalTitle {...modalConfig.title}>
-                            Får vi bruke valgfrie informasjonskapsler?
-                        </ModalTitle>
-                    </ModalHeader>
-                    <ModalBody>
-                        <Flex direction="column" gap="m">
-                            <p>
-                                Vi ønsker å samle anonym statistikk for å forstå
-                                hvordan nettsidene våre brukes. Det hjelper oss
-                                til å gjøre innhold og løsninger bedre og mer
-                                brukervennlige.
-                            </p>
-                            <p>
-                                <Link href={aboutPage} target="_blank">
-                                    Les mer om hvilke informasjonskapsler vi
-                                    lagrer her
-                                </Link>
-                                .
-                            </p>
-                        </Flex>
-                    </ModalBody>
-                    <ModalActions>
-                        <Button
-                            variant="secondary"
-                            data-testid="jkl-cookie-consent-godta-alle"
-                            type="button"
-                            onClick={() => accept()}
-                        >
-                            Ja, det er greit
-                        </Button>
-                        <Button
-                            variant="secondary"
-                            data-testid="jkl-cookie-consent-godta"
-                            type="submit"
-                        >
-                            Nei takk
-                        </Button>
-                    </ModalActions>
-                </form>
+                <ModalHeader>
+                    <ModalTitle {...modalConfig.title}>
+                        Får vi bruke valgfrie informasjonskapsler?
+                    </ModalTitle>
+                </ModalHeader>
+                <ModalBody>
+                    <Flex direction="column" gap="m">
+                        <p>
+                            Vi ønsker å samle anonym statistikk for å forstå
+                            hvordan nettsidene våre brukes. Det hjelper oss
+                            til å gjøre innhold og løsninger bedre og mer
+                            brukervennlige.
+                        </p>
+                        <p>
+                            <Link href={aboutPage} target="_blank">
+                                Les mer om hvilke informasjonskapsler vi
+                                lagrer her
+                            </Link>
+                            .
+                        </p>
+                    </Flex>
+                </ModalBody>
+                <ModalActions>
+                    <Button
+                        variant="secondary"
+                        data-testid="jkl-cookie-consent-godta-alle"
+                        type="button"
+                        onClick={() => accept()}
+                    >
+                        Ja, det er greit
+                    </Button>
+                    <Button
+                        variant="secondary"
+                        data-testid="jkl-cookie-consent-godta"
+                        type="submit"
+                    >
+                        Nei takk
+                    </Button>
+                </ModalActions>
             </Modal>
         </ModalContainer>,
         document.body,
