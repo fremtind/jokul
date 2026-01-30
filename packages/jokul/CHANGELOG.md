@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.7.1
+
+### Patch Changes
+
+- a3e4061: Fikser syntax-feil som gjorde at stilark ga byggfeil
+- 1c181aa: Fjern duplisering av form-elementet i CookieConsent-komponenten.
+
 ## 3.7.0
 
 ### Minor Changes
