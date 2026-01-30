@@ -2964,15 +2964,7 @@
                   },
                   {
                     "type": "string",
-                    "value": "alpha"
-                  },
-                  {
-                    "type": "string",
                     "value": "beta"
-                  },
-                  {
-                    "type": "string",
-                    "value": "stabil"
                   }
                 ]
               },
