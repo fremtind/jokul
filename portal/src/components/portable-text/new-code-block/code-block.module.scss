@@ -1,0 +1,62 @@
+@use '@fremtind/jokul/styles/core/jkl';
+
+.codeBlock {
+    background: var(--jkl-color-background-container-high);
+    border-radius: var(--jkl-border-radius-s);
+    overflow: hidden;
+    min-width: 60ch;
+    width: max-content;
+    max-width: 100%;
+
+    pre, code {
+        background: none!important;
+        padding: 0;
+        margin: 0;
+        border: none;
+    }
+
+    pre {
+        padding: var(--jkl-spacing-s) var(--jkl-spacing-m);
+        overflow-x: scroll;
+        scrollbar-width: none;
+        width: max-content;
+        max-width: 100%;
+        @include jkl.text-style("text-small");
+    }
+
+    .info {
+        margin: 0;
+        padding: var(--jkl-spacing-xs) var(--jkl-spacing-xs) var(--jkl-spacing-xs) var(--jkl-spacing-l);
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        align-items: center;
+        border-block-end: 1px solid var(--jkl-color-border-separator);
+
+        .title {
+            @include jkl.text-style("text-small") {
+                font-weight: var(--jkl-typography-font-weight-bold);
+            }
+        }
+
+        .language {
+            color: var(--jkl-color-text-subdued);
+
+            @include jkl.text-style("text-small") {
+                font-family: monospace;
+            };
+
+            &::after {
+                content: "";
+                height: 100%;
+                margin-inline-end: 1ch;
+                padding-inline-end: 2ch;
+                border-inline-end: 1px solid var(--jkl-color-border-separator);
+            }
+        }
+
+        .copyButton {
+            color: currentColor;
+            border-radius: var(--jkl-border-radius-xs);
+        }
+    }
+}

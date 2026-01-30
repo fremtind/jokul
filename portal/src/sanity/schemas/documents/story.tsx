@@ -47,6 +47,14 @@ export const story = defineType({
                 "Fjerner mulighet for å kunne trykke, sveipe eller gjøre handlinger i eksempelet.",
             initialValue: false,
         }),
+        {
+            title: "Kodeeksempel",
+            name: "code",
+            type: "code",
+            initialValue: {
+                language: "tsx",
+            },
+        },
     ],
     preview: {
         select: {
@@ -62,7 +70,7 @@ export const story = defineType({
             return {
                 title: title ? title : "Story",
                 subtitle: `${height}px: ${desc}`,
-                media: <p>{title.charAt(0)}</p>,
+                media: <small>{title.charAt(0)}</small>,
             };
         },
     },
