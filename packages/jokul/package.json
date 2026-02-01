@@ -650,7 +650,7 @@
     },
     "dependencies": {
         "downshift": "^7.6.2",
-        "match-sorter": "^6.3.4"
+        "match-sorter": "^8.2.0"
     },
     "optionalDependencies": {
         "@floating-ui/react": "0.24.1 - 0.27",
