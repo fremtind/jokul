@@ -155,16 +155,19 @@ export const DetaljsideMedUlikeSizes: Story = {
             >
                 <Header />
                 <Flex gap="m">
-                    <Card padding="xl" asChild variant="high">
+                    <Card
+                        padding="xl"
+                        asChild
+                        variant="high"
+                        data-size="medium"
+                    >
                         <Flex
                             direction="column"
                             gap="l"
                             style={{ flexBasis: 999 }}
                         >
                             <Flex as="hgroup" direction="column" gap="m">
-                                <p className="jkl-small" data-size="medium">
-                                    Reiseforsikring for
-                                </p>
+                                <p className="jkl-small">Reiseforsikring for</p>
                                 <h1
                                     className="jkl-heading-2"
                                     style={
@@ -212,7 +215,7 @@ export const DetaljsideMedUlikeSizes: Story = {
                         Her kommer nyttig informasjon om forsikringen
                     </ExpandablePanel.Content>
                 </ExpandablePanel>
-                <LinkList data-size="medium" label="Navigasjon">
+                <LinkList label="Navigasjon">
                     {[
                         "Hva dekker forsikringen?",
                         "Reisekort",
