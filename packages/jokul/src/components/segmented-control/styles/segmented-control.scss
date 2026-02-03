@@ -4,7 +4,7 @@
 
 @layer jokul.components {
     .jkl-segmented-control {
-        --jkl-segmented-controls-padding: var(--jkl-unit-02);
+        --jkl-segmented-controls-padding: var(--jkl-unit-10) var(--jkl-unit-20);
         --jkl-segmented-controls-margin: 1.5ch;
 
         .jkl-segmented-control-legend {
@@ -29,8 +29,7 @@
 
             label {
                 cursor: pointer;
-                padding-block: var(--jkl-segmented-controls-padding);
-                padding-inline: 1ch 1.5ch;
+                padding: var(--jkl-segmented-controls-padding);
             }
 
             &:hover {
