@@ -1,9 +1,10 @@
 import React from "react";
-import tokens from "../../core/tokens.js";
 import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import tokens from "./tokens.js";
 
-export type Spacing = keyof typeof tokens.semanticSpacing;
+export type DynamicSpacing = keyof typeof tokens.dynamicSpacing;
+export type StaticSpacing = keyof typeof tokens.staticSpacing;
 export type Breakpoint = keyof typeof tokens.breakpoint;
 
 export type Responsive<T> = Partial<Record<Breakpoint, T>>;
@@ -32,7 +33,14 @@ export const LAYOUTS = [
 
 export type Layout = (typeof LAYOUTS)[number];
 export type Center = "m" | "l" | "xl" | "2xl" | boolean;
-export type Gap = `${Spacing}` | `${Spacing} ${Spacing}`;
+
+export type DynamicGap =
+    | `${DynamicSpacing}`
+    | `${DynamicSpacing} ${DynamicSpacing}`;
+export type StaticGap =
+    | `${StaticSpacing}`
+    | `${StaticSpacing} ${StaticSpacing}`;
+export type Gap = DynamicGap | StaticGap;
 
 type FlexBaseProps = {
     alignItems?: "normal" | "start" | "center" | "end" | "baseline" | "stretch";
