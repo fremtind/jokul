@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- 962a1b2: La tilbake underline på BreadCrumb-lenker som ikke har aria-current
+- 042209a: Fikser syntax-feil som gjorde at stilark ga byggfeil
+- 2f08bbf: Fjern duplisering av form-elementet i CookieConsent-komponenten.
+- 80d35cd: Bedre håndtering av loading i File-komponenten
+
 ## 4.0.0
 
 ### Major Changes
