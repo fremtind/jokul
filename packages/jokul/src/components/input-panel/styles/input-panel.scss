@@ -5,6 +5,7 @@
         --outer-border-color: var(--jkl-color-border-input);
         --outer-border-thickness: #{jkl.rem(1px)};
         --background-color: transparent;
+        --padding-inline: var(--jkl-unit-25);
 
         box-shadow: inset 0 0 0 var(--outer-border-thickness)
             var(--outer-border-color);
@@ -24,7 +25,7 @@
             gap: jkl.rem(8px);
             cursor: pointer;
             position: relative;
-            padding: var(--jkl-unit-20) var(--jkl-unit-30);
+            padding: var(--jkl-unit-20) var(--padding-inline);
 
             &__amount {
                 display: flex;
@@ -55,7 +56,7 @@
         &__description {
             height: 0;
             overflow: hidden;
-            padding-inline: var(--jkl-unit-30);
+            padding-inline: var(--padding-inline);
             padding-block-end: var(--jkl-spacing-none);
             line-height: initial;
 
