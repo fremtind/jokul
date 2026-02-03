@@ -1,0 +1,51 @@
+name: Rapporter en bug
+description: Du har funnet en bug i designsystemet
+title: "Feil: "
+projects: ["fremtind/jokul"]
+type: bug
+body:
+    - type: markdown
+      attributes:
+          value: |
+              Takk for at du sier ifra om feil!
+    - type: input
+      id: version
+      attributes:
+          label: Jøkul-versjon
+          description: Hvilken versjon av Jøkul bruker du?
+      validations:
+          required: true
+    -   type: dropdown
+        id: os
+        attributes:
+            label: Operativsystem
+            multiple: false
+            default: 0
+            options:
+                - MacOS
+                - Windows
+                - Linux
+                - Android
+                - iOS
+                - Ikke relevant
+    - type: dropdown
+      id: browsers
+      attributes:
+          label: Nettleser
+          multiple: false
+          default: 0
+          options:
+              - Chrome
+              - Microsoft Edge
+              - Firefox
+              - Safari
+              - Annen
+              - Ikke relevant
+    -   type: textarea
+        id: what-happened
+        attributes:
+            label:
+                Hvordan oppstod feilen?
+            placeholder: Trykk på X, observer Y, stegvis liste, eller lignende
+        validations:
+            required: false
