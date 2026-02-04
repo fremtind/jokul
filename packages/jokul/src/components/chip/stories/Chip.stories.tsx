@@ -8,6 +8,10 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/Chip",
     component: ChipComponent,
+    args: {
+        children: "Husforsikring",
+        variant: "input",
+    },
     argTypes: {
         children: {
             control: "text",
@@ -34,13 +38,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Chip: Story = {
-    name: "Chip",
-    args: {
-        children: "Husforsikring",
-        variant: "input",
-    },
-};
+export const Chip: Story = {};
 
 export const Filter: Story = {
     name: "Filter",

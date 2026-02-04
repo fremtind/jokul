@@ -2,95 +2,162 @@
 @use "../../../core/jkl";
 
 @layer jokul.components {
-    .jkl-tabs {
-        width: 100%;
+
+    @property --mask-size {
+        syntax: "<percentage>";
+        initial-value: 0%;
+        inherits: true;
     }
 
-    .jkl-tablist {
-        --padding-inline-end: var(--jkl-unit-50);
+    .jkl-tabs {
         --text-color: var(--jkl-color-text-interactive);
         --line-color: var(--jkl-color-border-separator);
         --indicator-color: var(--jkl-color-border-separator-hover);
+        --indicator-size: 0.1em;
+        --indicator-size-active: calc(var(--indicator-size) * 2);
 
-        scroll-snap-type: x proximity;
-        overflow: scroll hidden;
-        scrollbar-width: none;
-        position: relative;
-        display: inline-flex;
-        flex-direction: row;
-        padding: 0;
-        margin: 0;
-        border-bottom: 1px solid var(--line-color);
+        background-color: inherit;
         width: 100%;
 
-        @include jkl.forced-colors-mode {
-            border-color: GrayText;
+        .jkl-tablist {
+            background-color: inherit;
+            width: 100%;
+            scroll-snap-type: x mandatory;
+            overflow: scroll;
+            scrollbar-width: none;
+            display: inline-flex;
+            flex-direction: row;
+            z-index: 1;
+            anchor-name: --tab-list;
+            container-type: scroll-state;
+
+            &::scroll-button(*) {
+                --mask-size: 65%;
+
+                position: fixed;
+                font: inherit;
+                font-family: "Fremtind Material Symbols", "Fremtind Material Symbols Fallback", sans-serif;
+                position-anchor: --tab-list;
+                border: none;
+                z-index: 2;
+                height: calc(anchor-size(block) - var(--indicator-size));
+                display: none;
+                cursor: pointer;
+                @include jkl.text-style("text-large");
+                transition: --mask-size 150ms ease-in-out;
+
+                &:hover {
+                    --mask-size: 0%;
+                }
+            }
+
+            &::scroll-button(inline-end) {
+                content: "arrow_right";
+                inset-inline-end: anchor(end);
+                padding-inline: 1em 0.5em;
+                mask-image: linear-gradient(to right, transparent 0%, black var(--mask-size));
+
+                @container scroll-state(scrollable: inline-end) {
+                    display: block;
+                }
+            }
+
+            &::scroll-button(inline-start) {
+                content: "arrow_left";
+                inset-inline-start: anchor(start);
+                padding-inline: 0.5em 1em;
+                mask-image: linear-gradient(to left, transparent 0%, black var(--mask-size));
+
+                @container scroll-state(scrollable: inline-start) {
+                    display: block;
+                }
+            }
         }
 
-        &::-webkit-scrollbar {
-            display: none;
+        .jkl-tabpanel {
+            padding: var(--jkl-unit-20);
+            background-color: var(--jkl-color-background-container-high);
         }
 
-        @supports (position-anchor: --active-tab) {
+        .jkl-tab {
+            @include jkl.reset-outline;
+            @include jkl.text-style("text-medium");
+
+            color: var(--text-color);
+            padding: var(--jkl-unit-15) var(--jkl-unit-35) var(--jkl-unit-15) var(--jkl-unit-20);
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            position: relative;
+            scroll-snap-align: start;
+            text-decoration: none;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: var(--jkl-unit-05);
+            @include jkl.motion("entrance", "snappy", background-color);
+
+            .jkl-icon {
+                margin-top: -0.25ex;
+            }
+
             &::after {
                 content: "";
                 position: absolute;
-                position-anchor: --active-tab;
-                height: 2px;
-                width: calc(anchor-size(inline) - var(--padding-inline-end));
-                inset-block-start: calc(anchor(end) - 2px);
-                inset-inline-start: calc(anchor(--active-tab start));
-                background-color: var(--indicator-color);
+                inline-size: 100%;
+                inset-inline: 0;
+                inset-block-end: 0;
+                height: var(--indicator-size);
+                background-color: var(--jkl-color-border-separator);
+                @include jkl.motion("entrance", "expressive", height, width, background-color);
 
-                @include jkl.motion("standard", "lazy");
+                @include jkl.forced-colors-mode {
+                    border-color: GrayText;
+                }
             }
-        }
-    }
 
-    .jkl-tab {
-        --padding-inline-end: var(--jkl-unit-50);
+            &:hover:not([aria-selected="true"]) {
+                --text-color: var(--jkl-color-text-interactive-hover);
+            }
 
-        @include jkl.text-style("text-medium");
-        color: var(--text-color);
-        padding: var(--jkl-unit-10) var(--padding-inline-end) var(--jkl-unit-10)
-            var(--jkl-unit-05);
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-        position: relative;
-        scroll-margin-inline-start: var(--jkl-unit-20);
-        scroll-snap-align: start;
-        text-decoration: none;
-        white-space: nowrap;
+            &:focus-visible {
+                @include jkl.focus-outline($offset: calc(-1 * var(--indicator-size)));
+            }
 
-        @include jkl.reset-outline;
-
-        &:hover {
-            --text-color: var(--jkl-color-text-interactive-hover);
-        }
-
-        &:focus-visible {
-            @include jkl.focus-outline($offset: -2px);
-        }
-
-        &[aria-selected="true"] {
-            anchor-name: --active-tab;
-
-            @include jkl.no-grow-bold;
-
-            @supports not (position-anchor: --active-tab) {
-                position: relative;
+            &[aria-selected="true"] {
+                --indicator-size: var(--indicator-size-active);
+                background-color: var(--jkl-color-background-interactive-hover);
 
                 &::after {
-                    content: "";
-                    position: absolute;
-                    height: 2px;
-                    width: calc(100% - var(--padding-inline-end));
-                    inset-block-end: 0;
-                    inset-inline-start: 0;
                     background-color: var(--indicator-color);
+                }
+            }
+        }
 
-                    @include jkl.motion("standard", "lazy");
+        &:has(.jkl-tablist[data-direction="vertical"]) {
+            display: grid;
+            grid-template-columns: max-content 1fr;
+            height: 100%;
+
+            .jkl-tablist,
+            .jkl-tabpanel {
+                max-height: 100%;
+                overflow-y: scroll;
+            }
+
+            .jkl-tablist {
+                max-width: max-content;
+                flex-direction: column;
+                border-block-end: unset;
+            }
+
+            .jkl-tab {
+                text-align: start;
+
+                &::after {
+                    height: 100%;
+                    width: var(--indicator-size);
+                    inset-inline-start: unset;
                 }
             }
         }

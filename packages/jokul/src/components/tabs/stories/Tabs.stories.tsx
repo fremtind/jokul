@@ -1,18 +1,33 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import "../styles/_index.scss";
 import { Tab } from "../Tab.js";
 import { TabList } from "../TabList.js";
 import { TabPanel } from "../TabPanel.js";
 import { Tabs } from "../Tabs.js";
+import { fewTabsLength, manyTabsLength, tabContents } from "./tabs.data.js";
+
+import "../styles/_index.scss";
 
 const meta = {
-    title: "Komponenter/Tabs/Tabs",
+    title: "Komponenter/Tabs",
     component: Tabs,
     subcomponents: {
         TabList,
         TabPanel,
         Tab,
+    },
+    args: {
+        children: (
+            <Tabs>
+                <TabList>
+                    {[...Array(fewTabsLength)].map((_, i) => (
+                        <Tab key={i}>Tab {i}</Tab>
+                    ))}
+                </TabList>
+
+                {[...Array(fewTabsLength)].map((_, i) => tabContents(i))}
+            </Tabs>
+        ),
     },
     argTypes: {
         defaultTab: {
@@ -24,6 +39,9 @@ const meta = {
             },
         },
     },
+    parameters: {
+        layout: "fullscreen",
+    },
 } satisfies Meta<typeof Tabs>;
 
 export default meta;
@@ -31,27 +49,21 @@ type Story = StoryObj<typeof meta>;
 
 export const TabsStory: Story = {
     name: "Tabs",
+};
+
+export const ManyTabsStory: Story = {
+    name: "Mange tabs",
     args: {
-        children: <p />,
-    },
-    render: (args) => (
-        <div style={{ maxWidth: "300px" }}>
-            <Tabs {...args}>
-                <TabList aria-label="Avtale-filter">
-                    <Tab>Alle avtaler</Tab>
-                    <Tab>NICE</Tab>
-                    <Tab>Prolife</Tab>
-                    <Tab>Paris</Tab>
+        children: (
+            <Tabs>
+                <TabList>
+                    {[...Array(manyTabsLength)].map((_, i) => (
+                        <Tab key={i}>Tab {i}</Tab>
+                    ))}
                 </TabList>
 
-                <TabPanel>Alle avtaler</TabPanel>
-
-                <TabPanel>NICE-avtaler</TabPanel>
-
-                <TabPanel>Prolife-avtaler</TabPanel>
-
-                <TabPanel>Paris-avtaler</TabPanel>
+                {[...Array(manyTabsLength)].map((_, i) => tabContents(i))}
             </Tabs>
-        </div>
-    ),
+        ),
+    },
 };

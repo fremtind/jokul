@@ -41,4 +41,8 @@ export interface TabsProps extends WithChildren {
     className?: string;
     onChange?: (tabIndex: number) => void;
     defaultTab?: number;
+    /**
+     * Hvilken retning
+     */
+    direction?: "horizontal" | "vertical";
 }
