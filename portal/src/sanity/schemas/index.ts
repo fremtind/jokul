@@ -12,7 +12,6 @@ import { kortFortalt } from "./kortFortalt";
 import { linkCard } from "./linkCard";
 import { messageBox } from "./messageBox";
 import { questionsAndAnswers } from "./questionsAndAnswers";
-import { storybook, storybookStory } from "./storybook";
 import { table } from "./table";
 
 export const schemaTypes = [
@@ -24,8 +23,6 @@ export const schemaTypes = [
     codeBlock,
     examples,
     story,
-    storybook,
-    storybookStory,
     kortFortalt,
     linkCard,
     doAndDont,

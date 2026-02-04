@@ -714,21 +714,6 @@
                 },
                 "rest": {
                   "type": "inline",
-                  "name": "jokul_storybook"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
                   "name": "jokul_doAndDont"
                 }
               },
@@ -1515,75 +1500,6 @@
     }
   },
   {
-    "name": "jokul_storybookStory",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "jokul_storybookStory"
-          }
-        },
-        "storyId": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        },
-        "storyName": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
-    "name": "jokul_storybook",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "jokul_storybook"
-          }
-        },
-        "story": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "inline",
-            "name": "jokul_storybookStory"
-          },
-          "optional": true
-        },
-        "code": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "inline",
-            "name": "jokul_codeBlock"
-          },
-          "optional": true
-        },
-        "height": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "number"
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
     "name": "jokul_story",
     "type": "document",
     "attributes": {
@@ -2237,21 +2153,6 @@
                 },
                 "rest": {
                   "type": "inline",
-                  "name": "jokul_storybook"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
                   "name": "jokul_table"
                 }
               },
@@ -2799,21 +2700,6 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_examples"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
-                  "name": "jokul_storybook"
                 }
               },
               {
@@ -3500,21 +3386,6 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_examples"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
-                  "name": "jokul_storybook"
                 }
               },
               {
