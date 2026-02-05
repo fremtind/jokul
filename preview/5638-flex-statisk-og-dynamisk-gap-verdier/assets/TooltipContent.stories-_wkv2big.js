@@ -1,0 +1,8 @@
+import{j as o}from"./iframe-CQxc51jJ.js";import{T as n,a as e}from"./TooltipTrigger-BH3n4XFk.js";import{T as r}from"./TooltipContent-B65uLBBn.js";import{_TooltipTrigger as p}from"./TooltipTrigger.stories-BgTsV3Y5.js";/* empty css               */import{B as s}from"./Button-CkxQMMDr.js";import{I as a}from"./Icon-D72rwEyv.js";import"./preload-helper-PPVm8Dsz.js";import"./floating-ui.react-Hp4s0tOW.js";import"./index-B1KNnpu9.js";import"./index-BXtrknhU.js";import"./clsx-B-dksMZM.js";import"./useBrowserPreferences-BExBslGo.js";import"./useId-ljCz2mpr.js";import"./getThemeAndSize-CIzqY74s.js";import"./usePreviousValue-D23DID-s.js";import"./Loader-DsPqboWb.js";import"./useDelayedRender-cZUqmaYs.js";const P={title:"Komponenter/Tooltip",component:r,args:{children:"Tooltip Content"},tags:["autodocs"]},t={render:i=>o.jsxs(n,{initialOpen:!0,children:[o.jsx(e,{...p.args,children:o.jsx(s,{variant:"ghost",icon:o.jsx(a,{children:"send"}),iconPosition:"right"})}),o.jsx(r,{...i})]})};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  render: args => <Tooltip initialOpen>
+            <TooltipTrigger {...TriggerStory.args}>
+                <Button variant="ghost" icon={<Icon>send</Icon>} iconPosition="right" />
+            </TooltipTrigger>
+            <TooltipContent {...args} />
+        </Tooltip>
+}`,...t.parameters?.docs?.source}}};const S=["_TooltipContent"];export{t as _TooltipContent,S as __namedExportsOrder,P as default};
