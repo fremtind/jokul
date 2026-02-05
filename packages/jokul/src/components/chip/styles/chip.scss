@@ -11,7 +11,9 @@
     --background-color: transparent;
     --border-width: #{jkl.rem(1px)};
 
-    @include jkl.text-style("text-small");
+    @include jkl.text-style("text-small") {
+        font-weight: jkl.$typography-font-weight-bold;
+    };
 
     cursor: pointer;
     position: relative;
