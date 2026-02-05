@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.6
+
+### Patch Changes
+
+- 5e935fa: Fjern duplisering av form-elementet i CookieConsent-komponenten.
+
 ## 2.1.5
 
 ### Patch Changes
