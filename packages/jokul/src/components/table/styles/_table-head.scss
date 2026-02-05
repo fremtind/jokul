@@ -19,7 +19,7 @@
         &--sticky {
             & > .jkl-table-row {
                 position: sticky;
-                top: 0;
+                top: var(--jkl-table-head-sticky-offset, 0);
                 z-index: 1;
                 background-color: var(--jkl-table-head-sticky-color);
 

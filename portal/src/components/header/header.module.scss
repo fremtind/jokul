@@ -3,13 +3,14 @@
 
 .header {
     display: grid;
+    place-items: center start;
     grid-template-columns: repeat(2, 1fr);
-    justify-items: start;
     padding: var(--jkl-unit-20);
     position: sticky;
     top: 0;
     background-color: var(--jkl-color-background-page-variant);
-    z-index: 1;
+    z-index: 2;
+    min-height: var(--portal-header-height);
 
     p {
         justify-self: end;
