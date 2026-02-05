@@ -1,7 +1,16 @@
 @use "@fremtind/jokul/styles/core/jkl";
 
 .header {
-    .title, .description, .date {
+    .backLink {
+        display: inline-block;
+        font-size: var(--jkl-font-size-2);
+        margin-block-end: var(--jkl-spacing-40);
+        padding-inline-start: var(--jkl-spacing-10);
+    }
+
+    .title,
+    .description,
+    .date {
         margin-block-end: var(--jkl-spacing-24);
     }
 

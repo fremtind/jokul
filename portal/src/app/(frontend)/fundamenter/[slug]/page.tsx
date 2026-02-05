@@ -49,6 +49,7 @@ export default async function FundamentalPage({ params }: Props) {
             <ArticleHeader
                 title={fundamental.name || ""}
                 description={fundamental.short_description}
+                backLink={{ href: "/fundamenter", label: "Fundamenter" }}
             />
             {fundamental.article ? (
                 <PortableText blocks={fundamental.article} />

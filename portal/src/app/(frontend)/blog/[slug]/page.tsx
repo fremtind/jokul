@@ -50,6 +50,7 @@ export default async function BlogPostPage({ params }: Props) {
                 title={blogPost.name || ""}
                 description={blogPost.short_description}
                 date={{ updated: new Date(blogPost._updatedAt) }}
+                backLink={{ href: "/blog", label: "Artikler" }}
             />
             {blogPost.article ? (
                 <PortableText blocks={blogPost.article} />

@@ -1,3 +1,4 @@
+import { NavLink } from "@fremtind/jokul/nav-link";
 import styles from "./article.module.scss";
 
 export type HeaderProps = {
@@ -7,13 +8,22 @@ export type HeaderProps = {
         published?: Date;
         updated?: Date;
     };
+    backLink?: {
+        href: string;
+        label: string;
+    };
 };
 
 export const ArticleHeader = async (props: HeaderProps) => {
-    const { title, description, date } = props;
+    const { title, description, date, backLink } = props;
 
     return (
         <header className={styles.header}>
+            {backLink && (
+                <NavLink className={styles.backLink} href={backLink.href} back>
+                    {backLink.label}
+                </NavLink>
+            )}
             <h1 className={styles.title}>{title}</h1>
             {description && <p className={styles.description}>{description}</p>}
             {date?.published && (
