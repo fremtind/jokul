@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.0.2
+
+### Patch Changes
+
+- e3a982b: Sørg for at cookies settes riktig
+- 18b0848: Oppdatert padding i segmented-control til å følge figma-design
+
 ## 4.0.1
 
 ### Patch Changes
