@@ -44,7 +44,6 @@ export const fundamentals = defineType({
                 { type: "image" },
                 { type: "jokul_codeBlock" },
                 { type: "jokul_examples" },
-                { type: "jokul_storybook" },
                 { type: "jokul_doAndDont" },
                 { type: "jokul_table" },
                 { type: "jokul_qa" },
