@@ -18,12 +18,8 @@
     .status {
         margin-top: var(--jkl-unit-80);
 
-        span {
-            font-size: 1.25rem;
-        }
-
-        p {
-            font-size: 1.125rem;
+        .replacement {
+            margin-block-start: var(--jkl-unit-10);
         }
     }
 

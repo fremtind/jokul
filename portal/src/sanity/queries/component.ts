@@ -19,6 +19,13 @@ export const componentBySlugQuery =
             ...example_card,
             "story": example_card.story->
         },
+        status {
+            ...,
+            replacement -> {
+                name,
+                "slug": slug.current,
+            },
+        },
         documentation_article[]{
             ...,
             _type == "jokul_code" => {
