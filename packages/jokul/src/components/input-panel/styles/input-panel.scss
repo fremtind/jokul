@@ -1,6 +1,6 @@
 @use "../../../core/jkl" as jkl;
 
-@layer components {
+@layer jokul.components {
     .jkl-input-panel {
         --outer-border-color: var(--jkl-color-border-input);
         --outer-border-thickness: #{jkl.rem(1px)};
@@ -29,6 +29,7 @@
                 display: flex;
                 height: 100%;
                 align-items: center;
+
                 @include jkl.use-font-variables("jkl-checkbox");
             }
 
@@ -54,8 +55,8 @@
             padding-inline: var(--jkl-spacing-m);
             padding-block-end: var(--jkl-spacing-none);
             line-height: initial;
-            @include jkl.use-font-variables("jkl-checkbox");
 
+            @include jkl.use-font-variables("jkl-checkbox");
             @include jkl.motion;
             transition-property: height;
         }
