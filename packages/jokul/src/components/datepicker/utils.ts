@@ -1,4 +1,4 @@
-import React from "react";
+import type { FocusEvent } from "react";
 
 const dayMonthYearRegex = /^(\d\d?)[\W](\d\d?)[\W](\d{4}|\d{2})$/;
 const yearMonthDayRegex = /^(\d{4}|\d{2})[\W](\d\d?)[\W](\d\d?)$/;
@@ -80,11 +80,11 @@ export function parseDateString(dateString?: string): Date | undefined {
 /**
  * Hjelpefunksjon for å se om en onBlur går utenfor DatePicker,
  * eller om den går til et interaktivt element inni DatePickeren.
- * @param {React.FocusEvent<HTMLButtonElement | HTMLInputElement>} e - Eventet fra onBlur og action.onBlur
+ * @param {FocusEvent<HTMLButtonElement | HTMLInputElement>} e - Eventet fra onBlur og action.onBlur
  * @returns {boolean} true hvis e.relatedTarget er utenfor DatePicker
  */
 export function isBlurTargetOutside(
-    e: React.FocusEvent<HTMLButtonElement | HTMLInputElement>,
+    e: FocusEvent<HTMLButtonElement | HTMLInputElement>,
 ): boolean {
     if (!e.relatedTarget) {
         return true;
