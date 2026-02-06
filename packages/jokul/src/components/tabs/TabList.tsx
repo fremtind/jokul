@@ -11,10 +11,13 @@ export interface InjectedProps {
 
 /**
  * Konteiner for elementer av typen Tab. Ikke funksjonell utenfor et Tabs element.
- *
- * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const TabList = ({ children, className, ...injected }: TabListProps) => {
+export const TabList = ({
+    children,
+    className,
+    direction = "horizontal",
+    ...injected
+}: TabListProps) => {
     // props injected by Tabs
     const { activeIndex, setActiveIndex, tabIDs, tabPanelIDs, ...rest } =
         injected as TabListProps & InjectedProps;
@@ -58,6 +61,7 @@ export const TabList = ({ children, className, ...injected }: TabListProps) => {
             role="tablist"
             ref={tabsRef}
             {...rest}
+            data-direction={direction}
             className={clsx("jkl-tablist", className)}
         >
             {React.Children.map(children, (tab, tabIndex) => {
