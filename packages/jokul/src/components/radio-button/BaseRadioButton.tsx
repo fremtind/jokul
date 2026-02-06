@@ -30,6 +30,13 @@ export const BaseRadioButton = forwardRef<
                 "jkl-radio-button--error": invalid,
             })}
         >
+            <label
+                data-testid="jkl-radio-button__label-tag"
+                htmlFor={inputId}
+                className="jkl-radio-button__label"
+            >
+                {label || children}
+            </label>
             <input
                 name={name}
                 ref={ref}
@@ -40,17 +47,8 @@ export const BaseRadioButton = forwardRef<
                 onChange={onChange}
                 value={value}
                 checked={checked}
+                aria-invalid={invalid || rest["aria-invalid"]}
             />
-            <label
-                data-testid="jkl-radio-button__label-tag"
-                htmlFor={inputId}
-                className="jkl-radio-button__label"
-            >
-                <span aria-hidden className="jkl-radio-button__dot" />
-                <span className="jkl-radio-button__text">
-                    {label || children}
-                </span>
-            </label>
         </div>
     );
 });

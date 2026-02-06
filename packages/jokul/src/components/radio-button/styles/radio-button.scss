@@ -2,167 +2,87 @@
 @use "sass:string";
 @use "../../../core/jkl";
 @use "../../../core/jkl/colors";
-
-$_radio-button-dot-animation-name: jkl-dot-in-#{string.unique-id()};
+@use "../../icon/styles/base-styles" as icon;
 
 @layer jokul.components {
-    .jkl-radio-button {
-        --jkl-radio-button-dot-padding: var(--jkl-unit-05);
-        --jkl-radio-button-size: var(--jkl-unit-30);
-        --jkl-radio-button-text-margin: calc(
-                (
-                        var(--jkl-radio-button-height) - var(
-                                --jkl-radio-button-line-height
-                            )
-                    ) *
-                    0.5
-            )
-            0;
-        --jkl-radio-button-dot-size: calc(
-            var(--jkl-radio-button-size) -
-                (2 * var(--jkl-radio-button-dot-padding))
-        );
-        --jkl-radio-button-text-transform: translate3d(0, #{jkl.rem(1px)}, 0);
-        --ring-color: var(--jkl-color-border-action);
-        --dot-color: transparent;
-        --background-color: transparent;
-        --text-color: var(--jkl-color-text-default);
+    @include jkl.light-mode-variables {
+        --jkl-radio-button-error-color: #ab2e43;
+    }
 
+    @include jkl.dark-mode-variables {
+        --jkl-radio-button-error-color: #d79ba5;
+    }
+
+    .jkl-radio-button {
         display: flex;
-        color: var(--text-color);
         position: relative;
 
         @include jkl.reset-outline;
 
         &__input {
+            // Hide native radio button
             position: absolute;
             opacity: 0;
-            top: var(--jkl-radio-button-size);
-            left: calc(-0.5 * var(--jkl-radio-button-size));
-
-            &:checked {
-                + .jkl-radio-button__label > .jkl-radio-button__dot::after {
-                    --dot-color: var(--jkl-color-border-action);
-                    animation: $_radio-button-dot-animation-name
-                        jkl.timing("productive") ease;
-
-                    @include jkl.forced-colors-mode {
-                        background-color: ButtonText;
-                    }
-                }
-
-                .jkl-radio-button--error
-                    &
-                    + .jkl-radio-button__label
-                    > .jkl-radio-button__dot::after {
-                    --background-color: var(--jkl-color-background-alert-error);
-                    --dot-color: var(--jkl-color-text-on-alert);
-                }
-            }
-
-            &:focus-visible {
-                + .jkl-radio-button__label {
-                    --background-color: var(--jkl-color-background-input-focus);
-
-                    & > .jkl-radio-button__dot {
-                        @include jkl.focus-outline;
-                    }
-                }
-
-                .jkl-radio-button--error & + .jkl-radio-button__label {
-                    --background-color: var(--jkl-color-background-alert-error);
-                    --dot-color: var(--jkl-color-text-on-alert);
-                }
-            }
+            pointer-events: none;
+            // Make sure that when the browser scrolls here because of focus, the control
+            // is positioned below the label so that the label becomes visible.
+            inset: 0 auto 0 0;
+            width: 1lh;
         }
 
         &__label {
             cursor: pointer;
             display: flex;
-            align-items: center;
-            padding-block: var(--jkl-unit-10);
-            gap: var(--jkl-unit-10);
+
+            @include jkl.motion;
+            transition-property: color;
 
             @include jkl.text-style("text-medium");
 
-            &:hover > .jkl-radio-button__dot {
-                outline: 1px solid var(--ring-color);
+            &:hover,
+            &:active {
+                --jkl-icon-weight: #{jkl.$icon-weight-bold};
             }
 
-            &:active > .jkl-radio-button__dot &::after {
-                scale: 0.9;
-            }
-        }
+            &::before {
+                content: "radio_button_unchecked";
+                margin-inline-end: 0.25em;
 
-        &__dot {
-            display: inline-block;
-            position: relative;
-            box-sizing: border-box;
-            flex-shrink: 0;
-
-            height: var(--jkl-radio-button-size);
-            width: var(--jkl-radio-button-size);
-            border-radius: 50%;
-            border: jkl.rem(1px) solid var(--ring-color);
-            background-color: var(--background-color);
-
-            transition-property: background-color, outline;
-
-            @include jkl.motion;
-
-            &::after {
-                content: "";
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                translate: -50% -50%;
-                scale: 1;
-
-                height: var(--jkl-radio-button-dot-size);
-                width: var(--jkl-radio-button-dot-size);
-                border-radius: 50%;
-                background-color: var(--dot-color);
-
-                transition-property: transform;
-
-                @include jkl.motion;
+                @include icon.base-styles;
             }
 
-            @include jkl.forced-colors-mode {
-                outline: revert;
-                border: 1px solid ButtonText;
+            &:has(+ :checked)::before {
+                content: "radio_button_checked";
+            }
+
+            &:has(+ [aria-invalid="true"])::before {
+                color: var(--jkl-radio-button-error-color);
             }
         }
 
-        &__text {
-            display: inline-block;
-            transform: var(--jkl-radio-button-text-transform);
-        }
-
-        &--error {
-            --background-color: var(--jkl-color-background-alert-error);
+        & + &,
+        /* Ta høyde for at det rendres support label etter radio button inntil videre */
+       .jkl-dormant-form-support-label + &,
+       .jkl-form-support-label + & {
+            margin-top: 0.75lh;
         }
 
         &--inline {
             display: inline-flex;
-            margin-top: unset;
             margin-right: var(--jkl-unit-30);
         }
 
+        &--inline + &--inline,
+        /* Ta høyde for at det rendres support label etter radio button inntil videre */
+        .jkl-dormant-form-support-label + &--inline,
+        .jkl-form-support-label + &--inline {
+            margin-top: 0;
+        }
+
         + .jkl-form-support-label {
-            margin-left: calc(var(--jkl-radio-button-size) + #{jkl.$unit-10});
-            margin-top: jkl.rem(-6px);
+            margin-left: 1.75em;
+            margin-top: 0.25lh;
             margin-bottom: jkl.$unit-10;
-        }
-    }
-
-    @keyframes #{$_radio-button-dot-animation-name} {
-        0% {
-            transform: scale(0.8);
-        }
-
-        100% {
-            transform: scale(1);
         }
     }
 }
