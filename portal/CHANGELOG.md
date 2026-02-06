@@ -1,5 +1,11 @@
 # portal
 
+## 1.4.28
+
+### Patch Changes
+
+- cc2c719: Legg til tilbake lenke for undersider
+
 ## 1.4.27
 
 ### Patch Changes
