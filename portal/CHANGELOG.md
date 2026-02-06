@@ -1,5 +1,16 @@
 # portal
 
+## 1.4.27
+
+### Patch Changes
+
+- 132e1b0: Innfører `--portal-header-height` til å justere sticky table-headere slik at det ikke
+  overlapper portal headeren.
+- 2e47aec: Fikser en feil der bildene i komponentkortene i portalen ble kuttet av nederst.
+- Updated dependencies [e3a982b]
+- Updated dependencies [18b0848]
+  - @fremtind/jokul@4.0.2
+
 ## 1.4.26
 
 ### Patch Changes
