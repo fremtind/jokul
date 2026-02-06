@@ -56,18 +56,31 @@ export const component = defineType({
             fields: [
                 defineField({
                     name: "value",
-                    title: "Status",
+                    title: "Nåværende status",
                     type: "string",
                     options: {
-                        list: ["deprecated", "beta"],
-                        layout: "dropdown",
+                        list: [
+                            { value: "stable", title: "Stabil" },
+                            { value: "beta", title: "Beta" },
+                            { value: "deprecated", title: "Deprecated" },
+                            { value: "removed", title: "Fjernet" },
+                        ],
                     },
+                    initialValue: "stable",
                 }),
                 defineField({
-                    name: "statusDescription",
-                    title: "Statusbeskrivelse",
-                    type: "text",
-                    hidden: ({ parent }) => !parent?.value,
+                    name: "description",
+                    title: "Forklaring",
+                    type: "array",
+                    of: [{ type: "block" }],
+                    hidden: ({ parent }) => parent?.value === "stable",
+                }),
+                defineField({
+                    name: "replacement",
+                    title: "Erstatning",
+                    type: "reference",
+                    to: [{ type: "jokul_component" }],
+                    hidden: ({ parent }) => parent?.value === "stable",
                 }),
             ],
         }),
