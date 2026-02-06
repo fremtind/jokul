@@ -18,6 +18,13 @@ export const componentBySlugQuery =
         "component_example_card": component_example_card{
             "url": asset->url
         },
+        status {
+            ...,
+            replacement -> {
+                name,
+                "slug": slug.current,
+            },
+        },
         documentation_article[]{
             ...,
             _type == "jokul_examples" => {

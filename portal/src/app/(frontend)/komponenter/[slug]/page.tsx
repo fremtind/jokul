@@ -71,11 +71,7 @@ export default async function Page({ params }: Props) {
                     Komponenter
                 </NavLink>
 
-                <ComponentHeader
-                    name={component?.name}
-                    description={component?.short_description}
-                    status={component.status}
-                />
+                <ComponentHeader {...component} />
 
                 {component.documentation_article && <ComponentNav />}
 
