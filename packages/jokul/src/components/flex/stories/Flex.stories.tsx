@@ -1,18 +1,21 @@
 import type { Meta, StoryFn, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import tokens from "../../../core/tokens.js";
 import { Flex } from "../Flex.js";
-import { LAYOUTS } from "../types.js";
+import { LAYOUTS, SEMANTIC_SPACING, STATIC_SPACING } from "../types.js";
 
 import "../styles/_index.scss";
+const createGapValues = (steps: string[]) =>
+    steps.flatMap((step) => [
+        step,
+        ...steps
+            .filter((other) => other !== step)
+            .map((other) => `${step} ${other}`),
+    ]);
 
-const spacingSteps = Object.keys(tokens.semanticSpacing);
-const gapValues = spacingSteps.flatMap((step) => [
-    step,
-    ...spacingSteps
-        .filter((otherStep) => step !== otherStep)
-        .map((otherStep) => `${step} ${otherStep}`),
-]);
+const semanticGapValues = createGapValues([...SEMANTIC_SPACING]);
+const staticGapValues = createGapValues([...STATIC_SPACING]);
+
+const gapValues = [...semanticGapValues, ...staticGapValues];
 
 const meta = {
     title: "Komponenter/Flex",
@@ -174,16 +177,13 @@ const decorators = [
 ];
 
 export const Default: Story = {
-    decorators,
     args: {
-        center: "m",
-        layout: "6",
-        gap: "m",
         children: null,
     },
-    render({ asChild, ...args }) {
+    decorators,
+    render({ asChild, ...props }) {
         return (
-            <Flex {...args}>
+            <Flex {...props}>
                 <div>1</div>
                 <div>2</div>
                 <div>3</div>
@@ -210,9 +210,14 @@ export const Responsive: Story = {
         return (
             <>
                 <Flex
-                    {...props}
                     layout={{ small: "1", medium: "2", large: "3", xl: "4" }}
-                    gap={{ small: "none", medium: "s", large: "m", xl: "l" }}
+                    gap={{
+                        small: "none",
+                        medium: "none",
+                        large: "none",
+                        xl: "none",
+                    }}
+                    {...props}
                 >
                     <div>Child 1</div>
                     <div>Child 2</div>
@@ -222,7 +227,6 @@ export const Responsive: Story = {
                     <div>Child 6</div>
                 </Flex>
                 <Flex
-                    {...props}
                     layout={{
                         small: "1",
                         medium: "7.5",
@@ -230,6 +234,7 @@ export const Responsive: Story = {
                         xl: "2",
                     }}
                     gap={{ medium: "none s", large: "s m", xl: "m xl" }}
+                    {...props}
                 >
                     <div>Child even and uneven widths 1</div>
                     <div>Child even and uneven widths 2</div>
@@ -251,9 +256,9 @@ export const Nested: Story = {
         children: null,
     },
     decorators,
-    render({ asChild, ...props }) {
+    render({ gapType, asChild, ...props }) {
         return (
-            <Flex {...props} layout="4.8" gap="xl">
+            <Flex layout="4.8" gap="xl" {...props}>
                 <div>
                     Sidebar
                     <Flex layout="2" gap="xl">
@@ -261,9 +266,9 @@ export const Nested: Story = {
                         <div>Child 2</div>
                     </Flex>
                 </div>
-                <Flex {...props} layout="2" gap="none">
+                <Flex layout="2" gap="none" {...props}>
                     <div>Child 1</div>
-                    <Flex {...props} layout="3">
+                    <Flex layout="3" {...props}>
                         <div>Child 2-1</div>
                         <div>Child 2-2</div>
                         <div>Child 2-3</div>
@@ -311,7 +316,7 @@ export const Fill: Story = {
                         With fill and layout=&apos;{String(props.layout)}&apos;:
                     </strong>
                 </p>
-                <Flex {...props} fill>
+                <Flex fill {...props}>
                     <div>a</div>
                     <div>b</div>
                     <div>
@@ -349,7 +354,7 @@ export const Center: Story = {
     render({ asChild, ...props }) {
         return (
             <Flex center>
-                <Flex {...props} id="example" layout="6">
+                <Flex id="example" layout="6" {...props}>
                     <div>1</div>
                     <div>2</div>
                     <div>3</div>
@@ -357,7 +362,7 @@ export const Center: Story = {
                     <div>5</div>
                     <div>6</div>
                 </Flex>
-                <Flex {...props} center="2xl">
+                <Flex center="2xl" {...props}>
                     <div>
                         <code>
                             &lt;Flex center&gt; | &lt;Flex
@@ -366,19 +371,19 @@ export const Center: Story = {
                         <small>= 12 units wide on xxl breakpoint</small>
                     </div>
                 </Flex>
-                <Flex {...props} center="xl">
+                <Flex center="xl" {...props}>
                     <div>
                         <code>&lt;Flex center=&apos;xl&apos;&gt;</code>
                         <small>= 10 units wide on xxl breakpoint</small>
                     </div>
                 </Flex>
-                <Flex {...props} center="l">
+                <Flex center="l" {...props}>
                     <div>
                         <code>&lt;Flex center=&apos;l&apos;&gt;</code>
                         <small>= 8 units wide on xxl breakpoint</small>
                     </div>
                 </Flex>
-                <Flex {...props} center="m">
+                <Flex center="m" {...props}>
                     <div>
                         <code>&lt;Flex center=&apos;m&apos;&gt;</code>
                         <small>= 6 units wide on xxl breakpoint</small>

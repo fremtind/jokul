@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @use "sass:math";
 @use "sass:map";
-@use "../../../core/jkl";
+@use "sass:list";
 
 // ==========================================================================
 // 1. Konfigurasjon
@@ -18,8 +18,43 @@
     }
 }
 
-$jokul-breakpoints: map.get(jkl.$tokens, "breakpoint");
-$jokul-spacing: map.get(jkl.$tokens, "semantic-spacing");
+$jokul-breakpoints: (
+    "small": 0,
+    "medium": 680px,
+    "large": 1200px,
+    "xl": 1600px,
+);
+$jokul-semantic-spacing: (
+    "none",
+    "2xs",
+    "xs",
+    "s",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+);
+$jokul-static-spacing: (
+    "0",
+    "2",
+    "4",
+    "8",
+    "12",
+    "16",
+    "20",
+    "24",
+    "28",
+    "32",
+    "40",
+    "48",
+    "56",
+    "64",
+    "72",
+    "80",
+    "104",
+    "168",
+);
+$jokul-spacing: list.join($jokul-semantic-spacing, $jokul-static-spacing, comma);
 
 // Map for å generere klasser for uniforme (jevnt fordelte) kolonner.
 // Nøkkelen (key) representerer antall elementer, og verdien (value) er hvor mange
@@ -153,7 +188,7 @@ $containers: (
 
 // Mixin for å generere klasser for `row-gap` og `column-gap`.
 @mixin generate-gap-classes($breakpoint) {
-    @each $spacing, $value in $jokul-spacing {
+    @each $spacing in $jokul-spacing {
         .screen-#{$breakpoint}-row-gap-#{$spacing} {
             row-gap: var(--jkl-spacing-#{$spacing});
         }
