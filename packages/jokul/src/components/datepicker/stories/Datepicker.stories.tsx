@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { DatePicker as DatePickerComponent } from "../DatePicker.js";
+import { formatInput } from "../utils.js";
 import "../styles/_index.scss";
 
 const meta = {
@@ -12,17 +13,13 @@ const meta = {
         },
         days: ["M", "T", "O", "T", "F", "L", "S"],
         defaultShow: false,
-        defaultValue: new Date().toLocaleDateString("no", {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric",
-        }),
-        disableBeforeDate: new Date(
-            new Date().setDate(new Date().getDate() - 14),
-        ).toLocaleDateString("en-US"),
-        disableAfterDate: new Date(
-            new Date().setDate(new Date().getDate() + 14),
-        ).toLocaleDateString("en-US"),
+        defaultValue: formatInput(new Date()),
+        disableBeforeDate: formatInput(
+            new Date(new Date().setDate(new Date().getDate() - 14)),
+        ),
+        disableAfterDate: formatInput(
+            new Date(new Date().setDate(new Date().getDate() + 14)),
+        ),
         description: "Kortet er gyldig i 3 måneder fra denne datoen",
         label: "Når skal du reise?",
         labelProps: {
@@ -65,12 +62,8 @@ export const DatePicker: Story = {
     render: (args) => (
         <DatePickerComponent
             {...args}
-            disableBeforeDate={new Date(
-                args.disableBeforeDate || new Date(),
-            ).toLocaleDateString("no")}
-            disableAfterDate={new Date(
-                args.disableAfterDate || new Date(),
-            ).toLocaleDateString("no")}
+            disableBeforeDate={args.disableBeforeDate}
+            disableAfterDate={args.disableAfterDate}
         />
     ),
 };
