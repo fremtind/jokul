@@ -1,8 +1,8 @@
 import { type RenderOptions, render } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
-import { axe } from "jest-axe";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
+import { axe } from "vitest-axe";
 import { File } from "../file/index.js";
 import { FileInput } from "./index.js";
 import type { UploadedFile } from "./types.js";
