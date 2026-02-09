@@ -91,9 +91,13 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     .jkl-input-group-description {
         @include jkl.text-style("text-medium");
         color: var(--jkl-color-text-subdued);
-        margin: var(--jkl-label-medium-margin);
+        margin-block-end: var(--jkl-spacing-8);
         max-inline-size: 50ch;
         text-wrap: pretty;
+    }
+
+    .jkl-label:has(+ .jkl-input-group-description) {
+        margin-block-end: var(--jkl-spacing-4);
     }
 
     @keyframes #{$_support-icon-entrance-animation-name} {
