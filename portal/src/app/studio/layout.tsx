@@ -1,4 +1,6 @@
-export const metadata = {
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
     title: "Jøkul Portal Studio",
     description:
         "Velkommen til Jøkul Portal Studio. Her kan du redigere innholdet på Portalen.",
