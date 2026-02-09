@@ -1,5 +1,16 @@
 # portal
 
+## 1.4.28
+
+### Patch Changes
+
+- cc2c719: Legg til tilbake lenke for undersider
+- Updated dependencies [59effb8]
+- Updated dependencies [8a53beb]
+- Updated dependencies [eecb6e9]
+- Updated dependencies [c0a2bd5]
+  - @fremtind/jokul@4.0.3
+
 ## 1.4.27
 
 ### Patch Changes
