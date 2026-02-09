@@ -9,6 +9,7 @@
         --jkl-select-arrow-right: var(--jkl-unit-05);
         --border-width: #{jkl.rem(1px)};
         --border-radius: var(--jkl-border-radius-s);
+        --min-option-height: min(var(--jkl-unit-60), 3rem);
 
         /* Vi må trekke fra bredden til rammen for å få riktig høyde */
         --button-padding: calc(var(--jkl-unit-15) - var(--border-width))
@@ -156,7 +157,7 @@
             // Sett makshøyde på listen til høyden av (maxShownOptions + 0.5) ganger høyden på ett enlinjes valg
             max-height: calc(
                 calc(var(--jkl-select-max-shown-options, 5) + 0.5) *
-                    var(--jkl-select-input-height)
+                    var(--min-option-height)
             );
 
             transition-property: height;
@@ -177,7 +178,7 @@
             border: 0; // removes native styling
             width: 100%;
             background-color: inherit;
-            min-height: min(var(--jkl-unit-60), 3rem);
+            min-height: var(--min-option-height);
             text-align: left;
             transition-property: color, background-color;
             position: relative;
