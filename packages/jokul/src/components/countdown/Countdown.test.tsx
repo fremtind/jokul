@@ -1,5 +1,4 @@
-import { render, screen } from "@testing-library/react";
-import React, { act } from "react";
+import { act, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { Countdown } from "./Countdown.js";
 

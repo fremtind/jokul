@@ -1,10 +1,27 @@
 import * as matchers from "@testing-library/jest-dom/matchers";
 import { cleanup } from "@testing-library/react";
-import { toHaveNoViolations } from "jest-axe";
 import { afterAll, afterEach, beforeAll, expect, vi } from "vitest";
+import * as axeMatchers from "vitest-axe/matchers";
 
 expect.extend(matchers);
-expect.extend(toHaveNoViolations);
+expect.extend(axeMatchers);
+
+// Feil: "HTMLCanvasElement.prototype.getContext is not implemented" i JSDOM.
+// Axe trenger canvas for color-contrast, så vi slår av regelen her og lar Playwright teste kontrast.
+vi.mock("vitest-axe", async () => {
+    const actual = await vi.importActual("vitest-axe");
+    const mod = actual.default ?? actual;
+    const { configureAxe } = mod;
+
+    return {
+        ...mod,
+        axe: configureAxe({
+            rules: {
+                "color-contrast": { enabled: false },
+            },
+        }),
+    };
+});
 
 const defaultResizeObserver = globalThis.ResizeObserver;
 
