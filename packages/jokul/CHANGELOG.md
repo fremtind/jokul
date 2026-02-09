@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.7.2
+
+### Patch Changes
+
+- ba5a829: Fikset en feil der Beta Select ikke sendte med `ref` i `forwardRef`, som førte til React 19‑advarsel.
+- 69b6a9d: InputPanel‑stilene ligger nå i `@layer jokul.components`, slik at de ikke kolliderer med Tailwind sitt reserverte `components`‑layer.
+
 ## 3.7.1
 
 ### Patch Changes
