@@ -17,6 +17,7 @@ const meta = {
         value: "Livsforsikring",
         name: "Dekning",
         alwaysOpen: true,
+        "aria-invalid": false,
     },
     decorators: [
         (Story) => (
