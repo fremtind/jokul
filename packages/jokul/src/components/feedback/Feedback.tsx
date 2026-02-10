@@ -11,6 +11,10 @@ import type {
     FollowupProps,
 } from "./types.js";
 
+/**
+ * @deprecated denne komponenten er i ferd med å fases ut, og vil bli erstattet av mer fleksible og mindre styrende komponenter for innsamling av tilbakemeldinger. Ta kontakt med oss i Jøkul-teamet hvis du ønsker å bruke eller bidra til utviklingen av de nye komponentene.
+ */
+
 export type FeedbackProps = {
     className?: string;
     /** Velg typen alternativer, Smiley eller RadioButtons. */
@@ -67,6 +71,12 @@ export const Feedback = ({
     const [followupStarted, setFollowupStarted] = useState(false);
     const [followupSubmitted, setFollowupSubmitted] = useState(false);
     const [contactSubmitted, setContactSubmitted] = useState(false);
+
+    if (process.env.NODE_ENV !== "production") {
+        console.error(
+            "WARNING: Feedback component has been deprecated and will be removed in some future version of the library",
+        );
+    }
 
     return (
         <div
