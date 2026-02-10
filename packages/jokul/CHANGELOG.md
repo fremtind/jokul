@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.0.3
+
+### Patch Changes
+
+- 59effb8: Fikser en feil der menyen i `Select` ikke ble begrenset i høyden selv om `maxShownOptions` var satt. Den skal nå fungere som før.
+- 8a53beb: Fikset en feil der Beta Select ikke sendte med `ref` i `forwardRef`, som førte til React 19‑advarsel.
+- eecb6e9: Justerer marginer for `label` og `description` for skjemafelter til å stemme bedre med ønsket uttrykk.
+- c0a2bd5: Setter riktig fontvekt på teksten i `Chip`-komponenten, som var blitt endret ved uhell i arbeidet med størrelser.
+
 ## 4.0.2
 
 ### Patch Changes
