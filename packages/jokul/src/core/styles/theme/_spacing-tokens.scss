@@ -2,11 +2,9 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-@use "../../jkl";
 
 @layer jokul.theme {
-    :root,
-    [data-size] {
+    :root {
         --jkl-unit-10: var(--jkl-unit-base);
         --jkl-unit-15: calc(var(--jkl-unit-base) * 1.5);
         --jkl-unit-20: calc(var(--jkl-unit-base) * 2);
@@ -20,6 +18,7 @@
         --jkl-unit-90: calc(var(--jkl-unit-base) * 9);
         --jkl-unit-130: calc(var(--jkl-unit-base) * 13);
         --jkl-unit-210: calc(var(--jkl-unit-base) * 21);
+        --jkl-unit-base: 0.5rem;
         --jkl-unit-02: calc(var(--jkl-unit-base) * .25);
         --jkl-unit-05: calc(var(--jkl-unit-base) * .5);
         --jkl-spacing-none: 0;
@@ -30,18 +29,5 @@
         --jkl-spacing-l: calc(var(--jkl-unit-base) * 5);
         --jkl-spacing-xl: calc(var(--jkl-unit-base) * 8);
         --jkl-spacing-2xl: calc(var(--jkl-unit-base) * 13);
-    }
-
-    [data-size="small"] {
-        --jkl-unit-base: #{jkl.rem(6px)};
-    }
-
-    :root,
-    [data-size="medium"] {
-        --jkl-unit-base: #{jkl.rem(8px)};
-    }
-
-    [data-size="large"] {
-        --jkl-unit-base: #{jkl.rem(10px)};
     }
 }
