@@ -81,6 +81,16 @@ $typography-weight-normal: 400 !default;
 $typography-weight-bold: 700 !default;
 $typography-font-weight-normal: 400 !default;
 $typography-font-weight-bold: 700 !default;
+$typography-font-size-1: var(--jkl-font-size-1) !default;
+$typography-font-size-2: var(--jkl-font-size-2) !default;
+$typography-font-size-3: var(--jkl-font-size-3) !default;
+$typography-font-size-4: var(--jkl-font-size-4) !default;
+$typography-font-size-5: var(--jkl-font-size-5) !default;
+$typography-font-size-6: var(--jkl-font-size-6) !default;
+$typography-font-size-7: var(--jkl-font-size-7) !default;
+$typography-font-size-8: var(--jkl-font-size-8) !default;
+$typography-font-size-9: var(--jkl-font-size-9) !default;
+$typography-font-size-10: var(--jkl-font-size-10) !default;
 $typography-font-size-16: 1rem !default;
 $typography-font-size-18: 1.125rem !default;
 $typography-font-size-20: 1.25rem !default;
@@ -101,48 +111,93 @@ $typography-line-height-40: 2.5rem !default;
 $typography-line-height-44: 2.75rem !default;
 $typography-line-height-52: 3.25rem !default;
 $typography-line-height-64: 4rem !default;
-$typography-style-title-small-font-size: 2.25rem !default;
-$typography-style-title-small-line-height: 2.75rem !default;
+$typography-line-height-flush: var(--jkl-line-height-flush) !default;
+$typography-line-height-tight: var(--jkl-line-height-tight) !default;
+$typography-line-height-relaxed: var(--jkl-line-height-relaxed) !default;
+$typography-style-title-small-font-size: var(--jkl-font-size-10) !default;
+$typography-style-title-small-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-title-small-font-weight: 400 !default;
-$typography-style-title-base-font-size: 3.5rem !default;
-$typography-style-title-base-line-height: 4rem !default;
+$typography-style-title-base-font-size: var(--jkl-font-size-10) !default;
+$typography-style-title-base-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-title-base-font-weight: 400 !default;
-$typography-style-title-small-small-font-size: 1.875rem !default;
-$typography-style-title-small-small-line-height: 2.25rem !default;
+$typography-style-title-small-small-font-size: var(--jkl-font-size-9) !default;
+$typography-style-title-small-small-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-title-small-small-font-weight: 400 !default;
-$typography-style-title-small-base-font-size: 2.75rem !default;
-$typography-style-title-small-base-line-height: 3.25rem !default;
+$typography-style-title-small-base-font-size: var(--jkl-font-size-9) !default;
+$typography-style-title-small-base-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-title-small-base-font-weight: 400 !default;
-$typography-style-heading-1-small-font-size: 1.625rem !default;
-$typography-style-heading-1-small-line-height: 2rem !default;
+$typography-style-heading-1-small-font-size: var(--jkl-font-size-8) !default;
+$typography-style-heading-1-small-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-1-small-font-weight: 400 !default;
-$typography-style-heading-1-base-font-size: 2.25rem !default;
-$typography-style-heading-1-base-line-height: 2.75rem !default;
+$typography-style-heading-1-base-font-size: var(--jkl-font-size-8) !default;
+$typography-style-heading-1-base-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-1-base-font-weight: 400 !default;
-$typography-style-heading-2-small-font-size: 1.4375rem !default;
-$typography-style-heading-2-small-line-height: 2rem !default;
+$typography-style-heading-2-small-font-size: var(--jkl-font-size-7) !default;
+$typography-style-heading-2-small-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-2-small-font-weight: 400 !default;
-$typography-style-heading-2-base-font-size: 1.75rem !default;
-$typography-style-heading-2-base-line-height: 2.5rem !default;
+$typography-style-heading-2-base-font-size: var(--jkl-font-size-7) !default;
+$typography-style-heading-2-base-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-2-base-font-weight: 400 !default;
-$typography-style-heading-3-small-font-size: 1.3125rem !default;
-$typography-style-heading-3-small-line-height: 1.75rem !default;
+$typography-style-heading-3-small-font-size: var(--jkl-font-size-6) !default;
+$typography-style-heading-3-small-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-3-small-font-weight: 700 !default;
-$typography-style-heading-3-base-font-size: 1.5625rem !default;
-$typography-style-heading-3-base-line-height: 2rem !default;
+$typography-style-heading-3-base-font-size: var(--jkl-font-size-6) !default;
+$typography-style-heading-3-base-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-3-base-font-weight: 700 !default;
-$typography-style-heading-4-small-font-size: 1.125rem !default;
-$typography-style-heading-4-small-line-height: 1.5rem !default;
+$typography-style-heading-4-small-font-size: var(--jkl-font-size-5) !default;
+$typography-style-heading-4-small-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-4-small-font-weight: 700 !default;
-$typography-style-heading-4-base-font-size: 1.3125rem !default;
-$typography-style-heading-4-base-line-height: 1.75rem !default;
+$typography-style-heading-4-base-font-size: var(--jkl-font-size-5) !default;
+$typography-style-heading-4-base-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-4-base-font-weight: 700 !default;
-$typography-style-heading-5-small-font-size: 1rem !default;
-$typography-style-heading-5-small-line-height: 1.5rem !default;
+$typography-style-heading-5-small-font-size: var(--jkl-font-size-4) !default;
+$typography-style-heading-5-small-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-5-small-font-weight: 700 !default;
-$typography-style-heading-5-base-font-size: 1rem !default;
-$typography-style-heading-5-base-line-height: 1.5rem !default;
+$typography-style-heading-5-base-font-size: var(--jkl-font-size-4) !default;
+$typography-style-heading-5-base-line-height: var(--jkl-line-height-tight) !default;
 $typography-style-heading-5-base-font-weight: 700 !default;
+$typography-style-paragraph-large-small-font-size: var(--jkl-font-size-5) !default;
+$typography-style-paragraph-large-small-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-paragraph-large-small-font-weight: 400 !default;
+$typography-style-paragraph-large-base-font-size: var(--jkl-font-size-5) !default;
+$typography-style-paragraph-large-base-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-paragraph-large-base-font-weight: 400 !default;
+$typography-style-paragraph-medium-small-font-size: var(--jkl-font-size-3) !default;
+$typography-style-paragraph-medium-small-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-paragraph-medium-small-font-weight: 400 !default;
+$typography-style-paragraph-medium-base-font-size: var(--jkl-font-size-3) !default;
+$typography-style-paragraph-medium-base-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-paragraph-medium-base-font-weight: 400 !default;
+$typography-style-paragraph-small-small-font-size: var(--jkl-font-size-2) !default;
+$typography-style-paragraph-small-small-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-paragraph-small-small-font-weight: 400 !default;
+$typography-style-paragraph-small-base-font-size: var(--jkl-font-size-2) !default;
+$typography-style-paragraph-small-base-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-paragraph-small-base-font-weight: 400 !default;
+$typography-style-text-large-small-font-size: var(--jkl-font-size-5) !default;
+$typography-style-text-large-small-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-text-large-small-font-weight: 400 !default;
+$typography-style-text-large-base-font-size: var(--jkl-font-size-5) !default;
+$typography-style-text-large-base-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-text-large-base-font-weight: 400 !default;
+$typography-style-text-medium-small-font-size: var(--jkl-font-size-3) !default;
+$typography-style-text-medium-small-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-text-medium-small-font-weight: 400 !default;
+$typography-style-text-medium-base-font-size: var(--jkl-font-size-3) !default;
+$typography-style-text-medium-base-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-text-medium-base-font-weight: 400 !default;
+$typography-style-text-small-small-font-size: var(--jkl-font-size-2) !default;
+$typography-style-text-small-small-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-text-small-small-font-weight: 400 !default;
+$typography-style-text-small-base-font-size: var(--jkl-font-size-2) !default;
+$typography-style-text-small-base-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-text-small-base-font-weight: 400 !default;
+$typography-style-text-micro-small-font-size: var(--jkl-font-size-1) !default;
+$typography-style-text-micro-small-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-text-micro-small-font-weight: 400 !default;
+$typography-style-text-micro-base-font-size: var(--jkl-font-size-1) !default;
+$typography-style-text-micro-base-line-height: var(--jkl-line-height-tight) !default;
+$typography-style-text-micro-base-font-weight: 400 !default;
 $typography-style-body-small-font-size: 1.125rem !default;
 $typography-style-body-small-line-height: 1.75rem !default;
 $typography-style-body-small-font-weight: 400 !default;
@@ -318,6 +373,16 @@ $tokens: (
         'bold': $typography-font-weight-bold
       ),
       'size': (
+        '1': $typography-font-size-1,
+        '2': $typography-font-size-2,
+        '3': $typography-font-size-3,
+        '4': $typography-font-size-4,
+        '5': $typography-font-size-5,
+        '6': $typography-font-size-6,
+        '7': $typography-font-size-7,
+        '8': $typography-font-size-8,
+        '9': $typography-font-size-9,
+        '10': $typography-font-size-10,
         '16': $typography-font-size-16,
         '18': $typography-font-size-18,
         '20': $typography-font-size-20,
@@ -341,7 +406,10 @@ $tokens: (
         '40': $typography-line-height-40,
         '44': $typography-line-height-44,
         '52': $typography-line-height-52,
-        '64': $typography-line-height-64
+        '64': $typography-line-height-64,
+        'flush': $typography-line-height-flush,
+        'tight': $typography-line-height-tight,
+        'relaxed': $typography-line-height-relaxed
       )
     ),
     'style': (
@@ -427,6 +495,90 @@ $tokens: (
           'fontSize': $typography-style-heading-5-base-font-size,
           'lineHeight': $typography-style-heading-5-base-line-height,
           'fontWeight': $typography-style-heading-5-base-font-weight
+        )
+      ),
+      'paragraph-large': (
+        'small': (
+          'fontSize': $typography-style-paragraph-large-small-font-size,
+          'lineHeight': $typography-style-paragraph-large-small-line-height,
+          'fontWeight': $typography-style-paragraph-large-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-paragraph-large-base-font-size,
+          'lineHeight': $typography-style-paragraph-large-base-line-height,
+          'fontWeight': $typography-style-paragraph-large-base-font-weight
+        )
+      ),
+      'paragraph-medium': (
+        'small': (
+          'fontSize': $typography-style-paragraph-medium-small-font-size,
+          'lineHeight': $typography-style-paragraph-medium-small-line-height,
+          'fontWeight': $typography-style-paragraph-medium-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-paragraph-medium-base-font-size,
+          'lineHeight': $typography-style-paragraph-medium-base-line-height,
+          'fontWeight': $typography-style-paragraph-medium-base-font-weight
+        )
+      ),
+      'paragraph-small': (
+        'small': (
+          'fontSize': $typography-style-paragraph-small-small-font-size,
+          'lineHeight': $typography-style-paragraph-small-small-line-height,
+          'fontWeight': $typography-style-paragraph-small-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-paragraph-small-base-font-size,
+          'lineHeight': $typography-style-paragraph-small-base-line-height,
+          'fontWeight': $typography-style-paragraph-small-base-font-weight
+        )
+      ),
+      'text-large': (
+        'small': (
+          'fontSize': $typography-style-text-large-small-font-size,
+          'lineHeight': $typography-style-text-large-small-line-height,
+          'fontWeight': $typography-style-text-large-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-text-large-base-font-size,
+          'lineHeight': $typography-style-text-large-base-line-height,
+          'fontWeight': $typography-style-text-large-base-font-weight
+        )
+      ),
+      'text-medium': (
+        'small': (
+          'fontSize': $typography-style-text-medium-small-font-size,
+          'lineHeight': $typography-style-text-medium-small-line-height,
+          'fontWeight': $typography-style-text-medium-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-text-medium-base-font-size,
+          'lineHeight': $typography-style-text-medium-base-line-height,
+          'fontWeight': $typography-style-text-medium-base-font-weight
+        )
+      ),
+      'text-small': (
+        'small': (
+          'fontSize': $typography-style-text-small-small-font-size,
+          'lineHeight': $typography-style-text-small-small-line-height,
+          'fontWeight': $typography-style-text-small-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-text-small-base-font-size,
+          'lineHeight': $typography-style-text-small-base-line-height,
+          'fontWeight': $typography-style-text-small-base-font-weight
+        )
+      ),
+      'text-micro': (
+        'small': (
+          'fontSize': $typography-style-text-micro-small-font-size,
+          'lineHeight': $typography-style-text-micro-small-line-height,
+          'fontWeight': $typography-style-text-micro-small-font-weight
+        ),
+        'base': (
+          'fontSize': $typography-style-text-micro-base-font-size,
+          'lineHeight': $typography-style-text-micro-base-line-height,
+          'fontWeight': $typography-style-text-micro-base-font-weight
         )
       ),
       'body': (
