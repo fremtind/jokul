@@ -9,8 +9,8 @@ $_loader-right-animation-name: jkl-loader-right-spin-#{string.unique-id()};
 
 @layer jokul.components {
     .jkl-loader {
-        --jkl-loader-dot-size: var(--jkl-unit-05);
-        --jkl-loader-spacing: var(--jkl-unit-10);
+        --jkl-loader-dot-size: var(--jkl-unit-10);
+        --jkl-loader-spacing: var(--jkl-unit-20);
 
         display: flex;
 
