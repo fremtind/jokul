@@ -69,6 +69,10 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                     htmlFor={uid}
                     srOnly={inline}
                     {...labelProps}
+                    className={clsx(
+                        labelProps?.className,
+                        description && "jkl-label--with-description",
+                    )}
                     style={{
                         whiteSpace: hasTooltip ? "nowrap" : undefined,
                         ...labelProps?.style,

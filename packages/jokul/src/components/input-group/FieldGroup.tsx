@@ -42,7 +42,13 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
             aria-describedby={describedBy}
         >
             <legend className="jkl-field-group__legend">
-                <Label {...labelProps}>
+                <Label
+                    {...labelProps}
+                    className={clsx(
+                        labelProps?.className,
+                        description && "jkl-label--with-description",
+                    )}
+                >
                     {tooltip ? (
                         <>
                             <span style={{ whiteSpace: "normal" }}>
