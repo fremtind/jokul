@@ -1,5 +1,50 @@
 # Change Log
 
+## 4.1.0
+
+### Minor Changes
+
+- ee6e635: Utvider Flex med støtte for både statiske og semantiske gap-verdier.
+  Dette gjør det mulig å kombinere begge typer verdier, også responsivt på tvers av breakpoints.
+
+  ```tsx
+  // Statiske gap-verdier
+  <Flex gap="16 32" />
+
+  // Semantiske gap-verdier
+  <Flex gap="s m" />
+
+  // Blanding av statiske og semantiske verdier på tvers av breakpoints
+  <Flex
+    gap={{
+      small: "none s",
+      medium: "8 16",
+      large: "m xl",
+    }}
+  />
+  ```
+
+- ae7b61a: Bytter ut markøren i `RadioButton` med ikon fra Material Symbols, slik det er gjort i `Checkbox`.
+
+### Patch Changes
+
+- 5a6e480: Bytt ut React default import med type import i Datepicker.utils
+- 0665828: Skalerer opp loader‑dots og avstand for bedre visuell balanse.
+- 3618a43: Fikser en bug der man kunne få en manglende avhengighet til pakken `change-case` ved bruk av Jøkul sin typografi-plugin for Tailwind 3. Den relevante koden er nå pakket med i Jøkul.
+- a4fef79: 1. Utvider typografi for Tailwind‑preset og generering av CSS/SCSS‑variabler.
+
+  Nye tailwind‑klasser:
+
+  - `paragraph-large`
+  - `paragraph-medium`
+  - `paragraph-small`
+  - `text-large`
+  - `text-medium`
+  - `text-small`
+  - `text-micro`
+
+  2. (Title|Heading)‑\*‑verdiene er også oppdatert for å matche Figma v4.
+
 ## 4.0.3
 
 ### Patch Changes
