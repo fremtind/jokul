@@ -1,9 +1,9 @@
+import type { Size } from "packages/jokul/src/core/types.js";
 import React, { type FC, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import type { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { DatePicker } from "../DatePicker.js";
 import { formatInput, isBlurTargetOutside } from "../utils.js";
@@ -12,7 +12,7 @@ export const datepickerExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],
     choiceProps: [
         {
-            name: "Variant",
+            name: "Size",
             values: ["small", "medium", "large"],
             defaultValue: 0,
         },
@@ -34,7 +34,7 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({
     const errorLabel = boolValues?.["Med feil"]
         ? "Du kan ikke velge en dato som har vært"
         : undefined;
-    const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
+    const size = choiceValues && (choiceValues["Size"] as Size);
 
     const tooltip = boolValues?.["Med tooltip"] ? (
         <PopupTip content="Du vil være forsikret fra denne datoen. Du kan ikke velge en dato som har vært." />
@@ -45,7 +45,7 @@ export const DatepickerExample: FC<ExampleComponentProps> = ({
     return (
         <DatePicker
             label="Velg startdato for forsikringen"
-            labelProps={{ variant }}
+            labelProps={{ "data-size": size }}
             tooltip={tooltip}
             errorLabel={errorLabel}
             name="datepicker"

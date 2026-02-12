@@ -24,7 +24,7 @@ const meta = {
         label: "Når skal du reise?",
         labelProps: {
             srOnly: false,
-            variant: "small",
+            "data-size": "small",
         },
         hideCalendarLabel: "Lukk kalender",
         showCalendarLabel: "Åpne kalender",

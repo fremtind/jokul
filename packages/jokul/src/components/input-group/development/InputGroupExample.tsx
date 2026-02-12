@@ -1,3 +1,4 @@
+import type { Size } from "packages/jokul/src/core/types.js";
 import React, { type FC } from "react";
 import type {
     ExampleComponentProps,
@@ -7,13 +8,12 @@ import { Link } from "../../link/Link.js";
 import { BaseTextInput } from "../../text-input/BaseTextInput.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { InputGroup } from "../InputGroup.js";
-import type { LabelVariant } from "../types.js";
 
 export const inputGroupExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],
     choiceProps: [
         {
-            name: "Variant",
+            name: "Size",
             values: ["small", "medium", "large"],
             defaultValue: 0,
         },
@@ -35,7 +35,7 @@ export const InputGroupExample: FC<ExampleComponentProps> = ({
         </>
     ) : undefined;
     const labelProps = {
-        variant: choiceValues?.["Variant"] as LabelVariant,
+        ["data-size"]: choiceValues?.["Size"] as Size,
     };
 
     const tooltip = boolValues?.["Med tooltip"] ? (

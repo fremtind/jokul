@@ -31,10 +31,6 @@ $_slider-rounded: jkl.rem(100px);
         margin-bottom: jkl.$spacing-8;
 
         @include jkl.use-font-variables("jkl-slider-legend");
-
-        &--sr-only {
-            @include jkl.screenreader-only;
-        }
     }
 
     &__inputs {

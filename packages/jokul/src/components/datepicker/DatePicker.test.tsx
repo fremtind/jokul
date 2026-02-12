@@ -449,7 +449,7 @@ describe("Datepicker", () => {
 
         const label = getByText("Hello");
 
-        expect(label).toHaveClass("jkl-label--sr-only");
+        expect(label).toHaveClass("jkl-sr-only");
     });
 
     describe("after user types string", () => {

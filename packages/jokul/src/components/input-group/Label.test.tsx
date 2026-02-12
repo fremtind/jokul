@@ -2,28 +2,21 @@ import { render } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
+import type { Size } from "../../core/types.js";
 import { Label } from "./Label.js";
-import type { LabelVariant } from "./types.js";
 
 describe("Label", () => {
-    const variants: LabelVariant[] = ["small", "medium", "large"];
-    for (const variant of variants) {
-        it(`renders the expected class for variant ${variant}`, () => {
-            const { getByText } = render(
-                <Label variant={variant}>Hello</Label>,
-            );
-            expect(getByText("Hello")).toHaveClass(`jkl-label--${variant}`);
+    const sizes: Size[] = ["small", "medium", "large"];
+    for (const size of sizes) {
+        it(`renders the expected data-size attribute for size ${size}`, () => {
+            const { getByText } = render(<Label data-size={size}>Hello</Label>);
+            expect(getByText("Hello")).toHaveAttribute("data-size", size);
         });
     }
 
-    it("renders the expected result for size small", () => {
-        const { getByText } = render(<Label data-size="small">Hello</Label>);
-        expect(getByText("Hello")).toHaveAttribute("data-size", "small");
-    });
-
     it("renders the expected class for srOnly", () => {
         const { getByText } = render(<Label srOnly>Hello</Label>);
-        expect(getByText("Hello")).toHaveClass("jkl-label--sr-only");
+        expect(getByText("Hello")).toHaveClass("jkl-sr-only");
     });
 
     it("should pass vi-axe tests in default state", async () => {

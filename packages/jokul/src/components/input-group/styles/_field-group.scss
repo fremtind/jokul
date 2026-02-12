@@ -3,5 +3,9 @@
 @layer jokul.components {
     .jkl-field-group {
         @include jkl.reset-outline;
+
+        &__legend {
+            margin: 0 0 var(--jkl-unit-15) 0;
+        }
     }
 }

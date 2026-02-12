@@ -82,7 +82,7 @@ export const Datovelger: Story = {
         return (
             <FieldGroup
                 legend="Når er du født?"
-                labelProps={{ variant: "medium" }}
+                legendProps={{ "data-size": "medium" }}
             >
                 <Flex gap="xs">
                     <TextInputComponent

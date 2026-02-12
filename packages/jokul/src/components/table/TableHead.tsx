@@ -21,7 +21,7 @@ const TableHead = forwardRef<HTMLTableSectionElement, TableHeadProps>(
             >
                 <thead
                     className={clsx("jkl-table-head", className, {
-                        ["jkl-table-head--sr-only"]: srOnly,
+                        ["jkl-sr-only"]: srOnly,
                         ["jkl-table-head--sticky"]: sticky,
                     })}
                     {...rest}

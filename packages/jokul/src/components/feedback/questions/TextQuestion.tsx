@@ -57,7 +57,7 @@ export const TextQuestion: React.FC<QuestionProps> = ({
         <TextArea
             ref={ref}
             label={label}
-            labelProps={{ variant: "large" }}
+            labelProps={{ "data-size": "large" }}
             name={name || label}
             startOpen
             rows={5}

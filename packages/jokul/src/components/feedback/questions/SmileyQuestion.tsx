@@ -55,7 +55,7 @@ export const SmileyQuestion: React.FC<QuestionProps> = ({
 
     return (
         <FieldGroup
-            labelProps={{ variant: "large" }}
+            legendProps={{ "data-size": "large" }}
             legend={label}
             helpLabel={helpLabel}
         >

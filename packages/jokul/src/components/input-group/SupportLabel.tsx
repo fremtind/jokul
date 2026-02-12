@@ -24,7 +24,7 @@ export const SupportLabel: FC<SupportLabelProps> = ({
 
     const componentClassName = hasLabel
         ? clsx("jkl-form-support-label", className, {
-              "jkl-form-support-label--sr-only": srOnly,
+              "jkl-sr-only": srOnly,
               "jkl-form-support-label--help": isHelp,
               "jkl-form-support-label--error": isError,
               "jkl-form-support-label--warning": isWarning,

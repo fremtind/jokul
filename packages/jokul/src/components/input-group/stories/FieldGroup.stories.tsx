@@ -17,7 +17,7 @@ const meta: Meta = {
         description: "Vi kontakter deg bare ved nødtilfeller",
         errorLabel: "",
         name: "Kontaktmetode(r)",
-        labelProps: { srOnly: false },
+        legendProps: { srOnly: false },
         children: contactChoices.map((value) => (
             <RadioButton
                 {...RadioButtonStories.args}

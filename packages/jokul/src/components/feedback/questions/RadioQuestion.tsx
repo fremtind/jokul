@@ -57,7 +57,7 @@ export const RadioQuestion: React.FC<QuestionProps> = ({
     return (
         <RadioButtonGroup
             legend={label}
-            labelProps={{ variant: "large" }}
+            legendProps={{ "data-size": "large" }}
             name={`${id}-${name || label}`}
             inline={numOptions < 3}
             value={selectedValue || ""}

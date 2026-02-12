@@ -1,9 +1,0 @@
-@use "../../../core/jkl";
-
-@layer jokul.components {
-    .jkl-table-caption {
-        &--sr-only {
-            @include jkl.screenreader-only;
-        }
-    }
-}

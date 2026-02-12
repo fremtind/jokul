@@ -1,9 +1,9 @@
+import type { Size } from "packages/jokul/src/core/types.js";
 import React, { type FC, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import type { LabelVariant } from "../../input-group/types.js";
 import { Combobox } from "../Combobox.js";
 import type { ComboboxValuePair } from "../types.js";
 
@@ -16,7 +16,7 @@ export const comboboxExampleKnobs: ExampleKnobsProps = {
     ],
     choiceProps: [
         {
-            name: "Variant",
+            name: "Size",
             values: ["small", "medium", "large"],
             defaultValue: 0,
         },
@@ -27,7 +27,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({
     choiceValues,
     boolValues,
 }) => {
-    const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
+    const size = choiceValues && (choiceValues["Size"] as Size);
 
     const items: ComboboxValuePair[] = [
         { value: "a080", label: "A080 - Rotavirusenteritt", tagLabel: "A080" },
@@ -90,7 +90,7 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({
             name="produsent"
             placeholder="Søk"
             width="220px"
-            labelProps={{ variant }}
+            labelProps={{ "data-size": size }}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             label="Velg sykdommer"
@@ -109,14 +109,12 @@ export const ComboboxExample: FC<ExampleComponentProps> = ({
 export default ComboboxExample;
 
 export const comboboxExampleCode = ({
-    choiceValues,
     boolValues,
 }: ExampleComponentProps): string => `
     <Combobox
     id="produsent"
     name="prdusent"
     placeholder="Søk"
-    variant="${choiceValues?.["Variant"]}"
     helpLabel=${
         boolValues?.["Med hjelpetekst"] ? `"Hjelpsom beskjed"` : "{undefined}"
     }

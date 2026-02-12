@@ -7,7 +7,7 @@ const TableCaption = forwardRef<HTMLTableCaptionElement, TableCaptionProps>(
         return (
             <caption
                 className={clsx("jkl-table-caption", {
-                    ["jkl-table-caption--sr-only"]: srOnly,
+                    ["jkl-sr-only"]: srOnly,
                 })}
                 {...rest}
                 ref={ref}

@@ -10,7 +10,7 @@ export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
         onChange,
         errorLabel,
         inline = false,
-        labelProps = { variant: "medium" },
+        legendProps = { "data-size": "medium" },
         ...rest
     } = props;
 
@@ -26,7 +26,7 @@ export const RadioButtonGroup: FC<RadioButtonGroupProps> = (props) => {
         >
             <FieldGroup
                 errorLabel={errorLabel}
-                labelProps={labelProps}
+                legendProps={legendProps}
                 data-testid="jkl-radio-button-group"
                 {...rest}
                 role="radiogroup"

@@ -144,7 +144,7 @@ describe("TextInput", () => {
         render(<TextInput label="testing" labelProps={{ srOnly: true }} />);
 
         const label = screen.getByText("testing");
-        expect(label).toHaveClass("jkl-label--sr-only");
+        expect(label).toHaveClass("jkl-sr-only");
     });
 });
 

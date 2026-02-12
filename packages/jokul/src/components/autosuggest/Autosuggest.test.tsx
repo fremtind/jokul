@@ -78,7 +78,7 @@ describe("Autosuggest", () => {
         const { getByText } = renderMount({ labelProps: { srOnly: true } });
 
         const label = getByText("Velg land");
-        expect(label).toHaveClass("jkl-label--sr-only");
+        expect(label).toHaveClass("jkl-sr-only");
     });
 
     it("shows no hits message and fallback options", () => {

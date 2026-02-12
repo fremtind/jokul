@@ -255,7 +255,7 @@ export const SearchHeaderButton: Story = {
     },
     args: {
         labelProps: {
-            variant: "large",
+            "data-size": "large",
         },
         placeholder: "Søk i hele Jøkul",
     },
