@@ -230,7 +230,7 @@
                         "value": "{typography.font.size.5}"
                     },
                     "lineHeight": {
-                        "value": "{typography.line.height.tight}"
+                        "value": "{typography.line.height.relaxed}"
                     },
                     "fontWeight": {
                         "value": "{typography.weight.normal}"
@@ -241,7 +241,7 @@
                         "value": "{typography.font.size.5}"
                     },
                     "lineHeight": {
-                        "value": "{typography.line.height.tight}"
+                        "value": "{typography.line.height.relaxed}"
                     },
                     "fontWeight": {
                         "value": "{typography.weight.normal}"
@@ -254,7 +254,7 @@
                         "value": "{typography.font.size.3}"
                     },
                     "lineHeight": {
-                        "value": "{typography.line.height.tight}"
+                        "value": "{typography.line.height.relaxed}"
                     },
                     "fontWeight": {
                         "value": "{typography.weight.normal}"
@@ -265,7 +265,7 @@
                         "value": "{typography.font.size.3}"
                     },
                     "lineHeight": {
-                        "value": "{typography.line.height.tight}"
+                        "value": "{typography.line.height.relaxed}"
                     },
                     "fontWeight": {
                         "value": "{typography.weight.normal}"
@@ -278,7 +278,7 @@
                         "value": "{typography.font.size.2}"
                     },
                     "lineHeight": {
-                        "value": "{typography.line.height.tight}"
+                        "value": "{typography.line.height.relaxed}"
                     },
                     "fontWeight": {
                         "value": "{typography.weight.normal}"
@@ -289,7 +289,7 @@
                         "value": "{typography.font.size.2}"
                     },
                     "lineHeight": {
-                        "value": "{typography.line.height.tight}"
+                        "value": "{typography.line.height.relaxed}"
                     },
                     "fontWeight": {
                         "value": "{typography.weight.normal}"
