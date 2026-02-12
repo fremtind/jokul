@@ -118,6 +118,16 @@ export default {
         font: {
             weight: { normal: "400", bold: "700" },
             size: {
+                "1": "var(--jkl-font-size-1)",
+                "2": "var(--jkl-font-size-2)",
+                "3": "var(--jkl-font-size-3)",
+                "4": "var(--jkl-font-size-4)",
+                "5": "var(--jkl-font-size-5)",
+                "6": "var(--jkl-font-size-6)",
+                "7": "var(--jkl-font-size-7)",
+                "8": "var(--jkl-font-size-8)",
+                "9": "var(--jkl-font-size-9)",
+                "10": "var(--jkl-font-size-10)",
                 "16": "1rem",
                 "18": "1.125rem",
                 "20": "1.25rem",
@@ -142,91 +152,178 @@ export default {
                 "44": "2.75rem",
                 "52": "3.25rem",
                 "64": "4rem",
+                flush: "var(--jkl-line-height-flush)",
+                tight: "var(--jkl-line-height-tight)",
+                relaxed: "var(--jkl-line-height-relaxed)",
             },
         },
         style: {
             title: {
                 small: {
-                    fontSize: "2.25rem",
-                    lineHeight: "2.75rem",
+                    fontSize: "var(--jkl-font-size-10)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "400",
                 },
                 base: {
-                    fontSize: "3.5rem",
-                    lineHeight: "4rem",
+                    fontSize: "var(--jkl-font-size-10)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "400",
                 },
             },
             titleSmall: {
                 small: {
-                    fontSize: "1.875rem",
-                    lineHeight: "2.25rem",
+                    fontSize: "var(--jkl-font-size-9)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "400",
                 },
                 base: {
-                    fontSize: "2.75rem",
-                    lineHeight: "3.25rem",
+                    fontSize: "var(--jkl-font-size-9)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "400",
                 },
             },
             heading_1: {
                 small: {
-                    fontSize: "1.625rem",
-                    lineHeight: "2rem",
+                    fontSize: "var(--jkl-font-size-8)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "400",
                 },
                 base: {
-                    fontSize: "2.25rem",
-                    lineHeight: "2.75rem",
+                    fontSize: "var(--jkl-font-size-8)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "400",
                 },
             },
             heading_2: {
                 small: {
-                    fontSize: "1.4375rem",
-                    lineHeight: "2rem",
+                    fontSize: "var(--jkl-font-size-7)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "400",
                 },
                 base: {
-                    fontSize: "1.75rem",
-                    lineHeight: "2.5rem",
+                    fontSize: "var(--jkl-font-size-7)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "400",
                 },
             },
             heading_3: {
                 small: {
-                    fontSize: "1.3125rem",
-                    lineHeight: "1.75rem",
+                    fontSize: "var(--jkl-font-size-6)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "700",
                 },
                 base: {
-                    fontSize: "1.5625rem",
-                    lineHeight: "2rem",
+                    fontSize: "var(--jkl-font-size-6)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "700",
                 },
             },
             heading_4: {
                 small: {
-                    fontSize: "1.125rem",
-                    lineHeight: "1.5rem",
+                    fontSize: "var(--jkl-font-size-5)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "700",
                 },
                 base: {
-                    fontSize: "1.3125rem",
-                    lineHeight: "1.75rem",
+                    fontSize: "var(--jkl-font-size-5)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "700",
                 },
             },
             heading_5: {
                 small: {
-                    fontSize: "1rem",
-                    lineHeight: "1.5rem",
+                    fontSize: "var(--jkl-font-size-4)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "700",
                 },
                 base: {
-                    fontSize: "1rem",
-                    lineHeight: "1.5rem",
+                    fontSize: "var(--jkl-font-size-4)",
+                    lineHeight: "var(--jkl-line-height-tight)",
                     fontWeight: "700",
+                },
+            },
+            paragraphLarge: {
+                small: {
+                    fontSize: "var(--jkl-font-size-5)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "var(--jkl-font-size-5)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+            },
+            paragraphMedium: {
+                small: {
+                    fontSize: "var(--jkl-font-size-3)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "var(--jkl-font-size-3)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+            },
+            paragraphSmall: {
+                small: {
+                    fontSize: "var(--jkl-font-size-2)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "var(--jkl-font-size-2)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+            },
+            textLarge: {
+                small: {
+                    fontSize: "var(--jkl-font-size-5)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "var(--jkl-font-size-5)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+            },
+            textMedium: {
+                small: {
+                    fontSize: "var(--jkl-font-size-3)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "var(--jkl-font-size-3)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+            },
+            textSmall: {
+                small: {
+                    fontSize: "var(--jkl-font-size-2)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "var(--jkl-font-size-2)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+            },
+            textMicro: {
+                small: {
+                    fontSize: "var(--jkl-font-size-1)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
+                },
+                base: {
+                    fontSize: "var(--jkl-font-size-1)",
+                    lineHeight: "var(--jkl-line-height-tight)",
+                    fontWeight: "400",
                 },
             },
             body: {
