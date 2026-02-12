@@ -15,7 +15,14 @@ export default defineConfig({
             devDeps: true,
             peerDeps: true,
             optDeps: true,
-            exclude: ["clsx", "dayjs", "nanoid", "react-is", "downshift"],
+            exclude: [
+                "clsx",
+                "change-case",
+                "dayjs",
+                "nanoid",
+                "react-is",
+                "downshift",
+            ],
         }),
         react(),
         dts({
