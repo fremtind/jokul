@@ -10,17 +10,18 @@ export const story = defineType({
     icon: BlockElementIcon,
     fields: [
         defineField({
+            name: "name",
+            title: "Navn på story",
+            type: "string",
+            validation: (Rule) => Rule.required(),
+        }),
+        defineField({
             name: "id",
             title: "Story",
             type: "string",
             components: {
                 input: StorySelector,
             },
-        }),
-        defineField({
-            name: "title",
-            title: "Tittel",
-            type: "string",
         }),
         defineField({
             name: "description",
@@ -58,19 +59,19 @@ export const story = defineType({
     ],
     preview: {
         select: {
-            id: "id",
+            name: "name",
             title: "title",
             description: "description",
             height: "height",
             inert: "inert",
         },
-        prepare({ title, description, height }) {
+        prepare({ name, title, description, height }) {
             const desc = description ? description : "Ingen beskrivelse";
 
             return {
-                title: title ? title : "Story",
+                title: name || "Story",
                 subtitle: `${height}px: ${desc}`,
-                media: <small>{title.charAt(0)}</small>,
+                media: <small>{name.charAt(0)}</small>,
             };
         },
     },
