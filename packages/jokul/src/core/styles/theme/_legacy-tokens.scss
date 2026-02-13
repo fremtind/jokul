@@ -5,6 +5,15 @@
 
 @layer jokul.theme {
     :root {
+        --jkl-border-width-1: 0.0625rem;
+        --jkl-border-width-2: 0.125rem;
+        --jkl-border-width-3: 0.1875rem;
+        --jkl-border-radius-none: 0;
+        --jkl-border-radius-xs: 0.25rem;
+        --jkl-border-radius-s: 0.5rem;
+        --jkl-border-radius-m: 0.75rem;
+        --jkl-border-radius-l: 1rem;
+        --jkl-border-radius-full: 9999px;
         --jkl-breakpoint-small: 0;
         --jkl-breakpoint-medium: 680px;
         --jkl-breakpoint-large: 1200px;

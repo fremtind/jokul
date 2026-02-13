@@ -3,6 +3,17 @@
  */
 
 export default {
+    border: {
+        width: { "1": "0.0625rem", "2": "0.125rem", "3": "0.1875rem" },
+        radius: {
+            none: "0",
+            xs: "0.25rem",
+            s: "0.5rem",
+            m: "0.75rem",
+            l: "1rem",
+            full: "9999px",
+        },
+    },
     breakpoint: { small: "0", medium: "680px", large: "1200px", xl: "1600px" },
     color: {
         brand: {

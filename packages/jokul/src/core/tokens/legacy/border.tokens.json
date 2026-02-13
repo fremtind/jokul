@@ -1,0 +1,17 @@
+{
+    "border": {
+        "width": {
+            "1": { "value": "0.0625rem" },
+            "2": { "value": "0.125rem" },
+            "3": { "value": "0.1875rem" }
+        },
+        "radius": {
+            "none": { "value": "0" },
+            "xs": { "value": "0.25rem" },
+            "s": { "value": "0.5rem" },
+            "m": { "value": "0.75rem" },
+            "l": { "value": "1rem" },
+            "full": { "value": "9999px" }
+        }
+    }
+}

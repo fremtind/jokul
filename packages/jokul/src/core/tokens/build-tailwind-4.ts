@@ -23,6 +23,14 @@ export const buildTailwind4Theme = async () => {
         ([step, value]) => `    --breakpoint-${kebabCase(step)}: ${value};`,
     );
 
+    const borderRadii = Object.entries(tokens.border.radius).map(
+        ([step, value]) => `    --radius-${step}: ${value};`,
+    );
+
+    const borderWidths = Object.entries(tokens.border.width).map(
+        ([step, value]) => `    --border-width-${step}: ${value};`,
+    );
+
     const textUtilities = Object.entries(tokens.typography.style).map(
         ([name, value]) =>
             [
@@ -58,6 +66,9 @@ ${spacingVariables.join("\n")}
 ${fontWeights.join("\n")}
 
 ${breakpoints.join("\n")}
+
+${borderRadii.join("\n")}
+${borderWidths.join("\n")}
 }
 
 ${textUtilities.join("\n\n")}
