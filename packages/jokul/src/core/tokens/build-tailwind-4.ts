@@ -1,3 +1,4 @@
+import { existsSync, mkdirSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
 import { kebabCase } from "change-case";
@@ -42,7 +43,11 @@ export const buildTailwind4Theme = async () => {
     );
 
     const tailwindTheme = `
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
 /* stylelint-disable */
+
 @theme {
     --*: initial;
 
@@ -57,6 +62,10 @@ ${breakpoints.join("\n")}
 
 ${textUtilities.join("\n\n")}
 `;
+
+    if (!existsSync("src/tailwind/v4")) {
+        mkdirSync("src/tailwind/v4", { recursive: true });
+    }
 
     await writeFile(
         path.resolve("src/tailwind/v4/jokul-tailwind.css"),
