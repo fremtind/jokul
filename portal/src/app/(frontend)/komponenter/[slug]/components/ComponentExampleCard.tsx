@@ -1,21 +1,35 @@
-import styles from "./componentExampleCard.module.scss";
+"use client";
 
-type ComponentExampleCard = {
-    name: string;
-    imageUrl: string;
+import { ExampleItem } from "@/components/portable-text/examples/ExampleItem";
+import type { Jokul_examples, Jokul_story } from "@/sanity/types";
+import { Flex } from "@fremtind/jokul/flex";
+
+import "portal/src/components/portable-text/examples/examples.scss";
+
+type ExampleCardValue = {
+    story?: Jokul_story | null;
 };
 
-export const ComponentExampleCard = ({
-    name,
-    imageUrl,
-}: ComponentExampleCard) => {
+type Props = {
+    value?: ExampleCardValue;
+};
+
+export const ComponentExampleCard = ({ value }: Props) => {
+    if (!value?.story) {
+        return null;
+    }
+
+    const { story } = value;
+
     return (
-        <div className={styles.example_card_image_wrapper}>
-            <img
-                className={styles.example_card_image}
-                src={imageUrl}
-                alt={name}
-            />
-        </div>
+        <Flex direction="column" gap="s">
+            <div className="examples">
+                <ExampleItem
+                    example={{
+                        ...story,
+                    }}
+                />
+            </div>
+        </Flex>
     );
 };
