@@ -3,6 +3,15 @@
  * Do not edit directly, this file was auto-generated.
  */
 
+$border-width-1: 0.0625rem !default;
+$border-width-2: 0.125rem !default;
+$border-width-3: 0.1875rem !default;
+$border-radius-none: 0 !default;
+$border-radius-xs: 0.25rem !default;
+$border-radius-s: 0.5rem !default;
+$border-radius-m: 0.75rem !default;
+$border-radius-l: 1rem !default;
+$border-radius-full: 9999px !default;
 $breakpoint-small: 0 !default;
 $breakpoint-medium: 680px !default;
 $breakpoint-large: 1200px !default;
@@ -266,6 +275,21 @@ $typography-small-base-line-height: 1.5rem !default;
 $typography-small-base-font-weight: 400 !default;
 
 $tokens: (
+  'border': (
+    'width': (
+      '1': $border-width-1,
+      '2': $border-width-2,
+      '3': $border-width-3
+    ),
+    'radius': (
+      'none': $border-radius-none,
+      'xs': $border-radius-xs,
+      's': $border-radius-s,
+      'm': $border-radius-m,
+      'l': $border-radius-l,
+      'full': $border-radius-full
+    )
+  ),
   'breakpoint': (
     'small': $breakpoint-small,
     'medium': $breakpoint-medium,
