@@ -10,6 +10,8 @@ export const jokulPreset: Partial<Config> = {
         fontWeight: tokens.typography.weight,
         fontSize: tokens.typography.font.size,
         lineHeight: tokens.typography.line.height,
+        borderRadius: tokens.border.radius,
+        borderWidth: tokens.border.width,
         screens: {
             sm: tokens.breakpoint.medium,
             md: tokens.breakpoint.large,
