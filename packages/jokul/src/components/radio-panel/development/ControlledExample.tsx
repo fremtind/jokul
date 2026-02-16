@@ -4,7 +4,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { PrimaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import { Flex } from "../../flex/index.js";
 import { FieldGroup } from "../../input-group/index.js";
 import { RadioPanel } from "../RadioPanel.js";

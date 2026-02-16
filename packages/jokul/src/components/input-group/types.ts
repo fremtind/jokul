@@ -46,7 +46,7 @@ export type InputGroupProps = WithOptionalChildren &
         description?: string;
         tooltip?: ReactNode;
         style?: CSSProperties;
-        render?: (props: InputProps) => JSX.Element;
+        render?: (props: InputProps) => React.JSX.Element;
     };
 
 export type LabelVariant = "small" | "medium" | "large";

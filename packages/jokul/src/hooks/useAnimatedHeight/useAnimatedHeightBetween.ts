@@ -82,7 +82,7 @@ function expandElement<T extends HTMLElement>(
 export function useAnimatedHeightBetween<T extends HTMLElement>(
     isExpanded: boolean,
     options?: Omit<UseAnimatedHeightOptions<T>, "display" | "onFirstVisible">,
-): [RefObject<T>, () => void] {
+): [RefObject<T | null>, () => void] {
     const wasExpanded = usePreviousValue(isExpanded);
     const easing = options?.easing || defaultEasing;
     const timing = options?.timing || defaultTiming;
@@ -90,8 +90,8 @@ export function useAnimatedHeightBetween<T extends HTMLElement>(
 
     const { prefersReducedMotion } = useBrowserPreferences();
 
-    const raf1 = useRef<number>();
-    const raf2 = useRef<number>();
+    const raf1 = useRef<number>(0);
+    const raf2 = useRef<number>(0);
     const elementRef = useRef<T>(null);
 
     const handleTransitionEnd = useCallback(

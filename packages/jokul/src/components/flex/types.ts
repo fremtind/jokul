@@ -1,7 +1,3 @@
-import React from "react";
-import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
-import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
-
 export const SEMANTIC_SPACING = [
     "none",
     "2xs",
@@ -75,7 +71,7 @@ export type StaticGap =
     | `${StaticSpacing} ${StaticSpacing}`;
 export type Gap = DynamicGap | StaticGap;
 
-type FlexBaseProps = {
+export type FlexProps = {
     alignItems?: "normal" | "start" | "center" | "end" | "baseline" | "stretch";
     alignContent?:
         | "normal"
@@ -104,10 +100,3 @@ type FlexBaseProps = {
     layout?: Layout | Responsive<Layout>;
     wrap?: "wrap" | "nowrap" | "reverse";
 };
-
-export type FlexProps<As extends React.ElementType = "div"> =
-    PolymorphicPropsWithRef<As, FlexBaseProps>;
-
-export type FlexComponent = <ElementType extends React.ElementType = "div">(
-    props: FlexProps<ElementType> & AsChildProps,
-) => React.ReactElement | null;

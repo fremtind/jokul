@@ -11,7 +11,7 @@ export const Loader = ({
     dataTestAutoId = "jkl-loader",
     inline = false,
     ...rest
-}: LoaderProps): JSX.Element | null => {
+}: LoaderProps): React.JSX.Element | null => {
     const renderComponent = useDelayedRender(delay);
 
     if (delay && !renderComponent) {

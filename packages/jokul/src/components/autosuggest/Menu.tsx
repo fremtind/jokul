@@ -20,7 +20,7 @@ function Menu<T>({
     noHitsMessage,
     maxNumberOfHits = Number.POSITIVE_INFINITY,
     noHits,
-}: MenuProps<T>): JSX.Element | null {
+}: MenuProps<T>): React.JSX.Element | null {
     const visibleItems =
         items.length > maxNumberOfHits
             ? items.slice(0, maxNumberOfHits)

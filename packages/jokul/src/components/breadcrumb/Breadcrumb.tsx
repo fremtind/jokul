@@ -6,7 +6,7 @@ export const Breadcrumb = ({
     className,
     children,
     ...rest
-}: BreadcrumbProps): JSX.Element => {
+}: BreadcrumbProps): React.JSX.Element => {
     const numberOfChildren = React.Children.count(children);
     return (
         <nav

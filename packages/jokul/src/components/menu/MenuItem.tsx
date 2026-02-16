@@ -1,19 +1,39 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
-import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { ElementType, ReactNode } from "react";
+import type { Polymorphic } from "../../utilities/index.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 import { OpenInNewIcon } from "../icon/icons/OpenInNewIcon.js";
-import type { MenuItemProps } from "./types.js";
 
-type MenuItemComponent = <ElementType extends React.ElementType = "button">(
-    props: MenuItemProps<ElementType>,
-) => React.ReactElement | null;
+export type MenuItemProps = {
+    /**
+     * Et ikon som vises før innholdet i menypunktet
+     */
+    icon?: ReactNode;
+} & (
+    | {
+          expandable?: never;
+          /**
+           * Indikerer at menypunktet åpner noe i et nytt vindu eller tab
+           * @default false
+           */
+          external?: boolean;
+      }
+    | {
+          external?: never;
+          /**
+           * Indikerer at menypunktet er utvidbart ved å vise en chevron
+           * @default false
+           */
+          expandable?: boolean;
+      }
+);
 
-export const MenuItem = forwardRef(function MenuItem<
-    ElementType extends React.ElementType = "button",
->(props: MenuItemProps<ElementType>, ref: PolymorphicRef<ElementType>) {
+export function MenuItem<T extends ElementType = "button">(
+    props: Polymorphic<MenuItemProps, T>,
+) {
     const {
         as = "button",
+        ref,
         className,
         children,
         icon,
@@ -44,4 +64,4 @@ export const MenuItem = forwardRef(function MenuItem<
             {expandable && <ChevronRightIcon />}
         </Component>
     );
-}) as MenuItemComponent;
+}

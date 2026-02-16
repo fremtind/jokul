@@ -18,7 +18,7 @@ const defaultTiming = "productive";
 export function useAnimatedHeight<T extends HTMLElement>(
     isOpen: boolean,
     options?: UseAnimatedHeightOptions<T>,
-): [RefObject<T>, () => void] {
+): [RefObject<T | null>, () => void] {
     const wasOpen = usePreviousValue(isOpen);
     const easing = options?.easing || defaultEasing;
     const timing = options?.timing || defaultTiming;
@@ -27,8 +27,8 @@ export function useAnimatedHeight<T extends HTMLElement>(
 
     const { prefersReducedMotion } = useBrowserPreferences();
 
-    const raf1 = useRef<number>();
-    const raf2 = useRef<number>();
+    const raf1 = useRef<number>(0);
+    const raf2 = useRef<number>(0);
     const elementRef = useRef<T>(null);
 
     function handleTransitionEnd(event: TransitionEvent) {

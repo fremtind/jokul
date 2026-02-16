@@ -1,12 +1,6 @@
-export {
-    Button,
-    PrimaryButton,
-    SecondaryButton,
-    TertiaryButton,
-} from "./Button.js";
+export { Button, type ButtonProps } from "./Button.js";
 
 export type {
-    ButtonProps,
     ButtonVariant,
     IconOptions,
     IconPosition,

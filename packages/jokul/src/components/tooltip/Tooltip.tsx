@@ -27,7 +27,7 @@ type UseTooltipReturn = {
     triggerOn: NonNullable<TooltipProps["triggerOn"]>;
     isOpen: boolean;
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-    arrowElement: React.RefObject<SVGSVGElement>;
+    arrowElement: React.RefObject<SVGSVGElement | null>;
     refs: {
         description: React.MutableRefObject<HTMLElement | null>;
         setDescription: (element: HTMLElement | null) => void;

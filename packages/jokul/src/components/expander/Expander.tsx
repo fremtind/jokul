@@ -1,25 +1,30 @@
 import clsx from "clsx";
-import React, {
+import {
+    type ElementType,
+    type ReactNode,
     useContext,
     useEffect,
     useImperativeHandle,
     useRef,
 } from "react";
-import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { Polymorphic } from "../../utilities/index.js";
 import { ChevronDownIcon } from "../icon/icons/ChevronDownIcon.js";
 import { ChevronUpIcon } from "../icon/index.js";
 import { ExpanderContext } from "./context.js";
-import type {
-    ExpandableContext,
-    ExpanderComponent,
-    ExpanderProps,
-} from "./types.js";
+import type { ExpandableContext } from "./types.js";
 
-export const Expander = React.forwardRef(function Expander<
-    ElementType extends React.ElementType = "summary",
->(props: ExpanderProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
+export type ExpanderProps = {
+    icon?: ReactNode;
+    open?: boolean;
+    expandDirection?: "up" | "down";
+};
+
+export function Expander<T extends ElementType = "summary">(
+    props: Polymorphic<ExpanderProps, T>,
+): React.JSX.Element {
     const {
         children,
+        ref,
         as = "summary",
         open: controlledOpen,
         icon,
@@ -36,7 +41,7 @@ export const Expander = React.forwardRef(function Expander<
         setExpanderHeight,
     } = useContext<ExpandableContext>(ExpanderContext);
 
-    const internalRef = useRef<HTMLElement>();
+    const internalRef = useRef<HTMLElement>(null);
     useImperativeHandle(ref, () => internalRef.current, []);
 
     const isOpen = controlledOpen || contextOpen;
@@ -83,6 +88,6 @@ export const Expander = React.forwardRef(function Expander<
             <Chevron className="jkl-expander__chevron" />
         </El>
     );
-}) as ExpanderComponent;
+}
 
 Expander.displayName = "ExpandablePanel.Header";

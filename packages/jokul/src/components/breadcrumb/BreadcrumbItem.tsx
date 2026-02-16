@@ -7,7 +7,7 @@ export const BreadcrumbItem = ({
     children,
     isLastElement,
     ...rest
-}: BreadcrumbItemProps): JSX.Element => {
+}: BreadcrumbItemProps): React.JSX.Element => {
     return (
         <li className={clsx("jkl-breadcrumb__item", className)} {...rest}>
             {React.Children.map(children, (child) => {

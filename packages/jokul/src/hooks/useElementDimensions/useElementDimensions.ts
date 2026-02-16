@@ -33,7 +33,7 @@ export type Dimensions = {
  */
 export function useElementDimensions<T extends HTMLElement>(
     throttleDelay = 200,
-): [RefObject<T>, Dimensions] {
+): [RefObject<T | null>, Dimensions] {
     const elementRef = useRef<T>(null);
     const [dimensions, setDimensions] = useState<Dimensions>({
         height: 0,

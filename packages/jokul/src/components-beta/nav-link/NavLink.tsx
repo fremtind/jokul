@@ -1,21 +1,22 @@
 import clsx from "clsx";
-import React, { useId } from "react";
-import type { PolymorphicRef } from "../../utilities/index.js";
-import type { NavLinkProps } from "./types.js";
+import { type ElementType, useId } from "react";
+import type { Polymorphic } from "../../utilities/index.js";
 
-type NavLinkComponent = <ElementType extends React.ElementType = "a">(
-    props: NavLinkProps<ElementType>,
-) => React.ReactElement | null;
+export type NavLinkProps = {
+    title: string;
+    description?: string;
+};
 
-export const NavLink = React.forwardRef(function NavLink<
-    ElementType extends React.ElementType = "a",
->(props: NavLinkProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
+export function NavLink<T extends ElementType = "a">(
+    props: Polymorphic<NavLinkProps, T>,
+) {
     const {
+        as = "a",
+        ref,
         title,
         description,
         className,
         children,
-        as = "a",
         ...rest
     } = props;
     const Component = as;
@@ -39,4 +40,4 @@ export const NavLink = React.forwardRef(function NavLink<
             )}
         </Component>
     );
-}) as NavLinkComponent;
+}

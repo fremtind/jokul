@@ -9,6 +9,7 @@ const meta = {
     title: "Komponenter/Button",
     component: Button,
     args: {
+        as: "button",
         type: "button",
         children: "Knapp",
         variant: "primary",

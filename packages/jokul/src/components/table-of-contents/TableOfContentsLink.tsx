@@ -1,17 +1,10 @@
 import clsx from "clsx";
-import React from "react";
-import type {
-    PolymorphicPropsWithRef,
-    PolymorphicRef,
-} from "../../utilities/polymorphism/polymorphism.js";
+import React, { type ComponentPropsWithRef, type ElementType } from "react";
 
-export const TableOfContentsLink = React.forwardRef(function LinkListLink<
-    ElementType extends React.ElementType = "a",
->(
-    props: PolymorphicPropsWithRef<ElementType>,
-    ref: PolymorphicRef<ElementType>,
+export function TableOfContentsLink<T extends ElementType = "a">(
+    props: Omit<ComponentPropsWithRef<T>, "as"> & { as?: T },
 ) {
-    const { as: Component = "a", children, className, ...rest } = props;
+    const { as: Component = "a", children, className, ref, ...rest } = props;
 
     return (
         <li className="jkl-table-of-contents-item">
@@ -24,4 +17,4 @@ export const TableOfContentsLink = React.forwardRef(function LinkListLink<
             </Component>
         </li>
     );
-});
+}

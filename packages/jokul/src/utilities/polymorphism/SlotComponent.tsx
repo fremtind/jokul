@@ -8,11 +8,17 @@ export type SlotComponentProps = React.HTMLAttributes<HTMLElement> & {
 
 export const SlotComponent = React.forwardRef<HTMLElement, SlotComponentProps>(
     function SlotComponent({ children, ...slotProps }, forwardedRef) {
-        if (React.isValidElement(children)) {
-            return React.cloneElement(children as React.ReactElement, {
+        if (
+            React.isValidElement<
+                React.HTMLAttributes<HTMLElement> & {
+                    ref?: React.Ref<HTMLElement>;
+                }
+            >(children)
+        ) {
+            return React.cloneElement(children, {
                 ...mergeProps(slotProps, children.props),
                 ref: mergeRefs(forwardedRef, (children as any).ref),
-            });
+            } as React.HTMLAttributes<HTMLElement>);
         }
 
         if (React.Children.count(children) > 1) {

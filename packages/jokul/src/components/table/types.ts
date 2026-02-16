@@ -155,7 +155,8 @@ export interface TableSectionContextProviderProps extends WithChildren {
     state: TableSectionContext;
 }
 
-export interface ExpandableTableRowProps extends TableRowProps {
+export interface ExpandableTableRowProps
+    extends Omit<TableRowProps, "onToggle"> {
     expandedChildren: React.ReactNode;
     /**
      * Setter bredden på raden som blir åpnet

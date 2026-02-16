@@ -17,7 +17,7 @@ import { Select } from "./Select.js";
 // @ts-ignore typecheck liker ikke at default muligens ikke finnes
 const userEvent = UserEventModule.default ?? UserEventModule;
 
-function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
+function setup(jsx: React.JSX.Element, renderOptions?: RenderOptions) {
     return {
         user: userEvent.setup({
             delay: 5,

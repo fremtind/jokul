@@ -1,4 +1,4 @@
-import type { Meta, StoryFn, StoryObj } from "@storybook/nextjs";
+import type { Decorator, Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Flex } from "../Flex.js";
 import { LAYOUTS, SEMANTIC_SPACING, STATIC_SPACING } from "../types.js";
@@ -161,8 +161,8 @@ type Story = StoryObj<typeof meta>;
 
 export default meta;
 
-const decorators = [
-    (Story: StoryFn) => (
+const decorators: Decorator[] = [
+    (Story) => (
         <div className="flex-decorator">
             <style>{`
             #storybook-root { width: 1900px }

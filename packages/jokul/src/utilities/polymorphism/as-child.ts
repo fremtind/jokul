@@ -24,7 +24,6 @@ export type AsChildProps =
           as?: never;
       }
     | {
-          children: React.ReactNode;
           /**
            * Rendrer komponenten som child-elementet sitt, og slår
            * sammen egenskaper og props.

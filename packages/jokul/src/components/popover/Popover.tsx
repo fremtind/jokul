@@ -142,7 +142,10 @@ const PopoverTrigger = React.forwardRef<
     const childrenRef = (children as any).ref;
     const ref = useMergeRefs([refs.setReference, propRef, childrenRef]);
 
-    if (asChild && React.isValidElement(children)) {
+    if (
+        asChild &&
+        React.isValidElement<React.HTMLAttributes<HTMLElement>>(children)
+    ) {
         return React.cloneElement(
             children,
             getReferenceProps({

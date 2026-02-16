@@ -11,7 +11,7 @@ const defaultMessageProps = {
 export const FormErrorMessage = forwardRef<
     HTMLDivElement,
     FormErrorMessageProps
->((props, forwardedRef): JSX.Element | null => {
+>((props, forwardedRef): React.JSX.Element | null => {
     const { className, errors, isSubmitted, isValid, messageProps, ...rest } =
         props;
 

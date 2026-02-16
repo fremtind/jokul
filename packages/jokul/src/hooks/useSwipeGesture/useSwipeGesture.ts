@@ -50,7 +50,7 @@ export function useSwipeGesture<T extends HTMLElement>(
     };
 } {
     const swipeHandled = useRef<"on" | "off" | false>(false);
-    const gestureStartPosition = useRef<Point>();
+    const gestureStartPosition = useRef<Point>(undefined);
 
     const {
         onClick,

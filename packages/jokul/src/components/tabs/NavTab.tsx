@@ -1,17 +1,26 @@
 import clsx from "clsx";
-import React, { forwardRef, useCallback } from "react";
-import type { PolymorphicRef } from "../../utilities/index.js";
-import type { NavTabProps } from "./types.js";
+import { type ElementType, useCallback } from "react";
+import type { Polymorphic } from "../../utilities/index.js";
 
-type NavTabComponent = <ElementType extends React.ElementType = "a">(
-    props: NavTabProps<ElementType>,
-) => React.ReactElement | null;
+export type NavTabProps = {
+    /**
+     * Hook for å kunne stoppe default oppførsel ved tastaturnavigasjon.
+     *
+     * Om default oppførsel ikke fungerer for deg og du mister tastaturfokus etter
+     * navigasjon kan du returnere `false` her og sørge for korrekt oppførsel selv.
+     */
+    onBeforeKeyboardNavigation?: (
+        from: HTMLAnchorElement,
+        to: HTMLAnchorElement,
+    ) => boolean | undefined;
+};
 
-export const NavTab = forwardRef(function NavTab<
-    ElementType extends React.ElementType = "a",
->(props: NavTabProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
+export function NavTab<T extends ElementType = "a">(
+    props: Polymorphic<NavTabProps, T>,
+) {
     const {
         as = "a",
+        ref,
         "aria-selected": selected,
         className,
         onBeforeKeyboardNavigation: onBeforeNavigate,
@@ -86,4 +95,4 @@ export const NavTab = forwardRef(function NavTab<
             tabIndex={selected ? 0 : -1}
         />
     );
-}) as NavTabComponent;
+}

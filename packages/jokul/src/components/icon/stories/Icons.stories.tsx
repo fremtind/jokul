@@ -46,14 +46,7 @@ import "../../button/styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/Ikoner",
     component: Icon,
-    argTypes: {
-        variant: {
-            control: "radio",
-            options: ["inhreit", "medium", "small"],
-        },
-    },
     args: {
-        variant: "inherit",
         bold: false,
         filled: false,
     },

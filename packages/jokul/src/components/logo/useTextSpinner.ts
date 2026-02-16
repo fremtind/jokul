@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useIntersectionObserver } from "../../hooks/useIntersectionObserver/useIntersectionObserver.js";
 export function useTextSpinner<T extends HTMLElement | SVGElement>(
-    ref: React.RefObject<T>,
+    ref: React.RefObject<T | null>,
 ) {
     const [hasAnimated, setHasAnimated] = useState(false);
     const [visible, setVisible] = useState(false);

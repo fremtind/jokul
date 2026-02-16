@@ -32,7 +32,8 @@ export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
     const resolveIDs = useCallback(() => {
         const tabList = React.Children.toArray(props.children)[0];
 
-        if (!React.isValidElement(tabList)) return;
+        if (!React.isValidElement<React.HTMLAttributes<HTMLElement>>(tabList))
+            return;
 
         React.Children.forEach(tabList.props.children, (tab) => {
             if (!React.isValidElement(tab)) return;

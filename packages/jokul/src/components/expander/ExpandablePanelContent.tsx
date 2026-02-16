@@ -1,17 +1,16 @@
 import clsx from "clsx";
-import React, { useContext, useEffect } from "react";
+import { type ComponentPropsWithRef, useContext } from "react";
 import { useAnimatedHeightBetween } from "../../hooks/useAnimatedHeight/useAnimatedHeightBetween.js";
+import { mergeRefs } from "../../utilities/mergeRefs.js";
 import { ExpanderContext } from "./context.js";
-import type {
-    ExpandableContext,
-    ExpandablePanelContentComponent,
-} from "./types.js";
+import type { ExpandableContext } from "./types.js";
 
-export const ExpandablePanelContent: ExpandablePanelContentComponent = ({
+export const ExpandablePanelContent = ({
     className,
     children,
+    ref: componentRef,
     ...rest
-}) => {
+}: ComponentPropsWithRef<"div">): React.JSX.Element => {
     const { open, onTransitionStart, onTransitionEnd } =
         useContext<ExpandableContext>(ExpanderContext);
 
@@ -21,25 +20,18 @@ export const ExpandablePanelContent: ExpandablePanelContentComponent = ({
         onTransitionEnd,
     });
 
-    /*
-        Setter `inert` manuelt for å støtte både React 18 og 19.
-
-        Dette unngår typefeil i React 18 og advarsler i React 19.
-        Se: https://github.com/WICG/inert/issues/58
-    */
-    useEffect(() => {
-        const node = animationRef.current;
-
-        if (!open) {
-            node?.setAttribute("inert", "true");
-        } else {
-            node?.removeAttribute("inert");
-        }
-    }, [open, animationRef]);
+    const ref = mergeRefs(
+        componentRef,
+        animationRef,
+        (node: HTMLDivElement | null) =>
+            open
+                ? node?.removeAttribute("inert")
+                : node?.setAttribute("inert", "true"),
+    );
 
     return (
         <div
-            ref={animationRef}
+            ref={ref}
             className={clsx("jkl-expandable__content", className)}
             {...rest}
             data-expanded={open}

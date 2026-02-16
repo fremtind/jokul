@@ -17,7 +17,9 @@ export const NavTabs = ({
 
     const selectedIndex = React.Children.toArray(children).findIndex(
         (navTab) => {
-            if (!React.isValidElement(navTab)) {
+            if (
+                !React.isValidElement<React.HTMLAttributes<HTMLElement>>(navTab)
+            ) {
                 return false;
             }
             return navTab.props["aria-selected"] === true;
