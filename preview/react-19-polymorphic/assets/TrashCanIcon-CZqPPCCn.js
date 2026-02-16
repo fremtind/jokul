@@ -1,0 +1,1 @@
+import{j as a}from"./iframe-D3Lv_WI2.js";import{I as n}from"./Icon-WCV8x0nX.js";const o=s=>a.jsx(n,{...s,children:""});o.displayName="TrashCanIcon";o.__docgenInfo={description:"",methods:[],displayName:"TrashCanIcon"};export{o as T};

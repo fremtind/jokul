@@ -1,0 +1,1 @@
+import{j as e}from"./iframe-D3Lv_WI2.js";import{I as r}from"./Icon-WCV8x0nX.js";const o=c=>e.jsx(r,{...c,children:""});o.displayName="SearchIcon";o.__docgenInfo={description:"",methods:[],displayName:"SearchIcon"};export{o as S};

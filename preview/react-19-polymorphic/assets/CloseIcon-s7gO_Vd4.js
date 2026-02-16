@@ -1,0 +1,1 @@
+import{j as e}from"./iframe-D3Lv_WI2.js";import{I as n}from"./Icon-WCV8x0nX.js";const o=s=>e.jsx(n,{...s,children:""});o.displayName="CloseIcon";o.__docgenInfo={description:"",methods:[],displayName:"CloseIcon"};export{o as C};

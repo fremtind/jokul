@@ -1,0 +1,1 @@
+import{j as n}from"./iframe-D3Lv_WI2.js";import{I as e}from"./Icon-WCV8x0nX.js";const o=s=>n.jsx(e,{...s,children:""});o.displayName="QuestionIcon";o.__docgenInfo={description:"",methods:[],displayName:"QuestionIcon"};export{o as Q};

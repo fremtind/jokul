@@ -1,0 +1,1 @@
+import{j as n}from"./iframe-D3Lv_WI2.js";import{I as p}from"./Icon-WCV8x0nX.js";const o=s=>n.jsx(p,{...s,children:""});o.displayName="CopyIcon";o.__docgenInfo={description:"",methods:[],displayName:"CopyIcon"};export{o as C};

@@ -1,0 +1,1 @@
+import{j as e}from"./iframe-D3Lv_WI2.js";import{I as s}from"./Icon-WCV8x0nX.js";const o=c=>e.jsx(s,{...c,children:""});o.displayName="CheckIcon";o.__docgenInfo={description:"",methods:[],displayName:"CheckIcon"};export{o as C};

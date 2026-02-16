@@ -1,0 +1,1 @@
+import{j as n}from"./iframe-D3Lv_WI2.js";import{I as c}from"./Icon-WCV8x0nX.js";const o=s=>n.jsx(c,{...s,children:""});o.displayName="PlusIcon";o.__docgenInfo={description:"",methods:[],displayName:"PlusIcon"};export{o as P};
