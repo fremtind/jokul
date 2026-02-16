@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.1.1
+
+### Patch Changes
+
+- 1c185b7: Oppdaterer typografi tokens for å bruke relaxed line-height i stedet for tight.
+- ea6e856: Fikser en feildefinert variabel i CSS for inputfelter som kunne føre til byggfeil hos brukere av Jøkul.
+- 558144f: Inkluderer File- og File Input-stiler i den globale `@fremtind/jokul/styles`-pakken, slik at komponentene styles riktig når kun den globale pakken er brukt.
+- 6a89361: Legger til tokens for border-radius og border-width, også for Tailwind.
+- 02e504b: Fikser en feil der autogenererte verdier for Tailwind versjon 4 ble utelatt fra bygg av nye versjoner av Jøkul.
+
 ## 4.1.0
 
 ### Minor Changes
