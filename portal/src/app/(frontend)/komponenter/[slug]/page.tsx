@@ -60,6 +60,8 @@ export default async function Page({ params }: Props) {
         return source?.asset?._ref ? builder.image(source).url() : undefined;
     }
 
+    console.log("component.example_card", component.example_card);
+
     return (
         <article className={styles.article}>
             <div className={styles.articleHeader}>
@@ -152,10 +154,7 @@ export default async function Page({ params }: Props) {
             {component.name && (
                 <div className="prose">
                     {component?.example_card && (
-                        <ComponentExampleCard
-                            name={component.name}
-                            imageUrl={urlFor(component.example_card) ?? ""}
-                        />
+                        <ComponentExampleCard value={component.example_card} />
                     )}
                     {component.considerations && (
                         <ComponentConsiderations

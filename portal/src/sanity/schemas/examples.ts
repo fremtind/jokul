@@ -13,7 +13,6 @@ export const examples = defineType({
         defineField({
             name: "title",
             type: "string",
-            initialValue: "Eksempler",
             group: "content",
         }),
         defineField({
@@ -47,7 +46,7 @@ export const examples = defineType({
     ],
     preview: {
         select: {
-            title: "title",
+            title: "name",
             example1: "examples.0.title",
             example2: "examples.1.title",
             example3: "examples.2.title",
