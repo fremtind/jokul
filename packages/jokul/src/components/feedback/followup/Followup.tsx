@@ -1,9 +1,5 @@
 import React, { type FC, useEffect, useRef, useState } from "react";
-import {
-    PrimaryButton,
-    SecondaryButton,
-    TertiaryButton,
-} from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
 import { useFeedbackContext } from "../feedbackContext.js";
 import type { FollowupProps } from "../types.js";
@@ -46,7 +42,6 @@ export const Followup: FC<FollowupProps> = ({
     }, [submitted, setFollowupSubmitted]);
 
     const QuestionComponent = getQuestionFromType(questions[step.number].type);
-    const Button = step.isLast ? PrimaryButton : SecondaryButton;
 
     if (noThanks) {
         return null;
@@ -64,15 +59,19 @@ export const Followup: FC<FollowupProps> = ({
                             Det tar kun et minutt, og hjelper oss å lage bedre
                             løsninger for deg.
                         </p>
-                        <PrimaryButton
+                        <Button
+                            variant="primary"
                             onClick={() => setFollowupStarted(true)}
                             className="jkl-spacing-40--right"
                         >
                             Jeg har tid!
-                        </PrimaryButton>
-                        <TertiaryButton onClick={() => setNoThanks(true)}>
+                        </Button>
+                        <Button
+                            variant="tertiary"
+                            onClick={() => setNoThanks(true)}
+                        >
                             Nei takk
-                        </TertiaryButton>
+                        </Button>
                     </div>
                 )}
                 {!submitted && followupStarted && (
@@ -94,15 +93,19 @@ export const Followup: FC<FollowupProps> = ({
                             key={step.number}
                         />
                         <div className="jkl-spacing-40--top" aria-live="off">
-                            <Button type="submit">
+                            <Button
+                                variant={step.isLast ? "primary" : "secondary"}
+                                type="submit"
+                            >
                                 {step.isLast ? "Send inn" : "Neste"}
                             </Button>
-                            <TertiaryButton
+                            <Button
+                                variant="tertiary"
                                 onClick={handleAbort}
                                 className="jkl-spacing-40--left"
                             >
                                 Avbryt
-                            </TertiaryButton>
+                            </Button>
                         </div>
                     </form>
                 )}

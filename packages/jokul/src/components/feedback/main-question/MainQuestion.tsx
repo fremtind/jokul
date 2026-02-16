@@ -6,7 +6,7 @@ import React, {
     useEffect,
 } from "react";
 import { useAnimatedHeight } from "../../../hooks/useAnimatedHeight/useAnimatedHeight.js";
-import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import type { Feedback } from "../Feedback.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
 import { useFeedbackContext } from "../feedbackContext.js";
@@ -92,15 +92,19 @@ export const MainQuestion: FC<Props> = ({
                                 />
                             )}
                             <div className="jkl-feedback__buttons jkl-spacing-40--top">
-                                <PrimaryButton className="jkl-spacing-40--right">
+                                <Button
+                                    variant="primary"
+                                    className="jkl-spacing-40--right"
+                                >
                                     Send
-                                </PrimaryButton>
-                                <TertiaryButton
+                                </Button>
+                                <Button
+                                    variant="tertiary"
                                     type="button"
                                     onClick={() => setCurrentValue(undefined)}
                                 >
                                     Avbryt
-                                </TertiaryButton>
+                                </Button>
                             </div>
                         </div>
                     </form>

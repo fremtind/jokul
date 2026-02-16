@@ -5,7 +5,7 @@ import type {
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
 import { formatBytes } from "../../../utilities/formatters/bytes/formatBytes.js";
-import { PrimaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import { File } from "../../file/index.js";
 import type { FileProps } from "../../file/types.js";
 import { FileInput } from "../FileInput.js";
@@ -105,7 +105,8 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                     );
                 })}
             </FileInput>
-            <PrimaryButton
+            <Button
+                variant="primary"
                 className="jkl-spacing-16--top"
                 type="button"
                 onClick={async () => {
@@ -150,7 +151,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                 }}
             >
                 Last opp
-            </PrimaryButton>
+            </Button>
         </div>
     );
 };
@@ -225,7 +226,7 @@ return (
                 );
             })}
         </FileInput>
-        <PrimaryButton
+        <Button variant="primary"
             className="jkl-spacing-16--top"
             type="button"
             onClick={async () => {
@@ -277,7 +278,7 @@ return (
             }}
         >
             Last opp
-        </PrimaryButton>
+        </Button>
     </div>
 );
 `;

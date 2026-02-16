@@ -31,17 +31,17 @@ export type UseModalReturn = readonly [ModalInstance, ModalConfig];
  *                  Er du sikker på at du vil slette Foo Bar Baz?
  *              </ModalBody>
  *              <ModalActions>
- *                  <PrimaryButton
+ *                  <Button variant="primary"
  *                      onClick={() => {
  *                          // Do the thing
  *                          instance?.hide()
  *                      }}
  *                  >
  *                      Bekreft
- *                  </PrimaryButton>
- *                  <TertiaryButton onClick={() => instance?.hide()}>
+ *                  </Button>
+ *                  <Button variant="tertiary" onClick={() => instance?.hide()}>
  *                     Avbryt
- *                 </TertiaryButton>
+ *                 </Button>
  *              </ModalActions>
  *          </Modal>
  *      </ModalContainer>,

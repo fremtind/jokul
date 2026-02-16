@@ -8,7 +8,7 @@ import React, {
 } from "react";
 import { isValidEpost } from "../../../utilities/validators/isValidEpost/isValidEpost.js";
 import { isValidTelefonnummer } from "../../../utilities/validators/isValidTelefonnummer/isValidTelefonnummer.js";
-import { PrimaryButton, TertiaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import { TextInput } from "../../text-input/TextInput.js";
 import { FeedbackSuccess } from "../FeedbackSuccess.js";
 import { useFeedbackContext } from "../feedbackContext.js";
@@ -151,12 +151,16 @@ export const ContactQuestion: FC<ContactQuestionProps> = ({
             )}
 
             <div className="jkl-spacing-40--top">
-                <PrimaryButton type="submit" className="jkl-spacing-40--right">
+                <Button
+                    variant="primary"
+                    type="submit"
+                    className="jkl-spacing-40--right"
+                >
                     {sendButtonLabel}
-                </PrimaryButton>
-                <TertiaryButton onClick={() => setNoThanks(true)}>
+                </Button>
+                <Button variant="tertiary" onClick={() => setNoThanks(true)}>
                     Nei takk
-                </TertiaryButton>
+                </Button>
             </div>
         </form>
     );

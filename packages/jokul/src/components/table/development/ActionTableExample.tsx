@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { SecondaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import {
     Table,
     TableBody,
@@ -90,9 +90,12 @@ const ActionTableExample: FC<ExampleComponentProps> = ({
                             data-th="Dokument"
                             verticalAlign="center"
                         >
-                            <SecondaryButton onClick={(e) => console.log(e)}>
+                            <Button
+                                variant="secondary"
+                                onClick={(e) => console.log(e)}
+                            >
                                 Åpne
-                            </SecondaryButton>
+                            </Button>
                         </TableCell>
                     </TableRow>
                 ))}

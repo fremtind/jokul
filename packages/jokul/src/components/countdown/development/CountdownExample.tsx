@@ -1,6 +1,6 @@
 import React, { type FC, useState } from "react";
 import type { ExampleKnobsProps } from "utils/dev-example/index.js";
-import { PrimaryButton, TertiaryButton } from "../../button/index.js";
+import { Button } from "../../button/index.js";
 import { Countdown } from "../Countdown.js";
 
 export const countdownExampleKnobs: ExampleKnobsProps = {};
@@ -20,17 +20,21 @@ export const CountdownExample: FC = () => {
                     gap: "1rem",
                 }}
             >
-                <PrimaryButton onClick={() => setIsPaused(!isPaused)}>
+                <Button
+                    variant="primary"
+                    onClick={() => setIsPaused(!isPaused)}
+                >
                     {isPaused ? "Start" : "Pause"}
-                </PrimaryButton>
-                <TertiaryButton
+                </Button>
+                <Button
+                    variant="tertiary"
                     onClick={() => {
                         setIsPaused(true);
                         setKey(String(Date.now()));
                     }}
                 >
                     Reset
-                </TertiaryButton>
+                </Button>
             </div>
         </div>
     );

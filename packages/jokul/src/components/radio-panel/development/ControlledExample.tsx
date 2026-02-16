@@ -93,7 +93,9 @@ export const ControlledExample: FC<ExampleComponentProps> = ({
                     </Flex>
                 )}
             />
-            <PrimaryButton style={{ marginTop: 32 }}>Send inn</PrimaryButton>
+            <Button variant="primary" style={{ marginTop: 32 }}>
+                Send inn
+            </Button>
         </form>
     );
 };
