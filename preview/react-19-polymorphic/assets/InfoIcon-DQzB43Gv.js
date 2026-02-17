@@ -1,0 +1,1 @@
+import{j as n}from"./iframe-BNGPyR0S.js";import{I as e}from"./Icon-DoNTGUB_.js";const r=o=>n.jsx(e,{bold:!0,filled:!0,...o,children:""});r.__docgenInfo={description:"",methods:[],displayName:"InfoIcon"};export{r as I};

@@ -1,0 +1,1 @@
+import{j as s}from"./iframe-BNGPyR0S.js";import{I as c}from"./Icon-DoNTGUB_.js";const e=o=>s.jsx(c,{...o,children:""});e.__docgenInfo={description:"",methods:[],displayName:"CheckIcon"};export{e as C};

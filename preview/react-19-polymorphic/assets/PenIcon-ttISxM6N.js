@@ -1,0 +1,1 @@
+import{j as n}from"./iframe-BNGPyR0S.js";import{I as s}from"./Icon-DoNTGUB_.js";const e=o=>n.jsx(s,{...o,children:""});e.__docgenInfo={description:"",methods:[],displayName:"PenIcon"};export{e as P};

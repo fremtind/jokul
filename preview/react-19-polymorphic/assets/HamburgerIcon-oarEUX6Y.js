@@ -1,0 +1,1 @@
+import{j as r}from"./iframe-BNGPyR0S.js";import{I as s}from"./Icon-DoNTGUB_.js";const e=o=>r.jsx(s,{...o,children:""});e.__docgenInfo={description:"",methods:[],displayName:"HamburgerIcon"};export{e as H};

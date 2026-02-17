@@ -1,0 +1,1 @@
+import{j as r}from"./iframe-BNGPyR0S.js";import{I as n}from"./Icon-DoNTGUB_.js";const s=o=>r.jsx(n,{...o,children:""});s.__docgenInfo={description:"",methods:[],displayName:"ArrowDownIcon"};export{s as A};

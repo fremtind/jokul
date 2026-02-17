@@ -1,0 +1,1 @@
+import{j as s}from"./iframe-BNGPyR0S.js";import{I as e}from"./Icon-DoNTGUB_.js";const n=o=>s.jsx(e,{...o,children:""});n.__docgenInfo={description:"",methods:[],displayName:"CloseIcon"};export{n as C};
