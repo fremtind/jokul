@@ -1,0 +1,1 @@
+import{j as r}from"./iframe-BtPvKFLs.js";import{I as n}from"./Icon-BCfwUH_f.js";const s=o=>r.jsx(n,{...o,children:""});s.__docgenInfo={description:"",methods:[],displayName:"ArrowLeftIcon"};const t=o=>r.jsx(n,{...o,children:""});t.__docgenInfo={description:"",methods:[],displayName:"ArrowRightIcon"};export{s as A,t as a};

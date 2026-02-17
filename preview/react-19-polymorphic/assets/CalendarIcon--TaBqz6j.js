@@ -1,0 +1,1 @@
+import{j as n}from"./iframe-BtPvKFLs.js";import{I as r}from"./Icon-BCfwUH_f.js";const s=o=>n.jsx(r,{...o,children:""});s.__docgenInfo={description:"",methods:[],displayName:"CalendarIcon"};export{s as C};

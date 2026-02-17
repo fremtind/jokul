@@ -1,0 +1,1 @@
+import{j as r}from"./iframe-BtPvKFLs.js";import{I as s}from"./Icon-BCfwUH_f.js";const c=o=>r.jsx(s,{...o,children:""});c.__docgenInfo={description:"",methods:[],displayName:"SearchIcon"};export{c as S};

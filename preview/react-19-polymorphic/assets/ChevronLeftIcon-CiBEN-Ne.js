@@ -1,0 +1,1 @@
+import{j as e}from"./iframe-BtPvKFLs.js";import{I as n}from"./Icon-BCfwUH_f.js";const r=o=>e.jsx(n,{...o,children:""});r.__docgenInfo={description:"",methods:[],displayName:"ChevronLeftIcon"};export{r as C};

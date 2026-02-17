@@ -1,0 +1,1 @@
+import{j as n}from"./iframe-BtPvKFLs.js";import{I as e}from"./Icon-BCfwUH_f.js";const s=o=>n.jsx(e,{...o,children:""});s.__docgenInfo={description:"",methods:[],displayName:"OpenInNewIcon"};export{s as O};
