@@ -30,7 +30,6 @@ const meta = {
         TableCell,
     },
     args: {
-        collapseToList: true,
         fullWidth: true,
         caption: (
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
