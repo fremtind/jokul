@@ -36,16 +36,9 @@ export function NavLink<T extends ElementType = "a">(
             )}
             {...rest}
         >
-            {back && (
-                <ArrowLeftIcon variant="small" className="jkl-nav-link__icon" />
-            )}
+            {back && <ArrowLeftIcon className="jkl-nav-link__icon" />}
             {children}
-            {!back && (
-                <ArrowRightIcon
-                    variant="small"
-                    className="jkl-nav-link__icon"
-                />
-            )}
+            {!back && <ArrowRightIcon className="jkl-nav-link__icon" />}
         </Component>
     );
 }

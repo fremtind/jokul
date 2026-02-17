@@ -1,37 +1,25 @@
 import clsx from "clsx";
-import React, { type FC } from "react";
-import type { IconProps } from "../types.js";
+import type { IconComponent } from "../Icon.jsx";
 
 /*
  * NOTE: The green-check and red-cross icons also exists as a copy in the jkl-list package.
  *       If you're here to change them, consider changing them there as well, or
  *       finding a technical solution to sharing the SVG markup
  */
-export const GreenCheckIcon: FC<IconProps> = ({
+export const GreenCheckIcon: IconComponent = ({
     as = "div",
     bold = false,
     className,
-    variant = "inherit",
-    "data-testid": testId,
-    style,
     ...rest
 }) => {
-    const El = as;
+    const El = as || "div";
 
     return (
         <El
-            className={clsx(
-                className,
-                "jkl-icon",
-                "jkl-icon-green-check",
-                `jkl-icon--${variant}`,
-                {
-                    "jkl-icon--bold": bold,
-                },
-            )}
+            className={clsx(className, "jkl-icon", "jkl-icon-green-check", {
+                "jkl-icon--bold": bold,
+            })}
             aria-hidden="true"
-            style={style}
-            data-testid={testId}
             {...rest}
         >
             <svg
@@ -50,4 +38,3 @@ export const GreenCheckIcon: FC<IconProps> = ({
         </El>
     );
 };
-GreenCheckIcon.displayName = "GreenCheckIcon";

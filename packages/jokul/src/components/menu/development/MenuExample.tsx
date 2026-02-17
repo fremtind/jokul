@@ -61,7 +61,8 @@ export const MenuExample: FC<ExampleComponentProps> = ({
                     <Button
                         variant="ghost"
                         data-testid="open-menu"
-                        iconRight={<ChevronDownIcon bold />}
+                        icon={<ChevronDownIcon bold />}
+                        iconPosition="right"
                     >
                         Ola Nordmann
                     </Button>

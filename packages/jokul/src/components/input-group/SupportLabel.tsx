@@ -38,7 +38,7 @@ export const SupportLabel: FC<SupportLabelProps> = ({
 
     return (
         <span id={id} className={componentClassName} {...restProps}>
-            <Icon variant="small" className="jkl-form-support-label__icon" />
+            <Icon className="jkl-form-support-label__icon" />
             <span>{errorLabel || helpLabel || label}</span>
         </span>
     );

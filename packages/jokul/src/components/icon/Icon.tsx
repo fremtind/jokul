@@ -8,8 +8,6 @@ export type IconProps = {
      */
     bold?: boolean;
     filled?: boolean;
-    className?: string;
-    style?: React.CSSProperties;
 };
 
 export type IconComponent = <T extends "span" | "div" = "span">(

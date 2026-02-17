@@ -21,14 +21,12 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
             {variant === "filter" && selected && (
                 <CheckIcon
                     className="jkl-chip__icon"
-                    variant="small"
                     data-testid="jkl-check-icon"
                 />
             )}
             {variant === "input" && (
                 <CloseIcon
                     className="jkl-chip__icon"
-                    variant="small"
                     data-testid="jkl-close-icon"
                 />
             )}

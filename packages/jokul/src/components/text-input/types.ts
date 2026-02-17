@@ -4,7 +4,7 @@ import type {
     MouseEventHandler,
     ReactNode,
 } from "react";
-import type { IconProps } from "../icon/types.js";
+import type { IconProps } from "../icon/Icon.jsx";
 import type { InputGroupProps } from "../input-group/types.js";
 
 export interface BaseTextInputProps

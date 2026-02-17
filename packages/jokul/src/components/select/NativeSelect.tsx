@@ -83,7 +83,6 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
                             ))}
                         </select>
                         <ArrowVerticalAnimated
-                            variant="medium"
                             pointingDown
                             className="jkl-select__arrow"
                         />

@@ -116,7 +116,7 @@ export const Ikoner: Story = {
     ],
     // @ts-ignore
     render: (args) =>
-        allIcons.map((Icon) => <Icon key={Icon.displayName} {...args} />),
+        allIcons.map((Icon) => <Icon key={Icon.name} {...args} />),
 };
 
 export const AnimerteIkoner: Story = {

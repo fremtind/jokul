@@ -25,7 +25,7 @@ export function SearchTrigger({
             {...rest}
         >
             <div className={styles.searchTrigger__labelWrapper}>
-                <SearchIcon variant="medium" />
+                <SearchIcon />
                 <span className={styles.searchTrigger__label}>Søk</span>
             </div>
             <KeyboardShortcut className={styles.searchTrigger__shortcut}>

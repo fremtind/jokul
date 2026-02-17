@@ -22,7 +22,7 @@ export const ModalCloseButton: Story = {
     render: (args) => (
         <ModalCloseButtonComponent {...args}>
             <IconButton>
-                <CloseIcon variant="medium" />
+                <CloseIcon />
             </IconButton>
         </ModalCloseButtonComponent>
     ),
