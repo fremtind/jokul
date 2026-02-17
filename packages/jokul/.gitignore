@@ -4,3 +4,17 @@ dev-server.js
 
 # Byggmappe for stilark
 /styles/
+
+# Autogenererte filer for tokens etc.
+src/core/tokens.less
+src/core/tokens.ts
+src/core/styles/theme/_tokens.scss
+src/core/styles/theme/_legacy-color-tokens.scss
+src/core/styles/theme/_color-tokens.scss
+src/core/styles/theme/_legacy-tokens.scss
+src/core/styles/theme/_spacing-tokens.scss
+src/core/jkl/_tokens.scss
+src/core/jkl/legacy/_tokens.scss
+src/core/jkl/legacy/_dynamic-colors.scss
+src/tailwind/colors.ts
+src/tailwind/v4/jokul-tailwind.css
