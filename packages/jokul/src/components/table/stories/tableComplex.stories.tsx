@@ -49,7 +49,6 @@ type Story = StoryObj<typeof meta>;
 export const TableComplex: Story = {
     name: "Kompleks Table",
     args: {
-        collapseToList: true,
         fullWidth: true,
         caption: (
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
