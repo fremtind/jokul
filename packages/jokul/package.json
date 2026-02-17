@@ -640,9 +640,8 @@
     },
     "scripts": {
         "generate:tokens": "tsx ./src/core/tokens/style-dictionary/build.ts",
-        "build": "pnpm run /compile:*/",
+        "build": "pnpm generate:tokens && pnpm run /compile:*/",
         "dev": "babel --out-dir=. dev-server.mjs && node dev-server.js",
-        "compile:tokens": "tsx ./src/core/tokens/style-dictionary/build.ts",
         "compile:style": "node build-styles.mjs",
         "compile:scripts": "vite build --config vite.build.config.mjs",
         "test": "vitest --config vite.test.config.mjs",
