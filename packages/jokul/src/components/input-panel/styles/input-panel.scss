@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-input-panel {
@@ -33,7 +33,7 @@
                 align-items: center;
 
                 @include jkl.text-style("text-medium") {
-                    font-weight: jkl.$typography-weight-bold;
+                    font-weight: jkl.$font-weight-bold;
                 }
             }
 

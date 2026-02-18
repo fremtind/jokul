@@ -1,4 +1,4 @@
-import type { Size } from "../core/types.js";
+import type { Size } from "./types.js";
 
 /*
  * For komponenter som mountes utenfor roten av applikasjonen vil styring av theme og size
@@ -14,16 +14,7 @@ export const getThemeAndSize = (
 
     // Sett theme til dark hvis bakgrunnsfargen er mørkere enn 50% av hvit
     // dette gir oss slingringsmonn i tilfelle verdien av Jøkuls bakgrunnsfarge endres
-    const theme =
-        Number.parseInt(
-            computedStyles
-                .getPropertyValue("--jkl-background-color")
-                .replace("#", ""),
-            16,
-        ) <
-        0xffffff / 2
-            ? "dark"
-            : "light";
+    const theme = computedStyles.colorScheme;
 
     const size = element.closest("[data-size]")?.getAttribute("data-size") as
         | Size

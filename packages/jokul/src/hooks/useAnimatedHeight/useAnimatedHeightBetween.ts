@@ -1,5 +1,5 @@
 import { type RefObject, useCallback, useEffect, useRef } from "react";
-import tokens from "../../core/tokens.js";
+import tokens from "../../tokens.js";
 import { useBrowserPreferences } from "../useBrowserPreferences/useBrowserPreferences.js";
 import { usePreviousValue } from "../usePreviousValue/usePreviousValue.js";
 import type { UseAnimatedHeightOptions } from "./types.js";

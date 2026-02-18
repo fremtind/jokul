@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "../../../core/jkl";
-@use "../../../core/jkl/colors";
+@use "../../../styles/jkl";
 
 $_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
 $_dismiss-animation-duration: jkl.timing("lazy");

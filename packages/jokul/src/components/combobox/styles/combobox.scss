@@ -1,7 +1,6 @@
 @use "sass:color";
 @use "sass:math";
-@use "../../../core/jkl";
-@use "../../../core/jkl/colors";
+@use "../../../styles/jkl";
 @use "../../../shared/input/styles/shared-input-styles" as shared;
 
 @layer jokul.components {

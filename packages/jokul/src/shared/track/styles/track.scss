@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @mixin track {
     --track-color: var(--jkl-color-border-separator);

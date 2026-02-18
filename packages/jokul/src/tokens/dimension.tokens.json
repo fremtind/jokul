@@ -1,0 +1,74 @@
+{
+    "type": "dimension",
+    "unit": {
+        "base": {
+            "type": "size",
+            "value": {
+                "small": "5px",
+                "medium": "8px",
+                "large": "11px"
+            }
+        },
+        "0": { "value": "0" },
+        "02": { "value": "calc({unit.base} * 0.25)" },
+        "05": { "value": "calc({unit.base} * 0.5)" },
+        "10": { "value": "{unit.base}" },
+        "15": { "value": "calc({unit.base} * 1.5)" },
+        "20": { "value": "calc({unit.base} * 2)" },
+        "25": { "value": "calc({unit.base} * 2.5)" },
+        "30": { "value": "calc({unit.base} * 3)" },
+        "35": { "value": "calc({unit.base} * 3.5)" },
+        "40": { "value": "calc({unit.base} * 4)" },
+        "50": { "value": "calc({unit.base} * 5)" },
+        "60": { "value": "calc({unit.base} * 6)" },
+        "70": { "value": "calc({unit.base} * 7)" },
+        "80": { "value": "calc({unit.base} * 8)" },
+        "90": { "value": "calc({unit.base} * 9)" },
+        "100": { "value": "calc({unit.base} * 10)" },
+        "130": { "value": "calc({unit.base} * 13)" },
+        "210": { "value": "calc({unit.base} * 21)" }
+    },
+    "spacing": {
+        "none": { "value": "0", "type": "spacing" },
+        "0": { "value": "0rem" },
+        "2": { "value": "0.125rem" },
+        "4": { "value": "0.25rem" },
+        "8": { "value": "0.5rem" },
+        "12": { "value": "0.75rem" },
+        "16": { "value": "1rem" },
+        "24": { "value": "1.5rem" },
+        "32": { "value": "2rem" },
+        "40": { "value": "2.5rem" },
+        "64": { "value": "4rem" },
+        "104": { "value": "6.5rem" },
+        "168": { "value": "10.5rem" },
+        "2xs": { "value": "{spacing.4}", "type": "spacing" },
+        "xs": { "value": "{spacing.8}", "type": "spacing" },
+        "s": { "value": "{spacing.16}", "type": "spacing" },
+        "m": { "value": "{spacing.24}", "type": "spacing" },
+        "l": { "value": "{spacing.40}", "type": "spacing" },
+        "xl": { "value": "{spacing.64}", "type": "spacing" },
+        "2xl": { "value": "{spacing.104}", "type": "spacing" }
+    },
+    "border": {
+        "width": {
+            "1": { "value": "0.0625rem" },
+            "2": { "value": "0.125rem" },
+            "3": { "value": "0.1875rem" }
+        },
+        "radius": {
+            "none": { "value": "0" },
+            "xs": { "value": "0.25rem" },
+            "s": { "value": "0.5rem" },
+            "m": { "value": "0.75rem" },
+            "l": { "value": "1rem" },
+            "full": { "value": "9999px" }
+        }
+    },
+    "breakpoint": {
+        "small": { "value": "0" },
+        "medium": { "value": "680px" },
+        "large": { "value": "1200px" },
+        "xl": { "value": "1600px" }
+    }
+}
