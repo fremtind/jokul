@@ -4,7 +4,7 @@
 @use "calendar-navigation-dropdown";
 @use "calendar-table";
 @use "calendar-date-button";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-datepicker {

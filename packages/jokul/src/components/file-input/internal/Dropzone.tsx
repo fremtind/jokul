@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { forwardRef, useState } from "react";
-import type { WithChildren } from "../../../core/types.js";
+import type { WithChildren } from "../../../utilities/types.js";
 import type { UploadedFile } from "../types.js";
 import { useFileInputContext } from "./fileInputContext.js";
 import { validateFileInputFiles } from "./validateFileInputFiles.js";

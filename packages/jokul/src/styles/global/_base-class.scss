@@ -1,0 +1,40 @@
+@use "../jkl";
+
+@layer jokul.global {
+    /* Legger til støtte for fontskalering via OS-innstillinger på Apple-enheter */
+    @supports (font: -apple-system-body) {
+        @media (pointer: coarse) {
+            :root {
+                /* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+                font: -apple-system-body;
+            }
+        }
+    }
+
+    .jkl {
+        --jkl-background-color: var(--jkl-color-background-page);
+        --jkl-color: var(--jkl-color-text-default);
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+
+        background-color: var(--jkl-background-color);
+        color: var(--jkl-color);
+
+        @include jkl.use-font-family("Fremtind Grotesk");
+
+        strong {
+            font-weight: jkl.$font-weight-bold;
+        }
+    }
+
+    @include jkl.prefers-reduced-motion {
+        *,
+        *::after,
+        *::before {
+            animation-duration: 0ms !important;
+            animation-delay: 0ms !important;
+            transition: none !important;
+        }
+    }
+}

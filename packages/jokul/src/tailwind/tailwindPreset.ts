@@ -1,15 +1,14 @@
 import type { Config } from "tailwindcss";
-import tokens from "../core/tokens.js";
-import colors from "./colors.js";
+import tokens from "../tokens.js";
 import { jokulTypographyPlugin } from "./plugins/jokulTypographyPlugin.js";
 
 export const jokulPreset: Partial<Config> = {
     theme: {
-        colors,
+        colors: tokens.color,
         spacing: tokens.spacing,
-        fontWeight: tokens.typography.weight,
-        fontSize: tokens.typography.font.size,
-        lineHeight: tokens.typography.line.height,
+        fontWeight: tokens.font.weight,
+        fontSize: tokens.font.size,
+        lineHeight: tokens.lineHeight,
         borderRadius: tokens.border.radius,
         borderWidth: tokens.border.width,
         screens: {

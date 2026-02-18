@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 $_loader-animation-properties: 2500ms linear infinite;
 $_loader-left-animation-name: jkl-loader-left-spin-#{string.unique-id()};

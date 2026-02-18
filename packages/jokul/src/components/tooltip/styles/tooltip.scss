@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 $_tooltip-border-width: jkl.rem(1px);
 $_focus-ring-distance: jkl.rem(-1px); // Negativ margin for å unngå subpixel mellomrom mellom border og box-shadow

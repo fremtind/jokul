@@ -1,7 +1,7 @@
 @use "sass:string";
 @use "../../input-panel/styles/input-panel";
 @use "../../checkbox/styles/checkbox";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
 

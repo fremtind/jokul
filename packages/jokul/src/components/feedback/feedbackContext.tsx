@@ -1,5 +1,5 @@
 import React, { createContext, type FC, useContext } from "react";
-import type { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../utilities/types.js";
 import type { BaseTextAreaProps } from "../text-area/types.js";
 
 type FeedbackContext = {

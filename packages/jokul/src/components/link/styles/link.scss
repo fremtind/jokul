@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 @use "../../icon/styles/base-styles" as icon;
 
 @layer jokul.components {
@@ -30,7 +30,6 @@
         &[download]::after {
             --jkl-icon-fill: 0;
             --jkl-icon-size: 1em;
-            --jkl-icon-opsz: 20;
 
             content: "\feff\e89e" / "(Åpnes i ny fane)";
             margin-block-start: -0.1em;

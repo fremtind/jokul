@@ -1,5 +1,5 @@
 import type { ChangeEvent, SelectHTMLAttributes } from "react";
-import type { DataTestAutoId } from "../../core/types.js";
+import type { DataTestAutoId } from "../../utilities/types.js";
 import type { ValuePair } from "../../utilities/valuePair.js";
 import type { LabelProps } from "../input-group/types.js";
 import type { InputGroupProps } from "../input-group/types.js";

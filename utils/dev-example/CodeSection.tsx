@@ -3,7 +3,7 @@ import {
     ExpandablePanel,
     Expander,
 } from "../../packages/jokul/src/components/expander/index.js";
-import type { WithChildren } from "../../packages/jokul/src/core/types.js";
+import type { WithChildren } from "../../packages/jokul/src/utilities/types.js";
 
 export interface CodeSectionProps extends WithChildren {
     className?: string;
