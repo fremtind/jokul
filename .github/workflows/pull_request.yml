@@ -138,7 +138,7 @@ jobs:
                 run: pnpm -r figma:test
                 env:
                   FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_CODE_CONNECT_TOKEN }}
-            
+
             -   name: Si fra om feil i Figma Connect
                 if: steps.code_connect.outcome == 'failure'
                 uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
@@ -178,9 +178,6 @@ jobs:
             -   name: Install dependencies
                 run: pnpm install
 
-            -   name: Build packages
-                run: pnpm build
-
             -   name: Add a comment with a link to the preview
                 uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
                 with:
@@ -190,8 +187,8 @@ jobs:
                         <span aria-hidden="true">🔄</span> **Gjør klar en forhåndsvisning…**
                         <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
 
-            -   name: Build site
-                run: pnpm build-storybook
+            -   name: Build packages and site
+                run: pnpm build && pnpm build-storybook
 
             -   name: Deploy preview
                 env:

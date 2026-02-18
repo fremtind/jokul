@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.2
+
+### Patch Changes
+
+- 14e40b2: Skrur av git tracking for autogenererte filer, som kunne føre til at Jøkul ikke ble publisert i GitHub Packages.
+
 ## 4.1.1
 
 ### Patch Changes
