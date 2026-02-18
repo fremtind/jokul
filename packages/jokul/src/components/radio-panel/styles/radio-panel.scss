@@ -1,5 +1,5 @@
 @use "sass:string";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 @use "../../input-panel/styles/input-panel";
 
 $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};

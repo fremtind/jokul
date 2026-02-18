@@ -3,7 +3,7 @@ import type {
     ColorScheme,
     Size,
     WithChildren,
-} from "../../packages/jokul/src/core/types.js";
+} from "../../packages/jokul/src/utilities/types.js";
 
 type ExampleContext = {
     size: Size;

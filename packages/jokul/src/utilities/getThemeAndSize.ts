@@ -1,4 +1,4 @@
-import type { Size } from "../core/types.js";
+import type { Size } from "./types.js";
 
 /*
  * For komponenter som mountes utenfor roten av applikasjonen vil styring av theme og size

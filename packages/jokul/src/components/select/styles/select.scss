@@ -1,8 +1,7 @@
 @charset "UTF-8";
 @use "sass:color";
 @use "sass:math";
-@use "../../../core/jkl";
-@use "../../../core/jkl/colors";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-select {

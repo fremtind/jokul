@@ -1,4 +1,7 @@
-import type { ColorScheme, Size } from "../../packages/jokul/src/core/types.js";
+import type {
+    ColorScheme,
+    Size,
+} from "../../packages/jokul/src/utilities/types.js";
 
 export { ComponentExample } from "./ComponentExample.js";
 export { DevExample } from "./DevExample.js";

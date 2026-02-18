@@ -1,4 +1,4 @@
-@use '@fremtind/jokul/styles/core/jkl';
+@use '@fremtind/jokul/styles/jkl';
 
 .codeBlock {
     background: var(--jkl-color-background-container-high);
@@ -21,6 +21,7 @@
         scrollbar-width: none;
         width: max-content;
         max-width: 100%;
+
         @include jkl.text-style("text-small");
     }
 

@@ -6,11 +6,14 @@ import {
     RadioButtonGroup,
 } from "../../packages/jokul/src/components/radio-button/index.js";
 import { Select } from "../../packages/jokul/src/components/select/index.js";
-import type { ColorScheme, Size } from "../../packages/jokul/src/core/types.js";
 import {
     useId,
     useLocalStorage,
 } from "../../packages/jokul/src/hooks/index.js";
+import type {
+    ColorScheme,
+    Size,
+} from "../../packages/jokul/src/utilities/types.js";
 import { CodeBlock } from "./CodeBlock/index.js";
 import { CodeSection } from "./CodeSection.js";
 import { ExampleContextProvider } from "./exampleContext.js";

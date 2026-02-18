@@ -1,5 +1,5 @@
 import type { RefObject } from "react";
-import type { Easing, Timing } from "../../core/types.js";
+import type { Easing, Timing } from "../../utilities/types.js";
 
 export interface UseAnimatedHeightOptions<T extends HTMLElement = HTMLElement> {
     display?: "block" | "grid" | "flex";

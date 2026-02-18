@@ -3,7 +3,7 @@ import React, {
     useContext,
     type ChangeEventHandler,
 } from "react";
-import type { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../utilities/types.js";
 
 type RadioGroupContext = {
     name: string | undefined;
