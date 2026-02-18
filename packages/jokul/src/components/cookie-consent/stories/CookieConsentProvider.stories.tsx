@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { type FC } from "react";
 import { expect, screen, waitFor } from "storybook/test";
-import type { WithChildren } from "../../../core/types.js";
+import type { WithChildren } from "../../../utilities/types.js";
 import { Button } from "../../button/Button.js";
 import { CookieConsent } from "../CookieConsent.js";
 import {

@@ -20,7 +20,7 @@ import React, {
     useRef,
     useState,
 } from "react";
-import type { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../utilities/types.js";
 import type { TooltipProps } from "./types.js";
 
 type UseTooltipReturn = {

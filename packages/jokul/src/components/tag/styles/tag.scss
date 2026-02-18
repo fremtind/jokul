@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 .jkl-tag {
     --padding: var(--jkl-unit-02) var(--jkl-unit-10);
@@ -8,7 +8,7 @@
     --text-color: var(--jkl-color-text-on-alert);
 
     @include jkl.text-style("text-small") {
-        font-weight: jkl.$typography-weight-bold;
+        font-weight: jkl.$font-weight-bold;
     };
     background-color: var(--background-color);
     color: var(--text-color);

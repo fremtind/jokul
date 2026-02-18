@@ -1,4 +1,4 @@
-@use "../../packages/jokul/src/core/jkl";
+@use "../../packages/jokul/src/styles/jkl/" as jkl;
 
 .jkl-portal-code-example {
     max-width: min(#{jkl.rem(750px)}, 50vw);

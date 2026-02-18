@@ -1,5 +1,4 @@
-@use "../../../core/jkl";
-@use "../../../core/jkl/colors";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-file {
@@ -164,6 +163,7 @@
         from {
             transform: rotate(0turn);
         }
+
         to {
             transform: rotate(1turn);
         }

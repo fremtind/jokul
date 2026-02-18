@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useReducer, useState } from "react";
-import { tokens } from "../../core/index.js";
+import tokens from "../../tokens.js";
 import {
     addMediaQueryListener,
     getInitialMediaQueryMatch,

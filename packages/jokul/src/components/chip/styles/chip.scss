@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 .jkl-chip {
     --padding-inline: var(--jkl-unit-15);
@@ -12,7 +12,7 @@
     --border-width: #{jkl.rem(1px)};
 
     @include jkl.text-style("text-small") {
-        font-weight: jkl.$typography-font-weight-bold;
+        font-weight: jkl.$font-weight-bold;
     };
 
     cursor: pointer;

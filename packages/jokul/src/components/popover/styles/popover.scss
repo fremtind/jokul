@@ -1,19 +1,15 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
-    @include jkl.light-mode-variables {
-        --jkl-datepicker-box-shadow: rgb(49 48 48 / 20%);
-    }
-
-    @include jkl.dark-mode-variables {
-        --jkl-datepicker-box-shadow: rgb(0 0 0 / 50%);
-    }
-
     .jkl-popover {
+        /* stylelint-disable declaration-block-no-duplicate-custom-properties -- fallback for browsers without light-dark() support */
+        --shadow-color: rgb(49 48 48 / 20%);
+        --shadow-color: light-dark(rgb(49 48 48 / 20%), rgb(0 0 0 / 50%));
+        /* stylelint-enable declaration-block-no-duplicate-custom-properties */
         padding: var(--popover-padding, 0);
         z-index: jkl.$z-index--floating;
-        box-shadow: 0 4px 20px 0 var(--jkl-datepicker-box-shadow);
+        box-shadow: 0 4px 20px 0 var(--shadow-color);
         background-color: var(--jkl-color-background-container-high);
         border-radius: var(--jkl-border-radius-s);
     }

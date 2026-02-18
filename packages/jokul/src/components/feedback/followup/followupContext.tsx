@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from "react";
-import type { WithChildren } from "../../../core/types.js";
+import type { WithChildren } from "../../../utilities/types.js";
 import type { FollowupState } from "../types.js";
 
 const followUpContext = createContext<FollowupState | undefined>(undefined);
