@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-summary-table {
@@ -33,7 +33,7 @@
 
         & > tbody {
             th {
-                font-weight: jkl.$typography-weight-normal;
+                font-weight: jkl.$font-weight-normal;
             }
         }
 
@@ -46,7 +46,7 @@
 
             th,
             td {
-                font-weight: var(--jkl-typography-weight-bold);
+                font-weight: var(--jkl-font-weight-bold);
             }
         }
     }

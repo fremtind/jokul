@@ -1,4 +1,4 @@
-@use "@fremtind/jokul/styles/core/jkl";
+@use "../../styles/jkl";
 
 .lorem-text {
     margin-top: var(--jkl-spacing-16);
@@ -48,12 +48,10 @@
             content: "";
             position: absolute;
             inset: 50% 0 0;
-            background: linear-gradient(
-                0deg,
-                var(--jkl-background-color) 0%,
-                var(--jkl-background-color) 30%,
-                transparent 100%
-            );
+            background: linear-gradient(0deg,
+                    var(--jkl-background-color) 0%,
+                    var(--jkl-background-color) 30%,
+                    transparent 100%);
 
             @include jkl.motion("standard", "expressive");
             transition-property: opacity;

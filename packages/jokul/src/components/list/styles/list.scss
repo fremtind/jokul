@@ -1,14 +1,14 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
-@use "../../icon/styles/base-styles" as icon;
-
-/*
- * NOTE: These markers should stay visually aligned with GreenCheckIcon and
- *       RedCrossIcon in the icon package.
- */
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-list {
+        /* stylelint-disable declaration-block-no-duplicate-custom-properties -- fallback for browsers without light-dark() support */
+        --jkl-list-marker-cross: #{$_cross-light};
+        --jkl-list-marker-cross: light-dark(#{$_cross-light}, #{$_cross-dark});
+        --jkl-list-marker-check: #{$_check-light};
+        --jkl-list-marker-check: light-dark(#{$_check-light}, #{$_check-dark});
+        /* stylelint-enable declaration-block-no-duplicate-custom-properties */
         --list-text-color: var(--jkl-color-text-default);
 
         list-style-type: "\2022";
@@ -84,6 +84,7 @@
 
         @include jkl.forced-colors-mode {
             & .jkl-list__item {
+
                 &--check::before,
                 &--cross::before {
                     background-color: Canvas;

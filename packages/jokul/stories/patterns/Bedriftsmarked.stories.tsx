@@ -14,7 +14,7 @@ import { TabList } from "../../src/components/tabs/TabList.js";
 import { TabPanel } from "../../src/components/tabs/TabPanel.js";
 import { Tabs } from "../../src/components/tabs/Tabs.js";
 import { Tag } from "../../src/components/tag/index.js";
-import { formatOrganisasjonsnummer } from "../../src/index.js";
+import { formatOrganisasjonsnummer } from "../../src/utilities/index.js";
 
 const meta = {
     title: "Skjermbilder/Bedriftsmarked",

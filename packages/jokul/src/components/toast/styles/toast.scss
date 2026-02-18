@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "../../../core/jkl";
-@use "../../../core/jkl/colors";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-toast-region {

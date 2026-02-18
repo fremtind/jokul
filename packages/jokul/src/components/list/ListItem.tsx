@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { type FC } from "react";
-import type { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../utilities/types.js";
 
 export interface ListItemProps extends WithChildren {
     className?: string;

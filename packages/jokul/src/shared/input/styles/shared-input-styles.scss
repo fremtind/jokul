@@ -1,5 +1,5 @@
 @use "sass:color";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @mixin wrapper-styles {
     --jkl-text-input-padding: var(--jkl-text-input-vertical-padding)

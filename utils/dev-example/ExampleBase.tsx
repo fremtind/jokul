@@ -1,6 +1,12 @@
-import React, { type FC, useEffect, useMemo, useState, useId } from "react";
-import type { ColorScheme, Size } from "../../packages/jokul/src/core/types.js";
-import { useLocalStorage } from "../../packages/jokul/src/hooks/index.js";
+import React, { type FC, useEffect, useMemo, useState } from "react";
+import {
+    useId,
+    useLocalStorage,
+} from "../../packages/jokul/src/hooks/index.js";
+import type {
+    ColorScheme,
+    Size,
+} from "../../packages/jokul/src/utilities/types.js";
 import { CodeBlock } from "./CodeBlock/index.js";
 import { CodeSection } from "./CodeSection.js";
 import { ExampleContextProvider } from "./exampleContext.js";

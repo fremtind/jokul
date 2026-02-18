@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from "react";
-import type { WithChildren } from "../../core/types.js";
 import type { SwipeChangeHandler } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
+import type { WithChildren } from "../../utilities/types.js";
 
 export interface ToggleSliderProps extends WithChildren {
     labels: [string, string];

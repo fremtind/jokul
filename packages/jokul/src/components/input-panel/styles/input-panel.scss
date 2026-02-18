@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-input-panel {
@@ -50,7 +50,7 @@
                 z-index: 1;
 
                 @include jkl.text-style("text-medium") {
-                    font-weight: jkl.$typography-weight-bold;
+                    font-weight: jkl.$font-weight-bold;
                 }
             }
         }

@@ -2,8 +2,8 @@ import { render, renderHook, screen, waitFor } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import type { WithChildren } from "../../core/types.js";
 import { Button } from "../button/Button.js";
+import type { WithChildren } from "../../utilities/types.js";
 import { CookieConsent } from "./CookieConsent.js";
 import {
     CookieConsentProvider,

@@ -8,7 +8,7 @@ import React, {
     type TdHTMLAttributes,
     type ThHTMLAttributes,
 } from "react";
-import type { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../utilities/types.js";
 import type { TableSortProps } from "./utils.js";
 
 export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {

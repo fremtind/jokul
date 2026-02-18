@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { useEffect, useState } from "react";
-import SelectStories from "../../../components-beta/select/stories/select.stories.js";
+import SelectStories from "../../beta/select/stories/select.stories.jsx";
 import { Button } from "../../button/index.js";
 import { Card } from "../../card/index.js";
 import { File } from "../../file/index.js";

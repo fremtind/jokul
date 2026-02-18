@@ -1,0 +1,24 @@
+@use "sass:map";
+@use "../jkl";
+@use "../jkl/typography";
+
+@layer jokul.utility {
+    .jkl-body {
+        font: var(--jkl-text-style-paragraph-medium);
+    }
+
+    .jkl-bold {
+        font: var(--jkl-text-style-paragraph-medium);
+        font-weight: jkl.$font-weight-bold;
+    }
+
+    .jkl-small {
+        font: var(--jkl-text-style-paragraph-small);
+    }
+
+    @each $style, $value in map.get(jkl.$tokens, "textStyle") {
+        .jkl-#{$style} {
+            font: $value;
+        }
+    }
+}

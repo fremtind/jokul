@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import { Select } from "../../src/components-beta/select/Select.js";
+import { Select } from "../../src/components/beta/select/Select.jsx";
 import { Button } from "../../src/components/button/Button.js";
 import { Flex } from "../../src/components/flex/Flex.js";
 import { FieldGroup } from "../../src/components/input-group/FieldGroup.js";

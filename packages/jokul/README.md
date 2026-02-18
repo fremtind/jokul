@@ -138,7 +138,7 @@ OBS: Vi har et kjent problem med dette i Vite v6, se [#4378](https://github.com/
 For å få tilgang til mixins vi tilbyr kan du i din .scss fil bruke
 
 ```scss
-@use "@fremtind/jokul/styles/core/jkl";
+@use "@fremtind/jokul/styles/jkl";
 ```
 
 ## Hooks

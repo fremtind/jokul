@@ -5,7 +5,7 @@ import type {
     FocusEvent,
     KeyboardEvent,
 } from "react";
-import type { DataTestAutoId } from "../../core/types.js";
+import type { DataTestAutoId } from "../../utilities/types.js";
 import type { InputGroupProps, LabelProps } from "../input-group/types.js";
 
 export type DateValidationError =

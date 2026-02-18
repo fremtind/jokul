@@ -1,5 +1,5 @@
 import type { AriaRole } from "react";
-import type { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../utilities/types.js";
 
 export interface SystemMessageProps extends WithChildren {
     id?: string;

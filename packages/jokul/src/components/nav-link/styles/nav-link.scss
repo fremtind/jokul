@@ -1,11 +1,11 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-nav-link {
         color: var(--jkl-color-text-default);
 
         box-sizing: border-box;
-        font-weight: var(--jkl-typography-weight-normal);
+        font-weight: var(--jkl-font-weight-normal);
         text-decoration: none;
         position: relative;
 

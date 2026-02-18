@@ -1,5 +1,5 @@
-import type { WithChildren } from "../../core/types.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/index.js";
+import type { WithChildren } from "../../utilities/types.js";
 
 export type NavTabProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
