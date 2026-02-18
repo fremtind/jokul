@@ -31,7 +31,7 @@ export const componentBySlugQuery =
                 ...,
                 title,
                 examples[]->{
-                  title,
+                  name,
                   id,
                   description,
                   height,

@@ -14,6 +14,8 @@ export const examples = defineType({
             name: "title",
             type: "string",
             group: "content",
+            description:
+                "Rendres som h2 i UI'et og vil dukke opp i innholdsfortegnelsen hvis den fylles ut.",
         }),
         defineField({
             name: "examples",
@@ -46,11 +48,11 @@ export const examples = defineType({
     ],
     preview: {
         select: {
-            title: "name",
-            example1: "examples.0.title",
-            example2: "examples.1.title",
-            example3: "examples.2.title",
-            example4: "examples.3.title",
+            title: "title",
+            example1: "examples.0.name",
+            example2: "examples.1.name",
+            example3: "examples.2.name",
+            example4: "examples.3.name",
         },
         prepare({ title, example1, example2, example3, example4 }) {
             const examples = [example1, example2, example3, example4].filter(
