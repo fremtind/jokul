@@ -188,7 +188,7 @@ jobs:
                         <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
 
             -   name: Build packages and site
-                run: pnpm build && pnpm build-storybook
+                run: pnpm build && pnpm build:storybook
 
             -   name: Deploy preview
                 env:
