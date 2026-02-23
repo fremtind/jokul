@@ -48,7 +48,7 @@ jobs:
 
                       Vi har [noen få pakker hvor vi gjør egne patcher](https://github.com/fremtind/jokul/tree/main/patches) i Jøkul. Disse krever at vi lager en tilsvarende patch på den nye versjonen. Se README for instrukser.
 
-                      🧑‍💻 Kjør `pnpm build:docs`, `pnpm ci:test` og `pnpm serve`.
+                      🧑‍💻 Kjør `pnpm build:docs`, `pnpm ci:test` og `pnpm start`.
 
                       Sjekk at ting fortsatt bygger, tester går grønt, og at siden funker OK.
 
