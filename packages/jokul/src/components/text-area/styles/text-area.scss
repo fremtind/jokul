@@ -5,10 +5,15 @@
 
 @layer jokul.components {
     .jkl-text-area-wrapper {
+        overflow: hidden;
+
         @include shared.wrapper_styles;
     }
 
     .jkl-text-area {
+        --text-input-height: var(--jkl-unit-60);
+        --progress-bar-height: #{jkl.rem(4px)};
+
         height: auto;
         width: 100%;
 
@@ -18,9 +23,9 @@
             resize: none; // Fjern mulighet for resizing av feltet
             width: 100%;
             padding: var(--jkl-text-input-padding);
-            max-height: var(--jkl-text-input-height);
-            height: var(--jkl-text-input-height);
-            min-height: var(--jkl-text-input-height);
+            max-height: var(--text-input-height);
+            height: var(--text-input-height);
+            min-height: var(--text-input-height);
 
             @include jkl.motion;
             transition-property: height, min-height, max-height, padding;
@@ -46,15 +51,9 @@
         }
 
         &:has(.jkl-text-area__counter) {
-            $progress-bar-height: jkl.rem(4px);
-
             .jkl-text-area-wrapper {
                 position: relative;
-
-                &[data-has-content="true"],
-                &:focus-within {
-                    padding-bottom: calc(var(--jkl-text-input-height) + #{$progress-bar-height});
-                }
+                padding-bottom: calc(var(--text-input-height) + var(--progress-bar-height));
             }
 
             .jkl-text-area__counter {
@@ -74,7 +73,7 @@
 
                 &-progress {
                     background-color: transparent;
-                    height: $progress-bar-height;
+                    height: var(--progress-bar-height);
                     width: 100%;
                     overflow: hidden;
 
@@ -82,7 +81,7 @@
                         content: "";
                         width: var(--progress-width, 100%);
                         display: block;
-                        height: $progress-bar-height;
+                        height: var(--progress-bar-height);
                         background-color: var(--border-color);
                         transition-property: width;
 
@@ -99,7 +98,7 @@
         .jkl-text-area__text-area--#{$num}-rows:focus,
         .jkl-text-area__text-area--#{$num}-rows:not(:placeholder-shown),
         .jkl-text-area--start-open .jkl-text-area__text-area--#{$num}-rows {
-            --height: calc(var(--jkl-text-input-line-height) * #{$num});
+            --height: #{$num}lh;
             --vertical-padding: calc(var(--jkl-text-input-vertical-padding) * 2);
 
             // (#2751) Ekspanderende får inline style med height auto,
