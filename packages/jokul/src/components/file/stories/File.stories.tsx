@@ -27,6 +27,13 @@ export const FileStory: Story = {
     name: "File",
 };
 
+export const FileCard: Story = {
+    name: "File vist som kort",
+    args: {
+        variant: "card",
+    },
+};
+
 export const FileDelete: Story = {
     name: "Fil med slettefunksjon",
 };
