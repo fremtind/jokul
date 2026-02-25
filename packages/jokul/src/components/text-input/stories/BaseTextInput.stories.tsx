@@ -5,6 +5,14 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/TextInput/BaseTextInput",
     component: TextInputComponent,
+    args: {
+        name: "base-text-input",
+        align: "left",
+        placeholder: "Ditt innhold",
+        maxLength: 500,
+        disabled: false,
+        readOnly: false,
+    },
     argTypes: {
         value: {
             control: "text",
@@ -41,14 +49,4 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const BaseTextInput: Story = {
-    args: {
-        name: "base-text-input",
-        align: "left",
-        placeholder: "Ditt innhold",
-        maxLength: 500,
-        disabled: false,
-        readOnly: false,
-        defaultValue: "Ditt innhold",
-    },
-};
+export const BaseTextInput: Story = {};

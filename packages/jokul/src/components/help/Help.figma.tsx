@@ -1,14 +1,12 @@
 import { figma } from "@figma/code-connect";
 import React from "react";
-import { BETA_Help } from "./Help.js";
+import { Help } from "./Help.js";
 
 figma.connect(
-    BETA_Help,
+    Help,
     "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=26847%3A10089",
     {
-        imports: [
-            'import { BETA_Help } from "@fremtind/jokul/components/help";',
-        ],
+        imports: ['import { Help } from "@fremtind/jokul/components/help";'],
         props: {
             nested: figma.nestedProps("Help Popover", {
                 children: figma.string("Text"),
@@ -25,20 +23,20 @@ figma.connect(
         example: (props) => {
             if (props.iconPosition === "none") {
                 return (
-                    <BETA_Help buttonText={props.buttonText}>
+                    <Help buttonText={props.buttonText}>
                         {props.nested.children}
-                    </BETA_Help>
+                    </Help>
                 );
             }
 
             return (
-                <BETA_Help
+                <Help
                     buttonText={props.buttonText}
                     iconPosition={props.iconPosition}
                     showButtonText={true}
                 >
                     {props.nested.children}
-                </BETA_Help>
+                </Help>
             );
         },
     },

@@ -3,10 +3,10 @@ import React from "react";
 import contactChoices from "../../../../../../storybook-public/data/contactChoices.js";
 import { Checkbox } from "../../checkbox/index.js";
 import { CheckboxStory } from "../../checkbox/stories/Checkbox.stories.js";
+import { Help } from "../../help/index.js";
+import HelpStories from "../../help/stories/Help.stories.js";
 import { RadioButton } from "../../radio-button/index.js";
 import RadioButtonStories from "../../radio-button/stories/RadioButton.stories.js";
-import { PopupTip } from "../../tooltip/PopupTip.js";
-import PopuptipStories from "../../tooltip/stories/Popuptip.stories.js";
 import { FieldGroup } from "../FieldGroup.js";
 
 const meta: Meta = {
@@ -59,11 +59,6 @@ export const FieldGroupCheckboxGroup: Story = {
 export const GroupWithTooltip: Story = {
     name: "Field Group med tooltip",
     args: {
-        tooltip: (
-            <PopupTip
-                {...PopuptipStories.args}
-                content="Du kan bare velge en metode"
-            />
-        ),
+        tooltip: <Help {...HelpStories.args} />,
     },
 };
