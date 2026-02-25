@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useEffect, useState } from "react";
 import { Button } from "../../button/Button.js";
-import { BETA_Help } from "../../help/Help.js";
+import { Help } from "../../help/Help.js";
 import { InputGroup } from "../../input-group/InputGroup.js";
 import { BaseTextInput } from "../../text-input/BaseTextInput.js";
 import {
@@ -75,11 +75,11 @@ export const Modal: ModalStory = {
                                 <InputGroup
                                     label="Fødselsnummer"
                                     tooltip={
-                                        <BETA_Help buttonText="Hva betyr dette?">
+                                        <Help buttonText="Hva betyr dette?">
                                             Du må fylle ut fødelsnummer eller
                                             D-nummer. Se hvordan du finner
                                             D-nummer.
-                                        </BETA_Help>
+                                        </Help>
                                     }
                                 >
                                     <BaseTextInput />

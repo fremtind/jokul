@@ -4,27 +4,27 @@ import { Button } from "../button/index.js";
 import { Icon } from "../icon/Icon.js";
 import type { HelpProps } from "./types.js";
 
-export const BETA_Help = ({
+export const Help = ({
     position = "top",
     buttonText = "Hjelp",
     showButtonText = false,
     iconPosition = "left",
+    className,
     children,
     ...rest
 }: HelpProps) => {
     return (
-        <>
+        <div className={clsx("jkl-help", className)}>
             <Button
                 {...rest}
                 title={buttonText || rest.title}
                 iconPosition={iconPosition}
                 variant="ghost"
-                className={clsx("jkl-help-trigger", rest.className)}
+                className={"jkl-help-trigger"}
                 icon={<Icon aria-hidden="true">help</Icon>}
                 data-testid="jkl-help-trigger"
                 // @ts-ignore
                 popovertarget={`${buttonText}-popover`}
-                // @ts-ignore
                 style={{ anchorName: `${buttonText}-popover` }}
             >
                 {showButtonText && buttonText}
@@ -37,12 +37,10 @@ export const BETA_Help = ({
                     popover="auto"
                     id={`${buttonText}-popover`}
                     className="jkl-help-popover"
-                    // @ts-ignore
-                    style={{ positionAnchor: `${buttonText}-popover` }}
                 >
                     {children}
                 </div>
             </output>
-        </>
+        </div>
     );
 };
