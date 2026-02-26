@@ -22,9 +22,8 @@ const meta = {
     },
     argTypes: {
         rows: {
-            control: {
-                min: 3,
-            },
+            control: { type: "select" },
+            options: [3, 4, 5, 6, 7, 8, 9, 10],
         },
     },
 } satisfies Meta<typeof TextAreaComponent>;
