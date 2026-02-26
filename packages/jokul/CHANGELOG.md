@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.1.3
+
+### Patch Changes
+
+- ac97d9d: Fikser en bug der teksten i valgene i `Combobox` hadde for lav kontrast i mørkt tema.
+
 ## 4.1.2
 
 ### Patch Changes
