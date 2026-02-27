@@ -24,14 +24,13 @@ export const LinkStory: Story = {
     args: {
         children: "Lenke",
         external: false,
-        as: "a",
         target: "#",
         href: "https://www.fremtind.no",
         download: false,
     },
     render: (args) => (
         // Setter style.cursor til pointer fordi Storybook overskriver default styles.
-        <Link {...args} as={args.as || "a"} />
+        <Link {...args} />
     ),
 };
 
@@ -62,7 +61,6 @@ export const LinkInOtherStory: Story = {
     args: {
         children: "lenke",
         external: false,
-        as: "a",
         target: "#",
         href: "https://www.fremtind.no",
     },
