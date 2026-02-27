@@ -1,46 +1,39 @@
 import clsx from "clsx";
-import React, { useEffect } from "react";
-import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { ElementType } from "react";
+import type { Polymorphic } from "../../utilities/index.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
 import { PageButton } from "./PageButton.js";
-import type { PaginationProps } from "./types.js";
 
-type PaginationComponent = <ElementType extends React.ElementType = "nav">(
-    props: PaginationProps<ElementType>,
-) => React.ReactElement | null;
+export type PaginationProps = {
+    currentPage: number;
+    numberOfPages: number;
+    onPageChange: (toPage: number, fromPage: number) => void;
+    /**
+     * Dersom du ønsker å ha custom labels kan du sende inn disse. "next" og "previous"
+     * brukes som hint til skjermlesere for ikon-knappene til Neste/Forrige side
+     * @default { previous: "Forrige side", next: "Neste side" }
+     */
+    labels?: {
+        previous: string;
+        next: string;
+    };
+};
 
-export const Pagination = React.forwardRef(function Pagination<
-    ElementType extends React.ElementType = "nav",
->(
-    {
-        onPageChange,
-        currentPage,
-        numberOfPages,
-        labels = {
-            previous: "Forrige side",
-            next: "Neste side",
-        },
-        as,
-        className,
-        ...rest
-    }: PaginationProps<ElementType>,
-    ref?: PolymorphicRef<ElementType>,
-) {
-    useEffect(() => {
-        if (currentPage < 1) {
-            console.error(
-                "[Pagination]: currentPage prop should be set to a value larger than 0",
-            );
-        }
-        if (currentPage > numberOfPages) {
-            console.error(
-                "[Pagination]: currentPage prop should not be set to a value larger than numberOfPages",
-            );
-        }
-    }, [currentPage, numberOfPages]);
-
+export function Pagination<T extends ElementType = "nav">({
+    onPageChange,
+    currentPage,
+    numberOfPages,
+    labels = {
+        previous: "Forrige side",
+        next: "Neste side",
+    },
+    as,
+    className,
+    ref,
+    ...rest
+}: Polymorphic<PaginationProps, T>) {
     const Component = as || "nav";
 
     if (numberOfPages <= 7) {
@@ -195,4 +188,4 @@ export const Pagination = React.forwardRef(function Pagination<
             </IconButton>
         </Component>
     );
-}) as PaginationComponent;
+}

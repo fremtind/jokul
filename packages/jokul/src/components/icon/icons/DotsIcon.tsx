@@ -1,8 +1,6 @@
 import React from "react";
 import { Icon, type IconComponent } from "../Icon.js";
-import type { IconProps } from "../types.js";
 
-export const DotsIcon: IconComponent = (props: IconProps) => (
+export const DotsIcon: IconComponent = (props) => (
     <Icon {...props}>{"\ue5d3"}</Icon>
 );
-DotsIcon.displayName = "DotsIcon";

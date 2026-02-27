@@ -44,8 +44,8 @@ export function useAutoAnimatedHeight<T extends HTMLElement = HTMLElement>(
 
     const { prefersReducedMotion } = useBrowserPreferences();
 
-    const raf1 = useRef<number>();
-    const raf2 = useRef<number>();
+    const raf1 = useRef<number>(0);
+    const raf2 = useRef<number>(0);
     const elementRef = useRef<T>(null);
 
     const handleTransitionEnd = useCallback(

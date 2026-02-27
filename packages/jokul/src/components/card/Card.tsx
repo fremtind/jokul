@@ -1,30 +1,43 @@
 import clsx from "clsx";
-import React from "react";
+import type { ElementType } from "react";
+import type { Polymorphic } from "../../utilities/index.js";
 import { SlotComponent } from "../../utilities/polymorphism/SlotComponent.js";
 import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
-import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
-import type { CardProps } from "./types.js";
+import type { CardPadding, CardVariant } from "./types.js";
 
-type CardComponent = <ElementType extends React.ElementType = "div">(
-    props: CardProps<ElementType> & AsChildProps,
-) => React.ReactElement | null;
+export type CardProps = {
+    padding?: CardPadding;
+    /**
+     * Angir hvilken kortvariant du vil bruke. Velg en variant som gir god kontrast
+     * til bakgrunnen på siden, slik at det er enkelt å skille innholdet fra hverandre.
+     * @default "high"
+     */
+    variant?: CardVariant;
+    /**
+     * Angir om kortet visuelt skal fremstå som klikkbart. Du må selv rendre
+     * kortet som et klikkbart element (f.eks. `<a>` eller en `<Link>` fra
+     * et ruting-bibliotek) og gi det en `href` eller `onClick`-handler.
+     * HUSK: Sett aria-label for at støtteverktøy, som skjermlesere, ikke
+     * skal lese alt innholdet i kortet.
+     */
+    clickable?: boolean;
+};
 
 /**
- * En allsidig kortkomponent som brukes for å gruppere innhold på en side.
- * Komponenten rendres til vanlig som en `<div>`, men du kan velge å rendre
- * den som andre elementer eller komponenter der du trenger annen semantikk
- * eller funksjonalitet.
+ * Kort lar oss løfte frem oppgaver og innhold som hører sammen.
+ * https://jokul-portal.intern.app.prodaws.fremtind.no/komponenter/card
  */
-export const Card = React.forwardRef(function Card<
-    ElementType extends React.ElementType = "div",
->(props: CardProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
+export function Card<T extends ElementType = "div">(
+    props: Polymorphic<CardProps, T> & AsChildProps,
+) {
     const {
+        as = "div",
+        asChild,
         className,
         clickable = false,
         padding = "s",
         variant = "high",
-        asChild,
-        as = "div",
+        ref,
         ...componentProps
     } = props;
 
@@ -40,4 +53,4 @@ export const Card = React.forwardRef(function Card<
             ref={ref}
         />
     );
-}) as CardComponent;
+}

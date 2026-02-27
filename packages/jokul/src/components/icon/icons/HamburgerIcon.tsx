@@ -1,8 +1,6 @@
 import React from "react";
 import { Icon, type IconComponent } from "../Icon.js";
-import type { IconProps } from "../types.js";
 
-export const HamburgerIcon: IconComponent = (props: IconProps) => (
+export const HamburgerIcon: IconComponent = (props) => (
     <Icon {...props}>{"\ue5d2"}</Icon>
 );
-HamburgerIcon.displayName = "HamburgerIcon";

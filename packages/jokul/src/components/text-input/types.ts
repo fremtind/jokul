@@ -4,7 +4,7 @@ import type {
     MouseEventHandler,
     ReactNode,
 } from "react";
-import type { IconProps } from "../icon/types.js";
+import type { IconProps } from "../icon/Icon.jsx";
 import type { InputGroupProps } from "../input-group/types.js";
 
 export interface BaseTextInputProps
@@ -31,7 +31,7 @@ export interface BaseTextInputProps
     /**
      * Element som vises til høyre for inputfeltet. Brukes typisk til å trigge en handling som f.eks. å vise/skjule passord.
      */
-    actionButton?: React.ReactElement;
+    actionButton?: React.ReactElement<{ className?: string }>;
     /**
      * Setter maxlength attributtet og justerer bredden på feltet til å passe det tallet som settes
      *

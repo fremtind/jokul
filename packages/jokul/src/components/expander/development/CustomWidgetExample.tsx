@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { SecondaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import { TextInput } from "../../text-input/TextInput.js";
 import { ExpandablePanel } from "../ExpandablePanel.js";
 import { Expander } from "../Expander.js";
@@ -38,7 +38,7 @@ export const CustomWidgetExample: FC<ExampleComponentProps> = () => {
                         defaultValue={"foo.bar@fremtind.no"}
                         label="E-post"
                     />
-                    <SecondaryButton>Lagre</SecondaryButton>
+                    <Button variant="secondary">Lagre</Button>
                 </div>
             </ExpandablePanel.Content>
         </ExpandablePanel>

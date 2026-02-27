@@ -75,7 +75,9 @@ const content4 = (
 
 const contentBlocks = [content1, content2, content3, content4];
 
-export function randomContentBlock(except?: JSX.Element): JSX.Element {
+export function randomContentBlock(
+    except?: React.JSX.Element,
+): React.JSX.Element {
     let content =
         contentBlocks[Math.floor(Math.random() * contentBlocks.length)];
     if (content === except) {

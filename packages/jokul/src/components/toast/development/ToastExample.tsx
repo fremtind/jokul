@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { PrimaryButton, SecondaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import { Flex } from "../../flex/Flex.js";
 import { type ToastContent, ToastProvider, useToast } from "../index.js";
 import type { ToastOptions } from "../types.js";
@@ -63,7 +63,8 @@ function ToastUsageExample() {
 
     return (
         <Flex direction="column" gap="m">
-            <PrimaryButton
+            <Button
+                variant="primary"
                 onClick={() => {
                     const [content, options] =
                         examples[Math.floor(Math.random() * examples.length)];
@@ -71,8 +72,9 @@ function ToastUsageExample() {
                 }}
             >
                 Vis toast i kontekst
-            </PrimaryButton>
-            <SecondaryButton
+            </Button>
+            <Button
+                variant="secondary"
                 onClick={() => {
                     for (const key of keys) {
                         close(key);
@@ -80,7 +82,7 @@ function ToastUsageExample() {
                 }}
             >
                 Lukk alle åpne toasts
-            </SecondaryButton>
+            </Button>
         </Flex>
     );
 }

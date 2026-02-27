@@ -1,4 +1,4 @@
-export { Icon } from "./Icon.js";
+export { Icon, type IconProps } from "./Icon.js";
 
 export type { ArrowVerticalAnimatedProps } from "./icons/animated/ArrowVerticalAnimated.js";
 export type { ArrowHorizontalAnimatedProps } from "./icons/animated/ArrowHorizontalAnimated.js";
@@ -7,8 +7,6 @@ export type { PlusRemoveAnimatedProps } from "./icons/animated/PlusRemoveAnimate
 export { ArrowVerticalAnimated } from "./icons/animated/ArrowVerticalAnimated.js";
 export { ArrowHorizontalAnimated } from "./icons/animated/ArrowHorizontalAnimated.js";
 export { PlusRemoveAnimated } from "./icons/animated/PlusRemoveAnimated.js";
-
-export type { IconProps, IconVariant } from "./types.js";
 
 export { ArrowDownIcon } from "./icons/ArrowDownIcon.js";
 export { ArrowLeftIcon } from "./icons/ArrowLeftIcon.js";

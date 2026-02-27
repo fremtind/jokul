@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
-import { PrimaryButton, TertiaryButton } from "../button/Button.js";
+import { Button } from "../button/Button.js";
 import {
     Modal,
     ModalActions,
@@ -21,7 +21,7 @@ import { useModal } from "./useModal.js";
 // @ts-ignore typecheck liker ikke at default muligens ikke finnes
 const userEvent = UserEventModule.default ?? UserEventModule;
 
-function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
+function setup(jsx: React.JSX.Element, renderOptions?: RenderOptions) {
     return {
         user: userEvent.setup(),
         ...render(jsx, renderOptions),
@@ -54,12 +54,18 @@ describe("Modal", () => {
                         Er du sikker på at du vil slette Foo Bar Baz?
                     </ModalBody>
                     <ModalActions>
-                        <PrimaryButton onClick={() => instance?.hide()}>
+                        <Button
+                            variant="primary"
+                            onClick={() => instance?.hide()}
+                        >
                             Bekreft
-                        </PrimaryButton>
-                        <TertiaryButton onClick={() => instance?.hide()}>
+                        </Button>
+                        <Button
+                            variant="tertiary"
+                            onClick={() => instance?.hide()}
+                        >
                             Avbryt
-                        </TertiaryButton>
+                        </Button>
                     </ModalActions>
                 </Modal>
             </ModalContainer>,

@@ -1,18 +1,20 @@
 import clsx from "clsx";
-import React, { forwardRef } from "react";
-import { SlotComponent } from "../../utilities/index.js";
-import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { ElementType } from "react";
+import {
+    type AsChildProps,
+    type Polymorphic,
+    SlotComponent,
+} from "../../utilities/index.js";
 import {
     type Breakpoint,
-    type FlexComponent,
     type FlexProps,
     type Responsive,
     isResponsive,
 } from "./types.js";
 
-export const Flex = forwardRef(function Flex<
-    ElementType extends React.ElementType = "div",
->(props: FlexProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
+export function Flex<T extends ElementType = "div">(
+    props: Polymorphic<FlexProps, T> & AsChildProps,
+) {
     const {
         asChild,
         alignItems,
@@ -28,6 +30,7 @@ export const Flex = forwardRef(function Flex<
         layout = {},
         textAlign,
         wrap = "nowrap",
+        ref,
         ...rest
     } = props;
 
@@ -64,7 +67,7 @@ export const Flex = forwardRef(function Flex<
             ref={ref}
         />
     );
-}) as FlexComponent; // Needed to tell Typescript this does not return ReactNode but acutally JSX.Element
+}
 
 /**
  * Gjør en enkeltstående eller responsiv verdi om til et nøstet array,

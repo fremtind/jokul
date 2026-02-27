@@ -4,7 +4,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { PrimaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import { CheckboxPanel } from "../../checkbox-panel/CheckboxPanel.js";
 import { Flex } from "../../flex/Flex.js";
 
@@ -82,9 +82,12 @@ Ansvar:    ${watch("ansvar")}
                     value="100"
                     description="Lovpålagt når du eier et kjøretøy som brukes på veien."
                 />
-                <PrimaryButton style={{ marginTop: 32, width: "fit-content" }}>
+                <Button
+                    variant="primary"
+                    style={{ marginTop: 32, width: "fit-content" }}
+                >
                     Send inn
-                </PrimaryButton>
+                </Button>
             </form>
         </Flex>
     );

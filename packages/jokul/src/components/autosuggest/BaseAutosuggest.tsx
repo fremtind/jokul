@@ -49,7 +49,7 @@ function BaseAutosuggest<T>({
         /* noop */
     },
     noHits,
-}: BaseAutosuggestProps<T>): JSX.Element {
+}: BaseAutosuggestProps<T>): React.JSX.Element {
     const uid = useId(inputId || "jkl-text-input", {
         generateSuffix: !inputId,
     });

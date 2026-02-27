@@ -22,7 +22,7 @@ export const CookieConsent = ({
     onAccept,
     aboutPage = "https://www.fremtind.no/informasjonskapsler",
     ...rest
-}: CookieConsentProps): JSX.Element | null => {
+}: CookieConsentProps): React.JSX.Element | null => {
     const {
         currentConsent,
         cookieName,

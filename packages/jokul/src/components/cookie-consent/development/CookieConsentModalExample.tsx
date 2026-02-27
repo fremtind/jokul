@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { TertiaryButton } from "../../button/Button.js";
+import { Button } from "../../button/Button.js";
 import { CookieConsent } from "../CookieConsent.js";
 import {
     CookieConsentProvider,
@@ -28,12 +28,13 @@ const Example: FC<{ blocking: boolean }> = ({ blocking }) => {
 
     return (
         <>
-            <TertiaryButton
+            <Button
+                variant="tertiary"
                 data-testid="trigger-cookie-consent"
                 onClick={openConsentModal}
             >
                 Informasjonskapsler
-            </TertiaryButton>
+            </Button>
             <CookieConsent
                 aboutPage="https://www.fremtind.no/informasjonskapsler"
                 blocking={blocking}

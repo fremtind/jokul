@@ -99,7 +99,7 @@ function ModalComponent({
 }
 
 export const ModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
-    const dialogRef = React.useRef<ModalInstance | null>();
+    const dialogRef = React.useRef<ModalInstance | null>(null);
     return (
         <div>
             <Button

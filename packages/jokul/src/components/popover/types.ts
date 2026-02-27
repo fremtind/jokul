@@ -67,7 +67,7 @@ export interface PopoverOptions {
      *
      * @default Popover.Trigger
      */
-    positionReference?: React.RefObject<ReferenceType>;
+    positionReference?: React.RefObject<ReferenceType | null>;
     /**
      * Options for hover-interaksjoner.
      *

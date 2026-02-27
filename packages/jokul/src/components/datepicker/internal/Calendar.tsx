@@ -450,7 +450,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                                 })}
                                 data-testid={`${id}-back-button`}
                                 variant="ghost"
-                                icon={<ArrowLeftIcon variant="medium" bold />}
+                                icon={<ArrowLeftIcon bold />}
                             />
                             <Button
                                 {...getForwardProps({
@@ -459,7 +459,7 @@ export const Calendar = forwardRef<HTMLDivElement, CalendarProps>(
                                 })}
                                 variant="ghost"
                                 data-testid={`${id}-forward-button`}
-                                icon={<ArrowRightIcon variant="medium" bold />}
+                                icon={<ArrowRightIcon bold />}
                             />
                         </div>
                         <div>

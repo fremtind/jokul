@@ -2,12 +2,11 @@ import type { Placement } from "@floating-ui/react";
 import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import type { DataTestAutoId, WithChildren } from "../../core/types.js";
 import type { SwipeChangeHandler } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
-import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export interface MenuProps
     extends DataTestAutoId,
         WithChildren,
-        Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children"> {
+        Omit<ButtonHTMLAttributes<HTMLButtonElement>, "children" | "onToggle"> {
     className?: string;
     /**
      * Initiell plassering av menyen. Dersom det ikke er plass på skjermen der du
@@ -42,34 +41,6 @@ export interface MenuProps
      */
     onToggle?: (isOpen: boolean) => void;
 }
-
-export type MenuItemProps<ElementType extends React.ElementType> =
-    PolymorphicPropsWithRef<
-        ElementType,
-        {
-            /**
-             * Et ikon som vises før innholdet i menypunktet
-             */
-            icon?: ReactNode;
-        } & (
-            | {
-                  expandable?: never;
-                  /**
-                   * Indikerer at menypunktet åpner noe i et nytt vindu eller tab
-                   * @default false
-                   */
-                  external?: boolean;
-              }
-            | {
-                  external?: never;
-                  /**
-                   * Indikerer at menypunktet er utvidbart ved å vise en chevron
-                   * @default false
-                   */
-                  expandable?: boolean;
-              }
-        )
-    >;
 
 export interface MenuItemCheckboxProps
     extends Omit<HTMLAttributes<HTMLDivElement>, "aria-checked" | "onChange"> {

@@ -11,7 +11,7 @@ export const Logo = ({
     animated = false,
     title = "Fremtind",
     ...rest
-}: LogoProps): JSX.Element => {
+}: LogoProps): React.JSX.Element => {
     const uniqueId = useId(id || "jkl-logo", { generateSuffix: !id });
 
     return (

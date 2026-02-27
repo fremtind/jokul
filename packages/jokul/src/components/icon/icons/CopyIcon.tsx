@@ -1,8 +1,6 @@
 import React from "react";
 import { Icon, type IconComponent } from "../Icon.js";
-import type { IconProps } from "../types.js";
 
-export const CopyIcon: IconComponent = (props: IconProps) => (
+export const CopyIcon: IconComponent = (props) => (
     <Icon {...props}>{"\ue14d"}</Icon>
 );
-CopyIcon.displayName = "CopyIcon";

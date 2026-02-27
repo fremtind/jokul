@@ -11,7 +11,7 @@ export const LogoStamp = ({
     animated = false,
     title,
     ...rest
-}: LogoStampProps): JSX.Element => {
+}: LogoStampProps): React.JSX.Element => {
     const uniqueId = useId(id || "jkl-logo-stamp", { generateSuffix: !id });
     const stampRef = useRef<SVGSVGElement>(null);
     const { hasAnimated, visible } = useTextSpinner(stampRef);

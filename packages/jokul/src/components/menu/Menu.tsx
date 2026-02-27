@@ -200,7 +200,11 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                 {React.Children.map(
                                     children,
                                     (child, index) => {
-                                        if (React.isValidElement(child)) {
+                                        if (
+                                            React.isValidElement<
+                                                React.HTMLAttributes<HTMLElement>
+                                            >(child)
+                                        ) {
                                             return (
                                                 <SlotComponent
                                                     {...getItemProps({

@@ -1,22 +1,23 @@
 import { clsx } from "clsx";
-import React from "react";
-import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { ElementType } from "react";
+import type { Polymorphic } from "../../utilities/index.js";
 import { ArrowRightIcon } from "../icon/icons/ArrowRightIcon.js";
 import { ArrowLeftIcon } from "../icon/index.js";
-import type { NavLinkProps } from "./types.js";
 
-type LinkComponent = <ElementType extends React.ElementType = "a">(
-    props: NavLinkProps<ElementType>,
-) => React.ReactElement | null;
+export type NavLinkProps = {
+    active?: boolean;
+    back?: boolean;
+};
 
-export const NavLink = React.forwardRef(function NavLink<
-    ElementType extends React.ElementType = "a",
->(props: NavLinkProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
+export function NavLink<T extends ElementType = "a">(
+    props: Polymorphic<NavLinkProps, T>,
+) {
     const {
         active = false,
         back = false,
         className,
         children,
+        ref,
         as = "a",
         ...rest
     } = props;
@@ -35,16 +36,9 @@ export const NavLink = React.forwardRef(function NavLink<
             )}
             {...rest}
         >
-            {back && (
-                <ArrowLeftIcon variant="small" className="jkl-nav-link__icon" />
-            )}
+            {back && <ArrowLeftIcon className="jkl-nav-link__icon" />}
             {children}
-            {!back && (
-                <ArrowRightIcon
-                    variant="small"
-                    className="jkl-nav-link__icon"
-                />
-            )}
+            {!back && <ArrowRightIcon className="jkl-nav-link__icon" />}
         </Component>
     );
-}) as LinkComponent;
+}

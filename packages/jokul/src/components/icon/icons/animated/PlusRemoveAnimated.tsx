@@ -1,19 +1,16 @@
 import clsx from "clsx";
 import React, { type FC } from "react";
-import type { IconVariant } from "../../types.js";
 import { PlusIcon } from "../PlusIcon.js";
 
 export interface PlusRemoveAnimatedProps {
     className?: string;
     isPlus: boolean;
-    variant?: IconVariant;
     bold?: boolean;
 }
 
 export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
     className,
     isPlus,
-    variant,
     bold = false,
     ...rest
 }) => (
@@ -24,13 +21,11 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
             "jkl-icon--animated",
             {
                 "jkl-icon--bold": bold,
-                [`jkl-icon--${variant}`]: !!variant,
             },
             className,
         )}
     >
         <PlusIcon
-            variant={variant}
             bold={bold}
             className={clsx(
                 "jkl-icons-animated__plus",
@@ -39,5 +34,3 @@ export const PlusRemoveAnimated: FC<PlusRemoveAnimatedProps> = ({
         />
     </div>
 );
-
-PlusRemoveAnimated.displayName = "PlusRemoveAnimated";

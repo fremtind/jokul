@@ -110,7 +110,7 @@ export const ModalCloseButton = forwardRef<
         {...rest}
         ref={ref}
     >
-        <CloseIcon variant="medium" />
+        <CloseIcon />
     </IconButton>
 ));
 ModalCloseButton.displayName = "ModalCloseButton";

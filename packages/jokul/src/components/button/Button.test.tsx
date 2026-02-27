@@ -141,7 +141,7 @@ describe("Button", () => {
         const submitFormButtonElement = screen.getByText("Submit form"); // <- Get a reference to the dom element
 
         await act(async () => {
-            await userEvent.click(screen.getByText("Increment")); // <-- Triggering av state change will cause component to rerender. <PrimaryButton> should not be unmounted and remounted
+            await userEvent.click(screen.getByText("Increment")); // <-- Triggering av state change will cause component to rerender. <Button variant="primary"> should not be unmounted and remounted
         });
 
         await act(async () => {

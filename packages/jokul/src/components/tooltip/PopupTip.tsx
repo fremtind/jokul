@@ -28,7 +28,7 @@ export const PopupTip: FC<PopupTipProps> = ({
                     )}
                     data-testid="jkl-tooltip-question-button"
                 >
-                    <QuestionIcon variant="inherit" bold={isOpen} />
+                    <QuestionIcon bold={isOpen} />
                     <span className="jkl-sr-only">Vis hjelpetekst</span>
                 </button>
             </TooltipTrigger>

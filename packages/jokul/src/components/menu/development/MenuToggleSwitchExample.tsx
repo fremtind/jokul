@@ -75,7 +75,7 @@ export const MenuToggleSwitchExample: FC<ExampleComponentProps> = ({
                     triggerElement={
                         <TooltipTrigger>
                             <IconButton className="jkl-portal-navigation_menu-trigger">
-                                <DotsIcon variant="medium" bold />
+                                <DotsIcon bold />
                             </IconButton>
                         </TooltipTrigger>
                     }

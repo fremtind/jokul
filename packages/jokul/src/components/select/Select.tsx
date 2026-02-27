@@ -616,7 +616,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                 )}
                             </div>
                             <ArrowVerticalAnimated
-                                variant="medium"
                                 pointingDown={!dropdownIsShown}
                                 className="jkl-select__arrow"
                             />

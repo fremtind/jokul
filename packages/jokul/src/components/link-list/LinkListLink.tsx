@@ -1,17 +1,10 @@
 import clsx from "clsx";
-import React from "react";
-import type {
-    PolymorphicPropsWithRef,
-    PolymorphicRef,
-} from "../../utilities/polymorphism/polymorphism.js";
+import type { ComponentPropsWithRef, ElementType } from "react";
 
-export const LinkListLink = React.forwardRef(function LinkListLink<
-    ElementType extends React.ElementType = "a",
->(
-    props: PolymorphicPropsWithRef<ElementType>,
-    ref: PolymorphicRef<ElementType>,
+export function LinkListLink<T extends ElementType = "a">(
+    props: ComponentPropsWithRef<T> & { as?: T },
 ) {
-    const { as: Component = "a", children, className, ...rest } = props;
+    const { as: Component = "a", ref, children, className, ...rest } = props;
 
     return (
         <li className={"jkl-link-list-item"}>
@@ -24,4 +17,4 @@ export const LinkListLink = React.forwardRef(function LinkListLink<
             </Component>
         </li>
     );
-});
+}

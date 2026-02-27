@@ -28,7 +28,7 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(
             .filter(Boolean)
             .join(". ");
 
-        if (React.isValidElement(children)) {
+        if (React.isValidElement<React.HTMLAttributes<HTMLElement>>(children)) {
             return React.cloneElement(
                 children,
                 getReferenceProps({
@@ -40,7 +40,7 @@ export const TooltipTrigger = forwardRef<HTMLElement, HTMLProps<HTMLElement>>(
                     "data-tooltip-shown": isOpen,
                     style: { ...children.props.style },
                     tabIndex: triggerOn === "click" ? 0 : undefined,
-                }),
+                } as React.HTMLAttributes<HTMLElement>),
             );
         }
 

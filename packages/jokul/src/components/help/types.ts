@@ -1,7 +1,11 @@
 import type { ReactNode } from "react";
+import type { Polymorphic } from "../../utilities/index.js";
 import type { ButtonProps } from "../button/index.js";
 
-export type HelpProps = Omit<ButtonProps<"button">, "iconPosition" | "icon"> & {
+export type HelpProps = Omit<
+    Polymorphic<ButtonProps, "button">,
+    "iconPosition" | "icon"
+> & {
     /**
      * Initiell plassering av popoveren i forhold til triggeren.
      * @default "top"

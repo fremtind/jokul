@@ -17,7 +17,7 @@ export const Autosuggest = ({
     value,
     isOpen,
     ...rest
-}: AutosuggestProps): JSX.Element => {
+}: AutosuggestProps): React.JSX.Element => {
     const [hits, setHits] = useState(allItems);
 
     useEffect(() => setHits(allItems), [allItems]);

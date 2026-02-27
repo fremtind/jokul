@@ -46,14 +46,7 @@ import "../../button/styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/Ikoner",
     component: Icon,
-    argTypes: {
-        variant: {
-            control: "radio",
-            options: ["inhreit", "medium", "small"],
-        },
-    },
     args: {
-        variant: "inherit",
         bold: false,
         filled: false,
     },
@@ -123,7 +116,7 @@ export const Ikoner: Story = {
     ],
     // @ts-ignore
     render: (args) =>
-        allIcons.map((Icon) => <Icon key={Icon.displayName} {...args} />),
+        allIcons.map((Icon) => <Icon key={Icon.name} {...args} />),
 };
 
 export const AnimerteIkoner: Story = {

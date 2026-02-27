@@ -1,20 +1,17 @@
 import clsx from "clsx";
 import React, { type FC } from "react";
-import type { IconVariant } from "../../types.js";
 import { ArrowLeftIcon } from "../ArrowLeftIcon.js";
 import { ArrowRightIcon } from "../ArrowRightIcon.js";
 
 export interface ArrowHorizontalAnimatedProps {
     className?: string;
     pointingRight: boolean;
-    variant?: IconVariant;
     bold?: boolean;
 }
 
 export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
     className,
     pointingRight,
-    variant,
     bold = false,
     ...rest
 }) => (
@@ -22,7 +19,7 @@ export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
         {...rest}
         className={clsx(
             "jkl-icon--animated",
-            { "jkl-icon--bold": bold, [`jkl-icon--${variant}`]: !!variant },
+            { "jkl-icon--bold": bold },
             "jkl-animated-horizontal-arrows",
             className,
         )}
@@ -33,16 +30,12 @@ export const ArrowHorizontalAnimated: FC<ArrowHorizontalAnimatedProps> = ({
         >
             <ArrowLeftIcon
                 className="jkl-animated-horizontal-arrows__arrow"
-                variant={variant}
                 bold={bold}
             />
             <ArrowRightIcon
                 className="jkl-animated-horizontal-arrows__arrow"
-                variant={variant}
                 bold={bold}
             />
         </div>
     </div>
 );
-
-ArrowHorizontalAnimated.displayName = "ArrowHorizontalAnimated";
