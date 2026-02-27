@@ -1,16 +1,6 @@
-import React, { type FC, useEffect, useMemo, useState } from "react";
-import { Checkbox } from "../../packages/jokul/src/components/checkbox/index.js";
-import { FieldGroup } from "../../packages/jokul/src/components/input-group/index.js";
-import {
-    RadioButton,
-    RadioButtonGroup,
-} from "../../packages/jokul/src/components/radio-button/index.js";
-import { Select } from "../../packages/jokul/src/components/select/index.js";
+import React, { type FC, useEffect, useMemo, useState, useId } from "react";
 import type { ColorScheme, Size } from "../../packages/jokul/src/core/types.js";
-import {
-    useId,
-    useLocalStorage,
-} from "../../packages/jokul/src/hooks/index.js";
+import { useLocalStorage } from "../../packages/jokul/src/hooks/index.js";
 import { CodeBlock } from "./CodeBlock/index.js";
 import { CodeSection } from "./CodeSection.js";
 import { ExampleContextProvider } from "./exampleContext.js";
@@ -47,7 +37,7 @@ export const ExampleBase: FC<Props> = ({
     style,
     isWide,
 }) => {
-    const uid = useId("example");
+    const uid = useId();
     const [theme, setTheme] = useLocalStorage<ColorScheme>(
         "jkl-example-theme",
         "light",
@@ -144,162 +134,212 @@ export const ExampleBase: FC<Props> = ({
                     </div>
                     <aside
                         data-size="small"
-                        className="jkl-portal-component-example__example-options"
+                        className="jkl-portal-component-example__example-knobs"
                     >
                         <>
                             {(knobs?.boolProps || knobs?.choiceProps) && (
-                                <FieldGroup
-                                    legend="Egenskaper"
-                                    labelProps={{ variant: "medium" }}
-                                    className="jkl-portal-component-example__example-options-header"
-                                >
-                                    {knobs?.boolProps &&
-                                        Object.entries(boolValues).map(
-                                            ([key, value]) => (
-                                                <Checkbox
-                                                    key={`${uid}-${hyphenate(
-                                                        key,
-                                                    )}`}
-                                                    name={`${uid}-${hyphenate(
-                                                        key,
-                                                    )}`}
-                                                    value={key}
-                                                    checked={value}
-                                                    onChange={(e) =>
-                                                        setBoolValue(
+                                <section className="jkl-portal-component-example__example-knobs__props">
+                                    <p>Egenskaper</p>
+                                    {knobs?.boolProps && (
+                                        <div>
+                                            {Object.entries(boolValues).map(
+                                                ([key, value]) => (
+                                                    <label
+                                                        key={`${uid}-${hyphenate(
                                                             key,
-                                                            e.target.checked,
-                                                        )
-                                                    }
-                                                    data-testid={`bool-prop-${hyphenate(
-                                                        key,
-                                                    )}`}
-                                                >
-                                                    {key}
-                                                </Checkbox>
-                                            ),
-                                        )}
+                                                        )}`}
+                                                    >
+                                                        <input
+                                                            type="checkbox"
+                                                            name={`${uid}-${hyphenate(
+                                                                key,
+                                                            )}`}
+                                                            value={key}
+                                                            checked={value}
+                                                            onChange={(e) =>
+                                                                setBoolValue(
+                                                                    key,
+                                                                    e.target
+                                                                        .checked,
+                                                                )
+                                                            }
+                                                            data-testid={`bool-prop-${hyphenate(
+                                                                key,
+                                                            )}`}
+                                                        />
+                                                        {key}
+                                                    </label>
+                                                ),
+                                            )}
+                                        </div>
+                                    )}
                                     {knobs?.choiceProps &&
                                         Object.entries(choiceValues).map(
                                             ([key, value]) =>
                                                 choices[key].length < 4 ? (
-                                                    <RadioButtonGroup
-                                                        className="jkl-spacing-8--top"
+                                                    <fieldset
                                                         name={`${uid}-${hyphenate(
                                                             key,
                                                         )}`}
                                                         key={`${uid}-${hyphenate(
                                                             key,
                                                         )}`}
-                                                        legend={key}
-                                                        value={value}
-                                                        labelProps={{
-                                                            variant: "small",
-                                                        }}
-                                                        onChange={(e) =>
-                                                            setChoiceValue(
-                                                                key,
-                                                                e.target.value,
-                                                            )
-                                                        }
                                                     >
+                                                        <legend>{key}</legend>
                                                         {choices[key]?.map(
                                                             (choice) => (
-                                                                <RadioButton
-                                                                    key={choice}
-                                                                    value={
-                                                                        choice
-                                                                    }
-                                                                    data-testid={`choice-prop-${hyphenate(
-                                                                        choice,
-                                                                    )}`}
+                                                                <label
+                                                                    key={`${uid}-${choice}`}
                                                                 >
+                                                                    <input
+                                                                        type="radio"
+                                                                        value={
+                                                                            choice
+                                                                        }
+                                                                        data-testid={`choice-prop-${hyphenate(
+                                                                            choice,
+                                                                        )}`}
+                                                                        name={`${uid}-${hyphenate(
+                                                                            key,
+                                                                        )}-choice`}
+                                                                        onChange={(
+                                                                            e,
+                                                                        ) =>
+                                                                            setChoiceValue(
+                                                                                key,
+                                                                                e
+                                                                                    .target
+                                                                                    .value,
+                                                                            )
+                                                                        }
+                                                                    />
                                                                     {choice}
-                                                                </RadioButton>
+                                                                </label>
                                                             ),
                                                         )}
-                                                    </RadioButtonGroup>
+                                                    </fieldset>
                                                 ) : (
-                                                    <Select
-                                                        className="jkl-spacing-8--top"
-                                                        value={value}
-                                                        onChange={(e) =>
-                                                            setChoiceValue(
-                                                                key,
-                                                                e.target.value,
-                                                            )
-                                                        }
-                                                        label={key}
-                                                        width="100%"
+                                                    <label
                                                         key={`${uid}-${hyphenate(
                                                             key,
                                                         )}`}
-                                                        name={key}
-                                                        items={choices[key]}
-                                                    />
+                                                    >
+                                                        {key}
+                                                        <select
+                                                            value={value}
+                                                            onChange={(e) =>
+                                                                setChoiceValue(
+                                                                    key,
+                                                                    e.target
+                                                                        .value,
+                                                                )
+                                                            }
+                                                            name={key}
+                                                            id={`${key}-${value}`}
+                                                        >
+                                                            {choices[key].map(
+                                                                (choice) => (
+                                                                    <option
+                                                                        key={
+                                                                            choice
+                                                                        }
+                                                                    >
+                                                                        {choice}
+                                                                    </option>
+                                                                ),
+                                                            )}
+                                                        </select>
+                                                    </label>
                                                 ),
                                         )}
-                                </FieldGroup>
+                                </section>
                             )}
-                            <FieldGroup
-                                legend="Visning"
-                                labelProps={{ variant: "medium" }}
-                                className="jkl-portal-component-example__example-options-header"
-                            >
-                                <RadioButtonGroup
-                                    name={`${uid}-theme`}
-                                    legend="Tema"
-                                    value={theme}
-                                    labelProps={{ variant: "small" }}
-                                    onChange={(e) =>
-                                        setTheme(e.target.value as ColorScheme)
-                                    }
-                                >
-                                    <RadioButton
-                                        value="light"
-                                        data-testid="theme-light"
-                                    >
+                            <section className="jkl-portal-component-example__example-knobs__view">
+                                <p>Visning</p>
+                                <fieldset name={`${uid}-theme`}>
+                                    <legend>Tema</legend>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="theme"
+                                            value="light"
+                                            data-testid="theme-light"
+                                            defaultChecked={theme === "light"}
+                                            onChange={(e) =>
+                                                setTheme(
+                                                    e.target
+                                                        .value as ColorScheme,
+                                                )
+                                            }
+                                        />
                                         Light
-                                    </RadioButton>
-                                    <RadioButton
-                                        value="dark"
-                                        data-testid="theme-dark"
-                                    >
+                                    </label>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="theme"
+                                            value="dark"
+                                            data-testid="theme-dark"
+                                            defaultChecked={theme === "dark"}
+                                            onChange={(e) =>
+                                                setTheme(
+                                                    e.target
+                                                        .value as ColorScheme,
+                                                )
+                                            }
+                                        />
                                         Dark
-                                    </RadioButton>
-                                </RadioButtonGroup>
+                                    </label>
+                                </fieldset>
                                 {noSize ? null : (
-                                    <RadioButtonGroup
-                                        className="jkl-spacing-8--top"
-                                        name={`${uid}-size`}
-                                        legend="Størrelse"
-                                        value={size}
-                                        labelProps={{ variant: "small" }}
-                                        onChange={(e) =>
-                                            setSize(e.target.value as Size)
-                                        }
-                                    >
-                                        <RadioButton
-                                            value="small"
-                                            data-testid="size-small"
-                                        >
+                                    <fieldset name={`${uid}-size`}>
+                                        <legend>Størrelse</legend>
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                name="size"
+                                                value="small"
+                                                data-testid="size-small"
+                                                onChange={(e) =>
+                                                    setSize(
+                                                        e.target.value as Size,
+                                                    )
+                                                }
+                                            />
                                             Small
-                                        </RadioButton>
-                                        <RadioButton
-                                            value="medium"
-                                            data-testid="size-default"
-                                        >
-                                            Default
-                                        </RadioButton>
-                                        <RadioButton
-                                            value="large"
-                                            data-testid="size-large"
-                                        >
+                                        </label>
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                name="size"
+                                                value="medium"
+                                                defaultChecked
+                                                data-testid="size-default"
+                                                onChange={(e) =>
+                                                    setSize(
+                                                        e.target.value as Size,
+                                                    )
+                                                }
+                                            />
+                                            Medium
+                                        </label>
+                                        <label>
+                                            <input
+                                                type="radio"
+                                                name="size"
+                                                value="large"
+                                                data-testid="size-large"
+                                                onChange={(e) =>
+                                                    setSize(
+                                                        e.target.value as Size,
+                                                    )
+                                                }
+                                            />
                                             Large
-                                        </RadioButton>
-                                    </RadioButtonGroup>
+                                        </label>
+                                    </fieldset>
                                 )}
-                            </FieldGroup>
+                            </section>
                         </>
                     </aside>
                 </section>

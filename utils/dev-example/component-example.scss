@@ -1,26 +1,13 @@
-@use "../../packages/jokul/src/core/jkl/" as jkl;
-
-@include jkl.light-mode-variables {
-    --component-example-bg: #{jkl.$color-dis};
-    --component-example-header-color: #{jkl.$color-stein};
-}
-
-@include jkl.dark-mode-variables {
-    --component-example-bg: #{jkl.$color-skifer};
-    --component-example-header-color: #{jkl.$color-svaberg};
-}
+@use "../../packages/jokul/src/core/jkl";
 
 .jkl-portal-code-example {
     max-width: min(#{jkl.rem(750px)}, 50vw);
-
-    @include jkl.small-device {
-        width: calc(100% - #{jkl.$spacing-40});
-        max-width: 100%;
-        min-width: initial;
-    }
 }
 
 .jkl-portal-component-example {
+    --component-example-bg: var(--jkl-color-background-container-low);
+    --component-example-header-color: var(--jkl-color-background-container-inverted);
+
     box-sizing: border-box;
     background-color: var(--component-example-bg);
     padding: jkl.$spacing-12;
@@ -69,29 +56,46 @@
         }
     }
 
-    &__example-options {
-        display: block;
+    &__example-knobs {
+        display: flex;
+        flex-direction: column;
+        gap: jkl.$spacing-40;
         padding: jkl.$spacing-12 jkl.$spacing-24;
         min-width: jkl.rem(150px);
-    }
 
-    &__example-options-header {
-        margin-bottom: jkl.$spacing-12;
-
-        @include jkl.text-style("text-small");
-
-        &:not(:first-child) {
-            margin-top: jkl.$spacing-24;
+        p {
+            font-weight: var(--jkl-typography-font-weight-bold);
         }
-    }
 
-    &__choice-option {
-        margin-top: jkl.$spacing-24;
+        &__props,
+        &__view {
+            display: flex;
+            flex-direction: column;
+            gap: jkl.$spacing-12;
 
-        & .jkl-label.jkl-label--small {
-            color: var(--jkl-color-text-subdued);
+            fieldset {
+                display: flex;
+                flex-direction: column;
+                gap: jkl.$spacing-4;
+            }
+        }
 
-            @include jkl.text-style("text-small");
+        label:has(input, select) {
+            display: block;
+            text-transform: capitalize;
+
+            input {
+                margin-inline-end: 0.3ch;
+            }
+
+            select {
+                display: block;
+                min-width: 5ch;
+            }
+        }
+
+        legend {
+            margin-block-end: 0.4lh;
         }
     }
 
@@ -103,7 +107,7 @@
             width: initial;
         }
 
-        &__example-options {
+        &__example-knobs {
             padding: 0;
             padding-top: jkl.$spacing-12;
         }
