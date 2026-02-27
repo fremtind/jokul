@@ -22,50 +22,38 @@
     }
 
     .jkl-modal {
-        --jkl-modal-padding: var(--jkl-unit-50);
-        --jkl-modal-min-width: #{jkl.rem(220px)};
-        --jkl-modal-max-width: #{jkl.rem(660px)};
+        --margin: var(--jkl-unit-30);
 
+        container-type: inline-size;
+        box-sizing: border-box;
         margin: auto;
+        padding: var(--jkl-unit-40);
         z-index: jkl.$z-index--modal;
-        position: relative;
 
         background-color: var(--jkl-color-background-container-high);
-        border-radius: jkl.rem(2px);
+        border-radius: var(--jkl-border-radius-l);
         box-shadow: jkl.$shadow-task-card;
 
-        width: 100%;
-        min-width: var(--jkl-modal-min-width);
-        max-width: var(--jkl-modal-max-width);
+        width: min(calc(100vw - 2 * var(--margin)), var(--modal-width, 60ch /* ~650px ved vanlig zoom/size */));
         max-height: 90vh;
         overflow: auto;
 
-        padding: var(--jkl-modal-padding);
         display: flex;
         flex-direction: column;
 
         @include jkl.forced-colors-mode {
             border-color: CanvasText;
         }
-
-        @include jkl.small-device {
-            margin: auto var(--jkl-unit-30);
-        }
     }
 
     .jkl-modal-header {
         --jkl-modal-header-margin: 0 0 var(--jkl-unit-20);
-
-        @include jkl.small-device {
-            --jkl-modal-header-margin: 0 0 var(--jkl-unit-15);
-        }
 
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         margin: var(--jkl-modal-header-margin);
-        gap: var(--jkl-modal-gap);
     }
 
     .jkl-modal-body {
@@ -77,18 +65,12 @@
     }
 
     .jkl-modal-actions {
-        --jkl-modal-actions-margin: var(--jkl-unit-50) 0 0 0;
-
-        @include jkl.small-device {
-            --jkl-modal-actions-margin: var(--jkl-unit-40) 0 0 0;
-        }
-
-        margin: var(--jkl-modal-actions-margin);
+        margin-block-start: var(--jkl-unit-50);
         display: flex;
         flex-direction: column;
-        gap: var(--jkl-unit-20);
+        gap: var(--jkl-unit-15) var(--jkl-unit-20);
 
-        @include jkl.screen-from(60ch) {
+        @container (width > 35ch /* ~380px ved vanlig zoom/size */) {
             flex-direction: row-reverse;
             align-self: flex-end;
         }
