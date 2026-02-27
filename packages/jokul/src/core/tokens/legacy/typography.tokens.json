@@ -59,7 +59,7 @@
             "title": {
                 "small": {
                     "fontSize": {
-                        "value": "{typography.font.size.10}"
+                        "value": "{typography.font.size.8}"
                     },
                     "lineHeight": {
                         "value": "{typography.line.height.tight}"
@@ -70,7 +70,7 @@
                 },
                 "base": {
                     "fontSize": {
-                        "value": "{typography.font.size.10}"
+                        "value": "{typography.font.size.8}"
                     },
                     "lineHeight": {
                         "value": "{typography.line.height.tight}"
@@ -83,7 +83,7 @@
             "title-small": {
                 "small": {
                     "fontSize": {
-                        "value": "{typography.font.size.9}"
+                        "value": "{typography.font.size.7}"
                     },
                     "lineHeight": {
                         "value": "{typography.line.height.tight}"
@@ -94,7 +94,7 @@
                 },
                 "base": {
                     "fontSize": {
-                        "value": "{typography.font.size.9}"
+                        "value": "{typography.font.size.7}"
                     },
                     "lineHeight": {
                         "value": "{typography.line.height.tight}"
