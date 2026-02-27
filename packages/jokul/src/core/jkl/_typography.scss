@@ -9,13 +9,13 @@
 /// @access private - forwardes ikke ut av modulen, men er tilgjengelig ved direkteimport. KUN FOR INTERN BRUK I JØKUL.
 $text-styles: (
     "title": (
-        "font-size": var(--jkl-font-size-10),
+        "font-size": var(--jkl-font-size-8),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
     ),
     "title-small": (
-        "font-size": var(--jkl-font-size-9),
+        "font-size": var(--jkl-font-size-7),
         "line-height": var(--jkl-line-height-tight),
         "font-weight": $typography-weight-normal,
         "--jkl-icon-weight": $icon-weight-normal,
