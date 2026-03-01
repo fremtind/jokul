@@ -41,7 +41,7 @@ jobs:
 
             - name: Versjonering eller publisering med Changesets
               id: changesets
-              uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
+              uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf
               with:
                   publish: "pnpm release"
               env:
