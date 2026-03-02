@@ -1,0 +1,50 @@
+:where(.jkl-title--beta) {
+    font-weight: var(--jkl-typography-weight-normal);
+    line-height: var(--jkl-line-height-tight);
+    margin-block: 0;
+}
+
+.jkl-title--beta-size-1 {
+    font-size: var(--jkl-font-size-10);
+    line-height: var(--jkl-line-height-tight);
+}
+
+.jkl-title--beta-size-2 {
+    font-size: var(--jkl-font-size-9);
+    line-height: var(--jkl-line-height-tight);
+}
+
+.jkl-title--beta-size-3 {
+    font-size: var(--jkl-font-size-8);
+    line-height: var(--jkl-line-height-tight);
+}
+
+.jkl-title--beta-size-4 {
+    font-size: var(--jkl-font-size-7);
+    line-height: var(--jkl-line-height-tight);
+}
+
+.jkl-title--beta-size-5 {
+    font-size: var(--jkl-font-size-6);
+    line-height: var(--jkl-line-height-tight);
+}
+
+.jkl-title--beta-size-6 {
+    font-size: var(--jkl-font-size-5);
+    line-height: var(--jkl-line-height-tight);
+}
+
+.jkl-title--beta-size-body {
+    font-size: var(--jkl-font-size-3);
+    line-height: var(--jkl-line-height-relaxed);
+}
+
+.jkl-title--beta-uppercase {
+    text-transform: uppercase;
+    letter-spacing: 0.0625rem;
+}
+
+.jkl-title--beta-tagline {
+    display: block;
+    margin-block-end: var(--jkl-unit-10);
+}
