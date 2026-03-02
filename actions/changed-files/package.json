@@ -1,6 +1,6 @@
 {
     "name": "changed-files",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "private": true,
     "description": "Find files that were changed during the run of the action, using simple-git, with an option to upload the files as an artifact",
     "main": "build/main.js",
