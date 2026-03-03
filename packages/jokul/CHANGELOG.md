@@ -8,7 +8,6 @@
 - 8a53beb: Fikset en feil der Beta Select ikke sendte med `ref` i `forwardRef`, som førte til React 19‑advarsel.
 - eecb6e9: Justerer marginer for `label` og `description` for skjemafelter til å stemme bedre med ønsket uttrykk.
 - c0a2bd5: Setter riktig fontvekt på teksten i `Chip`-komponenten, som var blitt endret ved uhell i arbeidet med størrelser.
-- Deprecated `Feedback`-komponenten. Den fases ut og vil bli erstattet av mer fleksible og mindre styrende komponenter for innsamling av tilbakemeldinger.
 
 ## 4.0.2
 
