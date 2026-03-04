@@ -1,0 +1,49 @@
+{
+    "name": "@fremtind/jokul-mcp-server",
+    "version": "1.0.0",
+    "description": "MCP server for designsystemet Jøkul. Hjelper KI-agenter med å bruke Jøkul på riktig måte",
+    "type": "module",
+    "main": "dist/index.js",
+    "bin": {
+        "jokul-mcp-server": "./dist/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "dev": "tsc --watch",
+        "start": "node dist/index.js",
+        "start:http": "node dist/index.js --http",
+        "start:http:dev": "node dist/index.js --http --port 3000",
+        "prepare": "pnpm build",
+        "docker:build": "cd ../.. && docker build -f Dockerfile.mcp-server -t jokul-mcp-server .",
+        "docker:run": "docker run -p 3000:3000 -e SANITY_PROJECT_ID=${SANITY_PROJECT_ID} jokul-mcp-server"
+    },
+    "keywords": [
+        "jokul",
+        "fremtind",
+        "design-system",
+        "mcp",
+        "model-context-protocol",
+        "ai",
+        "figma",
+        "code-connect"
+    ],
+    "author": "Fremtind",
+    "license": "MIT",
+    "dependencies": {
+        "@modelcontextprotocol/sdk": "^1.0.0",
+        "@sanity/client": "^6.0.0",
+        "cors": "^2.8.5",
+        "express": "^4.21.0",
+        "zod": "^3.25.0"
+    },
+    "devDependencies": {
+        "@types/cors": "^2.8.17",
+        "@types/express": "^4.17.21",
+        "@types/node": "^20.0.0",
+        "typescript": "^5.9.2"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "files": ["dist", "README.md"]
+}
