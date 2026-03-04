@@ -1,0 +1,8 @@
+import{j as s}from"./iframe-KbORsCiT.js";import{L as r}from"./Label-DW3rIkrO.js";/* empty css               */import"./preload-helper-PPVm8Dsz.js";import"./clsx-B-dksMZM.js";const p={title:"Komponenter/Label",component:r},e={name:"Label",args:{"data-size":"small",srOnly:!1},render:a=>s.jsx(r,{...a,children:"Label"})};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  name: "Label",
+  args: {
+    ["data-size"]: "small",
+    srOnly: false
+  },
+  render: props => <Label {...props}>Label</Label>
+}`,...e.parameters?.docs?.source}}};const i=["LabelStory"];export{e as LabelStory,i as __namedExportsOrder,p as default};
