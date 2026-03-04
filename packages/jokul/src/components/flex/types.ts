@@ -1,15 +1,49 @@
 import React from "react";
-import tokens from "../../core/tokens.js";
 import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
-export type Spacing = keyof typeof tokens.semanticSpacing;
-export type Breakpoint = keyof typeof tokens.breakpoint;
+export const SEMANTIC_SPACING = [
+    "none",
+    "2xs",
+    "xs",
+    "s",
+    "m",
+    "l",
+    "xl",
+    "2xl",
+] as const;
+
+export const STATIC_SPACING = [
+    "0",
+    "2",
+    "4",
+    "8",
+    "12",
+    "16",
+    "20",
+    "24",
+    "28",
+    "32",
+    "40",
+    "48",
+    "56",
+    "64",
+    "72",
+    "80",
+    "104",
+    "168",
+] as const;
+
+const BREAKPOINTS = ["small", "medium", "large", "xl"] as const;
+
+export type SemanticSpacing = (typeof SEMANTIC_SPACING)[number];
+export type StaticSpacing = (typeof STATIC_SPACING)[number];
+export type Breakpoint = (typeof BREAKPOINTS)[number];
 
 export type Responsive<T> = Partial<Record<Breakpoint, T>>;
 export function isResponsive<T>(value: unknown): value is Responsive<T> {
-    return Object.keys(tokens.breakpoint).includes(
-        Object.keys(value as Responsive<T>)[0],
+    return BREAKPOINTS.includes(
+        Object.keys(value as Responsive<T>)[0] as Breakpoint,
     );
 }
 
@@ -32,7 +66,14 @@ export const LAYOUTS = [
 
 export type Layout = (typeof LAYOUTS)[number];
 export type Center = "m" | "l" | "xl" | "2xl" | boolean;
-export type Gap = `${Spacing}` | `${Spacing} ${Spacing}`;
+
+export type DynamicGap =
+    | `${SemanticSpacing}`
+    | `${SemanticSpacing} ${SemanticSpacing}`;
+export type StaticGap =
+    | `${StaticSpacing}`
+    | `${StaticSpacing} ${StaticSpacing}`;
+export type Gap = DynamicGap | StaticGap;
 
 type FlexBaseProps = {
     alignItems?: "normal" | "start" | "center" | "end" | "baseline" | "stretch";

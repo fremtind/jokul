@@ -19,7 +19,9 @@ For å starte utviklingsserveren for Jøkul lokalt må du først ha installert:
 For å komme i gang med Jøkul-prosjektet, klon repoet og installer avhengighetene:
 
 -   Kjør `pnpm i` på rot i repoet for å installere avhengighetene.
--   Kjør `pnpm dev` for å starte utviklingsserveren.
+-   Kjør `pnpm dev` for å starte portal + Storybook.
+-   Kjør `pnpm dev:portal` for kun portalen.
+-   Kjør `pnpm dev:storybook` for kun Storybook.
 
 ### Oppsett av linting og formatering
 

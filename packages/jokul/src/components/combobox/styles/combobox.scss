@@ -90,7 +90,6 @@
             top: calc(100% - 1px);
             overflow-y: auto;
             position: absolute;
-            color: var(--jkl-color-text-default);
             z-index: jkl.$z-index--dropdown;
             left: jkl.rem(-1px);
             right: jkl.rem(-1px);
@@ -110,6 +109,7 @@
             display: flex;
             align-items: center;
             border: 0;
+            color: var(--jkl-color-text-default);
             background-color: var(--jkl-color-background-interactive);
             transition-property: color, background-color;
             cursor: pointer;

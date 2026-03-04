@@ -1,3 +1,4 @@
+import { StorySelector } from "@/sanity/components/StorySelector";
 import {
     CheckmarkCircleIcon,
     CloseCircleIcon,
@@ -95,8 +96,18 @@ export const component = defineType({
         defineField({
             name: "example_card",
             title: "Eksempel",
-            type: "image",
-            group: "documentation",
+            type: "object",
+            fields: [
+                defineField({
+                    name: "story",
+                    title: "Velg story",
+                    type: "reference",
+                    to: [{ type: "jokul_story" }],
+                    options: {
+                        filter: '_type == "jokul_story"',
+                    },
+                }),
+            ],
         }),
         defineField({
             name: "considerations",
@@ -189,6 +200,7 @@ export const component = defineType({
                 { type: "jokul_code" },
                 { type: "jokul_codeExample" },
                 { type: "jokul_examples" },
+                { type: "jokul_storybook" },
                 { type: "jokul_codeBlock" },
                 { type: "jokul_doAndDont" },
                 { type: "jokul_messageBox" },

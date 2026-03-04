@@ -35,7 +35,7 @@ COPY --from=dependencies /app/node_modules.tar ./node_modules.tar
 COPY . .
 RUN tar -xf node_modules.tar 
 RUN pnpm --filter "@fremtind/jokul" build
-RUN pnpm build-storybook
+RUN pnpm build:storybook
 
 ENV NEXT_PUBLIC_SANITY_PROJECT_ID=$NEXT_PUBLIC_SANITY_PROJECT_ID
 ENV NEXT_PUBLIC_SANITY_DATASET=$NEXT_PUBLIC_SANITY_DATASET
@@ -56,4 +56,4 @@ COPY --from=builder /app/storybook-static ./storybook-static
 COPY --from=builder /app/storybook-public ./storybook-public
 COPY --from=builder /app/node_modules ./node_modules
 EXPOSE 3000
-CMD pnpm serve
+CMD pnpm start

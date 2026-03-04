@@ -10,7 +10,7 @@ type Props = {
 
 export const ExampleItem = ({ example }: Props) => {
     const STORYBOOK_URL = process.env.NEXT_PUBLIC_STORYBOOK_BASE_URL;
-    const { title, id, description, height, inert } = example;
+    const { name, id, description, height, inert } = example;
 
     const backgroundColor = undefined;
     const theme = undefined;
@@ -18,7 +18,7 @@ export const ExampleItem = ({ example }: Props) => {
 
     const exampleHeight = typeof height === "number" ? `${height}` : undefined;
 
-    if (!id || !title) {
+    if (!id || !name) {
         return null;
     }
 
@@ -26,7 +26,7 @@ export const ExampleItem = ({ example }: Props) => {
         <Card padding="m" className="example" variant="outlined">
             <iframe
                 inert={inert}
-                title={title}
+                title={name}
                 src={`${STORYBOOK_URL}/iframe.html?viewMode=story&id=${id}&globals=backgrounds.value:${backgroundColor};theme:${theme};density:${density}`}
                 style={
                     exampleHeight
@@ -37,7 +37,7 @@ export const ExampleItem = ({ example }: Props) => {
                 }
             />
             <div className="info">
-                <p className="title">{title}</p>
+                <p className="title">{name}</p>
                 {description && <p className="description">{description}</p>}
                 {STORYBOOK_URL && (
                     <Link
@@ -47,7 +47,7 @@ export const ExampleItem = ({ example }: Props) => {
                         external={true}
                         target="_blank"
                     >
-                        Se <span className="jkl-sr-only">{title}</span> i{" "}
+                        Se <span className="jkl-sr-only">{name}</span> i{" "}
                         <span lang="en">Storybook</span>
                     </Link>
                 )}

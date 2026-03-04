@@ -1,5 +1,82 @@
 # Change Log
 
+## 4.1.4
+
+### Patch Changes
+
+- 5828a7b: Retter noen problemer i `TextArea`.
+
+  - Høyden på feltet følger nå `rows` på en mer stabil måte.
+  - Fikser at tekst kunne havne oppå telleren når feltet vokser.
+  - I Storybook kan `rows` nå bare settes til verdier mellom 3 og 10.
+
+## 4.1.3
+
+### Patch Changes
+
+- ac97d9d: Fikser en bug der teksten i valgene i `Combobox` hadde for lav kontrast i mørkt tema.
+
+## 4.1.2
+
+### Patch Changes
+
+- 14e40b2: Skrur av git tracking for autogenererte filer, som kunne føre til at Jøkul ikke ble publisert i GitHub Packages.
+
+## 4.1.1
+
+### Patch Changes
+
+- 1c185b7: Oppdaterer typografi tokens for å bruke relaxed line-height i stedet for tight.
+- ea6e856: Fikser en feildefinert variabel i CSS for inputfelter som kunne føre til byggfeil hos brukere av Jøkul.
+- 558144f: Inkluderer File- og File Input-stiler i den globale `@fremtind/jokul/styles`-pakken, slik at komponentene styles riktig når kun den globale pakken er brukt.
+- 6a89361: Legger til tokens for border-radius og border-width, også for Tailwind.
+- 02e504b: Fikser en feil der autogenererte verdier for Tailwind versjon 4 ble utelatt fra bygg av nye versjoner av Jøkul.
+
+## 4.1.0
+
+### Minor Changes
+
+- ee6e635: Utvider Flex med støtte for både statiske og semantiske gap-verdier.
+  Dette gjør det mulig å kombinere begge typer verdier, også responsivt på tvers av breakpoints.
+
+  ```tsx
+  // Statiske gap-verdier
+  <Flex gap="16 32" />
+
+  // Semantiske gap-verdier
+  <Flex gap="s m" />
+
+  // Blanding av statiske og semantiske verdier på tvers av breakpoints
+  <Flex
+    gap={{
+      small: "none s",
+      medium: "8 16",
+      large: "m xl",
+    }}
+  />
+  ```
+
+- ae7b61a: Bytter ut markøren i `RadioButton` med ikon fra Material Symbols, slik det er gjort i `Checkbox`.
+
+### Patch Changes
+
+- 5a6e480: Bytt ut React default import med type import i Datepicker.utils
+- 0665828: Skalerer opp loader‑dots og avstand for bedre visuell balanse.
+- 3618a43: Fikser en bug der man kunne få en manglende avhengighet til pakken `change-case` ved bruk av Jøkul sin typografi-plugin for Tailwind 3. Den relevante koden er nå pakket med i Jøkul.
+- a4fef79: 1. Utvider typografi for Tailwind‑preset og generering av CSS/SCSS‑variabler.
+
+  Nye tailwind‑klasser:
+
+  - `paragraph-large`
+  - `paragraph-medium`
+  - `paragraph-small`
+  - `text-large`
+  - `text-medium`
+  - `text-small`
+  - `text-micro`
+
+  2. (Title|Heading)‑\*‑verdiene er også oppdatert for å matche Figma v4.
+
 ## 4.0.3
 
 ### Patch Changes

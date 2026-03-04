@@ -231,26 +231,17 @@ export type Jokul_componentKortFortalt = {
   }>;
 };
 
-export type Jokul_story = {
-  _id: string;
-  _type: "jokul_story";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: string;
-  title?: string;
-  description?: string;
-  height?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000;
-  inert?: boolean;
-  code?: Code;
+export type Jokul_storybookStory = {
+  _type: "jokul_storybookStory";
+  storyId?: string;
+  storyName?: string;
 };
 
-export type Code = {
-  _type: "code";
-  language?: string;
-  filename?: string;
-  code?: string;
-  highlightedLines?: Array<number>;
+export type Jokul_storybook = {
+  _type: "jokul_storybook";
+  story?: Jokul_storybookStory;
+  code?: Jokul_codeBlock;
+  height?: number;
 };
 
 export type Jokul_examples = {
@@ -337,6 +328,8 @@ export type Jokul_temaside = {
     _key: string;
   } & Jokul_examples | {
     _key: string;
+  } & Jokul_storybook | {
+    _key: string;
   } & Jokul_table | {
     _key: string;
   } & Jokul_qa>;
@@ -412,6 +405,8 @@ export type Jokul_blog_post = {
     _key: string;
   } & Jokul_examples | {
     _key: string;
+  } & Jokul_storybook | {
+    _key: string;
   } & Jokul_table | {
     _key: string;
   } & Jokul_qa>;
@@ -440,16 +435,12 @@ export type Jokul_component = {
   categories?: Array<string>;
   keywords?: Array<string>;
   example_card?: {
-    asset?: {
+    story?: {
       _ref: string;
       _type: "reference";
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      [internalGroqTypeReferenceTo]?: "jokul_story";
     };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
   };
   considerations?: Array<{
     title?: string;
@@ -508,6 +499,8 @@ export type Jokul_component = {
     _key: string;
   } & Jokul_examples | {
     _key: string;
+  } & Jokul_storybook | {
+    _key: string;
   } & Jokul_codeBlock | {
     _key: string;
   } & Jokul_doAndDont | {
@@ -551,6 +544,28 @@ export type Jokul_component = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+};
+
+export type Code = {
+  _type: "code";
+  language?: string;
+  filename?: string;
+  code?: string;
+  highlightedLines?: Array<number>;
+};
+
+export type Jokul_story = {
+  _id: string;
+  _type: "jokul_story";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  name?: string;
+  id?: string;
+  description?: string;
+  height?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | 1000;
+  inert?: boolean;
+  code?: Code;
 };
 
 export type TableRow = {
@@ -654,7 +669,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_story | Code | Jokul_examples | Jokul_codeBlock | Jokul_codeExample | Jokul_code | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Table | Jokul_component | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_examples | Jokul_codeBlock | Jokul_codeExample | Jokul_code | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Table | Jokul_component | Code | Jokul_story | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/blog.ts
 // Variable: blogPostsQuery
@@ -722,7 +737,7 @@ export type BlogPostBySlugQueryResult = {
     _type: "jokul_examples";
     title: string | null;
     examples: Array<{
-      title: string | null;
+      title: null;
       id: string | null;
       description: string | null;
       height: 100 | 1000 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | null;
@@ -767,6 +782,12 @@ export type BlogPostBySlugQueryResult = {
       _type: "faqitem";
       _key: string;
     }>;
+  } | {
+    _key: string;
+    _type: "jokul_storybook";
+    story?: Jokul_storybookStory;
+    code?: Jokul_codeBlock;
+    height?: number;
   } | {
     _key: string;
     _type: "jokul_table";
@@ -880,6 +901,12 @@ export type KomIGangQueryResult = {
     }>;
   } | {
     _key: string;
+    _type: "jokul_storybook";
+    story?: Jokul_storybookStory;
+    code?: Jokul_codeBlock;
+    height?: number;
+  } | {
+    _key: string;
     _type: "jokul_table";
     caption?: string;
     table?: Table;
@@ -933,7 +960,7 @@ export type ComponentsQueryResult = Array<{
   categories: Array<string> | null;
 }>;
 // Variable: componentBySlugQuery
-// Query: *[_type == "jokul_component" && slug.current == $slug][0] {        ...,        "slug": slug.current,        "component_example_card": component_example_card{            "url": asset->url        },        documentation_article[]{            ...,            _type == "jokul_code" => {                ...,                title,                code,                language,          },            _type == "jokul_examples" => {                ...,                title,                examples[]->{                  title,                  id,                  description,                  height,                  inert,                  code                },              },            _type == "jokul_componentKortFortalt" => {                ...,                bruk[]{                    bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    short_description,                                    "slug": slug.current,                                    figma_image,                                    image,                                    imageDark                                }                            }                        }                    }                },                ikke_bruk[]{                    ikke_bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    short_description,                                    "slug": slug.current,                                    figma_image,                                    image,                                    imageDark                                }                            }                        }                    }                }            },            markDefs[] {                ...,                _type == "componentPageLink" => {                    component-> {                        "slug": slug.current,                        name,                        short_description,                        image,                        imageDark,                    }                },            }        },        related_components {            components[]->{                name,                short_description,                "slug": slug.current,                figma_image,                image,                imageDark,                related_components,                categories            }        }    }
+// Query: *[_type == "jokul_component" && slug.current == $slug][0] {        ...,        "slug": slug.current,        "example_card": {            ...example_card,            "story": example_card.story->        },        documentation_article[]{            ...,            _type == "jokul_code" => {                ...,                title,                code,                language,          },            _type == "jokul_examples" => {                ...,                title,                examples[]->{                  name,                  id,                  description,                  height,                  inert,                  code                },              },            _type == "jokul_componentKortFortalt" => {                ...,                bruk[]{                    bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    short_description,                                    "slug": slug.current,                                    figma_image,                                    image,                                    imageDark                                }                            }                        }                    }                },                ikke_bruk[]{                    ikke_bruk_punkt[] {                        ...,                        markDefs[] {                            _type == "componentPageLink" => {                                ...,                                component->{                                    name,                                    short_description,                                    "slug": slug.current,                                    figma_image,                                    image,                                    imageDark                                }                            }                        }                    }                }            },            markDefs[] {                ...,                _type == "componentPageLink" => {                    component-> {                        "slug": slug.current,                        name,                        short_description,                        image,                        imageDark,                    }                },            }        },        related_components {            components[]->{                name,                short_description,                "slug": slug.current,                figma_image,                image,                imageDark,                related_components,                categories            }        }    }
 export type ComponentBySlugQueryResult = {
   _id: string;
   _type: "jokul_component";
@@ -949,17 +976,20 @@ export type ComponentBySlugQueryResult = {
   };
   categories?: Array<string>;
   keywords?: Array<string>;
-  example_card?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
+  example_card: {
+    story: {
+      _id: string;
+      _type: "jokul_story";
+      _createdAt: string;
+      _updatedAt: string;
+      _rev: string;
+      name?: string;
+      id?: string;
+      description?: string;
+      height?: 100 | 1000 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+      inert?: boolean;
+      code?: Code;
+    } | null;
   };
   considerations?: Array<{
     title?: string;
@@ -1191,7 +1221,7 @@ export type ComponentBySlugQueryResult = {
     _type: "jokul_examples";
     title: string | null;
     examples: Array<{
-      title: string | null;
+      name: string | null;
       id: string | null;
       description: string | null;
       height: 100 | 1000 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | null;
@@ -1206,6 +1236,13 @@ export type ComponentBySlugQueryResult = {
     messageType?: "error" | "info" | "success" | "warning";
     title?: string;
     message?: string;
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_storybook";
+    story?: Jokul_storybookStory;
+    code?: Jokul_codeBlock;
+    height?: number;
     markDefs: null;
   }> | null;
   related_components: {
@@ -1279,7 +1316,6 @@ export type ComponentBySlugQueryResult = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-  component_example_card: null;
 } | null;
 // Variable: componentCardQuery
 // Query: *[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug] {        name,        short_description,        "slug": slug.current,        figma_image,        image,        imageDark,        related_components,        categories,    }[0]
@@ -1419,7 +1455,7 @@ export type FundamentalsBySlugQueryResult = {
     _type: "jokul_examples";
     title: string | null;
     examples: Array<{
-      title: string | null;
+      title: null;
       id: string | null;
       description: string | null;
       height: 100 | 1000 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900 | null;
@@ -1488,7 +1524,7 @@ declare module "@sanity/client" {
     "*[_type == \"jokul_blog_post\" && slug.current == $slug][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_code\" => {\n                ...,\n                title,\n                code,\n                language,\n          },\n            _type == \"jokul_examples\" => {\n    ...,\n    title,\n    examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert,\n                  code\n                },\n  },\n  },\n    }": BlogPostBySlugQueryResult;
     "*[_type == \"jokul_blog_post\" && slug.current == \"kom-i-gang\"][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_examples\" => {\n    ...,\n    title,\n    stories[]->{\n      storyName,\n      storyId,\n      storyDescription,\n    },\n  },\n  },\n    }": KomIGangQueryResult;
     "*[_type == \"jokul_component\"]{\n    name,\n    short_description,\n    \"slug\": slug.current,\n    figma_image,\n    image,\n    imageDark,\n    related_components,\n    categories\n} | order(name)": ComponentsQueryResult;
-    "*[_type == \"jokul_component\" && slug.current == $slug][0] {\n        ...,\n        \"slug\": slug.current,\n        \"component_example_card\": component_example_card{\n            \"url\": asset->url\n        },\n        documentation_article[]{\n            ...,\n            _type == \"jokul_code\" => {\n                ...,\n                title,\n                code,\n                language,\n          },\n            _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert,\n                  code\n                },\n              },\n            _type == \"jokul_componentKortFortalt\" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                }\n            },\n            markDefs[] {\n                ...,\n                _type == \"componentPageLink\" => {\n                    component-> {\n                        \"slug\": slug.current,\n                        name,\n                        short_description,\n                        image,\n                        imageDark,\n                    }\n                },\n            }\n        },\n        related_components {\n            components[]->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                image,\n                imageDark,\n                related_components,\n                categories\n            }\n        }\n    }": ComponentBySlugQueryResult;
+    "*[_type == \"jokul_component\" && slug.current == $slug][0] {\n        ...,\n        \"slug\": slug.current,\n        \"example_card\": {\n            ...example_card,\n            \"story\": example_card.story->\n        },\n        documentation_article[]{\n            ...,\n            _type == \"jokul_code\" => {\n                ...,\n                title,\n                code,\n                language,\n          },\n            _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  name,\n                  id,\n                  description,\n                  height,\n                  inert,\n                  code\n                },\n              },\n            _type == \"jokul_componentKortFortalt\" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                }\n            },\n            markDefs[] {\n                ...,\n                _type == \"componentPageLink\" => {\n                    component-> {\n                        \"slug\": slug.current,\n                        name,\n                        short_description,\n                        image,\n                        imageDark,\n                    }\n                },\n            }\n        },\n        related_components {\n            components[]->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                image,\n                imageDark,\n                related_components,\n                categories\n            }\n        }\n    }": ComponentBySlugQueryResult;
     "*[_type == \"jokul_component\" && defined(slug.current) && slug.current == $componentSlug] {\n        name,\n        short_description,\n        \"slug\": slug.current,\n        figma_image,\n        image,\n        imageDark,\n        related_components,\n        categories,\n    }[0]": ComponentCardQueryResult;
     "*[_type == \"jokul_fundamentals\"]{\n        name,\n        slug,\n        short_description,\n        image,\n        \"date\": _createdAt,\n    } | order(_createdAt desc)": FundamentalsQueryResult;
     "*[_type == \"jokul_fundamentals\" && slug.current == $slug][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_code\" => {\n                ...,\n                title,\n                code,\n                language,\n          },\n            _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert,\n                  code\n                },\n            },\n        },\n    }": FundamentalsBySlugQueryResult;

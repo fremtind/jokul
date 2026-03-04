@@ -15,8 +15,9 @@ export const componentBySlugQuery =
     defineQuery(`*[_type == "jokul_component" && slug.current == $slug][0] {
         ...,
         "slug": slug.current,
-        "component_example_card": component_example_card{
-            "url": asset->url
+        "example_card": {
+            ...example_card,
+            "story": example_card.story->
         },
         documentation_article[]{
             ...,
@@ -30,7 +31,7 @@ export const componentBySlugQuery =
                 ...,
                 title,
                 examples[]->{
-                  title,
+                  name,
                   id,
                   description,
                   height,

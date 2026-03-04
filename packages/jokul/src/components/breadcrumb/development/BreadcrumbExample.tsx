@@ -1,5 +1,6 @@
 import React from "react";
 import type { ExampleKnobsProps } from "utils/dev-example/index.js";
+import { Link } from "../../link/Link.jsx";
 import { Breadcrumb } from "../Breadcrumb.js";
 import { BreadcrumbItem } from "../BreadcrumbItem.js";
 
@@ -10,13 +11,13 @@ export const BreadcrumbExample = () => {
     return (
         <Breadcrumb>
             <BreadcrumbItem>
-                <a href="/">Hjem</a>
+                <Link href="/">Hjem</Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
-                <a href="/komponenter/accordion">Komponenter</a>
+                <Link href="/komponenter/accordion">Komponenter</Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
-                <a href="/komponenter/breadcrumb">Breadcrumb</a>
+                <Link href="/komponenter/breadcrumb">Breadcrumb</Link>
             </BreadcrumbItem>
         </Breadcrumb>
     );

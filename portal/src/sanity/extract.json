@@ -1515,129 +1515,7 @@
     }
   },
   {
-    "name": "jokul_story",
-    "type": "document",
-    "attributes": {
-      "_id": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        }
-      },
-      "_type": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string",
-          "value": "jokul_story"
-        }
-      },
-      "_createdAt": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        }
-      },
-      "_updatedAt": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        }
-      },
-      "_rev": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        }
-      },
-      "id": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "title": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "description": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "string"
-        },
-        "optional": true
-      },
-      "height": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "union",
-          "of": [
-            {
-              "type": "number",
-              "value": 100
-            },
-            {
-              "type": "number",
-              "value": 200
-            },
-            {
-              "type": "number",
-              "value": 300
-            },
-            {
-              "type": "number",
-              "value": 400
-            },
-            {
-              "type": "number",
-              "value": 500
-            },
-            {
-              "type": "number",
-              "value": 600
-            },
-            {
-              "type": "number",
-              "value": 700
-            },
-            {
-              "type": "number",
-              "value": 800
-            },
-            {
-              "type": "number",
-              "value": 900
-            },
-            {
-              "type": "number",
-              "value": 1000
-            }
-          ]
-        },
-        "optional": true
-      },
-      "inert": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "boolean"
-        },
-        "optional": true
-      },
-      "code": {
-        "type": "objectAttribute",
-        "value": {
-          "type": "inline",
-          "name": "code"
-        },
-        "optional": true
-      }
-    }
-  },
-  {
-    "name": "code",
+    "name": "jokul_storybookStory",
     "type": "type",
     "value": {
       "type": "object",
@@ -1646,37 +1524,59 @@
           "type": "objectAttribute",
           "value": {
             "type": "string",
-            "value": "code"
+            "value": "jokul_storybookStory"
           }
         },
-        "language": {
+        "storyId": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
           },
           "optional": true
         },
-        "filename": {
+        "storyName": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "jokul_storybook",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "jokul_storybook"
+          }
+        },
+        "story": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "jokul_storybookStory"
           },
           "optional": true
         },
         "code": {
           "type": "objectAttribute",
           "value": {
-            "type": "string"
+            "type": "inline",
+            "name": "jokul_codeBlock"
           },
           "optional": true
         },
-        "highlightedLines": {
+        "height": {
           "type": "objectAttribute",
           "value": {
-            "type": "array",
-            "of": {
-              "type": "number"
-            }
+            "type": "number"
           },
           "optional": true
         }
@@ -2269,6 +2169,21 @@
                 },
                 "rest": {
                   "type": "inline",
+                  "name": "jokul_storybook"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
                   "name": "jokul_table"
                 }
               },
@@ -2845,6 +2760,21 @@
                 },
                 "rest": {
                   "type": "inline",
+                  "name": "jokul_storybook"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
                   "name": "jokul_table"
                 }
               },
@@ -3023,7 +2953,7 @@
         "value": {
           "type": "object",
           "attributes": {
-            "asset": {
+            "story": {
               "type": "objectAttribute",
               "value": {
                 "type": "object",
@@ -3049,39 +2979,9 @@
                     "optional": true
                   }
                 },
-                "dereferencesTo": "sanity.imageAsset"
+                "dereferencesTo": "jokul_story"
               },
               "optional": true
-            },
-            "media": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "unknown"
-              },
-              "optional": true
-            },
-            "hotspot": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "sanity.imageHotspot"
-              },
-              "optional": true
-            },
-            "crop": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "sanity.imageCrop"
-              },
-              "optional": true
-            },
-            "_type": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "string",
-                "value": "image"
-              }
             }
           }
         },
@@ -3546,6 +3446,21 @@
                 },
                 "rest": {
                   "type": "inline",
+                  "name": "jokul_storybook"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
                   "name": "jokul_codeBlock"
                 }
               },
@@ -3802,6 +3717,175 @@
               }
             }
           }
+        },
+        "optional": true
+      }
+    }
+  },
+  {
+    "name": "code",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "code"
+          }
+        },
+        "language": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "filename": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "code": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "highlightedLines": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "array",
+            "of": {
+              "type": "number"
+            }
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "jokul_story",
+    "type": "document",
+    "attributes": {
+      "_id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_type": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string",
+          "value": "jokul_story"
+        }
+      },
+      "_createdAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_updatedAt": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "_rev": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        }
+      },
+      "name": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "id": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "description": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "string"
+        },
+        "optional": true
+      },
+      "height": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "union",
+          "of": [
+            {
+              "type": "number",
+              "value": 100
+            },
+            {
+              "type": "number",
+              "value": 200
+            },
+            {
+              "type": "number",
+              "value": 300
+            },
+            {
+              "type": "number",
+              "value": 400
+            },
+            {
+              "type": "number",
+              "value": 500
+            },
+            {
+              "type": "number",
+              "value": 600
+            },
+            {
+              "type": "number",
+              "value": 700
+            },
+            {
+              "type": "number",
+              "value": 800
+            },
+            {
+              "type": "number",
+              "value": 900
+            },
+            {
+              "type": "number",
+              "value": 1000
+            }
+          ]
+        },
+        "optional": true
+      },
+      "inert": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
+        },
+        "optional": true
+      },
+      "code": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "code"
         },
         "optional": true
       }

@@ -1,5 +1,49 @@
 # portal
 
+## 1.4.33
+
+### Patch Changes
+
+- Updated dependencies [5828a7b]
+  - @fremtind/jokul@4.1.4
+
+## 1.4.32
+
+### Patch Changes
+
+- Updated dependencies [ac97d9d]
+  - @fremtind/jokul@4.1.3
+
+## 1.4.31
+
+### Patch Changes
+
+- Updated dependencies [14e40b2]
+  - @fremtind/jokul@4.1.2
+
+## 1.4.30
+
+### Patch Changes
+
+- Updated dependencies [1c185b7]
+- Updated dependencies [ea6e856]
+- Updated dependencies [558144f]
+- Updated dependencies [6a89361]
+- Updated dependencies [02e504b]
+  - @fremtind/jokul@4.1.1
+
+## 1.4.29
+
+### Patch Changes
+
+- Updated dependencies [5a6e480]
+- Updated dependencies [ee6e635]
+- Updated dependencies [0665828]
+- Updated dependencies [3618a43]
+- Updated dependencies [a4fef79]
+- Updated dependencies [ae7b61a]
+  - @fremtind/jokul@4.1.0
+
 ## 1.4.28
 
 ### Patch Changes

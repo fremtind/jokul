@@ -1,6 +1,6 @@
 {
     "name": "@fremtind/jokul",
-    "version": "4.0.3",
+    "version": "4.1.4",
     "type": "module",
     "publishConfig": {
         "access": "public"
@@ -640,7 +640,7 @@
     },
     "scripts": {
         "generate:tokens": "tsx ./src/core/tokens/style-dictionary/build.ts",
-        "build": "pnpm run /compile:*/",
+        "build": "pnpm generate:tokens && pnpm run /compile:*/",
         "dev": "babel --out-dir=. dev-server.mjs && node dev-server.js",
         "compile:style": "node build-styles.mjs",
         "compile:scripts": "vite build --config vite.build.config.mjs",
@@ -672,7 +672,7 @@
         "cssnano": "^7.1.0",
         "cssnano-preset-lite": "^4.0.4",
         "dayjs": "^1.11.19",
-        "glob": "^11.0.3",
+        "glob": "^13.0.0",
         "ink": "^5.1.0",
         "ink-select-input": "^6.0.0",
         "jsdom": "^26.1.0",
