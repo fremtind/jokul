@@ -6,6 +6,7 @@
     "scripts": {
         "clean": "git clean -xfd -e '*.env*'",
         "build": "pnpm --filter \"@fremtind/*\" -r build",
+        "docker:build:mcp": "docker build -f Dockerfile.mcp-server -t jokul-mcp-server .",
         "build:docs": "pnpm build && pnpm build:storybook",
         "build:portal": "pnpm --filter \"portal\" build",
         "build:storybook": "storybook build",

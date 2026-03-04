@@ -1,5 +1,62 @@
-node_modules*
-**/node_modules*
-**/.cache*
-**/.env*
-**/dist*
+node_modules
+**/node_modules
+
+# Build output (builder stage compiles this itself)
+**/dist
+**/.cache
+
+# Environment files
+**/.env
+**/.env.*
+!**/.env.example
+
+# Storybook
+storybook-static
+
+# Next.js
+**/.next
+**/out
+
+# Test and coverage
+**/coverage
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+
+# Git
+.git
+.gitignore
+.github
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Playwright
+playwright-report
+test-results
+
+# Portal / Next.js specific
+portal/.next
+portal/out
+portal/public
+
+# Packages we don't need for the mcp-server build
+packages/jokul/src
+packages/stylelint-config-jkl/*
+!packages/stylelint-config-jkl/package.json
+portal/src
+portal/migrations
+portal/public
+actions/*
+!actions/changed-files/package.json
+!actions/paths-filter/package.json
+utils
