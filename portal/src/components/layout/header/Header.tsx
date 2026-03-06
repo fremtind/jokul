@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 import { Menu } from "./menu/Menu";
 import { MenuItemList } from "./menu/MenuItemList";
 
-import styles from "./header.module.scss";
+import styles from "../global-layout.module.scss";
 
 export const Header = async () => {
     return (

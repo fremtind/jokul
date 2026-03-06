@@ -1,4 +1,5 @@
 import { temaside } from "@/sanity/schemas/documents/temaside";
+import { seoFields } from "@/sanity/schemas/fields";
 import { code } from "./code";
 import { codeBlock } from "./codeBlock";
 import { codeExample } from "./codeExample";
@@ -7,6 +8,7 @@ import { doAndDont } from "./doAndDont";
 import { blogPost } from "./documents/blogPost";
 import { component } from "./documents/component";
 import { fundamentals } from "./documents/fundamentals";
+import { siteData } from "./documents/siteData";
 import { story } from "./documents/story";
 import { examples } from "./examples";
 import { kortFortalt } from "./kortFortalt";
@@ -35,4 +37,6 @@ export const schemaTypes = [
     table,
     messageBox,
     questionsAndAnswers,
+    siteData,
+    seoFields,
 ];
