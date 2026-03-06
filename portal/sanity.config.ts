@@ -1,6 +1,7 @@
 import { dataset, projectId } from "@/sanity/env";
 import { schemaTypes } from "@/sanity/schemas";
 import { codeInput } from "@sanity/code-input";
+import { CogIcon, ComponentIcon } from "@sanity/icons";
 import { nbNOLocale } from "@sanity/locale-nb-no";
 import { table } from "@sanity/table";
 import { visionTool } from "@sanity/vision";
@@ -15,7 +16,42 @@ export default defineConfig({
     basePath: "/studio",
     title: "Jøkul Portal Studio",
     plugins: [
-        structureTool(),
+        structureTool({
+            structure: (S) =>
+                S.list()
+                    .title("Innhold")
+                    .items([
+                        ...S.documentTypeListItems().filter(
+                            (listItem) =>
+                                !["jokul_story"].includes(
+                                    listItem.getId() || "",
+                                ) &&
+                                !["jokul_siteData"].includes(
+                                    listItem.getId() || "",
+                                ),
+                        ),
+                        S.divider(),
+                        S.listItem()
+                            .title("Live-eksempler")
+                            .icon(ComponentIcon)
+                            .child(
+                                S.documentList()
+                                    .apiVersion("2026-03-06")
+                                    .title("Live-eksempler")
+                                    .schemaType("jokul_story")
+                                    .filter('_type == "jokul_story"'),
+                            ),
+                        S.divider(),
+                        S.listItem()
+                            .title("Nettstedsinformasjon")
+                            .icon(CogIcon)
+                            .child(
+                                S.document()
+                                    .schemaType("jokul_siteData")
+                                    .documentId("jokul_siteData"),
+                            ),
+                    ]),
+        }),
         visionTool(),
         nbNOLocale(),
         table(),

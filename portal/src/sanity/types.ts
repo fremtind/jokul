@@ -13,6 +13,127 @@
  */
 
 // Source: schema.json
+export type Seo = {
+  _type: "seo";
+  title?: string;
+  description?: string;
+  favicon?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  ogImage?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  noIndex?: boolean;
+};
+
+export type Jokul_siteData = {
+  _id: string;
+  _type: "jokul_siteData";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  seo?: {
+    title?: string;
+    description?: string;
+    favicon?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    ogImage?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    noIndex?: boolean;
+  };
+  footer?: {
+    linkGroups?: Array<{
+      title?: string;
+      linkList?: Array<{
+        text?: string;
+        url?: Array<{
+          internalReference?: {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "jokul_component";
+          } | {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "jokul_fundamentals";
+          } | {
+            _ref: string;
+            _type: "reference";
+            _weak?: boolean;
+            [internalGroqTypeReferenceTo]?: "jokul_blog_post";
+          };
+          _type: "internalLink";
+          _key: string;
+        } | {
+          url?: string;
+          _type: "externalLink";
+          _key: string;
+        }>;
+        _type: "pageLink";
+        _key: string;
+      }>;
+      _type: "linkGroup";
+      _key: string;
+    }>;
+    text?: string;
+  };
+};
+
+export type SanityImageCrop = {
+  _type: "sanity.imageCrop";
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
+};
+
+export type SanityImageHotspot = {
+  _type: "sanity.imageHotspot";
+  x?: number;
+  y?: number;
+  height?: number;
+  width?: number;
+};
+
 export type Jokul_qa = {
   _type: "jokul_qa";
   title?: string;
@@ -110,22 +231,6 @@ export type Jokul_fundamentals = {
   } & Jokul_table | {
     _key: string;
   } & Jokul_qa>;
-};
-
-export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
-};
-
-export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
 };
 
 export type Slug = {
@@ -669,7 +774,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_fundamentals | SanityImageCrop | SanityImageHotspot | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_examples | Jokul_codeBlock | Jokul_codeExample | Jokul_code | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Table | Jokul_component | Code | Jokul_story | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Seo | Jokul_siteData | SanityImageCrop | SanityImageHotspot | Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_fundamentals | Slug | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_examples | Jokul_codeBlock | Jokul_codeExample | Jokul_code | Jokul_componentProps | Jokul_temaside | Jokul_blog_post | Table | Jokul_component | Code | Jokul_story | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/blog.ts
 // Variable: blogPostsQuery
@@ -1511,6 +1616,34 @@ export type FundamentalsBySlugQueryResult = {
   }> | null;
 } | null;
 
+// Source: ./src/sanity/queries/siteData.ts
+// Variable: siteDataQuery
+// Query: *[_type == "jokul_siteData"]{        ...,        "seo": {            "title": coalesce(seo.title, title, ""),            "description": coalesce(seo.description,  ""),            "image": seo.image,            "noIndex": seo.noIndex == true          },        footer {            text,            linkGroups[]{                title,                linkList[]{                    text,                    "url": select(    url[0]._type == "internalLink" => select(      url[0].internalReference->_type == "jokul_component" => "komponenter/" + url[0].internalReference->slug.current,      url[0].internalReference->_type == "jokul_fundamentals" => "fundamenter/" + url[0].internalReference->slug.current,      url[0].internalReference->_type == "jokul_blog_post" => "blog/" + url[0].internalReference->slug.current,      "/" + url[0].internalReference->slug.current    ),    url[0]._type == "externalLink" => url[0].url  )                }            }        },        "date": _createdAt,    } | order(_createdAt desc)[0]
+export type SiteDataQueryResult = {
+  _id: string;
+  _type: "jokul_siteData";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  seo: {
+    title: string | "";
+    description: string | "";
+    image: null;
+    noIndex: boolean | false;
+  };
+  footer: {
+    text: string | null;
+    linkGroups: Array<{
+      title: string | null;
+      linkList: Array<{
+        text: string | null;
+        url: string | null;
+      }> | null;
+    }> | null;
+  } | null;
+  date: string;
+} | null;
+
 // Source: ./src/sanity/queries/story.ts
 // Variable: examplesQuery
 // Query: *[_type == "jokul_example"]{    title,    id,    description,    height,    inert,} | order(name)
@@ -1528,6 +1661,7 @@ declare module "@sanity/client" {
     "*[_type == \"jokul_component\" && defined(slug.current) && slug.current == $componentSlug] {\n        name,\n        short_description,\n        \"slug\": slug.current,\n        figma_image,\n        image,\n        imageDark,\n        related_components,\n        categories,\n    }[0]": ComponentCardQueryResult;
     "*[_type == \"jokul_fundamentals\"]{\n        name,\n        slug,\n        short_description,\n        image,\n        \"date\": _createdAt,\n    } | order(_createdAt desc)": FundamentalsQueryResult;
     "*[_type == \"jokul_fundamentals\" && slug.current == $slug][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_code\" => {\n                ...,\n                title,\n                code,\n                language,\n          },\n            _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert,\n                  code\n                },\n            },\n        },\n    }": FundamentalsBySlugQueryResult;
+    "*[_type == \"jokul_siteData\"]{\n        ...,\n        \"seo\": {\n            \"title\": coalesce(seo.title, title, \"\"),\n            \"description\": coalesce(seo.description,  \"\"),\n            \"image\": seo.image,\n            \"noIndex\": seo.noIndex == true\n          },\n        footer {\n            text,\n            linkGroups[]{\n                title,\n                linkList[]{\n                    text,\n                    \"url\": select(\n    url[0]._type == \"internalLink\" => select(\n      url[0].internalReference->_type == \"jokul_component\" => \"komponenter/\" + url[0].internalReference->slug.current,\n      url[0].internalReference->_type == \"jokul_fundamentals\" => \"fundamenter/\" + url[0].internalReference->slug.current,\n      url[0].internalReference->_type == \"jokul_blog_post\" => \"blog/\" + url[0].internalReference->slug.current,\n      \"/\" + url[0].internalReference->slug.current\n    ),\n    url[0]._type == \"externalLink\" => url[0].url\n  )\n                }\n            }\n        },\n        \"date\": _createdAt,\n    } | order(_createdAt desc)[0]": SiteDataQueryResult;
     "*[_type == \"jokul_example\"]{\n    title,\n    id,\n    description,\n    height,\n    inert,\n} | order(name)": ExamplesQueryResult;
   }
 }

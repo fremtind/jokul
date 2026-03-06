@@ -1,7 +1,7 @@
 "use client";
 
 import { clsx } from "clsx";
-import styles from "./header.module.scss";
+import styles from "../global-layout.module.scss";
 
 export const Logo = () => {
     const today = new Date();

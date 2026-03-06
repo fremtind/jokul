@@ -1,12 +1,10 @@
 import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { TabListener } from "@/components/TabListener";
-import { Header } from "@/components/header/Header";
-
+import { Footer, Header } from "@/components/layout";
 import { SanityLive } from "@/sanity/lib/live";
 import { CookiesNextProvider } from "cookies-next";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
-
 import "./global.scss";
 
 interface Props {
@@ -22,6 +20,7 @@ export default async function PortalLayout({ children }: Props) {
                     <div className="jkl-portal-layout">
                         <Header />
                         <main>{children}</main>
+                        <Footer />
                     </div>
                 </CookiesNextProvider>
                 <SanityLive />
