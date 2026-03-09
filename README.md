@@ -10,18 +10,18 @@ React-komponentene våre er den raskeste og enkleste måten å ta i bruk Jøkul.
 
 For å starte utviklingsserveren for Jøkul lokalt må du først ha installert:
 
--   [Node](https://nodejs.org/en)-versjonen definert i [`.nvmrc`](./.nvmrc), gjerne via [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm).
--   [pnpm](https://pnpm.io/installation#using-corepack), gjerne via `corepack` eller `npm`.
-    -   På de nye Fremtind-Macene kan det hende at du må installere `corepack` via Homebrew for at det skal fungere ordentlig: Installer med `brew install corepack`, og gjør klar med `corepack install` inne i Jøkul-mappa.
+- [Node](https://nodejs.org/en)-versjonen definert i [`.nvmrc`](./.nvmrc), gjerne via [Node Version Manager (NVM)](https://github.com/nvm-sh/nvm).
+- [pnpm](https://pnpm.io/installation#using-corepack), gjerne via `corepack` eller `npm`.
+    - På de nye Fremtind-Macene kan det hende at du må installere `corepack` via Homebrew for at det skal fungere ordentlig: Installer med `brew install corepack`, og gjør klar med `corepack install` inne i Jøkul-mappa.
 
 ## Oppstart og utvikling
 
 For å komme i gang med Jøkul-prosjektet, klon repoet og installer avhengighetene:
 
--   Kjør `pnpm i` på rot i repoet for å installere avhengighetene.
--   Kjør `pnpm dev` for å starte portal + Storybook.
--   Kjør `pnpm dev:portal` for kun portalen.
--   Kjør `pnpm dev:storybook` for kun Storybook.
+- Kjør `pnpm i` på rot i repoet for å installere avhengighetene.
+- Kjør `pnpm dev` for å starte portal + Storybook.
+- Kjør `pnpm dev:portal` for kun portalen.
+- Kjør `pnpm dev:storybook` for kun Storybook.
 
 ### Oppsett av linting og formatering
 
@@ -41,8 +41,46 @@ Deretter kan du søke etter `eslint` og fjerne avkrysningen ved "Eslint: Enable"
 
 ### Tips under utvikling
 
--   Kjør `pnpm reboot` om du kommer tilbake til Jøkul-prosjektet etter en stund, eller noe ikke fungerer som du forventer.
--   Om du opplever feil fra `nx`, prøv `pnpm dlx nx reset` og kjør kommandoen på nytt.
+- Kjør `pnpm reboot` om du kommer tilbake til Jøkul-prosjektet etter en stund, eller noe ikke fungerer som du forventer.
+- Om du opplever feil fra `nx`, prøv `pnpm dlx nx reset` og kjør kommandoen på nytt.
+
+## Releases
+
+Repoet bruker Changesets på standard måte med `.changeset/config.json`, changeset-filer i `.changeset/` og `changesets/action` i GitHub Actions.
+
+Vi bruker to tydelige release-brancher:
+
+- `main` publiserer stabile versjoner.
+- `release/next` publiserer prereleases med npm-taggen `next`.
+
+Dette er splittet i to egne GitHub Actions-workflows: én for stabile releases og én for prereleases.
+
+### Relevante scripts
+
+- `pnpm changeset` oppretter en changeset.
+- `pnpm release:version` kjører `changeset version`.
+- `pnpm release:pre:enter` kjører `changeset pre enter next`.
+- `pnpm release:pre:exit` kjører `changeset pre exit`.
+- `pnpm release:publish` bygger og publiserer.
+
+### Anbefalt prerelease-flyt
+
+`release/next` er den faste branchen for prereleases.
+
+1. Gå til `release/next`.
+2. Hvis vi starter en ny prerelease-runde og `.changeset/pre.json` ikke finnes, kjør `pnpm release:pre:enter`.
+3. Hvis `.changeset/pre.json` ble opprettet eller endret, commit filen til `release/next`.
+4. Lag en branch fra `release/next`.
+5. Gjør endringene dine på branchen.
+6. Hvis endringen skal publiseres, kjør `pnpm changeset`.
+7. Lag en PR inn mot `release/next`.
+8. Når PR-en merges til `release/next`, håndterer CI prerelease-versjonering og publisering med `next`.
+9. Når innholdet i `release/next` er ferdig testet og klart for stabil release, kjør `pnpm release:pre:exit`, deretter `pnpm release:version`, og commit resultatet på `release/next`.
+10. Merge `release/next` tilbake til `main`. Neste publisering fra `main` går da ut som en vanlig stabil versjon.
+
+Steg 2 og 3 er bare nødvendig når vi starter en ny prerelease-runde. Filen `.changeset/pre.json` forteller Changesets og CI at `release/next` er i prerelease-modus med taggen `next`.
+
+Kort sagt: `main` er for stabile releases, og `release/next` er for testing og publisering av prereleases.
 
 ### Bruk av pakkene
 
@@ -52,11 +90,11 @@ Vi har en egen guide som hjelper deg med å [komme i gang](https://github.com/fr
 
 I [dokumentasjonen](https://jokul.fremtind.no/) finner du:
 
--   Informasjon om hvordan du bruker Jøkul.
--   Designprinsippene til Fremtind.
--   Detaljert dokumentasjon for hver komponent, inkludert eksempler.
--   Guider for ulike ting, blant annet [hvordan gjøre endringer i Jøkul](https://jokul.fremtind.no/guider/hvordan-endre-jokul).
--   [Bloggen vår](https://jokul.fremtind.no/blog/), med jevnlige oppsummeringer av hva som er nytt i Jøkul.
+- Informasjon om hvordan du bruker Jøkul.
+- Designprinsippene til Fremtind.
+- Detaljert dokumentasjon for hver komponent, inkludert eksempler.
+- Guider for ulike ting, blant annet [hvordan gjøre endringer i Jøkul](https://jokul.fremtind.no/guider/hvordan-endre-jokul).
+- [Bloggen vår](https://jokul.fremtind.no/blog/), med jevnlige oppsummeringer av hva som er nytt i Jøkul.
 
 ## Code of Conduct
 
