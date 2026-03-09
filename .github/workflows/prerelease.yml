@@ -1,0 +1,121 @@
+name: Publiser prerelease-versjoner
+
+on:
+    push:
+        branches:
+            - release/next
+
+env:
+    PRERELEASE_TAG: next
+
+concurrency:
+    group: release-${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: false
+
+run-name: Publiser prerelease-versjoner fra release/next. Siste commit er ${{ github.event.head_commit.message }}
+
+jobs:
+    changesets-prerelease:
+        name: Versjoner eller publiser prereleases med Changesets
+        runs-on: ubuntu-latest
+        outputs:
+            published: ${{ steps.changesets.outputs.published || 'false' }}
+            publishedPackages: ${{ steps.changesets.outputs.publishedPackages || '[]' }}
+        permissions:
+            id-token: write # OIDC for publisering til NPM: https://docs.npmjs.com/trusted-publishers
+            contents: write
+            packages: write
+            pull-requests: write
+        steps:
+            - name: Checkout Repo
+              uses: actions/checkout@v4
+
+            - name: Setup pnpm
+              uses: pnpm/action-setup@v4
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  registry-url: "https://registry.npmjs.org/"
+                  node-version-file: ".nvmrc"
+                  cache: "pnpm"
+
+            - name: Verifiser prerelease-modus
+              id: prerelease-state
+              shell: bash
+              run: |
+                  if [ ! -f .changeset/pre.json ]; then
+                    echo "should_run=false" >> "$GITHUB_OUTPUT"
+                    echo "reason=release/next mangler .changeset/pre.json" >> "$GITHUB_OUTPUT"
+                    exit 0
+                  fi
+
+                  node --input-type=module <<'NODE'
+                  import { appendFileSync, readFileSync } from "node:fs";
+
+                  const writeOutput = (key, value) => {
+                    appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}\n`);
+                  };
+
+                  const preState = JSON.parse(readFileSync(".changeset/pre.json", "utf8"));
+                  const preReleaseTag = process.env.PRERELEASE_TAG;
+
+                  if (preState.tag !== preReleaseTag) {
+                    throw new Error(`Forventet prerelease-tag "${preReleaseTag}", men fant "${preState.tag}"`);
+                  }
+
+                  if (preState.mode === "pre") {
+                    writeOutput("should_run", "true");
+                    process.exit(0);
+                  }
+
+                  if (preState.mode === "exit") {
+                    writeOutput("should_run", "false");
+                    writeOutput("reason", "release/next er i pre exit-modus og skal ikke publisere");
+                    process.exit(0);
+                  }
+
+                  throw new Error(`Ukjent prerelease-modus: "${preState.mode}"`);
+                  NODE
+
+            - name: Hopp over prerelease
+              if: steps.prerelease-state.outputs.should_run != 'true'
+              run: echo "${{ steps.prerelease-state.outputs.reason || 'Ingen prerelease for denne committen.' }}"
+
+            - name: Installer avhengigheter
+              if: steps.prerelease-state.outputs.should_run == 'true'
+              run: |
+                  pnpm install --frozen-lockfile
+                  npm install -g npm@latest
+                  npm --version
+
+            - name: Versjonering eller publisering med Changesets
+              if: steps.prerelease-state.outputs.should_run == 'true'
+              id: changesets
+              uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
+              with:
+                  publish: "pnpm release:publish"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Bytt registry til GitHub Packages
+              if: steps.changesets.outputs.published == 'true'
+              uses: actions/setup-node@v4
+              with:
+                  registry-url: "https://npm.pkg.github.com"
+                  scope: "@fremtind"
+
+            - name: Tilbakestill endringer i .npmrc
+              if: steps.changesets.outputs.published == 'true'
+              # Unngår å få feil ved publisering pga. unclean git status
+              run: git checkout .npmrc
+
+            - name: Reinstaller pakker etter actions/setup-node
+              if: steps.changesets.outputs.published == 'true'
+              run: pnpm install --frozen-lockfile
+
+            - name: Publiser pakker til GitHub Packages med prerelease-tag
+              if: steps.changesets.outputs.published == 'true'
+              run: pnpm -r publish --tag ${{ env.PRERELEASE_TAG }}
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
