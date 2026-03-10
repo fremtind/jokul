@@ -1,0 +1,7 @@
+.hamburger {
+    .hamburgerItem[aria-current="page"]::before {
+        content: "•";
+        inset-inline-start: 1.5em;
+        position: absolute;
+    }
+}

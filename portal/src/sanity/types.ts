@@ -15,20 +15,6 @@
 // Source: schema.json
 export type Seo = {
   _type: "seo";
-  title?: string;
-  description?: string;
-  favicon?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
   ogImage?: {
     asset?: {
       _ref: string;
@@ -50,21 +36,21 @@ export type Jokul_siteData = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  seo?: {
-    title?: string;
-    description?: string;
-    favicon?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
+  title?: string;
+  description?: string;
+  favicon?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  seo?: {
     ogImage?: {
       asset?: {
         _ref: string;
@@ -1625,9 +1611,23 @@ export type SiteDataQueryResult = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
+  title?: string;
+  description?: string;
+  favicon?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   seo: {
     title: string | "";
-    description: string | "";
+    description: "";
     image: null;
     noIndex: boolean | false;
   };
