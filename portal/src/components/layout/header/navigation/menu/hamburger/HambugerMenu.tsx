@@ -1,15 +1,13 @@
 "use client";
 
+import { navigationLinks } from "@/components/layout/header/navigation/menu/data";
+import { HamburgerMenuItem } from "@/components/layout/header/navigation/menu/hamburger/HamburgerMenuItem";
 import { Popover } from "@fremtind/jokul/popover";
 import { useState } from "react";
 import { HamburgerButton } from "./HamburgerButton";
-import styles from "./menu.module.scss";
+import styles from "./hamburger.module.scss";
 
-type MenuProps = {
-    children: React.ReactNode;
-};
-
-export const Menu = ({ children }: MenuProps) => {
+export const HamburgerMenu = () => {
     const [open, setOpen] = useState(false);
 
     return (
@@ -29,10 +27,14 @@ export const Menu = ({ children }: MenuProps) => {
             </Popover.Trigger>
             <Popover.Content
                 padding={16}
-                className={styles.menu}
+                className={styles.hamburger}
                 onClick={() => setOpen(!open)}
             >
-                {children}
+                {navigationLinks.map((link) => (
+                    <HamburgerMenuItem key={link} href={`/${link}`}>
+                        {link.charAt(0).toUpperCase() + link.slice(1)}
+                    </HamburgerMenuItem>
+                ))}
             </Popover.Content>
         </Popover>
     );

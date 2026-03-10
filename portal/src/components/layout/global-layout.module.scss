@@ -9,18 +9,15 @@
     }
 }
 
-
-
 .header {
+    background-color: var(--jkl-color-background-page-variant);
     display: grid;
-    place-items: center start;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr auto;
+    min-height: var(--portal-header-height);
     padding: var(--padding);
     position: sticky;
     top: 0;
-    background-color: var(--jkl-color-background-page-variant);
     z-index: 2;
-    min-height: var(--portal-header-height);
 
     p {
         justify-self: end;
@@ -28,6 +25,7 @@
 
     .logo {
         @include jkl.text-style("heading-2");
+        max-width: max-content;
 
         > span {
             text-decoration: none;

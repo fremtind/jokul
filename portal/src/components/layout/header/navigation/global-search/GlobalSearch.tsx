@@ -1,6 +1,6 @@
 "use client";
 
-import { Results } from "@/components/layout/header/global-search/Results";
+import { Results } from "@/components/layout/header/navigation/global-search/Results";
 import { Button } from "@fremtind/jokul/button";
 import { SearchIcon } from "@fremtind/jokul/icon";
 import {
@@ -13,7 +13,7 @@ import {
 import { Search } from "@fremtind/jokul/search";
 import React, { useEffect, useState } from "react";
 
-import styles from "../../global-layout.module.scss";
+import styles from "../../../global-layout.module.scss";
 
 export const GlobalSearch = () => {
     const [searchText, setSearchText] = useState("");
