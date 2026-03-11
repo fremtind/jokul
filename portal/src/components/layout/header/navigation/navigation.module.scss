@@ -1,0 +1,13 @@
+.navigation {
+    @media not (max-width: 768px) {
+        button {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        ul {
+            display: none;
+        }
+    }
+}
