@@ -1,11 +1,21 @@
 /* stylelint-disable color-named */
 @use "@fremtind/jokul/styles/core/jkl";
 
+.header, .footer {
+    --padding: var(--jkl-unit-20);
+
+    @media (width >=940px) {
+        --padding: var(--jkl-spacing-64);
+    }
+}
+
+
+
 .header {
     display: grid;
     place-items: center start;
     grid-template-columns: repeat(2, 1fr);
-    padding: var(--jkl-unit-20);
+    padding: var(--padding);
     position: sticky;
     top: 0;
     background-color: var(--jkl-color-background-page-variant);
@@ -97,14 +107,22 @@
             --grandient-rotation: 0deg;
         }
     }
-}
 
-@media (width >=940px) {
-    .header {
-        padding: var(--jkl-spacing-24) var(--jkl-spacing-64);
+    @media (width >=940px) {
+        padding-block: var(--jkl-spacing-24);
 
         p {
             justify-self: start;
         }
+    }
+}
+
+.footer {
+    padding-block: var(--jkl-unit-30) var(--jkl-unit-60);
+    margin-inline: var(--padding);
+    border-block-start: 1px solid var(--jkl-color-border-separator);
+
+    ul {
+        padding-inline-start: 0;
     }
 }
