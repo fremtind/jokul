@@ -1,10 +1,10 @@
+import type { Size } from "packages/jokul/src/core/types.js";
 import React, { type FC } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
 import { FieldGroup } from "../../input-group/FieldGroup.js";
-import type { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { Checkbox } from "../Checkbox.js";
 
@@ -17,7 +17,7 @@ export const checkboxExampleKnobs: ExampleKnobsProps = {
     ],
     choiceProps: [
         {
-            name: "Variant",
+            name: "Size",
             values: ["small", "medium", "large"],
             defaultValue: 1,
         },
@@ -32,8 +32,8 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({
     const [email, setEmail] = React.useState(false);
     const [snailMail, setSnailMail] = React.useState(false);
 
-    const variant = choiceValues?.["Variant"]
-        ? (choiceValues["Variant"] as LabelVariant)
+    const size = choiceValues?.["Size"]
+        ? (choiceValues["Size"] as Size)
         : "medium";
 
     const helpText = boolValues?.["Med hjelpetekst"];
@@ -51,7 +51,7 @@ export const CheckboxExample: FC<ExampleComponentProps> = ({
     return (
         <FieldGroup
             legend="Hvordan kan vi kontakte deg?"
-            labelProps={{ variant }}
+            legendProps={{ "data-size": size }}
             helpLabel={
                 helpText
                     ? "Vi sender viktige beskjeder til deg med de valgte metodene"

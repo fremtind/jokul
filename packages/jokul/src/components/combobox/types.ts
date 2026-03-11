@@ -24,7 +24,7 @@ export type ComboboxChangeEventHandler = (
 export interface ComboboxProps extends InputGroupProps {
     id?: string;
     placeholder?: string;
-    labelProps?: Omit<LabelProps, "children" | "htmlFor" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "htmlFor">;
     items: Array<ValuePair>;
     noMatchingOption?: string;
     label: string;

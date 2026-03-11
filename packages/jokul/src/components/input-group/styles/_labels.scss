@@ -50,39 +50,14 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
                 animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1) jkl.timing("expressive") $_support-icon-entrance-animation-name forwards;
             }
         }
-
-        &--sr-only {
-            @include jkl.screenreader-only;
-        }
     }
 
     .jkl-label {
-        --jkl-label-small-margin: 0 0 var(--jkl-unit-15) 0;
-        --jkl-label-medium-margin: 0 0 var(--jkl-unit-20) 0;
-        --jkl-label-large-margin: 0 0 var(--jkl-unit-30) #{jkl.rem(-1px)};
-
         display: block;
-        margin-left: initial;
         color: var(--jkl-color-text-default);
+        margin: 0 0 var(--jkl-unit-20) 0;
 
-        &--small {
-            @include jkl.text-style("text-small");
-            margin: var(--jkl-label-small-margin);
-        }
-
-        &--medium {
-            @include jkl.text-style("text-medium");
-            margin: var(--jkl-label-medium-margin);
-        }
-
-        &--large {
-            @include jkl.text-style("text-large");
-            margin: var(--jkl-label-large-margin);
-        }
-
-        &--sr-only {
-            @include jkl.screenreader-only;
-        }
+        @include jkl.text-style("text-small");
     }
 
     .jkl-input-group-description {

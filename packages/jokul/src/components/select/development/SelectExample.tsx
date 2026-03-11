@@ -1,9 +1,9 @@
+import type { Size } from "packages/jokul/src/core/types.js";
 import React, { type FC, useState } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import type { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { NativeSelect } from "../NativeSelect.js";
 import { Select } from "../Select.js";
@@ -24,7 +24,7 @@ export const selectExampleKnobs: ExampleKnobsProps = {
             defaultValue: 1,
         },
         {
-            name: "Variant",
+            name: "Size",
             values: ["small", "medium", "large"],
             defaultValue: 0,
         },
@@ -79,7 +79,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({
     const helpLabel = boolValues?.["Med hjelpetekst"]
         ? "Med merke mener vi for eksempel Apple eller Samsung."
         : undefined;
-    const variant = choiceValues && (choiceValues["Variant"] as LabelVariant);
+    const size = choiceValues && (choiceValues["Size"] as Size);
     const searchAble = boolValues?.["Med søk"];
     const maxChoices = getMaxChoices(choiceValues?.["Maks. viste valg"]);
 
@@ -96,7 +96,7 @@ export const SelectExample: FC<ExampleComponentProps> = ({
             id="produsent"
             name="produsent"
             label="Hvilket merke er telefonen?"
-            labelProps={{ variant }}
+            labelProps={{ ["data-size"]: size }}
             items={values}
             value={value}
             helpLabel={helpLabel}

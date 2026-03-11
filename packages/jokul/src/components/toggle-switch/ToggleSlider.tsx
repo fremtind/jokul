@@ -64,14 +64,14 @@ export const ToggleSlider: FC<ToggleSliderProps> = ({
             aria-labelledby={legendId}
             data-testid="jkl-toggle-slider"
         >
-            <div
+            <legend
                 id={legendId}
                 className={clsx("jkl-toggle-slider__legend", {
-                    "jkl-toggle-slider__legend--sr-only": hideLegend,
+                    "jkl-sr-only": hideLegend,
                 })}
             >
                 {children}
-            </div>
+            </legend>
             <div className="jkl-toggle-slider__inputs" {...swipeHandlers}>
                 {labels.map((label) => (
                     <Fragment key={label}>

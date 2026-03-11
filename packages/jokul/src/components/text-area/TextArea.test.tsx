@@ -22,7 +22,7 @@ describe("TextArea", () => {
         render(<TextArea label="testing" labelProps={{ srOnly: true }} />);
 
         const label = screen.getByText("testing");
-        expect(label).toHaveClass("jkl-label--sr-only");
+        expect(label).toHaveClass("jkl-sr-only");
     });
 
     it("renders with an empty placeholder for CSS selector reasons, so expand animation works", () => {

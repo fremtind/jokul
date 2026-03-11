@@ -11,11 +11,6 @@ figma.connect(
         ],
         props: {
             children: figma.string("Text"),
-            variant: figma.enum("Type", {
-                Large: "large",
-                Medium: "medium",
-                Small: "small",
-            }),
         },
         example: (props) => <Label {...props} />,
     },

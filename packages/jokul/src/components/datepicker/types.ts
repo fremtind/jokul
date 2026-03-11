@@ -62,7 +62,7 @@ export interface DatePickerProps
      *  />
      *  ```
      */
-    labelProps?: Omit<LabelProps, "children">;
+    labelProps?: Omit<LabelProps, "children" | "as" | "htmlFor">;
     /**
      * dd.mm.åååå
      *

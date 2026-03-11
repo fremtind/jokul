@@ -10,13 +10,12 @@ const meta: Meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof Label>;
+type Story = StoryObj<typeof meta>;
 
 export const LabelStory: Story = {
     name: "Label",
     args: {
-        variant: "small",
-        standAlone: false,
+        ["data-size"]: "small",
         srOnly: false,
     },
     render: (props) => <Label {...props}>Label</Label>,

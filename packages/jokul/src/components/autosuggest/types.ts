@@ -6,7 +6,7 @@ import type { SupportLabelProps } from "../input-group/types.js";
 export type CommonProps = (
     | {
           label: string;
-          labelProps?: Omit<LabelProps, "children" | "htmlFor" | "standAlone">;
+          labelProps?: Omit<LabelProps, "children" | "htmlFor">;
           inputId?: null;
           labelId?: null;
       }

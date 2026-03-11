@@ -2,15 +2,22 @@ import type { CSSProperties, FieldsetHTMLAttributes, ReactNode } from "react";
 import type {
     DataTestAutoId,
     Size,
-    WithChildren,
     WithOptionalChildren,
 } from "../../core/types.js";
+
+export type LegendProps = Omit<
+    React.HTMLAttributes<HTMLLegendElement>,
+    "children"
+> & {
+    ["data-size"]?: Size;
+    srOnly?: boolean;
+};
 
 export interface FieldGroupProps
     extends DataTestAutoId,
         FieldsetHTMLAttributes<HTMLFieldSetElement> {
     legend: string;
-    labelProps?: Omit<LabelProps, "children">;
+    legendProps?: LegendProps;
     supportLabelProps?: Omit<
         SupportLabelProps,
         "id" | "errorLabel" | "helpLabel"
@@ -38,7 +45,7 @@ export type InputGroupProps = WithOptionalChildren &
         helpLabel?: ReactNode;
         inline?: boolean;
         label: ReactNode;
-        labelProps?: Omit<LabelProps, "children">;
+        labelProps?: Omit<LabelProps, "children" | "as">;
         supportLabelProps?: Omit<
             SupportLabelProps,
             "id" | "errorLabel" | "helpLabel"
@@ -49,17 +56,10 @@ export type InputGroupProps = WithOptionalChildren &
         render?: (props: InputProps) => JSX.Element;
     };
 
-export type LabelVariant = "small" | "medium" | "large";
-
-export interface LabelProps extends WithChildren {
-    id?: string;
-    variant?: LabelVariant;
+export type LabelProps = React.LabelHTMLAttributes<HTMLLabelElement> & {
+    ["data-size"]?: Size;
     srOnly?: boolean;
-    standAlone?: boolean;
-    htmlFor?: string;
-    className?: string;
-    style?: CSSProperties;
-}
+};
 
 export type SupportLabelType = "help" | "error" | "warning" | "success";
 
@@ -76,7 +76,7 @@ export interface SupportLabelProps {
      *
      *  return (
      *    <div>
-     *      <Label standAlone htmlFor={uid}>
+     *      <Label htmlFor={uid}>
      *        Velg en tekst
      *      </Label>
      *      <select

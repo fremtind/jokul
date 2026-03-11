@@ -34,8 +34,8 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
         return (
             <th
                 className={clsx("jkl-table-header", className, {
+                    "jkl-sr-only": srOnly,
                     "jkl-table-header--bold": bold,
-                    "jkl-table-header--sr-only": srOnly,
                     "jkl-table-header--sortable":
                         typeof sortable !== "undefined",
                 })}

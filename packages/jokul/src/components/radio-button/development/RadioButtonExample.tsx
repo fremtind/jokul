@@ -1,9 +1,9 @@
+import type { Size } from "packages/jokul/src/core/types.js";
 import React, { type FC } from "react";
 import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import type { LabelVariant } from "../../input-group/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { RadioButton } from "../RadioButton.js";
 import { RadioButtonGroup } from "../RadioButtonGroup.js";
@@ -12,7 +12,7 @@ export const radioButtonExampleKnobs: ExampleKnobsProps = {
     boolProps: ["Med hjelpetekst", "Med feil", "Med tooltip"],
     choiceProps: [
         {
-            name: "Variant",
+            name: "Size",
             values: ["small", "medium", "large"],
             defaultValue: 1,
         },
@@ -36,8 +36,8 @@ export const RadioButtonExample: FC<ExampleComponentProps> = ({
     const errorLabel = boolValues?.["Med feil"]
         ? "Du må velge hvordan du vil bli kontaktet. Ved å velge e-post får du beskjed raskest mulig."
         : undefined;
-    const variant = choiceValues?.["Variant"]
-        ? (choiceValues["Variant"] as LabelVariant)
+    const size = choiceValues?.["Size"]
+        ? (choiceValues["Size"] as Size)
         : "medium";
 
     const tooltip = boolValues?.["Med tooltip"] ? (
@@ -52,7 +52,7 @@ export const RadioButtonExample: FC<ExampleComponentProps> = ({
         <RadioButtonGroup
             legend="Hvordan vil du bli kontaktet?"
             name="kontaktmetode"
-            labelProps={{ variant }}
+            legendProps={{ ["data-size"]: size }}
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             tooltip={tooltip}

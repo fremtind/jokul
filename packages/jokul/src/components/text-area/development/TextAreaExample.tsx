@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import type { LabelVariant } from "../../input-group/types.js";
+import type { Size } from "../../../core/types.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { TextArea } from "../TextArea.js";
 
@@ -19,7 +19,7 @@ export const textAreaExampleKnobs: ExampleKnobsProps = {
     ],
     choiceProps: [
         {
-            name: "Variant",
+            name: "Size",
             values: ["small", "medium", "large"],
             defaultValue: 0,
         },
@@ -33,7 +33,7 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({
     const [value, setValue] = useState("");
     const handleChange = (e: ChangeEvent<HTMLTextAreaElement>) =>
         setValue(e.target.value);
-    const variant = choiceValues?.["Variant"] as LabelVariant;
+    const size = choiceValues?.["Size"] as Size;
     const autoExpand = boolValues?.["Ekspanderende"];
     const startOpen = boolValues?.["Starter åpen"];
     const medTeller = boolValues?.["Med teller"];
@@ -64,7 +64,7 @@ export const TextAreaExample: FC<ExampleComponentProps> = ({
                     ? { maxLength: 200, hideProgress: skjulProgress }
                     : undefined
             }
-            labelProps={{ variant }}
+            labelProps={{ "data-size": size }}
             value={value}
             onChange={handleChange}
         />

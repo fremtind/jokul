@@ -43,7 +43,7 @@ export interface SelectProps
     id?: string;
     name: string;
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "htmlFor" | "standAlone">;
+    labelProps?: Omit<LabelProps, "children" | "htmlFor">;
     items: Array<string | ValuePair>;
     /**
      * @default false

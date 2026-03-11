@@ -54,7 +54,7 @@ const meta = {
         hasTagHover: false,
         labelProps: {
             srOnly: false,
-            variant: "small",
+            "data-size": "small",
         },
         width: "20ch",
         description: "Du kan velge flere, dersom flere passer",

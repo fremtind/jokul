@@ -41,7 +41,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
             <FileInput
                 id="file-input-example"
                 legend="Vedlegg"
-                labelProps={{ variant: "medium" }}
+                legendProps={{ "data-size": "medium" }}
                 className="jkl-spacing-16-24--bottom"
                 accept="image/*,.pdf"
                 maxSizeBytes={maxSizeBytes}
@@ -157,10 +157,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
 
 export default FileInputExample;
 
-export const fileInputExampleCode: CodeExample = ({
-    boolValues,
-    choiceValues,
-}) => `
+export const fileInputExampleCode: CodeExample = ({ choiceValues }) => `
 // import { File, FileInput, type FileInputFile, upload } from "@fremtind/jkl-file-input-react";
 // import type { SupportLabelType } from "@fremtind/jkl-input-group-react";
 
@@ -171,7 +168,7 @@ return (
     <div>
         <FileInput
             legend="Vedlegg"
-            labelProps={{ variant: "medium" }}
+            legendProps={{ "data-size": "medium" }}
             className="jkl-spacing-16-24--bottom"
             accept="image/*,.pdf"
             maxSizeBytes={maxSizeBytes}

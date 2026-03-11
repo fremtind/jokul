@@ -8,7 +8,6 @@ export type {
     InputGroupProps,
     InputProps,
     LabelProps,
-    LabelVariant,
     SupportLabelProps,
     SupportLabelType,
 } from "./types.js";

@@ -113,9 +113,7 @@ describe("ToggleSlider", () => {
         );
         const legend = screen.getByText("Skru");
         expect(legend).toBeInTheDocument();
-        expect(
-            legend.classList.contains("jkl-toggle-slider__legend--sr-only"),
-        ).toBe(true);
+        expect(legend.classList.contains("jkl-sr-only")).toBe(true);
     });
 
     describe("a11y", () => {

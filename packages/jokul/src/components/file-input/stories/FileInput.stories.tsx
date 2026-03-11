@@ -20,8 +20,8 @@ const meta = {
         value: [],
         onChange: console.info,
         legend: "Legg til fil",
-        labelProps: {
-            variant: "medium",
+        legendProps: {
+            ["data-size"]: "medium",
         },
         accept: "image/*,.pdf",
         maxSizeBytes: 8_000_000,

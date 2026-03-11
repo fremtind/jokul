@@ -20,7 +20,7 @@ type Story = StoryObj<typeof InputGroup>;
 export const InputGroupStory: Story = {
     name: "InputGroup",
     args: {
-        label: "Fødeselsnummer",
+        label: "Fødselsnummer",
     },
     render: (props) => (
         <InputGroup {...props}>

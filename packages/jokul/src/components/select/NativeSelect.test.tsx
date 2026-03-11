@@ -87,7 +87,7 @@ describe("NativeSelect", () => {
         );
 
         const label = screen.getByText("test");
-        expect(label).toHaveClass("jkl-label--sr-only");
+        expect(label).toHaveClass("jkl-sr-only");
     });
 });
 

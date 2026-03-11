@@ -12,10 +12,6 @@
     $_border-size: jkl.rem(-1px);
 
     .jkl-table-head {
-        &--sr-only {
-            @include jkl.screenreader-only;
-        }
-
         &--sticky {
             & > .jkl-table-row {
                 position: sticky;

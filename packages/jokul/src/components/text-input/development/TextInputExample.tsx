@@ -1,3 +1,4 @@
+import type { Size } from "packages/jokul/src/core/types.js";
 import React, { type ChangeEvent, type FC, useState } from "react";
 import type {
     ExampleComponentProps,
@@ -5,7 +6,6 @@ import type {
 } from "utils/dev-example/index.js";
 import { IconButton } from "../../icon-button/IconButton.js";
 import { CloseIcon } from "../../icon/index.js";
-import type { LabelVariant } from "../../input-group/types.js";
 import { Link } from "../../link/Link.js";
 import { PopupTip } from "../../tooltip/PopupTip.js";
 import { TextInput } from "../TextInput.js";
@@ -21,7 +21,7 @@ export const textInputExampleKnobs: ExampleKnobsProps = {
     ],
     choiceProps: [
         {
-            name: "Variant",
+            name: "Size",
             values: ["small", "medium", "large"],
             defaultValue: 0,
         },
@@ -63,7 +63,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
         </>
     ) : undefined;
     const inline = boolValues?.["Inline"];
-    const variant = choiceValues?.["Variant"] as LabelVariant;
+    const size = choiceValues?.["Size"] as Size;
     const actionButton = boolValues?.["Med handling"] ? (
         <IconButton title="Nullstill feltet" onClick={() => setValue("")}>
             <CloseIcon />
@@ -96,7 +96,7 @@ export const TextInputExample: FC<ExampleComponentProps> = ({
             placeholder="Fyll ut boareal"
             helpLabel={helpLabel}
             errorLabel={errorLabel}
-            labelProps={{ variant }}
+            labelProps={{ "data-size": size }}
             tooltip={tooltip}
             value={value}
             onChange={handleChange}

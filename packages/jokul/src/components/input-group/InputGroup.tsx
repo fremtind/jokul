@@ -65,7 +65,6 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                 {...rest}
             >
                 <Label
-                    standAlone
                     htmlFor={uid}
                     srOnly={inline}
                     {...labelProps}

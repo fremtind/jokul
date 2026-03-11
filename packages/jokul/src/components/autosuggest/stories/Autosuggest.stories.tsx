@@ -18,7 +18,7 @@ const meta = {
         helpLabel: "Velg landet du har statsborgerskap i",
         labelProps: {
             srOnly: false,
-            variant: "small",
+            "data-size": "small",
         },
         maxNumberOfHits: 5,
         showDropdownControllerButton: false,
