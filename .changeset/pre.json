@@ -1,0 +1,13 @@
+{
+    "mode": "pre",
+    "tag": "next",
+    "initialVersions": {
+        "changed-files": "1.0.17",
+        "paths-filter": "1.0.9",
+        "@fremtind/jokul": "4.1.5",
+        "@fremtind/jokul-mcp-server": "1.0.0",
+        "@fremtind/stylelint-config-jkl": "8.1.0",
+        "portal": "1.4.34"
+    },
+    "changesets": []
+}
