@@ -39,7 +39,6 @@ type Story = StoryObj<typeof meta>;
 export const TableFiltering: Story = {
     name: "Filtrering av data",
     args: {
-        collapseToList: true,
         fullWidth: true,
         caption: (
             <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>
