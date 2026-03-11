@@ -9,6 +9,8 @@ export type HelpProps = Omit<ButtonProps<"button">, "iconPosition" | "icon"> & {
     position?: "top" | "bottom" | "left" | "right";
     /**
      * @default "left"
+     *
+     * @deprecated siden teksten ikke lenger skal vises vil heller ikke posisjon være relevant
      */
     iconPosition?: "left" | "right";
     /**
@@ -17,6 +19,8 @@ export type HelpProps = Omit<ButtonProps<"button">, "iconPosition" | "icon"> & {
     buttonText: string;
     /**
      * @default false
+     *
+     * @deprecated dersom du vil vise tekst knyttet til en hjelpetekst bruk heller Button
      */
     showButtonText?: boolean;
     /**

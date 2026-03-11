@@ -2,10 +2,8 @@
 @use "../../../core/jkl";
 
 $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.unique-id(
-)
-}
 
-;
+    )};
 
 @layer jokul.components {
     .jkl-dormant-form-support-label {
@@ -57,31 +55,29 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     }
 
     .jkl-label {
-        --jkl-label-small-margin: 0 0 var(--jkl-unit-15) 0;
-        --jkl-label-medium-margin: 0 0 var(--jkl-unit-20) 0;
-        --jkl-label-large-margin: 0 0 var(--jkl-unit-30) #{jkl.rem(-1px)};
-
         display: block;
-        margin-left: initial;
+        margin: 0 0 var(--jkl-spacing-8) 0;
         color: var(--jkl-color-text-default);
 
         &--small {
-            @include jkl.text-style("text-small");
-            margin: var(--jkl-label-small-margin);
+            @include jkl.text-style("text-medium");
         }
 
         &--medium {
             @include jkl.text-style("text-medium");
-            margin: var(--jkl-label-medium-margin);
         }
 
         &--large {
             @include jkl.text-style("text-large");
-            margin: var(--jkl-label-large-margin);
         }
 
         &--sr-only {
             @include jkl.screenreader-only;
+        }
+
+        .jkl-help {
+            position: relative;
+            top: -0.1ex;
         }
     }
 
