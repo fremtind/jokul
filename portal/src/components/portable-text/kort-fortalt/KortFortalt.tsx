@@ -18,7 +18,7 @@ export const KortFortalt: FC<
                     <h3>Bruk</h3>
                     <List aria-label="Når egnes komponenten">
                         {value.bruk?.map((item) => (
-                            <CheckListItem key={item._key}>
+                            <CheckListItem key={item.bruk_punkt?.toString()}>
                                 <PortableText blocks={item.bruk_punkt || []} />
                             </CheckListItem>
                         ))}
@@ -31,7 +31,9 @@ export const KortFortalt: FC<
                     <h3>Ikke bruk</h3>
                     <List aria-label="Når egnes ikke komponenten">
                         {value.ikke_bruk?.map((item) => (
-                            <CrossListItem key={item._key}>
+                            <CrossListItem
+                                key={item.ikke_bruk_punkt?.toString()}
+                            >
                                 <PortableText
                                     blocks={item.ikke_bruk_punkt || []}
                                 />
