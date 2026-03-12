@@ -56,7 +56,7 @@ export const Modal = forwardRef<HTMLElement, ModalConfig["modal"] & ModalProps>(
                 className={clsx("jkl jkl-modal", className)}
                 style={
                     {
-                        "--jkl-modal-padding": padding
+                        "--modal-padding": padding
                             ? `var(--jkl-spacing-${padding})`
                             : undefined,
                         ...style,
