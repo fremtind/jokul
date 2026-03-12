@@ -16,6 +16,7 @@ FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-imag
 FROM base AS builder
 
 WORKDIR /app
+USER root
 
 # Enable the repository's pinned pnpm version via corepack.
 RUN npm install -g corepack
@@ -43,6 +44,7 @@ RUN pnpm deploy --filter @fremtind/jokul-mcp-server --prod --legacy /app/deploy 
 # ─────────────────────────────────────────────────────────────────────────────
 FROM base AS production
 WORKDIR /app
+USER root
 
 # Create non-root user for security.
 RUN groupadd -r jokul && useradd -r -g jokul jokul
