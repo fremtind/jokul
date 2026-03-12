@@ -48,3 +48,15 @@ test-results
 portal/.next
 portal/out
 portal/public
+
+# Packages we don't need for the mcp-server build
+packages/jokul/src
+packages/stylelint-config-jkl/*
+!packages/stylelint-config-jkl/package.json
+portal/src
+portal/migrations
+portal/public
+actions/*
+!actions/changed-files/package.json
+!actions/paths-filter/package.json
+utils
