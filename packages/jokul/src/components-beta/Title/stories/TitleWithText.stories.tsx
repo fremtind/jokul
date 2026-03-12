@@ -39,7 +39,6 @@ const CleanPattern = `
 
 const recommendedPatternCode = `<Flex direction="column" gap="s">
     <BETA_Title as="h2" size={4}>
-        <BETA_Title.Tagline>Bilforsikring</BETA_Title.Tagline>
         Dekning og pris for bilen din
     </BETA_Title>
     <BETA_Text size={3}>
@@ -61,7 +60,7 @@ const apiOverviewCode = `<Flex direction="column" gap="m">
     </Flex>
 
     <Flex direction="column" gap="2xs">
-        <BETA_Title as="h4" size={6} uppercase>Viktig informasjon</BETA_Title>
+        <BETA_Title as="h4" size={6}>Viktig informasjon</BETA_Title>
         <BETA_Text as="p" size={2} weight={700}>Uthevet tekst</BETA_Text>
         <BETA_Text as="p" size={2}>Supplerende tekst</BETA_Text>
     </Flex>
@@ -79,7 +78,6 @@ export const RecommendedPattern: Story = {
     render: () => (
         <Flex direction="column" gap="2xs">
             <BETA_Title as="h2" size={4}>
-                <BETA_Title.Tagline>Bilforsikring</BETA_Title.Tagline>
                 Dekning og pris for bilen din
             </BETA_Title>
             <BETA_Text size={3}>
@@ -114,7 +112,7 @@ export const ApiOverview: Story = {
                 Dette er en sekundær tekstlinje med mindre størrelse.
             </BETA_Text>
 
-            <BETA_Title as="h4" size={6} uppercase>
+            <BETA_Title as="h4" size={6}>
                 Viktig informasjon
             </BETA_Title>
             <BETA_Text as="p" size={2} weight={700}>

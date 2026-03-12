@@ -29,17 +29,12 @@ const meta = {
             control: "text",
             description: "String-only title for editorial word-break handling.",
         },
-        uppercase: {
-            control: "boolean",
-            table: { defaultValue: { summary: "false" } },
-        },
     },
     args: {
         children: "I am Title",
         text: "",
         as: "h2",
         size: 1,
-        uppercase: false,
     },
     tags: ["autodocs", "grouping content"],
 } satisfies Meta<typeof BETA_Title>;
@@ -66,21 +61,6 @@ export const Sizes: Story = {
             <BETA_Title size="5">{children} 5</BETA_Title>
             <BETA_Title size="body">{children} body</BETA_Title>
             <BETA_Title size="6">{children} 6</BETA_Title>
-        </Flex>
-    ),
-};
-
-export const WithTagline: Story = {
-    args: {
-        size: 3,
-        children: "Title with size",
-    },
-    render: ({ children, text, ...args }) => (
-        <Flex layout="1" gap="l">
-            <BETA_Title {...args}>
-                <BETA_Title.Tagline>My tagline</BETA_Title.Tagline>
-                {text || children} {args.size}
-            </BETA_Title>
         </Flex>
     ),
 };

@@ -38,13 +38,3 @@
     font-size: var(--jkl-font-size-3);
     line-height: var(--jkl-line-height-relaxed);
 }
-
-.jkl-title--beta-uppercase {
-    text-transform: uppercase;
-    letter-spacing: 0.0625rem;
-}
-
-.jkl-title--beta-tagline {
-    display: block;
-    margin-block-end: var(--jkl-unit-10);
-}

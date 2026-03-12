@@ -9,7 +9,6 @@ export type TitleProps<As extends React.ElementType = "h2"> =
     PolymorphicPropsWithRef<
         As,
         {
-            uppercase?: boolean;
             text?: string;
             size?:
                 | 1
@@ -32,13 +31,10 @@ type TitleComponent = <As extends React.ElementType = "h2">(
     props: TitleProps<As>,
 ) => React.ReactElement | null;
 
-export type TaglineProps<As extends React.ElementType = "span"> =
-    TitleProps<As>;
-
 const TitleComp: TitleComponent = forwardRef(function Title<
     As extends React.ElementType = "h2",
 >(
-    { className, size, as, text, uppercase, ...rest }: TitleProps<As>,
+    { className, size, as, text, ...rest }: TitleProps<As>,
     ref?: PolymorphicRef<As>,
 ) {
     const Tag = as || "h2";
@@ -49,7 +45,6 @@ const TitleComp: TitleComponent = forwardRef(function Title<
     const classes = clsx(
         "jkl-title--beta",
         `jkl-title--beta-size-${resolvedSize}`,
-        uppercase && "jkl-title--beta-uppercase",
         className,
     );
 
@@ -60,22 +55,7 @@ const TitleComp: TitleComponent = forwardRef(function Title<
     return <Tag className={classes} ref={ref} {...rest} />;
 }) as TitleComponent; // Needed to tell Typescript this does not return ReactNode but acutally JSX.Element
 
-const Tagline = forwardRef(function Tagline<
-    As extends React.ElementType = "span",
->(props: TaglineProps<As>, ref?: PolymorphicRef<As>) {
-    return (
-        <TitleComp
-            as="span"
-            ref={ref}
-            size="6"
-            uppercase
-            {...props}
-            className={clsx("jkl-title--beta-tagline", props.className)}
-        />
-    );
-}) as TitleComponent; // Needed to tell Typescript this does not return ReactNode but acutally JSX.Element
-
-export const Title = Object.assign(TitleComp, { Tagline });
+export const Title = TitleComp;
 
 const formatTextBreaks = (text: string) =>
     text
