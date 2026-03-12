@@ -1,9 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useEffect, useState } from "react";
 import { Button } from "../../button/Button.js";
-import { Help } from "../../help/Help.js";
-import { InputGroup } from "../../input-group/InputGroup.js";
-import { BaseTextInput } from "../../text-input/BaseTextInput.js";
 import {
     ModalActions,
     ModalBody,
@@ -71,30 +68,20 @@ export const Modal: ModalStory = {
                                 <ModalCloseButton {...closeButton} />
                             </ModalHeader>
                             <ModalBody>
-                                Er du sikker på at du vil slette Foo Bar Baz?
-                                <InputGroup
-                                    label="Fødselsnummer"
-                                    tooltip={
-                                        <Help buttonText="Hva betyr dette?">
-                                            Du må fylle ut fødelsnummer eller
-                                            D-nummer. Se hvordan du finner
-                                            D-nummer.
-                                        </Help>
-                                    }
-                                >
-                                    <BaseTextInput />
-                                </InputGroup>
+                                Er du sikker på at du vil slette dette
+                                dokumentet?
                             </ModalBody>
                             <ModalActions>
-                                <Button onClick={() => instance?.hide()}>
-                                    Avbryt
-                                </Button>
                                 <Button
+                                    variant="primary"
                                     onClick={() => {
                                         instance?.hide();
                                     }}
                                 >
-                                    Bekreft
+                                    Slett
+                                </Button>
+                                <Button onClick={() => instance?.hide()}>
+                                    Avbryt
                                 </Button>
                             </ModalActions>
                         </ModalComponent>
