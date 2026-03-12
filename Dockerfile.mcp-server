@@ -44,14 +44,14 @@ RUN pnpm deploy --filter @fremtind/jokul-mcp-server --prod --legacy /app/deploy 
 FROM base AS production
 WORKDIR /app
 
-# Create non-root user for security.
-RUN groupadd -r jokul && useradd -r -g jokul jokul
-
 # Copy the self-contained deploy directory from the builder stage.
 # This contains node_modules (prod only) and dist – nothing else from the monorepo.
-COPY --from=builder --chown=jokul:jokul /app/deploy ./
+COPY --from=builder --chown=nobody:nobody /app/deploy ./
 
-USER jokul
+# Run as the built-in nobody user (uid 65534) – no shell, no home directory.
+# This gives the same non-root security guarantee without requiring groupadd/useradd,
+# which fail in runners that lack the necessary /etc/group write permissions.
+USER nobody
 
 # Runtime environment
 ENV NODE_ENV=production
