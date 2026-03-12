@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.0.0-next.0
+
+### Major Changes
+
+- 0ffd3ec: Strammet inn polymorfisme i `Link`:
+
+  - `as` tillater nå kun HTML-elementet `"a"` som string.
+  - `as` støtter fortsatt React-komponenter som `NextLink`.
+  - For ugyldige string-verdier i as (relevant for JavaScript-prosjekter) faller Link tilbake til <a> i runtime.
+
 ## 4.1.5
 
 ### Patch Changes
