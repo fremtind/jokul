@@ -1,5 +1,6 @@
 @use "../../../core/jkl/index" as jkl;
 @use "../../../components/icon/styles/base-styles" as icon;
+@use "search-with-submit-button";
 
 .jkl-search {
     --icon-size: var(--jkl-text-input-height);
