@@ -1,5 +1,17 @@
 # portal
 
+## 1.5.0
+
+### Minor Changes
+
+- faab13c: Implementert søk etter innhold
+
+### Patch Changes
+
+- Updated dependencies [dc0b558]
+- Updated dependencies [21f66a1]
+  - @fremtind/jokul@4.3.0
+
 ## 1.4.35
 
 ### Patch Changes
