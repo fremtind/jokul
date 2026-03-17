@@ -139,7 +139,11 @@ export class TestHelper {
         await this._page.locator(selector).first().focus();
     }
 
-    private async snapshot(name: string, selector?: string) {
+    private async snapshot(
+        name: string,
+        selector?: string,
+        selectorPadding = 0,
+    ) {
         await this._page.evaluate(() => document.fonts.ready);
 
         const locator = this._page
@@ -150,6 +154,26 @@ export class TestHelper {
         if (!box) {
             return;
         }
+        const padding = Math.max(0, selectorPadding);
+        const viewport = this._page.viewportSize();
+        const viewportWidth = viewport?.width ?? box.x + box.width;
+        const viewportHeight = viewport?.height ?? box.y + box.height;
+        const clipX = Math.max(0, box.x - padding);
+        const clipY = Math.max(0, box.y - padding);
+        const clipWidth = Math.min(
+            viewportWidth - clipX,
+            box.width + padding * 2,
+        );
+        const clipHeight = Math.min(
+            viewportHeight - clipY,
+            box.height + padding * 2,
+        );
+        const clip = {
+            x: clipX,
+            y: clipY,
+            width: clipWidth,
+            height: clipHeight,
+        };
 
         const screenshotRoot = `packages/jokul/src/components/${this.package}/integration/__screenshots__`;
         const testName = test.info().title.replaceAll(" ", "-");
@@ -162,14 +186,14 @@ export class TestHelper {
                 await this._page.screenshot({
                     animations: "disabled",
                     caret: "hide",
-                    clip: { ...box },
+                    clip,
                 }),
             ).toMatchSnapshot(`${this.projectName}-${name}`);
         } else {
             await this._page.screenshot({
                 animations: "disabled",
                 caret: "hide",
-                clip: { ...box },
+                clip,
                 path: screenshotPath,
             });
         }
@@ -179,39 +203,41 @@ export class TestHelper {
         before,
         after,
         selector,
+        selectorPadding,
         focusElement,
     }: {
         before?: () => Promise<any>;
         after?: () => Promise<any>;
         selector?: string;
+        selectorPadding?: number;
         focusElement?: string;
     } = {}) {
         await this.setSize("default");
         await this.setTheme("light");
         await before?.();
-        await this.snapshot("default", selector);
+        await this.snapshot("default", selector, selectorPadding);
         if (focusElement) {
             await this.focus(focusElement);
-            await this.snapshot("default-focus", selector);
+            await this.snapshot("default-focus", selector, selectorPadding);
         }
         await after?.();
 
         await this.setSize("default");
         await this.setTheme("dark");
         await before?.();
-        await this.snapshot("default-dark", selector);
+        await this.snapshot("default-dark", selector, selectorPadding);
         await after?.();
 
         await this.setSize("small");
         await this.setTheme("light");
         await before?.();
-        await this.snapshot("compact-light", selector);
+        await this.snapshot("compact-light", selector, selectorPadding);
         await after?.();
 
         await this.setSize("small");
         await this.setTheme("dark");
         await before?.();
-        await this.snapshot("compact-dark", selector);
+        await this.snapshot("compact-dark", selector, selectorPadding);
         await after?.();
     }
 }

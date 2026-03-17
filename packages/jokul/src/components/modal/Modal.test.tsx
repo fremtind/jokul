@@ -67,6 +67,45 @@ describe("Modal", () => {
         );
     }
 
+    function ModalWithPlacement({
+        placement,
+        slideIn,
+        fullWidth,
+    }: {
+        placement: "center" | "left" | "bottom" | "right";
+        slideIn: boolean;
+        fullWidth: boolean;
+    }) {
+        const heading = "Modal med plassering";
+        const [instance, { title, overlay, container, modal, closeButton }] =
+            useModal({ title: heading });
+
+        useEffect(() => {
+            if (!instance) {
+                return;
+            }
+            instance.show();
+        }, [instance]);
+
+        return ReactDOM.createPortal(
+            <ModalContainer
+                {...container}
+                placement={placement}
+                slideIn={slideIn}
+            >
+                <ModalOverlay {...overlay} />
+                <Modal {...modal} fullWidth={fullWidth}>
+                    <ModalHeader>
+                        <ModalTitle {...title}>{heading}</ModalTitle>
+                        <ModalCloseButton {...closeButton} />
+                    </ModalHeader>
+                    <ModalBody>Innhold</ModalBody>
+                </Modal>
+            </ModalContainer>,
+            document.body,
+        );
+    }
+
     it("should render", () => {
         const { getByText, getByRole } = setup(<ModalTest />);
         expect(getByRole("dialog")).toBeInTheDocument();
@@ -113,5 +152,28 @@ describe("Modal", () => {
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
+    });
+
+    it("should apply placement and slide-in classes", () => {
+        setup(
+            <ModalWithPlacement placement="bottom" slideIn fullWidth={false} />,
+        );
+        const modalContainer = document.body.querySelector(
+            ".jkl-modal-container",
+        );
+
+        expect(modalContainer).toHaveClass(
+            "jkl-modal-container--placement-bottom",
+        );
+        expect(modalContainer).toHaveClass("jkl-modal-container--slide-in");
+    });
+
+    it("should apply full width class on modal", () => {
+        setup(
+            <ModalWithPlacement placement="center" slideIn={false} fullWidth />,
+        );
+        const modal = document.body.querySelector(".jkl-modal");
+
+        expect(modal).toHaveClass("jkl-modal--full-width");
     });
 });
