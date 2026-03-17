@@ -1,0 +1,63 @@
+@use "../../../core/jkl";
+
+@layer jokul.components {
+    /* Placement: bottom */
+    .jkl-modal-container--placement-bottom {
+        align-items: flex-end;
+
+        &.jkl-modal-container--slide-in {
+            --jkl-modal-slide-x: 0px;
+            --jkl-modal-slide-y: 24px;
+        }
+
+        .jkl-modal {
+            margin-block-end: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .jkl-modal--full-width {
+            width: 100vw;
+            max-width: 100vw;
+            margin-inline: 0;
+        }
+    }
+
+    /* Placement: left */
+    .jkl-modal-container--placement-left {
+        justify-content: flex-start;
+
+        &.jkl-modal-container--slide-in {
+            --jkl-modal-slide-x: -24px;
+            --jkl-modal-slide-y: 0px;
+        }
+
+        .jkl-modal {
+            height: 100%;
+            max-height: 100%;
+            margin-block: 0;
+            margin-inline-start: 0;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+
+    /* Placement: right */
+    .jkl-modal-container--placement-right {
+        justify-content: flex-end;
+
+        &.jkl-modal-container--slide-in {
+            --jkl-modal-slide-x: 24px;
+            --jkl-modal-slide-y: 0px;
+        }
+
+        .jkl-modal {
+            height: 100%;
+            max-height: 100%;
+            margin-block: 0;
+            margin-inline-end: 0;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
+}

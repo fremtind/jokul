@@ -6,6 +6,7 @@ import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import type {
     BaseModalProps,
     ModalConfig,
+    ModalContainerProps,
     ModalOverlayProps,
     ModalProps,
 } from "./types.js";
@@ -13,20 +14,24 @@ import type {
 /**
  * Ment å brukes med `useModal`.
  */
-export const ModalContainer = forwardRef<
-    HTMLDivElement,
-    ModalConfig["container"] & BaseModalProps
->(({ className, ...rest }, ref) => {
-    // TODO: 'data-portal' fjernes når modalen tar i bruk Popover komponenten. Issue: https://github.com/fremtind/jokul/issues/4356
-    return (
-        <div
-            className={clsx("jkl-modal-container", className)}
-            {...rest}
-            ref={ref}
-            data-portal
-        />
-    );
-});
+export const ModalContainer = forwardRef<HTMLDivElement, ModalContainerProps>(
+    ({ className, placement = "center", slideIn, ...rest }, ref) => {
+        // TODO: 'data-portal' fjernes når modalen tar i bruk Popover komponenten. Issue: https://github.com/fremtind/jokul/issues/4356
+        return (
+            <div
+                className={clsx(
+                    "jkl-modal-container",
+                    `jkl-modal-container--placement-${placement}`,
+                    { "jkl-modal-container--slide-in": slideIn },
+                    className,
+                )}
+                {...rest}
+                ref={ref}
+                data-portal
+            />
+        );
+    },
+);
 ModalContainer.displayName = "ModalContainer";
 
 /**
@@ -49,11 +54,15 @@ ModalOverlay.displayName = "ModalOverlay";
  * Ment å brukes med `useModal`.
  */
 export const Modal = forwardRef<HTMLElement, ModalConfig["modal"] & ModalProps>(
-    ({ className, component, padding, style, ...rest }, ref) => {
+    ({ className, component, padding, fullWidth, style, ...rest }, ref) => {
         const C = component || "div";
         return (
             <C
-                className={clsx("jkl jkl-modal", className)}
+                className={clsx(
+                    "jkl jkl-modal",
+                    { "jkl-modal--full-width": fullWidth },
+                    className,
+                )}
                 style={
                     {
                         "--modal-padding": padding
