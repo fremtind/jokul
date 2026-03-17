@@ -4,6 +4,7 @@
     .jkl-modal-overlay {
         background-color: rgb(27 25 23 / 80%);
         opacity: 0;
+
         @include jkl.motion("entrance", "expressive", opacity);
     }
 

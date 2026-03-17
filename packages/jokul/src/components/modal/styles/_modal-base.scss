@@ -29,9 +29,4 @@
             border-color: CanvasText;
         }
     }
-
-    .jkl-modal--full-width {
-        width: calc(100vw - 2 * var(--margin));
-        max-width: none;
-    }
 }

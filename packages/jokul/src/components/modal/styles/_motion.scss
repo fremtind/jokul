@@ -4,6 +4,7 @@
     .jkl-modal-container--slide-in {
         --jkl-modal-slide-x: 0px;
         --jkl-modal-slide-y: 12px;
+
         @include jkl.motion("exit", "expressive", visibility);
         transition-duration: 0ms;
 

@@ -11,15 +11,11 @@
         }
 
         .jkl-modal {
-            margin-block-end: 0;
+            --margin: 0px;
+
+            width: min(100vw, var(--modal-width, 100vw));
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
-        }
-
-        .jkl-modal--full-width {
-            width: 100vw;
-            max-width: 100vw;
-            margin-inline: 0;
         }
     }
 
