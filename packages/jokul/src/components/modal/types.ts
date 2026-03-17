@@ -35,12 +35,6 @@ export interface ModalProps extends WithOptionalChildren {
     component?: React.ElementType;
     style?: React.CSSProperties;
     /**
-     * Bruk hele tilgjengelige bredden i viewport (minus margin).
-     *
-     * @default false
-     */
-    fullWidth?: boolean;
-    /**
      * Overstyrer padding på modalen via en CSS-variabel.
      */
     padding?: 16 | 24 | 40;

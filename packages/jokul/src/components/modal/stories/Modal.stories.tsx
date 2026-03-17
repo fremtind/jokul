@@ -30,9 +30,9 @@ type ExampleProps = {
     openLabel: string;
     primaryLabel: string;
     secondaryLabel?: string;
+    padding?: 16 | 24 | 40;
     role?: "dialog" | "alertdialog";
     placement?: "center" | "left" | "bottom" | "right";
-    fullWidth?: boolean;
     slideIn?: boolean;
     showCloseButton?: boolean;
 };
@@ -43,9 +43,9 @@ function ModalExample({
     openLabel,
     primaryLabel,
     secondaryLabel,
+    padding,
     role = "dialog",
     placement = "center",
-    fullWidth = false,
     slideIn = false,
     showCloseButton = true,
 }: ExampleProps) {
@@ -61,7 +61,7 @@ function ModalExample({
                 slideIn={slideIn}
             >
                 <ModalOverlay {...overlay} />
-                <ModalComponent {...modal} fullWidth={fullWidth}>
+                <ModalComponent {...modal} padding={padding}>
                     <ModalHeader>
                         <ModalTitle {...title}>{heading}</ModalTitle>
                         {showCloseButton && (
@@ -95,9 +95,9 @@ const meta = {
         layout: "centered",
     },
     args: {
+        padding: 40,
         role: "dialog",
         placement: "center",
-        fullWidth: false,
         slideIn: false,
         showCloseButton: true,
     },
@@ -107,6 +107,13 @@ const meta = {
         openLabel: { table: { disable: true } },
         primaryLabel: { table: { disable: true } },
         secondaryLabel: { table: { disable: true } },
+        padding: {
+            control: "radio",
+            options: [16, 24, 40],
+            table: {
+                defaultValue: { summary: "40" },
+            },
+        },
         role: {
             control: "select",
             options: ["dialog", "alertdialog"],
@@ -119,12 +126,6 @@ const meta = {
             options: ["center", "left", "bottom", "right"],
             table: {
                 defaultValue: { summary: "center" },
-            },
-        },
-        fullWidth: {
-            control: "boolean",
-            table: {
-                defaultValue: { summary: "false" },
             },
         },
         slideIn: {
@@ -175,47 +176,6 @@ export const BekreftKansellering: Story = {
         secondaryLabel: "Avbryt",
     },
     render: (args) => <ModalExample {...args} />,
-    parameters: {
-        docs: {
-            source: {
-                code: [
-                    'const heading = "Bekreft kansellering";',
-                    "const [instance, { title, overlay, container, modal, closeButton }] =",
-                    '    useModal({ title: heading, role: "dialog" });',
-                    "",
-                    "<Button onClick={() => instance?.show()}>Kanseller forsikring</Button>",
-                    '<ModalContainer {...container} placement="center">',
-                    "    <ModalOverlay {...overlay} />",
-                    "    <Modal {...modal}>",
-                    "        <ModalHeader>",
-                    "            <ModalTitle {...title}>{heading}</ModalTitle>",
-                    "            <ModalCloseButton {...closeButton} />",
-                    "        </ModalHeader>",
-                    "        <ModalBody>",
-                    '            <Flex direction="column" gap="m">',
-                    "                <p>Er du sikker på at du vil kansellere reiseforsikringen?</p>",
-                    '                <FieldGroup legend="Kanselleringen gjelder">',
-                    '                    <Checkbox name="produkt" value="Reiseforsikring Pluss">',
-                    "                        Reiseforsikring Pluss",
-                    "                    </Checkbox>",
-                    '                    <Checkbox name="produkt" value="Familiedekning">',
-                    "                        Familiedekning",
-                    "                    </Checkbox>",
-                    "                </FieldGroup>",
-                    "            </Flex>",
-                    "        </ModalBody>",
-                    "        <ModalActions>",
-                    '            <Button variant="primary" onClick={() => instance?.hide()}>',
-                    "                Kanseller",
-                    "            </Button>",
-                    "            <Button onClick={() => instance?.hide()}>Avbryt</Button>",
-                    "        </ModalActions>",
-                    "    </Modal>",
-                    "</ModalContainer>",
-                ].join("\n"),
-            },
-        },
-    },
     play: async ({ userEvent, step }) => {
         await step("Åpne modal", async () => {
             const openButton = screen.getByRole("button", {
@@ -252,38 +212,6 @@ export const KritiskAdvarsel: Story = {
         role: "alertdialog",
     },
     render: (args) => <ModalExample {...args} />,
-    parameters: {
-        docs: {
-            source: {
-                code: [
-                    'const heading = "Dette kan ikke angres";',
-                    "const [instance, { title, overlay, container, modal, closeButton }] =",
-                    '    useModal({ title: heading, role: "alertdialog" });',
-                    "",
-                    "<Button onClick={() => instance?.show()}>Vis advarsel</Button>",
-                    "<ModalContainer {...container}>",
-                    "    <ModalOverlay {...overlay} />",
-                    "    <Modal {...modal}>",
-                    "        <ModalHeader>",
-                    "            <ModalTitle {...title}>{heading}</ModalTitle>",
-                    "            <ModalCloseButton {...closeButton} />",
-                    "        </ModalHeader>",
-                    "        <ModalBody>",
-                    "            <p>Når du fortsetter, stoppes dekningen umiddelbart.</p>",
-                    "            <p>Eventuelle pågående saker må avsluttes først.</p>",
-                    "        </ModalBody>",
-                    "        <ModalActions>",
-                    '            <Button variant="primary" onClick={() => instance?.hide()}>',
-                    "                Stopp dekning",
-                    "            </Button>",
-                    "            <Button onClick={() => instance?.hide()}>Avbryt</Button>",
-                    "        </ModalActions>",
-                    "    </Modal>",
-                    "</ModalContainer>",
-                ].join("\n"),
-            },
-        },
-    },
     play: async ({ userEvent, step }) => {
         await step("Åpne modal", async () => {
             const openButton = screen.getByRole("button", {
@@ -347,46 +275,9 @@ export const BunnarkDekning: Story = {
         primaryLabel: "Lagre valg",
         secondaryLabel: "Lukk",
         placement: "bottom",
-        fullWidth: true,
         slideIn: true,
     },
     render: (args) => <ModalExample {...args} />,
-    parameters: {
-        docs: {
-            source: {
-                code: [
-                    'const heading = "Velg dekning";',
-                    "const [instance, { title, overlay, container, modal, closeButton }] =",
-                    "    useModal({ title: heading });",
-                    "",
-                    "<Button onClick={() => instance?.show()}>Åpne dekninger</Button>",
-                    '<ModalContainer {...container} placement="bottom" slideIn>',
-                    "    <ModalOverlay {...overlay} />",
-                    "    <Modal {...modal} fullWidth>",
-                    "        <ModalHeader>",
-                    "            <ModalTitle {...title}>{heading}</ModalTitle>",
-                    "            <ModalCloseButton {...closeButton} />",
-                    "        </ModalHeader>",
-                    "        <ModalBody>",
-                    '            <FieldGroup legend="Dekninger">',
-                    '                <Checkbox name="dekning" value="Reisegods">Reisegods</Checkbox>',
-                    '                <Checkbox name="dekning" value="Avbestilling">Avbestilling</Checkbox>',
-                    '                <Checkbox name="dekning" value="Forsinket avgang">Forsinket avgang</Checkbox>',
-                    '                <Checkbox name="dekning" value="Egenandel">Egenandel</Checkbox>',
-                    "            </FieldGroup>",
-                    "        </ModalBody>",
-                    "        <ModalActions>",
-                    '            <Button variant="primary" onClick={() => instance?.hide()}>',
-                    "                Lagre valg",
-                    "            </Button>",
-                    "            <Button onClick={() => instance?.hide()}>Lukk</Button>",
-                    "        </ModalActions>",
-                    "    </Modal>",
-                    "</ModalContainer>",
-                ].join("\n"),
-            },
-        },
-    },
     play: async ({ userEvent, step }) => {
         await step("Åpne bunnark", async () => {
             const openButton = screen.getByRole("button", {
@@ -438,41 +329,6 @@ export const SidepanelSkade: Story = {
         slideIn: true,
     },
     render: (args) => <ModalExample {...args} />,
-    parameters: {
-        docs: {
-            source: {
-                code: [
-                    'const heading = "Skademelding";',
-                    "const [instance, { title, overlay, container, modal, closeButton }] =",
-                    "    useModal({ title: heading });",
-                    "",
-                    "<Button onClick={() => instance?.show()}>Start skademelding</Button>",
-                    '<ModalContainer {...container} placement="right" slideIn>',
-                    "    <ModalOverlay {...overlay} />",
-                    "    <Modal {...modal}>",
-                    "        <ModalHeader>",
-                    "            <ModalTitle {...title}>{heading}</ModalTitle>",
-                    "            <ModalCloseButton {...closeButton} />",
-                    "        </ModalHeader>",
-                    "        <ModalBody>",
-                    '            <FieldGroup legend="Skadedetaljer">',
-                    '                <TextInput label="Skadenummer" placeholder="SKD-123456" />',
-                    '                <TextInput label="Dato for hendelse" placeholder="dd.mm.åååå" />',
-                    '                <TextInput label="Sted" placeholder="Oslo" />',
-                    "            </FieldGroup>",
-                    "        </ModalBody>",
-                    "        <ModalActions>",
-                    '            <Button variant="primary" onClick={() => instance?.hide()}>',
-                    "                Lagre skaden",
-                    "            </Button>",
-                    "            <Button onClick={() => instance?.hide()}>Avbryt</Button>",
-                    "        </ModalActions>",
-                    "    </Modal>",
-                    "</ModalContainer>",
-                ].join("\n"),
-            },
-        },
-    },
     play: async ({ userEvent, step }) => {
         await step("Åpne sidepanel", async () => {
             const openButton = screen.getByRole("button", {
@@ -488,8 +344,8 @@ export const SidepanelSkade: Story = {
     },
 };
 
-export const FullBreddeSkjema: Story = {
-    name: "Full bredde for skjema",
+export const OppdaterAvtale: Story = {
+    name: "Oppdater avtale",
     args: {
         heading: "Oppdater forsikringsavtale",
         body: (
@@ -533,45 +389,8 @@ export const FullBreddeSkjema: Story = {
         openLabel: "Oppdater avtale",
         primaryLabel: "Lagre endringer",
         secondaryLabel: "Avbryt",
-        fullWidth: true,
     },
     render: (args) => <ModalExample {...args} />,
-    parameters: {
-        docs: {
-            source: {
-                code: [
-                    'const heading = "Oppdater forsikringsavtale";',
-                    "const [instance, { title, overlay, container, modal, closeButton }] =",
-                    "    useModal({ title: heading });",
-                    "",
-                    "<Button onClick={() => instance?.show()}>Oppdater avtale</Button>",
-                    "<ModalContainer {...container}>",
-                    "    <ModalOverlay {...overlay} />",
-                    "    <Modal {...modal} fullWidth>",
-                    "        <ModalHeader>",
-                    "            <ModalTitle {...title}>{heading}</ModalTitle>",
-                    "            <ModalCloseButton {...closeButton} />",
-                    "        </ModalHeader>",
-                    "        <ModalBody>",
-                    '            <FieldGroup legend="Kontakt og vilkår">',
-                    '                <TextInput label="E-post" placeholder="ola.nordmann@eksempel.no" />',
-                    '                <TextInput label="Telefon" placeholder="900 00 000" />',
-                    '                <TextInput label="Forsikringssum" placeholder="0" unit="kr" />',
-                    '                <TextInput label="Egenandel" placeholder="0" unit="kr" />',
-                    "            </FieldGroup>",
-                    "        </ModalBody>",
-                    "        <ModalActions>",
-                    '            <Button variant="primary" onClick={() => instance?.hide()}>',
-                    "                Lagre endringer",
-                    "            </Button>",
-                    "            <Button onClick={() => instance?.hide()}>Avbryt</Button>",
-                    "        </ModalActions>",
-                    "    </Modal>",
-                    "</ModalContainer>",
-                ].join("\n"),
-            },
-        },
-    },
     play: async ({ userEvent, step }) => {
         await step("Åpne modal", async () => {
             const openButton = screen.getByRole("button", {
@@ -618,39 +437,6 @@ export const LangeVilkår: Story = {
         secondaryLabel: "Avbryt",
     },
     render: (args) => <ModalExample {...args} />,
-    parameters: {
-        docs: {
-            source: {
-                code: [
-                    'const heading = "Vilkår for forsikring";',
-                    "const [instance, { title, overlay, container, modal, closeButton }] =",
-                    "    useModal({ title: heading });",
-                    "",
-                    "<Button onClick={() => instance?.show()}>Les vilkår</Button>",
-                    "<ModalContainer {...container}>",
-                    "    <ModalOverlay {...overlay} />",
-                    "    <Modal {...modal}>",
-                    "        <ModalHeader>",
-                    "            <ModalTitle {...title}>{heading}</ModalTitle>",
-                    "            <ModalCloseButton {...closeButton} />",
-                    "        </ModalHeader>",
-                    "        <ModalBody>",
-                    "            <p>Her kan du lese vilkår og begrensninger før du fortsetter.</p>",
-                    "            <p>Dekningen gjelder fra registrert startdato og omfatter skade på reisegods.</p>",
-                    "            <p>Egenandel, unntak og dokumentasjonskrav fremgår av avtalen.</p>",
-                    "        </ModalBody>",
-                    "        <ModalActions>",
-                    '            <Button variant="primary" onClick={() => instance?.hide()}>',
-                    "                Jeg godtar",
-                    "            </Button>",
-                    "            <Button onClick={() => instance?.hide()}>Avbryt</Button>",
-                    "        </ModalActions>",
-                    "    </Modal>",
-                    "</ModalContainer>",
-                ].join("\n"),
-            },
-        },
-    },
     play: async ({ userEvent, step }) => {
         await step("Åpne modal", async () => {
             const openButton = screen.getByRole("button", {
@@ -695,40 +481,6 @@ export const UtenLukkeKnapp: Story = {
         showCloseButton: false,
     },
     render: (args) => <ModalExample {...args} />,
-    parameters: {
-        docs: {
-            source: {
-                code: [
-                    'const heading = "Betalingsvalg";',
-                    "const [instance, { title, overlay, container, modal }] =",
-                    "    useModal({ title: heading });",
-                    "",
-                    "<Button onClick={() => instance?.show()}>Velg betalingsmåte</Button>",
-                    "<ModalContainer {...container}>",
-                    "    <ModalOverlay {...overlay} />",
-                    "    <Modal {...modal}>",
-                    "        <ModalHeader>",
-                    "            <ModalTitle {...title}>{heading}</ModalTitle>",
-                    "        </ModalHeader>",
-                    "        <ModalBody>",
-                    '            <FieldGroup legend="Alternativer">',
-                    '                <Checkbox name="betalingsvalg" value="Månedlig">Månedlig</Checkbox>',
-                    '                <Checkbox name="betalingsvalg" value="Årlig">Årlig</Checkbox>',
-                    '                <Checkbox name="betalingsvalg" value="Trekk fra konto">Trekk fra konto</Checkbox>',
-                    "            </FieldGroup>",
-                    "        </ModalBody>",
-                    "        <ModalActions>",
-                    '            <Button variant="primary" onClick={() => instance?.hide()}>',
-                    "                Lagre valg",
-                    "            </Button>",
-                    "            <Button onClick={() => instance?.hide()}>Avbryt</Button>",
-                    "        </ModalActions>",
-                    "    </Modal>",
-                    "</ModalContainer>",
-                ].join("\n"),
-            },
-        },
-    },
     play: async ({ userEvent, step }) => {
         await step("Åpne modal", async () => {
             const openButton = screen.getByRole("button", {

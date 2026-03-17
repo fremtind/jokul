@@ -54,15 +54,11 @@ ModalOverlay.displayName = "ModalOverlay";
  * Ment å brukes med `useModal`.
  */
 export const Modal = forwardRef<HTMLElement, ModalConfig["modal"] & ModalProps>(
-    ({ className, component, padding, fullWidth, style, ...rest }, ref) => {
+    ({ className, component, padding, style, ...rest }, ref) => {
         const C = component || "div";
         return (
             <C
-                className={clsx(
-                    "jkl jkl-modal",
-                    { "jkl-modal--full-width": fullWidth },
-                    className,
-                )}
+                className={clsx("jkl jkl-modal", className)}
                 style={
                     {
                         "--modal-padding": padding

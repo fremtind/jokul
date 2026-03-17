@@ -70,11 +70,9 @@ describe("Modal", () => {
     function ModalWithPlacement({
         placement,
         slideIn,
-        fullWidth,
     }: {
         placement: "center" | "left" | "bottom" | "right";
         slideIn: boolean;
-        fullWidth: boolean;
     }) {
         const heading = "Modal med plassering";
         const [instance, { title, overlay, container, modal, closeButton }] =
@@ -94,7 +92,7 @@ describe("Modal", () => {
                 slideIn={slideIn}
             >
                 <ModalOverlay {...overlay} />
-                <Modal {...modal} fullWidth={fullWidth}>
+                <Modal {...modal}>
                     <ModalHeader>
                         <ModalTitle {...title}>{heading}</ModalTitle>
                         <ModalCloseButton {...closeButton} />
@@ -155,9 +153,7 @@ describe("Modal", () => {
     });
 
     it("should apply placement and slide-in classes", () => {
-        setup(
-            <ModalWithPlacement placement="bottom" slideIn fullWidth={false} />,
-        );
+        setup(<ModalWithPlacement placement="bottom" slideIn />);
         const modalContainer = document.body.querySelector(
             ".jkl-modal-container",
         );
@@ -166,14 +162,5 @@ describe("Modal", () => {
             "jkl-modal-container--placement-bottom",
         );
         expect(modalContainer).toHaveClass("jkl-modal-container--slide-in");
-    });
-
-    it("should apply full width class on modal", () => {
-        setup(
-            <ModalWithPlacement placement="center" slideIn={false} fullWidth />,
-        );
-        const modal = document.body.querySelector(".jkl-modal");
-
-        expect(modal).toHaveClass("jkl-modal--full-width");
     });
 });

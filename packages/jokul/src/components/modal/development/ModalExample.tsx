@@ -29,7 +29,6 @@ type ModalComponentProps = ExampleComponentProps & {
     heading: string;
     body: React.ReactNode;
     placement?: "center" | "left" | "bottom" | "right";
-    fullWidth?: boolean;
     slideIn?: boolean;
     confirmTestId: string;
 };
@@ -41,7 +40,6 @@ function ModalComponent({
     heading,
     body,
     placement = "center",
-    fullWidth = false,
     slideIn = false,
     confirmTestId,
 }: ModalComponentProps) {
@@ -77,7 +75,7 @@ function ModalComponent({
                     onCancel();
                 }}
             />
-            <Modal {...modal} fullWidth={fullWidth}>
+            <Modal {...modal}>
                 <ModalHeader>
                     <ModalTitle {...title}>{heading}</ModalTitle>
                     <ModalCloseButton
@@ -177,7 +175,6 @@ export const ModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                     </FieldGroup>
                 }
                 placement="bottom"
-                fullWidth
                 slideIn
                 confirmTestId="confirm-modal-bottom"
                 onConfirm={() => {
