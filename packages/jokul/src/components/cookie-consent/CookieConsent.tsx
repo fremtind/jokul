@@ -21,6 +21,7 @@ export const CookieConsent = ({
     blocking,
     onAccept,
     aboutPage = "https://www.fremtind.no/informasjonskapsler",
+    aboutPageLinkText = "Les mer om hvilke informasjons­kapsler vi lagrer her",
     ...rest
 }: CookieConsentProps): JSX.Element | null => {
     const {
@@ -106,21 +107,20 @@ export const CookieConsent = ({
             <Modal {...modalConfig.modal}>
                 <ModalHeader>
                     <ModalTitle {...modalConfig.title}>
-                        Får vi bruke valgfrie informasjonskapsler?
+                        Får vi bruke valgfrie informasjons&shy;kapsler?
                     </ModalTitle>
                 </ModalHeader>
                 <ModalBody>
                     <Flex direction="column" gap="m">
                         <p>
-                            Vi ønsker å samle anonym statistikk for å forstå
-                            hvordan nettsidene våre brukes. Det hjelper oss til
-                            å gjøre innhold og løsninger bedre og mer
+                            Fremtind ønsker å samle anonym statistikk for å
+                            forstå hvordan nettsidene våre brukes. Det hjelper
+                            oss til å gjøre innhold og løsninger bedre og mer
                             brukervennlige.
                         </p>
                         <p>
                             <Link href={aboutPage} target="_blank">
-                                Les mer om hvilke informasjonskapsler vi lagrer
-                                her
+                                {aboutPageLinkText}
                             </Link>
                             .
                         </p>
