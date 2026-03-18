@@ -1,0 +1,58 @@
+import{R as E,r as d,j as e}from"./iframe-N2gWv30c.js";import{R as q}from"./index-BHp7KNwg.js";import{B as y}from"./Button-BjMblM7c.js";import{M as P,a as M,b as R,c as D,d as F,f as N,g as _}from"./Modal-BVgpajLh.js";import{u as I}from"./useModal-DmQQeON8.js";import{F as f}from"./Flex-Bo_YWjoq.js";import{L as V}from"./Link-CxOiDvyj.js";import"./preload-helper-PPVm8Dsz.js";import"./index-96S7F7sm.js";import"./clsx-B-dksMZM.js";import"./usePreviousValue-i7O8hXD3.js";import"./Loader-DdTQLLMh.js";import"./useDelayedRender-5RJdFhEh.js";import"./IconButton-BF4WVx56.js";import"./CloseIcon-Dom9Cdbm.js";import"./Icon-DR-7kZg2.js";import"./index-Chjiymov.js";import"./useId-jP-7t-hi.js";import"./SlotComponent-Bejr3bWB.js";import"./mergeRefs-D0_1CK8D.js";const B=n=>{if(typeof document>"u")return;const t=document.cookie.split(";").map(o=>o.trim().split("=")).find(o=>o[0]===n);if(t)return t},A=({adapter:n,name:t})=>{const o=B(t);if(o)return JSON.parse(o[1]);if(n)return n()},$=10368e3,J=({consent:n,maxAge:t=$,name:o,domain:r,path:s})=>{document.cookie=[`${o}=${JSON.stringify(n)}`,`max-age=${t}`,"SameSite=Lax",!!r&&`domain=${r}`,!!s&&`path=${s}`].filter(a=>a).join(";")},K=(n,t)=>{if(!t)return Object.values(n).some(s=>s);const o=new Map(Object.entries(t)),r=Object.entries(n);for(const[s,a]of r)if(a&&o.get(s)===null)return!0;return!1},U=({functional:n,statistics:t})=>({...n&&{functional:n},...t&&{statistics:t}}),H="fremtind-cookie-consent",C=E.createContext(void 0),S=({children:n,cookieAdapter:t,functional:o,statistics:r,cookieName:s=H,cookieDomain:a,cookiePath:u})=>{const[m,p]=d.useState(()=>Date.now()),l=d.useMemo(()=>U({functional:o,statistics:r}),[o,r]),c=d.useMemo(()=>A({adapter:t,name:s})??{functional:null,statistics:null},[t,s,m]),[k,i]=d.useState(()=>K(l,c));return e.jsx(C.Provider,{value:{isOpen:k,setIsOpen:i,updateCurrentConsents:()=>p(Date.now()),requirement:l,currentConsent:c,cookieName:s,cookieDomain:a,cookiePath:u},children:n})},G=()=>{const n=E.useContext(C);if(n===void 0)throw new Error("CookieConsent must be used within a CookieConsentProvider");return n},W=()=>{const n=d.useContext(C);if(n===void 0)throw new Error("useCookieConsent must be used within a CookieConsentProvider");const t=()=>{n.setIsOpen(!0)},o=n.currentConsent;return{openConsentModal:t,consents:o}};S.__docgenInfo={description:"",methods:[],displayName:"CookieConsentProvider",props:{children:{required:!0,tsType:{name:"union",raw:"ReactNode | ReactNode[]",elements:[{name:"ReactNode"},{name:"Array",elements:[{name:"ReactNode"}],raw:"ReactNode[]"}]},description:""},cookieAdapter:{required:!1,tsType:{name:"signature",type:"function",raw:"() => Consent | undefined",signature:{arguments:[],return:{name:"union",raw:"Consent | undefined",elements:[{name:"signature",type:"object",raw:`{
+    functional?: ConsentState;
+    statistics?: ConsentState;
+    marketing?: ConsentState;
+}`,signature:{properties:[{key:"functional",value:{name:"union",raw:'null | "denied" | "accepted"',elements:[{name:"null"},{name:"literal",value:'"denied"'},{name:"literal",value:'"accepted"'}],required:!1}},{key:"statistics",value:{name:"union",raw:'null | "denied" | "accepted"',elements:[{name:"null"},{name:"literal",value:'"denied"'},{name:"literal",value:'"accepted"'}],required:!1}},{key:"marketing",value:{name:"union",raw:'null | "denied" | "accepted"',elements:[{name:"null"},{name:"literal",value:'"denied"'},{name:"literal",value:'"accepted"'}],required:!1}}]}},{name:"undefined"}]}}},description:""},cookieName:{required:!1,tsType:{name:"string"},description:"",defaultValue:{value:'"fremtind-cookie-consent"',computed:!1}},cookieDomain:{required:!1,tsType:{name:"string"},description:""},cookiePath:{required:!1,tsType:{name:"string"},description:""}}};const O=({blocking:n,onAccept:t,aboutPage:o="https://www.fremtind.no/informasjonskapsler",aboutPageLinkText:r="Les mer om hvilke informasjons­kapsler vi lagrer her",...s})=>{const{currentConsent:a,cookieName:u,cookieDomain:m,cookiePath:p,isOpen:l,setIsOpen:c,updateCurrentConsents:k}=G(),[i,v]=I({id:`jkl-cookie-modal-${d.useId()}`,role:n?"alertdialog":"dialog",title:"Informasjonskapsler"});if(d.useEffect(()=>{l?i?.show():i?.hide()},[i,l]),d.useEffect(()=>{const g=()=>c(!1);return i?.on("hide",g),()=>{i?.off("hide",g)}},[i,c]),typeof document>"u")return null;if(typeof navigator<"u"&&!navigator.cookieEnabled)return t?.({functional:"denied",statistics:"denied",marketing:"denied"}),null;const w=g=>{const T={...a,functional:g,statistics:g,marketing:"denied"};J({consent:T,name:u,domain:m,path:p}),t?.(T),k(),i?.hide()};return q.createPortal(e.jsxs(P,{...v.container,...s,"data-cookie-consent-open":l,children:[e.jsx(M,{...v.overlay}),e.jsxs(R,{...v.modal,children:[e.jsx(D,{children:e.jsx(F,{...v.title,children:"Får vi bruke valgfrie informasjons­kapsler?"})}),e.jsx(N,{children:e.jsxs(f,{direction:"column",gap:"m",children:[e.jsx("p",{children:"Fremtind ønsker å samle anonym statistikk for å forstå hvordan nettsidene våre brukes. Det hjelper oss til å gjøre innhold og løsninger bedre og mer brukervennlige."}),e.jsxs("p",{children:[e.jsx(V,{href:o,target:"_blank",children:r}),"."]})]})}),e.jsxs(_,{children:[e.jsx(y,{variant:"secondary","data-testid":"jkl-cookie-consent-godta",type:"button",onClick:()=>w("accepted"),children:"Ja, det er greit"}),e.jsx(y,{variant:"secondary","data-testid":"jkl-cookie-consent-nekt",type:"button",onClick:()=>w("denied"),children:"Nei takk"})]})]})]}),document.body)};function j({cookieName:n,functional:t=!0,statistics:o=!0,aboutPage:r,aboutPageLinkText:s,blocking:a=!1,heading:u,body:m,openLabel:p,openTestId:l="open-cookie-consent"}){const c=()=>{const{openConsentModal:k}=W();return e.jsx(y,{onClick:()=>k(),"data-testid":l,children:p})};return e.jsx("div",{style:{maxWidth:"40rem"},children:e.jsx(S,{cookieName:n,functional:t,statistics:o,children:e.jsxs(f,{direction:"column",gap:"m",children:[e.jsxs("div",{children:[e.jsx("h2",{children:u}),m]}),e.jsx("div",{children:e.jsx(c,{})}),e.jsx(O,{blocking:a,aboutPage:r,aboutPageLinkText:s})]})})})}j.__docgenInfo={description:"",methods:[],displayName:"CookieConsentExample",props:{heading:{required:!0,tsType:{name:"string"},description:""},body:{required:!0,tsType:{name:"ReactReactNode",raw:"React.ReactNode"},description:""},openLabel:{required:!0,tsType:{name:"string"},description:""},openTestId:{required:!1,tsType:{name:"string"},description:"",defaultValue:{value:'"open-cookie-consent"',computed:!1}},functional:{defaultValue:{value:"true",computed:!1},required:!1},statistics:{defaultValue:{value:"true",computed:!1},required:!1},blocking:{defaultValue:{value:"false",computed:!1},required:!1}}};const{expect:X,screen:L,waitFor:Y}=__STORYBOOK_MODULE_TEST__,ve={title:"Komponenter/CookieConsent",component:O,parameters:{layout:"centered"},args:{cookieName:"demo-consent-cookie",functional:!0,statistics:!0,blocking:!1,aboutPage:"https://www.fremtind.no/informasjonskapsler",aboutPageLinkText:"Les mer om hvordan vi bruker informasjons­kapsler",openTestId:"open-cookie-consent"},argTypes:{heading:{table:{disable:!0}},body:{table:{disable:!0}},openLabel:{table:{disable:!0}},openTestId:{table:{disable:!0}},cookieName:{control:"text",table:{defaultValue:{summary:"demo-consent-cookie"}}},functional:{control:"boolean",table:{defaultValue:{summary:"true"}}},statistics:{control:"boolean",table:{defaultValue:{summary:"true"}}},blocking:{control:"boolean",table:{defaultValue:{summary:"false"}}},aboutPage:{control:"text",table:{defaultValue:{summary:"https://www.fremtind.no/informasjonskapsler"}}},aboutPageLinkText:{control:"text",table:{defaultValue:{summary:"Les mer om hvordan vi bruker informasjons­kapsler"}}}},tags:["autodocs"],play:async({canvas:n,userEvent:t,step:o})=>{await o("Åpne cookie consent",async()=>{const r=n.getByTestId("open-cookie-consent");await t.click(r),await Y(()=>{X(L.queryByRole("dialog")||L.queryByRole("alertdialog")).toBeInTheDocument()})})}},b={name:"Personverninnstillinger",args:{heading:"Personverninnstillinger",body:e.jsxs(f,{direction:"column",gap:"m",children:[e.jsx("p",{children:"Brukeren kan når som helst åpne samtykkedialogen igjen fra en side for personvern eller innstillinger."}),e.jsx("p",{children:"Dette er den vanligste integrasjonen: en vanlig knapp som åpner modalen ved behov."})]}),openLabel:"Endre samtykke"},render:n=>e.jsx(j,{...n})},h={name:"Førstegangsvalg",args:{heading:"Samtykke ved første besøk",body:e.jsxs(f,{direction:"column",gap:"m",children:[e.jsx("p",{children:"Når brukeren må ta stilling før de går videre, kan modalen være blokkerende."}),e.jsx("p",{children:"Denne varianten bruker `blocking`, som gjør dialogen til et `alertdialog`."})]}),openLabel:"Vis samtykkedialog",blocking:!0},render:n=>e.jsx(j,{...n})},x={name:"Tilpasset lenketekst",args:{heading:"Lenke til egen informasjonsside",body:e.jsxs(f,{direction:"column",gap:"m",children:[e.jsx("p",{children:"Dersom løsningen har egen ordlyd for personvern eller informasjonskapsler, kan lenketeksten tilpasses."}),e.jsx("p",{children:"Selve dialogen forblir lik, men lenken kan følge språk og begreper i produktet ditt."})]}),openLabel:"Åpne personvernvalg",aboutPageLinkText:"Se hvordan vi bruker informasjons­kapsler i løsningen"},render:n=>e.jsx(j,{...n})};b.parameters={...b.parameters,docs:{...b.parameters?.docs,source:{originalSource:`{
+  name: "Personverninnstillinger",
+  args: {
+    heading: "Personverninnstillinger",
+    body: <Flex direction="column" gap="m">
+                <p>
+                    Brukeren kan når som helst åpne samtykkedialogen igjen fra
+                    en side for personvern eller innstillinger.
+                </p>
+                <p>
+                    Dette er den vanligste integrasjonen: en vanlig knapp som
+                    åpner modalen ved behov.
+                </p>
+            </Flex>,
+    openLabel: "Endre samtykke"
+  },
+  render: args => <CookieConsentExample {...args} />
+}`,...b.parameters?.docs?.source}}};h.parameters={...h.parameters,docs:{...h.parameters?.docs,source:{originalSource:`{
+  name: "Førstegangsvalg",
+  args: {
+    heading: "Samtykke ved første besøk",
+    body: <Flex direction="column" gap="m">
+                <p>
+                    Når brukeren må ta stilling før de går videre, kan modalen
+                    være blokkerende.
+                </p>
+                <p>
+                    Denne varianten bruker \`blocking\`, som gjør dialogen til et
+                    \`alertdialog\`.
+                </p>
+            </Flex>,
+    openLabel: "Vis samtykkedialog",
+    blocking: true
+  },
+  render: args => <CookieConsentExample {...args} />
+}`,...h.parameters?.docs?.source}}};x.parameters={...x.parameters,docs:{...x.parameters?.docs,source:{originalSource:`{
+  name: "Tilpasset lenketekst",
+  args: {
+    heading: "Lenke til egen informasjonsside",
+    body: <Flex direction="column" gap="m">
+                <p>
+                    Dersom løsningen har egen ordlyd for personvern eller
+                    informasjonskapsler, kan lenketeksten tilpasses.
+                </p>
+                <p>
+                    Selve dialogen forblir lik, men lenken kan følge språk og
+                    begreper i produktet ditt.
+                </p>
+            </Flex>,
+    openLabel: "Åpne personvernvalg",
+    aboutPageLinkText: "Se hvordan vi bruker informasjons­kapsler i løsningen"
+  },
+  render: args => <CookieConsentExample {...args} />
+}`,...x.parameters?.docs?.source}}};const be=["Personverninnstillinger","Forstegangsvalg","TilpassetLenketekst"];export{h as Forstegangsvalg,b as Personverninnstillinger,x as TilpassetLenketekst,be as __namedExportsOrder,ve as default};
