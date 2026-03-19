@@ -1,5 +1,22 @@
 # Change Log
 
+## 4.3.0
+
+### Minor Changes
+
+- dc0b558: - Knappene i modalen brekker nå under hverandre avhengig av bredden til _modalen_, ikke bredden av _vinduet_.
+  - Du kan nå overstyre bredden til modalen ved å sette CSS-variabelen `--modal-width`. Modalen vil fortsatt respektere skjermbredde på smale skjermer.
+- 405ba5e: Modal har fått mulighet for flere plasseringer, full bredde og animasjon for mer fleksibel bruk.
+
+### Patch Changes
+
+- 5984395: Retter feil i stilarkene for komponenter:
+
+  - Fikser ugyldig CSS-bruk av `var(transparent)` i beta-select ved å bruke en gyldig transparent verdi.
+  - Fikser datepicker-kalenderstilene ved å sikre gyldige custom properties og regelplassering, slik at bygging/parsing ikke feiler.
+
+- 21f66a1: Fikser en bug der padding ikke lenger kunne settes på Modal via prop.
+
 ## 4.2.0
 
 ### Minor Changes
