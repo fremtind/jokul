@@ -6,7 +6,7 @@
 
 .jkl-select--beta {
     --border-color: var(--jkl-color-border-input);
-    --background-color: var(transparent);
+    --background-color: transparent;
     --color: var(--jkl-color-text-default);
     --box-shadow: 0 0 0 jkl.rem(1px) transparent;
     --border-width: #{jkl.rem(1px)};
