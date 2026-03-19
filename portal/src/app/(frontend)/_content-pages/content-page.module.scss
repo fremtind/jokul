@@ -1,0 +1,84 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.toc {
+    width: 100%;
+    margin-block-end: jkl.$spacing-xl;
+    max-width: 60ch;
+
+    :global(.jkl-table-of-contents-title),
+    :global(.jkl-table-of-contents-item) {
+        max-width: none;
+    }
+}
+
+.releaseHeading {
+    display: flex;
+    align-items: center;
+    gap: jkl.$spacing-s;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.releaseTitle {
+    margin: 0;
+}
+
+.releaseLink {
+    max-width: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s ease;
+}
+
+.releaseHeading:hover .releaseLink,
+.releaseHeading:focus-within .releaseLink,
+.releaseLink:focus-visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.codeBlockWrapper {
+    max-width: 100%;
+}
+
+.codeBlock {
+    border: 1px solid jkl.$color-border-separator;
+    border-radius: jkl.$border-radius-m;
+    background-color: jkl.$color-background-container-low;
+    overflow: hidden;
+}
+
+.codeBlockHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: jkl.$spacing-s;
+    padding: jkl.$spacing-s jkl.$spacing-m;
+    border-bottom: 1px solid jkl.$color-border-separator;
+    background-color: jkl.$color-background-container;
+}
+
+.codeBlockLanguage {
+    color: jkl.$color-text-subdued;
+
+    @include jkl.text-style("text-small");
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+}
+
+.codeBlockContent {
+    margin: 0;
+    padding: jkl.$spacing-m;
+    overflow-x: auto;
+
+    code {
+        display: block;
+        background: none;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        white-space: pre;
+
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
+        @include jkl.text-style("text-small");
+    }
+}
