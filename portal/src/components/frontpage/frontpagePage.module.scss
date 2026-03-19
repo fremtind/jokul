@@ -1,0 +1,6 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.frontPage {
+    display: grid;
+    gap: var(--jkl-spacing-2xl);
+}

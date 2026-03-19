@@ -1,0 +1,39 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+@keyframes image-strip-marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.imageStripViewport {
+    --image-strip-item-width: 33svw;
+    width: 100vw;
+    margin-inline: calc(50% - 50vw);
+    padding-bottom: jkl.$spacing-xs;
+    overflow: hidden;
+
+    .imageStripTrack {
+        width: max-content;
+        will-change: transform;
+        animation: image-strip-marquee 30s linear infinite;
+        height: 100%;
+
+        @media (prefers-reduced-motion: reduce) {
+            animation: none;
+        }
+
+        img {
+            flex: 0 0 var(--image-strip-item-width);
+            width: var(--image-strip-item-width);
+            display: block;
+            height: auto;
+            border-radius: jkl.$border-radius-m;
+            background-color: jkl.$color-background-container-high;
+        }
+    }
+}

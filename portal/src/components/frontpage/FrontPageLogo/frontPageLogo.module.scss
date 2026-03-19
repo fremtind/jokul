@@ -1,0 +1,45 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.logoText {
+    font-size: clamp(4rem, 12vw, 11rem);
+    max-width: 100%;
+
+    @include jkl.from-medium-device {
+        max-width: 85vw;
+        min-height: min(68vh, 42rem);
+    }
+}
+
+.logoTextShell {
+    position: relative;
+    width: 100%;
+}
+
+.logoTextMeasure,
+.logoTextContent {
+    padding-top: jkl.$spacing-l;
+    width: 100%;
+}
+
+.logoTextMeasure {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.logoTextContent {
+    position: absolute;
+    inset: 0;
+
+    &::after {
+        @include jkl.decorative($content: "_");
+        opacity: 1;
+    }
+}
+
+.logoTextContentDone {
+    &::after {
+        @include jkl.motion("exit");
+        transition-property: opacity;
+        opacity: 0;
+    }
+}

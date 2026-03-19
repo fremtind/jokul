@@ -1,0 +1,130 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.latestUpdatesSection {
+    width: 100%;
+    max-width: min(100%, 864px);
+    margin-inline: auto;
+
+    .list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .item {
+        min-width: 0;
+        max-width: unset;
+    }
+}
+
+.newsCard,
+.featuredCard {
+    :is(h3, p) {
+        margin: 0;
+    }
+
+    h3 {
+        @include jkl.text-style("heading-4");
+    }
+}
+
+.newsCard {
+    color: inherit;
+    text-decoration: none;
+
+    .newsCardContent {
+        min-width: 0;
+    }
+
+    .newsCardMain {
+        min-width: 0;
+    }
+
+    .newsCardArrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: jkl.$color-text-subdued;
+
+        &::before {
+            content: "arrow_forward" / "";
+
+            @include jkl.use-font-family("Fremtind Material Symbols");
+        }
+    }
+}
+
+.newsMeta {
+    color: jkl.$color-text-subdued;
+
+    @include jkl.text-style("text-small");
+
+    .newsMetaIcon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        &::before {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            @include jkl.use-font-family("Fremtind Material Symbols");
+        }
+
+        &[data-state="created"]::before {
+            content: "date_range" / "";
+        }
+
+        &[data-state="edited"]::before {
+            content: "update" / "";
+        }
+    }
+
+    .newsDate {
+        white-space: nowrap;
+    }
+
+    .newsDivider {
+        aspect-ratio: 1;
+        width: jkl.rem(4px);
+        flex-shrink: 0;
+        background-color: jkl.$color-text-subdued;
+        transform: rotate(45deg);
+    }
+}
+
+.featuredNewsContent {
+    display: grid;
+    gap: jkl.$spacing-m;
+
+    @include jkl.from-medium-device {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: jkl.$spacing-l;
+        align-items: stretch;
+    }
+
+    .featuredNewsImageShell {
+        overflow: hidden;
+        border-radius: jkl.$border-radius-m;
+        aspect-ratio: 4 / 3;
+        background-color: jkl.$color-background-container-low;
+
+        @include jkl.from-medium-device {
+            height: 100%;
+            aspect-ratio: auto;
+        }
+    }
+
+    .featuredNewsImage {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .featuredNewsContentText {
+        min-width: 0;
+    }
+}

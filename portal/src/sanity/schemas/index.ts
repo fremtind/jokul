@@ -7,6 +7,7 @@ import { componentProps } from "./componentProps";
 import { doAndDont } from "./doAndDont";
 import { blogPost } from "./documents/blogPost";
 import { component } from "./documents/component";
+import { frontpage } from "./documents/frontpage";
 import { fundamentals } from "./documents/fundamentals";
 import { siteData } from "./documents/siteData";
 import { story } from "./documents/story";
@@ -21,6 +22,7 @@ import { table } from "./table";
 export const schemaTypes = [
     component,
     blogPost,
+    frontpage,
     temaside,
     componentProps,
     code,

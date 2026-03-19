@@ -1,0 +1,50 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.portalSections {
+    display: grid;
+    gap: jkl.$spacing-m;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    align-items: stretch;
+
+    @supports (grid-template-rows: subgrid) {
+        grid-template-rows: auto auto;
+        grid-auto-rows: auto;
+    }
+}
+
+.link {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-content: start;
+    align-items: start;
+    gap: jkl.$spacing-s;
+    text-align: center;
+    min-height: 12rem;
+
+    @supports (grid-template-rows: subgrid) {
+        grid-row: span 2;
+        grid-template-rows: subgrid;
+    }
+
+    &:first-of-type {
+        @include jkl.from-medium-device {
+            grid-column: 1 / 3;
+        }
+    }
+
+    :is(.linkTitle, .linkDescription) {
+        margin: 0;
+    }
+
+    @include jkl.from-large-device {
+        min-height: 18rem;
+    }
+}
+
+.linkTitle {
+    @include jkl.text-style("heading-2");
+}
+
+.linkDescription {
+    max-width: unset;
+}

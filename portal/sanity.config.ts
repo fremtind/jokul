@@ -1,7 +1,7 @@
 import { dataset, projectId } from "@/sanity/env";
 import { schemaTypes } from "@/sanity/schemas";
 import { codeInput } from "@sanity/code-input";
-import { CogIcon, ComponentIcon } from "@sanity/icons";
+import { CogIcon, ComponentIcon, HomeIcon } from "@sanity/icons";
 import { nbNOLocale } from "@sanity/locale-nb-no";
 import { table } from "@sanity/table";
 import { visionTool } from "@sanity/vision";
@@ -21,9 +21,21 @@ export default defineConfig({
                 S.list()
                     .title("Innhold")
                     .items([
+                        S.listItem()
+                            .title("Forside")
+                            .icon(HomeIcon)
+                            .child(
+                                S.document()
+                                    .schemaType("jokul_frontpage")
+                                    .documentId("jokul_frontpage"),
+                            ),
+                        S.divider(),
                         ...S.documentTypeListItems().filter(
                             (listItem) =>
                                 !["jokul_story"].includes(
+                                    listItem.getId() || "",
+                                ) &&
+                                !["jokul_frontpage"].includes(
                                     listItem.getId() || "",
                                 ) &&
                                 !["jokul_siteData"].includes(

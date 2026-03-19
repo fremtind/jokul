@@ -16,6 +16,7 @@ html {
 body {
     --max-width: 1440px;
     --min-width: 320px;
+    --portal-inline-padding: var(--jkl-spacing-16);
     background-color: var(--jkl-background-container-high);
     min-height: 100dvh;
 }
@@ -28,11 +29,12 @@ body {
 
     @media (width >=940px) {
         --portal-header-height: #{jkl.rem(90px)};
+        --portal-inline-padding: var(--jkl-spacing-64);
 
         padding: 0;
 
         main {
-            padding: var(--jkl-spacing-40) var(--jkl-spacing-64);
+            padding: var(--jkl-spacing-40) var(--portal-inline-padding);
         }
     }
 }
@@ -67,7 +69,7 @@ samp {
 
 main {
     display: grid;
-    padding: var(--jkl-spacing-16);
+    padding: var(--portal-inline-padding);
 }
 
 article header {
