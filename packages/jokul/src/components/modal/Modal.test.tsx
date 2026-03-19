@@ -67,6 +67,43 @@ describe("Modal", () => {
         );
     }
 
+    function ModalWithPlacement({
+        placement,
+        slideIn,
+    }: {
+        placement: "center" | "left" | "bottom" | "right";
+        slideIn: boolean;
+    }) {
+        const heading = "Modal med plassering";
+        const [instance, { title, overlay, container, modal, closeButton }] =
+            useModal({ title: heading });
+
+        useEffect(() => {
+            if (!instance) {
+                return;
+            }
+            instance.show();
+        }, [instance]);
+
+        return ReactDOM.createPortal(
+            <ModalContainer
+                {...container}
+                placement={placement}
+                slideIn={slideIn}
+            >
+                <ModalOverlay {...overlay} />
+                <Modal {...modal}>
+                    <ModalHeader>
+                        <ModalTitle {...title}>{heading}</ModalTitle>
+                        <ModalCloseButton {...closeButton} />
+                    </ModalHeader>
+                    <ModalBody>Innhold</ModalBody>
+                </Modal>
+            </ModalContainer>,
+            document.body,
+        );
+    }
+
     it("should render", () => {
         const { getByText, getByRole } = setup(<ModalTest />);
         expect(getByRole("dialog")).toBeInTheDocument();
@@ -113,5 +150,17 @@ describe("Modal", () => {
         const results = await axe(container);
 
         expect(results).toHaveNoViolations();
+    });
+
+    it("should apply placement and slide-in classes", () => {
+        setup(<ModalWithPlacement placement="bottom" slideIn />);
+        const modalContainer = document.body.querySelector(
+            ".jkl-modal-container",
+        );
+
+        expect(modalContainer).toHaveClass(
+            "jkl-modal-container--placement-bottom",
+        );
+        expect(modalContainer).toHaveClass("jkl-modal-container--slide-in");
     });
 });

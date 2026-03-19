@@ -1,0 +1,32 @@
+@use "../../../core/jkl";
+
+@layer jokul.components {
+    .jkl-modal {
+        --margin: var(--jkl-spacing-m);
+
+        container-type: inline-size;
+        box-sizing: border-box;
+        margin: var(--margin);
+        padding: var(--modal-padding, var(--jkl-unit-40));
+        z-index: jkl.$z-index--modal;
+
+        background-color: var(--jkl-color-background-container-high);
+        border-radius: var(--jkl-border-radius-l);
+        box-shadow: jkl.$shadow-task-card;
+
+        width: min(
+            calc(100vw - 2 * var(--margin)),
+            var(--modal-width, 60ch /* ~650px ved vanlig zoom/size */)
+        );
+        max-width: none;
+        max-height: 90vh;
+        overflow: auto;
+
+        display: flex;
+        flex-direction: column;
+
+        @include jkl.forced-colors-mode {
+            border-color: CanvasText;
+        }
+    }
+}

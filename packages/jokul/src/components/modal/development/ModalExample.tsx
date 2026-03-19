@@ -6,6 +6,8 @@ import {
     useExampleContext,
 } from "utils/dev-example/index.js";
 import { Button } from "../../button/Button.js";
+import { FieldGroup } from "../../input-group/index.js";
+import { TextInput } from "../../text-input/TextInput.js";
 import {
     Modal,
     ModalActions,
@@ -24,15 +26,23 @@ type ModalComponentProps = ExampleComponentProps & {
     dialogRef: React.RefCallback<ModalInstance>;
     onConfirm: () => void;
     onCancel: () => void;
+    heading: string;
+    body: React.ReactNode;
+    placement?: "center" | "left" | "bottom" | "right";
+    slideIn?: boolean;
+    confirmTestId: string;
 };
 
 function ModalComponent({
     dialogRef,
     onConfirm,
     onCancel,
+    heading,
+    body,
+    placement = "center",
+    slideIn = false,
+    confirmTestId,
 }: ModalComponentProps) {
-    const heading = "Bekreft sletting";
-
     const [instance, { title, overlay, container, modal, closeButton }] =
         useModal({
             title: heading,
@@ -53,7 +63,12 @@ function ModalComponent({
     const { theme } = useExampleContext();
 
     return ReactDOM.createPortal(
-        <ModalContainer {...container} data-theme={theme}>
+        <ModalContainer
+            {...container}
+            placement={placement}
+            slideIn={slideIn}
+            data-theme={theme}
+        >
             <ModalOverlay
                 {...overlay}
                 onClick={() => {
@@ -70,18 +85,16 @@ function ModalComponent({
                         }}
                     />
                 </ModalHeader>
-                <ModalBody>
-                    Er du sikker på at du vil slette Foo Bar Baz?
-                </ModalBody>
+                <ModalBody>{body}</ModalBody>
                 <ModalActions>
                     <Button
                         variant="primary"
-                        data-testid="confirm-modal"
+                        data-testid={confirmTestId}
                         onClick={() => {
                             onConfirm();
                         }}
                     >
-                        Slett
+                        Bekreft
                     </Button>
                     <Button
                         variant="secondary"
@@ -89,7 +102,7 @@ function ModalComponent({
                             onCancel();
                         }}
                     >
-                        Avbryt
+                        Lukk
                     </Button>
                 </ModalActions>
             </Modal>
@@ -100,6 +113,8 @@ function ModalComponent({
 
 export const ModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const dialogRef = React.useRef<ModalInstance | null>();
+    const bottomRef = React.useRef<ModalInstance | null>();
+    const sideRef = React.useRef<ModalInstance | null>();
     return (
         <div>
             <Button
@@ -109,13 +124,34 @@ export const ModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                     dialogRef.current?.show();
                 }}
             >
-                Åpne modal
+                Åpne bekreftelse
+            </Button>
+            <Button
+                variant="secondary"
+                data-testid="open-modal-bottom"
+                onClick={() => {
+                    bottomRef.current?.show();
+                }}
+            >
+                Åpne bunnark
+            </Button>
+            <Button
+                variant="secondary"
+                data-testid="open-modal-side"
+                onClick={() => {
+                    sideRef.current?.show();
+                }}
+            >
+                Åpne sidepanel
             </Button>
             <ModalComponent
                 boolValues={boolValues}
                 dialogRef={(instance) => {
                     dialogRef.current = instance;
                 }}
+                heading="Bekreft sletting"
+                body="Er du sikker på at du vil slette Foo Bar Baz?"
+                confirmTestId="confirm-modal"
                 onConfirm={() => {
                     console.log("✅ Confirm");
                     dialogRef.current?.hide();
@@ -123,6 +159,56 @@ export const ModalExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                 onCancel={() => {
                     console.log("❌ Cancel");
                     dialogRef.current?.hide();
+                }}
+            />
+            <ModalComponent
+                boolValues={boolValues}
+                dialogRef={(instance) => {
+                    bottomRef.current = instance;
+                }}
+                heading="Velg dekning"
+                body={
+                    <FieldGroup legend="Dekninger">
+                        <TextInput label="Reiseforsikring" placeholder="Ja" />
+                        <TextInput label="Avbestilling" placeholder="Ja" />
+                        <TextInput label="Reisegods" placeholder="Ja" />
+                    </FieldGroup>
+                }
+                placement="bottom"
+                slideIn
+                confirmTestId="confirm-modal-bottom"
+                onConfirm={() => {
+                    console.log("✅ Confirm bottom");
+                    bottomRef.current?.hide();
+                }}
+                onCancel={() => {
+                    console.log("❌ Cancel bottom");
+                    bottomRef.current?.hide();
+                }}
+            />
+            <ModalComponent
+                boolValues={boolValues}
+                dialogRef={(instance) => {
+                    sideRef.current = instance;
+                }}
+                heading="Skademelding"
+                body={
+                    <FieldGroup legend="Detaljer">
+                        <TextInput label="Skadenummer" placeholder="SKD-123" />
+                        <TextInput label="Dato" placeholder="dd.mm.åååå" />
+                        <TextInput label="Sted" placeholder="Oslo" />
+                    </FieldGroup>
+                }
+                placement="right"
+                slideIn
+                confirmTestId="confirm-modal-side"
+                onConfirm={() => {
+                    console.log("✅ Confirm side");
+                    sideRef.current?.hide();
+                }}
+                onCancel={() => {
+                    console.log("❌ Cancel side");
+                    sideRef.current?.hide();
                 }}
             />
         </div>
