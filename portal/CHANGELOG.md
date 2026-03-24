@@ -1,5 +1,13 @@
 # portal
 
+## 1.5.1
+
+### Patch Changes
+
+- Updated dependencies [c9de3ac]
+- Updated dependencies [efca3ab]
+  - @fremtind/jokul@4.4.0
+
 ## 1.5.0
 
 ### Minor Changes

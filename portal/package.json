@@ -1,7 +1,7 @@
 {
     "name": "portal",
     "private": true,
-    "version": "1.5.0",
+    "version": "1.5.1",
     "description": "Dokumentasjonsportal for Jøkul designsystem",
     "license": "MIT",
     "type": "module",
