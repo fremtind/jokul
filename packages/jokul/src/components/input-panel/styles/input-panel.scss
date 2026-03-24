@@ -27,29 +27,31 @@
             position: relative;
             padding: var(--jkl-unit-20) var(--padding-inline);
 
+            .jkl-radio-button,
+            .jkl-checkbox {
+                grid-column: 1 / -1;
+                grid-row: 1;
+                inline-size: 100%;
+            }
+
+            label {
+                inline-size: 100%;
+            }
+
             &__amount {
                 display: flex;
                 height: 100%;
                 align-items: center;
+                grid-column: 2;
+                grid-row: 1;
+                justify-self: end;
+                pointer-events: none;
+                position: relative;
+                z-index: 1;
 
                 @include jkl.text-style("text-medium") {
                     font-weight: jkl.$typography-weight-bold;
                 }
-            }
-
-            & label,
-            .jkl-radio-button,
-            .jkl-checkbox {
-                position: unset;
-            }
-
-            & label::after {
-                content: "";
-                position: absolute;
-                top: 0;
-                left: 0;
-                inline-size: 100%;
-                block-size: 100%;
             }
         }
 
