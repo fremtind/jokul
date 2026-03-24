@@ -38,14 +38,18 @@
         &__wrapper {
             --border-radius: #{jkl.rem(4px)};
             --outline-offset: 3px;
-            --border-top-left-radius: 0;
-            --border-top-right-radius: 0;
-            --border-bottom-left-radius: 0;
-            --border-bottom-right-radius: 0;
+            --stroke-outline-offset: 3px;
+            --border-top-left-radius: var(--border-radius);
+            --border-top-right-radius: var(--border-radius);
+            --border-bottom-left-radius: var(--border-radius);
+            --border-bottom-right-radius: var(--border-radius);
 
             position: relative;
 
             & + & {
+                --border-top-left-radius: 0;
+                --border-top-right-radius: 0;
+                --stroke-outline-offset: -1px;
 
                 // Matches every expandable that follows directly after another
                 .jkl-expandable--stroke {
@@ -53,29 +57,21 @@
                 }
             }
 
-            &:first-child {
-                --border-top-left-radius: var(--border-radius);
-                --border-top-right-radius: var(--border-radius);
-            }
-
-            &:last-child {
-                --border-bottom-left-radius: var(--border-radius);
-                --border-bottom-right-radius: var(--border-radius);
+            &:has(+ &) {
+                --border-bottom-left-radius: 0;
+                --border-bottom-right-radius: 0;
+                --stroke-outline-offset: -1px;
             }
 
             &:has(.jkl-expander:focus-visible) {
                 &:has(.jkl-expandable--stroke) {
-                    --outline-offset: -1px;
+                    --outline-offset: var(--stroke-outline-offset);
                 }
 
                 .jkl-expandable__focus-container {
                     @include jkl.focus-outline;
                     outline-offset: var(--outline-offset);
                 }
-            }
-
-            &:has(:focus-visible):first-child:last-child {
-                --outline-offset: 3px;
             }
         }
 
