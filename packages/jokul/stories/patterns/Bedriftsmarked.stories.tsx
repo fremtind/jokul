@@ -43,7 +43,7 @@ const Header = () => (
 );
 const Sidebar = ({ name = "B", number = 84 }) => (
     <Card
-        variant="low"
+        variant="filled"
         as="nav"
         padding="l"
         style={{ maxWidth: "25ch", minWidth: "25ch" }}
@@ -55,7 +55,7 @@ const Sidebar = ({ name = "B", number = 84 }) => (
             </Flex>
             <hr
                 style={{
-                    color: "var(--jkl-color-border-separator)",
+                    color: "var(--jkl-color-border-subdued)",
                     width: "100%",
                 }}
             />
@@ -89,7 +89,7 @@ const Sidebar = ({ name = "B", number = 84 }) => (
                 ))}
                 <hr
                     style={{
-                        color: "var(--jkl-color-border-separator)",
+                        color: "var(--jkl-color-border-subdued)",
                         width: "100%",
                     }}
                 />
@@ -254,7 +254,12 @@ export const Hjem: Story = {
                         </div>
                     </Flex>
                 </Flex>
-                <Card data-theme="dark" variant="high" as="footer" padding="l">
+                <Card
+                    data-theme="dark"
+                    variant="filled"
+                    as="footer"
+                    padding="l"
+                >
                     <Flex justifyContent="space-between">
                         <Flex gap="m">
                             {[
@@ -349,7 +354,12 @@ export const Forsikringsoversikt: Story = {
                         </Flex>
                     </Flex>
                 </Flex>
-                <Card data-theme="dark" variant="high" as="footer" padding="l">
+                <Card
+                    data-theme="dark"
+                    variant="filled"
+                    as="footer"
+                    padding="l"
+                >
                     <Flex justifyContent="space-between">
                         <Flex gap="m">
                             {[

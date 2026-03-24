@@ -18,6 +18,9 @@
   }
 
   .jkl-icon-red-cross {
+    --red-cross-circle: var(--jkl-color-error-background-action);
+    --red-cross-path: var(--jkl-color-error-text-on-action);
+
     width: 1.3em;
     height: 1.3em;
     box-sizing: border-box;
@@ -37,6 +40,9 @@
   }
 
   .jkl-icon-green-check {
+    --green-check-circle: var(--jkl-color-success-background-action);
+    --green-check-path: var(--jkl-color-success-text-on-action);
+
     width: 1.3em;
     height: 1.3em;
     box-sizing: border-box;

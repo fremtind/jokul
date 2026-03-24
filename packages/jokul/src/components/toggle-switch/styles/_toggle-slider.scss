@@ -4,12 +4,12 @@
 $_slider-rounded: jkl.rem(100px);
 
 .jkl-toggle-slider {
-    --jkl-slider-bg: var(--jkl-color-background-container-low);
-    --jkl-slider-pill: var(--jkl-color-background-container-high);
+    --jkl-slider-bg: var(--jkl-color-background-page);
+    --jkl-slider-pill: var(--jkl-color-background-container);
     --jkl-slider-text: var(--jkl-color-text-default);
     --jkl-slider-text--active: var(--jkl-color-text-default);
-    --jkl-slider-focus-color: var(--jkl-color-border-action);
-    --jkl-slider-hover-color: var(--jkl-color-border-action);
+    --jkl-slider-focus-color: var(--jkl-color-border-strong);
+    --jkl-slider-hover-color: var(--jkl-color-border-strong);
 
     @include jkl.use-font-variables("jkl-slider");
 

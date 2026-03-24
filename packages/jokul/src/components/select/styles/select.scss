@@ -11,8 +11,7 @@
         --min-option-height: min(var(--jkl-unit-60), 3rem);
 
         /* Vi må trekke fra bredden til rammen for å få riktig høyde */
-        --button-padding: calc(var(--jkl-unit-15) - var(--border-width))
-            calc(0.75em - var(--border-width));
+        --button-padding: calc(var(--jkl-unit-15) - var(--border-width)) calc(0.75em - var(--border-width));
         --option-padding: var(--jkl-unit-05) 0.75em;
 
         display: block;
@@ -31,16 +30,16 @@
         & select {
             appearance: none;
 
-        &:-moz-focusring {
-            color: transparent;
-            text-shadow: 0 0 0 var(--jkl-color-text-subdued);
-        }
+            &:-moz-focusring {
+                color: transparent;
+                text-shadow: 0 0 0 var(--jkl-color-text-subdued);
+            }
 
             & option {
                 font-weight: normal;
                 font-family: sans-serif;
                 color: var(--jkl-color-text-subdued);
-                background-color: var(--jkl-color-background-container-high);
+                background-color: var(--jkl-color-background-container);
             }
         }
 
@@ -67,7 +66,7 @@
 
             height: var(--jkl-select-input-height);
             border-radius: var(--border-radius);
-            border: var(--border-width) solid var(--jkl-color-border-input);
+            border: var(--border-width) solid var(--jkl-color-border-default);
             box-shadow: 0 0 0 jkl.rem(1px) transparent;
             text-align: left;
             width: 100%;
@@ -87,9 +86,8 @@
             }
 
             &:hover {
-                border-color: var(--jkl-color-border-input-focus);
-                box-shadow: 0 0 0 jkl.rem(1px)
-                    var(--jkl-color-border-input-focus);
+                border-color: var(--jkl-color-border-strong);
+                box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-strong);
 
                 & ~ .jkl-select__arrow {
                     transform: translateY(calc(-50% + #{jkl.rem(3px)}));
@@ -102,8 +100,10 @@
         }
 
         @include jkl.keyboard-navigation {
+
             &__search-input,
             &__button {
+
                 &:focus-visible,
                 &:has(:focus-visible) {
                     @include jkl.focus-outline;
@@ -111,6 +111,7 @@
             }
 
             &:has(:focus-visible) {
+
                 .jkl-select__button,
                 .jkl-select__search-input {
                     @include jkl.focus-outline;
@@ -129,19 +130,25 @@
             transition-property: transform, color;
 
             @include jkl.motion;
-            @include jkl.forced-colors-svg-fallback(
-                $stroke: CanvasText,
-                $fill: CanvasText
-            );
+            @include jkl.forced-colors-svg-fallback($stroke: CanvasText,
+                $fill: CanvasText);
 
             .jkl-select:has([aria-invalid="true"]) & {
-                color: var(--jkl-color-text-on-alert);
+                color: var(--jkl-color-error-text-default);
             }
         }
 
         &__options-menu {
-            background-color: var(--jkl-color-background-container-high);
-            border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
+            position: absolute;
+            left: jkl.rem(-1px);
+            right: jkl.rem(-1px);
+            top: 100%;
+            z-index: jkl.$z-index--dropdown;
+
+            background-color: var(--jkl-color-background-container);
+            border: jkl.rem(2px) solid var(--jkl-color-border-strong);
+            border-top: none;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-sizing: border-box;
             // Strekker seg ut over kantene på trigger-knappen for å dekke
             // den 1px brede borderen, slik at listen visuelt henger sammen
@@ -155,18 +162,14 @@
 
             overflow-y: auto;
             // Sett makshøyde på listen til høyden av (maxShownOptions + 0.5) ganger høyden på ett enlinjes valg
-            max-height: calc(
-                calc(var(--jkl-select-max-shown-options, 5) + 0.5) *
-                    var(--min-option-height)
-            );
+            max-height: calc(calc(var(--jkl-select-max-shown-options, 5) + 0.5) * var(--min-option-height));
 
             // Standard: lista ligger under triggeren — flat topp, runde
             // bunnhjørner, ingen border på toppen som ville duplisert
             // knappens border.
             &[data-popover-placement="bottom"] {
                 border-top: none;
-                border-radius: 0 0 var(--jkl-border-radius-s)
-                    var(--jkl-border-radius-s);
+                border-radius: 0 0 var(--jkl-border-radius-s) var(--jkl-border-radius-s);
             }
 
             // Når `flip` snur lista over knappen byttes flat side og runde
@@ -174,8 +177,7 @@
             // visuelt.
             &[data-popover-placement="top"] {
                 border-bottom: none;
-                border-radius: var(--jkl-border-radius-s)
-                    var(--jkl-border-radius-s) 0 0;
+                border-radius: var(--jkl-border-radius-s) var(--jkl-border-radius-s) 0 0;
             }
         }
 
@@ -230,12 +232,16 @@
         }
 
         &--open {
+
             .jkl-select__search-input,
             .jkl-select__button {
-                border-color: var(--jkl-color-border-input-focus);
+                <<<<<<< HEAD border-color: var(--jkl-color-border-input-focus);
                 background-color: var(--jkl-color-background-container-high);
-                box-shadow: 0 0 0 jkl.rem(1px)
-                    var(--jkl-color-border-input-focus);
+                =======border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+                border-color: var(--jkl-color-border-strong);
+                background-color: var(--jkl-color-background-container);
+                > > > > > > > 9c4e379faa (Refactor color theme tokens and component mappings) box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-strong);
 
                 &:hover ~ .jkl-select__arrow {
                     transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
@@ -244,6 +250,7 @@
 
             // Lista ligger under (default): flat bunn på input/knapp.
             .jkl-select__outer-wrapper[data-popover-placement="bottom"] {
+
                 .jkl-select__search-input,
                 .jkl-select__button {
                     border-bottom-left-radius: 0;
@@ -253,6 +260,7 @@
 
             // Lista ligger over: flat topp på input/knapp.
             .jkl-select__outer-wrapper[data-popover-placement="top"] {
+
                 .jkl-select__search-input,
                 .jkl-select__button {
                     border-top-left-radius: 0;
@@ -262,10 +270,11 @@
         }
 
         &--invalid {
+
             .jkl-select__search-input,
             .jkl-select__button {
-                background-color: var(--jkl-color-background-alert-error);
-                color: var(--jkl-color-text-on-alert-subdued);
+                background-color: var(--jkl-color-error-background-container);
+                color: var(--jkl-color-error-text-subdued);
 
                 &--active-value {
                     color: revert;
@@ -274,6 +283,7 @@
         }
 
         @include jkl.forced-colors-mode {
+
             // Vi er en button (hvis ikke native) og får ButtonText, men vi later som vi er en select, og den har CanvasText
             & .jkl-select__button,
             & .jkl-select__search-input {
@@ -328,9 +338,7 @@
     // animasjonsvinduet, og lista ville blinket i (0,0).
     @media (prefers-reduced-motion: no-preference) {
         .jkl-select__options-menu {
-            animation: jkl-select-options-menu-in
-                var(--jkl-motion-timing-snappy)
-                var(--jkl-motion-easing-standard);
+            animation: jkl-select-options-menu-in var(--jkl-motion-timing-snappy) var(--jkl-motion-easing-standard);
 
             // Når lista flippes opp animerer vi fra motsatt retning slik
             // at bevegelsen alltid kommer fra triggeren.
@@ -345,6 +353,7 @@
             opacity: 0;
             transform: translateY(jkl.rem(-4px));
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -356,6 +365,7 @@
             opacity: 0;
             transform: translateY(jkl.rem(4px));
         }
+
         to {
             opacity: 1;
             transform: translateY(0);

@@ -29,7 +29,7 @@ export const ComponentHeader = ({
     status,
 }: ComponentHeaderProps) => {
     return (
-        <Card variant="low" asChild>
+        <Card variant="filled" asChild>
             <Flex as="header" className={styles.header}>
                 <div>
                     {name && (
