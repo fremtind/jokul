@@ -5,8 +5,8 @@
 }
 
 .jkl-portal-component-example {
-    --component-example-bg: var(--jkl-color-background-container-low);
-    --component-example-header-color: var(--jkl-color-background-container-inverted);
+    --component-example-bg: var(--jkl-color-background-page);
+    --component-example-header-color: var(--jkl-color-text-subdued);
 
     box-sizing: border-box;
     background-color: var(--component-example-bg);

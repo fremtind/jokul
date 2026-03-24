@@ -19,7 +19,7 @@ export const LinkCard: FC<PortableTextTypeComponentProps<Jokul_linkCard>> = ({
                     <Card
                         asChild
                         clickable={true}
-                        variant="low"
+                        variant="filled"
                         key={link._key || index}
                     >
                         <a href={link.url} aria-label={link.title}>

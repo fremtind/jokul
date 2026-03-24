@@ -1,7 +1,7 @@
 @use '@fremtind/jokul/styles/jkl';
 
 .codeBlock {
-    background: var(--jkl-color-background-container-high);
+    background: var(--jkl-color-background-container);
     border-radius: var(--jkl-border-radius-s);
     overflow: hidden;
     min-width: 60ch;
@@ -31,7 +31,7 @@
         display: grid;
         grid-template-columns: 1fr auto auto;
         align-items: center;
-        border-block-end: 1px solid var(--jkl-color-border-separator);
+        border-block-end: 1px solid var(--jkl-color-border-subdued);
 
         .title {
             @include jkl.text-style("text-small") {
@@ -51,7 +51,7 @@
                 height: 100%;
                 margin-inline-end: 1ch;
                 padding-inline-end: 2ch;
-                border-inline-end: 1px solid var(--jkl-color-border-separator);
+                border-inline-end: 1px solid var(--jkl-color-border-subdued);
             }
         }
 

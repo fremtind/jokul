@@ -66,7 +66,7 @@ export const Detaljside: Story = {
             >
                 <Header />
                 <Flex gap="m">
-                    <Card padding="xl" asChild variant="high">
+                    <Card padding="xl" asChild variant="filled">
                         <Flex
                             direction="column"
                             gap="l"
@@ -158,7 +158,7 @@ export const DetaljsideMedUlikeSizes: Story = {
                     <Card
                         padding="xl"
                         asChild
-                        variant="high"
+                        variant="filled"
                         data-size="medium"
                     >
                         <Flex
@@ -263,7 +263,7 @@ export const SmartDelay: Story = {
                     justifyContent="space-between"
                     alignItems="center"
                     gap="xl"
-                    variant="low"
+                    variant="filled"
                     padding="m"
                     style={{ alignSelf: "start" }}
                 >

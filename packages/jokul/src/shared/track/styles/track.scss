@@ -1,8 +1,8 @@
 @use "../../../styles/jkl";
 
 @mixin track {
-    --track-color: var(--jkl-color-border-separator);
-    --bar-color: var(--jkl-color-border-input-focus);
+    --track-color: var(--jkl-color-border-subdued);
+    --bar-color: var(--jkl-color-border-strong);
     --bar-height: #{jkl.rem(4px)};
 
     background-color: var(--track-color);

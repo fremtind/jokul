@@ -66,7 +66,7 @@ export const StatuskortExample = ({
                     margin: 0,
                     width: "100%",
                     border: 0,
-                    borderBottom: "1px solid var(--jkl-color-border-separator)",
+                    borderBottom: "1px solid var(--jkl-color-border-subdued)",
                 }}
             />
             <p className="jkl-small">

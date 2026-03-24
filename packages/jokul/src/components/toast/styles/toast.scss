@@ -31,12 +31,14 @@
     }
 
     .jkl-toast {
-        --background-color: var(--jkl-color-background-container-high);
+        --background-color: var(--jkl-color-background-container);
         --text-color: var(--jkl-color-text-default);
+        --border-color: transparent;
         --jkl-toast-padding: var(--jkl-unit-20);
 
         color: var(--text-color);
         background-color: var(--background-color);
+        border: 1px solid var(--border-color);
         border-radius: 4px;
         box-sizing: border-box;
         align-items: start;
@@ -103,27 +105,28 @@
             }
         }
 
-        &--info,
-        &--warning,
-        &--error,
-        &--success {
-            --text-color: var(--jkl-color-text-on-alert);
-        }
-
         &--info {
-            --background-color: var(--jkl-color-background-alert-info);
+            --background-color: var(--jkl-color-info-background-container);
+            --text-color: var(--jkl-color-info-text-default);
+            --border-color: var(--jkl-color-info-border-subdued);
         }
 
         &--warning {
-            --background-color: var(--jkl-color-background-alert-warning);
+            --background-color: var(--jkl-color-warning-background-container);
+            --text-color: var(--jkl-color-warning-text-default);
+            --border-color: var(--jkl-color-warning-border-subdued);
         }
 
         &--error {
-            --background-color: var(--jkl-color-background-alert-error);
+            --background-color: var(--jkl-color-error-background-container);
+            --text-color: var(--jkl-color-error-text-default);
+            --border-color: var(--jkl-color-error-border-subdued);
         }
 
         &--success {
-            --background-color: var(--jkl-color-background-alert-success);
+            --background-color: var(--jkl-color-success-background-container);
+            --text-color: var(--jkl-color-success-text-default);
+            --border-color: var(--jkl-color-success-border-subdued);
         }
 
         @include jkl.forced-colors-mode {

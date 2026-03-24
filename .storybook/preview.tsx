@@ -1,8 +1,10 @@
 import type { Preview } from "@storybook/nextjs";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
-import { sizeDecorator, sizeGlobal } from "./size.js";
-import { themeDecorator, themeGlobal } from "./theme.js";
+import { brandDecorator, brandGlobal } from "./globals/brand.js";
+import { sizeDecorator, sizeGlobal } from "./globals/size.js";
+import { themeDecorator, themeGlobal } from "./globals/theme.js";
+import { variantDecorator, variantGlobal } from "./globals/variant.js";
 
 import "./global.scss";
 
@@ -14,33 +16,30 @@ const backgroundOptions = [
         value: "var(--jkl-color-background-page)",
     },
     {
-        name: "Page variant",
-        value: "var(--jkl-color-background-page-variant)",
-    },
-    {
         name: "Container",
         value: "var(--jkl-color-background-container)",
-    },
-    {
-        name: "Container low",
-        value: "var(--jkl-color-background-container-low)",
-    },
-    {
-        name: "Container high",
-        value: "var(--jkl-color-background-container-high)",
     },
 ];
 
 const preview: Preview = {
     globalTypes: {
+        brand: brandGlobal,
         theme: themeGlobal,
         size: sizeGlobal,
+        variant: variantGlobal,
     },
     initialGlobals: {
+        brand: "default",
         theme: undefined,
         size: undefined,
+        variant: "neutral",
     },
-    decorators: [themeDecorator, sizeDecorator],
+    decorators: [
+        themeDecorator,
+        sizeDecorator,
+        variantDecorator,
+        brandDecorator,
+    ],
     tags: ["autodocs"],
     parameters: {
         backgrounds: {

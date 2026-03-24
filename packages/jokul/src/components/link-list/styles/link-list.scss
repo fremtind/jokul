@@ -3,7 +3,7 @@
 
 @layer jokul.components {
     .jkl-link-list {
-        --border: 1px solid var(--jkl-color-border-separator);
+        --border: 1px solid var(--jkl-color-border-subdued);
         --text-color: var(--jkl-color-text-default);
 
         @include jkl.text-style("paragraph-medium");
@@ -22,7 +22,8 @@
             margin: 0;
             height: min-content;
             border-radius: var(--jkl-unit-05);
-            background: var(--jkl-color-background-container-low);
+            overflow: hidden;
+            background: var(--jkl-color-background-page);
 
             .jkl-link-list-link {
                 display: flex;

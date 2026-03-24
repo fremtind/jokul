@@ -68,8 +68,8 @@ export const TooltipInMenuBar: Story = {
                 padding: "1ch",
                 width: "100%",
                 display: "flex",
-                border: "1px solid var(--jkl-color-border-separator)",
-                backgroundColor: "var(--jkl-color-background-container-high)",
+                border: "1px solid var(--jkl-color-border-subdued)",
+                backgroundColor: "var(--jkl-color-background-container)",
             }}
         >
             <li>
