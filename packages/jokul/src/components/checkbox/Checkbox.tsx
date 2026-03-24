@@ -48,9 +48,6 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                     "jkl-checkbox--error": invalid,
                 })}
             >
-                <label htmlFor={inputId} className="jkl-checkbox__label">
-                    {children}
-                </label>
                 <input
                     id={inputId}
                     ref={inputRef}
@@ -62,6 +59,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                     checked={checked}
                     {...rest}
                 />
+                <label htmlFor={inputId} className="jkl-checkbox__label">
+                    {children}
+                </label>
             </div>
         );
     },
