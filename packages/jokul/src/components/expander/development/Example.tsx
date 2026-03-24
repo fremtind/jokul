@@ -5,6 +5,10 @@ import {
     knobs as customWidgetKnobs,
 } from "./CustomWidgetExample.js";
 import {
+    SingleStrokeExample,
+    knobs as singleStrokeKnobs,
+} from "./SingleStrokeExample.js";
+import {
     UnControlledExample,
     knobs as uncontrolledKnobs,
 } from "./UnControlledExample.js";
@@ -21,6 +25,11 @@ export default function Example() {
                 title="Custom widget"
                 component={CustomWidgetExample}
                 knobs={customWidgetKnobs}
+            />
+            <DevExample
+                title="Single stroke"
+                component={SingleStrokeExample}
+                knobs={singleStrokeKnobs}
             />
         </>
     );
