@@ -1,3 +1,4 @@
+---
 "@fremtind/jokul": patch
 ---
 
