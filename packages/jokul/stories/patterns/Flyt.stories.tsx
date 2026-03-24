@@ -225,7 +225,7 @@ const ArkivSidebar = () => (
         gap="none"
         style={{ top: 0, position: "sticky" }}
     >
-        <Card asChild variant="low">
+        <Card asChild variant="filled">
             <Flex
                 as="menu"
                 justifyContent="space-between"
@@ -406,8 +406,7 @@ const Main = () => (
                 // @ts-ignore
                 style={{
                     inlineSize: "100%",
-                    borderBlockEnd:
-                        "1px solid var(--jkl-color-border-separator)",
+                    borderBlockEnd: "1px solid var(--jkl-color-border-subdued)",
                 }}
             >
                 <Tab>Oversikt</Tab>
@@ -424,7 +423,7 @@ const Main = () => (
                             // @ts-ignore
                             style={{
                                 borderBlockEnd:
-                                    "1px solid var(--jkl-color-border-separator)",
+                                    "1px solid var(--jkl-color-border-subdued)",
                             }}
                         >
                             <Flex direction="column" gap="none">

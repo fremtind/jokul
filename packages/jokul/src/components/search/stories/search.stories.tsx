@@ -279,7 +279,7 @@ export const SearchHeaderButton: Story = {
                         minInlineSize: "50cqi",
                         padding: "var(--jkl-spacing-s) var(--jkl-spacing-m)",
                         background:
-                            "var(--jkl-color-background-container-high)",
+                            "var(--jkl-color-background-container)",
                     }}
                 >
                     <p className="jkl-heading-4">Jøkul</p>
@@ -356,7 +356,7 @@ export const SearchToolbar: Story = {
                             padding:
                                 "var(--jkl-spacing-m) var(--jkl-spacing-m)",
                             background:
-                                "var(--jkl-color-background-container-high)",
+                                "var(--jkl-color-background-container)",
                         }}
                     >
                         <Flex gap="xs">

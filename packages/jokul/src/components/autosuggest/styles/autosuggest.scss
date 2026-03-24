@@ -27,8 +27,8 @@
         }
 
         &__menu {
-            background-color: var(--jkl-color-background-container-high);
-            border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
+            background-color: var(--jkl-color-background-container);
+            border: jkl.rem(2px) solid var(--jkl-color-border-strong);
             border-top: none;
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-sizing: border-box;

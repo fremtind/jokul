@@ -4,7 +4,7 @@
 @use "../../../../styles/jkl";
 
 .jkl-select--beta {
-    --border-color: var(--jkl-color-border-input);
+    --border-color: var(--jkl-color-border-default);
     --background-color: transparent;
     --color: var(--jkl-color-text-default);
     --box-shadow: 0 0 0 jkl.rem(1px) transparent;
@@ -60,13 +60,13 @@
         }
 
         &:hover {
-            --border-color: var(--jkl-color-border-input-focus);
-            --box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-input-focus);
+            --border-color: var(--jkl-color-border-strong);
+            --box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-strong);
         }
 
         &:invalid {
-            --background-color: var(--jkl-color-background-alert-error);
-            --color: var(--jkl-color-text-on-alert-subdued);
+            --background-color: var(--jkl-color-error-background-container);
+            --color: var(--jkl-color-error-text-subdued);
         }
 
         &:focus-visible {
@@ -77,6 +77,7 @@
         @include jkl.text-style("text-medium");
 
         @include jkl.keyboard-navigation {
+
             &:focus-visible,
             &:has(:focus-visible) {
                 @include jkl.focus-outline;

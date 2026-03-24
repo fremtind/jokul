@@ -9,8 +9,8 @@
     .jkl-tablist {
         --padding-inline-end: var(--jkl-unit-50);
         --text-color: var(--jkl-color-text-interactive);
-        --line-color: var(--jkl-color-border-separator);
-        --indicator-color: var(--jkl-color-border-separator-hover);
+        --line-color: var(--jkl-color-border-subdued);
+        --indicator-color: var(--jkl-color-border-default);
 
         scroll-snap-type: x proximity;
         overflow: scroll hidden;

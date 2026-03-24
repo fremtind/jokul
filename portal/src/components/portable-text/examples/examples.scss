@@ -62,7 +62,7 @@
                 border-radius: 4px;
                 text-box-trim: trim-end;
                 padding-inline: 1ch;
-                border: 1px solid var(--jkl-color-border-separator);
+                border: 1px solid var(--jkl-color-border-subdued);
                 background: transparent;
 
                 @include jkl.motion("standard", "productive", background, color, border-color);
@@ -107,7 +107,7 @@
                 position: absolute;
                 z-index: -1;
                 inset: 0;
-                border-block-start: 1px solid var(--jkl-color-border-separator);
+                border-block-start: 1px solid var(--jkl-color-border-subdued);
             }
 
             .description {

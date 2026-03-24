@@ -2,7 +2,7 @@
 
 @layer jokul.components {
     .jkl-input-panel {
-        --outer-border-color: var(--jkl-color-border-input);
+        --outer-border-color: var(--jkl-color-border-default);
         --outer-border-thickness: #{jkl.rem(1px)};
         --background-color: transparent;
         --padding-inline: var(--jkl-unit-25);
@@ -74,7 +74,7 @@
         &:has(:checked),
         &[data-always-open="true"],
         &:not([data-always-open]) {
-            --background-color: var(--jkl-color-background-container-high);
+            --background-color: var(--jkl-color-background-container);
 
             .jkl-input-panel__description {
                 height: auto;
@@ -83,7 +83,7 @@
         }
 
         &:has(input:hover) {
-            --outer-border-color: var(--jkl-color-border-separator-hover);
+            --outer-border-color: var(--jkl-color-border-default);
             --outer-border-thickness: #{jkl.rem(2px)};
             cursor: pointer;
         }
