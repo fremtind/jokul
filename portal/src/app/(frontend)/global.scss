@@ -1,6 +1,6 @@
-@use "@fremtind/jokul/styles/core";
-@use "@fremtind/jokul/styles/fonts" with ($webfonts-dir: "../../src/fonts"
-    // Dette er relativt til webfonts.sccs-fila i jokul-pakka
+@use "@fremtind/jokul/styles/core/core";
+@use "@fremtind/jokul/styles/fonts" with (
+    $webfonts-dir: "/fonts/inter" // Dette er web-stien til font-mappen
 );
 @use "@fremtind/jokul/styles/styles";
 @use "@fremtind/jokul/styles/jkl";
