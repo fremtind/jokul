@@ -28,3 +28,10 @@ test("renders correctly", async () => {
         selector: "html",
     });
 });
+
+test("uses the Jøkul focus outline on the trigger button", async () => {
+    await helper.open();
+
+    await helper.focus(".jkl-popover-trigger");
+    await helper.expectFocusOutline(".jkl-popover-trigger");
+});

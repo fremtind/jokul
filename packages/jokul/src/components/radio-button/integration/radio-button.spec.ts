@@ -19,7 +19,14 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots({ focusElement: ".jkl-radio-button__input" });
+    await helper.snapshots();
+});
+
+test("uses the Jøkul focus outline when focused", async () => {
+    await helper.open();
+
+    await helper.focus(".jkl-radio-button__input");
+    await helper.expectFocusOutline(".jkl-radio-button__label");
 });
 
 test("axe", async ({ axe }) => {

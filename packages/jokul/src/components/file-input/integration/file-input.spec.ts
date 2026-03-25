@@ -19,7 +19,12 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots();
+    await helper.snapshots({
+        focusElement: {
+            target: "#file-input-example",
+            outline: "#file-input-example__add-btn",
+        },
+    });
 });
 
 test("renders correctly in small mode", async () => {
@@ -27,7 +32,12 @@ test("renders correctly in small mode", async () => {
 
     await helper.checkProp("choice-prop-small");
 
-    await helper.snapshots();
+    await helper.snapshots({
+        focusElement: {
+            target: "#file-input-example",
+            outline: "#file-input-example__add-btn",
+        },
+    });
 });
 
 test("axe", async ({ axe }) => {
