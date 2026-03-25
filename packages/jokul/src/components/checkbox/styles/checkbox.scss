@@ -29,14 +29,19 @@
         &__input {
             // Keep the real input on top of the icon so automation tools can target it.
             position: absolute;
-            opacity: 0;
             inset-block-start: 0;
             inset-inline-start: 0;
             block-size: 1lh;
             inline-size: 1lh;
             margin: 0;
+            padding: 0;
             cursor: pointer;
             z-index: 1;
+            appearance: none;
+            background: transparent;
+            border: 0;
+
+            @include jkl.reset-outline;
         }
 
         &__label {
@@ -54,6 +59,10 @@
 
                 @include icon.base-styles;
             }
+        }
+
+        &__input:focus-visible + &__label::before {
+            @include jkl.focus-outline;
         }
 
         &__input:is(:hover, :active) + &__label,

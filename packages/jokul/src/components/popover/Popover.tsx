@@ -158,7 +158,10 @@ const PopoverTrigger = React.forwardRef<
             ref={ref}
             onClick={() => onOpenChange?.(!open)}
             aria-expanded={open}
-            {...getReferenceProps(props)}
+            {...getReferenceProps({
+                ...props,
+                className: clsx("jkl-popover-trigger", props.className),
+            })}
         >
             {children}
         </button>

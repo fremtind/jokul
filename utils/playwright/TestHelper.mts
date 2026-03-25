@@ -136,7 +136,83 @@ export class TestHelper {
     }
 
     async focus(selector: string) {
-        await this._page.locator(selector).first().focus();
+        const locator = this._page.locator(selector).first();
+
+        await this._page.evaluate(() => {
+            if (document.activeElement instanceof HTMLElement) {
+                document.activeElement.blur();
+            }
+            const html = document.documentElement;
+            html.removeAttribute("data-mousenavigation");
+            html.removeAttribute("data-touchnavigation");
+        });
+
+        for (let attempt = 0; attempt < 50; attempt++) {
+            const isFocused = await locator.evaluate(
+                (element) => element === document.activeElement,
+            );
+
+            if (isFocused) {
+                return;
+            }
+
+            await this._page.keyboard.press("Tab");
+        }
+
+        await locator.focus();
+    }
+
+    private async assertFocusOutline(selector: string) {
+        const outline = await this._page.locator(selector).first().evaluate(
+            (element) => {
+                const getOutline = (
+                    target: Element,
+                    pseudoElement?: string,
+                ) => {
+                    const styles = window.getComputedStyle(target, pseudoElement);
+                    const outlineWidth = Number.parseFloat(styles.outlineWidth);
+
+                    if (
+                        styles.outlineStyle !== "none" &&
+                        Number.isFinite(outlineWidth) &&
+                        outlineWidth > 0
+                    ) {
+                        return {
+                            outlineStyle: styles.outlineStyle,
+                            outlineWidth: styles.outlineWidth,
+                        };
+                    }
+
+                    return null;
+                };
+
+                let current =
+                    element instanceof HTMLElement ? element : null;
+
+                while (current && current !== document.body) {
+                    const outline =
+                        getOutline(current) ||
+                        getOutline(current, "::before") ||
+                        getOutline(current, "::after");
+
+                    if (outline) {
+                        return outline;
+                    }
+
+                    current = current.parentElement;
+                }
+
+                return null;
+            },
+        );
+
+        expect(outline).not.toBeNull();
+        expect(outline?.outlineStyle).toBe("solid");
+        expect(outline?.outlineWidth).toBe("3px");
+    }
+
+    async expectFocusOutline(selector: string) {
+        await this.assertFocusOutline(selector);
     }
 
     private async snapshot(
@@ -210,15 +286,28 @@ export class TestHelper {
         after?: () => Promise<any>;
         selector?: string;
         selectorPadding?: number;
-        focusElement?: string;
+        focusElement?:
+            | string
+            | {
+                  target: string;
+                  outline?: string;
+              };
     } = {}) {
         await this.setSize("default");
         await this.setTheme("light");
         await before?.();
         await this.snapshot("default", selector, selectorPadding);
         if (focusElement) {
-            await this.focus(focusElement);
-            await this.snapshot("default-focus", selector, selectorPadding);
+            const focusTarget =
+                typeof focusElement === "string"
+                    ? focusElement
+                    : focusElement.target;
+            const outlineTarget =
+                typeof focusElement === "string"
+                    ? focusElement
+                    : focusElement.outline || focusTarget;
+            await this.focus(focusTarget);
+            await this.assertFocusOutline(outlineTarget);
         }
         await after?.();
 

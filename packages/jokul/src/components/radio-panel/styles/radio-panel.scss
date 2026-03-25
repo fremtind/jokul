@@ -9,4 +9,8 @@ $_radio-panel-dot-animation-name: jkl-dot-in-#{string.unique-id()};
         /* Visuell justering pga. rundt ikon */
         margin-inline-start: -0.15em;
     }
+
+    .jkl-radio-panel .jkl-radio-button__input:focus-visible + .jkl-radio-button__label::before {
+        outline: none;
+    }
 }

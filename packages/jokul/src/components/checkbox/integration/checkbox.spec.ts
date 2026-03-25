@@ -19,7 +19,7 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots({ focusElement: ".jkl-checkbox__input" });
+    await helper.snapshots();
 });
 
 test("renders correctly with error message", async () => {
@@ -28,6 +28,13 @@ test("renders correctly with error message", async () => {
     await helper.checkProp("bool-prop-med-feil");
 
     await helper.snapshots();
+});
+
+test("uses the Jøkul focus outline when focused", async () => {
+    await helper.open();
+
+    await helper.focus(".jkl-checkbox__input");
+    await helper.expectFocusOutline(".jkl-checkbox__label");
 });
 
 test("axe", async ({ axe }) => {
