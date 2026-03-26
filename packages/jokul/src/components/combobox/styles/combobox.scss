@@ -66,6 +66,7 @@
             outline: none;
             padding: 0;
             flex: 1 1 1ch;
+            min-width: 0;
             max-height: var(--jkl-combobox-search-input-height);
 
             @include shared.input-styles;
@@ -141,10 +142,12 @@
 
         &__chips {
             display: flex;
+            flex: 1 1 auto;
             flex-wrap: wrap;
             align-items: center;
             gap: var(--jkl-combobox-chips-gap);
-            width: 100%;
+            min-width: 0;
+            box-sizing: border-box;
             padding: var(--jkl-text-input-padding);
 
             .jkl-chip {

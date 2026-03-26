@@ -33,6 +33,37 @@ test("opens correctly", async () => {
     await helper.snapshots();
 });
 
+test("renders single stroke panel correctly", async () => {
+    await helper.open();
+
+    await helper.snapshots({
+        before: async () => {
+            await helper.page.waitForSelector(
+                '[data-testid="single-stroke-trigger"]',
+            );
+            await helper.clickElement('[data-testid="single-stroke-trigger"]');
+            await helper.page.waitForFunction(() => {
+                const content = document.querySelector(
+                    '[data-testid="single-stroke-content"]',
+                );
+
+                return content?.getAttribute("data-expanded") === "true";
+            });
+        },
+        after: async () => {
+            await helper.clickElement('[data-testid="single-stroke-trigger"]');
+            await helper.page.waitForFunction(() => {
+                const content = document.querySelector(
+                    '[data-testid="single-stroke-content"]',
+                );
+
+                return content?.getAttribute("data-expanded") === "false";
+            });
+        },
+        selector: '[data-testid="single-stroke-example"]',
+    });
+});
+
 test("axe", async ({ axe }) => {
     await helper.open();
 
