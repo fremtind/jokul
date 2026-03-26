@@ -19,7 +19,12 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots({ focusElement: ".jkl-expander" });
+    await helper.snapshots({
+        focusElement: {
+            target: ".jkl-expander",
+            outline: ".jkl-expandable__focus-container",
+        },
+    });
 });
 
 test("opens correctly", async () => {

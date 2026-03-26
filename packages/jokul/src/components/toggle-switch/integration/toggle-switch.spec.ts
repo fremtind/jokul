@@ -19,7 +19,12 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots({ focusElement: ".jkl-toggle-switch" });
+    await helper.snapshots({
+        focusElement: {
+            target: ".jkl-toggle-switch",
+            outline: ".jkl-toggle-switch-widget",
+        },
+    });
 });
 
 test("axe", async ({ axe }) => {

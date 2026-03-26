@@ -20,6 +20,7 @@ test("renders correctly", async () => {
     await helper.open();
 
     await helper.snapshots({
+        focusElement: '[data-testid="confirm-modal"]',
         before: async () => {
             await helper.page.waitForSelector(
                 '[data-testid="open-modal"]:not([disabled])',
@@ -53,6 +54,17 @@ test("renders correctly", async () => {
             '.jkl-modal-container--placement-center:not([aria-hidden="true"]) .jkl-modal',
         selectorPadding: 0,
     });
+});
+
+test("uses the Jøkul focus outline when the confirm button is focused", async () => {
+    await helper.open();
+
+    await helper.page.waitForSelector('[data-testid="open-modal"]:not([disabled])');
+    await helper.clickElement('[data-testid="open-modal"]');
+    await helper.page.waitForSelector('[data-testid="confirm-modal"]');
+
+    await helper.focus('[data-testid="confirm-modal"]');
+    await helper.expectFocusOutline('[data-testid="confirm-modal"]');
 });
 
 test("renders bottom sheet", async () => {

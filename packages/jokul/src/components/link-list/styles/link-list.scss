@@ -22,7 +22,6 @@
             margin: 0;
             height: min-content;
             border-radius: var(--jkl-unit-05);
-            overflow: hidden;
             background: var(--jkl-color-background-container-low);
 
             .jkl-link-list-link {
@@ -55,6 +54,10 @@
                     &::after {
                         translate: 4px 0;
                     }
+                }
+
+                &:focus-visible {
+                    @include jkl.focus-outline();
                 }
             }
         }
