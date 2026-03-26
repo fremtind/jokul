@@ -1,13 +1,19 @@
+.modalContainer {
+    height: 60vh;
+}
+
 .navigation {
-    @media not (max-width: 768px) {
-        button {
-            display: none;
-        }
+    .list {
+        display: none;
     }
 
-    @media (max-width: 768px) {
-        ul {
+    @media (width >= 768px) {
+        .hamburgerButton {
             display: none;
+        }
+
+        .list {
+            display: flex;
         }
     }
 }

@@ -1602,6 +1602,35 @@ export type FundamentalsBySlugQueryResult = {
   }> | null;
 } | null;
 
+// Source: ./src/sanity/queries/search.ts
+// Variable: searchQuery
+// Query: *[_type in ["jokul_component", "jokul_fundamentals", "jokul_blog_post"] && defined(slug.current) && (        name match "*" + $searchString + "*" ||        short_description match "*" + $searchString + "*" ||        (_type == "jokul_component" && keywords[] match "*" + $searchString + "*")    )] | {        _id,        name,        slug,        short_description,        "image": select(            _type == "jokul_component" => image.asset->url,            null        ),        "type": select(            _type == "jokul_component" => "Komponent",            _type == "jokul_fundamentals" => "Fundament",            _type == "jokul_blog_post" => "Blogg"        ),        "href": select(            _type == "jokul_component" => "/komponenter/" + slug.current,            _type == "jokul_fundamentals" => "/fundamenter/" + slug.current,            _type == "jokul_blog_post" => "/blog/" + slug.current        )    }
+export type SearchQueryResult = Array<{
+  _id: string;
+  name: string | null;
+  slug: Slug | null;
+  short_description: string | null;
+  image: null;
+  type: "Blogg";
+  href: string | null;
+} | {
+  _id: string;
+  name: string | null;
+  slug: Slug | null;
+  short_description: string | null;
+  image: null;
+  type: "Fundament";
+  href: string | null;
+} | {
+  _id: string;
+  name: string | null;
+  slug: Slug | null;
+  short_description: string | null;
+  image: string | null;
+  type: "Komponent";
+  href: string | null;
+}>;
+
 // Source: ./src/sanity/queries/siteData.ts
 // Variable: siteDataQuery
 // Query: *[_type == "jokul_siteData"]{        ...,        "seo": {            "title": coalesce(seo.title, title, ""),            "description": coalesce(seo.description,  ""),            "image": seo.image,            "noIndex": seo.noIndex == true          },        footer {            text,            linkGroups[]{                title,                linkList[]{                    text,                    "url": select(    url[0]._type == "internalLink" => select(      url[0].internalReference->_type == "jokul_component" => "komponenter/" + url[0].internalReference->slug.current,      url[0].internalReference->_type == "jokul_fundamentals" => "fundamenter/" + url[0].internalReference->slug.current,      url[0].internalReference->_type == "jokul_blog_post" => "blog/" + url[0].internalReference->slug.current,      "/" + url[0].internalReference->slug.current    ),    url[0]._type == "externalLink" => url[0].url  )                }            }        },        "date": _createdAt,    } | order(_createdAt desc)[0]
@@ -1661,6 +1690,7 @@ declare module "@sanity/client" {
     "*[_type == \"jokul_component\" && defined(slug.current) && slug.current == $componentSlug] {\n        name,\n        short_description,\n        \"slug\": slug.current,\n        figma_image,\n        image,\n        imageDark,\n        related_components,\n        categories,\n    }[0]": ComponentCardQueryResult;
     "*[_type == \"jokul_fundamentals\"]{\n        name,\n        slug,\n        short_description,\n        image,\n        \"date\": _createdAt,\n    } | order(_createdAt desc)": FundamentalsQueryResult;
     "*[_type == \"jokul_fundamentals\" && slug.current == $slug][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_code\" => {\n                ...,\n                title,\n                code,\n                language,\n          },\n            _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert,\n                  code\n                },\n            },\n        },\n    }": FundamentalsBySlugQueryResult;
+    "*[_type in [\"jokul_component\", \"jokul_fundamentals\", \"jokul_blog_post\"] && defined(slug.current) && (\n        name match \"*\" + $searchString + \"*\" ||\n        short_description match \"*\" + $searchString + \"*\" ||\n        (_type == \"jokul_component\" && keywords[] match \"*\" + $searchString + \"*\")\n    )] | {\n        _id,\n        name,\n        slug,\n        short_description,\n        \"image\": select(\n            _type == \"jokul_component\" => image.asset->url,\n            null\n        ),\n        \"type\": select(\n            _type == \"jokul_component\" => \"Komponent\",\n            _type == \"jokul_fundamentals\" => \"Fundament\",\n            _type == \"jokul_blog_post\" => \"Blogg\"\n        ),\n        \"href\": select(\n            _type == \"jokul_component\" => \"/komponenter/\" + slug.current,\n            _type == \"jokul_fundamentals\" => \"/fundamenter/\" + slug.current,\n            _type == \"jokul_blog_post\" => \"/blog/\" + slug.current\n        )\n    }": SearchQueryResult;
     "*[_type == \"jokul_siteData\"]{\n        ...,\n        \"seo\": {\n            \"title\": coalesce(seo.title, title, \"\"),\n            \"description\": coalesce(seo.description,  \"\"),\n            \"image\": seo.image,\n            \"noIndex\": seo.noIndex == true\n          },\n        footer {\n            text,\n            linkGroups[]{\n                title,\n                linkList[]{\n                    text,\n                    \"url\": select(\n    url[0]._type == \"internalLink\" => select(\n      url[0].internalReference->_type == \"jokul_component\" => \"komponenter/\" + url[0].internalReference->slug.current,\n      url[0].internalReference->_type == \"jokul_fundamentals\" => \"fundamenter/\" + url[0].internalReference->slug.current,\n      url[0].internalReference->_type == \"jokul_blog_post\" => \"blog/\" + url[0].internalReference->slug.current,\n      \"/\" + url[0].internalReference->slug.current\n    ),\n    url[0]._type == \"externalLink\" => url[0].url\n  )\n                }\n            }\n        },\n        \"date\": _createdAt,\n    } | order(_createdAt desc)[0]": SiteDataQueryResult;
     "*[_type == \"jokul_example\"]{\n    title,\n    id,\n    description,\n    height,\n    inert,\n} | order(name)": ExamplesQueryResult;
   }

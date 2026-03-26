@@ -17,6 +17,10 @@ export interface CookieConsentProps {
      * Lenke til informasjonssiden til cookiene i løsningen din.
      */
     aboutPage: string;
+    /**
+     * Tekst for lenken til informasjonssiden.
+     */
+    aboutPageLinkText?: string;
 }
 
 export type AcceptConsentCallback = (consent: Consent) => void;

@@ -6,23 +6,21 @@
 # Multi-stage build using `pnpm deploy` to produce a lean production image.
 
 # ─────────────────────────────────────────────────────────────────────────────
+# Shared base image
+# ─────────────────────────────────────────────────────────────────────────────
+FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-images/node22-ubi9-minimal:latest AS base
+
+# ─────────────────────────────────────────────────────────────────────────────
 # Stage 1: Build
 # ─────────────────────────────────────────────────────────────────────────────
-FROM node:20-slim AS builder
+FROM base AS builder
 
 WORKDIR /app
+USER root
 
-# Install corporate CA certificates so npm/pnpm can reach internal registries.
-COPY packages/mcp-server/certificates.pem /usr/local/share/ca-certificates/fremtind.crt
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends ca-certificates && \
-    update-ca-certificates && \
-    rm -rf /var/lib/apt/lists/*
-
-ENV NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/fremtind.crt
-
-# Install pnpm
-RUN npm install -g pnpm
+# Enable the repository's pinned pnpm version via corepack.
+RUN npm install -g corepack
+RUN corepack enable
 
 # Copy the entire monorepo (respects .dockerignore).
 # Having all package.json files available lets pnpm resolve the workspace graph.
@@ -44,30 +42,18 @@ RUN pnpm deploy --filter @fremtind/jokul-mcp-server --prod --legacy /app/deploy 
 # ─────────────────────────────────────────────────────────────────────────────
 # Stage 2: Production
 # ─────────────────────────────────────────────────────────────────────────────
-# FROM node:20-slim AS production
-FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-images/node22-ubi9-minimal:latest AS base
-
-
+FROM base AS production
 WORKDIR /app
-
-# Install corporate CA certificates so runtime Sanity API calls succeed
-# behind the corporate proxy.
-# COPY packages/mcp-server/certificates.pem /usr/local/share/ca-certificates/fremtind.crt
-# RUN apt-get update && \
-#     apt-get install -y --no-install-recommends ca-certificates && \
-#     update-ca-certificates && \
-#     rm -rf /var/lib/apt/lists/*
-
-# ENV NODE_EXTRA_CA_CERTS=/usr/local/share/ca-certificates/fremtind.crt
-
-# Create non-root user for security.
-RUN groupadd -r jokul && useradd -r -g jokul jokul
+USER root
 
 # Copy the self-contained deploy directory from the builder stage.
 # This contains node_modules (prod only) and dist – nothing else from the monorepo.
-COPY --from=builder --chown=jokul:jokul /app/deploy ./
+COPY --from=builder --chown=nobody:nobody /app/deploy ./
 
-USER jokul
+# Run as the built-in nobody user (uid 65534) – no shell, no home directory.
+# This gives the same non-root security guarantee without requiring groupadd/useradd,
+# which fail in runners that lack the necessary /etc/group write permissions.
+USER nobody
 
 # Runtime environment
 ENV NODE_ENV=production

@@ -1,13 +1,13 @@
 @use "../../../styles/jkl";
 
 @layer jokul.components {
-    // Custom tweaks for iPhone SE
-    @include jkl.screen-to(375px) {
-        --jkl-calendar-date-size: var(--jkl-unit-40);
-    }
-
     .jkl-calendar-date-button {
         --jkl-calendar-date-size: var(--jkl-unit-50);
+
+        // Custom tweaks for iPhone SE
+        @include jkl.screen-to(375px) {
+            --jkl-calendar-date-size: var(--jkl-unit-40);
+        }
 
         @include jkl.text-style("text-small");
 

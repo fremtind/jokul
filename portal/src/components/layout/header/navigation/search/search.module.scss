@@ -1,0 +1,28 @@
+@use "@fremtind/jokul/styles/core/jkl";
+
+.description {
+    -webkit-box-orient: vertical;
+
+    @include jkl.text-style("paragraph-small");
+    color: var(--jkl-color-text-subdued);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    overflow: hidden;
+}
+
+.type {
+    color: var(--jkl-color-text-subdued);
+    margin-inline-start: 1ch;
+
+    @include jkl.text-style("paragraph-small");
+
+    &::before {
+        content: "/ ";
+    }
+}
+
+.result:focus-within {
+    @include jkl.focus-outline;
+    z-index: 1;
+}

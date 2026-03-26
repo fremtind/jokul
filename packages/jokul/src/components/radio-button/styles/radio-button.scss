@@ -15,14 +15,16 @@
         @include jkl.reset-outline;
 
         &__input {
-            // Hide native radio button
+            // Keep the real input on top of the icon so automation tools can target it.
             position: absolute;
             opacity: 0;
-            pointer-events: none;
-            // Make sure that when the browser scrolls here because of focus, the control
-            // is positioned below the label so that the label becomes visible.
-            inset: 0 auto 0 0;
-            width: 1lh;
+            inset-block-start: 0;
+            inset-inline-start: 0;
+            block-size: 1lh;
+            inline-size: 1lh;
+            margin: 0;
+            cursor: pointer;
+            z-index: 1;
         }
 
         &__label {
@@ -40,14 +42,20 @@
 
                 @include icon.base-styles;
             }
+        }
 
-            &:has(+ :checked)::before {
-                content: "radio_button_checked";
-            }
+        &__input:is(:hover, :active) + &__label,
+        &__label:hover,
+        &__label:active {
+            --jkl-icon-weight: #{jkl.$icon-weight-bold};
+        }
 
-            &:has(+ [aria-invalid="true"])::before {
-                color: var(--jkl-radio-button-error-color);
-            }
+        &__input:checked + &__label::before {
+            content: "radio_button_checked";
+        }
+
+        &__input[aria-invalid="true"] + &__label::before {
+            color: var(--jkl-radio-button-error-color);
         }
 
         & + &,

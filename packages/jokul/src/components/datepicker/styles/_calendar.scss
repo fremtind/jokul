@@ -1,15 +1,14 @@
 @use "../../../styles/jkl";
 
 @layer jokul.components {
-
-    // Custom tweaks for iPhone SE
-    @include jkl.screen-to(375px) {
-        --jkl-calendar-padding: var(--jkl-unit-05) var(--jkl-unit-10) var(--jkl-unit-20);
-    }
-
     .jkl-calendar {
         --jkl-calendar-padding: var(--jkl-unit-15) var(--jkl-unit-20) var(--jkl-unit-20);
         --jkl-calendar-gap: var(--jkl-unit-15);
+
+        // Custom tweaks for iPhone SE
+        @include jkl.screen-to(375px) {
+            --jkl-calendar-padding: var(--jkl-unit-05) var(--jkl-unit-10) var(--jkl-unit-20);
+        }
 
         display: block;
         background-color: var(--jkl-color-background-container-high);
