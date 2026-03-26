@@ -1,0 +1,393 @@
+import { readdir, readFile, stat, writeFile } from "node:fs/promises";
+import path from "node:path";
+
+const TEXT_EXTENSIONS = new Set([
+    ".cjs",
+    ".css",
+    ".cts",
+    ".js",
+    ".jsx",
+    ".md",
+    ".mdx",
+    ".mjs",
+    ".mts",
+    ".sass",
+    ".scss",
+    ".ts",
+    ".tsx",
+]);
+
+const IGNORED_DIRECTORIES = new Set([
+    ".changeset",
+    ".git",
+    ".github",
+    ".next",
+    ".turbo",
+    "build",
+    "coverage",
+    "dist",
+    "node_modules",
+    "storybook-static",
+]);
+
+const IGNORED_FILE_PATTERNS = [
+    "/packages/jokul/CHANGELOG.md",
+    "/packages/jokul/MIGRATION.md",
+    "/packages/jokul/build-styles.mjs",
+    "/packages/jokul/bin/",
+    "/packages/jokul/codemods/",
+];
+
+const DIRECT_REPLACEMENTS = [
+    [
+        "@fremtind/jokul/styles/core/core.min.css",
+        "@fremtind/jokul/styles/base.min.css",
+    ],
+    [
+        "@fremtind/jokul/styles/core/core.css",
+        "@fremtind/jokul/styles/base.css",
+    ],
+    [
+        "@fremtind/jokul/styles/core/core.scss",
+        "@fremtind/jokul/styles/base.scss",
+    ],
+    ["@fremtind/jokul/styles/core/core", "@fremtind/jokul/styles/base"],
+    [
+        "@fremtind/jokul/styles/styles.min.css",
+        "@fremtind/jokul/styles/components.min.css",
+    ],
+    ["@fremtind/jokul/styles/styles.css", "@fremtind/jokul/styles/components.css"],
+    [
+        "@fremtind/jokul/styles/styles.scss",
+        "@fremtind/jokul/styles/components.scss",
+    ],
+    ["@fremtind/jokul/styles/styles", "@fremtind/jokul/styles/components"],
+    [
+        "@fremtind/jokul/styles/core/jkl/index",
+        "@fremtind/jokul/styles/jkl",
+    ],
+    ["@fremtind/jokul/styles/core/jkl", "@fremtind/jokul/styles/jkl"],
+    [
+        "@fremtind/jokul/styles/fonts/webfonts.scss",
+        "@fremtind/jokul/styles/theme/fonts",
+    ],
+    [
+        "@fremtind/jokul/styles/fonts/webfonts",
+        "@fremtind/jokul/styles/theme/fonts",
+    ],
+    ["@fremtind/jokul/styles/fonts", "@fremtind/jokul/styles/theme/fonts"],
+    ["../../../core/jkl/index", "../../../styles/jkl"],
+    ["../../../core/jkl", "../../../styles/jkl"],
+    ["../../core/jkl/index", "../../styles/jkl"],
+    ["../../core/jkl", "../../styles/jkl"],
+    ["../core/jkl/index", "../styles/jkl"],
+    ["../core/jkl", "../styles/jkl"],
+    ["@fremtind/jokul/tailwind/v4", "@fremtind/jokul/styles/tailwind"],
+    ["@fremtind/jokul/styles/core", "@fremtind/jokul/styles/base.scss"],
+    ["@fremtind/jokul/styles", "@fremtind/jokul/styles/components.scss"],
+    ["@fremtind/jokul/core", "@fremtind/jokul/utilities"],
+].sort(([a], [b]) => b.length - a.length);
+
+const BETA_STYLE_MIGRATIONS = [
+    {
+        component: "DescriptionList",
+        betaIdentifiers: ["BETA_DescriptionList", "BETA_DescriptionListItem"],
+        replacements: [
+            [
+                "@fremtind/jokul/styles/components/description-list/_index.scss",
+                "@fremtind/jokul/styles/components/beta/description-list/_index.scss",
+            ],
+            [
+                "@fremtind/jokul/styles/components/description-list/description-list.scss",
+                "@fremtind/jokul/styles/components/beta/description-list/description-list.scss",
+            ],
+            [
+                "@fremtind/jokul/styles/components/description-list",
+                "@fremtind/jokul/styles/components/beta/description-list",
+            ],
+        ],
+    },
+    {
+        component: "NavLink",
+        betaIdentifiers: ["BETA_NavLink"],
+        replacements: [
+            [
+                "@fremtind/jokul/styles/components/nav-link/_index.scss",
+                "@fremtind/jokul/styles/components/beta/nav-link/_index.scss",
+            ],
+            [
+                "@fremtind/jokul/styles/components/nav-link/nav-link.scss",
+                "@fremtind/jokul/styles/components/beta/nav-link/navlink.scss",
+            ],
+            [
+                "@fremtind/jokul/styles/components/nav-link",
+                "@fremtind/jokul/styles/components/beta/nav-link",
+            ],
+        ],
+    },
+    {
+        component: "Select",
+        betaIdentifiers: ["BETA_Select"],
+        replacements: [
+            [
+                "@fremtind/jokul/styles/components/select/_index.scss",
+                "@fremtind/jokul/styles/components/beta/select/_index.scss",
+            ],
+            [
+                "@fremtind/jokul/styles/components/select/select.scss",
+                "@fremtind/jokul/styles/components/beta/select/select.scss",
+            ],
+            [
+                "@fremtind/jokul/styles/components/select",
+                "@fremtind/jokul/styles/components/beta/select",
+            ],
+        ],
+    },
+];
+
+function shouldIgnoreFile(filePath) {
+    const normalizedPath = filePath.split(path.sep).join("/");
+
+    return IGNORED_FILE_PATTERNS.some((pattern) =>
+        normalizedPath.includes(pattern),
+    );
+}
+
+function shouldIgnoreDirectory(directoryPath) {
+    return IGNORED_DIRECTORIES.has(path.basename(directoryPath));
+}
+
+function escapeRegExp(value) {
+    return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function replaceSpecifier(text, from, to) {
+    const pattern = new RegExp(
+        `(?<![A-Za-z0-9_./-])${escapeRegExp(from)}(?![A-Za-z0-9_./-])`,
+        "g",
+    );
+
+    let count = 0;
+    const next = text.replace(pattern, () => {
+        count += 1;
+        return to;
+    });
+
+    return { text: next, count };
+}
+
+function applyDirectReplacements(text) {
+    let next = text;
+    let replacements = 0;
+
+    for (const [from, to] of DIRECT_REPLACEMENTS) {
+        const result = replaceSpecifier(next, from, to);
+        next = result.text;
+        replacements += result.count;
+    }
+
+    return { text: next, replacements };
+}
+
+function applyBetaStyleReplacements(text) {
+    let next = text;
+    let replacements = 0;
+    const warnings = [];
+
+    for (const migration of BETA_STYLE_MIGRATIONS) {
+        const mentionsBeta = migration.betaIdentifiers.some((identifier) =>
+            next.includes(identifier),
+        );
+
+        const hasOldSpecifier = migration.replacements.some(([from]) =>
+            new RegExp(
+                `(?<![A-Za-z0-9_./-])${escapeRegExp(from)}(?![A-Za-z0-9_./-])`,
+            ).test(next),
+        );
+
+        if (!hasOldSpecifier) {
+            continue;
+        }
+
+        if (!mentionsBeta) {
+            warnings.push(
+                `Manuell vurdering: gammel stilimport for ${migration.component} kan peke på enten stabil eller beta-variant.`,
+            );
+            continue;
+        }
+
+        for (const [from, to] of migration.replacements) {
+            const result = replaceSpecifier(next, from, to);
+            next = result.text;
+            replacements += result.count;
+        }
+    }
+
+    return { text: next, replacements, warnings };
+}
+
+function reorderConfiguredFontImport(text) {
+    const fontImportPattern =
+        /^@use\s+["']@fremtind\/jokul\/styles\/theme\/fonts["'][\s\S]*?;\s*/m;
+    const baseImportPattern =
+        /^@use\s+["']@fremtind\/jokul\/styles\/base(?:\.scss)?["'][^;]*;\s*/m;
+
+    const fontMatch = fontImportPattern.exec(text);
+    const baseMatch = baseImportPattern.exec(text);
+
+    if (!fontMatch || !baseMatch || fontMatch.index < baseMatch.index) {
+        return { text, reordered: false };
+    }
+
+    const withoutFontImport =
+        text.slice(0, fontMatch.index) +
+        text.slice(fontMatch.index + fontMatch[0].length);
+    const nextBaseMatch = baseImportPattern.exec(withoutFontImport);
+
+    if (!nextBaseMatch) {
+        return { text, reordered: false };
+    }
+
+    const nextText =
+        withoutFontImport.slice(0, nextBaseMatch.index) +
+        fontMatch[0] +
+        withoutFontImport.slice(nextBaseMatch.index);
+
+    return { text: nextText, reordered: true };
+}
+
+export function transformImportPaths(text, filePath = "") {
+    const direct = applyDirectReplacements(text);
+    const beta = applyBetaStyleReplacements(direct.text);
+    let next = beta.text;
+    let reordered = false;
+
+    if (/\.(sass|scss)$/i.test(filePath)) {
+        const reorderedResult = reorderConfiguredFontImport(next);
+        next = reorderedResult.text;
+        reordered = reorderedResult.reordered;
+    }
+
+    return {
+        text: next,
+        changed: next !== text,
+        replacements: direct.replacements + beta.replacements,
+        warnings: beta.warnings,
+        reordered,
+    };
+}
+
+async function collectFiles(targetPath, collected) {
+    const stats = await stat(targetPath);
+
+    if (stats.isDirectory()) {
+        if (shouldIgnoreDirectory(targetPath)) {
+            return collected;
+        }
+
+        const entries = await readdir(targetPath, { withFileTypes: true });
+        const sortedEntries = [...entries].sort((a, b) =>
+            a.name.localeCompare(b.name),
+        );
+
+        for (const entry of sortedEntries) {
+            if (entry.isDirectory() && IGNORED_DIRECTORIES.has(entry.name)) {
+                continue;
+            }
+
+            await collectFiles(path.join(targetPath, entry.name), collected);
+        }
+
+        return collected;
+    }
+
+    if (TEXT_EXTENSIONS.has(path.extname(targetPath)) && !shouldIgnoreFile(targetPath)) {
+        collected.push(targetPath);
+    }
+
+    return collected;
+}
+
+function parseArguments(rawArgs) {
+    const options = {
+        dryRun: false,
+        verbose: false,
+    };
+    const targets = [];
+
+    for (const arg of rawArgs) {
+        if (arg === "--dry-run") {
+            options.dryRun = true;
+            continue;
+        }
+
+        if (arg === "--verbose") {
+            options.verbose = true;
+            continue;
+        }
+
+        if (arg === "--help" || arg === "-h") {
+            throw new Error(
+                "Bruk: jokul codemod [import-paths] [sti ...] [--dry-run] [--verbose]",
+            );
+        }
+
+        targets.push(arg);
+    }
+
+    return {
+        options,
+        targets: targets.length > 0 ? targets : ["."],
+    };
+}
+
+export async function runImportPathsCodemod(rawArgs = []) {
+    const { options, targets } = parseArguments(rawArgs);
+    const files = [];
+
+    for (const target of targets) {
+        await collectFiles(path.resolve(target), files);
+    }
+
+    const uniqueFiles = [...new Set(files)].sort((a, b) => a.localeCompare(b));
+    let changedFiles = 0;
+    let changedSpecifiers = 0;
+    let reorderedFiles = 0;
+    const warnings = [];
+
+    for (const filePath of uniqueFiles) {
+        const source = await readFile(filePath, "utf-8");
+        const result = transformImportPaths(source, filePath);
+
+        for (const warning of result.warnings) {
+            warnings.push(`${filePath}: ${warning}`);
+        }
+
+        if (!result.changed) {
+            continue;
+        }
+
+        changedFiles += 1;
+        changedSpecifiers += result.replacements;
+        reorderedFiles += result.reordered ? 1 : 0;
+
+        if (!options.dryRun) {
+            await writeFile(filePath, result.text, "utf-8");
+        }
+
+        if (options.verbose || options.dryRun) {
+            console.log(`${options.dryRun ? "Ville endret" : "Endret"} ${filePath}`);
+        }
+    }
+
+    if (warnings.length > 0) {
+        console.warn("\nFiler som trenger manuell oppfølging:");
+        for (const warning of warnings) {
+            console.warn(`- ${warning}`);
+        }
+    }
+
+    console.log(
+        `\n${options.dryRun ? "Dry run ferdig" : "Codemod ferdig"}: ${changedFiles} filer, ${changedSpecifiers} erstattede imports${reorderedFiles > 0 ? `, ${reorderedFiles} justerte font-importrekkefølger` : ""}.`,
+    );
+}

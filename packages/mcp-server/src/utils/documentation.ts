@@ -51,7 +51,7 @@ pnpm add @fremtind/jokul
 ### 1. Core Styles (Required)
 
 \`\`\`tsx
-import "@fremtind/jokul/styles/core/core.scss";
+import "@fremtind/jokul/styles/base.scss";
 \`\`\`
 
 ### 2. Vite Configuration
