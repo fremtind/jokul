@@ -411,7 +411,7 @@ export function registerTools(server: McpServer): void {
                     content: [
                         {
                             type: "text",
-                            text: `import type { ${item} } from "@fremtind/jokul/core";`,
+                            text: `import type { ${item} } from "@fremtind/jokul/utilities";`,
                         },
                     ],
                 };

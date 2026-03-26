@@ -1,6 +1,7 @@
 # @fremtind/jokul
 
 -   [Migrering til monopakke](#migrering-til-monopakke)
+-   [Codemods](#codemods)
 -   [React-komponenter](#react-komponenter)
 -   [Stilark](#stilark)
 -   [Fonter](#fonter)
@@ -11,6 +12,28 @@
 ## Migrering til `@fremtind/jokul`
 
 Dersom du bruker dagens pakkestruktur med pakker for hver komponent har vi laget en [migrasjonsguide](./MIGRATION.md) for hvordan du går over til å bruke `@fremtind/jokul`.
+
+## Codemods
+
+Hvis du oppgraderer til `5.0.0` eller nyere kan du bruke codemoden vår for å oppdatere importstier til dagens struktur.
+
+Primær-CLI-et er `jokul`, og codemods kjøres som `jokul codemod`. Hvordan du starter det avhenger av package manageren din:
+
+```bash
+# pnpm
+pnpm exec jokul codemod --dry-run
+pnpm exec jokul codemod
+
+# npm
+npx jokul codemod --dry-run
+npx jokul codemod
+
+# Valgfritt: begrens kjøringen til bestemte mapper
+jokul codemod src app --dry-run
+jokul codemod src app
+```
+
+Codemoden oppdaterer sikre stier automatisk og varsler når den finner tvetydige stilimports for beta-komponenter som må vurderes manuelt.
 
 ## React-komponenter
 
@@ -42,14 +65,14 @@ Det finnes en del grunnleggende stiler som må med for at ting skal fungere rikt
 kan du importere med
 
 ```scss
-@use "@fremtind/jokul/styles/core/core";
+@use "@fremtind/jokul/styles/base";
 ```
 
 eller i ts/js
 
 ```tsx
 // Finnes også ferdig bygget, med filendelsene .css og .min.css
-import "@fremtind/jokul/styles/core/core.scss";
+import "@fremtind/jokul/styles/base.scss";
 ```
 
 ### Stiler for komponenter
@@ -79,14 +102,14 @@ import "@fremtind/jokul/styles/components/[komponent]/[komponent].min.css";
 Du kan importere stilarkene for alle Jøkulkomponentene på en gang med
 
 ```scss
-@use "@fremtind/jokul/styles";
+@use "@fremtind/jokul/styles/components.scss";
 ```
 
 eller i ts/js
 
 ```tsx
 // Finnes også ferdig bygget, med filendelsene .css og .min.css
-import "@fremtind/jokul/styles/styles.scss";
+import "@fremtind/jokul/styles/components.scss";
 ```
 
 Vær obs på at du da kan få med en del mer stilark enn du trenger så vurder dette opp mot
@@ -105,7 +128,7 @@ Dette gjør du med
 ```scss
 // Variabelen `$webfonts-dir` angir hvor på disk filene ligger.
 // Hvis den ikke spesifiseres vil stilarket se etter fontfilene i mappen `/fonts`.
-@use "@fremtind/jokul/styles/fonts" with (
+@use "@fremtind/jokul/styles/theme/fonts" with (
     $webfonts-dir: "relative/path/to/node_modules/@fremtind/jokul/src/fonts"
 );
 ```
@@ -187,7 +210,7 @@ Dersom du bruker versjon 4 av Tailwind laster du inn vårt theme rett etter impo
 
 ```css
 @import "tailwindcss";
-@import "@fremtind/jokul/tailwind/v4";
+@import "@fremtind/jokul/styles/tailwind";
 ```
 
 ### Farger

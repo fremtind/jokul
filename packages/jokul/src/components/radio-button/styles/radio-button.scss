@@ -47,7 +47,7 @@
         &__input:is(:hover, :active) + &__label,
         &__label:hover,
         &__label:active {
-            --jkl-icon-weight: #{jkl.$icon-weight-bold};
+            --jkl-icon-weight: #{jkl.$font-weight-bold};
         }
 
         &__input:checked + &__label::before {
@@ -60,8 +60,8 @@
 
         & + &,
         /* Ta høyde for at det rendres support label etter radio button inntil videre */
-       .jkl-dormant-form-support-label + &,
-       .jkl-form-support-label + & {
+        .jkl-dormant-form-support-label + &,
+        .jkl-form-support-label + & {
             margin-top: 0.75lh;
         }
 

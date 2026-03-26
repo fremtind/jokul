@@ -54,7 +54,7 @@
         &__input:is(:hover, :active) + &__label,
         &__label:hover,
         &__label:active {
-            --jkl-icon-weight: #{jkl.$icon-weight-bold};
+            --jkl-icon-weight: #{jkl.$font-weight-bold};
         }
 
         &__input:checked + &__label::before {

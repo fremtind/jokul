@@ -10,7 +10,17 @@
     "keywords": [],
     "license": "MIT",
     "sideEffects": ["*.css", "*.scss"],
-    "files": ["./build", "./styles", "./src/fonts", "./package.json"],
+    "files": [
+        "./bin",
+        "./build",
+        "./codemods",
+        "./styles",
+        "./src/fonts",
+        "./package.json"
+    ],
+    "bin": {
+        "jokul": "./bin/jokul.mjs"
+    },
     "exports": {
         "./package.json": "./package.json",
         "./styles/*": "./styles/*",
