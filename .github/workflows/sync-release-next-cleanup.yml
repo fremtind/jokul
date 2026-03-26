@@ -1,0 +1,50 @@
+name: Rydd sync-branch for release/next
+
+on:
+    pull_request:
+        types:
+            - closed
+        branches:
+            - release/next
+    workflow_dispatch:
+
+env:
+    TARGET_BRANCH: release/next
+    SYNC_BRANCH: sync-main-to-release-next
+
+run-name: Rydd sync-branch for release/next
+
+jobs:
+    cleanup-sync-branch:
+        name: Slett sync-branch når det er trygt
+        runs-on: ubuntu-latest
+        if: github.event_name == 'workflow_dispatch' || github.event.pull_request.head.ref == 'sync-main-to-release-next'
+        permissions:
+            contents: write
+        steps:
+            - name: Checkout repo
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+
+            - name: Hent brancher
+              run: |
+                  git fetch origin "${{ env.TARGET_BRANCH }}"
+                  git fetch origin "${{ env.SYNC_BRANCH }}" || true
+
+            - name: Slett sync-branch hvis den er overflødig
+              run: |
+                  if ! git show-ref --verify --quiet "refs/remotes/origin/${{ env.SYNC_BRANCH }}"; then
+                    echo "Ingen sync-branch å rydde opp i."
+                    exit 0
+                  fi
+
+                  if git merge-base --is-ancestor "origin/${{ env.SYNC_BRANCH }}" "origin/${{ env.TARGET_BRANCH }}"; then
+                    gh api --method DELETE /repos/${{ github.repository }}/git/refs/heads/${{ env.SYNC_BRANCH }}
+                    echo "Sync-branchen ble slettet."
+                    exit 0
+                  fi
+
+                  echo "Sync-branchen har fortsatt commits som ikke er med i ${{ env.TARGET_BRANCH }}. Lar den stå."
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
