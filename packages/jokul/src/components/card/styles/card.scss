@@ -7,7 +7,7 @@
         --padding-m: var(--jkl-unit-15);
         --padding-l: var(--jkl-unit-20);
         --padding-xl: var(--jkl-unit-30);
-        --border-radius: #{jkl.rem(4px)};
+        --border-radius: var(--jkl-border-radius-m);
         --border-color: transparent;
         --border-width: #{jkl.rem(1px)};
         --background-color: transparent;
