@@ -63,7 +63,7 @@ describe("Datepicker", () => {
         );
     });
 
-    it("formats 6-digit compact dates while typing", async () => {
+    it("does not format 6-digit compact dates while typing", async () => {
         const changeHandler = vi.fn();
 
         const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
@@ -75,13 +75,13 @@ describe("Datepicker", () => {
             await userEvent.type(input, "011220");
         });
 
-        expect(input).toHaveProperty("value", "01.12.20");
+        expect(input).toHaveProperty("value", "011220");
         expect(changeHandler).toHaveBeenLastCalledWith(
             expect.anything(),
-            new Date(2020, 11, 1),
+            null,
             {
-                error: null,
-                value: "01.12.20",
+                error: "WRONG_FORMAT",
+                value: "011220",
             },
         );
     });
@@ -109,7 +109,7 @@ describe("Datepicker", () => {
         );
     });
 
-    it("keeps 6-digit compact dates valid and reformats correctly after backspacing and finishing", async () => {
+    it("keeps 6-digit compact dates unformatted and reformats when completed to 8 digits", async () => {
         const changeHandler = vi.fn();
 
         const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
@@ -118,13 +118,13 @@ describe("Datepicker", () => {
 
         await userEvent.type(input, "011220");
 
-        expect(input).toHaveProperty("value", "01.12.20");
+        expect(input).toHaveProperty("value", "011220");
         expect(changeHandler).toHaveBeenLastCalledWith(
             expect.anything(),
-            new Date(2020, 11, 1),
+            null,
             {
-                error: null,
-                value: "01.12.20",
+                error: "WRONG_FORMAT",
+                value: "011220",
             },
         );
 
@@ -153,18 +153,14 @@ describe("Datepicker", () => {
         );
     });
 
-    it("removes punctuation when a 7th digit makes a formatted 6-digit date invalid", async () => {
+    it("keeps 7-digit compact dates unformatted", async () => {
         const changeHandler = vi.fn();
 
         const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
 
         const input = getByTestId("jkl-datepicker__input");
 
-        await userEvent.type(input, "011220");
-
-        expect(input).toHaveProperty("value", "01.12.20");
-
-        await userEvent.type(input, "1");
+        await userEvent.type(input, "0112201");
 
         expect(input).toHaveProperty("value", "0112201");
         expect(input).not.toHaveValue(expect.stringMatching(/[./-]/));
@@ -178,7 +174,7 @@ describe("Datepicker", () => {
         );
     });
 
-    it("reports stripped event.target.value when backspacing a formatted 6-digit date into an invalid value", async () => {
+    it("reports raw event.target.value when backspacing a 6-digit compact date", async () => {
         const changeHandler = vi.fn();
 
         const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
@@ -198,32 +194,6 @@ describe("Datepicker", () => {
             {
                 error: "WRONG_FORMAT",
                 value: "01122",
-            },
-        );
-    });
-
-    it("removes trailing punctuation when backspacing a formatted 6-digit date down to 4 digits", async () => {
-        const changeHandler = vi.fn();
-
-        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
-
-        const input = getByTestId("jkl-datepicker__input");
-
-        await userEvent.type(input, "111120");
-        await userEvent.type(input, "{backspace}{backspace}");
-
-        const eventTarget = changeHandler.mock.lastCall?.[0]
-            .target as HTMLInputElement;
-
-        expect(input).toHaveProperty("value", "1111");
-        expect(input).not.toHaveValue(expect.stringMatching(/[./-]/));
-        expect(eventTarget.value).toBe("1111");
-        expect(changeHandler).toHaveBeenLastCalledWith(
-            expect.anything(),
-            null,
-            {
-                error: "WRONG_FORMAT",
-                value: "1111",
             },
         );
     });
@@ -451,10 +421,7 @@ describe("Datepicker", () => {
         const initialValue = "01.12.2019";
 
         const { getByTestId } = render(
-            <DatePicker
-                defaultValue={initialValue}
-                onChange={changeHandler}
-            />,
+            <DatePicker defaultValue={initialValue} onChange={changeHandler} />,
         );
 
         const input = getByTestId("jkl-datepicker__input");

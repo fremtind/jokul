@@ -11,12 +11,12 @@ import React, {
     useState,
 } from "react";
 import { flushSync } from "react-dom";
+import { formatDateString } from "../../utilities/formatters/date/formatDate.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { CalendarIcon } from "../icon/icons/CalendarIcon.js";
 import { InputGroup } from "../input-group/InputGroup.js";
 import Popover from "../popover/Popover.js";
 import { BaseTextInput } from "../text-input/BaseTextInput.js";
-import { formatDateString } from "../../utilities/formatters/date/formatDate.js";
 import { Calendar } from "./internal/Calendar.js";
 import { type DateInfo, getInitialDate } from "./internal/utils.js";
 import type { DatePickerProps, DateValidationError } from "./types.js";
@@ -43,9 +43,7 @@ const normalizeInputValue = (rawValue: string) => {
     });
     const rawValueWithoutTrailingPunctuation = rawValue.replace(/\D+$/, "");
     const compactDateCandidate =
-        digits.length === 6 || digits.length === 8
-            ? formatDateString(digits)
-            : rawValue;
+        digits.length === 8 ? formatDateString(digits) : rawValue;
     const validCompactDate = parseDateString(compactDateCandidate)
         ? compactDateCandidate
         : null;
@@ -223,14 +221,12 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                     setInputValue(e.currentTarget, formattedValue);
                 }
 
-                const {
-                    date: nextDate,
-                    error: nextError,
-                } = getInputValidationState({
-                    value: formattedValue,
-                    minDate,
-                    maxDate,
-                });
+                const { date: nextDate, error: nextError } =
+                    getInputValidationState({
+                        value: formattedValue,
+                        minDate,
+                        maxDate,
+                    });
 
                 if (nextDate && !nextError) {
                     setShowCalendar(false);
