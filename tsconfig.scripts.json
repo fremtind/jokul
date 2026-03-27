@@ -1,0 +1,13 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "strict": false,
+        "lib": ["DOM", "DOM.Iterable", "ES2024"],
+        "types": ["node"],
+        "allowImportingTsExtensions": true,
+        "noImplicitAny": false,
+        "noUnusedLocals": false
+    },
+    "include": ["./scripts/**/*.ts"],
+    "exclude": ["**/node_modules", "**/.*", "**/build", "**/dist"]
+}

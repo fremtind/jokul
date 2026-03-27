@@ -1,0 +1,39 @@
+{
+    "_documentation": {
+        "purpose": "Knytter skannede repoer eller pakkestier i monorepoer til teamet som eier dem.",
+        "matchingOrder": [
+            "Eksakt treff på repoTeams[\"owner/repo-name\"]",
+            "Eksakt treff på repoTeams[\"repo-name\"]",
+            "Første matchende regel i rules[]",
+            "defaultTeam"
+        ],
+        "howToUse": [
+            "Bruk repoTeams for eierskap på hele repoet.",
+            "Bruk rules når ett repo inneholder flere apper eller pakker som eies av ulike team.",
+            "repoPattern og pathPattern er JavaScript-regexer.",
+            "Behold gjerne _documentation- og _examples-feltene hvis de er nyttige; innsamleren ignorerer ukjente toppnivåfelt."
+        ]
+    },
+    "_examples": {
+        "repoTeams": {
+            "fremtind/sales-web": "sales",
+            "fremtind/app-shell": "platform",
+            "portal": "design-system"
+        },
+        "rules": [
+            {
+                "repoPattern": "^fremtind/mono-web$",
+                "pathPattern": "^apps/claims/",
+                "team": "claims"
+            },
+            {
+                "repoPattern": "^fremtind/mono-web$",
+                "pathPattern": "^apps/payments/",
+                "team": "payments"
+            }
+        ]
+    },
+    "defaultTeam": "unknown",
+    "repoTeams": {},
+    "rules": []
+}

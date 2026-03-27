@@ -1,0 +1,32 @@
+name: Send Jokul usage metrics to Mixpanel
+
+on:
+    schedule:
+        - cron: "17 5 * * *"
+    workflow_dispatch:
+
+jobs:
+    collect-and-send:
+        name: Collect adoption snapshots
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+
+            -   name: Setup Node
+                uses: actions/setup-node@v4
+                with:
+                    node-version-file: ".nvmrc"
+
+            -   name: Send usage events to Mixpanel
+                env:
+                    GITHUB_OWNER: fremtind
+                    GITHUB_OWNER_TYPE: org
+                    GITHUB_INCLUDE_ARCHIVED: "false"
+                    GITHUB_INCLUDE_FORKS: "false"
+                    GITHUB_TOKEN: ${{ secrets.USAGE_METRICS_GITHUB_TOKEN }}
+                    MIXPANEL_PROJECT_TOKEN: ${{ secrets.MIXPANEL_PROJECT_TOKEN }}
+                    JOKUL_USAGE_TEAM_MAP_PATH: .github/jokul-usage-team-map.json
+                run: node --experimental-strip-types ./scripts/report-jokul-usage-to-mixpanel.ts --verbose
