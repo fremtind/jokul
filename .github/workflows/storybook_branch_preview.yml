@@ -1,0 +1,64 @@
+name: Publiser Storybook branch preview
+
+on:
+    push:
+        branches:
+            - release/**
+        paths:
+            - ".storybook/**/*.(ts|tsx|scss|html)"
+            - "storybook-public/**/*"
+            - "packages/jokul/src/**/*.stories.tsx"
+            - "packages/jokul/src/**/*.scss"
+            - "packages/jokul/src/**/!(*.stories|*.test|*.d).ts"
+            - "packages/jokul/src/**/!(*.stories|*.test).tsx"
+            - "packages/jokul/src/**/*.json"
+            - "packages/jokul/src/fonts/**/*"
+            - "pnpm-lock.yaml"
+    workflow_dispatch:
+
+concurrency:
+    group: storybook-branch-preview-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    preview:
+        name: Publiser branch preview
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v4
+
+            -   name: Setup pnpm
+                uses: pnpm/action-setup@v4
+
+            -   name: Setup Node
+                uses: actions/setup-node@v4
+                with:
+                    node-version-file: ".nvmrc"
+                    cache: "pnpm"
+
+            -   name: Set preview path
+                shell: bash
+                run: echo "PREVIEW_PATH=preview/branches/${GITHUB_REF_NAME//\//--}" >> "$GITHUB_ENV"
+
+            -   name: Install dependencies
+                run: pnpm install
+
+            -   name: Build packages and site
+                run: pnpm build && pnpm build:storybook
+
+            -   name: Deploy preview
+                env:
+                    GH_TOKEN: ${{ secrets.BOT_PUBLISH_TOKEN }}
+                run: |
+                    git config user.email "fremtind.designsystem@fremtind.no"
+                    git config user.name "fremtind-bot"
+                    git remote set-url origin https://x-access-token:${GH_TOKEN}@github.com/fremtind/jokul.git
+                    pnpm gh-pages --add --dist storybook-static --dest ${{ env.PREVIEW_PATH }} --message "docs: branch preview ${{ github.ref_name }}"
+
+            -   name: Add preview link to summary
+                run: |
+                    echo "Storybook preview: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/" >> "$GITHUB_STEP_SUMMARY"
+                    echo "Commit: ${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY"
