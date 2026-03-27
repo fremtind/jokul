@@ -160,6 +160,7 @@ $text-styles: (
 }
 
 $_valid-font-family-values: (
+    "Inter",
     "Fremtind Grotesk",
     "Fremtind Grotesk Display",
     "Fremtind Grotesk Mono",
@@ -167,7 +168,7 @@ $_valid-font-family-values: (
 );
 
 /// Hjelper sette riktig remse med fallback-fonts for Fremtind Grotesk, Fremtind Grotesk Display, og Fremtind Grotesk Mono.
-/// @param {"Fremtind Grotesk" | "Fremtind Grotesk Mono" | "Fremtind Grotesk Display" | "Fremtind Material Symbols"} $font - Regular justerer seg automatisk til italic og bold basert på font-style og font-weight. Display og Mono er adskilte fontfamilier.
+/// @param {"Inter" | "Fremtind Grotesk" | "Fremtind Grotesk Mono" | "Fremtind Grotesk Display" | "Fremtind Material Symbols"} $font - Regular justerer seg automatisk til italic og bold basert på font-style og font-weight. Display og Mono er adskilte fontfamilier.
 /// @output - Ønsket fontfamilie med justert fallbackfont.
 @mixin use-font-family($font) {
     @if not list.index($_valid-font-family-values, $font) {

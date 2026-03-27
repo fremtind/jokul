@@ -1,0 +1,94 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+
+@layer jokul.theme {
+    :root,
+    [data-size],
+    [data-theme] {
+        --jkl-unit-0: 0;
+        --jkl-spacing-0: 0rem;
+        --jkl-spacing-2: 0.125rem;
+        --jkl-spacing-4: 0.25rem;
+        --jkl-spacing-8: 0.5rem;
+        --jkl-spacing-12: 0.75rem;
+        --jkl-spacing-16: 1rem;
+        --jkl-spacing-24: 1.5rem;
+        --jkl-spacing-32: 2rem;
+        --jkl-spacing-40: 2.5rem;
+        --jkl-spacing-64: 4rem;
+        --jkl-spacing-104: 6.5rem;
+        --jkl-spacing-168: 10.5rem;
+        --jkl-spacing-none: 0;
+        --jkl-border-width-1: 0.0625rem;
+        --jkl-border-width-2: 0.125rem;
+        --jkl-border-width-3: 0.1875rem;
+        --jkl-border-radius-none: 0;
+        --jkl-border-radius-xs: 0.25rem;
+        --jkl-border-radius-s: 0.5rem;
+        --jkl-border-radius-m: 0.75rem;
+        --jkl-border-radius-l: 1rem;
+        --jkl-border-radius-full: 9999px;
+        --jkl-breakpoint-small: 0;
+        --jkl-breakpoint-medium: 680px;
+        --jkl-breakpoint-large: 1200px;
+        --jkl-breakpoint-xl: 1600px;
+        --jkl-motion-timing-energetic: 75ms;
+        --jkl-motion-timing-snappy: 100ms;
+        --jkl-motion-timing-productive: 150ms;
+        --jkl-motion-timing-polite: 200ms;
+        --jkl-motion-timing-expressive: 250ms;
+        --jkl-motion-timing-lazy: 400ms;
+        --jkl-motion-easing-standard: ease;
+        --jkl-motion-easing-entrance: ease-out;
+        --jkl-motion-easing-exit: ease-in;
+        --jkl-motion-easing-ease-in-bounce-out: cubic-bezier(0, 0, 0.375, 1.17);
+        --jkl-motion-easing-focus: cubic-bezier(0.6, 0.2, 0.35, 1);
+        --jkl-font-weight-normal: 400;
+        --jkl-font-weight-bold: 700;
+        --jkl-font-family-regular: 'Inter','Fremtind Grotesk', 'Adjusted Arial Fallback', arial, sans-serif;
+        --jkl-font-family-display: 'Inter','Fremtind Grotesk Display', 'Adjusted Arial Display Fallback', arial, sans-serif;
+        --jkl-font-family-mono: 'Fremtind Grotesk Mono', 'Adjusted Courier New Fallback', -apple-system, blinkmacsystemfont, monospace;
+        --jkl-line-height-flush: 1;
+        --jkl-line-height-tight: 1.3;
+        --jkl-line-height-relaxed: 1.6;
+        --jkl-unit-15: calc(var(--jkl-unit-base) * 1.5);
+        --jkl-unit-20: calc(var(--jkl-unit-base) * 2);
+        --jkl-unit-25: calc(var(--jkl-unit-base) * 2.5);
+        --jkl-unit-30: calc(var(--jkl-unit-base) * 3);
+        --jkl-unit-35: calc(var(--jkl-unit-base) * 3.5);
+        --jkl-unit-40: calc(var(--jkl-unit-base) * 4);
+        --jkl-unit-50: calc(var(--jkl-unit-base) * 5);
+        --jkl-unit-60: calc(var(--jkl-unit-base) * 6);
+        --jkl-unit-70: calc(var(--jkl-unit-base) * 7);
+        --jkl-unit-80: calc(var(--jkl-unit-base) * 8);
+        --jkl-unit-90: calc(var(--jkl-unit-base) * 9);
+        --jkl-unit-100: calc(var(--jkl-unit-base) * 10);
+        --jkl-unit-130: calc(var(--jkl-unit-base) * 13);
+        --jkl-unit-210: calc(var(--jkl-unit-base) * 21);
+        --jkl-unit-02: calc(var(--jkl-unit-base) * 0.25);
+        --jkl-unit-05: calc(var(--jkl-unit-base) * 0.5);
+        --jkl-spacing-2xs: var(--jkl-spacing-4);
+        --jkl-spacing-xs: var(--jkl-spacing-8);
+        --jkl-spacing-s: var(--jkl-spacing-16);
+        --jkl-spacing-m: var(--jkl-spacing-24);
+        --jkl-spacing-l: var(--jkl-spacing-40);
+        --jkl-spacing-xl: var(--jkl-spacing-64);
+        --jkl-spacing-2xl: var(--jkl-spacing-104);
+        --jkl-text-style-title: var(--jkl-font-weight-normal) var(--jkl-font-size-10)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-title-small: var(--jkl-font-weight-normal) var(--jkl-font-size-9)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-heading-1: var(--jkl-font-weight-normal) var(--jkl-font-size-8)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-heading-2: var(--jkl-font-weight-normal) var(--jkl-font-size-7)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-heading-3: var(--jkl-font-weight-bold) var(--jkl-font-size-6)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-heading-4: var(--jkl-font-weight-bold) var(--jkl-font-size-5)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-heading-5: var(--jkl-font-weight-bold) var(--jkl-font-size-4)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-paragraph-large: var(--jkl-font-weight-normal) var(--jkl-font-size-5)/var(--jkl-line-height-relaxed) var(--jkl-font-family-regular);
+        --jkl-text-style-paragraph-medium: var(--jkl-font-weight-normal) var(--jkl-font-size-3)/var(--jkl-line-height-relaxed) var(--jkl-font-family-regular);
+        --jkl-text-style-paragraph-small: var(--jkl-font-weight-normal) var(--jkl-font-size-2)/var(--jkl-line-height-relaxed) var(--jkl-font-family-regular);
+        --jkl-text-style-text-large: var(--jkl-font-weight-normal) var(--jkl-font-size-5)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-text-medium: var(--jkl-font-weight-normal) var(--jkl-font-size-3)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-text-small: var(--jkl-font-weight-normal) var(--jkl-font-size-2)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+        --jkl-text-style-text-micro: var(--jkl-font-weight-normal) var(--jkl-font-size-1)/var(--jkl-line-height-tight) var(--jkl-font-family-regular);
+    }
+}

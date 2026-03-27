@@ -1,0 +1,306 @@
+
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+$color-background-page: var(--jkl-color-background-page) !default;
+$color-background-page-variant: var(--jkl-color-background-page-variant) !default;
+$color-background-container: var(--jkl-color-background-container) !default;
+$color-background-container-low: var(--jkl-color-background-container-low) !default;
+$color-background-container-high: var(--jkl-color-background-container-high) !default;
+$color-background-container-inverted: var(--jkl-color-background-container-inverted) !default;
+$color-background-container-subdued: var(--jkl-color-background-container-subdued) !default;
+$color-background-input-base: var(--jkl-color-background-input-base) !default;
+$color-background-input-focus: var(--jkl-color-background-input-focus) !default;
+$color-background-action: var(--jkl-color-background-action) !default;
+$color-background-interactive: var(--jkl-color-background-interactive) !default;
+$color-background-interactive-hover: var(--jkl-color-background-interactive-hover) !default;
+$color-background-interactive-selected: var(--jkl-color-background-interactive-selected) !default;
+$color-background-alert-neutral: var(--jkl-color-background-alert-neutral) !default;
+$color-background-alert-info: var(--jkl-color-background-alert-info) !default;
+$color-background-alert-success: var(--jkl-color-background-alert-success) !default;
+$color-background-alert-warning: var(--jkl-color-background-alert-warning) !default;
+$color-background-alert-error: var(--jkl-color-background-alert-error) !default;
+$color-text-default: var(--jkl-color-text-default) !default;
+$color-text-subdued: var(--jkl-color-text-subdued) !default;
+$color-text-inverted: var(--jkl-color-text-inverted) !default;
+$color-text-on-action: var(--jkl-color-text-on-action) !default;
+$color-text-interactive: var(--jkl-color-text-interactive) !default;
+$color-text-interactive-hover: var(--jkl-color-text-interactive-hover) !default;
+$color-text-on-alert: var(--jkl-color-text-on-alert) !default;
+$color-text-on-alert-subdued: var(--jkl-color-text-on-alert-subdued) !default;
+$color-border-action: var(--jkl-color-border-action) !default;
+$color-border-input: var(--jkl-color-border-input) !default;
+$color-border-input-focus: var(--jkl-color-border-input-focus) !default;
+$color-border-separator: var(--jkl-color-border-separator) !default;
+$color-border-separator-strong: var(--jkl-color-border-separator-strong) !default;
+$color-border-separator-hover: var(--jkl-color-border-separator-hover) !default;
+$color-border-subdued: var(--jkl-color-border-subdued) !default;
+$unit-0: var(--jkl-unit-0) !default;
+$unit-10: var(--jkl-unit-10) !default;
+$unit-15: var(--jkl-unit-15) !default;
+$unit-20: var(--jkl-unit-20) !default;
+$unit-25: var(--jkl-unit-25) !default;
+$unit-30: var(--jkl-unit-30) !default;
+$unit-35: var(--jkl-unit-35) !default;
+$unit-40: var(--jkl-unit-40) !default;
+$unit-50: var(--jkl-unit-50) !default;
+$unit-60: var(--jkl-unit-60) !default;
+$unit-70: var(--jkl-unit-70) !default;
+$unit-80: var(--jkl-unit-80) !default;
+$unit-90: var(--jkl-unit-90) !default;
+$unit-100: var(--jkl-unit-100) !default;
+$unit-130: var(--jkl-unit-130) !default;
+$unit-210: var(--jkl-unit-210) !default;
+$unit-base: var(--jkl-unit-base) !default;
+$unit-02: var(--jkl-unit-02) !default;
+$unit-05: var(--jkl-unit-05) !default;
+$spacing-0: var(--jkl-spacing-0) !default;
+$spacing-2: var(--jkl-spacing-2) !default;
+$spacing-4: var(--jkl-spacing-4) !default;
+$spacing-8: var(--jkl-spacing-8) !default;
+$spacing-12: var(--jkl-spacing-12) !default;
+$spacing-16: var(--jkl-spacing-16) !default;
+$spacing-24: var(--jkl-spacing-24) !default;
+$spacing-32: var(--jkl-spacing-32) !default;
+$spacing-40: var(--jkl-spacing-40) !default;
+$spacing-64: var(--jkl-spacing-64) !default;
+$spacing-104: var(--jkl-spacing-104) !default;
+$spacing-168: var(--jkl-spacing-168) !default;
+$spacing-none: var(--jkl-spacing-none) !default;
+$spacing-2xs: var(--jkl-spacing-2xs) !default;
+$spacing-xs: var(--jkl-spacing-xs) !default;
+$spacing-s: var(--jkl-spacing-s) !default;
+$spacing-m: var(--jkl-spacing-m) !default;
+$spacing-l: var(--jkl-spacing-l) !default;
+$spacing-xl: var(--jkl-spacing-xl) !default;
+$spacing-2xl: var(--jkl-spacing-2xl) !default;
+$border-width-1: var(--jkl-border-width-1) !default;
+$border-width-2: var(--jkl-border-width-2) !default;
+$border-width-3: var(--jkl-border-width-3) !default;
+$border-radius-none: var(--jkl-border-radius-none) !default;
+$border-radius-xs: var(--jkl-border-radius-xs) !default;
+$border-radius-s: var(--jkl-border-radius-s) !default;
+$border-radius-m: var(--jkl-border-radius-m) !default;
+$border-radius-l: var(--jkl-border-radius-l) !default;
+$border-radius-full: var(--jkl-border-radius-full) !default;
+$breakpoint-small: var(--jkl-breakpoint-small) !default;
+$breakpoint-medium: var(--jkl-breakpoint-medium) !default;
+$breakpoint-large: var(--jkl-breakpoint-large) !default;
+$breakpoint-xl: var(--jkl-breakpoint-xl) !default;
+$motion-timing-energetic: var(--jkl-motion-timing-energetic) !default;
+$motion-timing-snappy: var(--jkl-motion-timing-snappy) !default;
+$motion-timing-productive: var(--jkl-motion-timing-productive) !default;
+$motion-timing-polite: var(--jkl-motion-timing-polite) !default;
+$motion-timing-expressive: var(--jkl-motion-timing-expressive) !default;
+$motion-timing-lazy: var(--jkl-motion-timing-lazy) !default;
+$motion-easing-standard: var(--jkl-motion-easing-standard) !default;
+$motion-easing-entrance: var(--jkl-motion-easing-entrance) !default;
+$motion-easing-exit: var(--jkl-motion-easing-exit) !default;
+$motion-easing-ease-in-bounce-out: var(--jkl-motion-easing-ease-in-bounce-out) !default;
+$motion-easing-focus: var(--jkl-motion-easing-focus) !default;
+$font-size-1: var(--jkl-font-size-1) !default;
+$font-size-2: var(--jkl-font-size-2) !default;
+$font-size-3: var(--jkl-font-size-3) !default;
+$font-size-4: var(--jkl-font-size-4) !default;
+$font-size-5: var(--jkl-font-size-5) !default;
+$font-size-6: var(--jkl-font-size-6) !default;
+$font-size-7: var(--jkl-font-size-7) !default;
+$font-size-8: var(--jkl-font-size-8) !default;
+$font-size-9: var(--jkl-font-size-9) !default;
+$font-size-10: var(--jkl-font-size-10) !default;
+$font-weight-normal: var(--jkl-font-weight-normal) !default;
+$font-weight-bold: var(--jkl-font-weight-bold) !default;
+$font-family-regular: var(--jkl-font-family-regular) !default;
+$font-family-display: var(--jkl-font-family-display) !default;
+$font-family-mono: var(--jkl-font-family-mono) !default;
+$line-height-flush: var(--jkl-line-height-flush) !default;
+$line-height-tight: var(--jkl-line-height-tight) !default;
+$line-height-relaxed: var(--jkl-line-height-relaxed) !default;
+$text-style-title: var(--jkl-text-style-title) !default;
+$text-style-title-small: var(--jkl-text-style-title-small) !default;
+$text-style-heading-1: var(--jkl-text-style-heading-1) !default;
+$text-style-heading-2: var(--jkl-text-style-heading-2) !default;
+$text-style-heading-3: var(--jkl-text-style-heading-3) !default;
+$text-style-heading-4: var(--jkl-text-style-heading-4) !default;
+$text-style-heading-5: var(--jkl-text-style-heading-5) !default;
+$text-style-paragraph-large: var(--jkl-text-style-paragraph-large) !default;
+$text-style-paragraph-medium: var(--jkl-text-style-paragraph-medium) !default;
+$text-style-paragraph-small: var(--jkl-text-style-paragraph-small) !default;
+$text-style-text-large: var(--jkl-text-style-text-large) !default;
+$text-style-text-medium: var(--jkl-text-style-text-medium) !default;
+$text-style-text-small: var(--jkl-text-style-text-small) !default;
+$text-style-text-micro: var(--jkl-text-style-text-micro) !default;
+
+$tokens: (
+  'color': (
+    'background': (
+      'page': $color-background-page,
+      'page-variant': $color-background-page-variant,
+      'container': $color-background-container,
+      'container-low': $color-background-container-low,
+      'container-high': $color-background-container-high,
+      'container-inverted': $color-background-container-inverted,
+      'container-subdued': $color-background-container-subdued,
+      'input': (
+        'base': $color-background-input-base,
+        'focus': $color-background-input-focus
+      ),
+      'action': $color-background-action,
+      'interactive': $color-background-interactive,
+      'interactive-hover': $color-background-interactive-hover,
+      'interactive-selected': $color-background-interactive-selected,
+      'alert': (
+        'neutral': $color-background-alert-neutral,
+        'info': $color-background-alert-info,
+        'success': $color-background-alert-success,
+        'warning': $color-background-alert-warning,
+        'error': $color-background-alert-error
+      )
+    ),
+    'text': (
+      'default': $color-text-default,
+      'subdued': $color-text-subdued,
+      'inverted': $color-text-inverted,
+      'on-action': $color-text-on-action,
+      'interactive': $color-text-interactive,
+      'interactive-hover': $color-text-interactive-hover,
+      'on-alert': $color-text-on-alert,
+      'on-alert-subdued': $color-text-on-alert-subdued
+    ),
+    'border': (
+      'action': $color-border-action,
+      'input': $color-border-input,
+      'input-focus': $color-border-input-focus,
+      'separator': $color-border-separator,
+      'separator-strong': $color-border-separator-strong,
+      'separator-hover': $color-border-separator-hover,
+      'subdued': $color-border-subdued
+    )
+  ),
+  'unit': (
+    '0': $unit-0,
+    '10': $unit-10,
+    '15': $unit-15,
+    '20': $unit-20,
+    '25': $unit-25,
+    '30': $unit-30,
+    '35': $unit-35,
+    '40': $unit-40,
+    '50': $unit-50,
+    '60': $unit-60,
+    '70': $unit-70,
+    '80': $unit-80,
+    '90': $unit-90,
+    '100': $unit-100,
+    '130': $unit-130,
+    '210': $unit-210,
+    'base': $unit-base,
+    '02': $unit-02,
+    '05': $unit-05
+  ),
+  'spacing': (
+    '0': $spacing-0,
+    '2': $spacing-2,
+    '4': $spacing-4,
+    '8': $spacing-8,
+    '12': $spacing-12,
+    '16': $spacing-16,
+    '24': $spacing-24,
+    '32': $spacing-32,
+    '40': $spacing-40,
+    '64': $spacing-64,
+    '104': $spacing-104,
+    '168': $spacing-168,
+    'none': $spacing-none,
+    '2xs': $spacing-2xs,
+    'xs': $spacing-xs,
+    's': $spacing-s,
+    'm': $spacing-m,
+    'l': $spacing-l,
+    'xl': $spacing-xl,
+    '2xl': $spacing-2xl
+  ),
+  'border': (
+    'width': (
+      '1': $border-width-1,
+      '2': $border-width-2,
+      '3': $border-width-3
+    ),
+    'radius': (
+      'none': $border-radius-none,
+      'xs': $border-radius-xs,
+      's': $border-radius-s,
+      'm': $border-radius-m,
+      'l': $border-radius-l,
+      'full': $border-radius-full
+    )
+  ),
+  'breakpoint': (
+    'small': $breakpoint-small,
+    'medium': $breakpoint-medium,
+    'large': $breakpoint-large,
+    'xl': $breakpoint-xl
+  ),
+  'motion': (
+    'timing': (
+      'energetic': $motion-timing-energetic,
+      'snappy': $motion-timing-snappy,
+      'productive': $motion-timing-productive,
+      'polite': $motion-timing-polite,
+      'expressive': $motion-timing-expressive,
+      'lazy': $motion-timing-lazy
+    ),
+    'easing': (
+      'standard': $motion-easing-standard,
+      'entrance': $motion-easing-entrance,
+      'exit': $motion-easing-exit,
+      'easeInBounceOut': $motion-easing-ease-in-bounce-out,
+      'focus': $motion-easing-focus
+    )
+  ),
+  'font': (
+    'size': (
+      '1': $font-size-1,
+      '2': $font-size-2,
+      '3': $font-size-3,
+      '4': $font-size-4,
+      '5': $font-size-5,
+      '6': $font-size-6,
+      '7': $font-size-7,
+      '8': $font-size-8,
+      '9': $font-size-9,
+      '10': $font-size-10
+    ),
+    'weight': (
+      'normal': $font-weight-normal,
+      'bold': $font-weight-bold
+    ),
+    'family': (
+      'regular': $font-family-regular,
+      'display': $font-family-display,
+      'mono': $font-family-mono
+    )
+  ),
+  'lineHeight': (
+    'flush': $line-height-flush,
+    'tight': $line-height-tight,
+    'relaxed': $line-height-relaxed
+  ),
+  'textStyle': (
+    'title': $text-style-title,
+    'title-small': $text-style-title-small,
+    'heading-1': $text-style-heading-1,
+    'heading-2': $text-style-heading-2,
+    'heading-3': $text-style-heading-3,
+    'heading-4': $text-style-heading-4,
+    'heading-5': $text-style-heading-5,
+    'paragraph-large': $text-style-paragraph-large,
+    'paragraph-medium': $text-style-paragraph-medium,
+    'paragraph-small': $text-style-paragraph-small,
+    'text-large': $text-style-text-large,
+    'text-medium': $text-style-text-medium,
+    'text-small': $text-style-text-small,
+    'text-micro': $text-style-text-micro
+  )
+);
