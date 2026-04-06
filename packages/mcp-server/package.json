@@ -1,7 +1,7 @@
 {
     "name": "@fremtind/jokul-mcp-server",
     "private": true,
-    "version": "1.0.1",
+    "version": "1.0.1-next.0",
     "description": "MCP server for designsystemet Jøkul. Hjelper KI-agenter med å bruke Jøkul på riktig måte",
     "type": "module",
     "main": "dist/index.js",

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-button {
@@ -21,7 +21,7 @@
         display: inline-block;
 
         @include jkl.text-style("text-medium") {
-            font-weight: jkl.$typography-weight-bold;
+            font-weight: jkl.$font-weight-bold;
         }
 
         cursor: pointer;

@@ -1,0 +1,20 @@
+{
+    "motion": {
+        "timing": {
+            "type": "duration",
+            "energetic": { "value": "75ms" },
+            "snappy": { "value": "100ms" },
+            "productive": { "value": "150ms" },
+            "polite": { "value": "200ms" },
+            "expressive": { "value": "250ms" },
+            "lazy": { "value": "400ms" }
+        },
+        "easing": {
+            "standard": { "value": "ease" },
+            "entrance": { "value": "ease-out" },
+            "exit": { "value": "ease-in" },
+            "easeInBounceOut": { "value": "cubic-bezier(0, 0, 0.375, 1.17)" },
+            "focus": { "value": "cubic-bezier(0.6, 0.2, 0.35, 1)" }
+        }
+    }
+}

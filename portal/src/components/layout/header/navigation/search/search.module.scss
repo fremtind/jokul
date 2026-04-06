@@ -2,6 +2,7 @@
 
 .description {
     -webkit-box-orient: vertical;
+
     @include jkl.text-style("paragraph-small");
     color: var(--jkl-color-text-subdued);
     display: -webkit-box;
@@ -13,6 +14,7 @@
 .type {
     color: var(--jkl-color-text-subdued);
     margin-inline-start: 1ch;
+
     @include jkl.text-style("paragraph-small");
 
     &::before {
@@ -21,6 +23,6 @@
 }
 
 .result:focus-within {
-    @include jkl.focus-outline();
+    @include jkl.focus-outline;
     z-index: 1;
 }

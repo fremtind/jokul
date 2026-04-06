@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 $_smiley-size: jkl.rem(40px);
 $_smileys-max-width: $_smiley-size * 9; // 5 smileys med fire like store mellomrom
@@ -102,6 +102,7 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
 
         input:focus-visible + & {
             border-radius: var(--jkl-border-radius-full);
+
             @include jkl.focus-outline;
         }
     }

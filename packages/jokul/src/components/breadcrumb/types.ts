@@ -1,4 +1,4 @@
-import type { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../utilities/types.js";
 
 export interface BreadcrumbProps extends WithChildren {
     className?: string;

@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-table-header {
@@ -6,7 +6,7 @@
         --jkl-table-header-padding-block: var(--jkl-unit-10);
 
         @include jkl.text-style("text-small") {
-            font-weight: jkl.$typography-weight-bold;
+            font-weight: jkl.$font-weight-bold;
         };
 
         padding-block: var(--jkl-table-header-padding-block);
@@ -23,7 +23,7 @@
         }
 
         &--bold {
-            font-weight: var(--jkl-typography-weight-bold);
+            font-weight: var(--jkl-font-weight-bold);
         }
 
         &__arrows {

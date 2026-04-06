@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 $_blink-animation-name: jkl-blink-#{string.unique-id()};
 

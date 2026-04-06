@@ -4,7 +4,7 @@ import type {
     Size,
     WithChildren,
     WithOptionalChildren,
-} from "../../core/types.js";
+} from "../../utilities/types.js";
 
 export interface FieldGroupProps
     extends DataTestAutoId,

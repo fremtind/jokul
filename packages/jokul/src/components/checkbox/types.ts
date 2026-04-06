@@ -4,7 +4,7 @@ import type {
     InputHTMLAttributes,
     ReactNode,
 } from "react";
-import type { DataTestAutoId } from "../../core/types.js";
+import type { DataTestAutoId } from "../../utilities/types.js";
 
 export interface CheckboxProps
     extends DataTestAutoId,

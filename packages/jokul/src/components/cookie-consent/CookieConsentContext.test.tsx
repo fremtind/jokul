@@ -1,7 +1,7 @@
 import { renderHook } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
-import type { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../utilities/types.js";
 import {
     CookieConsentProvider,
     useInternalState,

@@ -1,21 +1,16 @@
 import { kebabCase } from "change-case";
 import plugin from "tailwindcss/plugin.js";
-import tokens from "../../core/tokens.js";
+import tokens from "../../tokens.js";
 
-const { breakpoint, typography } = tokens;
+const { textStyle } = tokens;
 
 export const jokulTypographyPlugin = plugin(({ addComponents }) => {
-    const mappedTextStyles = Object.entries(typography.style).map(
-        ([name, style]) => [
-            `.${kebabCase(name)}`,
-            {
-                ...style.small,
-                [`@media (min-width: ${breakpoint.medium})`]: {
-                    ...style.base,
-                },
-            },
-        ],
-    );
+    const mappedTextStyles = Object.entries(textStyle).map(([name, style]) => [
+        `.${kebabCase(name)}`,
+        {
+            font: style,
+        },
+    ]);
 
     addComponents(Object.fromEntries(mappedTextStyles));
 });

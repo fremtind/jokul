@@ -9,5 +9,5 @@ export type {
 } from "./types.js";
 
 // Beta
-export { Select as BETA_Select } from "../../components-beta/select/Select.js";
-export type { SelectProps as BETA_SelectProps } from "../../components-beta/select/types.js";
+export { Select as BETA_Select } from "../beta/select/Select.jsx";
+export type { SelectProps as BETA_SelectProps } from "../beta/select/types.js";

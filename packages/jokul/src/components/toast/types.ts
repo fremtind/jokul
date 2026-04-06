@@ -1,6 +1,6 @@
 import type { ToastOptions as StatelyToastOptions } from "@react-stately/toast";
 import type { ReactNode } from "react";
-import type { WithChildren } from "../../core/types.js";
+import type { WithChildren } from "../../utilities/types.js";
 
 export type ToastContent =
     | {

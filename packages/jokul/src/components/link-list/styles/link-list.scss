@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 @use "../../icon/styles/base-styles" as icon;
 
 @layer jokul.components {
@@ -57,7 +57,7 @@
                 }
 
                 &:focus-visible {
-                    @include jkl.focus-outline();
+                    @include jkl.focus-outline;
                 }
             }
         }

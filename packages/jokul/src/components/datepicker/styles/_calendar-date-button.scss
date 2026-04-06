@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-calendar-date-button {
@@ -41,7 +41,7 @@
         }
 
         &[aria-current="date"] {
-            font-weight: jkl.$typography-weight-bold;
+            font-weight: jkl.$font-weight-bold;
         }
 
         // Other dates
