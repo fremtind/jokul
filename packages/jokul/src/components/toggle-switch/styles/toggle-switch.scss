@@ -7,7 +7,7 @@
     --jkl-toggle-switch-width: var(--jkl-unit-60);
     --jkl-toggle-switch-knob-size: var(--jkl-unit-30);
     --border-width: #{jkl.rem(1px)};
-    --switch-padding: #{jkl.rem(4px)};
+    --switch-padding: var(--jkl-unit-05);
     --knob-position: 0;
     --switch-border-color: var(--jkl-color-border-action);
     --indicator-color: var(--jkl-color-background-container-high);
@@ -66,7 +66,6 @@
     --jkl-toggle-switch-height: var(--jkl-unit-40);
     --jkl-toggle-switch-width: var(--jkl-unit-60);
     --jkl-toggle-switch-knob-size: var(--jkl-unit-30);
-    --jkl-toggle-switch-indicator-spacing: 0;
 
     position: relative;
     box-sizing: border-box;
@@ -116,13 +115,7 @@
         position: absolute;
         top: 50%;
         right: 100%;
-        margin-right: var(--jkl-toggle-switch-indicator-spacing);
+        font-size: var(--jkl-unit-20);
         transform: translate(0, -50%);
-
-        & > .jkl-icon__icon {
-            // Uten dette får ikonet feil alignment. Mulig bug i ikonpakken?
-            position: absolute;
-            inset: 0;
-        }
     }
 }

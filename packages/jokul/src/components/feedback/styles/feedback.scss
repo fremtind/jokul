@@ -82,11 +82,6 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
             transition-property: opacity;
         }
 
-        &::after {
-            inset: jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px) jkl.rem(-2px);
-            box-shadow: 0 0 0 jkl.rem(2px) currentColor;
-        }
-
         &::before {
             inset: 0;
             box-shadow: 0 jkl.rem(2px) jkl.rem(30px) rgb(0 0 0 / 10%);
@@ -105,10 +100,10 @@ $_show-animation-name: jkl-show-#{string.unique-id()};
             }
         }
 
-        input:focus + &::after {
-            @include jkl.keyboard-navigation {
-                opacity: 1;
-            }
+        input:focus-visible + & {
+            border-radius: var(--jkl-border-radius-full);
+
+            @include jkl.focus-outline;
         }
     }
 }

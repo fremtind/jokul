@@ -11,6 +11,7 @@
         --jkl-button-padding-icon: var(--jkl-unit-20);
         --jkl-button-padding-icon-button: var(--jkl-unit-10);
         --jkl-button-tertiary-padding-icon: var(--jkl-unit-05);
+        --jkl-button-text-ink-offset: 0.1em;
         --jkl-icon-weight: var(--jkl-icon-weight-bold);
         --text-color: var(--jkl-color-text-default);
         --background-color: transparent;
@@ -83,8 +84,13 @@
             // Håndter tekster som er lenger enn knappen
             // Knappen vokser til teksten, men kan f.eks. begrenses
             // av sidebredde på mobil
+            display: block;
             width: 100%;
             max-width: 100%;
+            // Gir diakritiske tegn litt ekstra plass i tekstboksen uten
+            // å endre knappens totale høyde.
+            padding-block-start: var(--jkl-button-text-ink-offset);
+            margin-block-start: calc(var(--jkl-button-text-ink-offset) * -1);
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -104,11 +110,9 @@
         }
 
         &:hover {
-            background-color: color-mix(
-                in srgb,
-                var(--background-color),
-                var(--text-color) 15%
-            );
+            background-color: color-mix(in srgb,
+                    var(--background-color),
+                    var(--text-color) 15%);
 
             @media (forced-colors: active) {
                 @include jkl.focus-outline;
@@ -139,15 +143,11 @@
             padding-inline: var(--jkl-button-tertiary-padding-icon);
 
             &:has(.jkl-icon:first-child) {
-                padding-inline: var(--jkl-button-tertiary-padding-icon)
-                    calc(var(--jkl-button-tertiary-padding-icon) * 2);
+                padding-inline: var(--jkl-button-tertiary-padding-icon) calc(var(--jkl-button-tertiary-padding-icon) * 2);
             }
 
             &:has(.jkl-icon:last-child) {
-                padding-inline: calc(
-                        var(--jkl-button-tertiary-padding-icon) * 2
-                    )
-                    var(--jkl-button-tertiary-padding-icon);
+                padding-inline: calc(var(--jkl-button-tertiary-padding-icon) * 2) var(--jkl-button-tertiary-padding-icon);
             }
         }
     }

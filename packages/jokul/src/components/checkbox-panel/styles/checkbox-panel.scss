@@ -10,4 +10,8 @@ $_checkbox-checked-animation-name: jkl-checkbox-checked-#{string.unique-id()};
         /* Visuell justering ettersom ikonet ikke fyller bounding box helt */
         margin-inline-start: -0.1em;
     }
+
+    .jkl-checkbox-panel .jkl-checkbox__input:focus-visible + .jkl-checkbox__label::before {
+        outline: none;
+    }
 }

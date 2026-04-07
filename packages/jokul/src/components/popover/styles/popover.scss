@@ -12,5 +12,19 @@
         box-shadow: 0 4px 20px 0 var(--shadow-color);
         background-color: var(--jkl-color-background-container-high);
         border-radius: var(--jkl-border-radius-s);
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+        }
+    }
+
+    .jkl-popover-trigger {
+        &:focus {
+            outline: 0;
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+        }
     }
 }

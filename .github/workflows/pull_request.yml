@@ -2,7 +2,7 @@ name: Pull request
 
 on:
     pull_request:
-        branches: [ "main" ]
+        branches: [ "main", "release/next", "jokul-*" ]
     merge_group:
         types: [ checks_requested ]
 
@@ -22,6 +22,7 @@ jobs:
         outputs:
             jokul: ${{ steps.code_changes.outputs.jokul }}
             components: ${{ steps.code_changes.outputs.components }}
+            preview: ${{ steps.code_changes.outputs.preview }}
             testlint: ${{ steps.code_changes.outputs.general }}
             code_changes: ${{ steps.code_changes.outputs.has_matches }}
             stories: ${{ steps.documentation.outputs.stories }}
@@ -47,6 +48,15 @@ jobs:
                           - "packages/jokul/src/components-beta/**/*.scss"
                           - "packages/jokul/src/components-beta/**/!(*.stories|*.test|*.d).ts"
                           - "packages/jokul/src/components-beta/**/!(*.stories|*.test).tsx"
+                        preview:
+                          - ".storybook/**/*.(ts|tsx|scss|html)"
+                          - "storybook-public/**/*"
+                          - "packages/jokul/src/**/*.stories.tsx"
+                          - "packages/jokul/src/**/*.scss"
+                          - "packages/jokul/src/**/!(*.stories|*.test|*.d).ts"
+                          - "packages/jokul/src/**/!(*.stories|*.test).tsx"
+                          - "packages/jokul/src/**/*.json"
+                          - "packages/jokul/src/fonts/**/*"
                         general:
                           - "*.js"
                           - "*.scss"
@@ -62,7 +72,7 @@ jobs:
                     filters: |
                         stories:
                           - ".storybook/**/*.(ts|tsx|scss|html)"
-                          - ".storybook-public/**/*"
+                          - "storybook-public/**/*"
                           - "packages/jokul/src/**/*.stories.tsx"
                         changeset:
                           - ".changeset/!(README).md"
@@ -153,7 +163,7 @@ jobs:
     preview:
         name: Publiser forhåndsvisning
         needs: changes
-        if: github.event_name != 'merge_group' && (needs.changes.outputs.components == 'true' || needs.changes.outputs.stories == 'true')
+        if: github.event_name != 'merge_group' && needs.changes.outputs.preview == 'true'
         runs-on: ubuntu-latest
         env:
             PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
