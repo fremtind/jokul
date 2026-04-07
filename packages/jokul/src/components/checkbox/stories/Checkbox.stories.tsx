@@ -11,6 +11,7 @@ const meta = {
         value: "kjekk",
         name: "checkbox",
         children: "Kjekk boks",
+        indeterminate: false,
     },
 } satisfies Meta<typeof Checkbox>;
 

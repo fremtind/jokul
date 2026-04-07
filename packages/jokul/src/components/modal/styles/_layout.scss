@@ -1,0 +1,22 @@
+@use "../../../core/jkl";
+
+@layer jokul.components {
+    /* Base layout */
+    .jkl-modal-container,
+    .jkl-modal-overlay {
+        position: fixed;
+        inset: 0;
+    }
+
+    .jkl-modal-container {
+        z-index: jkl.$z-index--modal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &[aria-hidden="true"] {
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+}

@@ -23,3 +23,19 @@ test("renders correctly", async () => {
 
     await helper.snapshots();
 });
+
+test("uses the Jøkul focus outline when a radio feedback option is focused", async () => {
+    await helper.open();
+
+    await helper.focus(".jkl-radio-button__input");
+    await helper.expectFocusOutline(".jkl-radio-button__label");
+});
+
+test("uses the Jøkul focus outline when a smiley feedback option is focused", async () => {
+    await helper.open();
+
+    await helper.page.getByLabel("Forhåndsvalg").selectOption("Smileys");
+
+    await helper.focus(".jkl-feedback-smileys input");
+    await helper.expectFocusOutline(".jkl-feedback-smiley-option");
+});

@@ -1,5 +1,41 @@
 # portal
 
+## 1.5.2
+
+### Patch Changes
+
+- Updated dependencies [345112f]
+- Updated dependencies [df80c9a]
+- Updated dependencies [9e902bc]
+- Updated dependencies [1e346cf]
+- Updated dependencies [a7411d3]
+- Updated dependencies [8b82af2]
+- Updated dependencies [19868f5]
+- Updated dependencies [0acc2b9]
+  - @fremtind/jokul@4.5.0
+
+## 1.5.1
+
+### Patch Changes
+
+- Updated dependencies [c9de3ac]
+- Updated dependencies [efca3ab]
+  - @fremtind/jokul@4.4.0
+
+## 1.5.0
+
+### Minor Changes
+
+- faab13c: Implementert søk etter innhold
+
+### Patch Changes
+
+- Updated dependencies [dc0b558]
+- Updated dependencies [5984395]
+- Updated dependencies [405ba5e]
+- Updated dependencies [21f66a1]
+  - @fremtind/jokul@4.3.0
+
 ## 1.4.35
 
 ### Patch Changes

@@ -7,6 +7,11 @@ $_downcount: jkl-downcount-#{string.unique-id()};
 @layer jokul.components {
     .jkl-progress-bar {
         @include track.track;
+        @include jkl.reset-outline;
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+        }
 
         &__tracker {
             transition-property: width;

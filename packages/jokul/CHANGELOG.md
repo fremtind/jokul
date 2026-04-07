@@ -1,5 +1,60 @@
 # Change Log
 
+## 4.5.0
+
+### Minor Changes
+
+- 1e346cf: DatePicker støtter nå kompakt datoformat uten skilletegn, som `11112022`,
+  og formatterer det automatisk til `11.11.2022`.
+
+  Dette utvider hvilke inputverdier som godtas, men endrer ikke API-et som
+  forbrukere mottar fra komponenten. `meta.value` er fortsatt lik
+  `event.target.value`, og kontrollert bruk med `setValue(e.target.value)`
+  oppfører seg som før.
+
+  Eksempler:
+
+  - Å skrive `11112022` viser `11.11.2022` i feltet og emitterer `11.11.2022`
+  - Å velge `11.11.2022` i kalenderen emitterer fortsatt `11.11.2022`
+  - Å skrive `11.11.2022` oppfører seg uendret
+
+### Patch Changes
+
+- 345112f: DatePicker formatterer ikke lenger 6-sifrede datoer som `dd.mm.aa`.
+- df80c9a: Oppdater corner radius i Card til border-radius-m, i tråd med Figma.
+- 9e902bc: Fikser avrundet hjørne på expandable panels som står alene
+- a7411d3: Fikser så ikonet i combobox ikke vokser ut av boksen ved mindre bredder
+- 8b82af2: Gjør fokusmarkeringen tydeligere på interagerbare elementer. Integrasjonstestene verifiserer nå fokusmarkeringen eksplisitt, og egne fokusskjermbilder er fjernet fra de visuelle regresjonstestene.
+- 19868f5: Forhindrer at diakritiske tegn i knappetekst blir klippet.
+- 0acc2b9: Fikser overflow og skalering av ikonet i ToggleSwitch
+
+## 4.4.0
+
+### Minor Changes
+
+- c9de3ac: Gjør det mulig å endre lenketeksten i Cookie Consent
+
+### Patch Changes
+
+- efca3ab: Rett trefffeltet for checkbox og radio slik at det faktiske inputfeltet er justert med det synlige ikonet, samtidig som hele headeren i input-panelet forblir klikkbar.
+
+## 4.3.0
+
+### Minor Changes
+
+- dc0b558: - Knappene i modalen brekker nå under hverandre avhengig av bredden til _modalen_, ikke bredden av _vinduet_.
+  - Du kan nå overstyre bredden til modalen ved å sette CSS-variabelen `--modal-width`. Modalen vil fortsatt respektere skjermbredde på smale skjermer.
+- 405ba5e: Modal har fått mulighet for flere plasseringer, full bredde og animasjon for mer fleksibel bruk.
+
+### Patch Changes
+
+- 5984395: Retter feil i stilarkene for komponenter:
+
+  - Fikser ugyldig CSS-bruk av `var(transparent)` i beta-select ved å bruke en gyldig transparent verdi.
+  - Fikser datepicker-kalenderstilene ved å sikre gyldige custom properties og regelplassering, slik at bygging/parsing ikke feiler.
+
+- 21f66a1: Fikser en bug der padding ikke lenger kunne settes på Modal via prop.
+
 ## 4.2.0
 
 ### Minor Changes

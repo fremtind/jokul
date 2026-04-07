@@ -11,6 +11,7 @@ import React, {
     useState,
 } from "react";
 import { flushSync } from "react-dom";
+import { formatDateString } from "../../utilities/formatters/date/formatDate.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { CalendarIcon } from "../icon/icons/CalendarIcon.js";
 import { InputGroup } from "../input-group/InputGroup.js";
@@ -21,6 +22,69 @@ import { type DateInfo, getInitialDate } from "./internal/utils.js";
 import type { DatePickerProps, DateValidationError } from "./types.js";
 import { formatInput, parseDateString } from "./utils.js";
 import { isWithinLowerBound, isWithinUpperBound } from "./validation.js";
+
+const setInputValue = (input: HTMLInputElement, value: string) => {
+    const nativeSetter = Object.getOwnPropertyDescriptor(
+        HTMLInputElement.prototype,
+        "value",
+    )?.set;
+
+    if (nativeSetter) {
+        nativeSetter.call(input, value);
+    } else {
+        input.value = value;
+    }
+};
+
+const normalizeInputValue = (rawValue: string) => {
+    const digits = rawValue.replace(/\D/g, "");
+    const partialCompactDate = formatDateString(digits, {
+        partial: true,
+    });
+    const rawValueWithoutTrailingPunctuation = rawValue.replace(/\D+$/, "");
+    const compactDateCandidate =
+        digits.length === 8 ? formatDateString(digits) : rawValue;
+    const validCompactDate = parseDateString(compactDateCandidate)
+        ? compactDateCandidate
+        : null;
+    const shouldRemoveFormatting =
+        rawValue !== digits &&
+        rawValueWithoutTrailingPunctuation === partialCompactDate &&
+        parseDateString(rawValue) === undefined &&
+        validCompactDate === null;
+
+    return validCompactDate ?? (shouldRemoveFormatting ? digits : rawValue);
+};
+
+const getInputValidationState = ({
+    value,
+    minDate,
+    maxDate,
+}: {
+    value: string;
+    minDate?: Date;
+    maxDate?: Date;
+}): { date: Date | null; error: DateValidationError | null } => {
+    if (!value) {
+        return { date: null, error: null };
+    }
+
+    const parsedDate = parseDateString(value);
+
+    if (!parsedDate) {
+        return { date: null, error: "WRONG_FORMAT" };
+    }
+
+    if (minDate && !isWithinLowerBound(parsedDate, minDate)) {
+        return { date: parsedDate, error: "OUTSIDE_LOWER_BOUND" };
+    }
+
+    if (maxDate && !isWithinUpperBound(parsedDate, maxDate)) {
+        return { date: parsedDate, error: "OUTSIDE_UPPER_BOUND" };
+    }
+
+    return { date: parsedDate, error: null };
+};
 
 export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
     (props, forwardedInputRef) => {
@@ -150,21 +214,22 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
 
         const handleChange = useCallback(
             (e: ChangeEvent<HTMLInputElement>) => {
-                let nextDate: Date | null = null;
-                let nextError: DateValidationError | null = null;
+                const rawValue = e.currentTarget.value;
+                const formattedValue = normalizeInputValue(rawValue);
 
-                if (e.target.value) {
-                    const val = parseDateString(e.target.value);
-                    if (!val) {
-                        nextError = "WRONG_FORMAT";
-                    } else if (minDate && !isWithinLowerBound(val, minDate)) {
-                        nextError = "OUTSIDE_LOWER_BOUND";
-                    } else if (maxDate && !isWithinUpperBound(val, maxDate)) {
-                        nextError = "OUTSIDE_UPPER_BOUND";
-                    } else {
-                        setShowCalendar(false);
-                    }
-                    nextDate = val || null;
+                if (formattedValue !== rawValue) {
+                    setInputValue(e.currentTarget, formattedValue);
+                }
+
+                const { date: nextDate, error: nextError } =
+                    getInputValidationState({
+                        value: formattedValue,
+                        minDate,
+                        maxDate,
+                    });
+
+                if (nextDate && !nextError) {
+                    setShowCalendar(false);
                 }
 
                 setError(nextError);
@@ -173,7 +238,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                 if (onChange) {
                     onChange(e, nextDate, {
                         error: nextError,
-                        value: e.target.value,
+                        value: formattedValue,
                     });
                 }
             },

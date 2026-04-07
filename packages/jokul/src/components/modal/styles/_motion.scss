@@ -1,0 +1,45 @@
+@use "../../../core/jkl";
+
+@layer jokul.components {
+    .jkl-modal-container--slide-in {
+        --jkl-modal-slide-x: 0px;
+        --jkl-modal-slide-y: 12px;
+
+        @include jkl.motion("exit", "expressive", visibility);
+        transition-duration: 0ms;
+
+        &[aria-hidden="true"] {
+            display: flex;
+            visibility: hidden;
+            pointer-events: none;
+            transition-delay: jkl.timing("expressive");
+        }
+
+        &:not([aria-hidden="true"]) {
+            visibility: visible;
+            transition-delay: 0ms;
+        }
+    }
+
+    .jkl-modal-container--slide-in .jkl-modal {
+        @include jkl.motion("entrance", "expressive", transform, opacity);
+
+        transform: translate(
+            var(--jkl-modal-slide-x),
+            var(--jkl-modal-slide-y)
+        );
+        opacity: 0;
+        will-change: transform, opacity;
+    }
+
+    .jkl-modal-container--slide-in:not([aria-hidden="true"]) .jkl-modal {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .jkl-modal-container--slide-in .jkl-modal {
+            transition-duration: 0ms;
+        }
+    }
+}

@@ -55,6 +55,8 @@ Vi bruker to tydelige release-brancher:
 
 Dette er splittet i to egne GitHub Actions-workflows: én for stabile releases og én for prereleases.
 
+I tillegg synkes `release/next` automatisk med `main` ved hver push til `main`, slik at prerelease-branchen holder seg oppdatert med det som allerede er merged og publisert stabilt. Hvis synken treffer mergekonflikter gjenbrukes en fast sync-branch og én sync-PR inn mot `release/next` for manuell konfliktløsning. Når sync-PR-en ikke lenger trengs, ryddes sync-branchen opp automatisk så lenge den ikke inneholder egne commits som mangler i `release/next`.
+
 ### Relevante scripts
 
 - `pnpm changeset` oppretter en changeset.

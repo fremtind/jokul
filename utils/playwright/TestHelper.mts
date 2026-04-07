@@ -136,10 +136,90 @@ export class TestHelper {
     }
 
     async focus(selector: string) {
-        await this._page.locator(selector).first().focus();
+        const locator = this._page.locator(selector).first();
+
+        await this._page.evaluate(() => {
+            if (document.activeElement instanceof HTMLElement) {
+                document.activeElement.blur();
+            }
+            const html = document.documentElement;
+            html.removeAttribute("data-mousenavigation");
+            html.removeAttribute("data-touchnavigation");
+        });
+
+        for (let attempt = 0; attempt < 50; attempt++) {
+            const isFocused = await locator.evaluate(
+                (element) => element === document.activeElement,
+            );
+
+            if (isFocused) {
+                return;
+            }
+
+            await this._page.keyboard.press("Tab");
+        }
+
+        await locator.focus();
     }
 
-    private async snapshot(name: string, selector?: string) {
+    private async assertFocusOutline(selector: string) {
+        const outline = await this._page.locator(selector).first().evaluate(
+            (element) => {
+                const getOutline = (
+                    target: Element,
+                    pseudoElement?: string,
+                ) => {
+                    const styles = window.getComputedStyle(target, pseudoElement);
+                    const outlineWidth = Number.parseFloat(styles.outlineWidth);
+
+                    if (
+                        styles.outlineStyle !== "none" &&
+                        Number.isFinite(outlineWidth) &&
+                        outlineWidth > 0
+                    ) {
+                        return {
+                            outlineStyle: styles.outlineStyle,
+                            outlineWidth: styles.outlineWidth,
+                        };
+                    }
+
+                    return null;
+                };
+
+                let current =
+                    element instanceof HTMLElement ? element : null;
+
+                while (current && current !== document.body) {
+                    const outline =
+                        getOutline(current) ||
+                        getOutline(current, "::before") ||
+                        getOutline(current, "::after");
+
+                    if (outline) {
+                        return outline;
+                    }
+
+                    current = current.parentElement;
+                }
+
+                return null;
+            },
+        );
+
+        expect(outline).not.toBeNull();
+        expect(outline?.outlineStyle).toBe("solid");
+        expect(outline?.outlineWidth).toBe("3px");
+    }
+
+    async expectFocusOutline(selector: string) {
+        await this.assertFocusOutline(selector);
+    }
+
+    private async snapshot(
+        name: string,
+        selector?: string,
+        selectorPadding = 0,
+    ) {
         await this._page.evaluate(() => document.fonts.ready);
 
         const locator = this._page
@@ -150,6 +230,26 @@ export class TestHelper {
         if (!box) {
             return;
         }
+        const padding = Math.max(0, selectorPadding);
+        const viewport = this._page.viewportSize();
+        const viewportWidth = viewport?.width ?? box.x + box.width;
+        const viewportHeight = viewport?.height ?? box.y + box.height;
+        const clipX = Math.max(0, box.x - padding);
+        const clipY = Math.max(0, box.y - padding);
+        const clipWidth = Math.min(
+            viewportWidth - clipX,
+            box.width + padding * 2,
+        );
+        const clipHeight = Math.min(
+            viewportHeight - clipY,
+            box.height + padding * 2,
+        );
+        const clip = {
+            x: clipX,
+            y: clipY,
+            width: clipWidth,
+            height: clipHeight,
+        };
 
         const screenshotRoot = `packages/jokul/src/components/${this.package}/integration/__screenshots__`;
         const testName = test.info().title.replaceAll(" ", "-");
@@ -162,14 +262,14 @@ export class TestHelper {
                 await this._page.screenshot({
                     animations: "disabled",
                     caret: "hide",
-                    clip: { ...box },
+                    clip,
                 }),
             ).toMatchSnapshot(`${this.projectName}-${name}`);
         } else {
             await this._page.screenshot({
                 animations: "disabled",
                 caret: "hide",
-                clip: { ...box },
+                clip,
                 path: screenshotPath,
             });
         }
@@ -179,39 +279,54 @@ export class TestHelper {
         before,
         after,
         selector,
+        selectorPadding,
         focusElement,
     }: {
         before?: () => Promise<any>;
         after?: () => Promise<any>;
         selector?: string;
-        focusElement?: string;
+        selectorPadding?: number;
+        focusElement?:
+            | string
+            | {
+                  target: string;
+                  outline?: string;
+              };
     } = {}) {
         await this.setSize("default");
         await this.setTheme("light");
         await before?.();
-        await this.snapshot("default", selector);
+        await this.snapshot("default", selector, selectorPadding);
         if (focusElement) {
-            await this.focus(focusElement);
-            await this.snapshot("default-focus", selector);
+            const focusTarget =
+                typeof focusElement === "string"
+                    ? focusElement
+                    : focusElement.target;
+            const outlineTarget =
+                typeof focusElement === "string"
+                    ? focusElement
+                    : focusElement.outline || focusTarget;
+            await this.focus(focusTarget);
+            await this.assertFocusOutline(outlineTarget);
         }
         await after?.();
 
         await this.setSize("default");
         await this.setTheme("dark");
         await before?.();
-        await this.snapshot("default-dark", selector);
+        await this.snapshot("default-dark", selector, selectorPadding);
         await after?.();
 
         await this.setSize("small");
         await this.setTheme("light");
         await before?.();
-        await this.snapshot("compact-light", selector);
+        await this.snapshot("compact-light", selector, selectorPadding);
         await after?.();
 
         await this.setSize("small");
         await this.setTheme("dark");
         await before?.();
-        await this.snapshot("compact-dark", selector);
+        await this.snapshot("compact-dark", selector, selectorPadding);
         await after?.();
     }
 }

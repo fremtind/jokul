@@ -63,6 +63,236 @@ describe("Datepicker", () => {
         );
     });
 
+    it("does not format 6-digit compact dates while typing", async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await waitFor(async () => {
+            await userEvent.clear(input);
+            await userEvent.type(input, "011220");
+        });
+
+        expect(input).toHaveProperty("value", "011220");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "011220",
+            },
+        );
+    });
+
+    it("formats 8-digit compact dates while typing", async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await waitFor(async () => {
+            await userEvent.clear(input);
+            await userEvent.type(input, "01122019");
+        });
+
+        expect(input).toHaveProperty("value", "01.12.2019");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            expect.any(Date),
+            {
+                error: null,
+                value: "01.12.2019",
+            },
+        );
+    });
+
+    it("keeps 6-digit compact dates unformatted and reformats when completed to 8 digits", async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await userEvent.type(input, "011220");
+
+        expect(input).toHaveProperty("value", "011220");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "011220",
+            },
+        );
+
+        await userEvent.type(input, "{backspace}");
+
+        expect(input).toHaveProperty("value", "01122");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "01122",
+            },
+        );
+
+        await userEvent.type(input, "019");
+
+        expect(input).toHaveProperty("value", "01.12.2019");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            new Date(2019, 11, 1),
+            {
+                error: null,
+                value: "01.12.2019",
+            },
+        );
+    });
+
+    it("keeps 7-digit compact dates unformatted", async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await userEvent.type(input, "0112201");
+
+        expect(input).toHaveProperty("value", "0112201");
+        expect(input).not.toHaveValue(expect.stringMatching(/[./-]/));
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "0112201",
+            },
+        );
+    });
+
+    it("reports raw event.target.value when backspacing a 6-digit compact date", async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await userEvent.type(input, "011220");
+        await userEvent.type(input, "{backspace}");
+
+        const eventTarget = changeHandler.mock.lastCall?.[0]
+            .target as HTMLInputElement;
+
+        expect(eventTarget.value).toBe("01122");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "01122",
+            },
+        );
+    });
+
+    it("removes punctuation when a 9th digit makes a formatted 8-digit date invalid", async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await userEvent.type(input, "01122019");
+
+        expect(input).toHaveProperty("value", "01.12.2019");
+
+        await userEvent.type(input, "1");
+
+        const eventTarget = changeHandler.mock.lastCall?.[0]
+            .target as HTMLInputElement;
+
+        expect(input).toHaveProperty("value", "011220191");
+        expect(input).not.toHaveValue(expect.stringMatching(/[./-]/));
+        expect(eventTarget.value).toBe("011220191");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "011220191",
+            },
+        );
+    });
+
+    it('keeps compatibility for year-first input like "12.11.2"', async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await userEvent.type(input, "12.11.2");
+
+        expect(input).toHaveProperty("value", "12.11.2");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            new Date(2012, 10, 2),
+            {
+                error: null,
+                value: "12.11.2",
+            },
+        );
+    });
+
+    it("does not add punctuation when compact input is not a valid date", async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await userEvent.type(input, "32132024");
+
+        expect(input).toHaveProperty("value", "32132024");
+        expect(input).not.toHaveValue(expect.stringMatching(/[./-]/));
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "32132024",
+            },
+        );
+    });
+
+    it("removes punctuation when the user backspaces after a compact date has been formatted", async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await userEvent.type(input, "01122019");
+
+        expect(input).toHaveProperty("value", "01.12.2019");
+
+        await userEvent.type(input, "{backspace}");
+
+        expect(input).toHaveProperty("value", "0112201");
+        expect(input).not.toHaveValue(expect.stringMatching(/[./-]/));
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "0112201",
+            },
+        );
+    });
+
     it("fires onChange method on edit input with wrong format", async () => {
         const changeHandler = vi.fn();
 
@@ -186,6 +416,29 @@ describe("Datepicker", () => {
         );
     });
 
+    it("lets users backspace the input value until the field is empty", async () => {
+        const changeHandler = vi.fn();
+        const initialValue = "01.12.2019";
+
+        const { getByTestId } = render(
+            <DatePicker defaultValue={initialValue} onChange={changeHandler} />,
+        );
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        expect(input).toHaveProperty("value", initialValue);
+
+        await userEvent.click(input);
+        await userEvent.type(input, "{backspace}".repeat(initialValue.length));
+
+        expect(input).toHaveProperty("value", "");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            { error: null, value: "" },
+        );
+    });
+
     it("should change date on new props", async () => {
         const { container, getByTestId } = render(
             <DatePicker value="02.02.2019" />,
@@ -217,6 +470,25 @@ describe("Datepicker", () => {
         await waitFor(async () => {
             await userEvent.click(document.body);
         });
+
+        expect(queryByTestId("jkl-calendar")).not.toBeInTheDocument();
+    });
+
+    it("should close the datepicker when pressing escape on the trigger", async () => {
+        const { getByTestId, queryByTestId } = render(
+            <DatePicker label="Some datepicker" />,
+        );
+
+        const button = getByTestId("jkl-datepicker__trigger");
+
+        await waitFor(async () => {
+            await userEvent.click(button);
+        });
+
+        expect(getByTestId("jkl-calendar")).toBeInTheDocument();
+
+        button.focus();
+        await userEvent.keyboard("{Escape}");
 
         expect(queryByTestId("jkl-calendar")).not.toBeInTheDocument();
     });
@@ -506,6 +778,7 @@ describe("Datepicker", () => {
                 "24-12-2021",
                 "24/12/2021",
                 "24 12 2021",
+                "24122021",
                 "2021.12.24",
                 "2021-12-24",
                 "2021/12/24",
@@ -534,6 +807,13 @@ describe("Datepicker", () => {
                 expect(onBlur.mock.lastCall?.[1]).toStrictEqual(
                     new Date(returnDate),
                 );
+
+                if (variant === "24122021") {
+                    expect(input).toHaveProperty("value", "24.12.2021");
+                    expect(onBlur.mock.lastCall?.[2]).toMatchObject({
+                        value: "24.12.2021",
+                    });
+                }
             }
         });
     });

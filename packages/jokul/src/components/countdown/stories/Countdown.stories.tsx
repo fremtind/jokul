@@ -6,13 +6,13 @@ import {
     Modal,
     ModalActions,
     ModalBody,
+    ModalContainer,
+    ModalOverlay,
     ModalTitle,
 } from "../../modal/index.js";
-import { CompleteModal } from "../../modal/stories/CompleteModal.stories.js";
+import { useModal } from "../../modal/useModal.js";
 import { Countdown as CountdownComponent } from "../Countdown.js";
 import "../styles/_index.scss";
-import ModalBodyStories from "../../modal/stories/ModalBody.stories.js";
-import ModalTitleStories from "../../modal/stories/ModalTitle.stories.js";
 
 const meta = {
     title: "Komponenter/Countdown",
@@ -52,6 +52,11 @@ export const SessionTimeout: Story = {
         const [sessionTimeout, setSessionTimeout] = useState(
             args.from / 1000 || 0,
         );
+        const heading = "Er du fortsatt der?";
+        const [instance, { title, overlay, container, modal }] = useModal({
+            title: heading,
+            role: "dialog",
+        });
 
         useEffect(() => {
             if (sessionTimeout <= 0) {
@@ -60,32 +65,37 @@ export const SessionTimeout: Story = {
             setTimeout(() => setSessionTimeout(sessionTimeout - 1), 1000);
         }, [sessionTimeout]);
 
+        useEffect(() => {
+            if (!instance) {
+                return;
+            }
+            instance.show();
+        }, [instance]);
+
         return (
-            <Modal
-                {...CompleteModal.args}
-                role="document"
-                key={key}
-                style={{ minWidth: "400px" }}
-            >
-                <ModalTitle {...ModalTitleStories.args}>
-                    Er du fortsatt der?
-                </ModalTitle>
-                <ModalBody {...ModalBodyStories.args}>
-                    <Flex direction="column">
-                        <p>Du blir logget ut om {sessionTimeout} sekund(er)</p>
-                        <CountdownComponent {...args} />
-                    </Flex>
-                </ModalBody>
-                <ModalActions>
-                    <Button
-                        variant="primary"
-                        onClick={() => setKey(Date.now())}
-                    >
-                        Jeg er her!
-                    </Button>
-                    <Button>Logg ut</Button>
-                </ModalActions>
-            </Modal>
+            <ModalContainer {...container} key={key}>
+                <ModalOverlay {...overlay} />
+                <Modal {...modal} role="document" style={{ minWidth: "400px" }}>
+                    <ModalTitle {...title}>{heading}</ModalTitle>
+                    <ModalBody>
+                        <Flex direction="column">
+                            <p>
+                                Du blir logget ut om {sessionTimeout} sekund(er)
+                            </p>
+                            <CountdownComponent {...args} />
+                        </Flex>
+                    </ModalBody>
+                    <ModalActions>
+                        <Button
+                            variant="primary"
+                            onClick={() => setKey(Date.now())}
+                        >
+                            Jeg er her!
+                        </Button>
+                        <Button>Logg ut</Button>
+                    </ModalActions>
+                </Modal>
+            </ModalContainer>
         );
     },
 };

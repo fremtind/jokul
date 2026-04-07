@@ -1,6 +1,8 @@
 import type { A11yDialogConfig, A11yDialogProps } from "react-a11y-dialog";
 import type { WithOptionalChildren } from "../../core/types.js";
 
+export type ModalPlacement = "center" | "left" | "bottom" | "right";
+
 export interface UseModalOptions
     extends Omit<A11yDialogProps, "id" | "closeButtonPosition"> {
     id?: string;
@@ -40,10 +42,29 @@ export interface ModalProps extends WithOptionalChildren {
 
 export type BaseModalProps = Omit<ModalProps, "padding" | "component">;
 
+export type ModalContainerProps = ModalConfig["container"] &
+    BaseModalProps & {
+        /**
+         * Plassering og animasjon styres av containeren, siden det er den som
+         * håndterer viewport-layout og `aria-hidden`-tilstand.
+         *
+         * @default "center"
+         */
+        placement?: ModalPlacement;
+        /**
+         * Slå på enkel slide-in-animasjon når modalen vises.
+         *
+         * @default false
+         */
+        slideIn?: boolean;
+    };
+
 export type ModalOverlayProps = ModalConfig["overlay"] &
     BaseModalProps & {
         /**
          * Rendre uten bakgrunnsfarge, men med click target for å lukke modalen ved klikk utenfor.
+         *
+         * @default false
          */
         transparent?: boolean;
     };

@@ -20,6 +20,7 @@ test("renders correctly", async () => {
     await helper.open();
 
     await helper.snapshots({
+        focusElement: '[data-testid="jkl-datepicker__trigger"]',
         before: () =>
             helper.clickElement('[data-testid="jkl-datepicker__trigger"]'),
     });

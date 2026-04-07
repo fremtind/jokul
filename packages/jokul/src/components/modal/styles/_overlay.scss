@@ -1,0 +1,20 @@
+@use "../../../core/jkl";
+
+@layer jokul.components {
+    .jkl-modal-overlay {
+        background-color: rgb(27 25 23 / 80%);
+        opacity: 0;
+
+        @include jkl.motion("entrance", "expressive", opacity);
+    }
+
+    .jkl-modal-container:not([aria-hidden="true"]) .jkl-modal-overlay {
+        opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .jkl-modal-overlay {
+            transition-duration: 0ms;
+        }
+    }
+}
