@@ -41,7 +41,7 @@ Please help me:
 4. Ensure accessibility requirements are met
 
 Remember these Jøkul guidelines:
-- Always import core styles: import "@fremtind/jokul/styles/core/core.scss"
+- Always import core styles: import "@fremtind/jokul/styles/base.scss"
 - Use data-size on container elements, NOT as component props
 - Use data-theme for light/dark mode
 - All form components require a label prop

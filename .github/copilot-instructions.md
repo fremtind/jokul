@@ -21,12 +21,12 @@ pnpm add @fremtind/jokul
 Always import core styles before using any components:
 
 ```tsx
-import "@fremtind/jokul/styles/core/core.scss";
+import "@fremtind/jokul/styles/base.scss";
 ```
 
 Or in SCSS:
 ```scss
-@use "@fremtind/jokul/styles/core/core";
+@use "@fremtind/jokul/styles/base";
 ```
 
 ### 2. Fonts
@@ -35,7 +35,7 @@ Make font files available at `/fonts` on your server. Font files are located at:
 `node_modules/@fremtind/jokul/src/fonts/`
 
 ```scss
-@use "@fremtind/jokul/styles/fonts" with (
+@use "@fremtind/jokul/styles/theme/fonts" with (
     $webfonts-dir: "path/to/node_modules/@fremtind/jokul/src/fonts"
 );
 ```
@@ -95,7 +95,7 @@ import { formatTelefonnummer, formatKontonummer, formatValuta } from "@fremtind/
 ### Core Types
 
 ```tsx
-import type { WithChildren } from "@fremtind/jokul/core";
+import type { WithChildren } from "@fremtind/jokul/utilities";
 ```
 
 ## Theming
@@ -189,7 +189,7 @@ export default {
 
 ```css
 @import "tailwindcss";
-@import "@fremtind/jokul/tailwind/v4";
+@import "@fremtind/jokul/styles/tailwind";
 ```
 
 ### Tailwind Classes
@@ -280,7 +280,7 @@ import { Modal, ModalContainer, ModalHeader, ModalContent, ModalActions } from "
 Use text styles via SCSS mixins or Tailwind classes:
 
 ```scss
-@use "@fremtind/jokul/styles/core/jkl";
+@use "@fremtind/jokul/styles/jkl";
 
 .my-heading {
     @include jkl.text-style("heading-1");
