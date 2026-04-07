@@ -73,7 +73,7 @@
         > * {
             &:not(:last-of-type) {
                 --spacing: var(--jkl-spacing-s);
-                border-block-end: 1px solid var(--jkl-color-border-separator);
+                border-block-end: 1px solid var(--jkl-color-border-subdued);
                 padding-block-end: var(--spacing);
             }
         }

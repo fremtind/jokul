@@ -5,9 +5,9 @@ $_focus-ring-width: jkl.rem(2px);
 
 @layer jokul.components {
     .jkl-table-row {
-        --jkl-table-row-border-color: var(--jkl-color-border-separator);
+        --jkl-table-row-border-color: var(--jkl-color-border-subdued);
         --jkl-table-row-border-none-color: transparent;
-        --jkl-table-row-hover-border-color: var(--jkl-color-border-separator-strong);
+        --jkl-table-row-hover-border-color: var(--jkl-color-border-strong);
         --jkl-table-row-highlight-color: var(--jkl-color-background-interactive-selected);
 
         border-bottom: solid $_border-size var(--jkl-table-row-border-color);

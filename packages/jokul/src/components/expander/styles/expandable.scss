@@ -2,7 +2,7 @@
 
 @layer jokul.components {
     .jkl-expandable {
-        background-color: var(--jkl-color-background-container-low);
+        background-color: var(--jkl-color-background-page);
         // A transparent border will be visible in forced colors mode and replace
         // the role of the background-color in separating the component from other content
         border: 1px solid transparent;
@@ -28,7 +28,7 @@
         }
 
         &--stroke {
-            border-color: var(--jkl-color-border-separator);
+            border-color: var(--jkl-color-border-subdued);
             background-color: transparent;
 
             border-radius: 0;

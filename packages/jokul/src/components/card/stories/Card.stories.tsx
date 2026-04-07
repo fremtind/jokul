@@ -34,7 +34,6 @@ export const CardStory: Story = {
     name: "Card",
     args: {
         padding: "l",
-        variant: "high",
         children: "",
     },
     render: (args) => (
@@ -61,7 +60,6 @@ export const CardStory: Story = {
 export const ImageCard: Story = {
     name: "Card med bilde",
     args: {
-        variant: "high",
         padding: "m",
         children: "",
         clickable: true,
@@ -101,7 +99,6 @@ export const CopyCard: Story = {
         children: "FremtindSD",
         clickable: true,
         padding: "l",
-        variant: "low",
         as: "button",
     },
     render: ({ ...args }) => {
@@ -145,7 +142,6 @@ export const LinkCard: Story = {
         as: "a",
         href: "#",
         padding: "l",
-        variant: "high",
         asChild: false,
         "aria-label": "Husforsikring",
         children: (

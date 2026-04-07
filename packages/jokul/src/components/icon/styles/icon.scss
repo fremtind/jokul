@@ -18,8 +18,8 @@
   }
 
   .jkl-icon-red-cross {
-    --red-cross-circle: var(--jkl-color-background-alert-error);
-    --red-cross-path: var(--jkl-color-text-on-alert);
+    --red-cross-circle: var(--jkl-color-error-background-action);
+    --red-cross-path: var(--jkl-color-error-text-on-action);
 
     width: 1.3em;
     height: 1.3em;
@@ -34,8 +34,8 @@
   }
 
   .jkl-icon-green-check {
-    --green-check-circle: var(--jkl-color-background-alert-success);
-    --green-check-path: var(--jkl-color-text-on-alert);
+    --green-check-circle: var(--jkl-color-success-background-action);
+    --green-check-path: var(--jkl-color-success-text-on-action);
 
     width: 1.3em;
     height: 1.3em;

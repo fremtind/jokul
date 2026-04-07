@@ -27,7 +27,7 @@
             width: 1px;
             inset: 0;
             inset-block: 20%;
-            background-color: var(--jkl-color-border-separator);
+            background-color: var(--jkl-color-border-subdued);
 
             @include jkl.motion;
             transition-property: inset;

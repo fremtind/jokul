@@ -10,7 +10,7 @@
         --jkl-file-list-gap: var(--jkl-unit-10);
 
         &__dropzone {
-            --border-color: var(--jkl-color-border-input);
+            --border-color: var(--jkl-color-border-default);
             --background-color: transparent;
 
             border: var(--border-color) 1px dashed;
@@ -28,8 +28,8 @@
             background-color: var(--background-color);
 
             &--enter {
-                --border-color: var(--jkl-color-border-input-focus);
-                --background-color: var(--jkl-color-background-container-high);
+                --border-color: var(--jkl-color-border-strong);
+                --background-color: var(--jkl-color-background-container);
                 border-style: solid;
             }
 

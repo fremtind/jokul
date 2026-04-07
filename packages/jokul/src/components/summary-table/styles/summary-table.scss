@@ -39,9 +39,9 @@
 
         & > tfoot {
             border-top: jkl.rem(1px) solid
-                var(--jkl-color-border-separator-strong);
+                var(--jkl-color-border-strong);
             border-bottom: jkl.rem(1px) solid
-                var(--jkl-color-border-separator-strong);
+                var(--jkl-color-border-strong);
             padding-top: var(--jkl-unit-10);
 
             th,

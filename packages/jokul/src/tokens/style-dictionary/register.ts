@@ -1,6 +1,7 @@
 import { kebabCase } from "change-case";
 import StyleDictionary from "style-dictionary";
 
+import cssColorSchemeBrand from "./formats/css-color-scheme-brand.js";
 import cssColorScheme from "./formats/css-color-scheme.js";
 import cssSizeFormat from "./formats/css-size.js";
 import cssTailwind4Format from "./formats/css-tailwind4.js";
@@ -13,6 +14,7 @@ import { PREFIX } from "./config.js";
 // Formats
 StyleDictionary.registerFormat(cssThemeVariablesFormat);
 StyleDictionary.registerFormat(cssColorScheme);
+StyleDictionary.registerFormat(cssColorSchemeBrand);
 StyleDictionary.registerFormat(cssSizeFormat);
 StyleDictionary.registerFormat(cssTailwind4Format);
 
