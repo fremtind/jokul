@@ -32,6 +32,92 @@ describe("TextArea", () => {
 
         expect(textArea.getAttribute("placeholder")).toEqual(" ");
     });
+
+    it("uses character counting by default", () => {
+        render(
+            <TextArea
+                label="testing"
+                counter={{ maxLength: 4 }}
+                value="😀😀"
+                readOnly
+            />,
+        );
+
+        expect(screen.getByText(/4\s*\/\s*4/)).toBeInTheDocument();
+    });
+
+    it("supports counting UTF-8 bytes", () => {
+        render(
+            <TextArea
+                label="testing"
+                counter={{ maxLength: 4, strategy: "bytes" }}
+                value="😀"
+                readOnly
+            />,
+        );
+
+        expect(screen.getByText(/4\s*\/\s*4/)).toBeInTheDocument();
+    });
+
+    it("updates the counter when a controlled value changes", () => {
+        const { rerender } = render(
+            <TextArea
+                label="testing"
+                counter={{ maxLength: 10 }}
+                value="hei"
+                readOnly
+            />,
+        );
+
+        expect(screen.getByText(/3\s*\/\s*10/)).toBeInTheDocument();
+
+        rerender(
+            <TextArea
+                label="testing"
+                counter={{ maxLength: 10 }}
+                value="heihei"
+                readOnly
+            />,
+        );
+
+        expect(screen.getByText(/6\s*\/\s*10/)).toBeInTheDocument();
+    });
+
+    it("updates the counter when the strategy changes for a controlled value", () => {
+        const { rerender } = render(
+            <TextArea
+                label="testing"
+                counter={{ maxLength: 6 }}
+                value="æøå"
+                readOnly
+            />,
+        );
+
+        expect(screen.getByText(/3\s*\/\s*6/)).toBeInTheDocument();
+
+        rerender(
+            <TextArea
+                label="testing"
+                counter={{ maxLength: 6, strategy: "bytes" }}
+                value="æøå"
+                readOnly
+            />,
+        );
+
+        expect(screen.getByText(/6\s*\/\s*6/)).toBeInTheDocument();
+    });
+
+    it("uses defaultValue for the counter in uncontrolled mode", () => {
+        render(
+            <TextArea
+                label="testing"
+                counter={{ maxLength: 10, strategy: "bytes" }}
+                defaultValue="æøå"
+            />,
+        );
+
+        expect(screen.getByText(/6\s*\/\s*10/)).toBeInTheDocument();
+    });
 });
 
 describe("a11y", () => {

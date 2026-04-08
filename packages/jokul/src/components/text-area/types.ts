@@ -1,9 +1,30 @@
 import type { TextareaHTMLAttributes } from "react";
 import type { InputGroupProps } from "../input-group/types.js";
 
+export type CounterStrategy = "characters" | "bytes";
+
 export type Counter = {
-    /** Antall tegn før telleren når maksimum og vi viser en feilmelding */
+    /**
+     * Maksverdi for telleren.
+     *
+     * Enheten avhenger av `strategy`:
+     * - `"characters"`: antall tegn
+     * - `"bytes"`: antall UTF-8-bytes
+     */
     maxLength: number;
+    /**
+     * Bestemmer hva telleren måler.
+     *
+     * - "characters" teller tekst på samme måte som i dag og er standard
+     * - "bytes" teller antall UTF-8-bytes, for usecaser der backend eller API
+     *   håndhever en bytegrense
+     *
+     * Unngå å kombinere `strategy="bytes"` med native `maxLength` på
+     * `<textarea>`, siden nettleseren fortsatt håndhever `maxLength` som tegn.
+     *
+     * @default "characters"
+     */
+    strategy?: CounterStrategy;
     /**
      * Med teller vises en progress-bar i bunnen av tekstfeltet som krymper
      * ned fra 100% (null tegn skrevet) til 0% (maks antall tegn skrevet).
