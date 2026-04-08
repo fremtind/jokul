@@ -60,6 +60,18 @@ export const AutoExpand: Story = {
     },
 };
 
+export const ByteCounter: Story = {
+    args: {
+        label: "Melding til ekstern tjeneste",
+        description: "Brukes når en integrasjon håndhever en bytegrense.",
+        counter: {
+            maxLength: 4096,
+            strategy: "bytes",
+            hideProgress: false,
+        },
+    },
+};
+
 export const _Error: Story = {
     args: {
         errorLabel: "Du må beskrive skaden for å fortsette",
