@@ -84,6 +84,7 @@ export function createBrandConfig(brand: BrandName): Config {
         source: [
             ...(jokulTokens.source ?? []),
             `src/tokens/brands/color.${brand}.tokens.json`,
+            `src/tokens/brands/font.${brand}.tokens.json`,
         ],
         platforms: {
             css: {
@@ -96,6 +97,16 @@ export function createBrandConfig(brand: BrandName): Config {
                         format: "css/color-scheme-brand",
                         options: {
                             selector: `[data-brand="${brand}"]`,
+                        },
+                    },
+                    {
+                        filter: "isBrandFontValue",
+                        destination: "_fonts.scss",
+                        format: "css/brand-fonts",
+                        options: {
+                            selector: `[data-brand="${brand}"]`,
+                            webfontsDir: `/fonts/brands/${brand}`,
+                            webfontsVarName: `webfonts-dir-${brand}`,
                         },
                     },
                 ],

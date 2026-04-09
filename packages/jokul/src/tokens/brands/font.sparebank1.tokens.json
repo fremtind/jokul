@@ -1,0 +1,47 @@
+{
+    "font": {
+        "face": {
+            "regular": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "SpareBank1 Sans",
+                    "weight": 400,
+                    "style": "normal",
+                    "fileName": "SpareBank1-Regular-Web.woff2"
+                }
+            },
+            "medium": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "SpareBank1 Sans",
+                    "weight": 500,
+                    "style": "normal",
+                    "fileName": "SpareBank1-Medium-Web.woff2"
+                }
+            },
+            "title-medium": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "SpareBank1 Title",
+                    "weight": 500,
+                    "style": "normal",
+                    "fileName": "SpareBank1-Title-Medium-Web.woff2"
+                }
+            }
+        },
+        "family": {
+            "regular": {
+                "type": "fontFamily",
+                "value": "'SpareBank1 Sans', 'Adjusted Arial Fallback', Arial, sans-serif"
+            },
+            "display": {
+                "type": "fontFamily",
+                "value": "'SpareBank1 Title', 'Adjusted Arial Display Fallback', Arial, sans-serif"
+            },
+            "mono": {
+                "type": "fontFamily",
+                "value": "'Adjusted Courier New Fallback', -apple-system, BlinkMacSystemFont, monospace"
+            }
+        }
+    }
+}
