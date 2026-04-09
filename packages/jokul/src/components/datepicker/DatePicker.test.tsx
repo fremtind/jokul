@@ -38,6 +38,84 @@ describe("Datepicker", () => {
         expect(input).toHaveProperty("value", "24.12.2019");
     });
 
+    it('keeps manually typed dots while entering "11.03.1997"', async () => {
+        const changeHandler = vi.fn();
+
+        const { getByTestId } = render(<DatePicker onChange={changeHandler} />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await userEvent.type(input, "11.");
+
+        expect(input).toHaveProperty("value", "11.");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "11.",
+            },
+        );
+
+        await userEvent.type(input, "03.");
+
+        expect(input).toHaveProperty("value", "11.03.");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            null,
+            {
+                error: "WRONG_FORMAT",
+                value: "11.03.",
+            },
+        );
+
+        await userEvent.type(input, "1997");
+
+        expect(input).toHaveProperty("value", "11.03.1997");
+        expect(changeHandler).toHaveBeenLastCalledWith(
+            expect.anything(),
+            new Date(1997, 2, 11),
+            {
+                error: null,
+                value: "11.03.1997",
+            },
+        );
+    });
+
+    it("keeps manually typed dots after a controlled value update to compact input", async () => {
+        const ControlledDatePicker = () => {
+            const [value, setValue] = React.useState("");
+
+            return (
+                <>
+                    <DatePicker
+                        value={value}
+                        onChange={(_, __, meta) => setValue(meta.value)}
+                    />
+                    <button type="button" onClick={() => setValue("11")}>
+                        Set compact value
+                    </button>
+                </>
+            );
+        };
+
+        const { getByTestId, getByText } = render(<ControlledDatePicker />);
+
+        const input = getByTestId("jkl-datepicker__input");
+
+        await userEvent.type(input, "01122019");
+
+        expect(input).toHaveProperty("value", "01.12.2019");
+
+        await userEvent.click(getByText("Set compact value"));
+
+        expect(input).toHaveProperty("value", "11");
+
+        await userEvent.type(input, ".");
+
+        expect(input).toHaveProperty("value", "11.");
+    });
+
     it("fires onChange method on edit input", async () => {
         const changeHandler = vi.fn();
 
