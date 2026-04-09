@@ -36,7 +36,10 @@ const setInputValue = (input: HTMLInputElement, value: string) => {
     }
 };
 
-const normalizeInputValue = (rawValue: string) => {
+const normalizeInputValue = (
+    rawValue: string,
+    shouldStripAutoFormatting: boolean,
+) => {
     const digits = rawValue.replace(/\D/g, "");
     const partialCompactDate = formatDateString(digits, {
         partial: true,
@@ -48,6 +51,7 @@ const normalizeInputValue = (rawValue: string) => {
         ? compactDateCandidate
         : null;
     const shouldRemoveFormatting =
+        shouldStripAutoFormatting &&
         rawValue !== digits &&
         rawValueWithoutTrailingPunctuation === partialCompactDate &&
         parseDateString(rawValue) === undefined &&
@@ -156,6 +160,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
 
         const iconButtonRef = useRef<HTMLButtonElement | null>(null);
         const inputRef = useRef<HTMLInputElement | null>(null);
+        const didAutoFormatCompactInputRef = useRef(false);
 
         // Hjelper for å gjøre det enklere å både forwarde refen men også bruke den selv internt
         const unifiedInputRef = useCallback(
@@ -215,11 +220,21 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
         const handleChange = useCallback(
             (e: ChangeEvent<HTMLInputElement>) => {
                 const rawValue = e.currentTarget.value;
-                const formattedValue = normalizeInputValue(rawValue);
+                const formattedValue = normalizeInputValue(
+                    rawValue,
+                    didAutoFormatCompactInputRef.current,
+                );
 
                 if (formattedValue !== rawValue) {
                     setInputValue(e.currentTarget, formattedValue);
                 }
+
+                const digits = rawValue.replace(/\D/g, "");
+                didAutoFormatCompactInputRef.current =
+                    rawValue === digits &&
+                    formattedValue === formatDateString(digits) &&
+                    formattedValue !== rawValue &&
+                    parseDateString(formattedValue) !== undefined;
 
                 const { date: nextDate, error: nextError } =
                     getInputValidationState({
@@ -278,6 +293,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                 if (inputRef.current) {
                     const node = inputRef.current;
 
+                    didAutoFormatCompactInputRef.current = false;
                     node.value = formatInput(date);
 
                     // Simulér et change-event så APIet blir så likt som mulig en endring av inputfeltet
