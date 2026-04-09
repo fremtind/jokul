@@ -24,7 +24,9 @@
     @if map.has-key($tokens, "textStyle", $style) {
         font: map.get($tokens, "textStyle", $style);
         @content;
-    } @else {
+    }
+
+    @else {
         @error "No text style with the name #{$style} was found. Try one of these: #{map.keys($text-styles)}";
     }
 }
@@ -81,23 +83,21 @@ $_valid-font-family-values: (
         @error "#{$font} will not be used for font-family. Valid options are: #{$_valid-font-family-values}.";
     }
 
-    @if $font == "Fremtind Grotesk Mono" {
-        font-family:
-            "Fremtind Grotesk Mono",
-            "Adjusted Courier New Fallback",
-            -apple-system,
-            BlinkMacSystemFont,
-            monospace;
-    } @else if $font == "Fremtind Grotesk Display" {
-        font-family:
-            "Fremtind Grotesk Display", "Adjusted Arial Display Fallback",
-            Arial, sans-serif;
-    } @else if $font == "Fremtind Material Symbols" {
+    @if $font =="Fremtind Grotesk Mono" {
+        font-family: var(--jkl-font-family-mono);
+    }
+
+    @else if $font =="Fremtind Grotesk Display" {
+        font-family: var(--jkl-font-family-display);
+    }
+
+    @else if $font =="Fremtind Material Symbols" {
         font-family:
             "Fremtind Material Symbols", "Fremtind Material Symbols Fallback",
             monospace;
-    } @else {
-        font-family:
-            "Fremtind Grotesk", "Adjusted Arial Fallback", Arial, sans-serif;
+    }
+
+    @else {
+        font-family: var(--jkl-font-family-regular);
     }
 }

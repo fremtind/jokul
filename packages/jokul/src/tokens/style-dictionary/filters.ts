@@ -35,6 +35,18 @@ export function isSizeToken(token: TransformedToken): boolean {
 }
 
 /**
+ * Sjekker om en token er en brand font-token.
+ * Disse ligger under path `font.face.*` eller `font.family.*`.
+ */
+export function isBrandFontToken(token: TransformedToken): boolean {
+    return (
+        token.path.length >= 2 &&
+        token.path[0] === "font" &&
+        ["face", "family"].includes(token.path[1])
+    );
+}
+
+/**
  * Filter som identifiserer fargetokens med lys/mørk-verdier.
  * Disse tokenene blir behandlet med css/color-scheme-formatet
  * og bruker CSS light-dark()-funksjonen for automatisk fargevalg.
@@ -63,4 +75,13 @@ export const isSizeValue: Filter = {
 export const isStaticToken: Filter = {
     name: "isStaticToken",
     filter: (token) => !isColorSchemeToken(token) && !isSizeToken(token),
+};
+
+/**
+ * Filter for distributørspesifikke fonttokens.
+ * Brukes for å generere @font-face og --jkl-font-family-* i brands/_fonts.scss.
+ */
+export const isBrandFontValue: Filter = {
+    name: "isBrandFontValue",
+    filter: isBrandFontToken,
 };

@@ -7,7 +7,13 @@ const config: StorybookConfig = {
         "../packages/jokul/**/*.stories.@(ts|tsx|md|mdx)",
         "./docs/*.mdx",
     ],
-    staticDirs: ["../storybook-public"],
+    staticDirs: [
+        "../storybook-public",
+        {
+            from: "../packages/jokul/src/fonts",
+            to: "/fonts",
+        },
+    ],
     addons: ["@storybook/addon-docs"],
     features: {
         backgrounds: true,
