@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.5.1
+
+### Patch Changes
+
+- 6ff5d0e: Gjør det mulig å skrive punktum i dato-felt igjen
+
 ## 4.5.0
 
 ### Minor Changes
