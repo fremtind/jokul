@@ -1,0 +1,46 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+
+$webfonts-dir-dnb: "/fonts/brands/dnb" !default;
+
+@layer jokul.theme {
+    @font-face {
+        font-family: "DNB Sans";
+        font-display: fallback;
+        font-weight: 400;
+        font-style: normal;
+        src: url("#{$webfonts-dir-dnb}/DNB-Regular.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "DNB Sans";
+        font-display: fallback;
+        font-weight: 500;
+        font-style: normal;
+        src: url("#{$webfonts-dir-dnb}/DNB-Medium.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "DNB Sans";
+        font-display: fallback;
+        font-weight: 700;
+        font-style: normal;
+        src: url("#{$webfonts-dir-dnb}/DNB-Bold.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "DNB Mono";
+        font-display: fallback;
+        font-weight: 400;
+        font-style: normal;
+        src: url("#{$webfonts-dir-dnb}/DNBMono-Regular.woff2") format("woff2");
+    }
+
+    [data-brand="dnb"] {
+        --jkl-font-family-regular: 'DNB Sans', 'Adjusted Arial Fallback', arial, sans-serif;
+        --jkl-font-family-display: 'DNB Sans', 'Adjusted Arial Display Fallback', arial, sans-serif;
+        --jkl-font-family-mono: 'DNB Mono', 'Adjusted Courier New Fallback', -apple-system, blinkmacsystemfont, monospace;
+    }
+}

@@ -1,13 +1,19 @@
 import { kebabCase } from "change-case";
 import StyleDictionary from "style-dictionary";
 
+import cssBrandFontsFormat from "./formats/css-brand-fonts.js";
 import cssColorSchemeBrand from "./formats/css-color-scheme-brand.js";
 import cssColorScheme from "./formats/css-color-scheme.js";
 import cssSizeFormat from "./formats/css-size.js";
 import cssTailwind4Format from "./formats/css-tailwind4.js";
 import cssThemeVariablesFormat from "./formats/css-theme-variables.js";
 
-import { isColorSchemeValue, isSizeValue, isStaticToken } from "./filters.js";
+import {
+    isBrandFontValue,
+    isColorSchemeValue,
+    isSizeValue,
+    isStaticToken,
+} from "./filters.js";
 
 import { PREFIX } from "./config.js";
 
@@ -15,6 +21,7 @@ import { PREFIX } from "./config.js";
 StyleDictionary.registerFormat(cssThemeVariablesFormat);
 StyleDictionary.registerFormat(cssColorScheme);
 StyleDictionary.registerFormat(cssColorSchemeBrand);
+StyleDictionary.registerFormat(cssBrandFontsFormat);
 StyleDictionary.registerFormat(cssSizeFormat);
 StyleDictionary.registerFormat(cssTailwind4Format);
 
@@ -45,6 +52,7 @@ StyleDictionary.registerTransform({
 StyleDictionary.registerFilter(isColorSchemeValue);
 StyleDictionary.registerFilter(isSizeValue);
 StyleDictionary.registerFilter(isStaticToken);
+StyleDictionary.registerFilter(isBrandFontValue);
 
 /**
  * Transform-gruppe for TypeScript-output.

@@ -1,0 +1,38 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+
+$webfonts-dir-sparebank1: "/fonts/brands/sparebank1" !default;
+
+@layer jokul.theme {
+    @font-face {
+        font-family: "SpareBank1 Sans";
+        font-display: fallback;
+        font-weight: 400;
+        font-style: normal;
+        src: url("#{$webfonts-dir-sparebank1}/SpareBank1-Regular-Web.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "SpareBank1 Sans";
+        font-display: fallback;
+        font-weight: 500;
+        font-style: normal;
+        src: url("#{$webfonts-dir-sparebank1}/SpareBank1-Medium-Web.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "SpareBank1 Title";
+        font-display: fallback;
+        font-weight: 500;
+        font-style: normal;
+        src: url("#{$webfonts-dir-sparebank1}/SpareBank1-Title-Medium-Web.woff2") format("woff2");
+    }
+
+    [data-brand="sparebank1"] {
+        --jkl-font-family-regular: 'SpareBank1 Sans', 'Adjusted Arial Fallback', arial, sans-serif;
+        --jkl-font-family-display: 'SpareBank1 Title', 'Adjusted Arial Display Fallback', arial, sans-serif;
+        --jkl-font-family-mono: 'Adjusted Courier New Fallback', -apple-system, blinkmacsystemfont, monospace;
+    }
+}

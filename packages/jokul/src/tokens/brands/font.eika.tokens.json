@@ -1,0 +1,56 @@
+{
+    "font": {
+        "face": {
+            "light": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "Open Sans",
+                    "weight": 300,
+                    "style": "normal",
+                    "fileName": "OpenSans-Light.woff2"
+                }
+            },
+            "regular": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "Open Sans",
+                    "weight": 400,
+                    "style": "normal",
+                    "fileName": "OpenSans-Regular.woff2"
+                }
+            },
+            "semibold": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "Open Sans",
+                    "weight": 600,
+                    "style": "normal",
+                    "fileName": "OpenSans-SemiBold.woff2"
+                }
+            },
+            "bold": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "Open Sans",
+                    "weight": 700,
+                    "style": "normal",
+                    "fileName": "OpenSans-Bold.woff2"
+                }
+            }
+        },
+        "family": {
+            "regular": {
+                "type": "fontFamily",
+                "value": "'Open Sans', 'Adjusted Arial Fallback', Arial, sans-serif"
+            },
+            "display": {
+                "type": "fontFamily",
+                "value": "'Open Sans', 'Adjusted Arial Display Fallback', Arial, sans-serif"
+            },
+            "mono": {
+                "type": "fontFamily",
+                "value": "'Adjusted Courier New Fallback', -apple-system, BlinkMacSystemFont, monospace"
+            }
+        }
+    }
+}
