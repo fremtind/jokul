@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "../../../core/jkl";
-@use "../../../core/jkl/colors";
+@use "../../../styles/jkl";
 
 $_dismiss-animation-name: jkl-dismiss-#{string.unique-id()};
 $_dismiss-animation-duration: jkl.timing("lazy");
@@ -16,13 +15,15 @@ $_dismiss-animation-duration: jkl.timing("lazy");
                 6.5px
             )} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)}
             auto;
-        --jkl-system-message-message-margin: 0 var(--jkl-spacing-20);
-        --background-color: var(--jkl-color-background-alert-neutral);
-        --text-color: var(--jkl-color-text-on-alert);
+        --jkl-system-message-message-margin: 0 var(--jkl-unit-20);
+        --background-color: var(--jkl-color-background-container);
+        --text-color: var(--jkl-color-text-default);
+        --border-color: var(--jkl-color-border-subdued);
 
         width: 100%;
         background-color: var(--background-color);
         color: var(--text-color);
+        border: 1px solid var(--border-color);
         transition-behavior: allow-discrete;
         box-sizing: border-box;
 
@@ -107,19 +108,27 @@ $_dismiss-animation-duration: jkl.timing("lazy");
         }
 
         &--info {
-            --background-color: var(--jkl-color-background-alert-info);
+            --background-color: var(--jkl-color-info-background-container);
+            --text-color: var(--jkl-color-info-text-default);
+            --border-color: var(--jkl-color-info-border-subdued);
         }
 
         &--warning {
-            --background-color: var(--jkl-color-background-alert-warning);
+            --background-color: var(--jkl-color-warning-background-container);
+            --text-color: var(--jkl-color-warning-text-default);
+            --border-color: var(--jkl-color-warning-border-subdued);
         }
 
         &--error {
-            --background-color: var(--jkl-color-background-alert-error);
+            --background-color: var(--jkl-color-error-background-container);
+            --text-color: var(--jkl-color-error-text-default);
+            --border-color: var(--jkl-color-error-border-subdued);
         }
 
         &--success {
-            --background-color: var(--jkl-color-background-alert-success);
+            --background-color: var(--jkl-color-success-background-container);
+            --text-color: var(--jkl-color-success-text-default);
+            --border-color: var(--jkl-color-success-border-subdued);
         }
 
         @include jkl.forced-colors-mode {

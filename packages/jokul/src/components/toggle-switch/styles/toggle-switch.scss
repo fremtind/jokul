@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 @use "./toggle-slider";
 
 .jkl-toggle-switch {
@@ -9,12 +9,12 @@
     --border-width: #{jkl.rem(1px)};
     --switch-padding: var(--jkl-unit-05);
     --knob-position: 0;
-    --switch-border-color: var(--jkl-color-border-action);
-    --indicator-color: var(--jkl-color-background-container-high);
-    --knob-border-color: var(--jkl-color-border-action);
-    --knob-color: var(--jkl-color-background-container-high);
+    --switch-border-color: var(--jkl-color-border-strong);
+    --indicator-color: var(--jkl-color-background-container);
+    --knob-border-color: var(--jkl-color-border-strong);
+    --knob-color: var(--jkl-color-background-container);
     --text-color: var(--jkl-color-text-default);
-    --icon-color: var(--jkl-color-text-inverted);
+    --icon-color: var(--jkl-color-text-on-action);
 
     background: transparent;
     color: var(--text-color);
@@ -38,8 +38,8 @@
 
     &[aria-pressed="true"],
     [aria-checked="true"] > & {
-        --indicator-color: var(--jkl-color-background-container-inverted);
-        --knob-color: var(--jkl-color-text-inverted);
+        --indicator-color: var(--jkl-color-background-action);
+        --knob-color: var(--jkl-color-text-on-action);
         --knob-position: calc(
             var(--jkl-toggle-switch-width) - var(
                     --jkl-toggle-switch-knob-size

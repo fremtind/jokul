@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-calendar-date-button {
@@ -41,7 +41,7 @@
         }
 
         &[aria-current="date"] {
-            font-weight: jkl.$typography-weight-bold;
+            font-weight: jkl.$font-weight-bold;
         }
 
         // Other dates
@@ -52,8 +52,8 @@
 
         // Selected date
         &[aria-pressed="true"] {
-            background-color: var(--jkl-color-background-container-inverted);
-            color: var(--jkl-color-text-inverted);
+            background-color: var(--jkl-color-background-action);
+            color: var(--jkl-color-text-on-action);
             cursor: pointer;
 
             &:hover {

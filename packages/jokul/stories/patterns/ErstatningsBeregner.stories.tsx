@@ -22,7 +22,7 @@ import { TableHead } from "../../src/components/table/TableHead.js";
 import { TableHeader } from "../../src/components/table/TableHeader.js";
 import { TableRow } from "../../src/components/table/TableRow.js";
 import { TextInput } from "../../src/components/text-input/TextInput.js";
-import { formatNumber } from "../../src/index.js";
+import { formatNumber } from "../../src/utilities/index.js";
 
 const meta: Meta = {
     title: "Skjermbilder/Erstatningsberegner",

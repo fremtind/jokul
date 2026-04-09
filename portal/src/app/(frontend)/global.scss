@@ -1,9 +1,9 @@
-@use "@fremtind/jokul/styles/core";
-@use "@fremtind/jokul/styles/fonts" with ($webfonts-dir: "../../src/fonts"
+@use "@fremtind/jokul/styles/theme/fonts" with ($webfonts-dir: "../../src/fonts"
     // Dette er relativt til webfonts.sccs-fila i jokul-pakka
 );
-@use "@fremtind/jokul/styles/styles";
-@use "@fremtind/jokul/styles/core/jkl";
+@use "@fremtind/jokul/styles/base";
+@use "@fremtind/jokul/styles/components";
+@use "@fremtind/jokul/styles/jkl";
 
 * {
     box-sizing: border-box;
@@ -16,7 +16,7 @@ html {
 body {
     --max-width: 1440px;
     --min-width: 320px;
-    background-color: var(--jkl-background-container-high);
+    background-color: var(--jkl-color-background-page);
     min-height: 100dvh;
 }
 
@@ -119,11 +119,11 @@ article header {
 
     code {
         display: inline-block;
-        background-color: var(--jkl-color-background-container-low);
+        background-color: var(--jkl-color-background-page);
         font-size: 0.9em;
         padding: 0 var(--jkl-unit-10);
         border-radius: var(--jkl-border-radius-xs);
-        border: 1px solid var(--jkl-color-border-separator);
+        border: 1px solid var(--jkl-color-border-subdued);
     }
 
     pre code {

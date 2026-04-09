@@ -1,4 +1,4 @@
-@use "../../../core/jkl/index" as jkl;
+@use "../../../styles/jkl/index" as jkl;
 
 @layer jokul.components {
     .jkl-help {
@@ -30,8 +30,8 @@
         padding: var(--jkl-unit-30);
         margin: var(--jkl-unit-05);
         position-anchor: --trigger;
-        background-color: var(--jkl-color-background-container-inverted);
-        color: var(--jkl-color-text-inverted);
+        background-color: var(--jkl-color-background-action);
+        color: var(--jkl-color-text-on-action);
         anchor-name: --help-box;
 
         &[data-position="top"] {

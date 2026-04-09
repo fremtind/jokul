@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-card {
@@ -56,23 +56,19 @@
             --padding: var(--padding-xl);
         }
 
-        &--high {
-            --background-color: var(--jkl-color-background-container-high);
-        }
-
-        &--low {
-            --background-color: var(--jkl-color-background-container-low);
+        &--filled {
+            --background-color: var(--jkl-color-background-container);
         }
 
         &--outlined {
-            --border-color: var(--jkl-color-border-separator);
+            --border-color: var(--jkl-color-border-default);
         }
 
         &[data-clickable="true"] {
             cursor: pointer;
 
             &:hover {
-                --border-color: var(--jkl-color-border-separator-hover);
+                --border-color: var(--jkl-color-border-strong);
                 --border-width: #{jkl.rem(2px)};
             }
 

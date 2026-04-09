@@ -1,4 +1,4 @@
-@use '@fremtind/jokul/styles/core/jkl';
+@use '@fremtind/jokul/styles/jkl';
 
 .searchTrigger {
   --inline-margin: var(--jkl-spacing-16);
@@ -15,7 +15,7 @@
   width: 100%;
   justify-self: end;
   flex-direction: row;
-  background-color: var(--jkl-color-background-container-low);
+  background-color: var(--jkl-color-background-page);
   border-radius: jkl.rem(4px);
   padding: var(--jkl-spacing-4) var(--jkl-spacing-8);
   margin-block: var(--jkl-spacing-32);

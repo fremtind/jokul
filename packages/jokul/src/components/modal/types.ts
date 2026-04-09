@@ -1,5 +1,5 @@
 import type { A11yDialogConfig, A11yDialogProps } from "react-a11y-dialog";
-import type { WithOptionalChildren } from "../../core/types.js";
+import type { WithOptionalChildren } from "../../utilities/types.js";
 
 export type ModalPlacement = "center" | "left" | "bottom" | "right";
 

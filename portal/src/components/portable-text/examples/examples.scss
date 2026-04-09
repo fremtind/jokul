@@ -1,4 +1,4 @@
-@use "@fremtind/jokul/styles/core/jkl";
+@use "@fremtind/jokul/styles/jkl";
 
 .examples {
     --item-gap-y: 2ex;
@@ -43,9 +43,9 @@
             position: fixed;
             position-anchor: --carousel;
             flex-wrap: wrap;
-            //noinspection CssInvalidPropertyValue,CssInvalidFunction
+            // noinspection CssInvalidPropertyValue,CssInvalidFunction
             right: anchor(right);
-            //noinspection CssInvalidPropertyValue,CssInvalidFunction
+            // noinspection CssInvalidPropertyValue,CssInvalidFunction
             bottom: calc(anchor(bottom) - 1.2lh);
         }
 
@@ -62,11 +62,13 @@
                 border-radius: 4px;
                 text-box-trim: trim-end;
                 padding-inline: 1ch;
-                border: 1px solid var(--jkl-color-border-separator);
+                border: 1px solid var(--jkl-color-border-subdued);
                 background: transparent;
+
                 @include jkl.motion("standard", "productive", background, color, border-color);
             }
 
+            /* stylelint-disable-next-line */
             &::scroll-marker:target-current {
                 background: var(--jkl-color-background-action);
                 color: var(--jkl-color-text-on-action);
@@ -83,6 +85,7 @@
 
     .example {
         height: 100%;
+
         --example-height: 360px;
 
         iframe {
@@ -104,7 +107,7 @@
                 position: absolute;
                 z-index: -1;
                 inset: 0;
-                border-block-start: 1px solid var(--jkl-color-border-separator);
+                border-block-start: 1px solid var(--jkl-color-border-subdued);
             }
 
             .description {

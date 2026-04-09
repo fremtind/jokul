@@ -1,9 +1,9 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-table-of-contents {
         --ordered-item-padding: var(--jkl-unit-10);
-        --border: 1px solid var(--jkl-color-border-separator);
+        --border: 1px solid var(--jkl-color-border-subdued);
         --text-color: var(--jkl-color-text-default);
 
         .jkl-table-of-contents-title {

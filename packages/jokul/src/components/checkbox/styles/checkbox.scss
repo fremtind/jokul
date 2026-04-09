@@ -1,21 +1,16 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "../../../core/jkl";
-@use "../../../core/jkl/colors";
+@use "../../../styles/jkl";
 @use "../../icon/styles/base-styles" as icon;
 
 @layer jokul.components {
-    @include jkl.light-mode-variables {
-        --jkl-checkbox-error-color: #ab2e43;
-    }
-
-    @include jkl.dark-mode-variables {
-        --jkl-checkbox-error-color: #d79ba5;
-    }
-
     .jkl-checkbox {
-        --box-color: var(--jkl-color-border-action);
-        --check-color: var(--jkl-color-border-action);
+        /* stylelint-disable declaration-block-no-duplicate-custom-properties -- fallback for browsers without light-dark() support */
+        --jkl-checkbox-error-color: #ab2e43;
+        --jkl-checkbox-error-color: light-dark(#ab2e43, #d79ba5);
+        /* stylelint-enable declaration-block-no-duplicate-custom-properties */
+        --box-color: var(--jkl-color-border-strong);
+        --check-color: var(--jkl-color-border-strong);
         --text-color: var(--jkl-color-text-default);
         --background-color: transparent;
 
@@ -68,7 +63,7 @@
         &__input:is(:hover, :active) + &__label,
         &__label:hover,
         &__label:active {
-            --jkl-icon-weight: #{jkl.$icon-weight-bold};
+            --jkl-icon-weight: #{jkl.$font-weight-bold};
         }
 
         &__input:checked + &__label::before {

@@ -1,5 +1,5 @@
 /* stylelint-disable color-named */
-@use "@fremtind/jokul/styles/core/jkl";
+@use "@fremtind/jokul/styles/jkl";
 
 .header, .footer {
     --padding: var(--jkl-unit-20);
@@ -10,7 +10,7 @@
 }
 
 .header {
-    background-color: var(--jkl-color-background-page-variant);
+    background-color: var(--jkl-color-background-page);
     display: grid;
     grid-template-columns: 1fr auto;
     min-height: var(--portal-header-height);
@@ -118,7 +118,7 @@
 .footer {
     padding-block: var(--jkl-unit-30) var(--jkl-unit-60);
     margin-inline: var(--padding);
-    border-block-start: 1px solid var(--jkl-color-border-separator);
+    border-block-start: 1px solid var(--jkl-color-border-subdued);
 
     ul {
         padding-inline-start: 0;

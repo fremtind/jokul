@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 $_tooltip-border-width: jkl.rem(1px);
 $_focus-ring-distance: jkl.rem(-1px); // Negativ margin for å unngå subpixel mellomrom mellom border og box-shadow
@@ -18,11 +18,11 @@ $_focus-ring-width: jkl.rem(2px);
 
     .jkl-tooltip-content {
         --content-padding: var(--jkl-unit-15);
-        --background-color: var(--jkl-color-background-container-inverted);
+        --background-color: var(--jkl-color-background-action);
 
         @include jkl.text-style("paragraph-small");
         background-color: var(--background-color);
-        color: var(--jkl-color-text-inverted);
+        color: var(--jkl-color-text-on-action);
         display: inline-block;
         min-width: min-content;
         max-width: min(jkl.rem(310px),

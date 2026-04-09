@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-calendar-navigation-dropdown {
@@ -16,7 +16,7 @@
             appearance: none;
 
             @include jkl.text-style("text-small") {
-                font-weight: jkl.$typography-weight-bold;
+                font-weight: jkl.$font-weight-bold;
             }
 
             background-color: transparent;
@@ -34,7 +34,7 @@
 
             & option {
                 color: var(--jkl-color-text-default);
-                background-color: var(--jkl-color-background-container-high);
+                background-color: var(--jkl-color-background-container);
                 text-align: left;
             }
 

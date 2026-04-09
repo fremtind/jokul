@@ -4,9 +4,8 @@ import {
     type Props as ComponentExampleProps,
 } from "./ComponentExample.js";
 
-import "../../packages/jokul/src/fonts/styles/webfonts.scss";
-import "../../packages/jokul/src/core/styles/core.scss";
-import "../../packages/jokul/src/styles/styles.scss";
+import "../../packages/jokul/src/styles/base.scss";
+import "../../packages/jokul/src/styles/components.scss";
 import "./dev-example.scss";
 
 interface Props extends ComponentExampleProps {

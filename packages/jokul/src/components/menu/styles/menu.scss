@@ -1,19 +1,15 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 @use "menu-item";
 @use "menu-divider";
 
 @layer jokul.components {
-    @include jkl.light-mode-variables {
-        --jkl-menu-border-color: transparent;
-    }
-
-    @include jkl.dark-mode-variables {
-        --jkl-menu-border-color: var(--jkl-color-border-input-focus);
-    }
-
     .jkl-menu {
-        background-color: var(--jkl-color-background-container-high);
+        /* stylelint-disable declaration-block-no-duplicate-custom-properties -- fallback for browsers without light-dark() support */
+        --border-color: transparent;
+        --border-color: light-dark(transparent, var(--jkl-color-border-strong));
+        /* stylelint-enable declaration-block-no-duplicate-custom-properties */
+        background-color: var(--jkl-color-background-container);
 
         width: 100%;
         max-width: jkl.rem(336px);
@@ -23,7 +19,7 @@
         flex-wrap: nowrap;
         box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
         border-radius: jkl.rem(2px);
-        border: 2px solid var(--jkl-menu-border-color);
+        border: 2px solid var(--border-color);
         z-index: jkl.$z-index--dropdown;
 
         &:focus-visible {

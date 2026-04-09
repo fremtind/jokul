@@ -1,7 +1,6 @@
 @use "sass:color";
 @use "sass:math";
-@use "../../../core/jkl";
-@use "../../../core/jkl/colors";
+@use "../../../styles/jkl";
 @use "../../../shared/input/styles/shared-input-styles" as shared;
 
 @layer jokul.components {
@@ -48,7 +47,7 @@
             @include jkl.keyboard-navigation {
                 &:has(:focus-visible) {
                     @include jkl.focus-outline;
-                    background-color: var(--jkl-color-background-input-focus);
+                    background-color: var(--jkl-color-background-container);
                 }
             }
 
@@ -94,8 +93,8 @@
             z-index: jkl.$z-index--dropdown;
             left: jkl.rem(-1px);
             right: jkl.rem(-1px);
-            background-color: var(--jkl-color-background-container-high);
-            border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
+            background-color: var(--jkl-color-background-container);
+            border: jkl.rem(2px) solid var(--jkl-color-border-strong);
             border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
             box-sizing: border-box;
             max-height: calc(
@@ -162,13 +161,13 @@
         &--invalid {
             .jkl-combobox__search-input,
             .jkl-combobox__wrapper {
-                background-color: var(--jkl-color-background-alert-error);
+                background-color: var(--jkl-color-error-background-container);
             }
 
             .jkl-combobox__search-input,
             .jkl-combobox__button,
             .jkl-combobox__wrapper {
-                color: var(--jkl-color-text-on-alert);
+                color: var(--jkl-color-error-text-default);
             }
         }
 

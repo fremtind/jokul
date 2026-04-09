@@ -1,26 +1,12 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 @use "./base-styles" as *;
-
-@layer jokul.theme {
-  @include jkl.light-mode-variables {
-    --jkl-icon-grade: 0;
-  }
-
-  @include jkl.dark-mode-variables {
-    --jkl-icon-grade: -25;
-  }
-}
 
 @layer jokul.components {
   .jkl-icon {
     --jkl-icon-fill: 0;
 
     @include base-styles;
-
-    &--bold {
-      --jkl-icon-weight: var(--jkl-icon-weight-bold);
-    }
 
     &--filled {
       --jkl-icon-fill: 1;
@@ -32,8 +18,8 @@
   }
 
   .jkl-icon-red-cross {
-    --red-cross-circle: var(--jkl-color-background-alert-error);
-    --red-cross-path: var(--jkl-color-text-on-alert);
+    --red-cross-circle: var(--jkl-color-error-background-action);
+    --red-cross-path: var(--jkl-color-error-text-on-action);
 
     width: 1.3em;
     height: 1.3em;
@@ -48,8 +34,8 @@
   }
 
   .jkl-icon-green-check {
-    --green-check-circle: var(--jkl-color-background-alert-success);
-    --green-check-path: var(--jkl-color-text-on-alert);
+    --green-check-circle: var(--jkl-color-success-background-action);
+    --green-check-path: var(--jkl-color-success-text-on-action);
 
     width: 1.3em;
     height: 1.3em;

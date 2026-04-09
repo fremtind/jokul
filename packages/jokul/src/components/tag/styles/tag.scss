@@ -1,17 +1,19 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 .jkl-tag {
     --padding: var(--jkl-unit-02) var(--jkl-unit-10);
     --gap: var(--jkl-unit-05);
-    --background-color: var(--jkl-color-background-alert-neutral);
-    --text-color: var(--jkl-color-text-on-alert);
+    --background-color: var(--jkl-color-background-container);
+    --text-color: var(--jkl-color-text-default);
+    --border-color: var(--jkl-color-border-subdued);
 
     @include jkl.text-style("text-small") {
-        font-weight: jkl.$typography-weight-bold;
+        font-weight: jkl.$font-weight-bold;
     };
     background-color: var(--background-color);
     color: var(--text-color);
+    border: 1px solid var(--border-color);
     border-radius: jkl.rem(4px);
     display: inline-flex;
     align-items: center;
@@ -20,19 +22,27 @@
     gap: var(--gap);
 
     &--info {
-        --background-color: var(--jkl-color-background-alert-info);
+        --background-color: var(--jkl-color-info-background-container);
+        --text-color: var(--jkl-color-info-text-default);
+        --border-color: var(--jkl-color-info-border-subdued);
     }
 
     &--warning {
-        --background-color: var(--jkl-color-background-alert-warning);
+        --background-color: var(--jkl-color-warning-background-container);
+        --text-color: var(--jkl-color-warning-text-default);
+        --border-color: var(--jkl-color-warning-border-subdued);
     }
 
     &--error {
-        --background-color: var(--jkl-color-background-alert-error);
+        --background-color: var(--jkl-color-error-background-container);
+        --text-color: var(--jkl-color-error-text-default);
+        --border-color: var(--jkl-color-error-border-subdued);
     }
 
     &--success {
-        --background-color: var(--jkl-color-background-alert-success);
+        --background-color: var(--jkl-color-success-background-container);
+        --text-color: var(--jkl-color-success-text-default);
+        --border-color: var(--jkl-color-success-border-subdued);
     }
 
     @include jkl.forced-colors-mode {

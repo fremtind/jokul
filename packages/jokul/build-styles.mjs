@@ -93,8 +93,8 @@ import * as sass from "sass-embedded";
                              * inne i filene der hvor vi går minst ett nivå opp.
                              *
                              * Regex-en erstatter på følgende måte:
-                             * FRA: @use "../../../core/jkl";
-                             * TIL: @use "../../core/jkl";
+                             * FRA: @use "../../../styles/jkl";
+                             * TIL: @use "../../styles/jkl";
                              */
                             let modifiedContent = content.replaceAll(
                                 /@use "(\.\.\/)(\.\.\/)?(\.\.\/)?(\.\.\/)?([\w\/\"\-\. ]+);/g,

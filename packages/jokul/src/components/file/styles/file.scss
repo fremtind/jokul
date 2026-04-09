@@ -1,5 +1,4 @@
-@use "../../../core/jkl";
-@use "../../../core/jkl/colors";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-file {
@@ -10,7 +9,7 @@
         --jkl-file-gap: var(--jkl-unit-10) var(--jkl-unit-20);
         --jkl-file-button-width: var(--jkl-unit-50);
         --text-color: var(--jkl-color-text-default);
-        --border: 1px solid var(--jkl-color-border-separator);
+        --border: 1px solid var(--jkl-color-border-subdued);
         --border-radius: 2px;
         --bg: transparent;
         --transition-time: #{jkl.$motion-timing-expressive};
@@ -64,7 +63,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--jkl-color-background-container-low);
+            background: var(--jkl-color-background-page);
             border-radius: 2px;
             overflow: hidden;
             container-type: inline-size;
@@ -146,16 +145,16 @@
 
         // Error state
         &[data-state="error"] {
-            --bg: var(--jkl-color-functional-error);
+            --bg: var(--jkl-color-error-background-container);
 
             &,
             a,
             a:hover,
             button,
             span {
-                --text-color: var(--jkl-color-text-on-alert);
+                --text-color: var(--jkl-color-error-text-default);
                 --link-color: var(--text-color);
-                --jkl-color-border-action: currentColor;
+                --jkl-color-border-strong: currentColor;
             }
         }
     }
@@ -164,6 +163,7 @@
         from {
             transform: rotate(0turn);
         }
+
         to {
             transform: rotate(1turn);
         }

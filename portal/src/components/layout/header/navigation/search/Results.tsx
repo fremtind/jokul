@@ -173,7 +173,7 @@ export const Results = ({
 
     if (!searchString.trim()) {
         return (
-            <Card variant="low" padding="xl">
+            <Card variant="filled" padding="xl">
                 <Flex
                     direction="column"
                     alignItems="center"
@@ -189,7 +189,7 @@ export const Results = ({
 
     if (!results.length) {
         return (
-            <Card variant="low" padding="xl">
+            <Card variant="filled" padding="xl">
                 <Flex
                     direction="column"
                     alignItems="center"
@@ -232,7 +232,7 @@ export const Results = ({
                                 padding: "0",
                                 margin: "0",
                                 background: "var(--jkl-color-background-page)",
-                                border: "1px solid var(--jkl-color-border-separator)",
+                                border: "1px solid var(--jkl-color-border-subdued)",
                                 borderRadius: "4px",
                                 overflow: "hidden",
                                 flexShrink: 0,

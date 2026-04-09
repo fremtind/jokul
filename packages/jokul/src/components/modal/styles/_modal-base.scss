@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-modal {
@@ -10,7 +10,7 @@
         padding: var(--modal-padding, var(--jkl-unit-40));
         z-index: jkl.$z-index--modal;
 
-        background-color: var(--jkl-color-background-container-high);
+        background-color: var(--jkl-color-background-container);
         border-radius: var(--jkl-border-radius-l);
         box-shadow: jkl.$shadow-task-card;
 

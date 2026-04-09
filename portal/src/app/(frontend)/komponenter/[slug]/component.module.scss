@@ -1,4 +1,4 @@
-@use "@fremtind/jokul/styles/core/jkl";
+@use "@fremtind/jokul/styles/jkl";
 
 .article {
     display: grid;
@@ -59,6 +59,6 @@
 
 .footer {
     margin-block-start: var(--jkl-spacing-104);
-    border-block-start: 1px solid var(--jkl-color-border-separator);
+    border-block-start: 1px solid var(--jkl-color-border-subdued);
     padding-block-start: var(--jkl-spacing-24);
 }

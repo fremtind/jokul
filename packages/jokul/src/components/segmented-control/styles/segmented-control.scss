@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 @use "../../../components/radio-button/styles";
 
 @layer jokul.components {
@@ -20,7 +20,7 @@
             display: inline-flex;
             align-items: center;
             background-color: var(--jkl-color-background-interactive);
-            border: var(--jkl-segmented-control-border-width) solid var(--jkl-color-border-separator);
+            border: var(--jkl-segmented-control-border-width) solid var(--jkl-color-border-subdued);
             border-radius: 0; // Gjør det enklere å behandle separering senere
             margin-inline-end: calc(var(--jkl-segmented-control-border-width) * -1);
             margin-block-end: 0.5lh;
@@ -34,13 +34,13 @@
 
             &:hover {
                 background-color: var(--jkl-color-background-interactive-hover);
-                border-color: var(--jkl-color-border-separator-hover);
+                border-color: var(--jkl-color-border-default);
                 z-index: 2;
             }
 
             &:has(input:checked) {
-                background-color: var(--jkl-color-background-container-high);
-                border-color: var(--jkl-color-border-separator);
+                background-color: var(--jkl-color-background-container);
+                border-color: var(--jkl-color-border-subdued);
                 z-index: 1;
             }
 

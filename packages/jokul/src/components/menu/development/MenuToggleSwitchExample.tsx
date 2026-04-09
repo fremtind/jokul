@@ -3,8 +3,8 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import type { ColorScheme } from "../../../core/types.js";
 import { useBrowserPreferences } from "../../../hooks/useBrowserPreferences/useBrowserPreferences.js";
+import type { ColorScheme } from "../../../utilities/types.js";
 import { IconButton } from "../../icon-button/IconButton.js";
 import { DotsIcon } from "../../icon/index.js";
 import { Tooltip } from "../../tooltip/Tooltip.js";

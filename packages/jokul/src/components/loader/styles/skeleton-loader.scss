@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use "sass:string";
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 $_blink-animation-name: jkl-blink-#{string.unique-id()};
 
@@ -12,7 +12,7 @@ $_blink-animation-name: jkl-blink-#{string.unique-id()};
     }
 
     .jkl-skeleton-animation {
-        --jkl-skeleton-element-color: var(--jkl-color-background-container-low);
+        --jkl-skeleton-element-color: var(--jkl-color-background-page);
         --jkl-skeleton-sweep-duration: 4500ms;
         --jkl-skeleton-sweeper-width: 40%;
 

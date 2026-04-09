@@ -1,10 +1,10 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-menu-divider {
         width: 100%;
         margin-block: 0;
         border: none;
-        border-bottom: jkl.rem(1px) solid var(--jkl-color-border-separator);
+        border-bottom: jkl.rem(1px) solid var(--jkl-color-border-subdued);
     }
 }
