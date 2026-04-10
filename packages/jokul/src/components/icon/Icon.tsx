@@ -7,7 +7,7 @@ import type {
 import type { IconVariant } from "./types.js";
 
 type IconComponentProps<
-    ElementType extends Extract<React.ElementType, "span" | "div">,
+    ElementType extends "span" | "div",
 > = PolymorphicPropsWithRef<
     ElementType,
     {
@@ -29,25 +29,47 @@ type IconComponentProps<
 >;
 
 export type IconComponent = (<
-    ElementType extends Extract<React.ElementType, "span" | "div"> = "span",
+    ElementType extends "span" | "div" = "span",
 >(
     props: IconComponentProps<ElementType>,
 ) => React.ReactElement | null) & { displayName?: string };
 
 export const Icon: IconComponent = React.forwardRef(function Icon<
-    ElementType extends Extract<React.ElementType, "span" | "div"> = "span",
+    ElementType extends "span" | "div" = "span",
 >(props: IconComponentProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
-    const { bold, children, className, filled, variant, ...iconProps } = props;
+    const {
+        as = "span",
+        bold,
+        children,
+        className,
+        filled,
+        variant,
+        ...iconProps
+    } = props;
+    const iconClassName = clsx("jkl-icon", className, {
+        "jkl-icon--filled": filled,
+        "jkl-icon--bold": bold,
+    });
+
+    if (as === "div") {
+        return (
+            <div
+                aria-hidden
+                ref={ref as PolymorphicRef<"div">}
+                className={iconClassName}
+                {...(iconProps as React.HTMLAttributes<HTMLDivElement>)}
+            >
+                {children}
+            </div>
+        );
+    }
 
     return (
         <span
             aria-hidden
-            ref={ref}
-            className={clsx("jkl-icon", className, {
-                "jkl-icon--filled": filled,
-                "jkl-icon--bold": bold,
-            })}
-            {...iconProps}
+            ref={ref as PolymorphicRef<"span">}
+            className={iconClassName}
+            {...(iconProps as React.HTMLAttributes<HTMLSpanElement>)}
         >
             {children}
         </span>
