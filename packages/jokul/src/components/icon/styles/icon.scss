@@ -32,34 +32,40 @@
   }
 
   .jkl-icon-red-cross {
-    --red-cross-circle: var(--jkl-color-background-alert-error);
-    --red-cross-path: var(--jkl-color-text-on-alert);
-
     width: 1.3em;
     height: 1.3em;
+    box-sizing: border-box;
+    border-radius: 999px;
+    background-color: var(--jkl-color-background-alert-error);
+    color: var(--jkl-color-text-on-alert);
+    display: inline-grid;
+    place-items: center;
+    font-size: 1em;
+    --jkl-icon-weight: var(--jkl-icon-weight-bold);
 
-    & path {
-      fill: var(--red-cross-path);
-    }
-
-    & circle {
-      fill: var(--red-cross-circle);
+    @include jkl.forced-colors-mode {
+      background-color: Canvas;
+      color: CanvasText;
+      border: 1px solid CanvasText;
     }
   }
 
   .jkl-icon-green-check {
-    --green-check-circle: var(--jkl-color-background-alert-success);
-    --green-check-path: var(--jkl-color-text-on-alert);
-
     width: 1.3em;
     height: 1.3em;
+    box-sizing: border-box;
+    border-radius: 999px;
+    background-color: var(--jkl-color-background-alert-success);
+    color: var(--jkl-color-text-on-alert);
+    display: inline-grid;
+    place-items: center;
+    font-size: 1em;
+    --jkl-icon-weight: var(--jkl-icon-weight-bold);
 
-    & path {
-      fill: var(--green-check-path);
-    }
-
-    & circle {
-      fill: var(--green-check-circle);
+    @include jkl.forced-colors-mode {
+      background-color: Canvas;
+      color: CanvasText;
+      border: 1px solid CanvasText;
     }
   }
 
