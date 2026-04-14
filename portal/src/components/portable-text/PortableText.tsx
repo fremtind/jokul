@@ -4,11 +4,10 @@ import { ExampleList } from "@/components/portable-text/examples/ExampleList";
 import { NewCodeBlock } from "@/components/portable-text/new-code-block/CodeBlock";
 import { QuestionsAndAnswers } from "@/components/portable-text/q-and-a/QuestionsAndAnswers";
 import { Storybook } from "@/components/portable-text/storybook-story/Storybook";
-import { client } from "@/sanity/lib/client";
+import { getSanityImageUrlBuilder } from "@/sanity/lib/image";
 import type { PortableTextReactComponents } from "@portabletext/react";
 import { PortableText as PortableTextReact } from "@portabletext/react";
 import type { TypedObject } from "@portabletext/types";
-import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageObject } from "@sanity/image-url";
 import type { FC, ReactNode } from "react";
 import slugify from "slugify";
@@ -32,12 +31,6 @@ interface Props {
     blocks: TypedObject[] | null;
 }
 
-const builder = imageUrlBuilder(client);
-
-function urlFor(source: SanityImageObject) {
-    return builder.image(source);
-}
-
 const jokulBlockTypes = {
     jokul_examples: ExampleList,
     jokul_storybook: Storybook,
@@ -56,7 +49,7 @@ const jokulBlockTypes = {
     }) {
         return (
             <img
-                src={urlFor(value).width(1200).url()}
+                src={getSanityImageUrlBuilder(value).width(1200).url()}
                 alt={value.alt || ""}
                 style={{ maxWidth: "55ch", width: "100%", height: "auto" }}
             />

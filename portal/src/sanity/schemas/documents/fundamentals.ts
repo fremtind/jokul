@@ -35,6 +35,22 @@ export const fundamentals = defineType({
             rows: 2,
         }),
         defineField({
+            name: "image",
+            type: "image",
+            title: "Bilde til light mode",
+            options: {
+                hotspot: true,
+            },
+        }),
+        defineField({
+            name: "imageDark",
+            type: "image",
+            title: "Bilde til dark mode",
+            options: {
+                hotspot: true,
+            },
+        }),
+        defineField({
             name: "article",
             title: "Artikkel",
             type: "array",

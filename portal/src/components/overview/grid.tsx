@@ -1,15 +1,16 @@
+import type { ComponentGridSize } from "@/utils/user-preferences";
 import styles from "./overview.module.scss";
 
-type OverviewGridProps = {
-    title: string;
+export type OverviewGridProps = {
     children: React.ReactNode;
+    size?: ComponentGridSize;
 };
 
 export function OverviewGrid(props: OverviewGridProps) {
-    const { title, children } = props;
+    const { children, size = "large" } = props;
 
     return (
-        <ul data-grid-size="large" aria-label={title} className={styles.grid}>
+        <ul data-grid-size={size} className={styles.grid}>
             {children}
         </ul>
     );

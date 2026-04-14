@@ -1,17 +1,18 @@
 import { ComponentConsiderations } from "@/app/(frontend)/komponenter/[slug]/components/ComponentConsiderations";
 import { ComponentExampleCard } from "@/app/(frontend)/komponenter/[slug]/components/ComponentExampleCard";
 import { PageFooter } from "@/components/PageFooter";
-import { ComponentCard } from "@/components/component-card/ComponentCard";
-import { ComponentGrid } from "@/components/component-grid/ComponentGrid";
+import { OverviewCardWithPreferences } from "@/components/overview/OverviewCardWithPreferences";
+import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridWithPreferences";
 import { PortableText } from "@/components/portable-text/PortableText";
-import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
+import { parseUserPreferences } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { NavLink } from "@fremtind/jokul/nav-link";
-import { createImageUrlBuilder } from "@sanity/image-url";
+import { getCookie } from "cookies-next";
 import { logger } from "logger";
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import styles from "./component.module.scss";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
@@ -54,13 +55,9 @@ export default async function Page({ params }: Props) {
         time: `${Math.round(performance.now() - initialTime)}ms`,
     });
 
-    const builder = createImageUrlBuilder(client);
-
-    function urlFor(source?: { asset?: { _ref: string } }) {
-        return source?.asset?._ref ? builder.image(source).url() : undefined;
-    }
-
-    console.log("component.example_card", component.example_card);
+    const userPreferences = parseUserPreferences(
+        await getCookie("userPreferences", { cookies }),
+    );
 
     return (
         <article className={styles.article}>
@@ -169,19 +166,33 @@ export default async function Page({ params }: Props) {
                             {component.related_components ? (
                                 <>
                                     <h2>Relaterte komponenter</h2>
-                                    <ComponentGrid>
+                                    <OverviewGridWithPreferences
+                                        initialPreferences={userPreferences}
+                                    >
                                         {component.related_components?.components?.map(
                                             (relatedComponent) => (
-                                                <li key={relatedComponent.slug}>
-                                                    <ComponentCard
-                                                        component={
-                                                            relatedComponent
-                                                        }
-                                                    />
-                                                </li>
+                                                <OverviewCardWithPreferences
+                                                    key={relatedComponent.slug}
+                                                    title={
+                                                        relatedComponent.name ||
+                                                        ""
+                                                    }
+                                                    description={
+                                                        relatedComponent.short_description ||
+                                                        ""
+                                                    }
+                                                    image={{
+                                                        light: relatedComponent.image,
+                                                        dark: relatedComponent.imageDark,
+                                                    }}
+                                                    link={`/komponenter/${relatedComponent.slug}`}
+                                                    initialPreferences={
+                                                        userPreferences
+                                                    }
+                                                />
                                             ),
                                         )}
-                                    </ComponentGrid>
+                                    </OverviewGridWithPreferences>
                                 </>
                             ) : null}
 
