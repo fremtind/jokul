@@ -6,6 +6,7 @@ export const fundamentalsQuery = defineQuery(
         slug,
         short_description,
         image,
+        imageDark,
         "date": _createdAt,
     } | order(_createdAt desc)`,
 );

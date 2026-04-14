@@ -1,5 +1,5 @@
-import { ComponentCard } from "@/components/component-card/ComponentCard";
-import { ComponentGrid } from "@/components/component-grid/ComponentGrid";
+import { OverviewCardWithPreferences } from "@/components/overview/OverviewCardWithPreferences";
+import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridWithPreferences";
 import { OverviewHeader } from "@/components/overview/header";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentsQuery } from "@/sanity/queries/component";
@@ -65,16 +65,21 @@ export default async function Components({
                     ))}
                 </Flex>
             </OverviewHeader>
-            <ComponentGrid>
+            <OverviewGridWithPreferences initialPreferences={userPreferences}>
                 {components.map((component) => (
-                    <li key={component.slug}>
-                        <ComponentCard
-                            component={component}
-                            initialPreferences={userPreferences}
-                        />
-                    </li>
+                    <OverviewCardWithPreferences
+                        key={component.slug}
+                        title={component.name || ""}
+                        description={component.short_description || ""}
+                        image={{
+                            light: component.image,
+                            dark: component.imageDark,
+                        }}
+                        link={`/komponenter/${component.slug}`}
+                        initialPreferences={userPreferences}
+                    />
                 ))}
-            </ComponentGrid>
+            </OverviewGridWithPreferences>
         </>
     );
 }
