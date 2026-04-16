@@ -13,11 +13,11 @@
             },
             "family": {
                 "regular": {
-                    "value": "'Fremtind Grotesk, Adjusted Arial Fallback, Arial, sans-serif'",
+                    "value": "'Inter, Adjusted Arial Fallback, Arial, sans-serif'",
                     "type": "typography"
                 },
                 "display": {
-                    "value": "'Fremtind Grotesk Display, Adjusted Arial Display Fallback, Arial, sans-serif'",
+                    "value": "'Inter Display, Adjusted Arial Display Fallback, Arial, sans-serif'",
                     "type": "typography"
                 },
                 "mono": {

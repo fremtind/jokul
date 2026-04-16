@@ -160,14 +160,14 @@ $text-styles: (
 }
 
 $_valid-font-family-values: (
-    "Fremtind Grotesk",
-    "Fremtind Grotesk Display",
+    "Inter",
+    "Inter Display",
     "Fremtind Grotesk Mono",
     "Fremtind Material Symbols"
 );
 
-/// Hjelper sette riktig remse med fallback-fonts for Fremtind Grotesk, Fremtind Grotesk Display, og Fremtind Grotesk Mono.
-/// @param {"Fremtind Grotesk" | "Fremtind Grotesk Mono" | "Fremtind Grotesk Display" | "Fremtind Material Symbols"} $font - Regular justerer seg automatisk til italic og bold basert på font-style og font-weight. Display og Mono er adskilte fontfamilier.
+/// Hjelper sette riktig remse med fallback-fonts for Inter, InterDisplay, og Fremtind Grotesk Mono.
+/// @param {"Inter" | "Fremtind Grotesk Mono" | "Inter Display" | "Fremtind Material Symbols"} $font - Regular justerer seg automatisk til italic og bold basert på font-style og font-weight. Display og Mono er adskilte fontfamilier.
 /// @output - Ønsket fontfamilie med justert fallbackfont.
 @mixin use-font-family($font) {
     @if not list.index($_valid-font-family-values, $font) {
@@ -181,16 +181,15 @@ $_valid-font-family-values: (
             -apple-system,
             BlinkMacSystemFont,
             monospace;
-    } @else if $font == "Fremtind Grotesk Display" {
+    } @else if $font == "Inter Display" {
         font-family:
-            "Fremtind Grotesk Display", "Adjusted Arial Display Fallback",
-            Arial, sans-serif;
+            "Inter Display", "Adjusted Arial Display Fallback", Arial,
+            sans-serif;
     } @else if $font == "Fremtind Material Symbols" {
         font-family:
             "Fremtind Material Symbols", "Fremtind Material Symbols Fallback",
             monospace;
     } @else {
-        font-family:
-            "Fremtind Grotesk", "Adjusted Arial Fallback", Arial, sans-serif;
+        font-family: Inter, "Adjusted Arial Fallback", Arial, sans-serif;
     }
 }

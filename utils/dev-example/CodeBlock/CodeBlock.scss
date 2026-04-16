@@ -44,7 +44,7 @@
         text-transform: uppercase;
         content: attr(data-language);
 
-        @include jkl.use-font-family("Fremtind Grotesk");
+        @include jkl.use-font-family("Inter");
         @include jkl.text-style("text-small");
     }
 

@@ -18,7 +18,7 @@
         background-color: var(--jkl-background-color);
         color: var(--jkl-color);
 
-        @include jkl.use-font-family("Fremtind Grotesk");
+        @include jkl.use-font-family("Inter");
 
         strong {
             --jkl-icon-weight: #{jkl.$icon-weight-bold};
