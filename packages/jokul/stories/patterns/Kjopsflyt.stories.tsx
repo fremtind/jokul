@@ -6,6 +6,11 @@ import { Flex } from "../../src/components/flex/Flex.js";
 import { FieldGroup } from "../../src/components/input-group/FieldGroup.js";
 import { RadioPanel } from "../../src/components/radio-panel/RadioPanel.js";
 import { TextInput } from "../../src/components/text-input/TextInput.js";
+import {
+    colorArgsDecorator,
+    colorTokenArgTypes,
+    emptyColorTokenArgs,
+} from "../colorTokens.js";
 
 const meta: Meta = {
     title: "Skjermbilder/Kjøpsflyt",
@@ -16,7 +21,12 @@ const meta: Meta = {
         labelProps: {
             variant: "large",
         },
+        ...emptyColorTokenArgs,
     },
+    argTypes: {
+        ...colorTokenArgTypes,
+    },
+    decorators: [colorArgsDecorator],
 };
 
 export default meta;

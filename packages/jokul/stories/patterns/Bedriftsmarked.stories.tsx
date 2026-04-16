@@ -15,13 +15,23 @@ import { TabPanel } from "../../src/components/tabs/TabPanel.js";
 import { Tabs } from "../../src/components/tabs/Tabs.js";
 import { Tag } from "../../src/components/tag/index.js";
 import { formatOrganisasjonsnummer } from "../../src/utilities/index.js";
+import {
+    colorArgsDecorator,
+    colorTokenArgTypes,
+    emptyColorTokenArgs,
+} from "../colorTokens.js";
 
 const meta = {
     title: "Skjermbilder/Bedriftsmarked",
     args: {
         forretningsnavn: "Bedrift AS",
         organisasjonsnummer: 994111126,
+        ...emptyColorTokenArgs,
     },
+    argTypes: {
+        ...colorTokenArgTypes,
+    },
+    decorators: [colorArgsDecorator],
     parameters: {
         layout: "fullscreen",
     },

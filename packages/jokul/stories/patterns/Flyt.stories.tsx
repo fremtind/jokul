@@ -41,6 +41,11 @@ import {
     Tabs,
 } from "../../src/components/tabs/index.js";
 import { formatNumber } from "../../src/utilities/index.js";
+import {
+    colorArgsDecorator,
+    colorTokenArgTypes,
+    emptyColorTokenArgs,
+} from "../colorTokens.js";
 
 const meta: Meta = {
     title: "Skjermbilder/Saksbehandler",
@@ -49,7 +54,12 @@ const meta: Meta = {
         kjønn: "Kvinne",
         alder: 45,
         saksnummer: 21166,
+        ...emptyColorTokenArgs,
     },
+    argTypes: {
+        ...colorTokenArgTypes,
+    },
+    decorators: [colorArgsDecorator],
     parameters: {
         layout: "fullscreen",
     },

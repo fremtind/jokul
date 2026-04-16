@@ -23,9 +23,21 @@ import { TableHeader } from "../../src/components/table/TableHeader.js";
 import { TableRow } from "../../src/components/table/TableRow.js";
 import { TextInput } from "../../src/components/text-input/TextInput.js";
 import { formatNumber } from "../../src/utilities/index.js";
+import {
+    colorArgsDecorator,
+    colorTokenArgTypes,
+    emptyColorTokenArgs,
+} from "../colorTokens.js";
 
 const meta: Meta = {
     title: "Skjermbilder/Erstatningsberegner",
+    args: {
+        ...emptyColorTokenArgs,
+    },
+    argTypes: {
+        ...colorTokenArgTypes,
+    },
+    decorators: [colorArgsDecorator],
     parameters: {
         layout: "fullscreen",
     },

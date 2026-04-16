@@ -16,18 +16,29 @@ import "../../src/components/button/styles/_index.scss";
 import "../../src/components/expander/styles/_index.scss";
 import "../../src/components/link-list/styles/_index.scss";
 import "../../src/components/tooltip/styles/_index.scss";
+import {
+    colorArgsDecorator,
+    colorTokenArgTypes,
+    emptyColorTokenArgs,
+} from "../colorTokens.js";
 
 const meta = {
     title: "Skjermbilder/Detaljside",
     component: () => null,
+    args: {
+        ...emptyColorTokenArgs,
+    },
+    argTypes: {
+        ...colorTokenArgTypes,
+    },
+    decorators: [colorArgsDecorator],
     parameters: {
         layout: "fullscreen",
         docs: {
             toc: true,
         },
     },
-    // biome-ignore lint/complexity/noBannedTypes: Her vil jeg faktisk ha et helt tomt objekt
-} satisfies Meta<{}>;
+} satisfies Meta<Record<string, string>>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
