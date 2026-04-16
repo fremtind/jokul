@@ -397,6 +397,17 @@
                 "default": "./build/cjs/components/nav-link/index.cjs"
             }
         },
+        "./styles/components/number-input": "./styles/components/number-input/_index.scss",
+        "./number-input": {
+            "import": {
+                "types": "./build/es/components/number-input/index.d.ts",
+                "default": "./build/es/components/number-input/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/number-input/index.d.cts",
+                "default": "./build/cjs/components/number-input/index.cjs"
+            }
+        },
         "./styles/components/pagination": "./styles/components/pagination/_index.scss",
         "./pagination": {
             "import": {
