@@ -646,6 +646,7 @@
         "compile:scripts": "vite build --config vite.build.config.mjs",
         "test": "vitest --config vite.test.config.mjs",
         "figma:test": "figma connect publish --dry-run",
+        "figma:test:ci": "figma connect publish --dry-run --exit-on-unreadable-files --skip-update-check",
         "figma:publish": "figma connect publish"
     },
     "dependencies": {
