@@ -1,0 +1,121 @@
+@use "../../../core/jkl/index" as jkl;
+@use "../../../shared/input/styles/shared-input-styles" as shared;
+
+@layer jokul.components {
+    .jkl-number-input {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        &__wrapper {
+            @include shared.wrapper-styles;
+
+            @include jkl.keyboard-navigation {
+                &:has(.jkl-number-input__input:focus-visible) {
+                    @include jkl.focus-outline;
+                }
+            }
+
+            &:has(.jkl-number-input__input:invalid):not(:focus-within):not(
+                    :has([data-focused="true"])
+                ) {
+                --background-color: var(--jkl-color-background-alert-error);
+                --text-color: var(--jkl-color-text-on-alert);
+                --placeholder-color: color(from currentColor sRGB r g b / 75%);
+            }
+        }
+
+        &__wrapper--stepper {
+            --jkl-number-input-stepper-min-width: calc(
+                3ch + (var(--jkl-text-input-horizontal-padding) * 2)
+            );
+            --jkl-number-input-stepper-text-color: var(--text-color);
+
+            display: grid;
+            grid-template-columns:
+                max-content
+                minmax(var(--jkl-number-input-stepper-min-width), 1fr)
+                max-content;
+            overflow: hidden;
+
+            // Tillat at fokus-ringen på stepper-knappene vises i sin helhet,
+            // ellers kuttes den av `overflow: hidden` på wrapperen.
+            &:has(button[data-direction]:focus-visible) {
+                overflow: visible;
+            }
+        }
+
+        &__input {
+            padding: var(--jkl-text-input-padding);
+            width: 100%;
+            appearance: textfield;
+            -moz-appearance: textfield;
+
+            @include shared.input-styles;
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            &--align-right {
+                text-align: right;
+            }
+
+            &--stepper {
+                box-sizing: border-box;
+                min-inline-size: var(--jkl-number-input-stepper-min-width);
+                text-align: center;
+            }
+        }
+
+        button[data-direction] {
+            --text-color: var(--jkl-number-input-stepper-text-color);
+
+            aspect-ratio: 1;
+            padding: 0;
+            display: inline-grid;
+            place-items: center;
+            text-align: center;
+            height: 100%;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 1px;
+                inset-block: 20%;
+                background-color: var(--jkl-color-border-separator);
+
+                @include jkl.motion;
+                transition-property: inset;
+            }
+
+            &:hover::before,
+            &:focus-visible::before {
+                inset-block: jkl.rem(1px);
+            }
+
+            &:disabled {
+                opacity: 0.4;
+                cursor: not-allowed;
+            }
+        }
+
+        button[data-direction="decrement"]::before {
+            inset-inline-end: 0;
+        }
+
+        button[data-direction="increment"]::before {
+            inset-inline-start: 0;
+        }
+
+        button[data-direction].jkl-button {
+            border-radius: 0;
+
+            .jkl-icon {
+                margin-block-start: 0.4ex;
+            }
+        }
+    }
+}
