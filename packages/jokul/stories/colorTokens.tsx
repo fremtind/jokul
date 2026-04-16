@@ -1,5 +1,6 @@
 import type { ReactRenderer } from "@storybook/nextjs";
-import { useEffect } from "react";
+import { type CSSProperties, useEffect, useRef } from "react";
+import { useArgs } from "storybook/preview-api";
 import type { DecoratorFunction } from "storybook/internal/types";
 
 export type ThemeValue = "light" | "dark";
@@ -339,27 +340,11 @@ export const emptyColorTokenArgs: Record<string, string> = colorTokens.reduce<
     return acc;
 }, {});
 
-/** Cache for hex-verdier per tema, fylles første gang i nettleseren. */
-const defaultHexByTheme: Record<ThemeValue, Map<string, string>> = {
-    light: new Map(),
-    dark: new Map(),
-};
-
-function ensureDefaultHexes(): void {
-    if (typeof document === "undefined") return;
-    if (defaultHexByTheme.light.size === colorTokens.length) return;
-    for (const token of colorTokens) {
-        const key = tokenArgKey(token.name);
-        defaultHexByTheme.light.set(key, cssColorToHex(token.defaults.light));
-        defaultHexByTheme.dark.set(key, cssColorToHex(token.defaults.dark));
-    }
-}
-
 /**
- * Default args for farge-tokens — satt til hex-verdiene for lyst tema, slik
- * at color-picker-kontrollene viser de faktiske standardfargene. Brukes
- * sammen med {@link colorArgsDecorator}, som ignorerer verdier som matcher
- * aktivt temas default (for å ikke overstyre tema-switching).
+ * Default args for farge-tokens — satt til hex-verdiene for lyst tema som et
+ * utgangspunkt. {@link colorArgsDecorator} synkroniserer disse automatisk
+ * mot effektive defaults når brand/variant/theme endres, og bytter bare ut
+ * verdier brukeren ikke har endret selv.
  */
 export const defaultColorTokenArgs: Record<string, string> = colorTokens.reduce<
     Record<string, string>
@@ -371,74 +356,79 @@ export const defaultColorTokenArgs: Record<string, string> = colorTokens.reduce<
     return acc;
 }, {});
 
-function resolveThemeForDecorator(value: unknown): ThemeValue {
-    if (value === "dark") return "dark";
-    if (value === "light") return "light";
-    if (
-        typeof window !== "undefined" &&
-        window.matchMedia?.("(prefers-color-scheme: dark)").matches
-    ) {
-        return "dark";
-    }
-    return "light";
-}
-
 /**
- * Decorator som leser farge-token-args fra konteksten og setter dem som
- * inline CSS-variabler på `<body>`. Verdier som matcher aktivt temas default
- * eller er tomme ignoreres, slik at tema-switching og localStorage-overrides
- * fortsatt fungerer.
+ * Decorator som synkroniserer farge-token-args mot effektive defaults fra
+ * `getComputedStyle` når globals som styrer farger (brand, variant, theme)
+ * endres, og som kun overstyrer tokens brukeren faktisk har endret. Args som
+ * matcher sist synkroniserte default-verdi lar CSS styre (ingen override),
+ * slik at bytte av brand/variant/theme faktisk slår inn.
  */
 export const colorArgsDecorator: DecoratorFunction<ReactRenderer> = (
     Story,
     context,
 ) => {
-    const args = context.args as Record<string, unknown>;
-    const theme = resolveThemeForDecorator(context.globals?.theme);
+    const [args, updateArgs] = useArgs();
+    const brand = context.globals?.brand;
+    const variant = context.globals?.variant;
+    const theme = context.globals?.theme;
 
-    // Serialiser alle token-args pluss tema til en streng så dependency-
-    // array holder konstant lengde uavhengig av antall tokens.
-    const serializedArgs =
-        theme +
-        ":" +
-        Array.from(argKeyToToken.keys(), (key) => {
-            const value = args[key];
-            return typeof value === "string" ? value : "";
-        }).join("|");
+    // Sporer hva vi sist synkroniserte som "default" for hver arg-nøkkel, så
+    // vi kan skille brukerendringer fra auto-synk mot gjeldende kontekst.
+    const lastSyncedRef = useRef<Record<string, string>>({
+        ...defaultColorTokenArgs,
+    });
 
     useEffect(() => {
         if (typeof window === "undefined") return;
-        ensureDefaultHexes();
         const body = window.document.body;
-        const activeDefaults = defaultHexByTheme[theme];
-        const appliedKeys: string[] = [];
 
-        for (const [key, token] of argKeyToToken.entries()) {
-            const rawValue = args[key];
-            if (typeof rawValue !== "string" || rawValue.trim() === "") {
-                body.style.removeProperty(token.name);
-                continue;
-            }
-            const normalized = rawValue.trim().toUpperCase();
-            const activeDefault = activeDefaults.get(key)?.toUpperCase();
-            if (normalized === activeDefault) {
-                // Args-verdien matcher aktivt tema sin default — ikke
-                // overskriv så tema-defaults fortsatt virker.
-                body.style.removeProperty(token.name);
-                continue;
-            }
-            body.style.setProperty(token.name, rawValue);
-            appliedKeys.push(token.name);
-        }
+        // Vent en frame slik at brand-/variant-/theme-decoratorene har
+        // rukket å oppdatere `<body>`-attributtene før vi leser effektive
+        // verdier via getComputedStyle.
+        const rafId = requestAnimationFrame(() => {
+            const computed = getComputedStyle(body);
+            const update: Record<string, string> = {};
 
-        return () => {
-            for (const name of appliedKeys) {
-                body.style.removeProperty(name);
-            }
-        };
-    }, [serializedArgs]);
+            for (const [key, token] of argKeyToToken.entries()) {
+                const raw = computed.getPropertyValue(token.name).trim();
+                if (!raw) continue;
+                const hex = cssColorToHex(raw);
+                const currentArg = args[key];
+                const lastSynced = lastSyncedRef.current[key];
 
-    return <Story />;
+                // Hvis bruker ikke har endret denne tokenen fra forrige
+                // synkroniserte default, synk til ny default.
+                if (currentArg === lastSynced && currentArg !== hex) {
+                    update[key] = hex;
+                }
+            }
+
+            if (Object.keys(update).length > 0) {
+                Object.assign(lastSyncedRef.current, update);
+                updateArgs(update);
+            }
+        });
+
+        return () => cancelAnimationFrame(rafId);
+        // updateArgs er stabil, args/lastSynced leses inne i rAF.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [brand, variant, theme]);
+
+    // Bygg inline style for args som avviker fra sist synkronisert default.
+    // Bruker en wrapper med display:contents så layouten ikke påvirkes.
+    const style: Record<string, string> = {};
+    for (const [key, token] of argKeyToToken.entries()) {
+        const value = args[key];
+        if (typeof value !== "string" || value.trim() === "") continue;
+        if (value === lastSyncedRef.current[key]) continue;
+        style[token.name] = value;
+    }
+
+    return (
+        <div style={{ display: "contents", ...style } as CSSProperties}>
+            <Story />
+        </div>
+    );
 };
 
 /**
