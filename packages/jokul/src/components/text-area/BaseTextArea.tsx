@@ -7,6 +7,7 @@ import React, {
     useRef,
     useState,
 } from "react";
+import { getCounterValue } from "./counter.js";
 import type { BaseTextAreaProps } from "./types.js";
 
 export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
@@ -14,6 +15,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         const {
             autoExpand,
             counter,
+            defaultValue,
             onBlur,
             onFocus,
             rows = 7,
@@ -26,21 +28,25 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
             ...rest
         } = props;
 
-        const [counterCurrent, setCounterCurrent] = useState(() => {
-            if (typeof value === "undefined") {
-                return 0;
-            }
+        const strategy = counter?.strategy ?? "characters";
+        const isControlled = typeof value !== "undefined";
 
-            if (typeof value === "number") {
-                return String(value).length;
-            }
-
-            return value.length;
-        });
+        const [uncontrolledValue, setUncontrolledValue] =
+            useState(defaultValue);
         const [textAreaFocused, setTextAreaFocused] = useState(false);
         const internalRef = useRef<HTMLTextAreaElement>(null);
         const textAreaRef =
             (ref as RefObject<HTMLTextAreaElement>) || internalRef;
+
+        // Hvis feltet styres utenfra bruker vi `value`, ellers holder vi styr på verdien selv.
+        const textAreaValue = isControlled ? value : uncontrolledValue;
+        const textAreaValueProps = isControlled ? { value } : { defaultValue };
+
+        const counterCurrent = getCounterValue(textAreaValue, strategy);
+        const counterTotal: number = counter?.maxLength || 0;
+        const progressCurrent: number = counterTotal - counterCurrent;
+        const isOverLimit = Boolean(counter && counterCurrent > counterTotal);
+        const invalid = Boolean(ariaInvalid || isOverLimit);
 
         // biome-ignore lint/correctness/useExhaustiveDependencies: counterCurrent trengs for å lytte på tekstendringer i textarea for auto-expand funksjonalitet
         useEffect(() => {
@@ -51,14 +57,20 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
                     return;
                 }
 
-                if (textAreaFocused || value) {
+                if (textAreaFocused || textAreaValue) {
                     textAreaElement.style.height = "auto"; // Sett til auto før scrollhøyden leses, sånn at redusering av høyde ved sletting av tekst fungerer
                     textAreaElement.style.height = `${textAreaElement.scrollHeight}px`;
                 } else {
                     textAreaElement.style.height = "";
                 }
             }
-        }, [autoExpand, textAreaRef, value, textAreaFocused, counterCurrent]);
+        }, [
+            autoExpand,
+            textAreaRef,
+            textAreaValue,
+            textAreaFocused,
+            counterCurrent,
+        ]);
 
         function handleOnFocus(e: FocusEvent<HTMLTextAreaElement>) {
             setTextAreaFocused(true);
@@ -75,26 +87,20 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         }
 
         function handleOnChange(e: ChangeEvent<HTMLTextAreaElement>) {
-            setCounterCurrent(e.target.value.length);
+            if (!isControlled) {
+                setUncontrolledValue(e.target.value);
+            }
+
             if (onChange) {
                 onChange(e);
             }
         }
-
-        const counterTotal: number = counter?.maxLength || 0;
-        const progressCurrent: number = counterTotal - counterCurrent;
         function calculatePercentage(current: number, total: number): number {
             if (current <= 0) {
                 return 0;
             }
             return total === 0 ? 0 : (current * 100) / total;
         }
-        const counterLabel =
-            counter && counterCurrent > counterTotal
-                ? `Du har skrevet ${counterCurrent - counterTotal} tegn for mye`
-                : undefined;
-
-        const invalid = Boolean(ariaInvalid || counterLabel);
 
         const overflowStyle = {
             overflowX: autoExpand ? "hidden" : undefined, // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
@@ -115,7 +121,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
                     ref={textAreaRef}
                     style={{ ...style, ...overflowStyle }}
                     placeholder={placeholder}
-                    value={value}
+                    {...textAreaValueProps}
                     {...rest}
                 />
                 {counter && (
