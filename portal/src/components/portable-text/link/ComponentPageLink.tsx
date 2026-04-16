@@ -1,17 +1,16 @@
 "use client";
 
-import { ComponentThumbnail } from "@/components/component-card/ComponentThumbnail";
+import { OverviewThumbnail } from "@/components/overview/thumbnail";
 import type { ComponentBySlugQueryResult } from "@/sanity/types";
 import { Card } from "@fremtind/jokul/card";
 import { Link } from "@fremtind/jokul/link";
-import type { SanityImageObject } from "@sanity/image-url";
 import clsx from "clsx";
 import type { PortableTextMarkComponentProps } from "next-sanity";
 import NextLink from "next/link";
 import { useId, useRef } from "react";
 import { createPortal } from "react-dom";
 
-import componentCard from "../../component-card/component-card.module.scss";
+import overview from "../../overview/overview.module.scss";
 import style from "./component-page-link.module.scss";
 
 type LinkProps = PortableTextMarkComponentProps<{
@@ -70,7 +69,7 @@ export const ComponentPageLink = ({ value, children }: LinkProps) => {
                     as="div"
                     padding="m"
                     className={clsx(
-                        componentCard.componentCard,
+                        overview.card,
                         style.componentPageLinkPopover,
                     )}
                     ref={popoverRef}
@@ -84,13 +83,11 @@ export const ComponentPageLink = ({ value, children }: LinkProps) => {
                     onMouseLeave={closePopover}
                     onBlur={closePopover}
                 >
-                    <p className={componentCard.name}>{name}</p>
-                    <p className={componentCard.description}>
-                        {short_description}
-                    </p>
-                    <ComponentThumbnail
-                        darkImage={imageDark as SanityImageObject}
-                        lightImage={image as SanityImageObject}
+                    <p className={overview.name}>{name}</p>
+                    <p className={overview.description}>{short_description}</p>
+                    <OverviewThumbnail
+                        darkImage={imageDark}
+                        lightImage={image}
                     />
                 </Card>,
                 // Vi rendrer popoveren rett i body for å unngå å legge

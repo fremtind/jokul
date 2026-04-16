@@ -104,15 +104,3 @@ export const componentBySlugQuery =
             }
         }
     }`);
-
-export const componentCardQuery =
-    defineQuery(`*[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug] {
-        name,
-        short_description,
-        "slug": slug.current,
-        figma_image,
-        image,
-        imageDark,
-        related_components,
-        categories,
-    }[0]`);

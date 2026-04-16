@@ -173,6 +173,30 @@ export type Jokul_fundamentals = {
   name?: string;
   slug?: Slug;
   short_description?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  imageDark?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   article?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -1408,13 +1432,14 @@ export type ComponentBySlugQueryResult = {
     _type: "image";
   };
 } | null;
-// Variable: componentCardQuery
-// Query: *[_type == "jokul_component" && defined(slug.current) && slug.current == $componentSlug] {        name,        short_description,        "slug": slug.current,        figma_image,        image,        imageDark,        related_components,        categories,    }[0]
-export type ComponentCardQueryResult = {
+
+// Source: ./src/sanity/queries/fundamentals.ts
+// Variable: fundamentalsQuery
+// Query: *[_type == "jokul_fundamentals"]{        name,        slug,        short_description,        image,        imageDark,        "date": _createdAt,    } | order(_createdAt desc)
+export type FundamentalsQueryResult = Array<{
   name: string | null;
+  slug: Slug | null;
   short_description: string | null;
-  slug: string | null;
-  figma_image: null;
   image: {
     asset?: {
       _ref: string;
@@ -1439,26 +1464,6 @@ export type ComponentCardQueryResult = {
     crop?: SanityImageCrop;
     _type: "image";
   } | null;
-  related_components: {
-    components?: Array<{
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      _key: string;
-      [internalGroqTypeReferenceTo]?: "jokul_component";
-    }>;
-  } | null;
-  categories: Array<string> | null;
-} | null;
-
-// Source: ./src/sanity/queries/fundamentals.ts
-// Variable: fundamentalsQuery
-// Query: *[_type == "jokul_fundamentals"]{        name,        slug,        short_description,        image,        "date": _createdAt,    } | order(_createdAt desc)
-export type FundamentalsQueryResult = Array<{
-  name: string | null;
-  slug: Slug | null;
-  short_description: string | null;
-  image: null;
   date: string;
 }>;
 // Variable: fundamentalsBySlugQuery
@@ -1472,6 +1477,30 @@ export type FundamentalsBySlugQueryResult = {
   name?: string;
   slug?: Slug;
   short_description?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
+  imageDark?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  };
   article: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -1687,8 +1716,7 @@ declare module "@sanity/client" {
     "*[_type == \"jokul_blog_post\" && slug.current == \"kom-i-gang\"][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_examples\" => {\n    ...,\n    title,\n    stories[]->{\n      storyName,\n      storyId,\n      storyDescription,\n    },\n  },\n  },\n    }": KomIGangQueryResult;
     "*[_type == \"jokul_component\"]{\n    name,\n    short_description,\n    \"slug\": slug.current,\n    figma_image,\n    image,\n    imageDark,\n    related_components,\n    categories\n} | order(name)": ComponentsQueryResult;
     "*[_type == \"jokul_component\" && slug.current == $slug][0] {\n        ...,\n        \"slug\": slug.current,\n        \"example_card\": {\n            ...example_card,\n            \"story\": example_card.story->\n        },\n        documentation_article[]{\n            ...,\n            _type == \"jokul_code\" => {\n                ...,\n                title,\n                code,\n                language,\n          },\n            _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  name,\n                  id,\n                  description,\n                  height,\n                  inert,\n                  code\n                },\n              },\n            _type == \"jokul_componentKortFortalt\" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[] {\n                        ...,\n                        markDefs[] {\n                            _type == \"componentPageLink\" => {\n                                ...,\n                                component->{\n                                    name,\n                                    short_description,\n                                    \"slug\": slug.current,\n                                    figma_image,\n                                    image,\n                                    imageDark\n                                }\n                            }\n                        }\n                    }\n                }\n            },\n            markDefs[] {\n                ...,\n                _type == \"componentPageLink\" => {\n                    component-> {\n                        \"slug\": slug.current,\n                        name,\n                        short_description,\n                        image,\n                        imageDark,\n                    }\n                },\n            }\n        },\n        related_components {\n            components[]->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                image,\n                imageDark,\n                related_components,\n                categories\n            }\n        }\n    }": ComponentBySlugQueryResult;
-    "*[_type == \"jokul_component\" && defined(slug.current) && slug.current == $componentSlug] {\n        name,\n        short_description,\n        \"slug\": slug.current,\n        figma_image,\n        image,\n        imageDark,\n        related_components,\n        categories,\n    }[0]": ComponentCardQueryResult;
-    "*[_type == \"jokul_fundamentals\"]{\n        name,\n        slug,\n        short_description,\n        image,\n        \"date\": _createdAt,\n    } | order(_createdAt desc)": FundamentalsQueryResult;
+    "*[_type == \"jokul_fundamentals\"]{\n        name,\n        slug,\n        short_description,\n        image,\n        imageDark,\n        \"date\": _createdAt,\n    } | order(_createdAt desc)": FundamentalsQueryResult;
     "*[_type == \"jokul_fundamentals\" && slug.current == $slug][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_code\" => {\n                ...,\n                title,\n                code,\n                language,\n          },\n            _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert,\n                  code\n                },\n            },\n        },\n    }": FundamentalsBySlugQueryResult;
     "*[_type in [\"jokul_component\", \"jokul_fundamentals\", \"jokul_blog_post\"] && defined(slug.current) && (\n        name match \"*\" + $searchString + \"*\" ||\n        short_description match \"*\" + $searchString + \"*\" ||\n        (_type == \"jokul_component\" && keywords[] match \"*\" + $searchString + \"*\")\n    )] | {\n        _id,\n        name,\n        slug,\n        short_description,\n        \"image\": select(\n            _type == \"jokul_component\" => image.asset->url,\n            null\n        ),\n        \"type\": select(\n            _type == \"jokul_component\" => \"Komponent\",\n            _type == \"jokul_fundamentals\" => \"Fundament\",\n            _type == \"jokul_blog_post\" => \"Blogg\"\n        ),\n        \"href\": select(\n            _type == \"jokul_component\" => \"/komponenter/\" + slug.current,\n            _type == \"jokul_fundamentals\" => \"/fundamenter/\" + slug.current,\n            _type == \"jokul_blog_post\" => \"/blog/\" + slug.current\n        )\n    }": SearchQueryResult;
     "*[_type == \"jokul_siteData\"]{\n        ...,\n        \"seo\": {\n            \"title\": coalesce(seo.title, title, \"\"),\n            \"description\": coalesce(seo.description,  \"\"),\n            \"image\": seo.image,\n            \"noIndex\": seo.noIndex == true\n          },\n        footer {\n            text,\n            linkGroups[]{\n                title,\n                linkList[]{\n                    text,\n                    \"url\": select(\n    url[0]._type == \"internalLink\" => select(\n      url[0].internalReference->_type == \"jokul_component\" => \"komponenter/\" + url[0].internalReference->slug.current,\n      url[0].internalReference->_type == \"jokul_fundamentals\" => \"fundamenter/\" + url[0].internalReference->slug.current,\n      url[0].internalReference->_type == \"jokul_blog_post\" => \"blog/\" + url[0].internalReference->slug.current,\n      \"/\" + url[0].internalReference->slug.current\n    ),\n    url[0]._type == \"externalLink\" => url[0].url\n  )\n                }\n            }\n        },\n        \"date\": _createdAt,\n    } | order(_createdAt desc)[0]": SiteDataQueryResult;

@@ -1,9 +1,12 @@
-import { OverviewCard } from "@/components/overview/card";
-import { OverviewGrid } from "@/components/overview/grid";
+import { OverviewCardWithPreferences } from "@/components/overview/OverviewCardWithPreferences";
+import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridWithPreferences";
 import { OverviewHeader } from "@/components/overview/header";
 import { sanityFetch } from "@/sanity/lib/live";
 import { fundamentalsQuery } from "@/sanity/queries/fundamentals";
+import { parseUserPreferences } from "@/utils/user-preferences";
+import { getCookie } from "cookies-next";
 import { logger } from "logger";
+import { cookies } from "next/headers";
 
 export default async function FundamentalsPage() {
     logger.info("Rendering fundamentals page");
@@ -19,19 +22,28 @@ export default async function FundamentalsPage() {
         return null;
     }
 
+    const userPreferences = parseUserPreferences(
+        await getCookie("userPreferences", { cookies }),
+    );
+
     return (
         <>
-            <OverviewHeader title="Fundamenter" />
-            <OverviewGrid title="Design tokens">
+            <OverviewHeader title="Fundamenter" showToolbar />
+            <OverviewGridWithPreferences initialPreferences={userPreferences}>
                 {posts.map((post) => (
-                    <OverviewCard
+                    <OverviewCardWithPreferences
                         key={post.slug?.current}
                         title={post.name || ""}
                         description={post.short_description || ""}
-                        link={`fundamenter/${post.slug?.current}` || ""}
+                        image={{
+                            light: post.image,
+                            dark: post.imageDark,
+                        }}
+                        link={`/fundamenter/${post.slug?.current}`}
+                        initialPreferences={userPreferences}
                     />
                 ))}
-            </OverviewGrid>
+            </OverviewGridWithPreferences>
         </>
     );
 }

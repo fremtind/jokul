@@ -26,7 +26,7 @@ export default async function BlogPage() {
     return (
         <>
             <OverviewHeader title="Artikler" />
-            <OverviewGrid title="Artikler">
+            <OverviewGrid>
                 {sortedPosts.map((post) => (
                     <OverviewCard
                         key={post.slug?.current}

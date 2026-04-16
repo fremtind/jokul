@@ -47,4 +47,3 @@ test-results
 # Portal / Next.js specific
 portal/.next
 portal/out
-portal/public
