@@ -9,7 +9,7 @@ import { TextInput } from "../../src/components/text-input/TextInput.js";
 import {
     colorArgsDecorator,
     colorTokenArgTypes,
-    emptyColorTokenArgs,
+    defaultColorTokenArgs,
 } from "../colorTokens.js";
 
 const meta: Meta = {
@@ -21,7 +21,7 @@ const meta: Meta = {
         labelProps: {
             variant: "large",
         },
-        ...emptyColorTokenArgs,
+        ...defaultColorTokenArgs,
     },
     argTypes: {
         ...colorTokenArgTypes,

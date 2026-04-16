@@ -18,7 +18,7 @@ import { formatOrganisasjonsnummer } from "../../src/utilities/index.js";
 import {
     colorArgsDecorator,
     colorTokenArgTypes,
-    emptyColorTokenArgs,
+    defaultColorTokenArgs,
 } from "../colorTokens.js";
 
 const meta = {
@@ -26,7 +26,7 @@ const meta = {
     args: {
         forretningsnavn: "Bedrift AS",
         organisasjonsnummer: 994111126,
-        ...emptyColorTokenArgs,
+        ...defaultColorTokenArgs,
     },
     argTypes: {
         ...colorTokenArgTypes,

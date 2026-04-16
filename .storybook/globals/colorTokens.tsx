@@ -12,6 +12,7 @@ export {
     colorTokenArgTypes,
     colorTokens,
     cssColorToHex,
+    defaultColorTokenArgs,
     emptyColorTokenArgs,
     tokenArgKey,
 } from "../../packages/jokul/stories/colorTokens.js";

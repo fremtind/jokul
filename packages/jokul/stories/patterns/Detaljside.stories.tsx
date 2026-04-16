@@ -19,14 +19,14 @@ import "../../src/components/tooltip/styles/_index.scss";
 import {
     colorArgsDecorator,
     colorTokenArgTypes,
-    emptyColorTokenArgs,
+    defaultColorTokenArgs,
 } from "../colorTokens.js";
 
 const meta = {
     title: "Skjermbilder/Detaljside",
     component: () => null,
     args: {
-        ...emptyColorTokenArgs,
+        ...defaultColorTokenArgs,
     },
     argTypes: {
         ...colorTokenArgTypes,

@@ -44,7 +44,7 @@ import { formatNumber } from "../../src/utilities/index.js";
 import {
     colorArgsDecorator,
     colorTokenArgTypes,
-    emptyColorTokenArgs,
+    defaultColorTokenArgs,
 } from "../colorTokens.js";
 
 const meta: Meta = {
@@ -54,7 +54,7 @@ const meta: Meta = {
         kjønn: "Kvinne",
         alder: 45,
         saksnummer: 21166,
-        ...emptyColorTokenArgs,
+        ...defaultColorTokenArgs,
     },
     argTypes: {
         ...colorTokenArgTypes,

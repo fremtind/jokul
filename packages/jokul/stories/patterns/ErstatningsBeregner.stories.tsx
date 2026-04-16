@@ -26,13 +26,13 @@ import { formatNumber } from "../../src/utilities/index.js";
 import {
     colorArgsDecorator,
     colorTokenArgTypes,
-    emptyColorTokenArgs,
+    defaultColorTokenArgs,
 } from "../colorTokens.js";
 
 const meta: Meta = {
     title: "Skjermbilder/Erstatningsberegner",
     args: {
-        ...emptyColorTokenArgs,
+        ...defaultColorTokenArgs,
     },
     argTypes: {
         ...colorTokenArgTypes,
