@@ -22,6 +22,7 @@ jobs:
         outputs:
             jokul: ${{ steps.code_changes.outputs.jokul }}
             components: ${{ steps.code_changes.outputs.components }}
+            figma_code_connect: ${{ steps.code_changes.outputs.figma_code_connect }}
             preview: ${{ steps.code_changes.outputs.preview }}
             testlint: ${{ steps.code_changes.outputs.general }}
             code_changes: ${{ steps.code_changes.outputs.has_matches }}
@@ -48,6 +49,12 @@ jobs:
                           - "packages/jokul/src/components-beta/**/*.scss"
                           - "packages/jokul/src/components-beta/**/!(*.stories|*.test|*.d).ts"
                           - "packages/jokul/src/components-beta/**/!(*.stories|*.test).tsx"
+                        figma_code_connect:
+                          - "packages/jokul/figma.config.json"
+                          - "packages/jokul/package.json"
+                          - "pnpm-lock.yaml"
+                          - "packages/jokul/src/components/**/!(*.stories|*.test|*.d).ts"
+                          - "packages/jokul/src/components/**/!(*.stories|*.test).tsx"
                         preview:
                           - ".storybook/**/*.(ts|tsx|scss|html)"
                           - "storybook-public/**/*"
@@ -143,22 +150,62 @@ jobs:
 
             -   name: Sjekk Figma Code Connect
                 id: code_connect
-                if: github.event_name != 'merge_group' && needs.changes.outputs.components == 'true'
+                if: github.event_name != 'merge_group' && needs.changes.outputs.figma_code_connect == 'true'
                 continue-on-error: true
-                run: pnpm -r figma:test
+                shell: bash
+                run: |
+                    set -o pipefail
+                    pnpm --filter @fremtind/jokul run figma:test:ci 2>&1 | tee figma-code-connect.log
                 env:
                   FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_CODE_CONNECT_TOKEN }}
 
-            -   name: Si fra om feil i Figma Connect
-                if: steps.code_connect.outcome == 'failure'
+            -   name: Oppsummer feil i Figma Code Connect
+                id: code_connect_summary
+                if: always() && steps.code_connect.outcome == 'failure'
+                shell: bash
+                run: |
+                    {
+                        echo "### Figma Code Connect feilet"
+                        echo
+                        echo '```text'
+                        tail -n 40 figma-code-connect.log
+                        echo '```'
+                    } >> "$GITHUB_STEP_SUMMARY"
+
+                    {
+                        echo "log_excerpt<<EOF"
+                        tail -n 40 figma-code-connect.log
+                        echo "EOF"
+                    } >> "$GITHUB_OUTPUT"
+
+            -   name: Si fra om feil i Figma Code Connect
+                if: github.event_name == 'pull_request' && steps.code_connect.outcome == 'failure'
                 uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
                 with:
-                    header: reminders
+                    header: figma-code-connect
                     GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
-                    append: true
                     message: |
                         > [!WARNING]
                         > @${{ github.event.sender.login }}, Figma Code Connect feilet.
+                        >
+                        > Se workflow-kjøringen for full logg.
+
+                        <details>
+                        <summary>Kort utdrag av loggen</summary>
+
+                        ```text
+                        ${{ steps.code_connect_summary.outputs.log_excerpt }}
+                        ```
+
+                        </details>
+
+            -   name: Fjern varsel om Figma Code Connect-feil
+                if: github.event_name == 'pull_request' && steps.code_connect.outcome != 'failure'
+                uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+                with:
+                    header: figma-code-connect
+                    delete: true
+                    GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
 
     preview:
         name: Publiser forhåndsvisning
