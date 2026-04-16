@@ -2,6 +2,7 @@ import type { Preview } from "@storybook/nextjs";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
 import { brandDecorator, brandGlobal } from "./globals/brand.js";
+import { colorTokensDecorator } from "./globals/colorTokens.js";
 import { sizeDecorator, sizeGlobal } from "./globals/size.js";
 import { themeDecorator, themeGlobal } from "./globals/theme.js";
 import { variantDecorator, variantGlobal } from "./globals/variant.js";
@@ -39,6 +40,7 @@ const preview: Preview = {
         sizeDecorator,
         variantDecorator,
         brandDecorator,
+        colorTokensDecorator,
     ],
     tags: ["autodocs"],
     parameters: {

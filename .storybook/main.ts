@@ -6,6 +6,7 @@ const config: StorybookConfig = {
     stories: [
         "../packages/jokul/**/*.stories.@(ts|tsx|md|mdx)",
         "./docs/*.mdx",
+        "./playground/*.stories.@(ts|tsx|md|mdx)",
     ],
     staticDirs: ["../storybook-public"],
     addons: ["@storybook/addon-docs"],
