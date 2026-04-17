@@ -1,5 +1,23 @@
 # Change Log
 
+## 4.6.0
+
+### Minor Changes
+
+- c52b4eb: La til støtte for valgbare tellestrategier i telleren til `TextArea`.
+
+  `counter`-propen støtter nå `strategy: "characters" | "bytes"`, slik at integrasjoner med bytebaserte grenser kan telle UTF-8-bytes. Eksisterende tegnbasert oppførsel er fortsatt standard.
+
+- c86e3dc: Legger til `NumberInput`, en ny skjemakomponent for numeriske verdier som
+  bruker native `input type="number"` med Jøkul-styling, `InputGroup`-støtte og
+  samme eksportmønster som øvrige komponenter. Komponenten støtter også en
+  `stepper`-variant med knapper på hver side av feltet for å øke og senke verdien
+  med nettleserens native stepping, slik at `min`, `max` og `step` respekteres.
+
+### Patch Changes
+
+- 372066b: Gjør de fargede check- og cross-ikonene, samt listeikonene, konsistente ved å bruke Material Symbols med svart symbol på farget sirkel.
+
 ## 4.5.1
 
 ### Patch Changes

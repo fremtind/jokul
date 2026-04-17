@@ -1,5 +1,18 @@
 # portal
 
+## 1.5.4
+
+### Patch Changes
+
+- ff2a93e: Rydder opp i oversiktsvisningene i portalen ved å bruke felles `Overview`-komponenter for komponenter, fundamenter og relaterte komponenter.
+
+  Forbedrer håndteringen av thumbnails og placeholder-bilder, og fikser Docker-oppsettet slik at statiske filer i `portal/public` blir med i portal-builden.
+
+- Updated dependencies [c52b4eb]
+- Updated dependencies [c86e3dc]
+- Updated dependencies [372066b]
+  - @fremtind/jokul@4.6.0
+
 ## 1.5.3
 
 ### Patch Changes
