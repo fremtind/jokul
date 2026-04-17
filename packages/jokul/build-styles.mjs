@@ -1,5 +1,6 @@
 import { mkdirSync } from "node:fs";
 import { readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
 import { fileURLToPath } from "node:url";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
@@ -7,6 +8,80 @@ import litePreset from "cssnano-preset-lite";
 import { glob } from "glob";
 import postcss from "postcss";
 import * as sass from "sass-embedded";
+
+const RELATIVE_IMPORT_REGEX = /@(use|forward)\s+"(\.[^"]+)"([^;]*);/g;
+
+/*
+ * Mapper en Sass-fil i src til hvor den publiserte fila havner i /styles.
+ *
+ * Byggestrukturen gjør to ting samtidig:
+ * 1. /src blir til /styles
+ * 2. et eventuelt /styles-segment lenger ned i stien fjernes
+ *
+ * Eksempel:
+ * Kilde:
+ * /src/components/button/styles/_index.scss
+ *
+ * Publisert:
+ * /styles/components/button/_index.scss
+ *
+ * Et importmål som i koden peker til:
+ * /src/components/autosuggest/styles
+ *
+ * vil i publisert struktur ligge på:
+ * /styles/components/autosuggest
+ */
+const mapSourcePathToPublishedPath = (filePath) =>
+    filePath.replace(/\/styles(?=\/|$)/, "").replace("/src", "/styles");
+
+/*
+ * Regner ut relative @use/@forward-importer på nytt etter at filene er flyttet
+ * til publisert /styles-struktur.
+ *
+ * Både kildefila og den importerte fila mappes først til publisert plassering,
+ * før vi finner korrekt relativ sti mellom dem.
+ *
+ * Eksempel:
+ * Kilde:
+ * /src/styles/theme/_dynamic-spacing.scss
+ *
+ * Import i kildefila:
+ * ../jkl
+ *
+ * Etter publisering ligger filene her:
+ * /styles/theme/_dynamic-spacing.scss
+ * /styles/jkl
+ *
+ * Den relative importen mellom disse er fortsatt:
+ * ../jkl
+ */
+const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
+    content.replaceAll(
+        RELATIVE_IMPORT_REGEX,
+        (_match, keyword, importPath, suffix) => {
+            const outputDirectory = path.dirname(
+                mapSourcePathToPublishedPath(sourceFilePath),
+            );
+            const importedSourcePath = path.resolve(
+                path.dirname(sourceFilePath),
+                importPath,
+            );
+            // Sass forventer POSIX-separatorer i import paths, også på andre OS.
+            let rewrittenImportPath = path
+                .relative(
+                    outputDirectory,
+                    mapSourcePathToPublishedPath(importedSourcePath),
+                )
+                .split(path.sep)
+                .join("/");
+
+            if (!rewrittenImportPath.startsWith(".")) {
+                rewrittenImportPath = `./${rewrittenImportPath}`;
+            }
+
+            return `@${keyword} "${rewrittenImportPath}"${suffix};`;
+        },
+    );
 
 (async function build() {
     try {
@@ -23,10 +98,9 @@ import * as sass from "sass-embedded";
                     const sourcePath = fileURLToPath(
                         new URL(source, import.meta.url),
                     );
-                    const outDirName = sourcePath
-                        .replace("/styles/", "/") // Fjern styles-mappa inne i komponenten
-                        .replace(/\/[\w-]+.scss/, "") // Fjern filnavn og siste slash
-                        .replace("/src", "/styles"); // Flytt til mappen styles på rot
+                    const outDirName = path.dirname(
+                        mapSourcePathToPublishedPath(sourcePath),
+                    );
 
                     const content = sass.compile(sourcePath);
                     mkdirSync(outDirName, { recursive: true });
@@ -78,44 +152,18 @@ import * as sass from "sass-embedded";
                         const sourcePath = fileURLToPath(
                             new URL(source, import.meta.url),
                         );
-
-                        const outDirName = sourcePath
-                            .replace("/styles/", "/") // Fjern styles-mappa inne i komponenten
-                            .replace(/\/[\w-]+.scss/, "") // Fjern filnavn og siste slash
-                            .replace("/src", "/styles"); // Flytt til mappen styles på rot
+                        const outDirName = path.dirname(
+                            mapSourcePathToPublishedPath(sourcePath),
+                        );
 
                         mkdirSync(outDirName, { recursive: true });
 
                         return readFile(sourcePath, "utf-8").then((content) => {
-                            /*
-                             * Siden vi fjerner den siste /styles-mappen når vi kopierer Sass-
-                             * stilene, må vi sørge for å fjerne ett nivå fra de relative importene
-                             * inne i filene der hvor vi går minst ett nivå opp.
-                             *
-                             * Regex-en erstatter på følgende måte:
-                             * FRA: @use "../../../styles/jkl";
-                             * TIL: @use "../../styles/jkl";
-                             */
-                            let modifiedContent = content.replaceAll(
-                                /@use "(\.\.\/)(\.\.\/)?(\.\.\/)?(\.\.\/)?([\w\/\"\-\. ]+);/g,
-                                '@use "$2$3$4$5;',
-                            );
-                            /*
-                             * I tillegg må vi fjerne den siste /styles fra interne importer,
-                             * For eksempel der vi tar med stiler fra avhengigheter i
-                             * _index.scss. Dermed kan vi også fjerne manuell namespacing.
-                             * Erstatter på følgende måte:
-                             *
-                             * FRA: @use "../accordion/styles" as accordion;
-                             * TIL: @use "../accordion";
-                             */
-                            modifiedContent = modifiedContent.replaceAll(
-                                /@use "(.*)\/styles(.*)"(.*);/g,
-                                '@use "$1$2"$3;',
-                            );
+                            const outputFilePath = `${outDirName}/${fileName}`;
+                            const modifiedContent = rewriteImportsForBuiltFile(content, sourcePath);
 
                             writeFile(
-                                `${outDirName}/${fileName}`,
+                                outputFilePath,
                                 modifiedContent,
                                 { encoding: "utf-8" },
                             );
