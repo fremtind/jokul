@@ -119,7 +119,7 @@ export class TestHelper {
         return this;
     }
 
-    async setSize(value: "small" | "default" | "large") {
+    async setSize(value: "small" | "medium" | "large") {
         await this._page
             .getByTestId(`size-${value}`)
             .first()
@@ -293,7 +293,7 @@ export class TestHelper {
                   outline?: string;
               };
     } = {}) {
-        await this.setSize("default");
+        await this.setSize("medium");
         await this.setTheme("light");
         await before?.();
         await this.snapshot("default", selector, selectorPadding);
@@ -311,7 +311,7 @@ export class TestHelper {
         }
         await after?.();
 
-        await this.setSize("default");
+        await this.setSize("medium");
         await this.setTheme("dark");
         await before?.();
         await this.snapshot("default-dark", selector, selectorPadding);

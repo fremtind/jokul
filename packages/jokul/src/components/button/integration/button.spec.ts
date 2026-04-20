@@ -13,7 +13,7 @@ test.beforeEach(async ({ page }, workerInfo) => {
 });
 
 test.afterEach(async () => {
-    helper.close();
+    await helper.close();
 });
 
 test("renders correctly", async () => {
