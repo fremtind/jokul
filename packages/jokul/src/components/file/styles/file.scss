@@ -24,7 +24,7 @@
                 color
             );
 
-            color: var(--jkl-color-text-default);
+            color: var(--text-color);
             padding: var(--jkl-file-padding);
             border: var(--border);
             border-radius: var(--border-radius);
@@ -164,6 +164,7 @@
         from {
             transform: rotate(0turn);
         }
+
         to {
             transform: rotate(1turn);
         }
