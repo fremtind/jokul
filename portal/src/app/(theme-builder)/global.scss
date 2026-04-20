@@ -1,0 +1,39 @@
+@use "@fremtind/jokul/styles/theme/fonts" with ($webfonts-dir: "../../src/fonts"
+    // Dette er relativt til webfonts.scss-fila i jokul-pakka
+);
+@use "@fremtind/jokul/styles/layers";
+@use "@fremtind/jokul/styles/resets";
+@use "@fremtind/jokul/styles/theme/color-scheme";
+@use "@fremtind/jokul/styles/theme/size";
+@use "@fremtind/jokul/styles/theme/tokens";
+@use "@fremtind/jokul/styles/global";
+@use "@fremtind/jokul/styles/components";
+@use "@fremtind/jokul/styles/jkl";
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+}
+
+.jkl-theme-builder-layout {
+    min-height: 100dvh;
+    background-color: var(--jkl-color-background-page);
+}
+
+.jkl-theme-builder-main {
+    max-width: 1600px;
+    margin-inline: auto;
+    padding: var(--jkl-spacing-16);
+
+    @media (width >= 940px) {
+        padding: var(--jkl-spacing-24);
+    }
+}

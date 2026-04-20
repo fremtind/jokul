@@ -1,0 +1,416 @@
+@use "@fremtind/jokul/styles/jkl";
+
+.page {
+    --theme-builder-panel-control-width: 16rem;
+    --theme-builder-panel-intro-measure: 42ch;
+
+    display: grid;
+    gap: var(--jkl-spacing-24);
+}
+
+.pageHeader {
+    display: grid;
+    gap: var(--jkl-spacing-16);
+
+    @media (width >=940px) {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: end;
+    }
+}
+
+.pageIntro {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+
+    h1,
+    p {
+        margin: 0;
+    }
+
+    p {
+        color: var(--jkl-color-text-subdued);
+        max-width: 62ch;
+    }
+}
+
+.pageEyebrow {
+    margin: 0;
+    color: var(--jkl-color-text-subdued);
+
+    @include jkl.text-style("text-small");
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+}
+
+.pageActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-8);
+    align-items: center;
+}
+
+.pageMeta {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+
+    code,
+    output {
+        margin: 0;
+    }
+
+    code {
+        display: inline-block;
+        width: fit-content;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        padding: var(--jkl-spacing-8) var(--jkl-spacing-12);
+        border-radius: var(--jkl-border-radius-s);
+        background-color: var(--jkl-color-background-container);
+        border: 1px solid var(--jkl-color-border-subdued);
+    }
+}
+
+.pageMetaRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-8);
+    align-items: center;
+}
+
+.pageMetaActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-4);
+    align-items: center;
+}
+
+.pageStatus {
+    min-height: 1lh;
+    color: var(--jkl-color-text-subdued);
+}
+
+.workspaceGrid {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    grid-template-columns: minmax(0, 1fr);
+
+    @media (width >=1200px) {
+        grid-template-columns: minmax(24rem, 30rem) minmax(0, 1fr);
+        align-items: start;
+
+        &[data-editor-collapsed="true"] {
+            grid-template-columns: minmax(0, 1fr);
+        }
+    }
+}
+
+.editorColumn {
+    min-width: 0;
+}
+
+.panel {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    min-width: 0;
+}
+
+.panelHeader {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+
+    @media (width >=720px) {
+        grid-template-columns:
+            minmax(0, 1fr) auto;
+        align-items: start;
+    }
+}
+
+.panelIntro {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+    min-width: 0;
+
+    h2,
+    h3,
+    h4,
+    p {
+        margin: 0;
+    }
+
+    p {
+        color: var(--jkl-color-text-subdued);
+        max-inline-size: var(--theme-builder-panel-intro-measure);
+    }
+}
+
+.panelControl {
+    min-width: 0;
+    inline-size: 100%;
+
+    @media (width >=720px) {
+        justify-self: end;
+        max-inline-size: var(--theme-builder-panel-control-width);
+    }
+}
+
+.editorControls {
+    display: grid;
+    gap: var(--jkl-spacing-12);
+}
+
+.groupList {
+    display: grid;
+    gap: 0;
+}
+
+.jsonEditor {
+    min-width: 0;
+    inline-size: 100%;
+}
+
+.jsonEditor textarea {
+    min-height: clamp(24rem, 58vh, 44rem);
+    height: clamp(24rem, 58vh, 44rem);
+    max-height: none;
+
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+    @include jkl.text-style("text-small");
+}
+
+.groupSection {
+    display: grid;
+    gap: var(--jkl-spacing-12);
+}
+
+.groupSection + .groupSection {
+    margin-block-start: var(--jkl-spacing-24);
+    padding-block-start: var(--jkl-spacing-24);
+    border-top: 1px solid var(--jkl-color-border-subdued);
+}
+
+.groupHeader {
+    display: grid;
+    gap: var(--jkl-spacing-4);
+
+    h3,
+    p {
+        margin: 0;
+    }
+
+    p {
+        color: var(--jkl-color-text-subdued);
+    }
+}
+
+.tokenRowList {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+}
+
+.tokenColumnHeaders {
+    display: none;
+
+    @media (width >=720px) {
+        display: grid;
+        grid-template-columns: minmax(0, 8rem) repeat(2, minmax(0, 1fr));
+        gap: var(--jkl-spacing-12);
+        padding-inline: var(--jkl-spacing-8);
+        color: var(--jkl-color-text-subdued);
+
+        @include jkl.text-style("text-small");
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
+    }
+}
+
+.tokenRow {
+    display: grid;
+    gap: var(--jkl-spacing-12);
+
+    @media (width >=720px) {
+        grid-template-columns: minmax(0, 8rem) minmax(0, 1fr);
+        align-items: start;
+    }
+}
+
+.tokenTitle {
+    margin: 0;
+}
+
+.tokenControls {
+    display: grid;
+    gap: var(--jkl-spacing-12);
+
+    @media (width >=720px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.colorField {
+    display: grid;
+    gap: var(--jkl-spacing-6);
+    min-width: 0;
+
+    @media (width >=720px) {
+        gap: var(--jkl-spacing-8);
+    }
+}
+
+.colorFieldLabel {
+    color: var(--jkl-color-text-subdued);
+
+    @include jkl.text-style("text-small");
+
+    @media (width >=720px) {
+        display: none;
+    }
+}
+
+.colorFieldInner {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--jkl-spacing-8);
+    align-items: end;
+    min-width: 0;
+}
+
+.colorPicker {
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    padding: 0;
+    border: 1px solid var(--jkl-color-border-subdued);
+    border-radius: var(--jkl-border-radius-s);
+    background-color: var(--jkl-color-background-container);
+    cursor: pointer;
+
+    &::-webkit-color-swatch-wrapper {
+        padding: 0.25rem;
+    }
+
+    &::-webkit-color-swatch {
+        border: none;
+        border-radius: calc(var(--jkl-border-radius-s) - 0.125rem);
+    }
+}
+
+.previewSurface {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    padding: var(--jkl-spacing-24);
+    border-radius: var(--jkl-border-radius-l);
+    background-color: var(--jkl-color-background-page);
+    border: 1px solid var(--jkl-color-border-subdued);
+}
+
+.previewCanvas {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+}
+
+.previewLayout {
+    display: grid;
+    gap: var(--jkl-spacing-16);
+
+    @media (width >=1100px) {
+        grid-template-columns: minmax(0, 1.8fr) minmax(18rem, 24rem);
+        align-items: start;
+    }
+}
+
+.previewForm {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+
+    h3,
+    p {
+        margin: 0;
+    }
+}
+
+.previewHeader {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+}
+
+.previewEyebrowRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-8);
+    align-items: center;
+}
+
+.previewEyebrow {
+    color: var(--jkl-color-text-subdued);
+
+    @include jkl.text-style("text-small");
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+}
+
+.previewSection {
+    display: grid;
+    gap: var(--jkl-spacing-16);
+}
+
+.previewSectionHeader {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+
+    h4,
+    p {
+        margin: 0;
+    }
+
+    p {
+        color: var(--jkl-color-text-subdued);
+    }
+}
+
+.previewFieldGrid {
+    display: grid;
+    gap: var(--jkl-spacing-16);
+
+    @media (width >=720px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.previewFieldWide {
+    @media (width >=720px) {
+        grid-column: 1 / -1;
+    }
+}
+
+.previewPanelStack {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+}
+
+.previewSummary {
+    display: grid;
+    gap: var(--jkl-spacing-16);
+}
+
+.previewSummaryHeader {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+
+    h4,
+    p {
+        margin: 0;
+    }
+
+    p {
+        color: var(--jkl-color-text-subdued);
+    }
+}
+
+.previewSummaryTag {
+    display: flex;
+    width: fit-content;
+}
+
+.previewActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-12);
+    padding-block-start: var(--jkl-spacing-24);
+    border-top: 1px solid var(--jkl-color-border-subdued);
+}
