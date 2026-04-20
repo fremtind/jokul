@@ -91,6 +91,13 @@ export const FileLoading: Story = {
     },
 };
 
+export const FileError: Story = {
+    name: "Fil med feil",
+    args: {
+        state: "error",
+    },
+};
+
 export const MultifileLoading: Story = {
     name: "Filopplasting (flere filer)",
     args: {
