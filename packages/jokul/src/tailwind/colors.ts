@@ -8,14 +8,18 @@ const colors = {
     "background-container": "var(--jkl-color-background-container)",
     "background-container-low": "var(--jkl-color-background-container-low)",
     "background-container-high": "var(--jkl-color-background-container-high)",
-    "background-container-inverted": "var(--jkl-color-background-container-inverted)",
-    "background-container-subdued": "var(--jkl-color-background-container-subdued)",
+    "background-container-inverted":
+        "var(--jkl-color-background-container-inverted)",
+    "background-container-subdued":
+        "var(--jkl-color-background-container-subdued)",
     "background-input-base": "var(--jkl-color-background-input-base)",
     "background-input-focus": "var(--jkl-color-background-input-focus)",
-    "background-action": "var(--jkl-color-background-action)",
+    "background-contrast": "var(--jkl-color-background-contrast)",
     "background-interactive": "var(--jkl-color-background-interactive)",
-    "background-interactive-hover": "var(--jkl-color-background-interactive-hover)",
-    "background-interactive-selected": "var(--jkl-color-background-interactive-selected)",
+    "background-interactive-hover":
+        "var(--jkl-color-background-interactive-hover)",
+    "background-interactive-selected":
+        "var(--jkl-color-background-interactive-selected)",
     "background-alert-neutral": "var(--jkl-color-background-alert-neutral)",
     "background-alert-info": "var(--jkl-color-background-alert-info)",
     "background-alert-success": "var(--jkl-color-background-alert-success)",
@@ -24,7 +28,7 @@ const colors = {
     "text-default": "var(--jkl-color-text-default)",
     "text-subdued": "var(--jkl-color-text-subdued)",
     "text-inverted": "var(--jkl-color-text-inverted)",
-    "text-on-action": "var(--jkl-color-text-on-action)",
+    "text-on-contrast": "var(--jkl-color-text-on-contrast)",
     "text-interactive": "var(--jkl-color-text-interactive)",
     "text-interactive-hover": "var(--jkl-color-text-interactive-hover)",
     "text-on-alert": "var(--jkl-color-text-on-alert)",

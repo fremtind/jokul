@@ -1,0 +1,537 @@
+@use "@fremtind/jokul/styles/jkl";
+
+.page {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+}
+
+.pageHeader {
+    display: grid;
+    gap: var(--jkl-spacing-16);
+
+    @media (width >=940px) {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+}
+
+.pageActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-8);
+    align-items: center;
+}
+
+.brandNameField {
+    min-width: 0;
+}
+
+.workspaceTabs {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    min-width: 0;
+}
+
+.workspaceTabPanel {
+    min-width: 0;
+}
+
+.workspacePanelContent {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    min-width: 0;
+}
+
+.workspaceControls {
+    display: flex;
+    justify-content: flex-end;
+    min-width: 0;
+}
+
+.previewModeSwitch {
+    min-width: 0;
+}
+
+.editorPanelShell {
+    position: fixed;
+    inset-block: var(--jkl-spacing-24);
+    inset-inline-end: var(--jkl-spacing-24);
+    z-index: 21;
+    inline-size: min(34rem, 100vw);
+    max-inline-size: calc(100vw - var(--jkl-spacing-48));
+    overflow: hidden;
+    box-shadow: -0.75rem 0 2rem rgb(19 32 48 / 18%);
+    animation: editor-panel-enter 220ms ease-out;
+}
+
+.editorPanelShell .panel {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    gap: var(--jkl-spacing-16);
+    block-size: 100%;
+    min-block-size: 100%;
+}
+
+.editorToolbar {
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--jkl-spacing-12);
+    align-items: center;
+    padding-block-end: var(--jkl-spacing-16);
+    border-block-end: 1px solid var(--jkl-color-border-subdued);
+}
+
+.editorModeSwitch {
+    min-width: 0;
+}
+
+.editorToolbarActions {
+    display: flex;
+    gap: var(--jkl-spacing-4);
+    align-items: center;
+}
+
+.panel {
+    display: grid;
+    align-content: start;
+    min-width: 0;
+}
+
+.panel[data-editor-mode="json"] {
+    block-size: 100%;
+}
+
+.editorContent {
+    min-width: 0;
+    min-block-size: 0;
+    overflow: auto;
+    overscroll-behavior: contain;
+}
+
+.jsonEditor {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: var(--jkl-spacing-8);
+    min-width: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 0;
+}
+
+.srOnly {
+    position: absolute;
+    overflow: hidden;
+    inline-size: 1px;
+    block-size: 1px;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+.jsonEditorInput {
+    inline-size: 100%;
+    block-size: 100%;
+    min-block-size: 0;
+    padding: var(--jkl-spacing-16);
+    border: 1px solid var(--jkl-color-border-subdued);
+    border-radius: var(--jkl-border-radius-m);
+    background-color: var(--jkl-color-background-page);
+    color: var(--jkl-color-text-default);
+    resize: none;
+
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+    @include jkl.text-style("text-small");
+
+    &:focus-visible {
+        outline: var(--jkl-border-width) solid var(--jkl-color-border-action);
+        outline-offset: 2px;
+    }
+
+    &[aria-invalid="true"] {
+        border-color: var(--jkl-color-border-alert);
+    }
+}
+
+.jsonEditorError {
+    min-height: 1lh;
+    color: var(--jkl-color-text-alert);
+}
+
+.editorFooter {
+    z-index: 1;
+    display: grid;
+    gap: var(--jkl-spacing-12);
+    border-block-start: 1px solid var(--jkl-color-border-subdued);
+    padding-block-start: var(--jkl-spacing-16);
+
+    code,
+    output {
+        margin: 0;
+    }
+
+    code {
+        display: inline-block;
+        width: fit-content;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+        padding: var(--jkl-spacing-8) var(--jkl-spacing-12);
+        border-radius: var(--jkl-border-radius-s);
+        border: 1px solid var(--jkl-color-border-subdued);
+        background-color: var(--jkl-color-background-page);
+    }
+}
+
+.exportFileName {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.editorFooterMeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-8);
+}
+
+.editorExportActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-4);
+    align-items: center;
+}
+
+@keyframes editor-panel-enter {
+    from {
+        transform: translateX(calc(100% + var(--jkl-spacing-24)));
+    }
+}
+
+.variantSection {
+    min-width: 0;
+}
+
+.variantContent {
+    min-width: 0;
+}
+
+.tokenList {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+}
+
+.tokenColumnHeaders {
+    display: none;
+
+    @media (width >=720px) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--jkl-spacing-12);
+        color: var(--jkl-color-text-subdued);
+
+        @include jkl.text-style("text-small");
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
+    }
+}
+
+.tokenRow {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+    min-width: 0;
+}
+
+.tokenTitle {
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+    @include jkl.text-style("text-small");
+}
+
+.tokenControls {
+    display: grid;
+    gap: var(--jkl-spacing-12);
+    min-width: 0;
+
+    @media (width >=720px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.colorField {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+    min-width: 0;
+
+    @media (width >=720px) {
+        gap: var(--jkl-spacing-8);
+    }
+}
+
+.colorFieldLabel {
+    color: var(--jkl-color-text-subdued);
+
+    @include jkl.text-style("text-small");
+
+    @media (width >=720px) {
+        display: none;
+    }
+}
+
+.colorFieldInner {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--jkl-spacing-8);
+    align-items: center;
+    min-width: 0;
+}
+
+.hexInput {
+    min-inline-size: 0;
+    inline-size: 100%;
+}
+
+.colorPicker {
+    inline-size: 2.75rem;
+    block-size: 2.75rem;
+    padding: 0;
+    border: 1px solid var(--jkl-color-border-subdued);
+    border-radius: var(--jkl-border-radius-s);
+    background-color: var(--jkl-color-background-container);
+    cursor: pointer;
+
+    &::-webkit-color-swatch-wrapper {
+        padding: 0.25rem;
+    }
+
+    &::-webkit-color-swatch {
+        border: none;
+        border-radius: calc(var(--jkl-border-radius-s) - 0.125rem);
+    }
+}
+
+.previewPanel {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    min-width: 0;
+}
+
+.previewSurface {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    padding: var(--jkl-spacing-24);
+    border-radius: var(--jkl-border-radius-l);
+    border: 1px solid var(--jkl-color-border-subdued);
+    background-color: var(--jkl-color-background-page);
+}
+
+.previewCanvas {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+}
+
+.previewForm {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+}
+
+.previewHeader {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+
+    h3,
+    h4,
+    p {
+        margin: 0;
+    }
+
+    p {
+        color: var(--jkl-color-text-subdued);
+    }
+}
+
+.previewEyebrowRow {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-8);
+    align-items: center;
+}
+
+.previewEyebrow {
+    color: var(--jkl-color-text-subdued);
+
+    @include jkl.text-style("text-small");
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+}
+
+.previewFieldGrid {
+    display: grid;
+    gap: var(--jkl-spacing-16);
+
+    @media (width >=720px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+.previewFieldWide {
+    @media (width >=720px) {
+        grid-column: 1 / -1;
+    }
+}
+
+.previewActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-12);
+    padding-block-start: var(--jkl-spacing-24);
+    border-top: 1px solid var(--jkl-color-border-subdued);
+}
+
+.contrastPanel {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    min-width: 0;
+}
+
+.contrastLegend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--jkl-spacing-12) var(--jkl-spacing-24);
+    align-items: center;
+}
+
+.contrastTabs {
+    display: grid;
+    gap: var(--jkl-spacing-16);
+}
+
+.contrastTabPanel {
+    min-width: 0;
+}
+
+.contrastSectionCard {
+    min-width: 0;
+}
+
+.contrastSectionHeader {
+    display: grid;
+    justify-items: end;
+    gap: var(--jkl-spacing-12);
+    margin-block-end: var(--jkl-spacing-16);
+
+    @media (width >=720px) {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+    }
+}
+
+.contrastLegendItem {
+    display: inline-flex;
+    gap: var(--jkl-spacing-8);
+    align-items: center;
+}
+
+.contrastSection {
+    display: grid;
+    min-width: 0;
+}
+
+.contrastUsage {
+    display: inline-block;
+    max-inline-size: 28ch;
+}
+
+.contrastTableScroll {
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.contrastTableScroll table {
+    min-inline-size: 42rem;
+}
+
+.contrastToken {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+    min-width: 0;
+}
+
+.contrastTokenLabel {
+    display: block;
+    max-inline-size: 28ch;
+}
+
+.contrastTokenValue {
+    display: inline-flex;
+    gap: var(--jkl-spacing-8);
+    align-items: center;
+    width: fit-content;
+    min-width: 0;
+
+    code {
+        overflow-wrap: anywhere;
+
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
+        @include jkl.text-style("text-small");
+    }
+}
+
+.contrastSwatch {
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    border: 1px solid var(--jkl-color-border-subdued);
+    border-radius: var(--jkl-border-radius-s);
+    background-color: var(--theme-builder-swatch-color);
+}
+
+.contrastResult {
+    min-inline-size: 4.5rem;
+}
+
+.contrastSample {
+    display: grid;
+    place-items: center;
+    inline-size: 4.5rem;
+    block-size: 2.75rem;
+    border: 1px solid var(--jkl-color-border-subdued);
+    border-radius: var(--jkl-border-radius-s);
+    background-color: var(--theme-builder-contrast-background);
+}
+
+.contrastTextSample {
+    color: var(--theme-builder-contrast-foreground);
+    font-weight: 700;
+}
+
+.contrastBorderSample {
+    inline-size: 2.75rem;
+    block-size: 1.5rem;
+    border: 0.1875rem solid var(--theme-builder-contrast-foreground);
+    border-radius: var(--jkl-border-radius-s);
+}
+
+.contrastIconSample {
+    inline-size: 1rem;
+    block-size: 1rem;
+    border-radius: 999px;
+    background-color: var(--theme-builder-contrast-foreground);
+}
+
+.contrastRatioValue {
+    display: inline-block;
+
+    @include jkl.text-style("text-small");
+    @include jkl.use-font-family("Fremtind Grotesk Mono");
+}
+
+.contrastStatusValue {
+    display: inline-flex;
+}
+
+.contrastStatusValue,
+.contrastRatioValue {
+    min-inline-size: 0;
+}

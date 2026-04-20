@@ -2,8 +2,8 @@ import type { Dictionary, File, Format } from "style-dictionary/types";
 import { fileHeader } from "style-dictionary/utils";
 import { isColorSchemeToken } from "../filters.js";
 import {
+    formatBaseColorDeclarations,
     formatColorTokenDeclarations,
-    formatVariantAliasBlocks,
 } from "./css-color-scheme-helpers.js";
 
 /**
@@ -42,12 +42,8 @@ const cssColorScheme: Format = {
             colorSchemeTokens,
             indentation,
         );
-        const variantAliasBlocks = formatVariantAliasBlocks(
+        const baseColorDeclarations = formatBaseColorDeclarations(
             colorSchemeTokens,
-            (variant) =>
-                variant === "neutral"
-                    ? ':root, [data-variant="neutral"]'
-                    : `[data-variant="${variant}"]`,
             indentation,
         );
 
@@ -59,7 +55,9 @@ const cssColorScheme: Format = {
 ${colorTokenDeclarations}
     }
 
-${variantAliasBlocks ? `${variantAliasBlocks}` : ""}
+    :root {
+${baseColorDeclarations}
+    }
 
     [data-theme="light"] {
         color-scheme: light;
