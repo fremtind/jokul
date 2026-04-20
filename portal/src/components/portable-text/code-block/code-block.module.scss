@@ -1,4 +1,4 @@
-@use '@fremtind/jokul/styles/core/jkl';
+@use "@fremtind/jokul/styles/core/jkl";
 
 .codeBlock {
     box-sizing: border-box;
@@ -20,7 +20,8 @@
         background-color: var(--jkl-color-background-container);
         text-transform: uppercase;
         content: attr(data-language);
-        @include jkl.use-font-family("Fremtind Grotesk Mono");
+
+        @include jkl.use-font-family("Fremtind Mono");
     }
 }
 

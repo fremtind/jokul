@@ -98,15 +98,11 @@ $webfonts-dir: "/fonts" !default;
 }
 
 @font-face {
-    font-family: "Fremtind Grotesk Mono";
+    font-family: "Fremtind Mono";
     font-display: fallback;
     font-weight: 400;
     font-style: normal;
-    src:
-        url("#{$webfonts-dir}/FremtindGroteskMono-Regular-Web.woff2")
-            format("woff2"),
-        url("#{$webfonts-dir}/FremtindGroteskMono-Regular-Web.woff")
-            format("woff");
+    src: local("monospace");
 }
 
 @font-face {

@@ -21,7 +21,7 @@
                     "type": "typography"
                 },
                 "mono": {
-                    "value": "'Fremtind Grotesk Mono, Adjusted Courier New Fallback, -apple-system, BlinkMacSystemFont, monospace'",
+                    "value": "'Fremtind Mono, Adjusted Courier New Fallback, -apple-system, BlinkMacSystemFont, monospace'",
                     "type": "typography"
                 }
             },

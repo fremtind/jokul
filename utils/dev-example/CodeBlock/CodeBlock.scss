@@ -49,7 +49,7 @@
     }
 
     &__code {
-        @include jkl.use-font-family("Fremtind Grotesk Mono");
+        @include jkl.use-font-family("Fremtind Mono");
         display: block;
         padding: jkl.$spacing-24 jkl.$spacing-16;
         overflow-x: auto;

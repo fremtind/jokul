@@ -1,6 +1,6 @@
 @use "@fremtind/jokul/styles/core";
-@use "@fremtind/jokul/styles/fonts" with ($webfonts-dir: "../../src/fonts"
-    // Dette er relativt til webfonts.sccs-fila i jokul-pakka
+@use "@fremtind/jokul/styles/fonts" with (
+    $webfonts-dir: "../../src/fonts" // Dette er relativt til webfonts.sccs-fila i jokul-pakka
 );
 @use "@fremtind/jokul/styles/styles";
 @use "@fremtind/jokul/styles/core/jkl";
@@ -135,5 +135,5 @@ article header {
     color: var(--jkl-color-text-subdued);
 
     @include jkl.text-style("text-small");
-    @include jkl.use-font-family("Fremtind Grotesk Mono");
+    @include jkl.use-font-family("Fremtind Mono");
 }
