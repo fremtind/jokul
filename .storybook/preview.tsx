@@ -4,7 +4,6 @@ import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js"
 import { brandDecorator, brandGlobal } from "./globals/brand.js";
 import { sizeDecorator, sizeGlobal } from "./globals/size.js";
 import { themeDecorator, themeGlobal } from "./globals/theme.js";
-import { variantDecorator, variantGlobal } from "./globals/variant.js";
 
 import "./global.scss";
 
@@ -26,20 +25,13 @@ const preview: Preview = {
         brand: brandGlobal,
         theme: themeGlobal,
         size: sizeGlobal,
-        variant: variantGlobal,
     },
     initialGlobals: {
         brand: "jokul",
         theme: undefined,
         size: undefined,
-        variant: "neutral",
     },
-    decorators: [
-        themeDecorator,
-        sizeDecorator,
-        variantDecorator,
-        brandDecorator,
-    ],
+    decorators: [themeDecorator, sizeDecorator, brandDecorator],
     tags: ["autodocs"],
     parameters: {
         backgrounds: {
