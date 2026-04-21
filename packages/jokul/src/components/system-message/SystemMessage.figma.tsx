@@ -12,11 +12,10 @@ figma.connect(
         props: {
             children: figma.string("Text"),
             dismissable: figma.boolean("Dismissable"),
-            variant: figma.enum("Variant", {
+            variant: figma.enum("Type", {
                 Info: "info",
                 Warning: "warning",
                 Error: "error",
-                Success: "success",
             }),
         },
         example: (props) => <SystemMessage {...props} />,
