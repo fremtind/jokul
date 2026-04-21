@@ -18,9 +18,6 @@ figma.connect(
             'import { CalendarIcon } from "@fremtind/jokul/components/icon";',
         ],
         props: {
-            bold: figma.enum("Weight", {
-                Bold: true,
-            }),
             variant: figma.enum("Size", {
                 Medium: "medium",
                 Small: "small",

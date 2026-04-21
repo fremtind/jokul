@@ -18,7 +18,10 @@ figma.connect(
             'import { BreadcrumbItem } from "@fremtind/jokul/components/breadcrumb";',
         ],
         props: {
-            isLastElement: figma.boolean("Current"),
+            isLastElement: figma.enum("Current", {
+                True: true,
+                False: false,
+            }),
         },
         example: (props) => <BreadcrumbItem {...props}>Hei</BreadcrumbItem>,
     },
