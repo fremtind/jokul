@@ -108,6 +108,116 @@ jobs:
                         Hvis du lurer på hvordan du kommer i gang med noe av dette, er det bare å spørre oss i Jøkul-teamet om hjelp! Tagg oss i en kommentar her, eller spør oss [på Teams](https://teams.microsoft.com/l/channel/19%3Adb7fc5da697547ad8a199247b3be66dc%40thread.skype/Support%20Designsystem?groupId=460dde26-9370-4131-8b04-61b3e9b47048&tenantId=273051d7-ce03-4594-b66d-0c68e4c778c0).
 
 
+    backport-info:
+        name: Informer om automatisk backport
+        needs: changes
+        if: >
+            github.event_name == 'pull_request' &&
+            github.event.pull_request.base.ref == 'release/next' &&
+            needs.changes.outputs.changeset == 'true'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            pull-requests: write
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Finn endrede changeset-filer
+              id: changesets
+              run: |
+                  files="$(git diff --name-only --diff-filter=A "origin/${{ github.event.pull_request.base.ref }}...HEAD" -- '.changeset/*.md' 2>/dev/null || true)"
+                  echo "files<<EOF" >> "$GITHUB_OUTPUT"
+                  echo "$files" >> "$GITHUB_OUTPUT"
+                  echo "EOF" >> "$GITHUB_OUTPUT"
+
+            - name: Bestem endrings-nivå og målbrancher
+              id: backport
+              run: |
+                  changeset_files="${{ steps.changesets.outputs.files }}"
+
+                  if [ -z "$changeset_files" ]; then
+                    echo "level=none" >> "$GITHUB_OUTPUT"
+                    echo "targets=" >> "$GITHUB_OUTPUT"
+                    exit 0
+                  fi
+
+                  private_packages="$(node -e "
+                    const fs = require('fs');
+                    const dirs = [
+                      ...fs.readdirSync('actions').map(d => 'actions/' + d),
+                      ...fs.readdirSync('packages').map(d => 'packages/' + d),
+                      'portal', 'utils'
+                    ];
+                    const names = [];
+                    for (const dir of dirs) {
+                      const p = dir + '/package.json';
+                      if (!fs.existsSync(p)) continue;
+                      const pkg = JSON.parse(fs.readFileSync(p, 'utf8'));
+                      if (pkg.private && pkg.name) names.push(pkg.name);
+                    }
+                    process.stdout.write(names.join('\n'));
+                  " 2>/dev/null)"
+
+                  highest="none"
+                  for file in $changeset_files; do
+                    [ -f "$file" ] || continue
+                    header="$(awk '/^---$/{found++; next} found==1{print} found==2{exit}' "$file")"
+                    while IFS= read -r line; do
+                      pkg="$(echo "$line" | sed 's/^["\x27]*//; s/["\x27]*:.*//' | xargs)"
+                      lvl="$(echo "$line" | sed 's/.*:[[:space:]]*//' | xargs)"
+                      echo "$private_packages" | grep -qxF "$pkg" && continue
+                      case "$lvl" in
+                        major) highest="major" ;;
+                        minor) [ "$highest" != "major" ] && highest="minor" ;;
+                        patch) [ "$highest" = "none" ] && highest="patch" ;;
+                      esac
+                    done <<< "$header"
+                  done
+
+                  echo "level=$highest" >> "$GITHUB_OUTPUT"
+
+                  if [ "$highest" = "none" ] || [ "$highest" = "major" ]; then
+                    echo "targets=" >> "$GITHUB_OUTPUT"
+                    exit 0
+                  fi
+
+                  targets="$(node -e "
+                    const config = JSON.parse(require('fs').readFileSync('.github/supported-versions.json', 'utf8'));
+                    const level = '$highest';
+                    const order = ['patch', 'minor', 'major'];
+                    const levelIdx = order.indexOf(level);
+                    const targets = config.stable
+                      .filter(e => e.receives.some(r => order.indexOf(r) >= levelIdx))
+                      .map(e => '\`' + e.branch + '\`')
+                      .join(', ');
+                    process.stdout.write(targets);
+                  ")"
+                  echo "targets=$targets" >> "$GITHUB_OUTPUT"
+
+            - name: Post backport-informasjon (backport vil skje)
+              if: steps.backport.outputs.targets != ''
+              uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+              with:
+                  header: backport-info
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                  message: |
+                      > [!NOTE]
+                      > **Automatisk backport** vil bli utført når denne PR-en merges.
+                      >
+                      > Endrings-nivå: `${{ steps.backport.outputs.level }}`
+                      > Målbrancher: ${{ steps.backport.outputs.targets }}
+                      >
+                      > Ønsker du ikke backport? Legg til labelen `no-backport` på PR-en.
+
+            - name: Fjern backport-informasjon (major eller ingen changeset for publiserte pakker)
+              if: steps.backport.outputs.targets == ''
+              uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+              with:
+                  header: backport-info
+                  delete: true
+                  GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+
     testlint:
         name: Kjør tester og linting
         needs: changes

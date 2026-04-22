@@ -1,0 +1,288 @@
+name: Backport til støttede versjoner
+
+on:
+    pull_request:
+        types:
+            - closed
+        branches:
+            - release/next
+
+concurrency:
+    group: backport-${{ github.event.pull_request.number }}
+    cancel-in-progress: false
+
+run-name: "Backport PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
+
+jobs:
+    prepare:
+        name: Finn backport-mål
+        if: github.event.pull_request.merged == true && !contains(github.event.pull_request.labels.*.name, 'no-backport')
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        outputs:
+            targets: ${{ steps.targets.outputs.targets }}
+            level: ${{ steps.level.outputs.level }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  ref: release/next
+
+            - name: Finn endrede changeset-filer i PR
+              id: changesets
+              run: |
+                  merge_commit="${{ github.event.pull_request.merge_commit_sha }}"
+                  # Finn SHA-ene til de faktiske commit(s) i PR-en (ikke merge commit)
+                  pr_commits="$(gh api repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits --jq '.[].sha' | tr '\n' ' ')"
+                  echo "pr_commits=$pr_commits" >> "$GITHUB_OUTPUT"
+
+                  # Finn changeset-filer lagt til i PR-en
+                  changeset_files=""
+                  for sha in $pr_commits; do
+                    files="$(git diff-tree --no-commit-id -r --name-only --diff-filter=A "$sha" -- '.changeset/*.md' 2>/dev/null || true)"
+                    if [ -n "$files" ]; then
+                      changeset_files="$changeset_files $files"
+                    fi
+                  done
+
+                  changeset_files="$(echo "$changeset_files" | tr ' ' '\n' | sort -u | grep -v '^$' || true)"
+                  echo "Changeset-filer i PR: $changeset_files"
+                  echo "files<<EOF" >> "$GITHUB_OUTPUT"
+                  echo "$changeset_files" >> "$GITHUB_OUTPUT"
+                  echo "EOF" >> "$GITHUB_OUTPUT"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Bestem høyeste endrings-nivå for publiserte pakker
+              id: level
+              run: |
+                  changeset_files="${{ steps.changesets.outputs.files }}"
+
+                  if [ -z "$changeset_files" ]; then
+                    echo "Ingen changeset-filer funnet i PR-en. Ingen backport nødvendig."
+                    echo "level=none" >> "$GITHUB_OUTPUT"
+                    exit 0
+                  fi
+
+                  # Hent liste over private pakker fra pnpm workspace
+                  private_packages="$(node -e "
+                    const fs = require('fs');
+                    const yaml = require('./node_modules/js-yaml/dist/js-yaml.mjs') || null;
+
+                    // Les workspace-pakker manuelt uten yaml-avhengighet
+                    const dirs = [
+                      ...fs.readdirSync('actions').map(d => 'actions/' + d),
+                      ...fs.readdirSync('packages').map(d => 'packages/' + d),
+                      'portal',
+                      'utils'
+                    ];
+
+                    const privateNames = [];
+                    for (const dir of dirs) {
+                      const pkgPath = dir + '/package.json';
+                      if (!fs.existsSync(pkgPath)) continue;
+                      const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
+                      if (pkg.private && pkg.name) privateNames.push(pkg.name);
+                    }
+                    process.stdout.write(privateNames.join('\n'));
+                  " 2>/dev/null)"
+
+                  echo "Private pakker (ekskluderes): $private_packages"
+
+                  highest="none"
+
+                  for file in $changeset_files; do
+                    if [ ! -f "$file" ]; then
+                      # Filen kan ha blitt slettet av en RELEASING-commit – hent fra git
+                      content="$(git show HEAD:"$file" 2>/dev/null || true)"
+                    else
+                      content="$(cat "$file")"
+                    fi
+
+                    if [ -z "$content" ]; then
+                      continue
+                    fi
+
+                    # Parse YAML-headeren mellom de to --- linjene
+                    header="$(echo "$content" | awk '/^---$/{found++; next} found==1{print} found==2{exit}')"
+
+                    while IFS= read -r line; do
+                      # Linjer på formen: '"pakkenavn": level' eller 'pakkenavn: level'
+                      pkg="$(echo "$line" | sed 's/^["\x27]*//; s/["\x27]*:.*//' | xargs)"
+                      lvl="$(echo "$line" | sed 's/.*:[[:space:]]*//' | xargs)"
+
+                      # Hopp over private pakker
+                      if echo "$private_packages" | grep -qxF "$pkg"; then
+                        continue
+                      fi
+
+                      # Oppdater høyeste nivå: major > minor > patch
+                      case "$lvl" in
+                        major)
+                          highest="major"
+                          ;;
+                        minor)
+                          if [ "$highest" != "major" ]; then
+                            highest="minor"
+                          fi
+                          ;;
+                        patch)
+                          if [ "$highest" = "none" ]; then
+                            highest="patch"
+                          fi
+                          ;;
+                      esac
+                    done <<< "$header"
+                  done
+
+                  echo "Høyeste endrings-nivå for publiserte pakker: $highest"
+                  echo "level=$highest" >> "$GITHUB_OUTPUT"
+
+            - name: Finn målbrancher fra supported-versions.json
+              id: targets
+              run: |
+                  level="${{ steps.level.outputs.level }}"
+
+                  if [ "$level" = "none" ] || [ "$level" = "major" ]; then
+                    echo "Nivå er '$level' – ingen backport."
+                    echo "targets=[]" >> "$GITHUB_OUTPUT"
+                    exit 0
+                  fi
+
+                  targets="$(node -e "
+                    const config = JSON.parse(require('fs').readFileSync('.github/supported-versions.json', 'utf8'));
+                    const level = '$level';
+                    const order = ['patch', 'minor', 'major'];
+                    const levelIdx = order.indexOf(level);
+
+                    const targets = config.stable.filter(entry =>
+                      entry.receives.some(r => order.indexOf(r) >= levelIdx)
+                    ).map(entry => entry.branch);
+
+                    process.stdout.write(JSON.stringify(targets));
+                  ")"
+
+                  echo "Målbrancher: $targets"
+                  echo "targets=$targets" >> "$GITHUB_OUTPUT"
+
+    backport:
+        name: Backport til ${{ matrix.target }}
+        needs: prepare
+        if: needs.prepare.outputs.targets != '[]' && needs.prepare.outputs.targets != ''
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
+        strategy:
+            fail-fast: false
+            matrix:
+                target: ${{ fromJson(needs.prepare.outputs.targets) }}
+        concurrency:
+            group: backport-pr-${{ github.event.pull_request.number }}-to-${{ matrix.target }}
+            cancel-in-progress: false
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+              with:
+                  fetch-depth: 0
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Hent commits fra PR
+              id: pr-commits
+              run: |
+                  commits="$(gh api repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}/commits --jq '.[].sha' | tr '\n' ' ')"
+                  echo "Commits i PR: $commits"
+                  echo "list=$commits" >> "$GITHUB_OUTPUT"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Sett opp git
+              run: |
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git config user.name "github-actions[bot]"
+
+            - name: Opprett backport-branch
+              id: branch
+              run: |
+                  target="${{ matrix.target }}"
+                  pr_number="${{ github.event.pull_request.number }}"
+                  branch_name="backport/pr-${pr_number}-to-${target//\//-}"
+
+                  git fetch origin "$target"
+                  git checkout -b "$branch_name" "origin/$target"
+
+                  echo "name=$branch_name" >> "$GITHUB_OUTPUT"
+
+            - name: Cherry-pick commits
+              id: cherry-pick
+              run: |
+                  failed_sha=""
+                  failed_msg=""
+
+                  for sha in ${{ steps.pr-commits.outputs.list }}; do
+                    msg="$(git log -1 --format='%s' "$sha" 2>/dev/null || echo 'ukjent')"
+                    echo "Cherry-picker: $sha – $msg"
+
+                    if ! git cherry-pick -x "$sha" 2>&1; then
+                      git cherry-pick --abort || true
+                      failed_sha="$sha"
+                      failed_msg="$msg"
+                      break
+                    fi
+                  done
+
+                  if [ -n "$failed_sha" ]; then
+                    echo "failed_sha=$failed_sha" >> "$GITHUB_OUTPUT"
+                    echo "failed_msg=$failed_msg" >> "$GITHUB_OUTPUT"
+                    echo "success=false" >> "$GITHUB_OUTPUT"
+                  else
+                    echo "success=true" >> "$GITHUB_OUTPUT"
+                  fi
+
+            - name: Push backport-branch
+              run: |
+                  git push origin "HEAD:refs/heads/${{ steps.branch.outputs.name }}" --force
+
+            - name: Opprett PR (vellykket cherry-pick)
+              if: steps.cherry-pick.outputs.success == 'true'
+              run: |
+                  pr_title="chore: backport #${{ github.event.pull_request.number }} til ${{ matrix.target }}"
+                  pr_body="$(printf 'Automatisk backport av #%s til `%s`.\n\n**Originaltittel:** %s\n\n---\n*Denne PR-en ble opprettet automatisk av backport-workflowen.*' \
+                    "${{ github.event.pull_request.number }}" \
+                    "${{ matrix.target }}" \
+                    "${{ github.event.pull_request.title }}")"
+
+                  gh pr create \
+                    --repo "${{ github.repository }}" \
+                    --base "${{ matrix.target }}" \
+                    --head "${{ steps.branch.outputs.name }}" \
+                    --title "$pr_title" \
+                    --body "$pr_body"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Opprett PR (konflikt – manuell løsning nødvendig)
+              if: steps.cherry-pick.outputs.success == 'false'
+              run: |
+                  pr_title="chore: backport #${{ github.event.pull_request.number }} til ${{ matrix.target }} [konflikt]"
+                  pr_body="$(printf '> [!WARNING]\n> Cherry-pick feilet for commit `%s`: %s\n\nAutomatisk backport av #%s til `%s` feilet på grunn av en mergekonflikt.\n\n**Originaltittel:** %s\n\n## Slik løser du konflikten\n\n```bash\ngit fetch origin\ngit checkout %s\ngit cherry-pick -x %s\n# Løs konflikten manuelt\ngit cherry-pick --continue\ngit push\n```\n\nAlle commits fra original-PR som må cherry-pickes:\n```\n%s\n```\n\n---\n*Denne PR-en ble opprettet automatisk av backport-workflowen.*' \
+                    "${{ steps.cherry-pick.outputs.failed_sha }}" \
+                    "${{ steps.cherry-pick.outputs.failed_msg }}" \
+                    "${{ github.event.pull_request.number }}" \
+                    "${{ matrix.target }}" \
+                    "${{ github.event.pull_request.title }}" \
+                    "${{ steps.branch.outputs.name }}" \
+                    "${{ steps.cherry-pick.outputs.failed_sha }}" \
+                    "${{ steps.pr-commits.outputs.list }}")"
+
+                  gh pr create \
+                    --repo "${{ github.repository }}" \
+                    --base "${{ matrix.target }}" \
+                    --head "${{ steps.branch.outputs.name }}" \
+                    --title "$pr_title" \
+                    --body "$pr_body" \
+                    --label "conflict"
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

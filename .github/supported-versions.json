@@ -1,0 +1,28 @@
+{
+    "prerelease": {
+        "branch": "release/next",
+        "tag": "next"
+    },
+    "stable": [
+        {
+            "branch": "main",
+            "major": 4,
+            "receives": ["patch", "minor"]
+        },
+        {
+            "branch": "jokul-3.x",
+            "major": 3,
+            "receives": ["patch"]
+        },
+        {
+            "branch": "jokul-2.x",
+            "major": 2,
+            "receives": ["patch"]
+        },
+        {
+            "branch": "jokul-1.x",
+            "major": 1,
+            "receives": ["patch"]
+        }
+    ]
+}
