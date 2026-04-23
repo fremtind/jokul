@@ -10,9 +10,6 @@ figma.connect(
             'import { DotsIcon } from "@fremtind/jokul/components/icon";',
         ],
         props: {
-            bold: figma.enum("Weight", {
-                Bold: true,
-            }),
             variant: figma.enum("Size", {
                 Medium: "medium",
                 Small: "small",

@@ -16,7 +16,7 @@ figma.connect(
                 true: figma.string("Title"),
                 false: undefined,
             }),
-            variant: figma.enum("Variant", {
+            variant: figma.enum("Type", {
                 Error: "error",
                 Warning: "warning",
                 Success: "success",
