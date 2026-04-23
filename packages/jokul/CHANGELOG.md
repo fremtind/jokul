@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.6.1
+
+### Patch Changes
+
+- 36ed80d: Retter tekstfargen i `File`-komponenten ved error state i dark mode.
+- 8e7bd89: slutter å bruke deprecated sass-funksjon 'if'
+- 9a465ec: Fikset en feil i Button-komponenten der knappeteksten var delvis synlig øverst i knappen under lasting. Teksten flyttes nå tilstrekkelig langt opp til å være helt skjult, uavhengig av valgt størrelse.
+
 ## 4.6.0
 
 ### Minor Changes
