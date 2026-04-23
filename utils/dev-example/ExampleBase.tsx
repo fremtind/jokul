@@ -314,7 +314,7 @@ export const ExampleBase: FC<Props> = ({
                                                 name="size"
                                                 value="medium"
                                                 defaultChecked
-                                                data-testid="size-default"
+                                                data-testid="size-medium"
                                                 onChange={(e) =>
                                                     setSize(
                                                         e.target.value as Size,

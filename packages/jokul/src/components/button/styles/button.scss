@@ -97,7 +97,8 @@
         }
 
         &[data-loading="true"] &__label {
-            translate: 0 -120%;
+            --button-loading-offset: calc(-100% - var(--jkl-button-padding-block) * 2 - var(--jkl-button-text-ink-offset));
+            translate: 0 var(--button-loading-offset);
         }
 
         &[data-loading="true"] &__loader {
