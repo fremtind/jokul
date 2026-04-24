@@ -1,0 +1,3 @@
+import{r as m,j as d}from"./iframe-EQw03Dw2.js";import{c as l}from"./clsx-B-dksMZM.js";const f=m.forwardRef(function({as:e,className:t,size:n,bold:r,tight:o,srOnly:s,...a},i){const p=e||"p";return d.jsx(p,{className:l("jkl-text",s&&"jkl-sr-only",t),"data-text-size":n,"data-bold":r||void 0,"data-tight":o||void 0,ref:i,...a})});f.__docgenInfo={description:"",methods:[],displayName:"Text",props:{as:{required:!1,tsType:{name:"ElementType"},description:`Her kan du angi hva slags element komponenten skal rendres
+som. Det kan enten være en string for native HTML elementer
+eller en komponent (som Link fra react-router og lignende).`},ref:{required:!1,tsType:{name:'ReactComponentPropsWithRef["ref"]',raw:'React.ComponentPropsWithRef<As>["ref"]'},description:""}}};export{f as T};
