@@ -39,6 +39,9 @@
         "prepare": "husky || true"
     },
     "packageManager": "pnpm@10.21.0",
+    "engines": {
+        "node": "^20.19.0 || >=22.12.0"
+    },
     "pnpm": {
         "overrides": {
             "@types/react": "18.3.1",
