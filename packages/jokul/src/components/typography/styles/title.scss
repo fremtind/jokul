@@ -1,0 +1,59 @@
+@use "../../../styles/jkl";
+
+// Hver `size` mapper til en komplett tekst-stil fra `$text-styles` i
+// `core/jkl/_typography.scss` — både font-size, line-height, font-weight
+// og ikon-variabler settes via `jkl.text-style`-mixinen.
+$_size-styles: (
+    "xs": "heading-5",
+    "s": "heading-4",
+    "m": "heading-3",
+    "l": "heading-2",
+    "xl": "heading-1",
+);
+
+@layer jokul.components {
+    :where(.jkl-title) {
+        font-weight: var(--jkl-typography-weight-normal);
+        line-height: var(--jkl-line-height-tight);
+    }
+
+    // Scope margin-resetten til komponenten via `data-text-size` så vi ikke
+    // overstyrer margin på elementer som bare bruker `.jkl-title` som
+    // hjelpeklasse.
+    .jkl-title[data-text-size] {
+        margin-block: 0;
+    }
+
+    // Genererer både komponent-regler og ekvivalente hjelpeklasser fra
+    // samme kilde slik at de ikke drifter fra hverandre.
+    // `.jkl-heading-<size>` tilsvarer `<Title size="<size>">` brukt på et
+    // vilkårlig element.
+    @each $name, $style in $_size-styles {
+
+        .jkl-title[data-text-size="#{$name}"],
+        .jkl-heading-#{$name} {
+            @include jkl.text-style($style);
+        }
+
+        :where(.jkl-heading-#{$name}) {
+            margin-block: 0;
+        }
+    }
+
+    // Skjema-elementer skal ikke arve heading sine fete font-weight og
+    // tight line-height. De er tekst som beskriver et skjemafelt eller en
+    // gruppe, ikke strukturelle overskrifter. Spesifisiteten må matche
+    // `.jkl-title[data-text-size="…"]` (0,2,0) for å overstyre den.
+    :is(label, legend).jkl-title[data-text-size] {
+        font-weight: var(--jkl-typography-weight-normal);
+        line-height: var(--jkl-line-height-relaxed);
+    }
+
+    // Labels er blokk-nivå og har bunnmarg til feltet de beskriver.
+    // Spesifisiteten her (0,2,1) overstyrer `.jkl-title[data-text-size]`
+    // som ellers nullstiller margin via `margin-block: 0`.
+    label.jkl-title[data-text-size] {
+        display: block;
+        margin-block-end: var(--jkl-spacing-8);
+    }
+}

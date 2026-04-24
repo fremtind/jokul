@@ -1,0 +1,39 @@
+@use "sass:map";
+@use "../../jkl";
+@use "../../jkl/typography";
+
+@layer jokul.utility {
+    .jkl-body {
+        @include jkl.text-style("paragraph-medium");
+    }
+
+    .jkl-bold {
+        @include jkl.text-style("paragraph-medium") {
+            --jkl-icon-weight: #{jkl.$icon-weight-bold};
+            font-weight: jkl.$typography-weight-bold;
+        }
+    }
+
+    .jkl-small {
+        @include jkl.text-style("paragraph-small");
+    }
+
+    @each $style, $_ in typography.$text-styles {
+        // Title-komponenten bruker `.jkl-title` som klasse og styrer
+        // stilen via `data-text-size`. Utility-laget vinner over
+        // components-laget i cascade, så vi må ekskludere komponenten her
+        // for at `size`-propen fortsatt skal ha effekt.
+        $selector: if(
+            $style == "title",
+            ".jkl-title:not([data-text-size])",
+            ".jkl-#{$style}"
+        );
+
+        #{$selector} {
+            @each $property, $value in map.get(typography.$text-styles, $style)
+            {
+                #{$property}: $value;
+            }
+        }
+    }
+}
