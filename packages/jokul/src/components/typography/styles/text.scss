@@ -1,4 +1,4 @@
-@use "../../../core/jkl";
+@use "../../../styles/jkl";
 
 // Hver `size` mapper til en komplett tekst-stil fra `$text-styles` i
 // `core/jkl/_typography.scss` — både font-size, line-height, font-weight
@@ -36,7 +36,6 @@ $_size-styles: (
     .jkl-text[data-bold],
     strong.jkl-text[data-text-size] {
         font-weight: var(--jkl-typography-weight-bold);
-        --jkl-icon-weight: #{jkl.$icon-weight-bold};
     }
 
     .jkl-text[data-short] {
@@ -44,7 +43,7 @@ $_size-styles: (
     }
 
     :is(code, kbd, samp, var).jkl-text {
-        @include jkl.use-font-family("Fremtind Grotesk Mono");
+        @include jkl.use-font-family("Jokul Mono");
     }
 
     // Labels er blokk-nivå og har bunnmarg til feltet de beskriver.

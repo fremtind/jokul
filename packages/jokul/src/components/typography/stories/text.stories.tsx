@@ -9,7 +9,7 @@ import {
     OrderedList,
 } from "../../list/index.js";
 import { Text } from "../index.js";
-import "../../../core/styles/utility/_screen-reader.scss";
+import "../../../styles/utility/_index.scss";
 import "../../link/styles/_index.scss";
 import "../../list/styles/_index.scss";
 import "../styles/_index.scss";

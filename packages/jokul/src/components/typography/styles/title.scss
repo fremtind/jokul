@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 @use "../../../core/jkl";
+=======
+@use "../../../styles/jkl";
+>>>>>>> 4ef92dfc96 (feat: Text og Title typografikomponenter)
 
 // Hver `size` mapper til en komplett tekst-stil fra `$text-styles` i
 // `core/jkl/_typography.scss` — både font-size, line-height, font-weight
@@ -29,6 +33,10 @@ $_size-styles: (
     // `.jkl-heading-<size>` tilsvarer `<Title size="<size>">` brukt på et
     // vilkårlig element.
     @each $name, $style in $_size-styles {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ef92dfc96 (feat: Text og Title typografikomponenter)
         .jkl-title[data-text-size="#{$name}"],
         .jkl-heading-#{$name} {
             @include jkl.text-style($style);
@@ -55,4 +63,8 @@ $_size-styles: (
         display: block;
         margin-block-end: var(--jkl-spacing-8);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 4ef92dfc96 (feat: Text og Title typografikomponenter)
