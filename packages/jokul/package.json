@@ -689,7 +689,7 @@
         "ink-select-input": "^6.0.0",
         "jsdom": "^26.1.0",
         "nanoid": "^5.1.5",
-        "postcss": "^8.5.6",
+        "postcss": "^8.5.10",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "react-hook-form": "^7.62.0",
@@ -700,7 +700,7 @@
         "style-dictionary": "^5.0.1",
         "tailwindcss": "^3.4.17",
         "tsx": "^4.20.6",
-        "vite": "^7.1.2",
+        "vite": "^7.3.2",
         "vite-plugin-dts": "^4.5.4",
         "vitest": "^3.2.4",
         "vitest-axe": "^0.1.0"
