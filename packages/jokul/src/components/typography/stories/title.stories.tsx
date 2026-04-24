@@ -4,7 +4,8 @@ import React from "react";
 import { Card } from "../../card/Card.js";
 import { Flex } from "../../flex/Flex.js";
 import { Text, Title } from "../index.js";
-import "../../../core/styles/utility/_screen-reader.scss";
+
+import "../../../styles/utility/_index.scss";
 import "../../card/styles/_index.scss";
 import "../styles/_index.scss";
 import "../../flex/styles/_index.scss";
@@ -205,7 +206,7 @@ export const IKort: Story = {
             source: {
                 type: "code",
                 language: "tsx",
-                code: `<Card variant="high" padding="l">
+                code: `<Card variant="filled" padding="l">
     <Flex direction="column" gap="m">
         <Flex as="hgroup" direction="column" gap="xs">
             <Title>Ambisjon og bærekraftsarbeid</Title>
@@ -224,7 +225,7 @@ export const IKort: Story = {
         },
     },
     render: () => (
-        <Card variant="high" padding="l">
+        <Card variant="filled" padding="l">
             <Flex direction="column" gap="m" style={{ maxWidth: 560 }}>
                 <Flex as="hgroup" direction="column" gap="xs">
                     <Title>Ambisjon og bærekraftsarbeid</Title>
@@ -286,7 +287,11 @@ export const ISkjema: Story = {
                 id="telefon"
                 type="tel"
                 placeholder="8 siffer"
-                style={{ padding: "8px", width: "100%", boxSizing: "border-box" }}
+                style={{
+                    padding: "8px",
+                    width: "100%",
+                    boxSizing: "border-box",
+                }}
             />
         </fieldset>
     ),
