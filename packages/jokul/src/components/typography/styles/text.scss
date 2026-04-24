@@ -1,0 +1,55 @@
+@use "../../../core/jkl";
+
+// Hver `size` mapper til en komplett tekst-stil fra `$text-styles` i
+// `core/jkl/_typography.scss` — både font-size, line-height, font-weight
+// og ikon-variabler settes via `jkl.text-style`-mixinen.
+$_size-styles: (
+    "xs": "text-micro",
+    "s": "paragraph-small",
+    "m": "paragraph-medium",
+    "l": "paragraph-large",
+);
+
+@layer jokul.components {
+    :where(.jkl-text) {
+        font-weight: var(--jkl-typography-weight-normal);
+        line-height: var(--jkl-line-height-relaxed);
+    }
+
+    // Scope margin-resetten til komponenten via `data-text-size` så vi ikke
+    // overstyrer margin på elementer som bare bruker `.jkl-text` som
+    // hjelpeklasse.
+    .jkl-text[data-text-size] {
+        margin-block: 0;
+    }
+
+    @each $name, $style in $_size-styles {
+        .jkl-text[data-text-size="#{$name}"] {
+            @include jkl.text-style($style);
+        }
+    }
+
+    // `bold` og `<strong>` skal sette både font-weight og ikon-weight
+    // (samme mønster som `.jkl-bold` og `.jkl strong`). Spesifisiteten må
+    // være lik eller høyere enn `.jkl-text[data-text-size="…"]` som ellers
+    // tvinger normal weight via `jkl.text-style`-mixinen.
+    .jkl-text[data-bold],
+    strong.jkl-text[data-text-size] {
+        font-weight: var(--jkl-typography-weight-bold);
+        --jkl-icon-weight: #{jkl.$icon-weight-bold};
+    }
+
+    .jkl-text[data-short] {
+        line-height: var(--jkl-line-height-tight);
+    }
+
+    :is(code, kbd, samp, var).jkl-text {
+        @include jkl.use-font-family("Fremtind Grotesk Mono");
+    }
+
+    // Labels er blokk-nivå og har bunnmarg til feltet de beskriver.
+    label.jkl-text {
+        display: block;
+        margin-block-end: var(--jkl-spacing-8);
+    }
+}

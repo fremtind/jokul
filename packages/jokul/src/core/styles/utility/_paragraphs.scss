@@ -19,7 +19,17 @@
     }
 
     @each $style, $_ in typography.$text-styles {
-        .jkl-#{$style} {
+        // Title-komponenten bruker `.jkl-title` som klasse og styrer
+        // stilen via `data-text-size`. Utility-laget vinner over
+        // components-laget i cascade, så vi må ekskludere komponenten her
+        // for at `size`-propen fortsatt skal ha effekt.
+        $selector: if(
+            $style == "title",
+            ".jkl-title:not([data-text-size])",
+            ".jkl-#{$style}"
+        );
+
+        #{$selector} {
             @each $property, $value in map.get(typography.$text-styles, $style)
             {
                 #{$property}: $value;
