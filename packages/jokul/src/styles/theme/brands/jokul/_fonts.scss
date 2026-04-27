@@ -1,0 +1,46 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+
+$webfonts-dir-jokul: "/fonts/brands/jokul" !default;
+
+@layer jokul.theme {
+    @font-face {
+        font-family: Inter;
+        font-display: fallback;
+        font-weight: 300;
+        font-style: normal;
+        src: url("#{$webfonts-dir-jokul}/InterVariable.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: Inter;
+        font-display: fallback;
+        font-weight: 400;
+        font-style: normal;
+        src: url("#{$webfonts-dir-jokul}/InterVariable.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: Inter;
+        font-display: fallback;
+        font-weight: 600;
+        font-style: normal;
+        src: url("#{$webfonts-dir-jokul}/InterVariable.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: Inter;
+        font-display: fallback;
+        font-weight: 700;
+        font-style: normal;
+        src: url("#{$webfonts-dir-jokul}/InterVariable.woff2") format("woff2");
+    }
+
+    [data-brand="jokul"] {
+        --jkl-font-family-regular: 'Inter', 'Adjusted Arial Fallback', arial, sans-serif;
+        --jkl-font-family-display: 'Inter', 'Adjusted Arial Display Fallback', arial, sans-serif;
+        --jkl-font-family-mono: monospace, -apple-system, blinkmacsystemfont;
+    }
+}

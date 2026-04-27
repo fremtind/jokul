@@ -5,19 +5,17 @@
 /// av ikoner også der man ikke kan bruke jkl-icon-klassen.
 /// @output Basestiler for Jøkul-ikoner
 @mixin base-styles {
-  font-family:
-    "Fremtind Material Symbols", "Fremtind Material Symbols Fallback",
-    sans-serif;
-  font-variation-settings:
-    "FILL" var(--jkl-icon-fill, 0);
-  font-feature-settings: "liga";
-  -webkit-font-feature-settings: "liga";
-  font-size: 1.3em;
-  font-weight: 400;
-  line-height: 1;
-  display: inline-block;
-  -webkit-font-smoothing: antialiased;
+    font-family:
+        "Jokul Material Symbols", "Jokul Material Symbols Fallback", sans-serif;
+    font-variation-settings: "FILL" var(--jkl-icon-fill, 0);
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    font-size: 1.3em;
+    font-weight: 400;
+    line-height: 1;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
 
-  @include jkl.motion("standard", "energetic");
-  transition-property: font-variation-settings, transform;
+    @include jkl.motion("standard", "energetic");
+    transition-property: font-variation-settings, transform;
 }
