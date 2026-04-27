@@ -630,6 +630,17 @@
                 "default": "./build/cjs/components/tooltip/index.cjs"
             }
         },
+        "./styles/components/typography": "./styles/components/typography/_index.scss",
+        "./typography": {
+            "import": {
+                "types": "./build/es/components/typography/index.d.ts",
+                "default": "./build/es/components/typography/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/typography/index.d.cts",
+                "default": "./build/cjs/components/typography/index.cjs"
+            }
+        },
         "./styles/components/help": "./styles/components/help/_index.scss",
         "./help": {
             "import": {
