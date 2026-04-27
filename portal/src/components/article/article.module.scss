@@ -16,7 +16,7 @@
 
     .date {
         @include jkl.text-style("text-small") {
-            @include jkl.use-font-family("Fremtind Grotesk Mono");
+            @include jkl.use-font-family("Jokul Mono");
             color: var(--jkl-color-text-subdued);
         }
     }
