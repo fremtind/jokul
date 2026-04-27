@@ -1,7 +1,7 @@
 import type { Config } from "style-dictionary/types";
 
 export const PREFIX = "jkl";
-export const BRAND_NAMES = ["dnb", "eika", "sparebank1"] as const;
+export const BRAND_NAMES = ["jokul", "dnb", "eika", "sparebank1"] as const;
 
 export type BrandName = (typeof BRAND_NAMES)[number];
 
@@ -84,7 +84,7 @@ export function createBrandConfig(brand: BrandName): Config {
         source: [
             ...(jokulTokens.source ?? []),
             `src/tokens/brands/color.${brand}.tokens.json`,
-            `src/tokens/brands/font.${brand}.tokens.json`,
+            `src/tokens/brands/typography.${brand}.tokens.json`,
         ],
         platforms: {
             css: {

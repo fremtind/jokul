@@ -1,13 +1,13 @@
 # @fremtind/jokul
 
--   [Migrering til monopakke](#migrering-til-monopakke)
--   [Codemods](#codemods)
--   [React-komponenter](#react-komponenter)
--   [Stilark](#stilark)
--   [Fonter](#fonter)
--   [Hooks](#hooks)
--   [Utilities](#utilities)
--   [Tailwind](#tailwind)
+- [Migrering til monopakke](#migrering-til-monopakke)
+- [Codemods](#codemods)
+- [React-komponenter](#react-komponenter)
+- [Stilark](#stilark)
+- [Fonter](#fonter)
+- [Hooks](#hooks)
+- [Utilities](#utilities)
+- [Tailwind](#tailwind)
 
 ## Migrering til `@fremtind/jokul`
 
@@ -142,15 +142,16 @@ kopieres inn i prosjektet. Deretter må du endre URLen i hver `@font-face`-defin
 
 ```css
 @font-face {
-    font-family: "Fremtind Grotesk";
+    font-family: "Jokul";
     font-display: fallback;
     font-weight: normal;
     font-style: normal;
-    src: local("Fremtind Grotesk"),
+    src:
+        local("Jokul"),
         /* Endre de to neste linjene så de stemmer */
-            url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff2")
-            format("woff2"), url("/relative/path/to/font/files/FremtindGrotesk-Regular-Web.woff")
-            format("woff");
+            url("/relative/path/to/font/files/InterVariable.woff2")
+            format("woff2"),
+        url("/relative/path/to/font/files/InterVariable.woff2") format("woff");
 }
 ```
 
