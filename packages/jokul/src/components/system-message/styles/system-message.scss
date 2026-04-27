@@ -8,8 +8,6 @@ $_dismiss-animation-duration: jkl.timing("lazy");
 
 @layer jokul.components {
     .jkl-system-message {
-        --jkl-system-message-icon-height: var(--jkl-unit-30);
-        --jkl-system-message-icon-padding: #{jkl.rem(3px)} 0 0 0;
         --jkl-system-message-content-padding: var(--jkl-unit-30);
         --jkl-system-message-dismiss-button-size: var(--jkl-unit-40);
         --jkl-system-message-dismiss-button-margin: -#{jkl.rem(
@@ -27,25 +25,21 @@ $_dismiss-animation-duration: jkl.timing("lazy");
         box-sizing: border-box;
 
         &__content {
+            @include jkl.text-style("text-medium");
             box-sizing: border-box;
             padding: var(--jkl-system-message-content-padding);
             display: grid;
             grid-template-columns: min-content 1fr min-content;
-            align-items: flex-start;
+            align-items: start;
             width: 100%;
             margin: 0 auto;
         }
 
         &__icon {
-            height: var(--jkl-system-message-icon-height);
-            margin: var(--jkl-system-message-icon-padding);
-            flex-shrink: 0;
-
             @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
         }
 
         &__message {
-            @include jkl.text-style("text-medium");
             margin: var(--jkl-system-message-message-margin);
         }
 
@@ -56,8 +50,6 @@ $_dismiss-animation-duration: jkl.timing("lazy");
             display: grid;
             place-content: center;
             position: relative;
-            flex-shrink: 0;
-            margin-top: jkl.rem(3px); // visual alignment with text
             color: inherit;
 
             // Sørg for å ha en stor nok touch target.
