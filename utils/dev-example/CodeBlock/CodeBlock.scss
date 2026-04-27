@@ -34,12 +34,12 @@
         text-transform: uppercase;
         content: attr(data-language);
 
-        @include jkl.use-font-family("Fremtind Grotesk");
+        @include jkl.use-font-family("Jokul");
         @include jkl.text-style("text-small");
     }
 
     &__code {
-        @include jkl.use-font-family("Fremtind Grotesk Mono");
+        @include jkl.use-font-family("Jokul Mono");
         display: block;
         padding: jkl.$spacing-24 jkl.$spacing-16;
         overflow-x: auto;

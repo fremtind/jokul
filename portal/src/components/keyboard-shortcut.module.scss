@@ -1,9 +1,13 @@
-@use '@fremtind/jokul/styles/jkl';
+@use "@fremtind/jokul/styles/jkl";
 
 .kbd {
-  @include jkl.text-style('paragraph-small');
-  font-family: 'Fremtind Grotesk Mono', -apple-system, BlinkMacSystemFont, monospace;
-  background-color: var(--jkl-color-background-container-subdued);
-  padding: jkl.rem(4px) jkl.rem(6px);
-  border-radius: jkl.rem(4px);
+    @include jkl.text-style("paragraph-small");
+    font-family:
+        "Jokul Mono",
+        -apple-system,
+        BlinkMacSystemFont,
+        monospace;
+    background-color: var(--jkl-color-background-container-subdued);
+    padding: jkl.rem(4px) jkl.rem(6px);
+    border-radius: jkl.rem(4px);
 }

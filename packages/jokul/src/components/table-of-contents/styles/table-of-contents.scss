@@ -35,7 +35,7 @@
 
         &:has(ol) {
             .jkl-table-of-contents-title {
-                @include jkl.screenreader-only
+                @include jkl.screenreader-only;
             }
         }
 
@@ -71,7 +71,7 @@
                 &::before {
                     content: counter(table-of-contents, decimal-leading-zero);
 
-                    @include jkl.use-font-family("Fremtind Grotesk Mono");
+                    @include jkl.use-font-family("Jokul Mono");
                     color: inherit;
                     font-size: var(--jkl-small-font-size);
                 }
