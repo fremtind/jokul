@@ -1,7 +1,7 @@
 import type { Config } from "style-dictionary/types";
 
 export const PREFIX = "jkl";
-export const BRAND_NAMES = ["jokul", "dnb", "eika", "sparebank1"] as const;
+export const BRAND_NAMES = ["fremtind", "dnb", "eika", "sparebank1"] as const;
 
 export type BrandName = (typeof BRAND_NAMES)[number];
 
