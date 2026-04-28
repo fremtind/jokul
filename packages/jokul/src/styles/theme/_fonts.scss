@@ -12,6 +12,38 @@ $webfonts-dir: "/fonts" !default;
     }
 
     @font-face {
+        font-family: Jokul;
+        font-display: fallback;
+        font-weight: 700;
+        font-style: normal;
+        src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "Jokul Display";
+        font-display: fallback;
+        font-weight: 400;
+        font-style: normal;
+        src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "Jokul Mono";
+        font-display: fallback;
+        font-weight: 400;
+        font-style: normal;
+        src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
+    }
+
+    @font-face {
+        font-family: "Jokul Icons";
+        font-weight: 300 400;
+        font-style: normal;
+        src: url("#{$webfonts-dir}/Fremtind-Material-Symbols.woff2")
+            format("woff2");
+    }
+
+    @font-face {
         font-family: "Adjusted Arial Fallback";
         font-weight: 400;
         font-style: normal;
@@ -23,14 +55,6 @@ $webfonts-dir: "/fonts" !default;
     }
 
     @font-face {
-        font-family: Jokul;
-        font-display: fallback;
-        font-weight: 700;
-        font-style: normal;
-        src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
-    }
-
-    @font-face {
         font-family: "Adjusted Arial Fallback";
         font-weight: 700;
         font-style: normal;
@@ -39,52 +63,6 @@ $webfonts-dir: "/fonts" !default;
         ascent-override: 83%;
         descent-override: normal;
         line-gap-override: 28%;
-    }
-
-    @font-face {
-        font-family: Jokul;
-        font-display: fallback;
-        font-weight: 400;
-        font-style: italic;
-        src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
-    }
-
-    @font-face {
-        font-family: "Adjusted Arial Fallback";
-        font-weight: 400;
-        font-style: italic;
-        src: local(arial);
-        size-adjust: 106%;
-        ascent-override: 83%;
-        descent-override: normal;
-        line-gap-override: 28%;
-    }
-
-    @font-face {
-        font-family: Jokul;
-        font-display: fallback;
-        font-weight: 700;
-        font-style: italic;
-        src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
-    }
-
-    @font-face {
-        font-family: "Adjusted Arial Fallback";
-        font-weight: 700;
-        font-style: italic;
-        src: local(arial);
-        size-adjust: 108%;
-        ascent-override: 83%;
-        descent-override: normal;
-        line-gap-override: 28%;
-    }
-
-    @font-face {
-        font-family: "Jokul Display";
-        font-display: fallback;
-        font-weight: 400;
-        font-style: normal;
-        src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
     }
 
     @font-face {
@@ -99,14 +77,6 @@ $webfonts-dir: "/fonts" !default;
     }
 
     @font-face {
-        font-family: "Jokul Mono";
-        font-display: fallback;
-        font-weight: 400;
-        font-style: normal;
-        src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
-    }
-
-    @font-face {
         font-family: "Adjusted Courier New Fallback";
         font-weight: 400;
         font-style: normal;
@@ -118,15 +88,7 @@ $webfonts-dir: "/fonts" !default;
     }
 
     @font-face {
-        font-family: "Jokul Material Symbols";
-        font-weight: 300 400;
-        font-style: normal;
-        src: url("#{$webfonts-dir}/Fremtind-Material-Symbols.woff2")
-            format("woff2");
-    }
-
-    @font-face {
-        font-family: "Jokul Material Symbols Fallback";
+        font-family: "Jokul Icons Fallback";
         src: local(courier new);
         font-weight: 300 400;
         font-style: normal;

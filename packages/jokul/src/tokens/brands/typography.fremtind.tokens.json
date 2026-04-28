@@ -1,29 +1,11 @@
 {
     "font": {
         "face": {
-            "light": {
-                "type": "brandFontFace",
-                "value": {
-                    "family": "Inter",
-                    "weight": 300,
-                    "style": "normal",
-                    "fileName": "InterVariable.woff2"
-                }
-            },
             "regular": {
                 "type": "brandFontFace",
                 "value": {
                     "family": "Inter",
                     "weight": 400,
-                    "style": "normal",
-                    "fileName": "InterVariable.woff2"
-                }
-            },
-            "semibold": {
-                "type": "brandFontFace",
-                "value": {
-                    "family": "Inter",
-                    "weight": 600,
                     "style": "normal",
                     "fileName": "InterVariable.woff2"
                 }

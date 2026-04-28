@@ -47,7 +47,7 @@
             height: 100%;
             grid-column: 1;
 
-            @include jkl.use-font-family("Jokul Material Symbols");
+            @include jkl.use-font-family("Jokul Icons");
         }
 
         &:has(.clear-button) {
