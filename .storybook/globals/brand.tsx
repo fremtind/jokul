@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
 export const brands = [
-    { title: "Jokul", value: "jokul", icon: "home" },
+    { title: "Fremtind", value: "fremtind", icon: "home" },
     { title: "DNB", value: "dnb", icon: "graphbar" },
     { title: "Eika", value: "eika", icon: "circlehollow" },
     { title: "SpareBank 1", value: "sparebank1", icon: "circle" },

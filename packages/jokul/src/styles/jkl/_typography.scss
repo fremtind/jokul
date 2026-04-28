@@ -70,11 +70,11 @@ $_valid-font-family-values: (
     "Jokul",
     "Jokul Display",
     "Jokul Mono",
-    "Jokul Material Symbols"
+    "Jokul Icons"
 );
 
 /// Hjelper sette riktig remse med fallback-fonts for Jokul, Jokul Display, og Jokul Mono.
-/// @param {"Jokul" | "Jokul Mono" | "Jokul Display" | "Jokul Material Symbols"} $font - Regular justerer seg automatisk til italic og bold basert på font-style og font-weight. Display og Mono er adskilte fontfamilier.
+/// @param {"Jokul" | "Jokul Mono" | "Jokul Display" | "Jokul Icons"} $font - Regular justerer seg automatisk til italic og bold basert på font-style og font-weight. Display og Mono er adskilte fontfamilier.
 /// @output - Ønsket fontfamilie med justert fallbackfont.
 @mixin use-font-family($font) {
     @if not list.index($_valid-font-family-values, $font) {
@@ -85,9 +85,9 @@ $_valid-font-family-values: (
         font-family: var(--jkl-font-family-mono);
     } @else if $font == "Jokul Display" {
         font-family: var(--jkl-font-family-display);
-    } @else if $font == "Jokul Material Symbols" {
+    } @else if $font == "Jokul Icons" {
         font-family:
-            "Jokul Material Symbols", "Jokul Material Symbols Fallback",
+            "Jokul Icons", "Jokul Icons Fallback",
             monospace;
     } @else {
         font-family: var(--jkl-font-family-regular);
