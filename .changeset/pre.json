@@ -9,5 +9,13 @@
         "@fremtind/stylelint-config-jkl": "8.1.0",
         "portal": "1.4.34"
     },
-    "changesets": ["cool-pigs-fry", "lovely-ravens-draw", "tokens-refactor"]
+    "changesets": [
+        "cool-pigs-fry",
+        "five-schools-swim",
+        "funny-cars-exercise",
+        "lovely-ravens-draw",
+        "text-og-title-komponenter",
+        "tokens-refactor",
+        "tough-wings-enter"
+    ]
 }
