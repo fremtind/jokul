@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.0-next.4
+
+### Patch Changes
+
+- 14be379: Retter opp navn på innebygde fonter i tokens, og fjerner autogenererte stilark fra innsjekking i git.
+
 ## 5.0.0-next.3
 
 ### Minor Changes
