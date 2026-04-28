@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.0-next.5
+
+### Patch Changes
+
+- 70b7f80: Fjern core-mappen med innhold som har blitt med over fra main-branchen ved et uhell.
+
 ## 5.0.0-next.4
 
 ### Patch Changes
