@@ -41,15 +41,15 @@
         "family": {
             "regular": {
                 "type": "fontFamily",
-                "value": "'Open Sans', 'Adjusted Arial Fallback', Arial, sans-serif"
+                "value": "'Open Sans', 'Adjusted Arial Fallback', arial, sans-serif"
             },
             "display": {
                 "type": "fontFamily",
-                "value": "'Open Sans', 'Adjusted Arial Display Fallback', Arial, sans-serif"
+                "value": "'Open Sans', 'Adjusted Arial Display Fallback', arial, sans-serif"
             },
             "mono": {
                 "type": "fontFamily",
-                "value": "'Adjusted Courier New Fallback', -apple-system, BlinkMacSystemFont, monospace"
+                "value": "'Adjusted Courier New Fallback', -apple-system, blinkmacsystemfont, monospace"
             }
         }
     }
