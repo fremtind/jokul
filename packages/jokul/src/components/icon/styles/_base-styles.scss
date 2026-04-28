@@ -6,7 +6,7 @@
 /// @output Basestiler for Jøkul-ikoner
 @mixin base-styles {
     font-family:
-        "Jokul Material Symbols", "Jokul Material Symbols Fallback", sans-serif;
+        "Jokul Icons", "Jokul Icons Fallback", sans-serif;
     font-variation-settings: "FILL" var(--jkl-icon-fill, 0);
     font-feature-settings: "liga";
     -webkit-font-feature-settings: "liga";

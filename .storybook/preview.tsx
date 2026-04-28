@@ -29,7 +29,7 @@ const preview: Preview = {
         variant: variantGlobal,
     },
     initialGlobals: {
-        brand: "jokul",
+        brand: "fremtind",
         theme: undefined,
         size: undefined,
         variant: "neutral",
