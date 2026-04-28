@@ -1,5 +1,19 @@
 # portal
 
+## 1.5.0-next.3
+
+### Minor Changes
+
+- 0522ab9: Fremtind Grotesk er historie og byttet ut med Inter.
+
+### Patch Changes
+
+- Updated dependencies [e0b3fbf]
+- Updated dependencies [c52b4eb]
+- Updated dependencies [4ef92df]
+- Updated dependencies [0522ab9]
+  - @fremtind/jokul@5.0.0-next.3
+
 ## 1.4.35-next.2
 
 ### Patch Changes

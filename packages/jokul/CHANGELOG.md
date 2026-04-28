@@ -1,5 +1,31 @@
 # Change Log
 
+## 5.0.0-next.3
+
+### Minor Changes
+
+- c52b4eb: La til støtte for valgbare tellestrategier i telleren til `TextArea`.
+
+  `counter`-propen støtter nå `strategy: "characters" | "bytes"`, slik at integrasjoner med bytebaserte grenser kan telle UTF-8-bytes. Eksisterende tegnbasert oppførsel er fortsatt standard.
+
+- 4ef92df: Nye typografikomponenter `Text` og `Title` under `@fremtind/jokul/typography`. Disse vil gjøre det lettere for teamene å gjennomføre migrasjon til Jøkul 5.0 fordi de abstraherer typografistilene, på samme måte som hjelpeklassene i CSS allerede gjør.
+
+  `Text` er polymorf med `as` begrenset til typografisk relevante elementer (`p`, `span`, `label`, `legend`, `small`, `strong`, `em`, `code`, `kbd`, `samp`, `var`), `size` på t-shirt-skala (`xs`, `s`, `m`, `l`) med default `m`, og boolean-toggles `bold`, `short` og `srOnly`. `code`/`kbd`/`samp`/`var` får automatisk monospace font.
+
+  `Title` er polymorf med `as` begrenset til `h1`–`h6` pluss skjema-elementene `label` og `legend`, `size` på `xs`, `s`, `m`, `l`, `xl` med default `l`, og `srOnly`-toggle. `as` og `size` er bevisst frakoblet — semantikk styres via `as`, visuell størrelse via `size`.
+
+  Nye hjelpeklasser `.jkl-heading-xs` til `.jkl-heading-xl` fra `components/typography` er ekvivalenter til `<Title size="…">` brukt på et vilkårlig element.
+
+  Eksisterende `.jkl-title`-utility-klasse er scoped med `:not([data-text-size])` slik at den ikke overstyrer Title-komponenten, men fortsatt fungerer som standalone hjelpeklasse på elementer uten `data-text-size`-attributtet.
+
+- 0522ab9: Fremtind Grotesk er historie og byttet ut med Inter.
+
+### Patch Changes
+
+- e0b3fbf: La til støtte for brand-spesifikke fonter via tokens, slik at fontvalg kan styres med `data-brand` på samme måte som brand-farger.
+
+  Brand-fontstiler genereres nå fra tokens (inkludert `@font-face` og `--jkl-font-family-*`), og typografi-oppsettet bruker disse CSS-variablene slik at riktig brand-font faktisk slår inn i komponentene.
+
 ## 5.0.0-next.2
 
 ### Patch Changes
