@@ -32,7 +32,6 @@
 
 - 7b1e94d: Fjernet link-endringene for nå
 - 35b061c: Legg til `jokul codemod` for å migrere gamle importstier til Jøkul 5 sin nye struktur for stiler og utilities.
-
 ## 5.0.0-next.1
 
 ## 4.5.1

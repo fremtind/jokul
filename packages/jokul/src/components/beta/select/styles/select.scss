@@ -77,7 +77,6 @@
         @include jkl.text-style("text-medium");
 
         @include jkl.keyboard-navigation {
-
             &:focus-visible,
             &:has(:focus-visible) {
                 @include jkl.focus-outline;
