@@ -2,8 +2,6 @@ import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polym
 
 export const CARD_PADDINGS = ["s", "m", "l", "xl"] as const;
 export type CardPadding = (typeof CARD_PADDINGS)[number];
-export const CARD_VARIANTS = ["outlined", "high", "low"] as const;
-export type CardVariant = (typeof CARD_VARIANTS)[number];
 
 type Props = {
     className?: string;
@@ -13,11 +11,10 @@ type Props = {
      */
     padding?: CardPadding;
     /**
-     * Angir hvilken kortvariant du vil bruke. Velg en variant som gir god kontrast
-     * til bakgrunnen på siden, slik at det er enkelt å skille innholdet fra hverandre.
-     * @default "high"
+     * Legger på kantlinje rundt kortet.
+     * @default false
      */
-    variant?: CardVariant;
+    outlined?: boolean;
     /**
      * Angir om kortet visuelt skal fremstå som klikkbart. Du må selv rendre
      * kortet som et klikkbart element (f.eks. `<a>` eller en `<Link>` fra

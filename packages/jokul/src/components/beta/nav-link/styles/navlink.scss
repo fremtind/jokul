@@ -44,7 +44,9 @@
 
     &:hover,
     &:focus-visible {
-        background-color: var(--jkl-color-background-interactive-selected);
+        background-color: color-mix(in srgb,
+                currentColor 15%,
+                transparent);
 
         &::after {
             translate: 4px 0;
