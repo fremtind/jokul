@@ -53,9 +53,7 @@ $_message-width--compact: jkl.rem(440px);
         &__message {
             @include jkl.text-style("paragraph-medium");
 
-            margin-top: jkl.rem(
-                -2px
-            ); // Offset for å aligne med ikon hvis uten tittel.
+            margin-top: jkl.rem(-2px); // Offset for å aligne med ikon hvis uten tittel.
         }
 
         &__title {
@@ -101,7 +99,7 @@ $_message-width--compact: jkl.rem(440px);
             }
 
             &:hover {
-                color: var(--jkl-color-text-interactive-hover);
+                color: var(--jkl-color-text-subdued);
 
                 @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
             }
@@ -140,8 +138,7 @@ $_message-width--compact: jkl.rem(440px);
         }
 
         &--dismissed {
-            animation: $_dismiss-animation-name $_dismiss-animation-duration
-                ease-in-out forwards;
+            animation: $_dismiss-animation-name $_dismiss-animation-duration ease-in-out forwards;
             transition: visibility 0ms $_dismiss-animation-duration;
             visibility: hidden;
         }

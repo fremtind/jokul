@@ -23,7 +23,7 @@
             height: min-content;
             border-radius: var(--jkl-unit-05);
             overflow: hidden;
-            background: var(--jkl-color-background-page);
+            background-color: var(--jkl-color-background-container);
 
             .jkl-link-list-link {
                 display: flex;
@@ -50,7 +50,7 @@
                 }
 
                 &:is(:hover, :focus-visible) {
-                    background: var(--jkl-color-background-interactive-selected);
+                    background-color: color-mix(in srgb, var(--text-color) 15%);
 
                     &::after {
                         translate: 4px 0;

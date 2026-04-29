@@ -32,12 +32,9 @@ function formatColorVariables(
     return tokens
         .filter(isColorSchemeToken)
         .map((token) => {
-            const name = token.path
-                .map((segment) => kebabCase(segment))
-                .join("-");
             const lightValue = token.value.light;
             const darkValue = token.value.dark;
-            return `${indentation}--${name}: ${lightValue};\n${indentation}--${name}: light-dark(${lightValue}, ${darkValue});`;
+            return `${indentation}--${token.name}: ${lightValue};\n${indentation}--${token.name}: light-dark(${lightValue}, ${darkValue});`;
         })
         .join("\n");
 }

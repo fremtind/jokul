@@ -2,8 +2,7 @@
 @use "../../../styles/jkl";
 
 @mixin wrapper-styles {
-    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding)
-        var(--jkl-text-input-horizontal-padding);
+    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding) var(--jkl-text-input-horizontal-padding);
     --jkl-text-input-vertical-padding: var(--jkl-unit-15);
     --jkl-text-input-horizontal-padding: var(--jkl-unit-15);
     --jkl-text-input-action-button-size: var(--jkl-unit-60);
@@ -41,9 +40,8 @@
     &[data-invalid="true"]:not(:focus-within):not(:has([data-focused="true"])) {
         --background-color: var(--jkl-color-error-background-container);
         --text-color: var(--jkl-color-error-text-default);
-        // Vi har ingen god måte å få tak i kun light mode-versjon av subdued
-        // så vi bruker tekstfargen med litt gjennomsiktighet
-        --placeholder-color: color(from currentColor sRGB r g b / 75%);
+        --border-color: var(--jkl-color-error-border-default);
+        --placeholder-color: var(--jkl-color-error-text-subdued);
     }
 
     &:hover,
@@ -86,9 +84,7 @@
         width: var(--jkl-text-input-action-button-size);
 
         // Unngå for langt mellomrom mellom ikon og teksten i feltet
-        margin-inline-start: calc(
-            var(--jkl-text-input-horizontal-padding) * -1
-        );
+        margin-inline-start: calc(var(--jkl-text-input-horizontal-padding) * -1);
 
         .jkl-icon-button__icon {
             height: var(--jkl-text-input-action-button-icon-size);
@@ -96,7 +92,7 @@
         }
 
         &:hover {
-            color: var(--jkl-color-text-interactive-hover);
+            color: var(--jkl-color-text-subdued);
 
             @include jkl.forced-colors-mode {
                 border: jkl.rem(2px) inset ButtonText;

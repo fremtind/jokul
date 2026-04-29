@@ -210,7 +210,9 @@
             &:focus,
             :not([data-focus="controlled"]) > &:hover {
                 color: var(--jkl-color-text-default);
-                background-color: var(--jkl-color-background-interactive-hover);
+                background-color: color-mix(in srgb,
+                        currentColor 10%,
+                        transparent);
             }
 
             &-description {
@@ -235,13 +237,11 @@
 
             .jkl-select__search-input,
             .jkl-select__button {
-                <<<<<<< HEAD border-color: var(--jkl-color-border-input-focus);
-                background-color: var(--jkl-color-background-container-high);
-                =======border-bottom-left-radius: 0;
+                border-bottom-left-radius: 0;
                 border-bottom-right-radius: 0;
                 border-color: var(--jkl-color-border-strong);
                 background-color: var(--jkl-color-background-container);
-                > > > > > > > 9c4e379faa (Refactor color theme tokens and component mappings) box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-strong);
+                box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-strong);
 
                 &:hover ~ .jkl-select__arrow {
                     transform: translateY(calc(-50% + #{jkl.rem(-3px)}));

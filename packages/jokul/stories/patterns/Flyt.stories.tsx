@@ -225,7 +225,7 @@ const ArkivSidebar = () => (
         gap="none"
         style={{ top: 0, position: "sticky" }}
     >
-        <Card asChild variant="filled">
+        <Card asChild>
             <Flex
                 as="menu"
                 justifyContent="space-between"

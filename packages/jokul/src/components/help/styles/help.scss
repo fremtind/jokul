@@ -10,8 +10,8 @@
         vertical-align: middle;
         width: fit-content;
         height: fit-content;
-        padding: 0!important;
-        overflow: visible!important;
+        padding: 0 !important;
+        overflow: visible !important;
         anchor-name: --trigger;
 
         &::after {
@@ -30,8 +30,8 @@
         padding: var(--jkl-unit-30);
         margin: var(--jkl-unit-05);
         position-anchor: --trigger;
-        background-color: var(--jkl-color-background-action);
-        color: var(--jkl-color-text-on-action);
+        background-color: var(--jkl-color-background-contrast);
+        color: var(--jkl-color-text-on-contrast);
         anchor-name: --help-box;
 
         &[data-position="top"] {

@@ -3,7 +3,7 @@ import React from "react";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import { Card } from "./Card.js";
-import { CARD_PADDINGS, CARD_VARIANTS } from "./types.js";
+import { CARD_PADDINGS } from "./types.js";
 
 describe("Card", () => {
     it("rendrer uten å kræsje", () => {
@@ -16,14 +16,12 @@ describe("Card", () => {
         expect(screen.getByText("Hello world")).toBeInTheDocument();
     });
 
-    for (const variant of CARD_VARIANTS) {
-        it("setter riktig klasse for variant", () => {
-            render(<Card variant={variant}>Hello, world</Card>);
-            expect(screen.getByText("Hello, world")).toHaveClass(
-                `jkl-card--${variant}`,
-            );
-        });
-    }
+    it("setter riktig klasse for outlined", () => {
+        render(<Card outlined>Hello, world</Card>);
+        expect(screen.getByText("Hello, world")).toHaveClass(
+            "jkl-card--outlined",
+        );
+    });
 
     for (const padding of CARD_PADDINGS) {
         it("setter riktig attributt for padding", () => {
@@ -87,7 +85,7 @@ describe("Card", () => {
 describe("a11y", () => {
     it("card should be a11y compliant", async () => {
         const { container } = render(
-            <Card asChild clickable padding="s" variant="high">
+            <Card asChild clickable padding="s">
                 <a href="/faktura/12345" className="flex gap-x-40">
                     <div className="flex flex-column gap-4">
                         <p className="jkl-heading-2">

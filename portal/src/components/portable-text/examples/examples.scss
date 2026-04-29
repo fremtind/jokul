@@ -70,9 +70,9 @@
 
             /* stylelint-disable-next-line */
             &::scroll-marker:target-current {
-                background: var(--jkl-color-background-action);
-                color: var(--jkl-color-text-on-action);
-                border-color: var(--jkl-color-background-action);
+                background: var(--jkl-color-background-contrast);
+                color: var(--jkl-color-text-on-contrast);
+                border-color: var(--jkl-color-background-contrast);
             }
         }
 

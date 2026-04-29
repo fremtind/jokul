@@ -1,10 +1,7 @@
 import type { Dictionary, File, Format } from "style-dictionary/types";
 import { fileHeader } from "style-dictionary/utils";
 import { isColorSchemeToken } from "../filters.js";
-import {
-    formatColorTokenDeclarations,
-    formatVariantAliasBlocks,
-} from "./css-color-scheme-helpers.js";
+import { formatColorTokenDeclarations } from "./css-color-scheme-helpers.js";
 
 /**
  * Format for fargevariabler som støtter lys og mørk modus.
@@ -42,14 +39,6 @@ const cssColorScheme: Format = {
             colorSchemeTokens,
             indentation,
         );
-        const variantAliasBlocks = formatVariantAliasBlocks(
-            colorSchemeTokens,
-            (variant) =>
-                variant === "neutral"
-                    ? ':root, [data-variant="neutral"]'
-                    : `[data-variant="${variant}"]`,
-            indentation,
-        );
 
         return `${await fileHeader({ file })}
 @layer jokul.theme {
@@ -58,8 +47,6 @@ const cssColorScheme: Format = {
 
 ${colorTokenDeclarations}
     }
-
-${variantAliasBlocks ? `${variantAliasBlocks}` : ""}
 
     [data-theme="light"] {
         color-scheme: light;

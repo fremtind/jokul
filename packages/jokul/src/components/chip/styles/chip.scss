@@ -8,12 +8,12 @@
     --gap: var(--jkl-unit-05);
     --text-color: var(--jkl-color-text-default);
     --border-color: var(--jkl-color-border-subdued);
-    --background-color: transparent;
+    --background-color: var(--jkl-color-background-container);
     --border-width: #{jkl.rem(1px)};
 
     @include jkl.text-style("text-small") {
         font-weight: jkl.$font-weight-bold;
-    };
+    }
 
     cursor: pointer;
     position: relative;
@@ -57,9 +57,9 @@
 
     &--filter {
         &[aria-pressed="true"] {
-            --background-color: var(--jkl-color-background-action);
-            --text-color: var(--jkl-color-text-on-action);
-            --border-color: var(--text-color);
+            --background-color: var(--jkl-color-background-contrast);
+            --text-color: var(--jkl-color-text-on-contrast);
+            --border-color: var(--jkl-color-border-strong);
 
             @include jkl.forced-colors-mode {
                 forced-color-adjust: none;

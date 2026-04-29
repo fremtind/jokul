@@ -30,20 +30,18 @@ StyleDictionary.registerFormat(cssTailwind4Format);
 /**
  * Transformerer token-verdier til CSS-variabelreferanser.
  *
- * Konverterer en token med path ["color", "background", "page"]
+ * Konverterer en token med navn "color-background-page"
  * til verdien "var(--jkl-color-background-page)".
  *
- * Håndterer også camelCase i path-segmenter ved å konvertere dem til kebab-case,
- * slik at ["typography", "lineHeight", "tight"] blir "var(--jkl-typography-line-height-tight)".
+ * Håndterer også camelCase i token-navn ved å konvertere dem til kebab-case,
+ * slik at "typographyLineHeightTight" blir "var(--jkl-typography-line-height-tight)".
  */
 StyleDictionary.registerTransform({
     name: "value/css-var-reference",
     type: "value",
     transitive: true,
     transform: (token) => {
-        const varName = token.path
-            .map((pathSegment) => kebabCase(pathSegment))
-            .join("-");
+        const varName = kebabCase(token.name);
         return `var(--${PREFIX}-${varName})`;
     },
 });

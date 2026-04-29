@@ -3,120 +3,108 @@
 @use "./base-styles" as *;
 
 @layer jokul.components {
-  .jkl-icon {
-    --jkl-icon-fill: 0;
+    .jkl-icon {
+        --jkl-icon-fill: 0;
 
-    @include base-styles;
+        @include base-styles;
 
-    &--filled {
-      --jkl-icon-fill: 1;
+        &--filled {
+            --jkl-icon-fill: 1;
+        }
+
+        &--animated {
+            display: block;
+        }
     }
 
-    &--animated {
-      display: block;
-    }
-  }
+    .jkl-icon-red-cross {
+        --red-cross-circle: var(--jkl-color-error-background-contrast);
+        --red-cross-path: var(--jkl-color-error-text-on-contrast);
 
-  .jkl-icon-red-cross {
-    --red-cross-circle: var(--jkl-color-error-background-action);
-    --red-cross-path: var(--jkl-color-error-text-on-action);
+        width: 1.3em;
+        height: 1.3em;
 
-    width: 1.3em;
-    height: 1.3em;
-    box-sizing: border-box;
-    border-radius: 999px;
-    background-color: var(--jkl-color-background-alert-error);
-    color: var(--jkl-color-text-on-alert);
-    display: inline-grid;
-    place-items: center;
-    font-size: 1em;
-    --jkl-icon-weight: var(--jkl-icon-weight-bold);
+        & path {
+            fill: var(--red-cross-path);
+        }
 
-    @include jkl.forced-colors-mode {
-      background-color: Canvas;
-      color: CanvasText;
-      border: 1px solid CanvasText;
-    }
-  }
-
-  .jkl-icon-green-check {
-    --green-check-circle: var(--jkl-color-success-background-action);
-    --green-check-path: var(--jkl-color-success-text-on-action);
-
-    width: 1.3em;
-    height: 1.3em;
-    box-sizing: border-box;
-    border-radius: 999px;
-    background-color: var(--jkl-color-background-alert-success);
-    color: var(--jkl-color-text-on-alert);
-    display: inline-grid;
-    place-items: center;
-    font-size: 1em;
-    --jkl-icon-weight: var(--jkl-icon-weight-bold);
-
-    @include jkl.forced-colors-mode {
-      background-color: Canvas;
-      color: CanvasText;
-      border: 1px solid CanvasText;
-    }
-  }
-
-  .jkl-animated-horizontal-arrows,
-  .jkl-animated-vertical-arrows {
-    overflow: hidden;
-    width: 1.3em;
-    height: 1.3em;
-
-    &__slider {
-      display: flex;
-
-      @include jkl.motion(standard, expressive);
-      transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
-      transition-property: transform;
+        & circle {
+            fill: var(--red-cross-circle);
+        }
     }
 
-    &__arrow {
-      flex-shrink: 0;
-    }
-  }
+    .jkl-icon-green-check {
+        --green-check-circle: var(--jkl-color-success-background-contrast);
+        --green-check-path: var(--jkl-color-success-text-on-contrast);
 
-  .jkl-animated-vertical-arrows__slider {
-    flex-direction: column;
-    height: calc(1.3em * 2);
+        width: 1.3em;
+        height: 1.3em;
 
-    &[data-show="up"] {
-      transform: translate3d(0, 0, 0);
-    }
+        & path {
+            fill: var(--green-check-path);
+        }
 
-    &[data-show="down"] {
-      transform: translate3d(0, -50%, 0);
-    }
-  }
-
-  .jkl-animated-horizontal-arrows__slider {
-    flex-direction: row;
-    width: calc(1.3em * 2);
-
-    &[data-show="left"] {
-      transform: translate3d(0, 0, 0);
+        & circle {
+            fill: var(--green-check-circle);
+        }
     }
 
-    &[data-show="right"] {
-      transform: translate3d(-50%, 0, 0);
-    }
-  }
+    .jkl-animated-horizontal-arrows,
+    .jkl-animated-vertical-arrows {
+        overflow: hidden;
+        width: 1.3em;
+        height: 1.3em;
 
-  .jkl-icons-animated__plus {
-    @include jkl.motion("easeInBounceOut", "expressive");
-    transition-property: transform;
-    transform-origin: 50% 50%;
+        &__slider {
+            display: flex;
 
-    &--plus {
-      transform: rotate(0);
+            @include jkl.motion(standard, expressive);
+            transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
+            transition-property: transform;
+        }
+
+        &__arrow {
+            flex-shrink: 0;
+        }
     }
 
-    &--close {
-      transform: rotate(135deg);
+    .jkl-animated-vertical-arrows__slider {
+        flex-direction: column;
+        height: calc(1.3em * 2);
+
+        &[data-show="up"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        &[data-show="down"] {
+            transform: translate3d(0, -50%, 0);
+        }
     }
-  }
+
+    .jkl-animated-horizontal-arrows__slider {
+        flex-direction: row;
+        width: calc(1.3em * 2);
+
+        &[data-show="left"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        &[data-show="right"] {
+            transform: translate3d(-50%, 0, 0);
+        }
+    }
+
+    .jkl-icons-animated__plus {
+        @include jkl.motion("easeInBounceOut", "expressive");
+        transition-property: transform;
+        transform-origin: 50% 50%;
+
+        &--plus {
+            transform: rotate(0);
+        }
+
+        &--close {
+            transform: rotate(135deg);
+        }
+    }
 }

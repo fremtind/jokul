@@ -46,10 +46,6 @@ Samtidig som vi faser ut de gamle fargene faser vi også ut mixins for å define
 }
 ```
 
-## Brand-spesifikke fargetemaer
-
-Jøkul eksporterer nå også brand-spesifikke fargetemaer for `dnb`, `eika` og `sparebank1`. Disse genereres fra token-definisjonene og er tilgjengelige som egne theme-filer under `@fremtind/jokul/styles/theme/brands/...`.
-
 ## Nye importstier for Tailwind
 
 Importstiene for Jøkul sitt Tailwind-oppsett er endret

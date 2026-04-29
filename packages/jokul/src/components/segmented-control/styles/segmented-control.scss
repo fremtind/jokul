@@ -19,7 +19,7 @@
             position: relative;
             display: inline-flex;
             align-items: center;
-            background-color: var(--jkl-color-background-interactive);
+            background-color: transparent;
             border: var(--jkl-segmented-control-border-width) solid var(--jkl-color-border-subdued);
             border-radius: 0; // Gjør det enklere å behandle separering senere
             margin-inline-end: calc(var(--jkl-segmented-control-border-width) * -1);
@@ -33,7 +33,7 @@
             }
 
             &:hover {
-                background-color: var(--jkl-color-background-interactive-hover);
+                background-color: color-mix(in srgb, currentColor 6%, transparent);
                 border-color: var(--jkl-color-border-default);
                 z-index: 2;
             }

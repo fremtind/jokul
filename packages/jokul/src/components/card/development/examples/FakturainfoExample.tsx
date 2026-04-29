@@ -6,26 +6,21 @@ import type {
 import { formatValuta } from "../../../../utilities/formatters/valuta/formatValuta.js";
 import { ErrorTag } from "../../../tag/Tag.js";
 import { Card } from "../../Card.js";
-import {
-    CARD_PADDINGS,
-    CARD_VARIANTS,
-    type CardPadding,
-    type CardVariant,
-} from "../../types.js";
+import { CARD_PADDINGS, type CardPadding } from "../../types.js";
 
 export const FakturainfoExample = ({
     boolValues,
     choiceValues,
 }: ExampleComponentProps) => {
     const padding = choiceValues?.["Padding"] as CardPadding | undefined;
-    const type = choiceValues?.["Type"] as CardVariant | undefined;
+    const outlined = !!boolValues?.["Outlined"];
 
     return (
         <Card
             asChild
             clickable={!!boolValues?.["Clickable"]}
             padding={padding}
-            variant={type}
+            outlined={outlined}
         >
             <a href="#test" style={{ display: "flex", gap: "40px" }}>
                 <div
@@ -57,17 +52,15 @@ export const FakturainfoExample = ({
 };
 
 export const fakturainfoExampleProps: ExampleKnobsProps = {
-    boolProps: [{ prop: "Clickable", defaultValue: true }],
+    boolProps: [
+        { prop: "Clickable", defaultValue: true },
+        { prop: "Outlined", defaultValue: false },
+    ],
     choiceProps: [
         {
             name: "Padding",
             values: [...CARD_PADDINGS],
             defaultValue: 1,
-        },
-        {
-            name: "Type",
-            values: [...CARD_VARIANTS],
-            defaultValue: 0,
         },
     ],
 };

@@ -2,7 +2,7 @@
 
 @layer jokul.components {
     .jkl-expandable {
-        background-color: var(--jkl-color-background-page);
+        background-color: var(--jkl-color-background-container);
         // A transparent border will be visible in forced colors mode and replace
         // the role of the background-color in separating the component from other content
         border: 1px solid transparent;
@@ -102,6 +102,10 @@
     }
 
     .jkl-expander {
+        --hover-background-color: color-mix(in srgb,
+                currentColor 15%,
+                transparent);
+
         box-sizing: border-box;
         background: none;
         appearance: none;
@@ -138,6 +142,12 @@
                 transform: rotate(-0.5turn);
 
                 @include jkl.motion("standard", "snappy");
+            }
+        }
+
+        @media (hover: hover) {
+            &:hover {
+                background-color: var(--hover-background-color);
             }
         }
 

@@ -1,24 +1,30 @@
 {
     "color": {
         "type": "colorScheme",
-        "neutral": {
+        "@": {
             "background": {
                 "page": {
                     "value": {
-                        "light": "#F4F2EF",
-                        "dark": "#1B1917"
+                        "light": "#F3F0ED",
+                        "dark": "#0E0D0C"
                     }
                 },
                 "container": {
                     "value": {
-                        "light": "#F9F9F9",
-                        "dark": "#313030"
+                        "light": "#FFFFFF",
+                        "dark": "#3E3A36"
                     }
                 },
-                "action": {
+                "container-accent": {
+                    "value": {
+                        "light": "#E6E2DB",
+                        "dark": "#2A2724"
+                    }
+                },
+                "contrast": {
                     "value": {
                         "light": "#1B1917",
-                        "dark": "#F9F9F9"
+                        "dark": "#F3F0ED"
                     }
                 }
             },
@@ -35,7 +41,13 @@
                         "dark": "#C8C5C3"
                     }
                 },
-                "on-action": {
+                "accent": {
+                    "value": {
+                        "light": "#000000",
+                        "dark": "#FFFFFF"
+                    }
+                },
+                "on-contrast": {
                     "value": {
                         "light": "#F9F9F9",
                         "dark": "#1B1917"
@@ -43,12 +55,6 @@
                 }
             },
             "border": {
-                "strong": {
-                    "value": {
-                        "light": "#1B1917",
-                        "dark": "#F9F9F9"
-                    }
-                },
                 "default": {
                     "value": {
                         "light": "#636060",
@@ -60,67 +66,11 @@
                         "light": "#C8C5C3",
                         "dark": "#636060"
                     }
-                }
-            }
-        },
-        "accent": {
-            "background": {
-                "page": {
-                    "value": {
-                        "light": "#F4F2EF",
-                        "dark": "#1B1917"
-                    }
                 },
-                "container": {
-                    "value": {
-                        "light": "#F9F9F9",
-                        "dark": "#313030"
-                    }
-                },
-                "action": {
-                    "value": {
-                        "light": "#1B1917",
-                        "dark": "#F9F9F9"
-                    }
-                }
-            },
-            "text": {
-                "default": {
-                    "value": {
-                        "light": "#1B1917",
-                        "dark": "#F9F9F9"
-                    }
-                },
-                "subdued": {
-                    "value": {
-                        "light": "#636060",
-                        "dark": "#C8C5C3"
-                    }
-                },
-                "on-action": {
-                    "value": {
-                        "light": "#F9F9F9",
-                        "dark": "#1B1917"
-                    }
-                }
-            },
-            "border": {
                 "strong": {
                     "value": {
                         "light": "#1B1917",
                         "dark": "#F9F9F9"
-                    }
-                },
-                "default": {
-                    "value": {
-                        "light": "#636060",
-                        "dark": "#C8C5C3"
-                    }
-                },
-                "subdued": {
-                    "value": {
-                        "light": "#C8C5C3",
-                        "dark": "#636060"
                     }
                 }
             }
@@ -129,60 +79,72 @@
             "background": {
                 "page": {
                     "value": {
-                        "light": "#FCF7E8",
-                        "dark": "#392B10"
+                        "light": "#FFFFFF",
+                        "dark": "#000000"
                     }
                 },
                 "container": {
                     "value": {
-                        "light": "#F7EBC2",
-                        "dark": "#5A4519"
+                        "light": "#F1DFD1",
+                        "dark": "#61441F"
                     }
                 },
-                "action": {
+                "container-accent": {
                     "value": {
-                        "light": "#B98900",
-                        "dark": "#E4B63A"
+                        "light": "#EAC7A8",
+                        "dark": "#75542B"
+                    }
+                },
+                "contrast": {
+                    "value": {
+                        "light": "#8B6539",
+                        "dark": "#8B6539"
                     }
                 }
             },
             "text": {
                 "default": {
                     "value": {
-                        "light": "#5B4200",
-                        "dark": "#FFF5D9"
+                        "light": "#000000",
+                        "dark": "#FFFFFF"
                     }
                 },
                 "subdued": {
                     "value": {
-                        "light": "#8B6B22",
-                        "dark": "#EEDFAE"
+                        "light": "#3E3A36",
+                        "dark": "#DFD8CE"
                     }
                 },
-                "on-action": {
+                "accent": {
                     "value": {
-                        "light": "#1B1917",
-                        "dark": "#1B1917"
+                        "light": "#000000",
+                        "dark": "#FFFFFF"
+                    }
+                },
+                "on-contrast": {
+                    "value": {
+                        "light": "#FFFFFF",
+                        "dark": "#000000"
                     }
                 }
             },
             "border": {
-                "strong": {
-                    "value": {
-                        "light": "#B98900",
-                        "dark": "#E4B63A"
-                    }
-                },
                 "default": {
                     "value": {
-                        "light": "#B98900",
-                        "dark": "#E4B63A"
+                        "light": "#A17747",
+                        "dark": "#B68957"
                     }
                 },
                 "subdued": {
                     "value": {
-                        "light": "#DECC8D",
-                        "dark": "#8B6B22"
+                        "light": "#E3B07A",
+                        "dark": "#75542B"
+                    }
+                },
+                "strong": {
+                    "value": {
+                        "light": "#61441F",
+                        "dark": "#A17747"
                     }
                 }
             }
@@ -191,60 +153,72 @@
             "background": {
                 "page": {
                     "value": {
-                        "light": "#EEF7F0",
-                        "dark": "#173122"
+                        "light": "#FFFFFF",
+                        "dark": "#000000"
                     }
                 },
                 "container": {
                     "value": {
-                        "light": "#D7EADB",
-                        "dark": "#234530"
+                        "light": "#C6E6CD",
+                        "dark": "#15341E"
                     }
                 },
-                "action": {
+                "container-accent": {
                     "value": {
-                        "light": "#2E8C4A",
-                        "dark": "#67B479"
+                        "light": "#ACD3B5",
+                        "dark": "#24492E"
+                    }
+                },
+                "contrast": {
+                    "value": {
+                        "light": "#345F40",
+                        "dark": "#467653"
                     }
                 }
             },
             "text": {
                 "default": {
                     "value": {
-                        "light": "#1E5D31",
-                        "dark": "#F1FBF3"
+                        "light": "#000000",
+                        "dark": "#FFFFFF"
                     }
                 },
                 "subdued": {
                     "value": {
-                        "light": "#507A5B",
-                        "dark": "#C9DDCE"
+                        "light": "#3E3A36",
+                        "dark": "#DFD8CE"
                     }
                 },
-                "on-action": {
+                "accent": {
                     "value": {
-                        "light": "#F9F9F9",
-                        "dark": "#1B1917"
+                        "light": "#000000",
+                        "dark": "#FFFFFF"
+                    }
+                },
+                "on-contrast": {
+                    "value": {
+                        "light": "#FFFFFF",
+                        "dark": "#000000"
                     }
                 }
             },
             "border": {
-                "strong": {
-                    "value": {
-                        "light": "#2E8C4A",
-                        "dark": "#67B479"
-                    }
-                },
                 "default": {
                     "value": {
-                        "light": "#2E8C4A",
-                        "dark": "#67B479"
+                        "light": "#467653",
+                        "dark": "#598D67"
                     }
                 },
                 "subdued": {
                     "value": {
-                        "light": "#94B79B",
-                        "dark": "#507A5B"
+                        "light": "#8CBC98",
+                        "dark": "#24492E"
+                    }
+                },
+                "strong": {
+                    "value": {
+                        "light": "#15341E",
+                        "dark": "#467653"
                     }
                 }
             }
@@ -253,60 +227,72 @@
             "background": {
                 "page": {
                     "value": {
-                        "light": "#EEF5FE",
-                        "dark": "#162A40"
+                        "light": "#FFFFFF",
+                        "dark": "#000000"
                     }
                 },
                 "container": {
                     "value": {
-                        "light": "#DDEBFB",
-                        "dark": "#264261"
+                        "light": "#E3E3F4",
+                        "dark": "#1E1E81"
                     }
                 },
-                "action": {
+                "container-accent": {
                     "value": {
-                        "light": "#4AA3F0",
-                        "dark": "#7EBEF4"
+                        "light": "#D3D3F6",
+                        "dark": "#2D2DB3"
+                    }
+                },
+                "contrast": {
+                    "value": {
+                        "light": "#4646D1",
+                        "dark": "#6262DC"
                     }
                 }
             },
             "text": {
                 "default": {
                     "value": {
-                        "light": "#1B3B60",
-                        "dark": "#F5FAFF"
+                        "light": "#000000",
+                        "dark": "#FFFFFF"
                     }
                 },
                 "subdued": {
                     "value": {
-                        "light": "#4E6C8E",
-                        "dark": "#D7E9F8"
+                        "light": "#3E3A36",
+                        "dark": "#DFD8CE"
                     }
                 },
-                "on-action": {
+                "accent": {
                     "value": {
-                        "light": "#F9F9F9",
-                        "dark": "#1B1917"
+                        "light": "#000000",
+                        "dark": "#FFFFFF"
+                    }
+                },
+                "on-contrast": {
+                    "value": {
+                        "light": "#FFFFFF",
+                        "dark": "#000000"
                     }
                 }
             },
             "border": {
-                "strong": {
-                    "value": {
-                        "light": "#4AA3F0",
-                        "dark": "#7EBEF4"
-                    }
-                },
                 "default": {
                     "value": {
-                        "light": "#4AA3F0",
-                        "dark": "#7EBEF4"
+                        "light": "#6262DC",
+                        "dark": "#7E7EE4"
                     }
                 },
                 "subdued": {
                     "value": {
-                        "light": "#A9A9CA",
-                        "dark": "#4E6C8E"
+                        "light": "#B7B7F0",
+                        "dark": "#2D2DB3"
+                    }
+                },
+                "strong": {
+                    "value": {
+                        "light": "#1E1E81",
+                        "dark": "#6262DC"
                     }
                 }
             }
@@ -315,60 +301,72 @@
             "background": {
                 "page": {
                     "value": {
-                        "light": "#FDEEEE",
-                        "dark": "#3A1C1C"
+                        "light": "#FFFFFF",
+                        "dark": "#000000"
                     }
                 },
                 "container": {
                     "value": {
-                        "light": "#F8D1D1",
-                        "dark": "#5B2828"
+                        "light": "#F3DEDE",
+                        "dark": "#610F0F"
                     }
                 },
-                "action": {
+                "container-accent": {
                     "value": {
-                        "light": "#E84B3C",
-                        "dark": "#F27B70"
+                        "light": "#F2C9C9",
+                        "dark": "#891919"
+                    }
+                },
+                "contrast": {
+                    "value": {
+                        "light": "#B32424",
+                        "dark": "#DF3030"
                     }
                 }
             },
             "text": {
                 "default": {
                     "value": {
-                        "light": "#7B1F18",
-                        "dark": "#FFF1EF"
+                        "light": "#000000",
+                        "dark": "#FFFFFF"
                     }
                 },
                 "subdued": {
                     "value": {
-                        "light": "#A14E46",
-                        "dark": "#F1C8C4"
+                        "light": "#3E3A36",
+                        "dark": "#DFD8CE"
                     }
                 },
-                "on-action": {
+                "accent": {
                     "value": {
-                        "light": "#F9F9F9",
-                        "dark": "#1B1917"
+                        "light": "#610F0F",
+                        "dark": "#F6B3B3"
+                    }
+                },
+                "on-contrast": {
+                    "value": {
+                        "light": "#FFFFFF",
+                        "dark": "#FFFFFF"
                     }
                 }
             },
             "border": {
-                "strong": {
-                    "value": {
-                        "light": "#E84B3C",
-                        "dark": "#F27B70"
-                    }
-                },
                 "default": {
                     "value": {
-                        "light": "#E84B3C",
-                        "dark": "#F27B70"
+                        "light": "#DF3030",
+                        "dark": "#F15D5D"
                     }
                 },
                 "subdued": {
                     "value": {
-                        "light": "#DE9E9E",
-                        "dark": "#A14E46"
+                        "light": "#F6B3B3",
+                        "dark": "#891919"
+                    }
+                },
+                "strong": {
+                    "value": {
+                        "light": "#610F0F",
+                        "dark": "#DF3030"
                     }
                 }
             }
