@@ -29,6 +29,7 @@ const usePopover = ({
     modal = true,
     offset: _offset = 4,
     positionReference,
+    onPlacementChange,
     hoverOptions,
     focusOptions,
     clickOptions,
@@ -71,6 +72,10 @@ const usePopover = ({
             data.refs.setPositionReference(positionReference?.current);
         }
     }, [positionReference, data.refs]);
+
+    React.useEffect(() => {
+        onPlacementChange?.(data.placement);
+    }, [data.placement, onPlacementChange]);
 
     return React.useMemo(
         () => ({
@@ -216,8 +221,15 @@ const PopoverContent = React.forwardRef<
     },
     propRef,
 ) {
-    const { context, modal, refs, open, floatingStyles, getFloatingProps } =
-        usePopoverContext();
+    const {
+        context,
+        modal,
+        refs,
+        open,
+        floatingStyles,
+        getFloatingProps,
+        isPositioned,
+    } = usePopoverContext();
     const ref = useMergeRefs([refs.setFloating, propRef]);
 
     const referenceElement = refs.reference.current as ReferenceElement;
@@ -256,6 +268,14 @@ const PopoverContent = React.forwardRef<
                             ...style,
                             ...floatingStyles,
                             "--popover-padding": `var(--jkl-spacing-${padding})`,
+                            // Skjul popoveren inntil floating-ui har regnet
+                            // ut første posisjon — ellers blinker den
+                            // kort i (0,0) før den hopper på plass.
+                            // Bare for ikke-modale popovere; modale bruker
+                            // umiddelbar fokus-trap som forutsetter at
+                            // innholdet er fokuserbart fra første render.
+                            visibility:
+                                modal || isPositioned ? "visible" : "hidden",
                         } as React.CSSProperties
                     }
                     {...getFloatingProps(props)}

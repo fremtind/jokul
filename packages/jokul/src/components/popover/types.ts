@@ -1,4 +1,5 @@
 import type {
+    Placement,
     ReferenceType,
     UseFloatingOptions,
     useClick,
@@ -68,6 +69,13 @@ export interface PopoverOptions {
      * @default Popover.Trigger
      */
     positionReference?: React.RefObject<ReferenceType>;
+    /**
+     * Trigges når popoverens faktiske plassering endrer seg, f.eks. når
+     * `flip`-middlewaren snur popoveren over triggeren fordi det ikke er
+     * plass under. Kan brukes til å justere styling avhengig av om
+     * popoveren ligger over eller under referansen.
+     */
+    onPlacementChange?: (placement: Placement) => void;
     /**
      * Options for hover-interaksjoner.
      *

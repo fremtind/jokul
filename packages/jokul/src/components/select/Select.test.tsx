@@ -28,14 +28,18 @@ function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
 }
 
 describe("Select", () => {
-    it("should render correct amount of options", () => {
-        const { getAllByTestId } = setup(
+    it("should render correct amount of options", async () => {
+        const { getAllByTestId, getByTestId } = setup(
             <Select
                 name="snoop"
                 items={["drop", "it", "like", "its", "hot"]}
                 label="Snoop"
             />,
         );
+
+        await act(async () => {
+            await userEvent.click(getByTestId("jkl-select__button"));
+        });
 
         const options = getAllByTestId("jkl-select__option");
 
@@ -554,6 +558,128 @@ describe("Select", () => {
         await waitFor(() => {
             expect(getByTestId("jkl-select__button")).toHaveTextContent("B");
             expect(getByTestId("jkl-native-select")).toHaveValue("B");
+        });
+    });
+
+    // Regresjonstester for #4583 og #5976
+    it("should render the listbox outside the input-group root (portal)", async () => {
+        const screen = setup(
+            <Select
+                name="snoop"
+                items={["drop", "it", "like", "its", "hot"]}
+                label="Snoop"
+            />,
+        );
+
+        await act(async () => {
+            await userEvent.click(screen.getByTestId("jkl-select__button"));
+        });
+
+        const inputGroup = screen.getByTestId("jkl-select");
+        const listbox = screen.getByRole("listbox");
+        expect(inputGroup.contains(listbox)).toBe(false);
+    });
+
+    it("should render options even when wrapped in an overflow-clipped ancestor (#4583, #5976)", async () => {
+        const screen = setup(
+            <div
+                data-testid="overflow-wrapper"
+                style={{ overflow: "hidden", height: 50 }}
+            >
+                <Select
+                    name="snoop"
+                    items={["drop", "it", "like", "its", "hot"]}
+                    label="Snoop"
+                />
+            </div>,
+        );
+
+        await act(async () => {
+            await userEvent.click(screen.getByTestId("jkl-select__button"));
+        });
+
+        const wrapper = screen.getByTestId("overflow-wrapper");
+        const listbox = screen.getByRole("listbox");
+        // Lista skal rendres utenfor den klippede containeren — det er
+        // selve regresjonen vi tester for. Bare å sjekke at den finnes
+        // under `body` er ikke nok, fordi det også var sant før portal-
+        // endringen.
+        expect(wrapper.contains(listbox)).toBe(false);
+        // Ikke-modale popovere skjules med `visibility: hidden` til
+        // floating-ui har posisjonert dem (`isPositioned`). Vent
+        // eksplisitt for å unngå flakiness når posisjoneringen
+        // fullføres etter klikk-`act`.
+        await waitFor(() => {
+            expect(
+                screen.getByRole("option", { name: "drop" }),
+            ).toBeVisible();
+        });
+    });
+
+    it("should set data-popover-placement on both trigger and listbox", async () => {
+        const screen = setup(
+            <Select
+                name="snoop"
+                items={["drop", "it", "like", "its", "hot"]}
+                label="Snoop"
+            />,
+        );
+
+        await act(async () => {
+            await userEvent.click(screen.getByTestId("jkl-select__button"));
+        });
+
+        const listbox = screen.getByRole("listbox");
+        const outerWrapper = screen
+            .getByTestId("jkl-select__button")
+            .closest(".jkl-select__outer-wrapper");
+        // Default i jsdom (uten layout) skal være "bottom" siden flip ikke
+        // har grunnlag for å snu.
+        expect(listbox).toHaveAttribute("data-popover-placement", "bottom");
+        expect(outerWrapper).toHaveAttribute(
+            "data-popover-placement",
+            "bottom",
+        );
+    });
+
+    it("should focus the currently selected option when the dropdown opens", async () => {
+        const screen = setup(
+            <Select
+                name="phone"
+                items={["Apple", "Samsung", "Google"]}
+                label="Telefon"
+                value="Samsung"
+            />,
+        );
+
+        const button = screen.getByTestId("jkl-select__button");
+
+        // Åpne, lukk via Escape, og åpne igjen — fokuset skal lande på
+        // valgt option begge ganger (regresjonstest for callback-refen som
+        // håndterer at listen mountes via portal).
+        await act(async () => {
+            await userEvent.click(button);
+        });
+        await waitFor(() => {
+            expect(
+                screen.getByRole("option", { name: "Samsung" }),
+            ).toHaveFocus();
+        });
+
+        await act(async () => {
+            await userEvent.keyboard("{Escape}");
+        });
+        await waitFor(() => {
+            expect(button).toHaveFocus();
+        });
+
+        await act(async () => {
+            await userEvent.click(button);
+        });
+        await waitFor(() => {
+            expect(
+                screen.getByRole("option", { name: "Samsung" }),
+            ).toHaveFocus();
         });
     });
 });

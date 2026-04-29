@@ -5,20 +5,19 @@ import React, {
     forwardRef,
     type KeyboardEvent,
     type MouseEvent,
-    type RefObject,
     useCallback,
     useEffect,
     useMemo,
     useRef,
     useState,
 } from "react";
-import { useAnimatedHeight } from "../../hooks/useAnimatedHeight/useAnimatedHeight.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { useListNavigation } from "../../hooks/useListNavigation/useListNavigation.js";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
 import { type ValuePair, getValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup } from "../input-group/InputGroup.js";
+import Popover from "../popover/Popover.js";
 import type { PopupTipProps } from "../tooltip/types.js";
 import { focusSelected, toLower } from "./select-utils.js";
 import type { SelectProps } from "./types.js";
@@ -61,10 +60,23 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const labelId = `${listId}_label`;
         const buttonId = `${listId}_button`;
         const searchInputId = `${listId}_search-input`;
+        // Unik anchor-name som CSS anchor positioning bruker for å la
+        // dropdown-listen matche bredden til triggeren.
+        const anchorName = `--${listId.replace(/[^a-zA-Z0-9-]/g, "-")}-anchor`;
 
         const [dropdownIsShown, setShown] = useState(false);
         const toggleListVisibility = useCallback(() => {
             setShown((previousValue) => !previousValue);
+        }, []);
+
+        // Lagrer faktisk placement etter at floating-ui har kjørt `flip`,
+        // slik at vi kan bytte hvilken side av lista og knappen som er
+        // flat når lista snus over triggeren.
+        const [popoverPlacement, setPopoverPlacement] = useState<
+            "top" | "bottom"
+        >("bottom");
+        const handlePlacementChange = useCallback((p: string) => {
+            setPopoverPlacement(p.startsWith("top") ? "top" : "bottom");
         }, []);
 
         /// Søk
@@ -195,35 +207,61 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const searchFieldRef = useRef<HTMLInputElement>(null);
         const buttonRef = useRef<HTMLButtonElement>(null);
 
-        const handleFocusPlacement = useCallback(
-            (isOpen: boolean, ref: RefObject<HTMLElement | null>) => {
-                if (isOpen && !isSearchable) {
-                    const listElement = ref.current;
-                    if (listElement) {
-                        focusSelected(listElement, selectedValue);
-                    }
-                } else if (isOpen) {
-                    if (searchFieldRef.current) {
-                        searchFieldRef.current.focus();
-                    }
-                } else {
-                    if (focusInsideRef.current && buttonRef.current) {
-                        buttonRef.current.focus();
-                    }
-                }
-            },
-            [isSearchable, selectedValue],
-        );
+        const dropdownRef = useRef<HTMLDivElement | null>(null);
+        // Lagrer listbox-elementet i state slik at downstream-hooks
+        // (f.eks. `useListNavigation`) kan re-feste listeneren idet
+        // `FloatingPortal` mounter listen.
+        const [listboxEl, setListboxEl] = useState<HTMLDivElement | null>(null);
 
-        const [dropdownRef] = useAnimatedHeight<HTMLDivElement>(
-            dropdownIsShown,
-            {
-                onFirstVisible: handleFocusPlacement,
-                onTransitionEnd: handleFocusPlacement,
-            },
-        );
+        // Listen rendres i en `FloatingPortal` som monteres via en
+        // `useLayoutEffect` + `setState` i floating-ui. Refen er derfor
+        // ikke tilgjengelig før i en senere render. Vi bruker en
+        // callback-ref for å plassere fokus på valgt option idet listen
+        // faktisk er i DOM-en. Refen holdes stabil (tom dependency-list)
+        // slik at en endring i `selectedValue`/`isSearchable` ikke får
+        // React til å avmontere/remontere refen og dermed flytte fokus
+        // mens menyen er åpen — vi leser siste verdier via refs.
+        const isSearchableRef = useRef(isSearchable);
+        const selectedValueRef = useRef(selectedValue);
+        useEffect(() => {
+            isSearchableRef.current = isSearchable;
+            selectedValueRef.current = selectedValue;
+        });
 
-        useListNavigation({ ref: dropdownRef });
+        const setDropdownRef = useCallback((node: HTMLDivElement | null) => {
+            dropdownRef.current = node;
+            setListboxEl(node);
+            if (node && !isSearchableRef.current) {
+                // Popover skjules med `visibility: hidden` til
+                // floating-ui har regnet ut første posisjon. Defer
+                // fokus til etter neste paint, slik at vi ikke flytter
+                // fokus til et usynlig element (kan gi manglende
+                // fokusindikator i enkelte nettlesere).
+                requestAnimationFrame(() => {
+                    if (dropdownRef.current === node) {
+                        focusSelected(node, selectedValueRef.current);
+                    }
+                });
+            }
+        }, []);
+
+        // Søkbart felt og knappen som får fokus ved lukking lever i hoved-
+        // DOM-en, så for de tilfellene holder en useEffect.
+        const wasShown = usePreviousValue(dropdownIsShown);
+        useEffect(() => {
+            if (dropdownIsShown === wasShown) return;
+            if (dropdownIsShown && isSearchable) {
+                searchFieldRef.current?.focus();
+            } else if (
+                !dropdownIsShown &&
+                focusInsideRef.current &&
+                buttonRef.current
+            ) {
+                buttonRef.current.focus();
+            }
+        }, [dropdownIsShown, wasShown, isSearchable]);
+
+        useListNavigation({ element: listboxEl });
 
         const close = useCallback(() => {
             if (isSearchable) {
@@ -245,11 +283,15 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const handleBlur = useCallback(
             (e: FocusEvent<HTMLButtonElement | HTMLInputElement>) => {
                 const componentRootElement = componentRootElementRef.current;
+                const dropdownElement = dropdownRef.current;
                 // There are known issues in Firefox when using "relatedTarget" in onBlur events:
                 // https://github.com/facebook/react/issues/2011
                 // This might be fixed in react 17. Se issue above.
+                // Dropdown rendres i en portal, så vi må sjekke begge trærne
+                // for å avgjøre om fokus blir værende inne i komponenten.
                 const nextFocusIsInsideComponent =
-                    componentRootElement?.contains(e.relatedTarget as Node);
+                    componentRootElement?.contains(e.relatedTarget as Node) ||
+                    dropdownElement?.contains(e.relatedTarget as Node);
                 if (!nextFocusIsInsideComponent) {
                     close();
                 }
@@ -281,28 +323,33 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         // Handle focus and blur of hidden select element
         useEffect(() => {
             const select = selectRef.current;
-            const searchField = searchFieldRef.current;
-            const button = buttonRef.current;
-            const componentRootElement = componentRootElementRef.current;
+            if (!select) return;
 
-            select?.addEventListener("focus", () => {
-                showSearchInputField ? searchField?.focus() : button?.focus();
-            });
-            select?.addEventListener("blur", function (this, ev) {
-                componentRootElement?.contains(ev.relatedTarget as Node) &&
+            const onSelectFocus = () => {
+                if (showSearchInputField) {
+                    searchFieldRef.current?.focus();
+                } else {
+                    buttonRef.current?.focus();
+                }
+            };
+            const onSelectBlur = (ev: globalThis.FocusEvent) => {
+                // Les refs ved hvert kall slik at vi alltid sjekker mot
+                // siste listbox-element — den portalerte listen kan ha
+                // mountet etter at denne effekten ble satt opp.
+                const target = ev.relatedTarget as Node | null;
+                const insideComponent =
+                    componentRootElementRef.current?.contains(target);
+                const insideDropdown = dropdownRef.current?.contains(target);
+                if (insideComponent || insideDropdown) {
                     ev.preventDefault();
-            });
+                }
+            };
 
+            select.addEventListener("focus", onSelectFocus);
+            select.addEventListener("blur", onSelectBlur);
             return () => {
-                select?.removeEventListener("focus", () => {
-                    showSearchInputField
-                        ? searchField?.focus()
-                        : button?.focus();
-                });
-                select?.removeEventListener("blur", function (this, ev) {
-                    componentRootElement?.contains(ev.relatedTarget as Node) &&
-                        ev.preventDefault();
-                });
+                select.removeEventListener("focus", onSelectFocus);
+                select.removeEventListener("blur", onSelectBlur);
             };
         }, [showSearchInputField]);
 
@@ -363,7 +410,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     e.stopPropagation();
                 }
             },
-            [dropdownRef, selectedValue, isSearchable, dropdownIsShown],
+            [selectedValue, isSearchable, dropdownIsShown],
         );
 
         // onKeyDown so this Tab listener isn't triggered by tabbing from search field to option
@@ -396,7 +443,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     }
                 }
             },
-            [dropdownRef],
+            [],
         );
 
         // Add support for closing the dropdown with Escape like native select. Unfortunately, Escape does not trigger the button onKeyDown.
@@ -470,12 +517,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     }
                     {...rest}
                     id={isSearchable ? searchInputId : buttonId}
-                    style={
-                        {
-                            "--jkl-select-max-shown-options": maxShownOptions,
-                            ...style,
-                        } as CSSProperties
-                    }
+                    style={style}
                     label={label}
                     labelProps={{
                         id: labelId,
@@ -488,140 +530,205 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     render={({
                         "aria-invalid": ariaInvalid,
                         ...inputProps
-                    }) => (
-                        <div
-                            className="jkl-select__outer-wrapper"
-                            style={{ width }}
-                        >
-                            {isSearchable && (
-                                <input
-                                    {...inputProps}
-                                    aria-invalid={ariaInvalid}
-                                    id={searchInputId}
-                                    hidden={!showSearchInputField}
-                                    ref={searchFieldRef}
-                                    placeholder="Søk"
-                                    value={searchValue}
-                                    onChange={(e) =>
-                                        setSearchValue(e.target.value)
-                                    }
-                                    data-testid="jkl-select__search-input"
-                                    className="jkl-select__search-input"
-                                    aria-autocomplete="list"
-                                    aria-activedescendant={
-                                        hasSelectedValue
-                                            ? `${listId}__${toLower(
-                                                  selectedValue,
-                                              )}`
-                                            : undefined
-                                    }
-                                    aria-controls={listId}
-                                    aria-expanded={dropdownIsShown}
-                                    role="combobox"
-                                    onKeyDown={handleSearchOnKeyDown}
-                                    onBlur={handleBlur}
-                                    onFocus={handleFocus}
-                                    onClick={(e) => {
-                                        e.stopPropagation();
-                                    }}
-                                />
-                            )}
-                            {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
-                            <button
-                                // Nei dette er ikke i henhold til speccen, men VoiceOver leser den likevel og det er oppførselen vi ønsker
-                                aria-invalid={ariaInvalid}
-                                {...inputProps}
-                                id={buttonId}
-                                ref={buttonRef}
-                                hidden={showSearchInputField}
-                                type="button"
-                                name={`${name}-btn`}
-                                className={clsx("jkl-select__button", {
-                                    "jkl-select__button--active-value":
-                                        !!selectedValue,
-                                })}
-                                data-testid="jkl-select__button"
-                                aria-label={`${
-                                    selectedValueLabel || "Velg"
-                                },${label}`}
-                                aria-expanded={dropdownIsShown}
-                                aria-controls={listId}
-                                onBlur={handleBlur}
-                                onFocus={handleFocus}
-                                onKeyDown={handleOnKeyDown}
-                                onClick={toggleListVisibility}
-                                onMouseDown={(e) => {
-                                    // Workaround for en Safari-bug hvor e.relatedTarget er null i onBlur
-                                    // https://twitter.com/MilesSorce/status/1278762360669265925
-                                    e.preventDefault();
-                                    buttonRef.current?.focus();
-                                }}
+                    }) => {
+                        // Lista vises kun når dropdown er åpnet *og* det
+                        // finnes minst ett synlig valg. `aria-expanded` på
+                        // trigger og combobox må følge samme boolean for
+                        // ikke å lyve om popoverens tilstand.
+                        const isPopoverOpen =
+                            dropdownIsShown &&
+                            visibleItems.some((item) => item.visible);
+                        return (
+                            <Popover
+                                open={isPopoverOpen}
+                                placement="bottom-start"
+                                offset={0}
+                                modal={false}
+                                onPlacementChange={handlePlacementChange}
+                                clickOptions={{ enabled: false }}
+                                dismissOptions={{ enabled: false }}
+                                roleOptions={{ enabled: false }}
                             >
-                                {selectedValueLabel}
-                            </button>
-                            <div
-                                id={listId}
-                                ref={dropdownRef}
-                                // biome-ignore lint/a11y/useSemanticElements: Vi reimplementerer select
-                                role="listbox"
-                                className="jkl-select__options-menu"
-                                hidden={
-                                    !dropdownIsShown ||
-                                    visibleItems.every((item) => !item.visible)
-                                }
-                                aria-labelledby={labelId}
-                                tabIndex={-1}
-                                data-focus="controlled" // lar oss styre markering av valg vha focus
-                            >
-                                {visibleItems.map((item, i) =>
-                                    // Det er viktig at vi _fjerner_ elementer som ikke er synlige fra DOMen for at tastaturnavigasjon skal fungere.
-                                    // For eksempel, hvis vi har elementene Apple, Samsung og LG i den rekkefølgen og søker etter "l"
-                                    // vil Samsung ikke synes. Om vi bare setter hidden-attributtet på Samsung vil ArrowDown fra Apple ikke fungere.
-                                    // Dette lar seg ikke gjenskape i en enhetstest med JSDOM + user-events, og Cypress lukker Select
-                                    // ved første {downArrow} ¯\_(ツ)_/¯. Så please test scenariet over manuelt om dette skaper trøbbel for deg.
-                                    item.visible ? (
+                                <Popover.Trigger asChild>
+                                    <div
+                                        className="jkl-select__outer-wrapper"
+                                        data-popover-placement={
+                                            popoverPlacement
+                                        }
+                                        style={
+                                            {
+                                                width,
+                                                anchorName,
+                                            } as CSSProperties
+                                        }
+                                    >
+                                        {isSearchable && (
+                                            <input
+                                                {...inputProps}
+                                                aria-invalid={ariaInvalid}
+                                                id={searchInputId}
+                                                hidden={!showSearchInputField}
+                                                ref={searchFieldRef}
+                                                placeholder="Søk"
+                                                value={searchValue}
+                                                onChange={(e) =>
+                                                    setSearchValue(
+                                                        e.target.value,
+                                                    )
+                                                }
+                                                data-testid="jkl-select__search-input"
+                                                className="jkl-select__search-input"
+                                                aria-autocomplete="list"
+                                                aria-activedescendant={
+                                                    isPopoverOpen &&
+                                                    hasSelectedValue
+                                                        ? `${listId}__${toLower(
+                                                              selectedValue,
+                                                          )}`
+                                                        : undefined
+                                                }
+                                                aria-controls={
+                                                    isPopoverOpen
+                                                        ? listId
+                                                        : undefined
+                                                }
+                                                aria-expanded={isPopoverOpen}
+                                                role="combobox"
+                                                onKeyDown={
+                                                    handleSearchOnKeyDown
+                                                }
+                                                onBlur={handleBlur}
+                                                onFocus={handleFocus}
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                }}
+                                            />
+                                        )}
+                                        {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}
                                         <button
-                                            key={`${listId}-${item.value}`}
-                                            hidden={!item.visible}
+                                            // Nei dette er ikke i henhold til speccen, men VoiceOver leser den likevel og det er oppførselen vi ønsker
+                                            aria-invalid={ariaInvalid}
+                                            {...inputProps}
+                                            id={buttonId}
+                                            ref={buttonRef}
+                                            hidden={showSearchInputField}
                                             type="button"
-                                            id={`${listId}__${toLower(
-                                                item.value,
-                                            )}`}
-                                            className="jkl-select__option"
-                                            data-testid="jkl-select__option"
-                                            aria-selected={
-                                                item.value === selectedValue
+                                            name={`${name}-btn`}
+                                            className={clsx(
+                                                "jkl-select__button",
+                                                {
+                                                    "jkl-select__button--active-value":
+                                                        !!selectedValue,
+                                                },
+                                            )}
+                                            data-testid="jkl-select__button"
+                                            aria-label={`${
+                                                selectedValueLabel || "Velg"
+                                            },${label}`}
+                                            aria-expanded={isPopoverOpen}
+                                            aria-controls={
+                                                isPopoverOpen
+                                                    ? listId
+                                                    : undefined
                                             }
-                                            // biome-ignore lint/a11y/useSemanticElements: Vi reimplementerer select
-                                            role="option"
-                                            value={item.value}
-                                            data-testautoid={`jkl-select__option-${i}`}
                                             onBlur={handleBlur}
                                             onFocus={handleFocus}
-                                            onKeyDown={handleOptionOnKeyDown}
-                                            onClick={(e) => {
+                                            onKeyDown={handleOnKeyDown}
+                                            onClick={toggleListVisibility}
+                                            onMouseDown={(e) => {
+                                                // Workaround for en Safari-bug hvor e.relatedTarget er null i onBlur
+                                                // https://twitter.com/MilesSorce/status/1278762360669265925
                                                 e.preventDefault();
-                                                selectOption(item);
+                                                buttonRef.current?.focus();
                                             }}
-                                            onMouseOver={handleMouseOver}
                                         >
-                                            {item.label}
-                                            {item.description ? (
-                                                <span className="jkl-select__option-description">
-                                                    {item.description}
-                                                </span>
-                                            ) : null}
+                                            {selectedValueLabel}
                                         </button>
-                                    ) : null,
-                                )}
-                            </div>
-                            <ArrowVerticalAnimated
-                                variant="medium"
-                                pointingDown={!dropdownIsShown}
-                                className="jkl-select__arrow"
-                            />
-                        </div>
-                    )}
+                                        <ArrowVerticalAnimated
+                                            variant="medium"
+                                            pointingDown={!isPopoverOpen}
+                                            className="jkl-select__arrow"
+                                        />
+                                    </div>
+                                </Popover.Trigger>
+                                <Popover.Content
+                                    initialFocus={-1}
+                                    returnFocus={false}
+                                    className="jkl-select__popover"
+                                    style={{
+                                        width: `anchor-size(${anchorName} width)`,
+                                    }}
+                                >
+                                    <div
+                                        id={listId}
+                                        ref={setDropdownRef}
+                                        // biome-ignore lint/a11y/useSemanticElements: Vi reimplementerer select
+                                        role="listbox"
+                                        className="jkl-select__options-menu"
+                                        data-popover-placement={
+                                            popoverPlacement
+                                        }
+                                        aria-labelledby={labelId}
+                                        tabIndex={-1}
+                                        data-focus="controlled" // lar oss styre markering av valg vha focus
+                                        style={
+                                            {
+                                                "--jkl-select-max-shown-options":
+                                                    maxShownOptions,
+                                            } as CSSProperties
+                                        }
+                                    >
+                                        {visibleItems.map((item, i) =>
+                                            // Det er viktig at vi _fjerner_ elementer som ikke er synlige fra DOMen for at tastaturnavigasjon skal fungere.
+                                            // For eksempel, hvis vi har elementene Apple, Samsung og LG i den rekkefølgen og søker etter "l"
+                                            // vil Samsung ikke synes. Om vi bare setter hidden-attributtet på Samsung vil ArrowDown fra Apple ikke fungere.
+                                            // Dette lar seg ikke gjenskape i en enhetstest med JSDOM + user-events, og Cypress lukker Select
+                                            // ved første {downArrow} ¯\_(ツ)_/¯. Så please test scenariet over manuelt om dette skaper trøbbel for deg.
+                                            item.visible ? (
+                                                <button
+                                                    key={`${listId}-${item.value}`}
+                                                    hidden={!item.visible}
+                                                    type="button"
+                                                    id={`${listId}__${toLower(
+                                                        item.value,
+                                                    )}`}
+                                                    className="jkl-select__option"
+                                                    data-testid="jkl-select__option"
+                                                    aria-selected={
+                                                        item.value ===
+                                                        selectedValue
+                                                    }
+                                                    // biome-ignore lint/a11y/useSemanticElements: Vi reimplementerer select
+                                                    role="option"
+                                                    value={item.value}
+                                                    data-testautoid={`jkl-select__option-${i}`}
+                                                    onBlur={handleBlur}
+                                                    onFocus={handleFocus}
+                                                    onKeyDown={
+                                                        handleOptionOnKeyDown
+                                                    }
+                                                    onClick={(e) => {
+                                                        e.preventDefault();
+                                                        selectOption(item);
+                                                    }}
+                                                    onMouseOver={
+                                                        handleMouseOver
+                                                    }
+                                                >
+                                                    {item.label}
+                                                    {item.description ? (
+                                                        <span className="jkl-select__option-description">
+                                                            {item.description}
+                                                        </span>
+                                                    ) : null}
+                                                </button>
+                                            ) : null,
+                                        )}
+                                    </div>
+                                </Popover.Content>
+                            </Popover>
+                        );
+                    }}
                 />
             </>
         );
