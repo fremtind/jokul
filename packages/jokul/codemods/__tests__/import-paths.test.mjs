@@ -216,6 +216,46 @@ test("warns about deprecated text-style names", () => {
         ),
         true,
     );
+    assert.equal(
+        result.warnings.some((warning) => /<Text>-komponenten/.test(warning)),
+        true,
+    );
+});
+
+test("renames Fremtind Material Symbols font-family", () => {
+    const source = `.icon {
+    font-family: "Fremtind Material Symbols", "Fremtind Material Symbols Fallback", sans-serif;
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/icons.scss");
+
+    assert.equal(
+        result.text.includes("Fremtind Material Symbols"),
+        false,
+    );
+    assert.equal(
+        result.text.includes(
+            '"Jokul Icons", "Jokul Icons Fallback", sans-serif',
+        ),
+        true,
+    );
+    assert.equal(result.replacements, 2);
+});
+
+test("renames Fremtind Material Symbols inside CSS files too", () => {
+    const source = `.icon {
+    font-family: 'Fremtind Material Symbols';
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/icons.css");
+
+    assert.equal(
+        result.text.includes("Fremtind Material Symbols"),
+        false,
+    );
+    assert.equal(result.text.includes("'Jokul Icons'"), true);
 });
 
 test("does not warn about valid 5.0 patterns", () => {
