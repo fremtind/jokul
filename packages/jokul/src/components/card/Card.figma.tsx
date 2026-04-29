@@ -16,8 +16,9 @@ figma.connect(
                 XL: "xl",
             }),
             variant: figma.enum("Variant", {
+                High: "high",
+                Low: "low",
                 Outlined: "outlined",
-                Filled: "filled",
             }),
             children: figma.instance("Content"),
         },

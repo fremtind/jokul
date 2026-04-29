@@ -87,7 +87,7 @@ describe("Card", () => {
 describe("a11y", () => {
     it("card should be a11y compliant", async () => {
         const { container } = render(
-            <Card asChild clickable padding="s" variant="filled">
+            <Card asChild clickable padding="s" variant="high">
                 <a href="/faktura/12345" className="flex gap-x-40">
                     <div className="flex flex-column gap-4">
                         <p className="jkl-heading-2">

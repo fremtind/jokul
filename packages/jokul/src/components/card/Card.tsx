@@ -22,7 +22,7 @@ export const Card = React.forwardRef(function Card<
         className,
         clickable = false,
         padding = "s",
-        variant = "filled",
+        variant = "high",
         asChild,
         as = "div",
         ...componentProps
