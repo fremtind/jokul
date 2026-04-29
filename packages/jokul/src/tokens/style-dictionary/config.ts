@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import type { Config } from "style-dictionary/types";
 
 export const PREFIX = "jkl";
@@ -79,13 +80,14 @@ export const jokulTokens: Config = {
  * komplett, brand-spesifikt fargesett basert på base tokens og brand tokens.
  */
 export function createBrandConfig(brand: BrandName): Config {
+    const brandSources = [
+        `src/tokens/brands/color.${brand}.tokens.json`,
+        `src/tokens/brands/typography.${brand}.tokens.json`,
+    ].filter((source) => existsSync(source));
+
     return {
         ...jokulTokens,
-        source: [
-            ...(jokulTokens.source ?? []),
-            `src/tokens/brands/color.${brand}.tokens.json`,
-            `src/tokens/brands/typography.${brand}.tokens.json`,
-        ],
+        source: [...(jokulTokens.source ?? []), ...brandSources],
         platforms: {
             css: {
                 ...jokulTokens.platforms?.css,
