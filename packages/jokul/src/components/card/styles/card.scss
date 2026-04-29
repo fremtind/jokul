@@ -56,12 +56,16 @@
             --padding: var(--padding-xl);
         }
 
-        &--filled {
+        &--high {
             --background-color: var(--jkl-color-background-container);
         }
 
+        &--low {
+            --background-color: var(--jkl-color-background-container-tinted);
+        }
+
         &--outlined {
-            --border-color: var(--jkl-color-border-default);
+            --border-color: var(--jkl-color-border-subdued);
         }
 
         &[data-clickable="true"] {
