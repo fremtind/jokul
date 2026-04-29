@@ -6,8 +6,10 @@ Codemoden fjerner nå overflødige `@fremtind/jokul/styles/fonts/webfonts.css`- 
 
 Codemoden gir også en advarsel hvis import-fjerningen skjer i en fil som ikke har en `base.css`/`components.css`-import fra før, slik at man får beskjed om å legge til `base.css` for å beholde fontene.
 
+Codemoden bytter også ut det gamle font-family-navnet `Fremtind Material Symbols` (og `Fremtind Material Symbols Fallback`) med `Jokul Icons` (og `Jokul Icons Fallback`), siden navnet ble omdøpt i Jøkul 5. Konsumenter som har skrevet font-family direkte i sin egen CSS/SCSS hadde ellers fått en stille brutt referanse.
+
 I tillegg flagger codemoden tre vanlige 4 → 5-mønstre som ikke kan auto-erstattes, men som krever manuell migrering:
 
 - Bruk av fjernede Sass-fargevariabler (`jkl.$color-granitt`, `jkl.$color-varde` osv.) — bytt til semantiske CSS-variabler.
 - `@include jkl.light-mode-variables { … }` og `jkl.dark-mode-variables` — disse mixinene er fjernet.
-- `text-style("body")` / `text-style("small")` — bytt til `paragraph-*`- eller `text-*`-varianter.
+- `text-style("body")` / `text-style("small")` — foretrekk `Text`-komponenten fra `@fremtind/jokul/components/typography`. Hvis du må sette stiler direkte, bytt til `paragraph-*`- eller `text-*`-varianter.
