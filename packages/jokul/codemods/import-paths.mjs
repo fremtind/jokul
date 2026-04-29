@@ -272,6 +272,46 @@ function removeRedundantWebfontsCssImport(text) {
     return { text: next, count };
 }
 
+/**
+ * Patterns som ikke kan auto-erstattes, men som krever manuell migrering ved
+ * oppgradering fra Jøkul 4 til 5. Hvert mønster gir én advarsel per fil det
+ * matcher i (uavhengig av antall forekomster), med peker til hva man skal
+ * gjøre i stedet.
+ */
+const MANUAL_MIGRATION_WARNINGS = [
+    {
+        // jkl.$color-granitt, jkl.$color-varde, osv. Alle Sass-fargevariabler
+        // ble fjernet i Jøkul 5 til fordel for semantiske CSS-variabler.
+        pattern: /\bjkl\.\$color-[a-z][a-z0-9-]*/i,
+        message:
+            "Fjernede Sass-fargevariabler (jkl.$color-*). I Jøkul 5 er alle gamle fargenavn (granitt, varde, snohvit osv.) fjernet — bruk semantiske CSS-variabler, f.eks. var(--jkl-color-text-default). Se https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/farger.",
+    },
+    {
+        // @include jkl.light-mode-variables { ... } / dark-mode-variables { ... }
+        pattern: /@include\s+jkl\.(?:light|dark)-mode-variables\b/,
+        message:
+            "Fjernede mixins for custom light/dark-farger (jkl.light-mode-variables / jkl.dark-mode-variables). I Jøkul 5 må du bruke semantiske CSS-variabler i stedet for å definere egne dark/light-varianter.",
+    },
+    {
+        // @include jkl.text-style("body") / text-style("small")
+        pattern: /\btext-style\(\s*["'](?:body|small)["']\s*\)/,
+        message:
+            'Fjernede tekststiler ("body", "small") i text-style-mixin. Bytt til "paragraph-large/medium/small" eller "text-large/medium/small/micro" — se https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/typografi.',
+    },
+];
+
+function collectManualMigrationWarnings(text) {
+    const warnings = [];
+
+    for (const { pattern, message } of MANUAL_MIGRATION_WARNINGS) {
+        if (pattern.test(text)) {
+            warnings.push(`Manuell vurdering: ${message}`);
+        }
+    }
+
+    return warnings;
+}
+
 function reorderConfiguredFontImport(text) {
     const fontImportPattern =
         /^@use\s+["']@fremtind\/jokul\/styles\/theme\/fonts["'][\s\S]*?;\s*/m;
@@ -315,7 +355,10 @@ export function transformImportPaths(text, filePath = "") {
         reordered = reorderedResult.reordered;
     }
 
-    const warnings = [...beta.warnings];
+    const warnings = [
+        ...beta.warnings,
+        ...collectManualMigrationWarnings(text),
+    ];
 
     if (
         webfontsRemoval.count > 0 &&

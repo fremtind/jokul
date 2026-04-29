@@ -148,3 +148,86 @@ test("removes css @import of webfonts.css", () => {
     );
     assert.deepEqual(result.warnings, []);
 });
+
+test("warns about removed sass color variables", () => {
+    const source = `@use "@fremtind/jokul/styles/jkl";
+
+.banner {
+    background: jkl.$color-granitt;
+    color: jkl.$color-snohvit;
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/banner.scss");
+
+    assert.equal(
+        result.warnings.some((warning) =>
+            /jkl\.\$color-\*/.test(warning),
+        ),
+        true,
+    );
+    // Bare én advarsel per mønster, selv om det er flere forekomster
+    assert.equal(
+        result.warnings.filter((warning) =>
+            /jkl\.\$color-\*/.test(warning),
+        ).length,
+        1,
+    );
+});
+
+test("warns about removed light/dark mode mixins", () => {
+    const source = `@use "@fremtind/jokul/styles/jkl";
+
+@include jkl.light-mode-variables {
+    --min-farge: jkl.$color-granitt;
+}
+@include jkl.dark-mode-variables {
+    --min-farge: jkl.$color-snohvit;
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/theme.scss");
+
+    assert.equal(
+        result.warnings.some((warning) =>
+            /light-mode-variables/.test(warning),
+        ),
+        true,
+    );
+});
+
+test("warns about deprecated text-style names", () => {
+    const source = `@use "@fremtind/jokul/styles/jkl";
+
+.lead {
+    @include jkl.text-style("body");
+}
+
+.fineprint {
+    @include jkl.text-style("small");
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/typography.scss");
+
+    assert.equal(
+        result.warnings.some((warning) =>
+            /paragraph-large\/medium\/small/.test(warning),
+        ),
+        true,
+    );
+});
+
+test("does not warn about valid 5.0 patterns", () => {
+    const source = `@use "@fremtind/jokul/styles/jkl";
+
+.title {
+    @include jkl.text-style("heading-1");
+    color: var(--jkl-color-text-default);
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/title.scss");
+
+    assert.deepEqual(result.warnings, []);
+});
