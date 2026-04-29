@@ -1,6 +1,6 @@
-import { type RefObject, useEffect } from "react";
+import { type RefObject, useLayoutEffect } from "react";
 
-type Timer = number | undefined;
+type TimerHandle = { id: number | undefined };
 type KeyBuffer = { keys: string } | undefined;
 type Direction = "prev" | "next" | "first" | "last";
 interface MoveDetails {
@@ -11,7 +11,7 @@ interface MoveDetails {
 interface ListDetails {
     list: HTMLElement;
     search: KeyBuffer;
-    searchResetTimer: Timer;
+    searchResetTimer: TimerHandle;
 }
 interface SearchDetails extends ListDetails {
     key: string;
@@ -19,34 +19,55 @@ interface SearchDetails extends ListDetails {
 interface EventDetails extends ListDetails {
     event: KeyboardEvent;
 }
-type UseListNavigationProps<T> = {
-    /** Ref til et element med rollen `listbox` */
-    ref: RefObject<T | null>;
-};
+/**
+ * Enten `ref` eller `element` må gis. `ref` brukes når listen alltid
+ * er i DOM-en; `element` foretrekkes når elementet mountes/unmountes
+ * dynamisk (f.eks. portalert via floating-ui), slik at listeneren
+ * re-festes når elementet faktisk er tilgjengelig.
+ */
+type UseListNavigationProps<T> =
+    | {
+          ref: RefObject<T | null>;
+          element?: never;
+      }
+    | {
+          ref?: never;
+          element: T | null;
+      };
 
 export function useListNavigation<T extends HTMLElement>({
     ref,
+    element,
 }: UseListNavigationProps<T>): void {
-    useEffect(() => {
-        let searchResetTimer: Timer;
+    // Bruker `useLayoutEffect` slik at keydown-listeneren er på plass før
+    // browseren maler neste frame. Det er viktig for konsumenter som
+    // flytter fokus inn i lista i en `requestAnimationFrame`-callback
+    // (som Select), ellers kan første tastetrykk gå tapt.
+    useLayoutEffect(() => {
+        // `ref?.current` leses inne i effekten — refen er fylt i commit-
+        // fasen, og var `null` i render-tid for callere som passerer
+        // `ref` (som Combobox).
+        const list = element ?? ref?.current ?? null;
+        if (!list) return;
+
+        // `TimerHandle` er et muterbart objekt slik at `resetWhenIdle`
+        // kan oppdatere `id` på samme referanse — `setTimeout`-handlen må
+        // være delt på tvers av tastetrykk for at `clearTimeout` skal
+        // kunne avbryte forrige timeout.
+        const searchResetTimer: TimerHandle = { id: undefined };
         const search: KeyBuffer = { keys: "" }; // keypress buffer is an object to preserve state
-        const list = ref.current;
         const handler = (event: KeyboardEvent) => {
-            if (list) {
-                handleListKeyNav({ list, event, search, searchResetTimer });
-            }
+            handleListKeyNav({ list, event, search, searchResetTimer });
         };
 
-        if (list) {
-            list.addEventListener("keydown", handler);
-        }
-
+        list.addEventListener("keydown", handler);
         return () => {
-            if (list) {
-                list.removeEventListener("keydown", handler);
+            list.removeEventListener("keydown", handler);
+            if (searchResetTimer.id !== undefined) {
+                clearTimeout(searchResetTimer.id);
             }
         };
-    }, [ref]);
+    }, [element, ref]);
 }
 
 function handleMoveTo(
@@ -179,19 +200,15 @@ function findItem({
     return null;
 }
 
-function resetWhenIdle(search: KeyBuffer, timer: Timer) {
-    if (timer) {
-        clearTimeout(timer);
-        timer = undefined;
+function resetWhenIdle(search: KeyBuffer, timer: TimerHandle) {
+    if (timer.id !== undefined) {
+        clearTimeout(timer.id);
+        timer.id = undefined;
     }
-    timer = setTimeout(
-        () => {
-            // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
-            search ? (search.keys = "") : (search = { keys: "" });
-            timer = undefined;
-        },
-        500,
-        search,
-        timer,
-    );
+    timer.id = window.setTimeout(() => {
+        if (search) {
+            search.keys = "";
+        }
+        timer.id = undefined;
+    }, 500);
 }
