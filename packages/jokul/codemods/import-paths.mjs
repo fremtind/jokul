@@ -226,6 +226,34 @@ function applyBetaStyleReplacements(text) {
     return { text: next, replacements, warnings };
 }
 
+/**
+ * Font-family-navnet "Fremtind Material Symbols" (og tilhørende fallback) ble
+ * omdøpt til "Jokul Icons" i Jøkul 5. Konsumenter som har skrevet font-family
+ * direkte i sin egen CSS/SCSS får ellers en stille brutt referanse.
+ *
+ * Fallback-navnet erstattes først (lengst først), slik at det ikke blir
+ * delvis overskrevet av kortere mønster.
+ */
+const FONT_FAMILY_REPLACEMENTS = [
+    ["Fremtind Material Symbols Fallback", "Jokul Icons Fallback"],
+    ["Fremtind Material Symbols", "Jokul Icons"],
+];
+
+function applyFontFamilyReplacements(text) {
+    let next = text;
+    let count = 0;
+
+    for (const [from, to] of FONT_FAMILY_REPLACEMENTS) {
+        const pattern = new RegExp(escapeRegExp(from), "g");
+        next = next.replace(pattern, () => {
+            count += 1;
+            return to;
+        });
+    }
+
+    return { text: next, count };
+}
+
 const WEBFONTS_CSS_SPECIFIER =
     "@fremtind/jokul/styles/fonts/webfonts(?:\\.min)?\\.css";
 
@@ -296,7 +324,7 @@ const MANUAL_MIGRATION_WARNINGS = [
         // @include jkl.text-style("body") / text-style("small")
         pattern: /\btext-style\(\s*["'](?:body|small)["']\s*\)/,
         message:
-            'Fjernede tekststiler ("body", "small") i text-style-mixin. Bytt til "paragraph-large/medium/small" eller "text-large/medium/small/micro" — se https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/typografi.',
+            'Fjernede tekststiler ("body", "small") i text-style-mixin. Foretrekk å bruke <Text>-komponenten der det er mulig (`import { Text } from "@fremtind/jokul/components/typography"`). Hvis du må sette stiler direkte, bytt til "paragraph-large/medium/small" eller "text-large/medium/small/micro" — se https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/typografi.',
     },
 ];
 
@@ -344,7 +372,8 @@ function reorderConfiguredFontImport(text) {
 
 export function transformImportPaths(text, filePath = "") {
     const webfontsRemoval = removeRedundantWebfontsCssImport(text);
-    const direct = applyDirectReplacements(webfontsRemoval.text);
+    const fontFamily = applyFontFamilyReplacements(webfontsRemoval.text);
+    const direct = applyDirectReplacements(fontFamily.text);
     const beta = applyBetaStyleReplacements(direct.text);
     let next = beta.text;
     let reordered = false;
@@ -373,7 +402,10 @@ export function transformImportPaths(text, filePath = "") {
         text: next,
         changed: next !== text,
         replacements:
-            direct.replacements + beta.replacements + webfontsRemoval.count,
+            direct.replacements +
+            beta.replacements +
+            webfontsRemoval.count +
+            fontFamily.count,
         warnings,
         reordered,
     };
