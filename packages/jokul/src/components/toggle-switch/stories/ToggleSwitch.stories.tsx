@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
+import { useGlobals } from "storybook/preview-api";
 import { Card } from "../../card/index.js";
 import { Flex } from "../../flex/index.js";
 import { Message } from "../../message/index.js";
@@ -17,12 +18,26 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ByttTemaForInnhold: Story = {
+export const ToggleSwitch: Story = {
     render: () => {
-        const [darkMode, setDarkMode] = React.useState(false);
+        const [checked, setChecked] = React.useState(false);
 
         return (
-            <Card padding="l" data-theme={darkMode ? "dark" : "light"}>
+            <ToggleSwitchComponent
+                aria-pressed={checked}
+                onChange={(_, pressed) => setChecked(pressed)}
+            />
+        );
+    },
+};
+
+export const ByttTemaForInnhold: Story = {
+    render: () => {
+        const [{ theme }, updateGlobals] = useGlobals();
+        const darkMode = theme === "dark";
+
+        return (
+            <Card padding="l">
                 <Flex direction="column" gap="l">
                     <Flex
                         justifyContent="space-between"
@@ -41,9 +56,13 @@ export const ByttTemaForInnhold: Story = {
                         </Flex>
                         <ToggleSwitchComponent
                             aria-pressed={darkMode}
-                            onChange={(_, pressed) => setDarkMode(pressed)}
+                            onChange={(_, pressed) =>
+                                updateGlobals({
+                                    theme: pressed ? "dark" : "light",
+                                })
+                            }
                         >
-                            Mørkt modus
+                            Mørk modus
                         </ToggleSwitchComponent>
                     </Flex>
 
