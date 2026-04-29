@@ -33,7 +33,7 @@ jokul codemod src app --dry-run
 jokul codemod src app
 ```
 
-Codemoden oppdaterer sikre stier automatisk og varsler når den finner tvetydige stilimports for beta-komponenter som må vurderes manuelt. Den fjerner også `@fremtind/jokul/styles/fonts/webfonts.css`-imports siden `@font-face`-definisjonene nå ligger i `styles/base.css`.
+Codemoden oppdaterer sikre stier automatisk og varsler når den finner tvetydige stilimports for beta-komponenter som må vurderes manuelt. Den fjerner også `@fremtind/jokul/styles/fonts/webfonts.css`-imports siden `@font-face`-definisjonene nå ligger i `styles/base.css`, og flagger fjernede Sass-fargevariabler, gamle `light-mode-variables`/`dark-mode-variables`-mixins og utdaterte `text-style`-navn (`"body"`, `"small"`).
 
 ## React-komponenter
 
