@@ -3,108 +3,108 @@
 @use "./base-styles" as *;
 
 @layer jokul.components {
-  .jkl-icon {
-    --jkl-icon-fill: 0;
+    .jkl-icon {
+        --jkl-icon-fill: 0;
 
-    @include base-styles;
+        @include base-styles;
 
-    &--filled {
-      --jkl-icon-fill: 1;
+        &--filled {
+            --jkl-icon-fill: 1;
+        }
+
+        &--animated {
+            display: block;
+        }
     }
 
-    &--animated {
-      display: block;
-    }
-  }
+    .jkl-icon-red-cross {
+        --red-cross-circle: var(--jkl-color-error-background-contrast);
+        --red-cross-path: var(--jkl-color-error-text-on-contrast);
 
-  .jkl-icon-red-cross {
-    --red-cross-circle: var(--jkl-color-error-background-action);
-    --red-cross-path: var(--jkl-color-error-text-on-action);
+        width: 1.3em;
+        height: 1.3em;
 
-    width: 1.3em;
-    height: 1.3em;
+        & path {
+            fill: var(--red-cross-path);
+        }
 
-    & path {
-      fill: var(--red-cross-path);
-    }
-
-    & circle {
-      fill: var(--red-cross-circle);
-    }
-  }
-
-  .jkl-icon-green-check {
-    --green-check-circle: var(--jkl-color-success-background-action);
-    --green-check-path: var(--jkl-color-success-text-on-action);
-
-    width: 1.3em;
-    height: 1.3em;
-
-    & path {
-      fill: var(--green-check-path);
+        & circle {
+            fill: var(--red-cross-circle);
+        }
     }
 
-    & circle {
-      fill: var(--green-check-circle);
-    }
-  }
+    .jkl-icon-green-check {
+        --green-check-circle: var(--jkl-color-success-background-contrast);
+        --green-check-path: var(--jkl-color-success-text-on-contrast);
 
-  .jkl-animated-horizontal-arrows,
-  .jkl-animated-vertical-arrows {
-    overflow: hidden;
-    width: 1.3em;
-    height: 1.3em;
+        width: 1.3em;
+        height: 1.3em;
 
-    &__slider {
-      display: flex;
+        & path {
+            fill: var(--green-check-path);
+        }
 
-      @include jkl.motion(standard, expressive);
-      transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
-      transition-property: transform;
+        & circle {
+            fill: var(--green-check-circle);
+        }
     }
 
-    &__arrow {
-      flex-shrink: 0;
-    }
-  }
+    .jkl-animated-horizontal-arrows,
+    .jkl-animated-vertical-arrows {
+        overflow: hidden;
+        width: 1.3em;
+        height: 1.3em;
 
-  .jkl-animated-vertical-arrows__slider {
-    flex-direction: column;
-    height: calc(1.3em * 2);
+        &__slider {
+            display: flex;
 
-    &[data-show="up"] {
-      transform: translate3d(0, 0, 0);
-    }
+            @include jkl.motion(standard, expressive);
+            transition-delay: calc(#{jkl.timing("expressive")} * (1 / 3));
+            transition-property: transform;
+        }
 
-    &[data-show="down"] {
-      transform: translate3d(0, -50%, 0);
-    }
-  }
-
-  .jkl-animated-horizontal-arrows__slider {
-    flex-direction: row;
-    width: calc(1.3em * 2);
-
-    &[data-show="left"] {
-      transform: translate3d(0, 0, 0);
+        &__arrow {
+            flex-shrink: 0;
+        }
     }
 
-    &[data-show="right"] {
-      transform: translate3d(-50%, 0, 0);
-    }
-  }
+    .jkl-animated-vertical-arrows__slider {
+        flex-direction: column;
+        height: calc(1.3em * 2);
 
-  .jkl-icons-animated__plus {
-    @include jkl.motion("easeInBounceOut", "expressive");
-    transition-property: transform;
-    transform-origin: 50% 50%;
+        &[data-show="up"] {
+            transform: translate3d(0, 0, 0);
+        }
 
-    &--plus {
-      transform: rotate(0);
+        &[data-show="down"] {
+            transform: translate3d(0, -50%, 0);
+        }
     }
 
-    &--close {
-      transform: rotate(135deg);
+    .jkl-animated-horizontal-arrows__slider {
+        flex-direction: row;
+        width: calc(1.3em * 2);
+
+        &[data-show="left"] {
+            transform: translate3d(0, 0, 0);
+        }
+
+        &[data-show="right"] {
+            transform: translate3d(-50%, 0, 0);
+        }
     }
-  }
+
+    .jkl-icons-animated__plus {
+        @include jkl.motion("easeInBounceOut", "expressive");
+        transition-property: transform;
+        transform-origin: 50% 50%;
+
+        &--plus {
+            transform: rotate(0);
+        }
+
+        &--close {
+            transform: rotate(135deg);
+        }
+    }
 }

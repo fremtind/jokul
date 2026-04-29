@@ -15,11 +15,7 @@ figma.connect(
                 L: "l",
                 XL: "xl",
             }),
-            variant: figma.enum("Variant", {
-                High: "high",
-                Low: "low",
-                Outlined: "outlined",
-            }),
+            outlined: figma.boolean("Outlined"),
             children: figma.instance("Content"),
         },
         example: (props) => <Card {...props} />,
