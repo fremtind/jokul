@@ -8,7 +8,9 @@ $_focus-ring-width: jkl.rem(2px);
         --jkl-table-row-border-color: var(--jkl-color-border-subdued);
         --jkl-table-row-border-none-color: transparent;
         --jkl-table-row-hover-border-color: var(--jkl-color-border-strong);
-        --jkl-table-row-highlight-color: var(--jkl-color-background-interactive-selected);
+        --jkl-table-row-highlight-color: color-mix(in srgb,
+                currentColor 15%,
+                transparent);
 
         border-bottom: solid $_border-size var(--jkl-table-row-border-color);
 

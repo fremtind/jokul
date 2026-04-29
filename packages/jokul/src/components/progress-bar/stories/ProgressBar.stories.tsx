@@ -176,7 +176,7 @@ export const Flow: Story = {
             <Card
                 as="form"
                 padding="xl"
-                variant="outlined"
+                outlined
                 style={{
                     minHeight: "50cqb",
                     display: "grid",

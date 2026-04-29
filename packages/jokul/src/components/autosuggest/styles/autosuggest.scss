@@ -55,7 +55,7 @@
             display: flex; // avoids wrapping long names "under" the focus arrow
             align-items: center;
             border: 0; // removes native styling
-            background-color: var(--jkl-color-background-interactive);
+            background-color: transparent;
             min-height: var(--jkl-autosuggest-option-height);
             text-align: left;
 
@@ -69,7 +69,7 @@
             &--active,
             &:hover {
                 color: var(--jkl-color-text-default);
-                background-color: var(--jkl-color-background-interactive-hover);
+                background-color: color-mix(in srgb, currentColor 10%, transparent);
             }
         }
     }

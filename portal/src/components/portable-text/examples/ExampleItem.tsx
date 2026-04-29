@@ -23,7 +23,7 @@ export const ExampleItem = ({ example }: Props) => {
     }
 
     return (
-        <Card padding="m" className="example" variant="outlined">
+        <Card padding="m" className="example" outlined>
             <iframe
                 inert={inert}
                 title={name}

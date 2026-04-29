@@ -10,7 +10,7 @@
         --border-radius: var(--jkl-border-radius-m);
         --border-color: transparent;
         --border-width: #{jkl.rem(1px)};
-        --background-color: transparent;
+        --background-color: var(--jkl-color-background-container);
 
         position: relative;
         overflow: hidden;
@@ -56,16 +56,9 @@
             --padding: var(--padding-xl);
         }
 
-        &--high {
-            --background-color: var(--jkl-color-background-container);
-        }
-
-        &--low {
-            --background-color: var(--jkl-color-background-container-tinted);
-        }
-
         &--outlined {
             --border-color: var(--jkl-color-border-subdued);
+            --background-color: transparent;
         }
 
         &[data-clickable="true"] {

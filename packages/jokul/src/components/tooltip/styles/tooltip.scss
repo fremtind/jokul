@@ -18,11 +18,11 @@ $_focus-ring-width: jkl.rem(2px);
 
     .jkl-tooltip-content {
         --content-padding: var(--jkl-unit-15);
-        --background-color: var(--jkl-color-background-action);
+        --background-color: var(--jkl-color-background-contrast);
 
         @include jkl.text-style("paragraph-small");
         background-color: var(--background-color);
-        color: var(--jkl-color-text-on-action);
+        color: var(--jkl-color-text-on-contrast);
         display: inline-block;
         min-width: min-content;
         max-width: min(jkl.rem(310px),
@@ -45,14 +45,14 @@ $_focus-ring-width: jkl.rem(2px);
         padding: 0;
         display: inline-flex;
         align-items: baseline;
-        color: var(--jkl-color-text-interactive);
+        color: var(--jkl-color-text-default);
         transform: translateY(min(0.25em, jkl.rem(6px)));
         border-radius: 9999px;
 
         @include jkl.reset-outline;
 
         &:hover {
-            --button-color: var(--jkl-color-text-interactive-hover);
+            color: var(--jkl-color-text-subdued);
         }
 
         &:focus-visible {

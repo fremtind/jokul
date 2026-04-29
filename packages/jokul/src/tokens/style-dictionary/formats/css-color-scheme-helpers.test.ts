@@ -1,6 +1,6 @@
 import type { TransformedToken } from "style-dictionary/types";
 import { describe, expect, it } from "vitest";
-import { formatVariantAliasBlocks } from "./css-color-scheme-helpers.js";
+import { formatColorTokenDeclarations } from "./css-color-scheme-helpers.js";
 
 const makeColorToken = (path: string[], name: string): TransformedToken =>
     ({
@@ -12,32 +12,27 @@ const makeColorToken = (path: string[], name: string): TransformedToken =>
         },
     }) as TransformedToken;
 
-describe("formatVariantAliasBlocks", () => {
-    it("can emit neutral aliases to :root as the default variant", () => {
+describe("formatColorTokenDeclarations", () => {
+    it("emits default color tokens as generic variables", () => {
         const tokens = [
             makeColorToken(
-                ["color", "neutral", "background", "container"],
-                "color-neutral-background-container",
+                ["color", "@", "background", "container"],
+                "color-background-container",
             ),
             makeColorToken(
-                ["color", "accent", "background", "container"],
-                "color-accent-background-container",
+                ["color", "warning", "background", "container"],
+                "color-warning-background-container",
             ),
         ];
 
-        const result = formatVariantAliasBlocks(tokens, (variant) =>
-            variant === "neutral"
-                ? ':root, [data-variant="neutral"]'
-                : `[data-variant="${variant}"]`,
-        );
+        const result = formatColorTokenDeclarations(tokens, "    ");
 
-        expect(result).toContain(':root, [data-variant="neutral"]');
+        expect(result).toContain("--jkl-color-background-container: #ffffff;");
         expect(result).toContain(
-            "--jkl-color-background-container: var(--jkl-color-neutral-background-container);",
+            "--jkl-color-background-container: light-dark(#ffffff, #000000);",
         );
-        expect(result).toContain('[data-variant="accent"]');
         expect(result).toContain(
-            "--jkl-color-background-container: var(--jkl-color-accent-background-container);",
+            "--jkl-color-warning-background-container: #ffffff;",
         );
     });
 });

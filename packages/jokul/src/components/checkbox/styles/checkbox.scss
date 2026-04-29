@@ -5,12 +5,6 @@
 
 @layer jokul.components {
     .jkl-checkbox {
-        /* stylelint-disable declaration-block-no-duplicate-custom-properties -- fallback for browsers without light-dark() support */
-        --jkl-checkbox-error-color: #ab2e43;
-        --jkl-checkbox-error-color: light-dark(#ab2e43, #d79ba5);
-        /* stylelint-enable declaration-block-no-duplicate-custom-properties */
-        --box-color: var(--jkl-color-border-strong);
-        --check-color: var(--jkl-color-border-strong);
         --text-color: var(--jkl-color-text-default);
         --background-color: transparent;
 
@@ -79,7 +73,7 @@
         }
 
         &__input[aria-invalid="true"] + &__label::before {
-            color: var(--jkl-checkbox-error-color);
+            color: var(--jkl-color-error-background-contrast);
         }
 
         & + & {

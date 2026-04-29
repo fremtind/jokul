@@ -30,7 +30,9 @@
         padding-top: var(--jkl-unit-02); // adjust visual alignment of text
 
         @include jkl.motion("entrance", "energetic");
-        transition-property: color, background-color, box-shadow;
+        transition-property: color,
+        background-color,
+        box-shadow;
 
         @include jkl.reset-outline;
 
@@ -46,14 +48,14 @@
 
         // Other dates
         &:hover:not(:disabled) {
-            background-color: var(--jkl-color-background-interactive-hover);
+            background-color: color-mix(in srgb, currentColor 10%, transparent);
             cursor: pointer;
         }
 
         // Selected date
         &[aria-pressed="true"] {
-            background-color: var(--jkl-color-background-action);
-            color: var(--jkl-color-text-on-action);
+            background-color: var(--jkl-color-background-contrast);
+            color: var(--jkl-color-text-on-contrast);
             cursor: pointer;
 
             &:hover {

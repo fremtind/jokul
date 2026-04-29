@@ -31,7 +31,10 @@
             "a11y": {
                 "noSvgWithoutTitle": "off"
             },
-            "complexity": { "useLiteralKeys": "warn" },
+            "complexity": {
+                "useLiteralKeys": "warn",
+                "useRegexLiterals": "warn"
+            },
             "performance": { "noAccumulatingSpread": "warn" },
             "style": {
                 "noImplicitBoolean": "off",

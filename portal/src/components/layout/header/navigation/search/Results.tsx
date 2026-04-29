@@ -173,7 +173,7 @@ export const Results = ({
 
     if (!searchString.trim()) {
         return (
-            <Card variant="filled" padding="xl">
+            <Card padding="xl">
                 <Flex
                     direction="column"
                     alignItems="center"
@@ -189,7 +189,7 @@ export const Results = ({
 
     if (!results.length) {
         return (
-            <Card variant="filled" padding="xl">
+            <Card padding="xl">
                 <Flex
                     direction="column"
                     alignItems="center"

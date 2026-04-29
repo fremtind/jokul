@@ -8,7 +8,7 @@
 
     .jkl-tablist {
         --padding-inline-end: var(--jkl-unit-50);
-        --text-color: var(--jkl-color-text-interactive);
+        --text-color: var(--jkl-color-text-default);
         --line-color: var(--jkl-color-border-subdued);
         --indicator-color: var(--jkl-color-border-default);
 
@@ -53,8 +53,7 @@
 
         @include jkl.text-style("text-medium");
         color: var(--text-color);
-        padding: var(--jkl-unit-10) var(--padding-inline-end) var(--jkl-unit-10)
-            var(--jkl-unit-05);
+        padding: var(--jkl-unit-10) var(--padding-inline-end) var(--jkl-unit-10) var(--jkl-unit-05);
         border: none;
         background-color: transparent;
         cursor: pointer;
@@ -67,7 +66,7 @@
         @include jkl.reset-outline;
 
         &:hover {
-            --text-color: var(--jkl-color-text-interactive-hover);
+            --text-color: var(--jkl-color-text-subdued);
         }
 
         &:focus-visible {

@@ -16,12 +16,7 @@ export const LinkCard: FC<PortableTextTypeComponentProps<Jokul_linkCard>> = ({
         <Flex gap="m" className={styles.linkCardWrapper}>
             {value.external_links.map((link, index) => {
                 return (
-                    <Card
-                        asChild
-                        clickable={true}
-                        variant="filled"
-                        key={link._key || index}
-                    >
+                    <Card asChild clickable={true} key={link._key || index}>
                         <a href={link.url} aria-label={link.title}>
                             <div className={styles.linkCard}>
                                 <div className={"jkl-heading-4"}>

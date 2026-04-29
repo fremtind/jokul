@@ -42,12 +42,7 @@ const Header = () => (
     </Card>
 );
 const Sidebar = ({ name = "B", number = 84 }) => (
-    <Card
-        variant="filled"
-        as="nav"
-        padding="l"
-        style={{ maxWidth: "25ch", minWidth: "25ch" }}
-    >
+    <Card as="nav" padding="l" style={{ maxWidth: "25ch", minWidth: "25ch" }}>
         <Flex direction="column">
             <Flex direction="column" gap="none">
                 <p>{name}</p>
@@ -254,12 +249,7 @@ export const Hjem: Story = {
                         </div>
                     </Flex>
                 </Flex>
-                <Card
-                    data-theme="dark"
-                    variant="filled"
-                    as="footer"
-                    padding="l"
-                >
+                <Card data-theme="dark" as="footer" padding="l">
                     <Flex justifyContent="space-between">
                         <Flex gap="m">
                             {[
@@ -354,12 +344,7 @@ export const Forsikringsoversikt: Story = {
                         </Flex>
                     </Flex>
                 </Flex>
-                <Card
-                    data-theme="dark"
-                    variant="filled"
-                    as="footer"
-                    padding="l"
-                >
+                <Card data-theme="dark" as="footer" padding="l">
                     <Flex justifyContent="space-between">
                         <Flex gap="m">
                             {[
