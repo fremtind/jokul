@@ -137,8 +137,7 @@ Dette gjør du med
 
 Om du ikke bruker Sass kan du bruke CSS-versjonen. Denne versjonen ser **kun** etter fontfilene på URLen `/fonts`, så det beste er å sørge for å kopiere fonter på en måte som gjør at de blir tilgjengelig på den URLen.
 
-Om du er nødt til å legge fontfilene et annet sted må CSS-filen `node_modules/@fremtind/jokul/styles/theme/fonts.css`
-kopieres inn i prosjektet. Deretter må du endre URLen i hver `@font-face`-definisjon manuelt så det stemmer med hvor fontfilene ligger. **Husk at man må gjenta prosessen hver gang man oppdaterer pakken!**
+Om du er nødt til å legge fontfilene et annet sted må `@font-face`-definisjonene fra `node_modules/@fremtind/jokul/styles/base.css` kopieres inn i prosjektet. Deretter må du endre URLen i hver `@font-face`-definisjon manuelt så det stemmer med hvor fontfilene ligger. **Husk at man må gjenta prosessen hver gang man oppdaterer pakken!**
 
 ```css
 @font-face {
