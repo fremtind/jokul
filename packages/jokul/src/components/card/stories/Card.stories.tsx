@@ -6,7 +6,7 @@ import { CheckIcon, CopyIcon } from "../../icon/index.js";
 import { Image } from "../../image/Image.js";
 import { InfoTag } from "../../tag/index.js";
 import { Card } from "../Card.js";
-import { CARD_PADDINGS, CARD_VARIANTS } from "../types.js";
+import { CARD_PADDINGS } from "../types.js";
 
 import "../styles/_index.scss";
 
@@ -17,12 +17,10 @@ const meta = {
     component: Card,
     args: {
         clickable: false,
+        outlined: false,
     },
     argTypes: {
-        variant: {
-            control: "select",
-            options: CARD_VARIANTS,
-        },
+        outlined: { control: "boolean" },
         padding: { control: "select", options: CARD_PADDINGS },
     },
 } satisfies Meta<typeof Card>;

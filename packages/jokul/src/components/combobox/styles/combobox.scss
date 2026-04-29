@@ -6,8 +6,7 @@
 @layer jokul.components {
     .jkl-combobox {
         --jkl-combobox-button-padding: var(--jkl-unit-10);
-        --jkl-combobox-button-active-value-padding: var(--jkl-unit-10)
-            var(--jkl-unit-05) var(--jkl-unit-5) var(--jkl-unit-10);
+        --jkl-combobox-button-active-value-padding: var(--jkl-unit-10) var(--jkl-unit-05) var(--jkl-unit-5) var(--jkl-unit-10);
         --jkl-combobox-input-height: #{jkl.rem(48px)};
         --jkl-combobox-actions-right: var(--jkl-unit-10);
         --jkl-combobox-actions-top: var(--jkl-unit-05);
@@ -78,10 +77,8 @@
             @include jkl.motion;
             transition-property: transform, color;
 
-            @include jkl.forced-colors-svg-fallback(
-                $stroke: CanvasText,
-                $fill: CanvasText
-            );
+            @include jkl.forced-colors-svg-fallback($stroke: CanvasText,
+                $fill: CanvasText);
         }
 
         &__menu {
@@ -97,10 +94,7 @@
             border: jkl.rem(2px) solid var(--jkl-color-border-strong);
             border-radius: 0 0 jkl.rem(3px) jkl.rem(3px);
             box-sizing: border-box;
-            max-height: calc(
-                calc(var(--jkl-combobox-max-shown-options, 5) + 0.5) *
-                    var(--jkl-combobox-input-height)
-            );
+            max-height: calc(calc(var(--jkl-combobox-max-shown-options, 5) + 0.5) * var(--jkl-combobox-input-height));
         }
 
         &__option {
@@ -110,7 +104,7 @@
             align-items: center;
             border: 0;
             color: var(--jkl-color-text-default);
-            background-color: var(--jkl-color-background-interactive);
+            background-color: transparent;
             transition-property: color, background-color;
             cursor: pointer;
             padding: var(--jkl-combobox-option-padding);
@@ -120,7 +114,7 @@
 
             &:focus,
             &:hover {
-                background-color: var(--jkl-color-background-interactive-hover);
+                background-color: color-mix(in srgb, currentColor 10%, transparent);
             }
 
             &-description {

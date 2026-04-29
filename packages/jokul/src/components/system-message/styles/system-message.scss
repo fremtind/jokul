@@ -12,156 +12,157 @@ $_dismiss-animation-duration: jkl.timing("lazy");
         --jkl-system-message-content-padding: var(--jkl-unit-30);
         --jkl-system-message-dismiss-button-size: var(--jkl-unit-40);
         --jkl-system-message-dismiss-button-margin: -#{jkl.rem(
-                6.5px
-            )} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)}
-            auto;
-        --jkl-system-message-message-margin: 0 var(--jkl-unit-20);
-        --background-color: var(--jkl-color-background-container);
-        --text-color: var(--jkl-color-text-default);
-        --border-color: var(--jkl-color-border-subdued);
+ 6.5px)
+    }
 
-        width: 100%;
-        background-color: var(--background-color);
-        color: var(--text-color);
-        border: 1px solid var(--border-color);
-        transition-behavior: allow-discrete;
+    -#{jkl.rem(18px)} -#{jkl.rem(6.5px)} auto;
+    --jkl-system-message-message-margin: 0 var(--jkl-unit-20);
+    --background-color: var(--jkl-color-background-container);
+    --text-color: var(--jkl-color-text-default);
+    --border-color: var(--jkl-color-border-subdued);
+
+    width: 100%;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    transition-behavior: allow-discrete;
+    box-sizing: border-box;
+
+    &__content {
         box-sizing: border-box;
+        padding: var(--jkl-system-message-content-padding);
+        display: grid;
+        grid-template-columns: min-content 1fr min-content;
+        align-items: flex-start;
+        width: 100%;
+        margin: 0 auto;
+    }
 
-        &__content {
-            box-sizing: border-box;
-            padding: var(--jkl-system-message-content-padding);
-            display: grid;
-            grid-template-columns: min-content 1fr min-content;
-            align-items: flex-start;
-            width: 100%;
-            margin: 0 auto;
+    &__icon {
+        height: var(--jkl-system-message-icon-height);
+        margin: var(--jkl-system-message-icon-padding);
+        flex-shrink: 0;
+
+        @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+    }
+
+    &__message {
+        @include jkl.text-style("text-medium");
+        margin: var(--jkl-system-message-message-margin);
+    }
+
+    &__dismiss-button {
+        background-color: transparent;
+        padding: 0;
+        cursor: pointer;
+        display: grid;
+        place-content: center;
+        position: relative;
+        flex-shrink: 0;
+        margin-top: jkl.rem(3px); // visual alignment with text
+        color: inherit;
+
+        // Sørg for å ha en stor nok touch target.
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: var(--jkl-system-message-dismiss-button-size);
+            height: var(--jkl-system-message-dismiss-button-size);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        &__icon {
-            height: var(--jkl-system-message-icon-height);
-            margin: var(--jkl-system-message-icon-padding);
-            flex-shrink: 0;
+        @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
 
-            @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+        @include jkl.forced-colors-mode {
+            background-color: ButtonFace;
         }
 
-        &__message {
-            @include jkl.text-style("text-medium");
-            margin: var(--jkl-system-message-message-margin);
-        }
+        @include jkl.reset-outline;
 
-        &__dismiss-button {
-            background-color: transparent;
-            padding: 0;
-            cursor: pointer;
-            display: grid;
-            place-content: center;
-            position: relative;
-            flex-shrink: 0;
-            margin-top: jkl.rem(3px); // visual alignment with text
-            color: inherit;
-
-            // Sørg for å ha en stor nok touch target.
-            &::after {
-                content: "";
-                position: absolute;
-                display: block;
-                width: var(--jkl-system-message-dismiss-button-size);
-                height: var(--jkl-system-message-dismiss-button-size);
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
+        &:hover {
+            color: var(--jkl-color-text-subdued);
 
             @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline;
 
             @include jkl.forced-colors-mode {
-                background-color: ButtonFace;
-            }
-
-            @include jkl.reset-outline;
-
-            &:hover {
-                color: var(--jkl-color-text-interactive-hover);
-
-                @include jkl.forced-colors-svg-fallback($stroke: ButtonText);
-            }
-
-            &:focus-visible {
-                @include jkl.focus-outline;
-
-                @include jkl.forced-colors-mode {
-                    outline: 2px solid ButtonText;
-                    outline-offset: 2px;
-                }
+                outline: 2px solid ButtonText;
+                outline-offset: 2px;
             }
         }
+    }
 
-        &__message,
-        &__message:last-child {
-            margin-bottom: 0;
-        }
+    &__message,
+    &__message:last-child {
+        margin-bottom: 0;
+    }
 
-        &--dismissed {
-            animation: $_dismiss-animation-name jkl.timing("lazy") forwards;
-            transition: block jkl.timing("lazy") jkl.timing("lazy");
-        }
+    &--dismissed {
+        animation: $_dismiss-animation-name jkl.timing("lazy") forwards;
+        transition: block jkl.timing("lazy") jkl.timing("lazy");
+    }
+
+    &--info {
+        --background-color: var(--jkl-color-info-background-container);
+        --text-color: var(--jkl-color-info-text-default);
+        --border-color: var(--jkl-color-info-border-subdued);
+    }
+
+    &--warning {
+        --background-color: var(--jkl-color-warning-background-container);
+        --text-color: var(--jkl-color-warning-text-default);
+        --border-color: var(--jkl-color-warning-border-subdued);
+    }
+
+    &--error {
+        --background-color: var(--jkl-color-error-background-container);
+        --text-color: var(--jkl-color-error-text-default);
+        --border-color: var(--jkl-color-error-border-subdued);
+    }
+
+    &--success {
+        --background-color: var(--jkl-color-success-background-container);
+        --text-color: var(--jkl-color-success-text-default);
+        --border-color: var(--jkl-color-success-border-subdued);
+    }
+
+    @include jkl.forced-colors-mode {
+        border: 2px solid CanvasText;
 
         &--info {
-            --background-color: var(--jkl-color-info-background-container);
-            --text-color: var(--jkl-color-info-text-default);
-            --border-color: var(--jkl-color-info-border-subdued);
+            border-style: dotted;
         }
 
         &--warning {
-            --background-color: var(--jkl-color-warning-background-container);
-            --text-color: var(--jkl-color-warning-text-default);
-            --border-color: var(--jkl-color-warning-border-subdued);
+            border-style: dashed;
         }
 
         &--error {
-            --background-color: var(--jkl-color-error-background-container);
-            --text-color: var(--jkl-color-error-text-default);
-            --border-color: var(--jkl-color-error-border-subdued);
-        }
-
-        &--success {
-            --background-color: var(--jkl-color-success-background-container);
-            --text-color: var(--jkl-color-success-text-default);
-            --border-color: var(--jkl-color-success-border-subdued);
-        }
-
-        @include jkl.forced-colors-mode {
-            border: 2px solid CanvasText;
-
-            &--info {
-                border-style: dotted;
-            }
-
-            &--warning {
-                border-style: dashed;
-            }
-
-            &--error {
-                border-style: double;
-                border-width: 4px;
-            }
+            border-style: double;
+            border-width: 4px;
         }
     }
+}
 
-    @keyframes #{$_dismiss-animation-name} {
-        from {
-            opacity: 1;
-            transform: translateY(0);
-            filter: saturate(1);
-            display: block;
-        }
-
-        to {
-            opacity: 0;
-            transform: translateY(-10%);
-            filter: saturate(0.7);
-            display: none;
-        }
+@keyframes #{$_dismiss-animation-name} {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        filter: saturate(1);
+        display: block;
     }
+
+    to {
+        opacity: 0;
+        transform: translateY(-10%);
+        filter: saturate(0.7);
+        display: none;
+    }
+}
 }

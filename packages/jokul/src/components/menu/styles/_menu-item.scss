@@ -4,7 +4,7 @@
     .jkl-menu-item {
         --jkl-menu-item-height: var(--jkl-unit-60);
         --jkl-menu-item-padding: var(--jkl-unit-15) var(--jkl-unit-30);
-        --background-color: var(--jkl-color-background-interactive);
+        --background-color: transparent;
 
         background-color: var(--background-color);
         color: var(--jkl-color-text-default);
@@ -53,7 +53,7 @@
 
         &:hover,
         &:focus-visible {
-            --background-color: var(--jkl-color-background-interactive-hover);
+            --background-color: color-mix(in srgb, currentColor 18%, transparent);
         }
     }
 }

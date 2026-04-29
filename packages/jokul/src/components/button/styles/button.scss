@@ -126,8 +126,8 @@
         }
 
         &--primary {
-            --background-color: var(--jkl-color-background-action);
-            --text-color: var(--jkl-color-text-on-action);
+            --background-color: var(--jkl-color-background-contrast);
+            --text-color: var(--jkl-color-text-on-contrast);
 
             @media (forced-colors: active) {
                 border: calc(var(--border-width) * 2) solid Highlight;

@@ -206,7 +206,7 @@ export const IKort: Story = {
             source: {
                 type: "code",
                 language: "tsx",
-                code: `<Card variant="filled" padding="l">
+                code: `<Card variant="high" padding="l">
     <Flex direction="column" gap="m">
         <Flex as="hgroup" direction="column" gap="xs">
             <Title>Ambisjon og bærekraftsarbeid</Title>
@@ -225,7 +225,7 @@ export const IKort: Story = {
         },
     },
     render: () => (
-        <Card variant="filled" padding="l">
+        <Card variant="high" padding="l">
             <Flex direction="column" gap="m" style={{ maxWidth: 560 }}>
                 <Flex as="hgroup" direction="column" gap="xs">
                     <Title>Ambisjon og bærekraftsarbeid</Title>

@@ -3,16 +3,16 @@ import { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
 
 export const brands = [
-    { title: "Fremtind", value: "fremtind", icon: "home" },
-    { title: "DNB", value: "dnb", icon: "graphbar" },
-    { title: "Eika", value: "eika", icon: "circlehollow" },
-    { title: "SpareBank 1", value: "sparebank1", icon: "circle" },
+    { title: "Fremtind", value: "fremtind" },
+    { title: "DNB", value: "dnb" },
+    { title: "Eika", value: "eika" },
+    { title: "SpareBank 1", value: "sparebank1" },
 ];
 
 const applyBrand = (element: HTMLElement, brand?: string) => {
     element.classList.add("jkl");
 
-    if (!brand || brand === "default") {
+    if (!brand) {
         delete element.dataset.brand;
         return;
     }

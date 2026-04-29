@@ -43,7 +43,7 @@ const Header = () => (
 );
 const Sidebar = ({ name = "B", number = 84 }) => (
     <Card
-        variant="filled"
+        variant="high"
         as="nav"
         padding="l"
         style={{ maxWidth: "25ch", minWidth: "25ch" }}
@@ -254,12 +254,7 @@ export const Hjem: Story = {
                         </div>
                     </Flex>
                 </Flex>
-                <Card
-                    data-theme="dark"
-                    variant="filled"
-                    as="footer"
-                    padding="l"
-                >
+                <Card data-theme="dark" variant="high" as="footer" padding="l">
                     <Flex justifyContent="space-between">
                         <Flex gap="m">
                             {[
@@ -354,12 +349,7 @@ export const Forsikringsoversikt: Story = {
                         </Flex>
                     </Flex>
                 </Flex>
-                <Card
-                    data-theme="dark"
-                    variant="filled"
-                    as="footer"
-                    padding="l"
-                >
+                <Card data-theme="dark" variant="high" as="footer" padding="l">
                     <Flex justifyContent="space-between">
                         <Flex gap="m">
                             {[

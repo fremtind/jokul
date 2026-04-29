@@ -10,7 +10,8 @@
 
     @include jkl.text-style("text-small") {
         font-weight: jkl.$font-weight-bold;
-    };
+    }
+
     background-color: var(--background-color);
     color: var(--text-color);
     border: 1px solid var(--border-color);
