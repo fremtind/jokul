@@ -226,6 +226,52 @@ function applyBetaStyleReplacements(text) {
     return { text: next, replacements, warnings };
 }
 
+const WEBFONTS_CSS_SPECIFIER =
+    "@fremtind/jokul/styles/fonts/webfonts(?:\\.min)?\\.css";
+
+const BASE_OR_COMPONENT_CSS_PATTERN = new RegExp(
+    "@fremtind/jokul/styles/(?:base|components)(?:\\.min)?\\.css",
+);
+
+const WEBFONTS_CSS_REMOVAL_PATTERNS = [
+    // import "@fremtind/jokul/styles/fonts/webfonts.css"; (ESM)
+    new RegExp(
+        `^[ \\t]*import\\s+["']${WEBFONTS_CSS_SPECIFIER}["']\\s*;?[ \\t]*\\r?\\n?`,
+        "gm",
+    ),
+    // require("@fremtind/jokul/styles/fonts/webfonts.css"); (CJS)
+    new RegExp(
+        `^[ \\t]*require\\(\\s*["']${WEBFONTS_CSS_SPECIFIER}["']\\s*\\)\\s*;?[ \\t]*\\r?\\n?`,
+        "gm",
+    ),
+    // @import "@fremtind/jokul/styles/fonts/webfonts.css"; (CSS / SCSS)
+    new RegExp(
+        `^[ \\t]*@import\\s+["']${WEBFONTS_CSS_SPECIFIER}["']\\s*;?[ \\t]*\\r?\\n?`,
+        "gm",
+    ),
+];
+
+/**
+ * I Jøkul 5 er `@font-face`-definisjonene flyttet inn i `styles/base.css`, og den
+ * frittstående `styles/fonts/webfonts.css` finnes ikke lenger i pakken. For
+ * .css-konsumenter betyr det at gamle `webfonts.css`-imports må fjernes – ellers
+ * blir bygget brutt fordi filen er borte. SCSS-konsumenter håndteres av
+ * `DIRECT_REPLACEMENTS` siden de kan ha behov for å overstyre `$webfonts-dir`.
+ */
+function removeRedundantWebfontsCssImport(text) {
+    let next = text;
+    let count = 0;
+
+    for (const pattern of WEBFONTS_CSS_REMOVAL_PATTERNS) {
+        next = next.replace(pattern, () => {
+            count += 1;
+            return "";
+        });
+    }
+
+    return { text: next, count };
+}
+
 function reorderConfiguredFontImport(text) {
     const fontImportPattern =
         /^@use\s+["']@fremtind\/jokul\/styles\/theme\/fonts["'][\s\S]*?;\s*/m;
@@ -257,7 +303,8 @@ function reorderConfiguredFontImport(text) {
 }
 
 export function transformImportPaths(text, filePath = "") {
-    const direct = applyDirectReplacements(text);
+    const webfontsRemoval = removeRedundantWebfontsCssImport(text);
+    const direct = applyDirectReplacements(webfontsRemoval.text);
     const beta = applyBetaStyleReplacements(direct.text);
     let next = beta.text;
     let reordered = false;
@@ -268,11 +315,23 @@ export function transformImportPaths(text, filePath = "") {
         reordered = reorderedResult.reordered;
     }
 
+    const warnings = [...beta.warnings];
+
+    if (
+        webfontsRemoval.count > 0 &&
+        !BASE_OR_COMPONENT_CSS_PATTERN.test(next)
+    ) {
+        warnings.push(
+            "Manuell vurdering: fjernet import av `styles/fonts/webfonts.css`. `@font-face`-definisjonene ligger nå i `@fremtind/jokul/styles/base.css`, så den må importeres for at fontene skal lastes.",
+        );
+    }
+
     return {
         text: next,
         changed: next !== text,
-        replacements: direct.replacements + beta.replacements,
-        warnings: beta.warnings,
+        replacements:
+            direct.replacements + beta.replacements + webfontsRemoval.count,
+        warnings,
         reordered,
     };
 }
