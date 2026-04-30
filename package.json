@@ -65,7 +65,9 @@
             "minimatch@10": ">=10.2.3",
             "path-to-regexp@8": ">=8.4.0",
             "rollup": ">=4.59.0",
-            "svgo": ">=4.0.1"
+            "svgo": ">=4.0.1",
+            "terser-webpack-plugin": ">=5.5.0",
+            "undici": ">=6.24.0"
         }
     },
     "dependencies": {
