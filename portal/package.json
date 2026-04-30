@@ -6,6 +6,12 @@
     "license": "MIT",
     "type": "module",
     "scripts": {
+        "predev": "pnpm sync-assets",
+        "prebuild": "pnpm sync-assets",
+        "test": "vitest run --config vite.test.config.mjs",
+        "sync-assets": "pnpm sync-fonts && pnpm sync-images",
+        "sync-fonts": "mkdir -p public/fonts && cp -R ../packages/jokul/src/fonts/brands/fremtind/. public/fonts/",
+        "sync-images": "mkdir -p public/images && cp -R ../storybook-public/images/. public/images/",
         "build": "cross-env NODE_OPTIONS=--no-deprecation next build --webpack",
         "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 3333 --webpack",
         "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev -p 3333 --webpack",
@@ -20,9 +26,9 @@
         "@mdx-js/react": "^3.1.1",
         "@next/mdx": "^16.1.6",
         "@portabletext/react": "^5.0.0",
-        "@sanity/code-input": "^6.0.4",
         "@portabletext/types": "^3.0.1",
         "@sanity/client": "^7.14.1",
+        "@sanity/code-input": "^6.0.4",
         "@sanity/icons": "^3.7.0",
         "@sanity/image-url": "^2.0.3",
         "@sanity/locale-nb-no": "^1.1.29",
@@ -30,6 +36,7 @@
         "@sanity/ui": "^3.1.11",
         "@sanity/vision": "^4.22.0",
         "@types/mdx": "^2.0.13",
+        "colorjs.io": "0.6.1",
         "cookies-next": "^6.0.0",
         "cross-env": "^10.1.0",
         "dompurify": "^3.3.1",
@@ -50,9 +57,12 @@
         "@types/node": "^24.10.9",
         "@types/react": "^18.3.20",
         "@types/react-dom": "^18.3.6",
+        "@vitejs/plugin-react": "^4.7.0",
         "eslint": "^9.39.2",
         "eslint-config-next": "16.1.6",
-        "typescript": "^5.8.3"
+        "jsdom": "^26.1.0",
+        "typescript": "^5.8.3",
+        "vitest": "^3.2.4"
     },
     "engines": {
         "node": ">=21.0.0"

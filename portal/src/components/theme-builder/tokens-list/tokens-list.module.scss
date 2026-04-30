@@ -1,0 +1,85 @@
+@use "@fremtind/jokul/styles/jkl";
+
+.tokensListSwatch {
+    flex-shrink: 0;
+    border: 1px solid var(--jkl-color-border-subdued);
+    border-radius: var(--jkl-border-radius-s);
+    background-color: var(--theme-builder-swatch-color);
+}
+
+.tokensListTextPreview {
+    flex-shrink: 0;
+    display: inline-grid;
+    place-items: center;
+    border-radius: var(--jkl-border-radius-s);
+    background-color: var(--theme-builder-preview-bg);
+    color: var(--theme-builder-preview-color);
+    font-weight: 700;
+}
+
+.tokensListBorderPreview {
+    flex-shrink: 0;
+    border: 0.125rem solid var(--theme-builder-preview-color);
+    border-radius: var(--jkl-border-radius-s);
+    background-color: var(--theme-builder-preview-bg);
+}
+
+.tokensListPreviewSmall {
+    inline-size: 1.75rem;
+    block-size: 1.5rem;
+
+    @include jkl.text-style("text-small");
+}
+
+.tokensListPreviewLarge {
+    inline-size: 100%;
+    min-inline-size: 14rem;
+    block-size: 6rem;
+    border-radius: var(--jkl-border-radius-m);
+
+    @include jkl.text-style("heading-2");
+}
+
+.contrastSummaryList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.contrastSummaryItem {
+    padding-block: var(--jkl-spacing-12);
+    border-block-start: 1px solid var(--jkl-color-border-subdued);
+
+    &:last-child {
+        border-block-end: 1px solid var(--jkl-color-border-subdued);
+    }
+}
+
+.tokensListContrast,
+.tokensListContrastButton {
+    color: var(--jkl-color-text-subdued);
+
+    @include jkl.text-style("text-micro");
+
+    &[data-passes="false"] {
+        color: var(--jkl-color-text-alert);
+    }
+}
+
+.tokensListContrastButton {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: underline dotted;
+    text-underline-offset: 0.2em;
+
+    &:focus-visible {
+        outline: var(--jkl-border-width) solid var(--jkl-color-border-action);
+        outline-offset: 2px;
+        border-radius: var(--jkl-border-radius-s);
+    }
+}

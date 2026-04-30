@@ -18,6 +18,7 @@ dist/
 .DS_Store
 .stylelintcache
 **/public/fonts
+portal/public/images
 **/vite.build.config.mjs.timestamp-*
 test-results/
 playwright-report/
