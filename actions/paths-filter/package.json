@@ -5,7 +5,7 @@
     "description": "Find files that were modified in the pull request",
     "main": "build/main.js",
     "scripts": {
-        "build": "esbuild src/main.ts --bundle --platform=node --target=node16 --outfile=build/main.js",
+        "build": "esbuild src/main.ts --bundle --platform=node --target=node20 --outfile=build/main.js",
         "lint": "eslint src/**/*.ts"
     },
     "repository": {
