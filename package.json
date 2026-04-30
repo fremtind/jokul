@@ -36,6 +36,7 @@
         "integration:ci": "playwright test --project=chromium",
         "integration:interactive": "playwright test --project=chromium --ui",
         "integration:axe": "playwright test -g axe",
+        "check:security-overrides": "node scripts/check-security-overrides.mjs",
         "prepare": "husky || true"
     },
     "packageManager": "pnpm@10.21.0",
