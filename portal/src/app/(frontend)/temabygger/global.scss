@@ -1,0 +1,14 @@
+.jkl-theme-builder-layout {
+    min-height: 100dvh;
+    background-color: var(--jkl-color-background-page);
+}
+
+.jkl-theme-builder-main {
+    max-width: 1600px;
+    margin-inline: auto;
+    padding: var(--jkl-spacing-16);
+
+    @media (width >=940px) {
+        padding: var(--jkl-spacing-24);
+    }
+}

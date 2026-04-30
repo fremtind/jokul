@@ -31,6 +31,9 @@
       ],
       "@storybook-config/*": [
         "../.storybook/*"
+      ],
+      "@jokul-stories/*": [
+        "../packages/jokul/stories/*"
       ]
     },
     "target": "ES2022"
