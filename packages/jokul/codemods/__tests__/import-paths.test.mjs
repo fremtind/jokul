@@ -82,3 +82,192 @@ import "@fremtind/jokul/styles/components/nav-link";
     assert.equal(result.changed, false);
     assert.equal(result.warnings.length, 1);
 });
+
+test("removes redundant webfonts.css imports when base or components css is also imported", () => {
+    const source = `import "@fremtind/jokul/styles/styles.css";
+import "@fremtind/jokul/styles/core/core.css";
+import "@fremtind/jokul/styles/fonts/webfonts.css";
+`;
+
+    const result = transformImportPaths(source, "/tmp/main.tsx");
+
+    assert.equal(
+        result.text.includes("@fremtind/jokul/styles/fonts/webfonts.css"),
+        false,
+    );
+    assert.equal(
+        result.text.includes('import "@fremtind/jokul/styles/components.css";'),
+        true,
+    );
+    assert.equal(
+        result.text.includes('import "@fremtind/jokul/styles/base.css";'),
+        true,
+    );
+    assert.deepEqual(result.warnings, []);
+});
+
+test("removes minified webfonts.css imports as well", () => {
+    const source = `import "@fremtind/jokul/styles/core/core.min.css";
+import "@fremtind/jokul/styles/fonts/webfonts.min.css";
+`;
+
+    const result = transformImportPaths(source, "/tmp/main.ts");
+
+    assert.equal(
+        result.text.includes("webfonts"),
+        false,
+    );
+    assert.equal(
+        result.text.includes('import "@fremtind/jokul/styles/base.min.css";'),
+        true,
+    );
+});
+
+test("warns when webfonts.css is removed without a base or components import", () => {
+    const source = `import "@fremtind/jokul/styles/fonts/webfonts.css";
+`;
+
+    const result = transformImportPaths(source, "/tmp/main.tsx");
+
+    assert.equal(result.text.includes("webfonts"), false);
+    assert.equal(result.warnings.length, 1);
+    assert.match(result.warnings[0], /styles\/base\.css/);
+});
+
+test("removes css @import of webfonts.css", () => {
+    const source = `@import "@fremtind/jokul/styles/components.css";
+@import "@fremtind/jokul/styles/fonts/webfonts.css";
+`;
+
+    const result = transformImportPaths(source, "/tmp/global.css");
+
+    assert.equal(result.text.includes("webfonts"), false);
+    assert.equal(
+        result.text.includes('@import "@fremtind/jokul/styles/components.css";'),
+        true,
+    );
+    assert.deepEqual(result.warnings, []);
+});
+
+test("warns about removed sass color variables", () => {
+    const source = `@use "@fremtind/jokul/styles/jkl";
+
+.banner {
+    background: jkl.$color-granitt;
+    color: jkl.$color-snohvit;
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/banner.scss");
+
+    assert.equal(
+        result.warnings.some((warning) =>
+            /jkl\.\$color-\*/.test(warning),
+        ),
+        true,
+    );
+    // Bare én advarsel per mønster, selv om det er flere forekomster
+    assert.equal(
+        result.warnings.filter((warning) =>
+            /jkl\.\$color-\*/.test(warning),
+        ).length,
+        1,
+    );
+});
+
+test("warns about removed light/dark mode mixins", () => {
+    const source = `@use "@fremtind/jokul/styles/jkl";
+
+@include jkl.light-mode-variables {
+    --min-farge: jkl.$color-granitt;
+}
+@include jkl.dark-mode-variables {
+    --min-farge: jkl.$color-snohvit;
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/theme.scss");
+
+    assert.equal(
+        result.warnings.some((warning) =>
+            /light-mode-variables/.test(warning),
+        ),
+        true,
+    );
+});
+
+test("warns about deprecated text-style names", () => {
+    const source = `@use "@fremtind/jokul/styles/jkl";
+
+.lead {
+    @include jkl.text-style("body");
+}
+
+.fineprint {
+    @include jkl.text-style("small");
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/typography.scss");
+
+    assert.equal(
+        result.warnings.some((warning) =>
+            /paragraph-large\/medium\/small/.test(warning),
+        ),
+        true,
+    );
+    assert.equal(
+        result.warnings.some((warning) => /<Text>-komponenten/.test(warning)),
+        true,
+    );
+});
+
+test("renames Fremtind Material Symbols font-family", () => {
+    const source = `.icon {
+    font-family: "Fremtind Material Symbols", "Fremtind Material Symbols Fallback", sans-serif;
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/icons.scss");
+
+    assert.equal(
+        result.text.includes("Fremtind Material Symbols"),
+        false,
+    );
+    assert.equal(
+        result.text.includes(
+            '"Jokul Icons", "Jokul Icons Fallback", sans-serif',
+        ),
+        true,
+    );
+    assert.equal(result.replacements, 2);
+});
+
+test("renames Fremtind Material Symbols inside CSS files too", () => {
+    const source = `.icon {
+    font-family: 'Fremtind Material Symbols';
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/icons.css");
+
+    assert.equal(
+        result.text.includes("Fremtind Material Symbols"),
+        false,
+    );
+    assert.equal(result.text.includes("'Jokul Icons'"), true);
+});
+
+test("does not warn about valid 5.0 patterns", () => {
+    const source = `@use "@fremtind/jokul/styles/jkl";
+
+.title {
+    @include jkl.text-style("heading-1");
+    color: var(--jkl-color-text-default);
+}
+`;
+
+    const result = transformImportPaths(source, "/tmp/title.scss");
+
+    assert.deepEqual(result.warnings, []);
+});

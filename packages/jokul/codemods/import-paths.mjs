@@ -226,6 +226,120 @@ function applyBetaStyleReplacements(text) {
     return { text: next, replacements, warnings };
 }
 
+/**
+ * Font-family-navnet "Fremtind Material Symbols" (og tilhørende fallback) ble
+ * omdøpt til "Jokul Icons" i Jøkul 5. Konsumenter som har skrevet font-family
+ * direkte i sin egen CSS/SCSS får ellers en stille brutt referanse.
+ *
+ * Fallback-navnet erstattes først (lengst først), slik at det ikke blir
+ * delvis overskrevet av kortere mønster.
+ */
+const FONT_FAMILY_REPLACEMENTS = [
+    ["Fremtind Material Symbols Fallback", "Jokul Icons Fallback"],
+    ["Fremtind Material Symbols", "Jokul Icons"],
+];
+
+function applyFontFamilyReplacements(text) {
+    let next = text;
+    let count = 0;
+
+    for (const [from, to] of FONT_FAMILY_REPLACEMENTS) {
+        const pattern = new RegExp(escapeRegExp(from), "g");
+        next = next.replace(pattern, () => {
+            count += 1;
+            return to;
+        });
+    }
+
+    return { text: next, count };
+}
+
+const WEBFONTS_CSS_SPECIFIER =
+    "@fremtind/jokul/styles/fonts/webfonts(?:\\.min)?\\.css";
+
+const BASE_OR_COMPONENT_CSS_PATTERN = new RegExp(
+    "@fremtind/jokul/styles/(?:base|components)(?:\\.min)?\\.css",
+);
+
+const WEBFONTS_CSS_REMOVAL_PATTERNS = [
+    // import "@fremtind/jokul/styles/fonts/webfonts.css"; (ESM)
+    new RegExp(
+        `^[ \\t]*import\\s+["']${WEBFONTS_CSS_SPECIFIER}["']\\s*;?[ \\t]*\\r?\\n?`,
+        "gm",
+    ),
+    // require("@fremtind/jokul/styles/fonts/webfonts.css"); (CJS)
+    new RegExp(
+        `^[ \\t]*require\\(\\s*["']${WEBFONTS_CSS_SPECIFIER}["']\\s*\\)\\s*;?[ \\t]*\\r?\\n?`,
+        "gm",
+    ),
+    // @import "@fremtind/jokul/styles/fonts/webfonts.css"; (CSS / SCSS)
+    new RegExp(
+        `^[ \\t]*@import\\s+["']${WEBFONTS_CSS_SPECIFIER}["']\\s*;?[ \\t]*\\r?\\n?`,
+        "gm",
+    ),
+];
+
+/**
+ * I Jøkul 5 er `@font-face`-definisjonene flyttet inn i `styles/base.css`, og den
+ * frittstående `styles/fonts/webfonts.css` finnes ikke lenger i pakken. For
+ * .css-konsumenter betyr det at gamle `webfonts.css`-imports må fjernes – ellers
+ * blir bygget brutt fordi filen er borte. SCSS-konsumenter håndteres av
+ * `DIRECT_REPLACEMENTS` siden de kan ha behov for å overstyre `$webfonts-dir`.
+ */
+function removeRedundantWebfontsCssImport(text) {
+    let next = text;
+    let count = 0;
+
+    for (const pattern of WEBFONTS_CSS_REMOVAL_PATTERNS) {
+        next = next.replace(pattern, () => {
+            count += 1;
+            return "";
+        });
+    }
+
+    return { text: next, count };
+}
+
+/**
+ * Patterns som ikke kan auto-erstattes, men som krever manuell migrering ved
+ * oppgradering fra Jøkul 4 til 5. Hvert mønster gir én advarsel per fil det
+ * matcher i (uavhengig av antall forekomster), med peker til hva man skal
+ * gjøre i stedet.
+ */
+const MANUAL_MIGRATION_WARNINGS = [
+    {
+        // jkl.$color-granitt, jkl.$color-varde, osv. Alle Sass-fargevariabler
+        // ble fjernet i Jøkul 5 til fordel for semantiske CSS-variabler.
+        pattern: /\bjkl\.\$color-[a-z][a-z0-9-]*/i,
+        message:
+            "Fjernede Sass-fargevariabler (jkl.$color-*). I Jøkul 5 er alle gamle fargenavn (granitt, varde, snohvit osv.) fjernet — bruk semantiske CSS-variabler, f.eks. var(--jkl-color-text-default). Se https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/farger.",
+    },
+    {
+        // @include jkl.light-mode-variables { ... } / dark-mode-variables { ... }
+        pattern: /@include\s+jkl\.(?:light|dark)-mode-variables\b/,
+        message:
+            "Fjernede mixins for custom light/dark-farger (jkl.light-mode-variables / jkl.dark-mode-variables). I Jøkul 5 må du bruke semantiske CSS-variabler i stedet for å definere egne dark/light-varianter.",
+    },
+    {
+        // @include jkl.text-style("body") / text-style("small")
+        pattern: /\btext-style\(\s*["'](?:body|small)["']\s*\)/,
+        message:
+            'Fjernede tekststiler ("body", "small") i text-style-mixin. Foretrekk å bruke <Text>-komponenten der det er mulig (`import { Text } from "@fremtind/jokul/components/typography"`). Hvis du må sette stiler direkte, bytt til "paragraph-large/medium/small" eller "text-large/medium/small/micro" — se https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/typografi.',
+    },
+];
+
+function collectManualMigrationWarnings(text) {
+    const warnings = [];
+
+    for (const { pattern, message } of MANUAL_MIGRATION_WARNINGS) {
+        if (pattern.test(text)) {
+            warnings.push(`Manuell vurdering: ${message}`);
+        }
+    }
+
+    return warnings;
+}
+
 function reorderConfiguredFontImport(text) {
     const fontImportPattern =
         /^@use\s+["']@fremtind\/jokul\/styles\/theme\/fonts["'][\s\S]*?;\s*/m;
@@ -257,7 +371,9 @@ function reorderConfiguredFontImport(text) {
 }
 
 export function transformImportPaths(text, filePath = "") {
-    const direct = applyDirectReplacements(text);
+    const webfontsRemoval = removeRedundantWebfontsCssImport(text);
+    const fontFamily = applyFontFamilyReplacements(webfontsRemoval.text);
+    const direct = applyDirectReplacements(fontFamily.text);
     const beta = applyBetaStyleReplacements(direct.text);
     let next = beta.text;
     let reordered = false;
@@ -268,11 +384,29 @@ export function transformImportPaths(text, filePath = "") {
         reordered = reorderedResult.reordered;
     }
 
+    const warnings = [
+        ...beta.warnings,
+        ...collectManualMigrationWarnings(text),
+    ];
+
+    if (
+        webfontsRemoval.count > 0 &&
+        !BASE_OR_COMPONENT_CSS_PATTERN.test(next)
+    ) {
+        warnings.push(
+            "Manuell vurdering: fjernet import av `styles/fonts/webfonts.css`. `@font-face`-definisjonene ligger nå i `@fremtind/jokul/styles/base.css`, så den må importeres for at fontene skal lastes.",
+        );
+    }
+
     return {
         text: next,
         changed: next !== text,
-        replacements: direct.replacements + beta.replacements,
-        warnings: beta.warnings,
+        replacements:
+            direct.replacements +
+            beta.replacements +
+            webfontsRemoval.count +
+            fontFamily.count,
+        warnings,
         reordered,
     };
 }
