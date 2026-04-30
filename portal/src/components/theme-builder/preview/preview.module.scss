@@ -1,0 +1,23 @@
+.demoChipGroup {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.srOnly {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.previewSurface {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    padding: var(--jkl-spacing-24);
+    border-radius: var(--jkl-border-radius-l);
+    border: 1px solid var(--jkl-color-border-subdued);
+    background-color: var(--jkl-color-background-page);
+}

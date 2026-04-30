@@ -17,7 +17,7 @@
         "lint:fix": "biome check --write --reporter=summary",
         "lint:ci": "biome lint --reporter=github",
         "ci:test": "run-p test lint:ci typecheck",
-        "test": "pnpm --filter \"@fremtind/jokul\" test",
+        "test": "pnpm --filter \"@fremtind/jokul\" test && pnpm --filter portal test",
         "changeset": "changeset",
         "release:version": "changeset version",
         "release:pre:enter": "changeset pre enter next",
