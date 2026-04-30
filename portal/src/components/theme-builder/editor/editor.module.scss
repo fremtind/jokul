@@ -1,0 +1,124 @@
+@use "@fremtind/jokul/styles/jkl";
+
+.editorTopBar {
+    border-block-end: 1px solid var(--jkl-color-border-subdued);
+    padding-block-end: var(--jkl-spacing-16);
+}
+
+.fileNameHint {
+    color: var(--jkl-color-text-subdued);
+    font-variant-numeric: tabular-nums;
+}
+
+.editorFooter {
+    margin-block-start: var(--jkl-spacing-24);
+    padding-block-start: var(--jkl-spacing-16);
+    border-block-start: 1px solid var(--jkl-color-border-subdued);
+}
+
+.footerGroup {
+    padding: var(--jkl-spacing-4) var(--jkl-spacing-8);
+    border-radius: var(--jkl-border-radius-s);
+    background-color: var(--jkl-color-background-subdued);
+}
+
+.footerDivider {
+    display: inline-block;
+    inline-size: 1px;
+    block-size: 1.5rem;
+    margin-inline: var(--jkl-spacing-4);
+    background-color: var(--jkl-color-border-subdued);
+}
+
+.variantStack {
+    display: flex;
+    flex-direction: column;
+}
+
+.variantStack > * + * {
+    margin-block-start: -1px;
+}
+
+.tokenList {
+    display: grid;
+    gap: var(--jkl-spacing-4);
+}
+
+.tokenColumnHeaders {
+    display: grid;
+    grid-template-columns: repeat(var(--theme-mode-count, 2), minmax(0, 1fr));
+    gap: var(--jkl-spacing-8);
+    margin-inline-start: auto;
+    color: var(--jkl-color-text-subdued);
+
+    @include jkl.text-style("text-micro");
+
+    @media (width >= 720px) {
+        inline-size: max(50%, 12rem);
+    }
+}
+
+.tokenRow {
+    display: grid;
+    gap: var(--jkl-spacing-8);
+    align-items: center;
+    min-width: 0;
+    padding-block: var(--jkl-spacing-4);
+
+    @media (width >= 720px) {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+}
+
+.tokenTitle {
+    min-width: 0;
+    margin: 0;
+    overflow-wrap: anywhere;
+    word-break: normal;
+
+    @include jkl.text-style("text-micro");
+}
+
+.tokenControls {
+    display: grid;
+    grid-template-columns: repeat(var(--theme-mode-count, 2), minmax(0, 1fr));
+    gap: var(--jkl-spacing-8);
+    min-width: 0;
+}
+
+.colorField {
+    display: grid;
+    grid-template-columns: auto minmax(6rem, 1fr);
+    gap: var(--jkl-spacing-4);
+    align-items: center;
+    min-width: 0;
+}
+
+.hexInput {
+    min-inline-size: 0;
+    inline-size: 100%;
+}
+
+.colorPicker {
+    inline-size: 1.75rem;
+    block-size: 1.75rem;
+    padding: 0;
+    border: 1px solid var(--jkl-color-border-subdued);
+    border-radius: var(--jkl-border-radius-s);
+    background-color: var(--jkl-color-background-container);
+    cursor: pointer;
+
+    &::-webkit-color-swatch-wrapper {
+        padding: 0.125rem;
+    }
+
+    &::-webkit-color-swatch {
+        border: none;
+        border-radius: calc(var(--jkl-border-radius-s) - 0.125rem);
+    }
+
+    &:focus-visible {
+        outline: var(--jkl-border-width) solid var(--jkl-color-border-action);
+        outline-offset: 2px;
+    }
+}

@@ -78,8 +78,7 @@ export const Detaljside: Story = {
                                     className="jkl-heading-2"
                                     style={
                                         {
-                                            "text-box":
-                                                "trim-both cap alphabetic",
+                                            textBox: "trim-both cap alphabetic",
                                         } as CSSProperties
                                     }
                                 >
@@ -172,8 +171,7 @@ export const DetaljsideMedUlikeSizes: Story = {
                                     className="jkl-heading-2"
                                     style={
                                         {
-                                            "text-box":
-                                                "trim-both cap alphabetic",
+                                            textBox: "trim-both cap alphabetic",
                                         } as CSSProperties
                                     }
                                 >
