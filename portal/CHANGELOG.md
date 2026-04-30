@@ -1,5 +1,16 @@
 # portal
 
+## 1.5.0-next.6
+
+### Patch Changes
+
+- 8487d95: La til en ny `/theme-builder`-flate i portalen for å utforske og redigere fargetokens.
+
+  Løsningen bygger på `color.tokens.json`, bruker Jøkul-komponenter i editor og forhåndsvisning, og støtter både visuell redigering og redigering i rå JSON.
+
+- Updated dependencies [5480466]
+  - @fremtind/jokul@5.0.0-next.6
+
 ## 1.5.0-next.5
 
 ### Patch Changes
