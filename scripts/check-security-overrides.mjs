@@ -40,16 +40,23 @@ function versionGte(a, b) {
 }
 
 /**
- * Returnerer den laveste versjonen som et versjonskrav KAN oppfylles av.
+ * Returnerer den laveste versjonen som et versjonskrav KAN oppfylles av,
+ * kun for ranges med klart nedre grense (^, ~, >=, > eller eksakt versjon).
+ * Returnerer null for ranges med ukjent/komplekst mønster (f.eks. "<2.0.0",
+ * hyphen ranges, komparatorsett).
  * Eksempel: "^4.0.0" → "4.0.0", ">=4.0.1" → "4.0.1", "~1.2.3" → "1.2.3"
  */
 function rangeMinVersion(range) {
     if (!range || typeof range !== "string") return null;
     const r = range.trim();
-    // Håndter komplekse ranges (||, mellomrom-separert) — ta laveste del
+    // Håndter komplekse ranges (||) — ta laveste del
     const parts = r.split("||").map((p) => p.trim());
     const mins = parts.map((part) => {
-        const match = part.match(/[>=~^]*\s*(\d+\.\d+(?:\.\d+)?)/);
+        // Tillatte mønstre med klart nedre grense:
+        // "^1.2.3", "~1.2.3", "1.2.3" (eksakt), ">=1.2.3", ">1.2.3"
+        // Enkel versjon med bare major, f.eks. ">=6"
+        const match = part.match(/^[~^]?\s*(\d+(?:\.\d+)*(?:-[a-z0-9.]+)?)$/i)
+            ?? part.match(/^>=?\s*(\d+(?:\.\d+)*(?:-[a-z0-9.]+)?)\s*$/i);
         return match ? match[1] : null;
     });
     const valid = mins.filter(Boolean);
@@ -81,26 +88,32 @@ const NON_SECURITY_OVERRIDES = new Set([
 const securityOverrides = Object.entries(allOverrides)
     .filter(([key]) => !NON_SECURITY_OVERRIDES.has(key))
     .map(([key, value]) => {
-        // Håndter "minimatch@3" → pakkenavn "minimatch", versjonskrav "@3"
+        // Håndter "minimatch@3" → pakkenavn "minimatch", nøkkelspesifikator "3"
+        // Ikke forveksle med scoped packages som "@isaacs/brace-expansion"
         const atIdx = key.lastIndexOf("@");
         const hasVersionedKey = atIdx > 0; // ikke @ i starten (scoped packages)
         const packageName = hasVersionedKey ? key.slice(0, atIdx) : key;
+        const keySpecifier = hasVersionedKey ? key.slice(atIdx + 1) : null; // f.eks. "3", "9", "10"
         const minSafe = rangeMinVersion(value);
-        return { key, packageName, minSafe, overrideValue: value };
+        return { key, packageName, keySpecifier, minSafe, overrideValue: value };
     })
     .filter(({ minSafe }) => minSafe !== null);
 
-// ── Finn konsumenter i node_modules/.pnpm ────────────────────────────────────
+// ── Bygg indeks over alle deklarerte avhengighetsranger i én enkelt pasning ──
 
-function findConsumers(packageName) {
+/**
+ * Skanner node_modules/.pnpm én gang og bygger en indeks:
+ *   Map<depName, Array<{ consumer, declaredRange }>>
+ */
+function buildConsumersIndex() {
     const pnpmDir = join(ROOT, "node_modules", ".pnpm");
-    const consumers = [];
+    const index = new Map();
 
     let entries;
     try {
         entries = readdirSync(pnpmDir, { withFileTypes: true });
     } catch {
-        return consumers;
+        return index;
     }
 
     for (const entry of entries) {
@@ -121,24 +134,35 @@ function findConsumers(packageName) {
             continue;
         }
 
+        const consumerLabel = `${data.name}@${data.version}`;
+        const seen = new Set(); // unngå å telle samme dep to ganger per pakke
         for (const depSection of [
             "dependencies",
             "devDependencies",
             "peerDependencies",
             "optionalDependencies",
         ]) {
-            const range = data[depSection]?.[packageName];
-            if (range) {
-                consumers.push({
-                    consumer: `${data.name}@${data.version}`,
-                    declaredRange: range,
-                });
-                break;
+            const deps = data[depSection];
+            if (!deps) continue;
+            for (const [depName, range] of Object.entries(deps)) {
+                if (seen.has(depName)) continue;
+                seen.add(depName);
+                if (!index.has(depName)) index.set(depName, []);
+                index.get(depName).push({ consumer: consumerLabel, declaredRange: range });
             }
         }
     }
 
-    return consumers;
+    return index;
+}
+
+const consumersIndex = buildConsumersIndex();
+
+/** Returnerer major-versjon fra en range-streng, f.eks. "^3.1.2" → 3 */
+function rangeMajor(range) {
+    const min = rangeMinVersion(range);
+    if (!min) return null;
+    return parseVersion(min).major;
 }
 
 // ── Kjør sjekk for hver sikkerhetsoverride ────────────────────────────────────
@@ -149,14 +173,28 @@ let staleCount = 0;
 let neededCount = 0;
 let unknownCount = 0;
 
-for (const { key, packageName, minSafe, overrideValue } of securityOverrides) {
-    const consumers = findConsumers(packageName);
+for (const { key, packageName, keySpecifier, minSafe, overrideValue } of securityOverrides) {
+    let consumers = consumersIndex.get(packageName) ?? [];
+
+    // Hvis overriden er versjonsspesifikk (f.eks. minimatch@9), evaluer kun
+    // konsumenter som tilhører den major-linjen, eller der major er uklar
+    // (konservativt: inkluder heller for mange enn for få)
+    if (keySpecifier !== null) {
+        const expectedMajor = Number(keySpecifier);
+        if (!Number.isNaN(expectedMajor)) {
+            consumers = consumers.filter(({ declaredRange }) => {
+                const major = rangeMajor(declaredRange);
+                // Behold konsumenter der major matcher, eller der vi ikke kan bestemme major
+                return major === null || major === expectedMajor;
+            });
+        }
+    }
 
     if (consumers.length === 0) {
-        // Pakken er ikke lenger i bruk i det hele tatt
+        // Ingen konsumenter i denne major-linjen — override er sannsynligvis utdatert
         console.log(`⚪ ${key}: ${overrideValue}`);
         console.log(
-            `   Ingen konsumenter funnet — pakken er kanskje fjernet helt.\n`,
+            `   Ingen konsumenter funnet — overriden er sannsynligvis utdatert.\n`,
         );
         staleCount++;
         continue;
@@ -165,7 +203,10 @@ for (const { key, packageName, minSafe, overrideValue } of securityOverrides) {
     // Finn konsumenter som VILLE tillatt en usikker versjon uten overriden
     const unsafeConsumers = consumers.filter(({ declaredRange }) => {
         const consumerMin = rangeMinVersion(declaredRange);
-        if (!consumerMin) return true; // ukjent range — vær forsiktig
+        if (!consumerMin) {
+            unknownCount++;
+            return true; // ukjent range — vær forsiktig
+        }
         return !versionGte(consumerMin, minSafe);
     });
 

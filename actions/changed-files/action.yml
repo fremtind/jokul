@@ -12,5 +12,5 @@ inputs:
         required: false
         description: "Set to array if you want a JSON array rather than a multiline string"
 runs:
-    using: "node16"
+    using: "node20"
     main: "build/main.js"
