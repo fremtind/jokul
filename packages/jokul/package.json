@@ -8,7 +8,7 @@
     "publishConfig": {
         "access": "public"
     },
-    "description": "J\u00f8kul monopakke",
+    "description": "Jøkul monopakke",
     "homepage": "https://github.com/fremtind/jokul/tree/main/packages/jokul",
     "keywords": [],
     "license": "MIT",
