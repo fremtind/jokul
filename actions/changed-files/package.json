@@ -17,7 +17,7 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@actions/core": "^1.11.1",
+        "@actions/core": "^3.0.1",
         "micromatch": "^4.0.8",
         "simple-git": "^3.32.3"
     },
