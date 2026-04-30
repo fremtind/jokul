@@ -27,10 +27,10 @@
         cursor: pointer;
         user-select: none;
         border-radius: jkl.rem(3px);
-        color: var(--jkl-color-text-interactive);
+        color: var(--jkl-color-text-default);
 
         &:hover:not(:focus) {
-            color: var(--jkl-color-text-interactive-hover);
+            color: var(--jkl-color-text-subdued);
         }
 
         &:focus-visible {

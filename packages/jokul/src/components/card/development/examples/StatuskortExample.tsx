@@ -10,12 +10,7 @@ import { Image } from "../../../image/Image.js";
 import { SuccessTag } from "../../../tag/Tag.js";
 import { Card } from "../../Card.js";
 import { CardImage } from "../../CardImage.js";
-import {
-    CARD_PADDINGS,
-    CARD_VARIANTS,
-    type CardPadding,
-    type CardVariant,
-} from "../../types.js";
+import { CARD_PADDINGS, type CardPadding } from "../../types.js";
 
 const imageProps = {
     src: grass400,
@@ -29,7 +24,7 @@ export const StatuskortExample = ({
     choiceValues,
 }: ExampleComponentProps) => {
     const padding = choiceValues?.["Padding"] as CardPadding | undefined;
-    const type = choiceValues?.["Type"] as CardVariant | undefined;
+    const outlined = !!boolValues?.["Outlined"];
 
     return (
         <Card
@@ -37,7 +32,7 @@ export const StatuskortExample = ({
             href="#"
             clickable={!!boolValues?.["Clickable"]}
             padding={padding}
-            variant={type}
+            outlined={outlined}
             style={{
                 maxWidth: "350px",
                 display: "flex",
@@ -79,17 +74,15 @@ export const StatuskortExample = ({
 };
 
 export const statuskortExampleProps: ExampleKnobsProps = {
-    boolProps: [{ prop: "Clickable", defaultValue: true }],
+    boolProps: [
+        { prop: "Clickable", defaultValue: true },
+        { prop: "Outlined", defaultValue: false },
+    ],
     choiceProps: [
         {
             name: "Padding",
             values: [...CARD_PADDINGS],
             defaultValue: 2,
-        },
-        {
-            name: "Type",
-            values: [...CARD_VARIANTS],
-            defaultValue: 0,
         },
     ],
 };

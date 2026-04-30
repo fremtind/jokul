@@ -14,7 +14,7 @@
     --knob-border-color: var(--jkl-color-border-strong);
     --knob-color: var(--jkl-color-background-container);
     --text-color: var(--jkl-color-text-default);
-    --icon-color: var(--jkl-color-text-on-action);
+    --icon-color: var(--jkl-color-text-on-contrast);
 
     background: transparent;
     color: var(--text-color);
@@ -38,14 +38,9 @@
 
     &[aria-pressed="true"],
     [aria-checked="true"] > & {
-        --indicator-color: var(--jkl-color-background-action);
-        --knob-color: var(--jkl-color-text-on-action);
-        --knob-position: calc(
-            var(--jkl-toggle-switch-width) - var(
-                    --jkl-toggle-switch-knob-size
-                ) - var(--switch-padding) *
-                2
-        );
+        --indicator-color: var(--jkl-color-background-contrast);
+        --knob-color: var(--jkl-color-text-on-contrast);
+        --knob-position: calc(var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--switch-padding) * 2);
     }
 
     &[disabled] {

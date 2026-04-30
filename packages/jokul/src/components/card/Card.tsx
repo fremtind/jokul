@@ -22,7 +22,7 @@ export const Card = React.forwardRef(function Card<
         className,
         clickable = false,
         padding = "s",
-        variant = "filled",
+        outlined = false,
         asChild,
         as = "div",
         ...componentProps
@@ -35,7 +35,11 @@ export const Card = React.forwardRef(function Card<
             data-testid="jkl-card"
             data-clickable={clickable}
             data-padding={padding}
-            className={clsx("jkl-card", `jkl-card--${variant}`, className)}
+            className={clsx(
+                "jkl-card",
+                outlined && "jkl-card--outlined",
+                className,
+            )}
             {...componentProps}
             ref={ref}
         />
