@@ -5,7 +5,7 @@
     "description": "Find files that were modified in the pull request",
     "main": "build/main.js",
     "scripts": {
-        "build": "esbuild src/main.ts --bundle --platform=node --target=node16 --outfile=build/main.js",
+        "build": "esbuild src/main.ts --bundle --platform=node --target=node20 --outfile=build/main.js",
         "lint": "eslint src/**/*.ts"
     },
     "repository": {
@@ -16,8 +16,8 @@
     "author": "",
     "license": "MIT",
     "dependencies": {
-        "@actions/core": "^1.11.1",
-        "@actions/github": "^5.1.1",
+        "@actions/core": "^3.0.1",
+        "@actions/github": "^9.1.1",
         "@octokit/webhooks-types": "^6.11.0",
         "js-yaml": "^4.1.0",
         "micromatch": "^4.0.8"
