@@ -12,7 +12,7 @@ jobs:
       issues: write
     steps:
       - name: Opprett GitHub Issue
-        uses: imjohnbo/issue-bot@76645b39cda009302cc49d8624af634795e9eab5
+        uses: imjohnbo/issue-bot@3188c6ce06249206709d3b1f274d0d4c5a521601
         with:
           assignees: "zenabii, kristianulv23, piofinn, fremtindelise, lmfaole"
           rotate-assignees: true
