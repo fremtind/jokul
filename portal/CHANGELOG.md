@@ -1,5 +1,13 @@
 # portal
 
+## 1.5.0-next.8
+
+### Patch Changes
+
+- Updated dependencies [4c25db2]
+- Updated dependencies [b4753be]
+  - @fremtind/jokul@5.0.0-next.8
+
 ## 1.5.0-next.7
 
 ### Patch Changes
