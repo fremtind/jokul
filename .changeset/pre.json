@@ -10,9 +10,11 @@
         "portal": "1.4.34"
     },
     "changesets": [
+        "codemod-remove-webfonts-css",
         "cool-pigs-fry",
         "five-schools-swim",
         "fix-brand-font-setup",
+        "fluffy-laws-type",
         "funny-cars-exercise",
         "lovely-ravens-draw",
         "silent-seas-march",
