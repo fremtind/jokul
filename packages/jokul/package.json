@@ -23,6 +23,7 @@
     },
     "exports": {
         "./package.json": "./package.json",
+        "./styles/jkl": "./styles/jkl/_index.scss",
         "./styles/*": "./styles/*",
         "./tailwind": {
             "import": {
