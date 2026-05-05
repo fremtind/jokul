@@ -73,9 +73,15 @@ const usePopover = ({
         }
     }, [positionReference, data.refs]);
 
-    React.useEffect(() => {
+    // useLayoutEffect (i stedet for useEffect) sikrer at konsumenter får
+    // riktig placement før paint — ellers ville første frame bruke default
+    // placement og deretter snappe over til den faktiske, noe som gir et
+    // synlig "glitch" på styling som er placement-avhengig (f.eks. flat side
+    // / border-radius på Select-listboxen ved flip).
+    React.useLayoutEffect(() => {
+        if (!open) return;
         onPlacementChange?.(data.placement);
-    }, [data.placement, onPlacementChange]);
+    }, [open, data.placement, onPlacementChange]);
 
     return React.useMemo(
         () => ({
