@@ -1,17 +1,27 @@
 # Migrasjonsguide
 
+## Tilgjengelige codemods
+
+```bash
+pnpm exec jokul codemod [--dry-run] [--verbose] [sti ...]
+```
+
+Se [codemods/CODEMODS.md](./codemods/CODEMODS.md) for full oversikt over hva hver codemod fikser automatisk og hva som krever manuell vurdering.
+
 ## Jøkul 5.0
 
-Jøkul 5.0 rydder opp i token-strukturen, fontoppsettet og importstiene. De fleste endringene i importstier kan gjøres automatisk med codemoden:
+Jøkul 5.0 rydder opp i token-strukturen, fontoppsettet og importstiene. De fleste endringene kan gjøres automatisk med codemoden:
 
 ```bash
 pnpm exec jokul codemod --dry-run
 pnpm exec jokul codemod
 ```
 
-Codemoden håndterer trygge erstatninger automatisk, og varsler ved tvetydige stilimports for beta-komponenter som krever manuell vurdering.
+Codemoden fikser importstier, CSS-tokens og Tailwind-klasser automatisk, og varsler der endringer krever manuell vurdering. Seksjonene nedenfor merker hva som faller i hvilken kategori.
 
 ### Nye importstier for stilark og Sass-hjelpere
+
+> **Codemoden fikser dette automatisk.**
 
 | Funksjon | Gammel import | Ny import |
 |---|---|---|
@@ -19,13 +29,15 @@ Codemoden håndterer trygge erstatninger automatisk, og varsler ved tvetydige st
 | Stilark for ALLE komponenter | `@fremtind/jokul/styles` | `@fremtind/jokul/styles/components.scss` |
 | Sass-hjelpere | `@fremtind/jokul/styles/core/jkl` | `@fremtind/jokul/styles/jkl` |
 | Webfonts (SCSS) | `@fremtind/jokul/styles/fonts/webfonts` | `@fremtind/jokul/styles/theme/fonts` |
-| Webfonts (CSS) | `@fremtind/jokul/styles/fonts/webfonts.css` | `@fremtind/jokul/styles/theme/fonts.css` |
+| Webfonts (CSS) | `@fremtind/jokul/styles/fonts/webfonts.css` | _Fjern importen_ — fontene er nå inkludert i `base.css` |
 | Tailwind v3 preset | `@fremtind/jokul/tailwind` | `@fremtind/jokul/tailwind` _(uendret)_ |
 | Tailwind v4 theme | `@fremtind/jokul/tailwind/v4` | `@fremtind/jokul/styles/tailwind` |
 
 Stilene som tidligere lå i `styles/fonts/webfonts` er nå inkludert i `styles/base.scss`, så hvis du bruker grunnstilene trenger du ikke importere font-stilene separat.
 
 ### Beta-komponenter har egne stilark
+
+> **Codemoden fikser dette automatisk** når beta-komponenten brukes i samme fil som stilimporten. Hvis filen kun har stilimporten uten å importere React-komponenten varsler codemoden og ber om manuell vurdering.
 
 Stilarkene for beta-komponentene var tidligere bakt sammen med sine ikke-Beta varianter. De er nå eksportert for seg.
 
@@ -39,6 +51,8 @@ Beta-komponentene er flyttet fra `components-beta/` til `components/beta/` inter
 
 ### `core`-konseptet er fjernet
 
+> **Codemoden fikser dette automatisk.**
+
 Typer som tidligere ble eksportert fra `@fremtind/jokul/core` ligger nå i `@fremtind/jokul/utilities`:
 
 ```diff
@@ -50,38 +64,9 @@ Typer som tidligere ble eksportert fra `@fremtind/jokul/core` ligger nå i `@fre
 
 Den innebygde fonten er byttet ut. Hvis du har egne stilarkbruk eller serveroppsett som kopierer/refererer til `FremtindGrotesk-*.woff2` må du bytte til `InterVariable.woff2` (og `InterVariable-Italic.woff2` for kursiv).
 
-### Brand-spesifikke fonter via `data-brand`
-
-Fontvalg kan nå styres med `data-brand` på samme måte som brand-farger. Hver brand (`fremtind`, `dnb`, `eika`, `sparebank1`) har egne `@font-face`-definisjoner og setter `--jkl-font-family-regular`, `--jkl-font-family-display` og `--jkl-font-family-mono`.
-
-```html
-<section data-brand="dnb">
-    <!-- Komponentene her bruker DNB Sans -->
-</section>
-```
-
-For å ta i bruk brand-fonter må du i tillegg:
-
-1. Importere brand-stilarkene fra `@fremtind/jokul/styles/theme/brands/<brand>` (de er allerede inkludert i `base.scss`).
-2. Sørge for at fontfilene er tilgjengelige på `/fonts/brands/<brand>/`. Filene ligger i `node_modules/@fremtind/jokul/src/fonts/brands/<brand>/`.
-
-### Brand-navnet `jokul` er omdøpt til `fremtind`
-
-Standardbrandet refereres nå til som `fremtind` overalt. Hvis du har satt `data-brand="jokul"` eksplisitt må dette oppdateres:
-
-```diff
-- <section data-brand="jokul">
-+ <section data-brand="fremtind">
-```
-
-Tilsvarende endring gjelder mappestrukturen for brand-stilark og token-filer (kun relevant hvis du har egne integrasjoner mot disse):
-
-```diff
-- @use "@fremtind/jokul/styles/theme/brands/jokul";
-+ @use "@fremtind/jokul/styles/theme/brands/fremtind";
-```
-
 ### Font-familien `Jokul Material Symbols` er omdøpt til `Jokul Icons`
+
+> **Codemoden fikser `font-family`-referanser i CSS og SCSS automatisk.** Mixin-bruk (`jkl.use-font-family`) må oppdateres manuelt.
 
 Hvis du har egne stilark som refererer til ikonfonten direkte må navnet oppdateres:
 
@@ -95,57 +80,75 @@ Hvis du har egne stilark som refererer til ikonfonten direkte må navnet oppdate
 + @include jkl.use-font-family("Jokul Icons");
 ```
 
-### Nye semantiske tekststil-variabler
+### Semantiske fargetokens er omdøpt og omstrukturert
 
-Tekststilene eksporteres nå også som CSS custom properties via `font`-shorthand:
+Fargesystemet er restrukturert som en del av v5-oppgraderingen. Tokens fra Jøkul 4 som refereres direkte i CSS må oppdateres.
 
-```css
-.min-tittel {
-    font: var(--jkl-text-style-heading-1);
-}
-```
+**Fikses automatisk av codemoden:**
 
-Du kan fortsatt bruke Sass-mixin om du foretrekker det:
+| Gammel token | Ny token |
+|---|---|
+| `--jkl-color-background-action` | `--jkl-color-background-contrast` |
+| `--jkl-color-text-on-action` | `--jkl-color-text-on-contrast` |
+| `--jkl-color-text-inverted` | `--jkl-color-text-on-contrast` |
+| `--jkl-color-background-container-high` | `--jkl-color-background-container` |
+| `--jkl-color-background-container-low` | `--jkl-color-background-container` |
+| `--jkl-color-background-container-inverted` | `--jkl-color-background-contrast` |
+| `--jkl-color-background-alert-info` | `--jkl-color-info-background-container` |
+| `--jkl-color-background-alert-warning` | `--jkl-color-warning-background-container` |
+| `--jkl-color-background-alert-error` | `--jkl-color-error-background-container` |
+| `--jkl-color-background-alert-success` | `--jkl-color-success-background-container` |
 
-```scss
-.min-tittel {
-    @include jkl.text-style("heading-1");
-}
-```
+**Krever manuell vurdering (codemoden varsler):**
 
-Tilgjengelige stiler: `title`, `title-small`, `heading-1`–`heading-5`, `paragraph-large`, `paragraph-medium`, `paragraph-small`, `text-large`, `text-medium`, `text-small`, `text-micro`.
+| Gammel token | Handling |
+|---|---|
+| `--jkl-color-text-on-alert-*` | Bruk `--jkl-color-<rolle>-text-default`, f.eks. `--jkl-color-info-text-default` |
+| `--jkl-color-background-interactive*` | Fjernet — skal ikke brukes lenger |
+| `--jkl-color-text-interactive*` | Fjernet — skal ikke brukes lenger |
 
-### Nye `Text`- og `Title`-komponenter
+Border-tokens er samlet i semantiske roller. Bytt fra gamle input- og separator-tokens til `--jkl-color-border-default`, `--jkl-color-border-subdued` eller `--jkl-color-border-strong`.
 
-For å forenkle migrasjon er det lagt til to nye typografikomponenter under `@fremtind/jokul/typography`:
+### Tailwind-fargeklasser er omdøpt og omstrukturert
 
-- `Title`: polymorf med `as` begrenset til `h1`–`h6`, `label` og `legend`. `size` på `xs`, `s`, `m`, `l`, `xl` (default `l`).
-- `Text`: polymorf med `as` begrenset til typografisk relevante elementer (`p`, `span`, `label`, `legend`, `small`, `strong`, `em`, `code`, `kbd`, `samp`, `var`). `size` på `xs`, `s`, `m`, `l` (default `m`), pluss `bold`, `short` og `srOnly`.
+Jøkul 5-temaet for Tailwind (`@fremtind/jokul/styles/tailwind`) definerer nye fargenøkler. Klassenavnene som ble generert fra det gamle Jøkul 4-temaet (`@fremtind/jokul/tailwind/v4`) er endret i takt med fargetokenene.
 
-`as` og `size` er bevisst frakoblet — semantikk styres via `as`, visuell størrelse via `size`. `code`/`kbd`/`samp`/`var` får automatisk monospace.
+**Fikses automatisk av codemoden** (alle vanlige Tailwind-prefikser: `bg-`, `text-`, `border-`, `ring-`, o.fl.):
 
-Det er også lagt til hjelpeklasser `.jkl-heading-xs` til `.jkl-heading-xl` fra `components/typography` som ekvivalenter til `<Title size="…">` brukt på vilkårlige elementer.
+| Gammel klasse (fargenøkkel) | Ny klasse (fargenøkkel) |
+|---|---|
+| `bg-background-action` | `bg-background-contrast` |
+| `text-text-on-action` | `text-text-on-contrast` |
+| `text-text-inverted` | `text-text-on-contrast` |
+| `bg-background-container-high` | `bg-background-container` |
+| `bg-background-container-low` | `bg-background-container` |
+| `bg-background-container-inverted` | `bg-background-contrast` |
+| `bg-background-alert-info` | `bg-info-background-container` |
+| `bg-background-alert-warning` | `bg-warning-background-container` |
+| `bg-background-alert-error` | `bg-error-background-container` |
+| `bg-background-alert-success` | `bg-success-background-container` |
 
-### Alle gamle fargevariabler er fjernet
+Codemoden håndterer Tailwind-modifikatorer (`hover:`, `dark:`, `md:` o.l.) korrekt.
 
-Det er ikke lenger mulig å hente ut fargevariabler som `granitt`, `varde` og tilsvarende, verken som Sass- eller CSS-variabler. Bruk de [semantiske fargevariablene](https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/farger).
+**Krever manuell vurdering (codemoden varsler):**
 
-### Mixins for custom dark/light-farger er fjernet
+- `bg-background-interactive`, `text-text-interactive` o.l. — Fjernet. Ingen direkte erstatning.
+- `border-border-separator`, `border-border-action`, `border-border-input` o.l. — Fjernet. Bruk `border-border-default`, `border-border-subdued` eller `border-border-strong`.
+### `Card`-komponenten har fått nytt API
 
-Mixins for å definere egne fargevariabler for mørk og lys modus er fjernet sammen med de gamle fargene:
+> **Codemoden varsler** om bruk av `variant="outlined|high|low"` og forklarer hva som skal gjøres.
+
+`variant`-prop-en er fjernet fra `Card`. Kort med ramme bruker nå boolean-prop-en `outlined`, og høyde-/dybdevarianter er fjernet til fordel for standard flate.
 
 ```diff
-- @include jkl.light-mode-variables {
--     --min-farge: jkl.$color-granitt;
-- }
-- @include jkl.dark-mode-variables {
--     --min-farge: jkl.$color-snohvit;
-- }
--
-.min-klasse {
--     color: var(--min-farge);
-+     color: var(--jkl-color-text-default);
-}
+- <Card variant="outlined">Innhold</Card>
++ <Card outlined>Innhold</Card>
+```
+
+```diff
+- <Card variant="high">Innhold</Card>
+- <Card variant="low">Innhold</Card>
++ <Card>Innhold</Card>
 ```
 
 ## Jøkul 4.0
