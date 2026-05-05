@@ -3,9 +3,12 @@ import type { TransformedToken } from "style-dictionary/types";
 import { describe, expect, it } from "vitest";
 import cssTailwind4Format from "./css-tailwind4.js";
 
+const TEST_PREFIX = "jkl";
+
 /**
  * Simulerer token slik det ser ut etter at name/kebab og value/resolve har kjørt
- * (Tailwind-plattformen bruker transformGroup: "css" som inkluderer begge).
+ * (Tailwind-plattformen bruker transformGroup: "css" uten platform.prefix,
+ * slik at token.name ikke inneholder prefikset).
  */
 function makeToken(
     path: string[],
@@ -24,14 +27,14 @@ async function runFormat(tokens: TransformedToken[]): Promise<string> {
     return (cssTailwind4Format.format as Function)({
         dictionary: { allTokens: tokens },
         file: { destination: "tailwind.css" },
-        options: {},
+        options: { prefix: TEST_PREFIX },
         platform: {},
     });
 }
 
 describe("css/tailwind4-format", () => {
     describe("fargevariabler (formatColorVariables)", () => {
-        it("bruker token.name (satt av name/kebab) til å bygge variabelnavnet", async () => {
+        it("bruker token.name (satt av name/kebab) til å bygge variabelnavnet i @theme", async () => {
             const token = makeToken(
                 ["color", "neutral", "background", "page"],
                 { light: "#F4F2EF", dark: "#1B1917" },
@@ -46,8 +49,6 @@ describe("css/tailwind4-format", () => {
         });
 
         it("håndterer camelCase path-segmenter korrekt via name/kebab", async () => {
-            // Hypotetisk farge-token med camelCase i stien – skal ikke skje i dag,
-            // men name/kebab sørger for at det ville fungert
             const token = makeToken(
                 ["color", "accent", "backgroundAction"],
                 { light: "#aaa", dark: "#333" },
@@ -126,7 +127,7 @@ describe("css/tailwind4-format", () => {
                 const token = makeToken(["textStyle", name], textStyleValue);
                 const result = await runFormat([token]);
                 expect(result).toContain(`@utility ${name} {`);
-                expect(result).toContain(`    font: var(--jkl-text-style-${name});`);
+                expect(result).toContain(`    font: var(--${TEST_PREFIX}-text-style-${name});`);
                 expect(result).toContain("}");
             },
         );
@@ -138,15 +139,12 @@ describe("css/tailwind4-format", () => {
             const result = await runFormat(tokens);
             for (const name of allTextStyles) {
                 expect(result).toContain(`@utility ${name} {`);
-                expect(result).toContain(`    font: var(--jkl-text-style-${name});`);
+                expect(result).toContain(`    font: var(--${TEST_PREFIX}-text-style-${name});`);
             }
         });
 
         it("utelater tokens som ikke er textStyle", async () => {
-            const nonTextToken = makeToken(
-                ["spacing", "16"],
-                "1rem",
-            );
+            const nonTextToken = makeToken(["spacing", "16"], "1rem");
             const result = await runFormat([nonTextToken]);
             expect(result).not.toContain("@utility");
         });
@@ -164,7 +162,7 @@ describe("css/tailwind4-format", () => {
             const token = makeToken(["textStyle", "heading-1"], textStyleValue);
             const result = await runFormat([token]);
             expect(result).toContain(
-                "@utility heading-1 {\n    font: var(--jkl-text-style-heading-1);\n}",
+                `@utility heading-1 {\n    font: var(--${TEST_PREFIX}-text-style-heading-1);\n}`,
             );
         });
     });

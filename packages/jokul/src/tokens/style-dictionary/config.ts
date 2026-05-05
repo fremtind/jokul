@@ -44,6 +44,7 @@ export const jokulTokens: Config = {
                 {
                     destination: "tailwind.css",
                     format: "css/tailwind4",
+                    options: { prefix: PREFIX },
                 },
             ],
         },
