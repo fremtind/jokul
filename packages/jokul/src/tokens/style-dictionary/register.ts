@@ -1,5 +1,5 @@
-import { kebabCase } from "change-case";
 import StyleDictionary from "style-dictionary";
+import type { TransformedToken } from "style-dictionary/types";
 
 import cssBrandFontsFormat from "./formats/css-brand-fonts.js";
 import cssColorSchemeBrand from "./formats/css-color-scheme-brand.js";
@@ -28,22 +28,27 @@ StyleDictionary.registerFormat(cssTailwind4Format);
 // Transforms
 
 /**
- * Transformerer token-verdier til CSS-variabelreferanser.
+ * Konverterer en token-verdi til en CSS-variabelreferanse.
  *
- * Konverterer en token med navn "color-background-page"
- * til verdien "var(--jkl-color-background-page)".
+ * Baserer seg på `token.name` som er satt av SD sitt innebygde `name/kebab`-transform,
+ * slik at navngivingslogikken ligger ett sted og vi ikke gjenskaper den her.
  *
- * Håndterer også camelCase i token-navn ved å konvertere dem til kebab-case,
- * slik at "typographyLineHeightTight" blir "var(--jkl-typography-line-height-tight)".
+ * Eksempler (forutsetter at name/kebab har kjørt):
+ * - token.name = "spacing-24"                     → var(--jkl-spacing-24)
+ * - token.name = "spacing-2xs"                    → var(--jkl-spacing-2xs)
+ * - token.name = "motion-easing-ease-in-bounce-out" → var(--jkl-motion-easing-ease-in-bounce-out)
  */
+export function cssVarReferenceTransform(
+    token: Pick<TransformedToken, "name">,
+): string {
+    return `var(--${PREFIX}-${token.name})`;
+}
+
 StyleDictionary.registerTransform({
     name: "value/css-var-reference",
     type: "value",
     transitive: true,
-    transform: (token) => {
-        const varName = kebabCase(token.name);
-        return `var(--${PREFIX}-${varName})`;
-    },
+    transform: cssVarReferenceTransform,
 });
 
 // Filters
@@ -55,12 +60,14 @@ StyleDictionary.registerFilter(isBrandFontValue);
 /**
  * Transform-gruppe for TypeScript-output.
  *
- * Konverterer token-navn til camelCase og token-verdier til CSS-variabelreferanser.
- * Brukes for å generere TypeScript-objekter der verdiene peker til CSS custom properties.
+ * Bruker `name/kebab` (samme som CSS-plattformen) slik at `token.name` alltid
+ * er korrekt kebab-case når `value/css-var-reference` bruker det til å bygge
+ * CSS-variabelreferansen. Den nøstede objektstrukturen i tokens.ts er uavhengig
+ * av token-navn og styres av token-stien.
  */
 StyleDictionary.registerTransformGroup({
     name: "typescript-css-var",
-    transforms: ["name/camel", "value/css-var-reference"],
+    transforms: ["name/kebab", "value/css-var-reference"],
 });
 
 /**

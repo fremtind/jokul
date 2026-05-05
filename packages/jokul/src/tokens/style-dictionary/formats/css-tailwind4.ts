@@ -1,4 +1,3 @@
-import { kebabCase } from "change-case";
 import type {
     Dictionary,
     File,
@@ -54,7 +53,7 @@ function formatSpacingVariables(
                 token.path.length === 2,
         )
         .map((token) => {
-            const step = kebabCase(token.path[1]);
+            const step = token.path[1];
             return `${indentation}--spacing-${step}: ${token.value};`;
         })
         .join("\n");
@@ -93,7 +92,7 @@ function formatBreakpointVariables(
             (token) => token.path[0] === "breakpoint" && !isSizeToken(token),
         )
         .map((token) => {
-            const step = kebabCase(token.path[1]);
+            const step = token.path[1];
             return `${indentation}--breakpoint-${step}: ${token.value};`;
         })
         .join("\n");
@@ -149,7 +148,7 @@ function formatTextUtilities(tokens: TransformedToken[]): string {
     return tokens
         .filter(isTextStyleToken)
         .map((token) => {
-            const name = kebabCase(token.path[1]);
+            const name = token.path[1];
             return [
                 `@utility ${name} {`,
                 `    font: var(--jkl-text-style-${name});`,
