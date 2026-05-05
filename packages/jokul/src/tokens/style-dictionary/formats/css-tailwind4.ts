@@ -1,7 +1,9 @@
 import type {
+    Config,
     Dictionary,
     File,
     Format,
+    LocalOptions,
     TransformedToken,
 } from "style-dictionary/types";
 import { fileHeader } from "style-dictionary/utils";
@@ -144,14 +146,14 @@ function formatBorderWidthVariables(
  * Formats text style tokens as Tailwind v4 @utility rules.
  * Uses the CSS font shorthand property pointing to the existing text style variables.
  */
-function formatTextUtilities(tokens: TransformedToken[]): string {
+function formatTextUtilities(tokens: TransformedToken[], prefix: string): string {
     return tokens
         .filter(isTextStyleToken)
         .map((token) => {
             const name = token.path[1];
             return [
                 `@utility ${name} {`,
-                `    font: var(--jkl-text-style-${name});`,
+                `    font: var(--${prefix}-${token.name});`,
                 "}",
             ].join("\n");
         })
@@ -187,9 +189,11 @@ const cssTailwind4Format: Format = {
     format: async ({
         dictionary,
         file,
-    }: { dictionary: Dictionary; file: File }) => {
+        options,
+    }: { dictionary: Dictionary; file: File; options: Config & LocalOptions }) => {
         const allTokens = dictionary.allTokens;
         const indentation = "    ";
+        const prefix = options.prefix as string;
 
         const colorVariables = formatColorVariables(allTokens, indentation);
         const spacingVariables = formatSpacingVariables(allTokens, indentation);
@@ -209,7 +213,7 @@ const cssTailwind4Format: Format = {
             allTokens,
             indentation,
         );
-        const textUtilities = formatTextUtilities(allTokens);
+        const textUtilities = formatTextUtilities(allTokens, prefix);
 
         const themeContent = [
             colorVariables,
