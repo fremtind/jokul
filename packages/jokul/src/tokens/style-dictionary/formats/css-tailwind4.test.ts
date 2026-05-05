@@ -1,5 +1,8 @@
 import { kebabCase } from "change-case";
-import type { TransformedToken } from "style-dictionary/types";
+import type {
+    FormatFnArguments,
+    TransformedToken,
+} from "style-dictionary/types";
 import { describe, expect, it } from "vitest";
 import cssTailwind4Format from "./css-tailwind4.js";
 
@@ -24,12 +27,16 @@ function makeToken(
 }
 
 async function runFormat(tokens: TransformedToken[]): Promise<string> {
-    return (cssTailwind4Format.format as Function)({
-        dictionary: { allTokens: tokens },
+    const args: FormatFnArguments = {
+        dictionary: { tokens: {}, allTokens: tokens, tokenMap: new Map() },
         file: { destination: "tailwind.css" },
         options: { prefix: TEST_PREFIX },
         platform: {},
-    });
+    };
+
+    const result = await cssTailwind4Format.format(args);
+
+    return String(result);
 }
 
 describe("css/tailwind4-format", () => {
@@ -49,10 +56,10 @@ describe("css/tailwind4-format", () => {
         });
 
         it("håndterer camelCase path-segmenter korrekt via name/kebab", async () => {
-            const token = makeToken(
-                ["color", "accent", "backgroundAction"],
-                { light: "#aaa", dark: "#333" },
-            );
+            const token = makeToken(["color", "accent", "backgroundAction"], {
+                light: "#aaa",
+                dark: "#333",
+            });
             const result = await runFormat([token]);
             expect(result).toContain("--color-accent-background-action:");
         });
@@ -80,10 +87,11 @@ describe("css/tailwind4-format", () => {
         });
 
         it("utelater størrelsesavhengige spacing-tokens (isSizeToken)", async () => {
-            const sizeToken = makeToken(
-                ["spacing", "base"],
-                { small: "5px", medium: "8px", large: "11px" },
-            );
+            const sizeToken = makeToken(["spacing", "base"], {
+                small: "5px",
+                medium: "8px",
+                large: "11px",
+            });
             const result = await runFormat([sizeToken]);
             expect(result).not.toContain("--spacing-base");
         });
@@ -102,7 +110,12 @@ describe("css/tailwind4-format", () => {
     });
 
     describe("teksthjelpe-klasser (formatTextUtilities)", () => {
-        const textStyleValue = { fontSize: "1rem", lineHeight: "1.5", fontWeight: "400", fontFamily: "sans-serif" };
+        const textStyleValue = {
+            fontSize: "1rem",
+            lineHeight: "1.5",
+            fontWeight: "400",
+            fontFamily: "sans-serif",
+        };
 
         const allTextStyles = [
             "title",
@@ -127,7 +140,9 @@ describe("css/tailwind4-format", () => {
                 const token = makeToken(["textStyle", name], textStyleValue);
                 const result = await runFormat([token]);
                 expect(result).toContain(`@utility ${name} {`);
-                expect(result).toContain(`    font: var(--${TEST_PREFIX}-text-style-${name});`);
+                expect(result).toContain(
+                    `    font: var(--${TEST_PREFIX}-text-style-${name});`,
+                );
                 expect(result).toContain("}");
             },
         );
@@ -139,7 +154,9 @@ describe("css/tailwind4-format", () => {
             const result = await runFormat(tokens);
             for (const name of allTextStyles) {
                 expect(result).toContain(`@utility ${name} {`);
-                expect(result).toContain(`    font: var(--${TEST_PREFIX}-text-style-${name});`);
+                expect(result).toContain(
+                    `    font: var(--${TEST_PREFIX}-text-style-${name});`,
+                );
             }
         });
 
@@ -150,10 +167,9 @@ describe("css/tailwind4-format", () => {
         });
 
         it("utelater textStyle-tokens uten fontSize (isTextStyleToken-filter)", async () => {
-            const incompleteToken = makeToken(
-                ["textStyle", "custom"],
-                { lineHeight: "1.5" },
-            );
+            const incompleteToken = makeToken(["textStyle", "custom"], {
+                lineHeight: "1.5",
+            });
             const result = await runFormat([incompleteToken]);
             expect(result).not.toContain("@utility custom");
         });
