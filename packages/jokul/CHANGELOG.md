@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.0-next.10
+
+### Patch Changes
+
+- 00bca45: Rett opp tom verdi for responsiv spacing (t.d. `--jkl-spacing-104-104-168`)
+
 ## 5.0.0-next.9
 
 ### Patch Changes
