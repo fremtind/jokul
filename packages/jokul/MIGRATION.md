@@ -1,8 +1,25 @@
 # Migrasjonsguide
 
+## Innhold
+
+- [Migrering til Jøkul 4](#jøkul-40)
+- [Oppgradering av Jøkul til versjon 1.x.x](#oppgradering-av-jøkul-til-versjon-1xx)
+
 ## Jøkul 4.0
 
-### Density-modusene er fjernet til fordel for size-moduser
+Jøkul 4.0 inneholder hovedsakelig opprydding og standardisering av API-er, typografi og sizing.
+
+### Breaking changes
+
+- [`data-density` er erstattet med `data-size`](#density-til-size)
+- [Typography-mixins og navn er oppdatert til nytt navnesystem](#typografi)
+- [`BETA_`-prefiks er fjernet fra stabile komponenter](#beta-komponenter)
+- [`LinkList variant="ordered"` er erstattet med `TableOfContents`](#linklist-variantordered-erstattet-med-tableofcontents)
+- [`BETA_DescriptionList` er fjernet](#beta-varianten-av-description-list-droppes)
+
+---
+
+### Density til size
 
 Tidligere kalte vi størrelsesdimensjonen density, i tillegg til at fontstørrelsene endret seg avhengig av skjermstørrelser.
 
@@ -10,28 +27,21 @@ Nå bruker vi ordet size for å gjøre det tydeligere at det som endrer seg er k
 
 Selv om disse konseptene ikke er helt like så kan du som regel bytte ut `data-density="compact"` med `data-size="small"`.
 
+| Før                             | Etter               |
+| ------------------------------- | ------------------- |
+| `data-density="compact"`        | `data-size="small"` |
+| `data-layout-density="compact"` | `data-size="small"` |
+
 - [Les mer om endringene her](https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/storrelser).
 - [Se oversikt over tokens for avstander her](https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/avstander).
-
-Før:
-``` ts
-data-density="compact"
-// Eller
-data-layout-density="compact"
-```
-
-Etter:
-
-``` ts
-data-size="small"
-```
 
 #### Komponenter har mistet størrelse som prop
 
 Langtlevende komponenter har hatt mulighet for å sette density som en prop. Dette er fjernet til fordel for data-attributter. **Sett `data-size` på seksjoner med innhold**.
 
 Før:
-``` ts
+
+```ts
 <section/div/article>
     ...
     <Button density="compact">Klikk på meg</Button>
@@ -41,7 +51,7 @@ Før:
 
 Etter:
 
-``` ts
+```ts
 <section/div/article data-size="small">
     ...
     <Button>Klikk på meg</Button>
@@ -49,8 +59,11 @@ Etter:
 </section/div/article>
 ```
 
-### Endrede typografi-tokens gir endringer i mixin-parametre
+---
 
+### Typografi
+
+Endrede typografi-tokens gir endringer i mixin-parametre.
 Der du har brukt `body` eller `small`, må du nå velge mellom en variant av paragraph eller text.
 
 **Hva som skal brukes ser du i [oversikten i portalen](https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/typografi)**, men i korte trekk:
@@ -60,90 +73,96 @@ Der du har brukt `body` eller `small`, må du nå velge mellom en variant av par
 - Dersom du er usikker: kontakt en designer på teamet ditt, eller Jøkul-teamet.
 
 Før:
-``` css
-@includes jkl.text-style("body");
-@includes jkl.text-style("small");
+
+```css
+@include jkl.text-style("body");
+@include jkl.text-style("small");
 ```
 
 Etter:
-``` css
-@includes jkl.text-style("paragraph-medium");
-@includes jkl.text-style("paragraph-small");
+
+```css
+@include jkl.text-style("paragraph-medium");
+@include jkl.text-style("paragraph-small");
 
 // Eller
-@includes jkl.text-style("text-medium");
-@includes jkl.text-style("text-small");
-@includes jkl.text-style("text-micro");
+@include jkl.text-style("text-medium");
+@include jkl.text-style("text-small");
+@include jkl.text-style("text-micro");
 ```
 
-### Beta-komponenter blir stabile
+---
 
-Betakomponentene prefixes med <code>BETA_</code> for å gjøre det enkelt å finne. For å bruke stabile komponenter må du derfor fjerne prefixen. Dette gjelder:
+### Beta-komponenter
+
+Beta-komponenter blir stabile. Betakomponentene prefixes med <code>BETA\_</code> for å gjøre det enkelt å finne. For å bruke stabile komponenter må du derfor fjerne prefixen. Dette gjelder:
 
 - Search
 - Table of Contents
 
 Før:
-``` ts
+
+```ts
 <BETA_Search ...
 <BETA_TableOfContents ...
 ```
 
 Etter:
-``` ts
+
+```ts
 <Search ...
 <TableOfContents ...
 ```
 
-#### Link List variant="ordered" erstattet med Table of Contents
+---
+
+### LinkList variant="ordered" erstattet med TableOfContents
 
 Beta-versjonen av `LinkList` er tatt inn som stabil.
 
 - Der du tidligere brukte `variant="ordered"` bruker du nå den nye komponenten TableOfContents.
 
 Før:
+
 ```tsx
 <LinkList variant="ordered">
     <LinkList.Item>
-        <LinkList.Link href="#">
-            Lenketekst
-        </LinkList.Link>
+        <LinkList.Link href="#">Lenketekst</LinkList.Link>
     </LinkList.Item>
 </LinkList>
 ```
 
 Etter:
+
 ```tsx
 <TableOfContents>
-    <TableOfContents.Link href="#">
-        Lenketekst
-    </TableOfContents.Link>
+    <TableOfContents.Link href="#">Lenketekst</TableOfContents.Link>
 </TableOfContents>
 ```
 
 - Der du tidligere brukte `variant="unordered"`, eller uten å sette `variant`, bruker du den nå alltid uten `variant`.
 
 Før:
+
 ```tsx
 <LinkList variant="unordered">
     <LinkList.Item>
-        <LinkList.Link href="#">
-            Lenketekst
-        </LinkList.Link>
+        <LinkList.Link href="#">Lenketekst</LinkList.Link>
     </LinkList.Item>
 </LinkList>
 ```
 
 Etter:
+
 ```tsx
 <LinkList>
-    <LinkList.Link href="#">
-        Lenketekst
-    </LinkList.Link>
+    <LinkList.Link href="#">Lenketekst</LinkList.Link>
 </LinkList>
 ```
 
-#### Beta-varianten av Description List droppes
+---
+
+### Beta-varianten av Description List droppes
 
 Vi har ikke vært så fornøyd med APIet i `BETA_DescriptionList`, og har derfor valgt å droppe denne. Den stabile versjonen av `DescriptionList` er beholdt. Utseende og ny funksjonalitet fra beta-varianten er tatt med inn i den stabile varianten.
 
@@ -175,6 +194,8 @@ Hvis du **har** tatt i bruk `BETA_DescriptionList`, kan du bytte til `Descriptio
 </DescriptionList>
 ```
 
+---
+
 ## Oppgradering av Jøkul til versjon 1.x.x
 
 Dette dokumentet inneholder teknisk dokumentasjon av endringer fra siste stabile 0.x.x-versjon som vil kreve kodeendringer ved oppgradering til versjon 1.x.x. Eventuelle visuelle endringer i komponentene vil ikke beskrives her, da disse allerede er representert i skissene i Figma. Det vil heller ikke tas med ny funksjonalitet dersom den ikke er påkrevd i bruk. Se dokumentasjonen til hver enkelt komponent for oppdatert informasjon om komponentenes funksjonalitet.
@@ -200,7 +221,6 @@ Hovedkomponenten for bruk av radio buttons har skiftet navn til `<RadioButtons>`
 ### TextField
 
 Varianten `<TextField inline />` er erstattet av `<InlineTextField>`. Denne komponenten tar ikke lenger inn `errorLabel` eller `helpLabel`. Om det skal vises error state kan man bruke den nye prop-en `invalid`
-
 
 Ting å passe på når man går over fra gammel pakkestruktur til monopakke
 
@@ -281,18 +301,20 @@ Hvis du sender inn `$webfonts-dir` variabelen er det også her path må oppdater
 Med noen unntak gjøres dette på samme måte for alle:
 
 1. Import av React komponent endres
+
 ```diff
 - import { Feedback } from "@fremtind/jkl-feedback-react";
 + import { Feedback } from "@fremtind/jokul/feedback";
 ```
+
 2. Import av styling endres
+
 ```diff
 - @use "@fremtind/jkl-feedback/feedback";
 + @use "@fremtind/jokul/styles/components/feedback";
 ```
 
 Les mer om hvordan du bruker stilark i `@fremtind/jokul` i [README-filen](./README.md#stilark)
-
 
 #### Autosuggest
 
