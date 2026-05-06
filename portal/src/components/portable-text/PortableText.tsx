@@ -47,6 +47,7 @@ const jokulBlockTypes = {
     }: {
         value: SanityImageObject & { alt?: string };
     }) {
+        if (!value?.asset) return null;
         return (
             <img
                 src={getSanityImageUrlBuilder(value).width(1200).url()}
