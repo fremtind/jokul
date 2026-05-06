@@ -1,77 +1,75 @@
 {
     "color": {
         "type": "colorScheme",
-        "@": {
-            "background": {
-                "page": {
-                    "value": {
-                        "light": "#FFFFFF",
-                        "dark": "#FFFFFF"
-                    }
-                },
-                "container": {
-                    "value": {
-                        "light": "#D8F3EC",
-                        "dark": "#D8F3EC"
-                    }
-                },
-                "container-accent": {
-                    "value": {
-                        "light": "#A5E1D2",
-                        "dark": "#A5E1D2"
-                    }
-                },
-                "contrast": {
-                    "value": {
-                        "light": "#007272",
-                        "dark": "#007272"
-                    }
+        "background": {
+            "page": {
+                "value": {
+                    "light": "#FFFFFF",
+                    "dark": "#FFFFFF"
                 }
             },
-            "text": {
-                "default": {
-                    "value": {
-                        "light": "#333333",
-                        "dark": "#333333"
-                    }
-                },
-                "subdued": {
-                    "value": {
-                        "light": "#737373",
-                        "dark": "#737373"
-                    }
-                },
-                "accent": {
-                    "value": {
-                        "light": "#FFFFFF",
-                        "dark": "#FFFFFF"
-                    }
-                },
-                "on-contrast": {
-                    "value": {
-                        "light": "#FFFFFF",
-                        "dark": "#FFFFFF"
-                    }
+            "container": {
+                "value": {
+                    "light": "#D8F3EC",
+                    "dark": "#D8F3EC"
                 }
             },
-            "border": {
-                "default": {
-                    "value": {
-                        "light": "#007272",
-                        "dark": "#007272"
-                    }
-                },
-                "subdued": {
-                    "value": {
-                        "light": "#FFFFFF",
-                        "dark": "#F7F4F2"
-                    }
-                },
-                "strong": {
-                    "value": {
-                        "light": "#FFFFFF",
-                        "dark": "#FFFFFF"
-                    }
+            "containerAccent": {
+                "value": {
+                    "light": "#A5E1D2",
+                    "dark": "#A5E1D2"
+                }
+            },
+            "contrast": {
+                "value": {
+                    "light": "#007272",
+                    "dark": "#007272"
+                }
+            }
+        },
+        "text": {
+            "default": {
+                "value": {
+                    "light": "#333333",
+                    "dark": "#333333"
+                }
+            },
+            "subdued": {
+                "value": {
+                    "light": "#737373",
+                    "dark": "#737373"
+                }
+            },
+            "accent": {
+                "value": {
+                    "light": "#FFFFFF",
+                    "dark": "#FFFFFF"
+                }
+            },
+            "onContrast": {
+                "value": {
+                    "light": "#FFFFFF",
+                    "dark": "#FFFFFF"
+                }
+            }
+        },
+        "border": {
+            "default": {
+                "value": {
+                    "light": "#007272",
+                    "dark": "#007272"
+                }
+            },
+            "subdued": {
+                "value": {
+                    "light": "#FFFFFF",
+                    "dark": "#F7F4F2"
+                }
+            },
+            "strong": {
+                "value": {
+                    "light": "#FFFFFF",
+                    "dark": "#FFFFFF"
                 }
             }
         },
@@ -89,7 +87,7 @@
                         "dark": "#FBF6EC"
                     }
                 },
-                "container-accent": {
+                "containerAccent": {
                     "value": {
                         "light": "#FFFFFF",
                         "dark": "#FFFFFF"
@@ -121,7 +119,7 @@
                         "dark": "#805B0E"
                     }
                 },
-                "on-contrast": {
+                "onContrast": {
                     "value": {
                         "light": "#FFFFFF",
                         "dark": "#FFFFFF"
@@ -163,7 +161,7 @@
                         "dark": "#EBF4F2"
                     }
                 },
-                "container-accent": {
+                "containerAccent": {
                     "value": {
                         "light": "#FFFFFF",
                         "dark": "#FFFFFF"
@@ -195,7 +193,7 @@
                         "dark": "#28B482"
                     }
                 },
-                "on-contrast": {
+                "onContrast": {
                     "value": {
                         "light": "#FFFFFF",
                         "dark": "#FFFFFF"
@@ -237,7 +235,7 @@
                         "dark": "#FFFFFF"
                     }
                 },
-                "container-accent": {
+                "containerAccent": {
                     "value": {
                         "light": "#FFFFFF",
                         "dark": "#FFFFFF"
@@ -269,7 +267,7 @@
                         "dark": "#FFFFFF"
                     }
                 },
-                "on-contrast": {
+                "onContrast": {
                     "value": {
                         "light": "#FFFFFF",
                         "dark": "#FFFFFF"
@@ -311,7 +309,7 @@
                         "dark": "#FCEEEE"
                     }
                 },
-                "container-accent": {
+                "containerAccent": {
                     "value": {
                         "light": "#FFFFFF",
                         "dark": "#FFFFFF"
@@ -343,7 +341,7 @@
                         "dark": "#FFFFFF"
                     }
                 },
-                "on-contrast": {
+                "onContrast": {
                     "value": {
                         "light": "#FFFFFF",
                         "dark": "#FFFFFF"

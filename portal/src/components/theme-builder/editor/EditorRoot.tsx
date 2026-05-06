@@ -6,8 +6,7 @@ import { CopyIcon, Icon } from "@fremtind/jokul/icon";
 import { ModalActions, ModalBody } from "@fremtind/jokul/modal";
 import { useState } from "react";
 import { useThemeBuilder } from "../ThemeBuilderProvider";
-import type { EditorMode } from "../tokens";
-import { parseEditorJson } from "../utils";
+import { type EditorMode, parseEditorJson } from "../tokens";
 import { EditorPanel } from "./EditorPanel";
 
 import styles from "./editor.module.scss";

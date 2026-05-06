@@ -2,8 +2,7 @@ import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { Tag } from "@fremtind/jokul/tag";
 import { Text, Title } from "@fremtind/jokul/typography";
-import type { ContrastRating } from "../utils";
-import type { RatingCounts } from "./countRatings";
+import type { ContrastRating, RatingCounts } from "../contrast";
 
 import styles from "./tokens-list.module.scss";
 
@@ -69,7 +68,7 @@ export function ContrastSummary({ counts }: ContrastSummaryProps) {
                         Kontrast-vurderinger
                     </Title>
                     <Text size="s">
-                        {`${total} (token, modus)-par evaluert mot deres "naturlige" par i samme variant. ${
+                        {`${total} (token, modus)-par evaluert mot deres "naturlige" par i samme seksjon. ${
                             failing === 0
                                 ? "Alle par passerer."
                                 : `${failing} par feiler kravet.`

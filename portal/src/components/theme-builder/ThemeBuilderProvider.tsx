@@ -11,16 +11,26 @@ import {
     useState,
 } from "react";
 import {
+    readThemeBuilderDraft,
+    writeThemeBuilderDraft,
+} from "./browser/draftStorage";
+import {
+    THEME_BUILDER_EXPORT_FILE_NAME,
+    copyThemeBuilderExport,
+    createThemeBuilderExport,
+    downloadThemeBuilderExport,
+} from "./browser/exportFile";
+import {
     type ColorToken,
+    THEME_MODES,
     type ThemeMode,
-    tokenKey,
-    tokensToSchema,
+    getTokenId,
+    tokenListsAreEqual,
+    tokenValuesAreValid,
 } from "./tokens";
-import { normalizeHex, tokensEqual, tokensHaveErrors } from "./utils";
+import { normalizeHexColor } from "./tokens/colorValue";
 
-const STORAGE_KEY = "jkl.theme-builder.draft.v1";
 const HISTORY_LIMIT = 50;
-const EXPORT_FILE_NAME = "color.custom-brand.tokens.json";
 
 type DraftSnapshot = {
     tokens: ColorToken[];
@@ -41,9 +51,9 @@ type ThemeBuilderContextValue = {
     hasValidationErrors: boolean;
     /** Sann når arbeidskopien er endret fra opprinnelig lastede tokens. */
     isDirty: boolean;
-    /** Settet med `tokenKey`-strenger for tokens som skiller seg fra basen. */
-    editedTokenKeys: ReadonlySet<string>;
-    /** Filter-streng (case-insensitiv match mot `group.role`). */
+    /** Settet med token-ID-er for tokens som skiller seg fra basen. */
+    editedTokenIds: ReadonlySet<string>;
+    /** Filter-streng (case-insensitiv match mot tokenets fulle sti uten `color`). */
     filter: string;
     setFilter: (next: string) => void;
     /** Vis kun tokens som er endret fra basen. */
@@ -59,7 +69,7 @@ type ThemeBuilderContextValue = {
     reset: () => void;
     /** Bytter alle tokens — brukes av JSON-editoren etter vellykket parse. */
     replaceTokens: (tokens: ColorToken[]) => void;
-    /** Oppdaterer én (token, mode) heks-verdi. `tokenId` er `tokenKey(token)`. */
+    /** Oppdaterer én (token, mode) heks-verdi. `tokenId` er `getTokenId(token)`. */
     updateToken: (tokenId: string, mode: ThemeMode, value: string) => void;
 };
 
@@ -95,29 +105,16 @@ export function ThemeBuilderProvider({
         if (hydrated.current) return;
         hydrated.current = true;
         if (typeof window === "undefined") return;
-        try {
-            const raw = window.localStorage.getItem(STORAGE_KEY);
-            if (!raw) return;
-            const draft = JSON.parse(raw) as DraftSnapshot;
-            if (Array.isArray(draft.tokens)) {
-                setTokensState(draft.tokens);
-            }
-        } catch {
-            // Ignorer korrupt draft.
+        const draft = readThemeBuilderDraft(window.localStorage);
+        if (draft) {
+            setTokensState(draft.tokens);
         }
     }, []);
 
     // --- Persistér til localStorage ved hver endring ---
     useEffect(() => {
         if (!hydrated.current || typeof window === "undefined") return;
-        try {
-            window.localStorage.setItem(
-                STORAGE_KEY,
-                JSON.stringify({ tokens }),
-            );
-        } catch {
-            // Quota eller private-mode — ignorer.
-        }
+        writeThemeBuilderDraft(window.localStorage, { tokens });
     }, [tokens]);
 
     const snapshot = useCallback((): DraftSnapshot => ({ tokens }), [tokens]);
@@ -139,8 +136,8 @@ export function ThemeBuilderProvider({
     const updateToken = useCallback(
         (tokenId: string, mode: ThemeMode, value: string) => {
             const next = tokens.map((token) =>
-                tokenKey(token) === tokenId
-                    ? { ...token, [mode]: normalizeHex(value) }
+                getTokenId(token) === tokenId
+                    ? { ...token, [mode]: normalizeHexColor(value) }
                     : token,
             );
             commit({ tokens: next });
@@ -181,68 +178,36 @@ export function ThemeBuilderProvider({
 
     // --- Avledede verdier ---
     const exportValue = useMemo(
-        () => JSON.stringify(tokensToSchema(tokens), null, 4),
+        () => createThemeBuilderExport(tokens),
         [tokens],
     );
     const hasValidationErrors = useMemo(
-        () => tokensHaveErrors(tokens),
+        () => !tokenValuesAreValid(tokens),
         [tokens],
     );
     const isDirty = useMemo(
-        () => !tokensEqual(tokens, baseTokens),
+        () => !tokenListsAreEqual(tokens, baseTokens),
         [tokens, baseTokens],
     );
-    const editedTokenKeys = useMemo(() => {
-        const baseByKey = new Map(baseTokens.map((t) => [tokenKey(t), t]));
+    const editedTokenIds = useMemo(() => {
+        const baseById = new Map(baseTokens.map((t) => [getTokenId(t), t]));
         const edited = new Set<string>();
         for (const t of tokens) {
-            const base = baseByKey.get(tokenKey(t));
+            const base = baseById.get(getTokenId(t));
             if (!base) continue;
-            const changed = Object.keys(t).some(
-                (k) =>
-                    k !== "variant" &&
-                    k !== "group" &&
-                    k !== "role" &&
-                    (t as Record<string, string>)[k] !==
-                        (base as Record<string, string>)[k],
-            );
-            if (changed) edited.add(tokenKey(t));
+            const changed = THEME_MODES.some((mode) => t[mode] !== base[mode]);
+            if (changed) edited.add(getTokenId(t));
         }
         return edited;
     }, [tokens, baseTokens]);
 
     // --- Eksport-handlere (med fallback ved manglende clipboard-permission) ---
     const copyExport = useCallback(async () => {
-        try {
-            if (navigator.clipboard?.writeText) {
-                await navigator.clipboard.writeText(exportValue);
-                return;
-            }
-            if (!fallbackCopyToClipboard(exportValue)) {
-                throw new Error("Clipboard API utilgjengelig");
-            }
-        } catch (error) {
-            if (!fallbackCopyToClipboard(exportValue)) {
-                console.error("Kunne ikke kopiere eksporten.", error);
-                window.alert(
-                    "Kunne ikke kopiere automatisk. Bruk Last ned i stedet.",
-                );
-            }
-        }
+        await copyThemeBuilderExport(exportValue);
     }, [exportValue]);
 
     const downloadExport = useCallback(() => {
-        const blob = new Blob([exportValue], {
-            type: "application/json;charset=utf-8",
-        });
-        const url = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = EXPORT_FILE_NAME;
-        document.body.append(link);
-        link.click();
-        link.remove();
-        URL.revokeObjectURL(url);
+        downloadThemeBuilderExport(exportValue);
     }, [exportValue]);
 
     const value = useMemo<ThemeBuilderContextValue>(
@@ -250,10 +215,10 @@ export function ThemeBuilderProvider({
             copyExport,
             downloadExport,
             exportValue,
-            fileName: EXPORT_FILE_NAME,
+            fileName: THEME_BUILDER_EXPORT_FILE_NAME,
             hasValidationErrors,
             isDirty,
-            editedTokenKeys,
+            editedTokenIds,
             filter,
             setFilter,
             showOnlyEdited,
@@ -273,7 +238,7 @@ export function ThemeBuilderProvider({
             exportValue,
             hasValidationErrors,
             isDirty,
-            editedTokenKeys,
+            editedTokenIds,
             filter,
             showOnlyEdited,
             history.length,
@@ -292,32 +257,6 @@ export function ThemeBuilderProvider({
             {children}
         </ThemeBuilderContext.Provider>
     );
-}
-
-/**
- * Skjult `<textarea>` + `document.execCommand("copy")` som fallback når
- * Clipboard API ikke er tilgjengelig (ikke-secure context, manglende
- * permissions, etc.). Returnerer `true` hvis kopieringen lyktes.
- */
-function fallbackCopyToClipboard(value: string): boolean {
-    if (typeof document === "undefined") return false;
-    const textArea = document.createElement("textarea");
-    textArea.value = value;
-    textArea.setAttribute("readonly", "");
-    textArea.style.position = "fixed";
-    textArea.style.opacity = "0";
-    textArea.style.pointerEvents = "none";
-    document.body.append(textArea);
-    textArea.focus();
-    textArea.select();
-    let didCopy = false;
-    try {
-        didCopy = document.execCommand("copy");
-    } catch {
-        didCopy = false;
-    }
-    textArea.remove();
-    return didCopy;
 }
 
 /** Hook for å lese state og mutasjoner fra nærmeste `ThemeBuilderProvider`. */

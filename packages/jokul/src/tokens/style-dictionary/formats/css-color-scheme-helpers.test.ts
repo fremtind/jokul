@@ -16,7 +16,7 @@ describe("formatColorTokenDeclarations", () => {
     it("emits default color tokens as generic variables", () => {
         const tokens = [
             makeColorToken(
-                ["color", "@", "background", "container"],
+                ["color", "background", "container"],
                 "color-background-container",
             ),
             makeColorToken(

@@ -23,7 +23,7 @@ export const TokenRow = memo(function TokenRow({
     token,
     onTokenChange,
 }: TokenRowProps) {
-    const tokenName = `${token.group}.${token.role}`;
+    const tokenName = token.id;
 
     return (
         <div className={styles.tokenRow}>

@@ -4,14 +4,14 @@ import { THEME_MODES } from "./tokens";
  * Liste over støttede merker, utledet fra brand-token-mappa
  * `packages/jokul/src/tokens/brands/`.
  *
- * `jokul` er base-merket og leveres uten separat JSON. Øvrige merker hentes
+ * `fremtind` er base-merket og leveres uten separat JSON. Øvrige merker hentes
  * via webpack `require.context` på `color.<brand>.tokens.json`-filene, så
  * lista holdes automatisk i synk med hvilke merker som er definert i JSON.
  * Legges en ny `color.foo.tokens.json` til, dukker `foo` opp her — uten
  * koderedigering.
  */
 const BRANDS: readonly string[] = (() => {
-    const jokul = "jokul";
+    const fremtind = "fremtind";
     try {
         const ctx = (
             require as unknown as {
@@ -30,15 +30,15 @@ const BRANDS: readonly string[] = (() => {
             .keys()
             .map((key) => key.match(/color\.([\w-]+)\.tokens\.json$/)?.[1])
             .filter((value): value is string => Boolean(value))
-            .filter((brand) => brand !== jokul)
+            .filter((brand) => brand !== fremtind)
             .sort();
-        return [jokul, ...derived];
+        return [fremtind, ...derived];
     } catch {
         // require.context er ikke tilgjengelig (f.eks. ved typecheck uten
         // webpack). Fall tilbake til den kjente lista — den dekker dagens
         // merker, og build-en vil uansett feile hvis noen JSON-fil mangler
         // siden `transpilePackages` krever at de finnes.
-        return [jokul, "dnb", "eika", "sparebank1"];
+        return [fremtind, "dnb", "eika", "sparebank1"];
     }
 })();
 

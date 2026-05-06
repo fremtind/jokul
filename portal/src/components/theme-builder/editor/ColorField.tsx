@@ -1,7 +1,7 @@
 import { TextInput } from "@fremtind/jokul/text-input";
 import { memo } from "react";
-import { type ColorToken, type ThemeMode, tokenKey } from "../tokens";
-import { colorInputValue, hexErrorLabel } from "../utils";
+import { type ColorToken, type ThemeMode, getTokenId } from "../tokens";
+import { colorPickerValue, hexColorErrorLabel } from "../tokens/colorValue";
 import type { TokenChangeHandler } from "./types";
 
 import styles from "./editor.module.scss";
@@ -21,8 +21,8 @@ export const ColorField = memo(function ColorField({
     onTokenChange,
 }: ColorFieldProps) {
     const value = token[mode];
-    const id = tokenKey(token);
-    const tokenPath = `${token.group}.${token.role} ${mode}`;
+    const id = getTokenId(token);
+    const tokenPath = `${token.id} ${mode}`;
 
     return (
         <div className={styles.colorField}>
@@ -30,7 +30,7 @@ export const ColorField = memo(function ColorField({
                 className={styles.colorPicker}
                 type="color"
                 aria-label={`${tokenPath} — fargevelger`}
-                value={colorInputValue(value)}
+                value={colorPickerValue(value)}
                 onChange={(event) =>
                     onTokenChange(id, mode, event.target.value)
                 }
@@ -44,7 +44,7 @@ export const ColorField = memo(function ColorField({
                 maxLength={7}
                 spellCheck={false}
                 autoComplete="off"
-                errorLabel={hexErrorLabel(value)}
+                errorLabel={hexColorErrorLabel(value)}
                 onChange={(event) =>
                     onTokenChange(id, mode, event.target.value)
                 }
