@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.7.1
+
+### Patch Changes
+
+- 163654c: Oppdaterte ToggleSwitch-storyen med en egen standardvisning og koblet temabryteren til Storybook sitt globale tema.
+
 ## 4.7.0
 
 ### Minor Changes
