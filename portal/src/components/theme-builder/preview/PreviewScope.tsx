@@ -2,7 +2,7 @@
 
 import { type PropsWithChildren, useMemo } from "react";
 import type { ColorToken } from "../tokens";
-import { buildPreviewStyle } from "../utils";
+import { buildPreviewStyle } from "./buildPreviewStyle";
 
 type PreviewScopeProps = PropsWithChildren<{
     className?: string;

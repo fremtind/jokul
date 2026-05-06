@@ -3,32 +3,32 @@ import { Text } from "@fremtind/jokul/typography";
 import type { CSSProperties } from "react";
 import {
     type ColorToken,
-    type ColorVariant,
     THEME_MODES,
-    tokenKey,
+    type TokenSection,
+    getTokenId,
 } from "../tokens";
 import { TokenRow } from "./TokenRow";
 import type { TokenChangeHandler } from "./types";
 
 import styles from "./editor.module.scss";
 
-type VariantSectionProps = {
-    variant: ColorVariant;
+type TokenSectionPanelProps = {
+    section: TokenSection;
     tokens: ColorToken[];
     defaultOpen?: boolean;
     onTokenChange: TokenChangeHandler;
 };
 
-/** Utvidbar seksjon for én fargevariant. */
-export function VariantSection({
-    variant,
+/** Utvidbar seksjon for root-tokens eller én funksjonell fargegruppe. */
+export function TokenSectionPanel({
+    section,
     tokens,
     defaultOpen = false,
     onTokenChange,
-}: VariantSectionProps) {
+}: TokenSectionPanelProps) {
     return (
         <ExpandablePanel variant="stroke" defaultOpen={defaultOpen}>
-            <ExpandablePanel.Header>{variant}</ExpandablePanel.Header>
+            <ExpandablePanel.Header>{section}</ExpandablePanel.Header>
             <ExpandablePanel.Content>
                 <div className={styles.tokenList}>
                     <div
@@ -48,7 +48,7 @@ export function VariantSection({
                     </div>
                     {tokens.map((token) => (
                         <TokenRow
-                            key={tokenKey(token)}
+                            key={getTokenId(token)}
                             token={token}
                             onTokenChange={onTokenChange}
                         />

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { ROLE_ENTRIES, THEME_MODES, tokensFromSchema } from "../tokens";
-import { contrastReference } from "./contrastReference";
-import { countRatings } from "./countRatings";
+import { THEME_MODES, TOKEN_DEFINITIONS, tokensFromSchema } from "../tokens";
+import { countRatings } from "./countContrastRatings";
+import { contrastReference } from "./getContrastReference";
 
 describe("countRatings — JSON-knytning", () => {
     const tokens = tokensFromSchema();
@@ -10,15 +10,10 @@ describe("countRatings — JSON-knytning", () => {
         const counts = countRatings(tokens);
         const total = Object.values(counts).reduce((a, b) => a + b, 0);
 
-        const tokensWithReference = ROLE_ENTRIES.filter(
+        const tokensWithReference = TOKEN_DEFINITIONS.filter(
             (entry) =>
                 contrastReference(
-                    tokens.find(
-                        (t) =>
-                            t.variant === entry.variant &&
-                            t.group === entry.group &&
-                            t.role === entry.role,
-                    ) ?? tokens[0],
+                    tokens.find((t) => t.id === entry.id) ?? tokens[0],
                 ) !== null,
         ).length;
 

@@ -3,11 +3,16 @@
 import { Flex } from "@fremtind/jokul/flex";
 import { useMemo } from "react";
 import { useThemeBuilder } from "../ThemeBuilderProvider";
-import { TokenFilter, tokenMatchesFilter } from "../TokenFilter";
-import { COLOR_VARIANTS, type ColorToken, tokenKey } from "../tokens";
+import { TokenFilter } from "../TokenFilter";
+import { countRatings } from "../contrast";
+import {
+    type ColorToken,
+    TOKEN_SECTIONS,
+    filterTokens,
+    groupTokensBySection,
+} from "../tokens";
 import { ContrastSummary } from "./ContrastSummary";
-import { VariantTable } from "./VariantTable";
-import { countRatings } from "./countRatings";
+import { TokenSectionTable } from "./TokenSectionTable";
 
 type TokensListProps = {
     tokens: ColorToken[];
@@ -16,22 +21,25 @@ type TokensListProps = {
 /**
  * Skrivbeskyttet listing av alle tokens, speiler JSON-strukturen. Toppen av
  * fanen oppsummerer kontrast-vurderingene per token; én Jøkul `Table` per
- * variant følger.
+ * seksjon følger.
  *
  * Filtrerings-staten deles med editoren — søker du etter "background.page"
  * her, finner du de samme radene begge steder.
  */
 export function TokensList({ tokens }: TokensListProps) {
-    const { filter, showOnlyEdited, editedTokenKeys } = useThemeBuilder();
+    const { filter, showOnlyEdited, editedTokenIds } = useThemeBuilder();
 
-    const filteredTokens = useMemo(() => {
-        if (!filter && !showOnlyEdited) return tokens;
-        return tokens.filter((t) => {
-            if (showOnlyEdited && !editedTokenKeys.has(tokenKey(t)))
-                return false;
-            return tokenMatchesFilter(t, filter);
-        });
-    }, [tokens, filter, showOnlyEdited, editedTokenKeys]);
+    const tokensBySection = useMemo(
+        () =>
+            groupTokensBySection(
+                filterTokens(tokens, {
+                    filter,
+                    showOnlyEdited,
+                    editedTokenIds,
+                }),
+            ),
+        [tokens, filter, showOnlyEdited, editedTokenIds],
+    );
 
     const counts = useMemo(() => countRatings(tokens), [tokens]);
 
@@ -40,16 +48,14 @@ export function TokensList({ tokens }: TokensListProps) {
             <ContrastSummary counts={counts} />
             <TokenFilter />
             <Flex direction="column" gap="2xl">
-                {COLOR_VARIANTS.map((variant) => {
-                    const variantTokens = filteredTokens.filter(
-                        (t) => t.variant === variant,
-                    );
-                    if (variantTokens.length === 0) return null;
+                {TOKEN_SECTIONS.map((section) => {
+                    const sectionTokens = tokensBySection.get(section) ?? [];
+                    if (sectionTokens.length === 0) return null;
                     return (
-                        <VariantTable
-                            key={variant}
-                            variant={variant}
-                            tokens={variantTokens}
+                        <TokenSectionTable
+                            key={section}
+                            section={section}
+                            tokens={sectionTokens}
                             allTokens={tokens}
                         />
                     );

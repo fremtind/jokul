@@ -30,12 +30,12 @@
     background-color: var(--jkl-color-border-subdued);
 }
 
-.variantStack {
+.sectionStack {
     display: flex;
     flex-direction: column;
 }
 
-.variantStack > * + * {
+.sectionStack > * + * {
     margin-block-start: -1px;
 }
 

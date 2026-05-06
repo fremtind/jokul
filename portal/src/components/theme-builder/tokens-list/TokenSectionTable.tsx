@@ -8,35 +8,34 @@ import {
     TableRow,
 } from "@fremtind/jokul/table";
 import { useMemo } from "react";
+import { contrastReference, evaluateColorContrast } from "../contrast";
 import {
     type ColorToken,
-    type ColorVariant,
     THEME_MODES,
     type ThemeMode,
-    tokenKey,
+    type TokenSection,
+    getTokenId,
 } from "../tokens";
-import { evaluateColorContrast } from "../utils";
 import { TokenSwatch } from "./TokenSwatch";
-import { contrastReference } from "./contrastReference";
 
-type VariantTableProps = {
-    variant: ColorVariant;
+type TokenSectionTableProps = {
+    section: TokenSection;
     tokens: ColorToken[];
     allTokens: ColorToken[];
 };
 
 /**
- * Jøkul Table med én rad per token i én variant. Hver verdi-celle viser et
+ * Jøkul Table med én rad per token i én seksjon. Hver verdi-celle viser et
  * rolle-eksempel, heks-kode og en klikkbar WCAG-kontrast-hint mot tokenets
  * naturlige par (se {@link contrastReference}).
  */
-export function VariantTable({
-    variant,
+export function TokenSectionTable({
+    section,
     tokens,
     allTokens,
-}: VariantTableProps) {
-    const tokensByKey = useMemo(
-        () => new Map(allTokens.map((t) => [tokenKey(t), t])),
+}: TokenSectionTableProps) {
+    const tokensById = useMemo(
+        () => new Map(allTokens.map((t) => [getTokenId(t), t])),
         [allTokens],
     );
 
@@ -44,10 +43,11 @@ export function VariantTable({
         <Table
             fullWidth
             collapseToList
-            caption={<TableCaption srOnly={false}>{variant}</TableCaption>}
+            caption={<TableCaption srOnly={false}>{section}</TableCaption>}
         >
             <TableHead>
                 <TableRow>
+                    <TableHeader scope="col">path</TableHeader>
                     <TableHeader scope="col">group</TableHeader>
                     <TableHeader scope="col">role</TableHeader>
                     {THEME_MODES.map((mode) => (
@@ -61,11 +61,14 @@ export function VariantTable({
                 {tokens.map((token) => {
                     const reference = contrastReference(token);
                     const referenceToken = reference
-                        ? tokensByKey.get(tokenKey(reference.against))
+                        ? tokensById.get(getTokenId(reference.against))
                         : undefined;
 
                     return (
-                        <TableRow key={`${token.group}.${token.role}`}>
+                        <TableRow key={token.id}>
+                            <TableCell data-th="path">
+                                <code>{token.id}</code>
+                            </TableCell>
                             <TableCell data-th="group">
                                 <code>{token.group}</code>
                             </TableCell>

@@ -19,7 +19,7 @@ export function TokenFilter() {
             <Search
                 label="Filtrer tokens"
                 labelProps={{ srOnly: true }}
-                placeholder="text.default, background, …"
+                placeholder="text.default, warning.background, …"
                 icon="filter_list"
                 value={filter}
                 onChange={(event) => setFilter(event.target.value)}
@@ -34,14 +34,4 @@ export function TokenFilter() {
             </ToggleSwitch>
         </Flex>
     );
-}
-
-/** Felles filter-predikat. Tomt filter slipper alt gjennom. */
-export function tokenMatchesFilter(
-    token: { group: string; role: string },
-    filter: string,
-): boolean {
-    if (!filter.trim()) return true;
-    const path = `${token.group}.${token.role}`;
-    return path.toLowerCase().includes(filter.trim().toLowerCase());
 }

@@ -5,17 +5,17 @@ import { Link } from "@fremtind/jokul/link";
 import { Popover } from "@fremtind/jokul/popover";
 import { Text } from "@fremtind/jokul/typography";
 import { type CSSProperties, useState } from "react";
-import type { ColorGroup, RoleEntry } from "../tokens";
-import type { ContrastEvaluation } from "../utils";
+import { type ContrastEvaluation, wcagLabel, wcagUrl } from "../contrast";
+import type { ColorTokenDefinition, TokenGroup } from "../tokens";
 
 import styles from "./tokens-list.module.scss";
 
 type TokenSwatchProps = {
-    group: ColorGroup;
+    group: TokenGroup;
     value: string;
     contrast?: ContrastEvaluation;
     /** Tokenet kontrasten beregnes mot — brukes som bakgrunn i forhåndsvisningen. */
-    reference?: { token: RoleEntry; value: string };
+    reference?: { token: ColorTokenDefinition; value: string };
 };
 
 /**
@@ -58,7 +58,7 @@ export function TokenSwatch({
 }
 
 type RolePreviewProps = {
-    group: ColorGroup;
+    group: TokenGroup;
     value: string;
     pairValue?: string;
     size: "small" | "large";
@@ -114,9 +114,9 @@ function RolePreview({ group, value, pairValue, size }: RolePreviewProps) {
 
 type ContrastHintButtonProps = {
     evaluation: Extract<ContrastEvaluation, { kind: "measured" }>;
-    group: ColorGroup;
+    group: TokenGroup;
     value: string;
-    reference?: { token: RoleEntry; value: string };
+    reference?: { token: ColorTokenDefinition; value: string };
 };
 
 function ContrastHintButton({
@@ -169,9 +169,7 @@ function ContrastHintButton({
                     <Flex direction="column" gap="2xs">
                         <Text size="xs">Mot</Text>
                         <Flex alignItems="center" gap="s">
-                            <code>
-                                {`${reference.token.group}.${reference.token.role}`}
-                            </code>
+                            <code>{reference.token.id}</code>
                             <code>{reference.value}</code>
                         </Flex>
                     </Flex>
@@ -197,20 +195,3 @@ function ContrastHintButton({
 
 const formatRatio = (value: number): string =>
     value.toFixed(2).replace(/\.00$/, "");
-
-/** WCAG-suksesskriteriet som best beskriver et (scope, rating)-par. */
-function wcagUrl(scope: "tekst" | "grafisk", rating: string): string {
-    if (scope === "tekst" && rating === "AAA") {
-        return "https://www.w3.org/WAI/WCAG21/Understanding/contrast-enhanced.html";
-    }
-    if (scope === "tekst") {
-        return "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html";
-    }
-    return "https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html";
-}
-
-function wcagLabel(scope: "tekst" | "grafisk", rating: string): string {
-    if (scope === "tekst" && rating === "AAA") return "WCAG 2.1 SC 1.4.6";
-    if (scope === "tekst") return "WCAG 2.1 SC 1.4.3";
-    return "WCAG 2.1 SC 1.4.11";
-}
