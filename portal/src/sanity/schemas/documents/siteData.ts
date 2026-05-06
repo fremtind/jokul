@@ -82,12 +82,19 @@ export const siteData = defineType({
                                                                         {
                                                                             type: "jokul_blog_post",
                                                                         },
+                                                                        {
+                                                                            type: "jokul_release_notes",
+                                                                        },
                                                                     ],
                                                                 },
                                                             ],
                                                             preview: {
                                                                 select: {
                                                                     title: "internalReference.name",
+                                                                    version: "internalReference.version",
+                                                                },
+                                                                prepare({ title, version }) {
+                                                                    return { title: title ?? version };
                                                                 },
                                                             },
                                                         },
