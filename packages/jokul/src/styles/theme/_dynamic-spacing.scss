@@ -23,7 +23,7 @@
 
             --#{get-class-name($spacing-combination)}: #{map.get(
                 jkl.$tokens,
-                "spacing"
+                "spacing",
                 $_step
             )};
         }
@@ -35,7 +35,7 @@
 
                     --#{get-class-name($spacing-combination)}: #{map.get(
                         jkl.$tokens,
-                        "spacing"
+                        "spacing",
                         $_step
                     )};
                 }
@@ -49,7 +49,7 @@
 
                     --#{get-class-name($spacing-combination)}: #{map.get(
                         jkl.$tokens,
-                        "spacing"
+                        "spacing",
                         $_step
                     )};
                 }
