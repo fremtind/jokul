@@ -82,6 +82,9 @@ export const siteData = defineType({
                                                                         {
                                                                             type: "jokul_blog_post",
                                                                         },
+                                                                        {
+                                                                            type: "jokul_release_notes",
+                                                                        },
                                                                     ],
                                                                 },
                                                             ],

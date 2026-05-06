@@ -20,6 +20,7 @@ export const siteDataQuery = defineQuery(
       url[0].internalReference->_type == "jokul_component" => "komponenter/" + url[0].internalReference->slug.current,
       url[0].internalReference->_type == "jokul_fundamentals" => "fundamenter/" + url[0].internalReference->slug.current,
       url[0].internalReference->_type == "jokul_blog_post" => "blog/" + url[0].internalReference->slug.current,
+      url[0].internalReference->_type == "jokul_release_notes" => "release-notes/" + url[0].internalReference->slug.current,
       "/" + url[0].internalReference->slug.current
     ),
     url[0]._type == "externalLink" => url[0].url
