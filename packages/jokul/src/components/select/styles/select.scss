@@ -141,17 +141,18 @@
         }
 
         &__options-menu {
-            position: absolute;
-            left: jkl.rem(-1px);
-            right: jkl.rem(-1px);
-            top: 100%;
-            z-index: jkl.$z-index--dropdown;
-
             background-color: var(--jkl-color-background-container-high);
             border: jkl.rem(2px) solid var(--jkl-color-border-input-focus);
-            border-top: none;
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-sizing: border-box;
+            // Strekker seg ut over kantene på trigger-knappen for å dekke
+            // den 1px brede borderen, slik at listen visuelt henger sammen
+            // med inputfeltet.
+            margin-inline: jkl.rem(-1px);
+            width: calc(100% + #{jkl.rem(2px)});
+            // Definerer egne tokens her fordi listen rendres i en portal og
+            // ikke arver kaskaderte custom properties fra `.jkl-select`.
+            --min-option-height: min(var(--jkl-unit-60), 3rem);
+            --option-padding: var(--jkl-unit-05) 0.75em;
 
             overflow-y: auto;
             // Sett makshøyde på listen til høyden av (maxShownOptions + 0.5) ganger høyden på ett enlinjes valg
@@ -160,9 +161,23 @@
                     var(--min-option-height)
             );
 
-            transition-property: height;
+            // Standard: lista ligger under triggeren — flat topp, runde
+            // bunnhjørner, ingen border på toppen som ville duplisert
+            // knappens border.
+            &[data-popover-placement="bottom"] {
+                border-top: none;
+                border-radius: 0 0 var(--jkl-border-radius-s)
+                    var(--jkl-border-radius-s);
+            }
 
-            @include jkl.motion;
+            // Når `flip` snur lista over knappen byttes flat side og runde
+            // hjørner, slik at lista og knappen fortsatt henger sammen
+            // visuelt.
+            &[data-popover-placement="top"] {
+                border-bottom: none;
+                border-radius: var(--jkl-border-radius-s)
+                    var(--jkl-border-radius-s) 0 0;
+            }
         }
 
         &__option-wrapper {
@@ -218,8 +233,6 @@
         &--open {
             .jkl-select__search-input,
             .jkl-select__button {
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
                 border-color: var(--jkl-color-border-input-focus);
                 background-color: var(--jkl-color-background-container-high);
                 box-shadow: 0 0 0 jkl.rem(1px)
@@ -227,6 +240,24 @@
 
                 &:hover ~ .jkl-select__arrow {
                     transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
+                }
+            }
+
+            // Lista ligger under (default): flat bunn på input/knapp.
+            .jkl-select__outer-wrapper[data-popover-placement="bottom"] {
+                .jkl-select__search-input,
+                .jkl-select__button {
+                    border-bottom-left-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+
+            // Lista ligger over: flat topp på input/knapp.
+            .jkl-select__outer-wrapper[data-popover-placement="top"] {
+                .jkl-select__search-input,
+                .jkl-select__button {
+                    border-top-left-radius: 0;
+                    border-top-right-radius: 0;
                 }
             }
         }
@@ -256,21 +287,88 @@
                     border-color: Highlight;
                 }
             }
+        }
+    }
 
-            & .jkl-select__option {
-                color: CanvasText;
+    // Options rendres i portal og er ikke descendants av `.jkl-select`,
+    // så forced-colors-reglene må stå på topp-nivå for å treffe dem.
+    @include jkl.forced-colors-mode {
+        .jkl-select__option {
+            color: CanvasText;
 
-                border-top: 1px solid Canvas;
-                border-bottom: 1px solid Canvas;
+            border-top: 1px solid Canvas;
+            border-bottom: 1px solid Canvas;
 
-                &:hover,
-                &:focus {
-                    border-top: 1px solid SelectedItem;
-                    border-bottom: 1px solid SelectedItem;
+            &:hover,
+            &:focus {
+                border-top: 1px solid SelectedItem;
+                border-bottom: 1px solid SelectedItem;
 
-                    @include jkl.no-grow-bold;
-                }
+                @include jkl.no-grow-bold;
             }
         }
+    }
+
+    // Listen rendres i en portal via `Popover`. Vi nøytraliserer Popover sin
+    // standard padding/bakgrunn/skygge slik at `.jkl-select__options-menu`
+    // selv styrer ramme og bakgrunn — også når Select brukes inne i en
+    // Card, ExpandablePanel eller andre containere med overflow-clip.
+    // Select skal følge samme lagdeling som andre dropdown-/menykomponenter
+    // (Combobox, Datepicker, Menu) og ikke arve Popover sitt floating-nivå.
+    .jkl-popover.jkl-select__popover {
+        background: none;
+        box-shadow: none;
+        border-radius: 0;
+        z-index: jkl.$z-index--dropdown;
+    }
+
+    // Mild fade + slide-in når lista mounter i portalen. Animeres på
+    // selve listbox-en — ikke på popover-wrapperen — fordi wrapperen
+    // bærer floating-ui sin posisjonerings-`transform`. Hadde vi animert
+    // wrapperen ville `translateY` overstyrt floating-ui's transform i
+    // animasjonsvinduet, og lista ville blinket i (0,0).
+    @media (prefers-reduced-motion: no-preference) {
+        .jkl-select__options-menu {
+            animation: jkl-select-options-menu-in
+                var(--jkl-motion-timing-snappy)
+                var(--jkl-motion-easing-standard);
+
+            // Når lista flippes opp animerer vi fra motsatt retning slik
+            // at bevegelsen alltid kommer fra triggeren.
+            &[data-popover-placement="top"] {
+                animation-name: jkl-select-options-menu-in-from-top;
+            }
+        }
+    }
+
+    @keyframes jkl-select-options-menu-in {
+        from {
+            opacity: 0;
+            transform: translateY(jkl.rem(-4px));
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes jkl-select-options-menu-in-from-top {
+        from {
+            opacity: 0;
+            transform: translateY(jkl.rem(4px));
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Options rendres i en portal og er ikke lenger descendants av
+    // `.jkl-select`, så regelen `.jkl-select & *:focus-visible { outline:
+    // none }` treffer dem ikke. Vi gjenoppretter fokus-visualiseringen
+    // (background-color via &:focus) ved å eksplisitt fjerne den native
+    // outlinen på options i portalen.
+    .jkl-select__option:focus-visible {
+        outline: none;
     }
 }
