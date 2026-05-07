@@ -73,6 +73,21 @@
                     outline-offset: var(--outline-offset);
                 }
             }
+
+            .jkl-expander {
+                padding: var(--jkl-unit-20);
+                width: 100%;
+
+                &__label {
+                    flex-grow: 1;
+                }
+
+                @media (hover: hover) {
+                    &:hover {
+                        background-color: var(--jkl-color-background-interactive-selected);
+                    }
+                }
+            }
         }
 
         &__focus-container {
@@ -88,8 +103,6 @@
         appearance: none;
         border: none;
         text-align: left;
-        width: 100%;
-        padding: var(--jkl-unit-20);
         cursor: pointer;
         color: var(--jkl-color);
 
@@ -102,10 +115,6 @@
 
         &::-webkit-details-marker {
             display: none;
-        }
-
-        &__label {
-            flex-grow: 1;
         }
 
         &__chevron {
@@ -124,12 +133,6 @@
                 transform: rotate(-0.5turn);
 
                 @include jkl.motion("standard", "snappy");
-            }
-        }
-
-        @media (hover: hover) {
-            &:hover {
-                background-color: var(--jkl-color-background-interactive-selected);
             }
         }
 
