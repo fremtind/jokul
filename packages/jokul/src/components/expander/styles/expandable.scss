@@ -2,7 +2,7 @@
 
 @layer jokul.components {
     .jkl-expandable {
-        background-color: var(--jkl-color-background-container);
+        background-color: var(--jkl-color-background-container-low);
         // A transparent border will be visible in forced colors mode and replace
         // the role of the background-color in separating the component from other content
         border: 1px solid transparent;
@@ -28,7 +28,7 @@
         }
 
         &--stroke {
-            border-color: var(--jkl-color-border-subdued);
+            border-color: var(--jkl-color-border-separator);
             background-color: transparent;
 
             border-radius: 0;
@@ -36,7 +36,7 @@
         }
 
         &__wrapper {
-            --border-radius: #{jkl.rem(4px)};
+            --border-radius: var(--jkl-border-radius-s);
             --outline-offset: 3px;
             --stroke-outline-offset: 3px;
             --border-top-left-radius: var(--border-radius);
@@ -73,6 +73,21 @@
                     outline-offset: var(--outline-offset);
                 }
             }
+
+            .jkl-expander {
+                padding: var(--jkl-unit-20);
+                width: 100%;
+
+                &__label {
+                    flex-grow: 1;
+                }
+
+                @media (hover: hover) {
+                    &:hover {
+                        background-color: var(--jkl-color-background-interactive-selected);
+                    }
+                }
+            }
         }
 
         &__focus-container {
@@ -83,17 +98,11 @@
     }
 
     .jkl-expander {
-        --hover-background-color: color-mix(in srgb,
-                currentColor 15%,
-                transparent);
-
         box-sizing: border-box;
         background: none;
         appearance: none;
         border: none;
         text-align: left;
-        width: 100%;
-        padding: var(--jkl-unit-20);
         cursor: pointer;
         color: var(--jkl-color);
 
@@ -106,10 +115,6 @@
 
         &::-webkit-details-marker {
             display: none;
-        }
-
-        &__label {
-            flex-grow: 1;
         }
 
         &__chevron {
@@ -128,12 +133,6 @@
                 transform: rotate(-0.5turn);
 
                 @include jkl.motion("standard", "snappy");
-            }
-        }
-
-        @media (hover: hover) {
-            &:hover {
-                background-color: var(--hover-background-color);
             }
         }
 
