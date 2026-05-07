@@ -5,7 +5,7 @@ import type { DecoratorFunction } from "storybook/internal/types";
 export const themes = [
     { title: "Lyst", value: "light", icon: "sun" },
     { title: "Mørkt", value: "dark", icon: "moon" },
-];
+] as const;
 
 const applyTheme = (element: HTMLElement, theme: string) => {
     element.classList.add("jkl");
