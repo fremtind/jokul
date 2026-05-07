@@ -36,6 +36,7 @@ export const CheckboxPanelStory: Story = {};
 
 export const VelgDekningForReiseforsikring: Story = {
     name: "Velg dekning for reiseforsikring",
+    tags: ["visual"],
     render: (args) => {
         return (
             <Flex
@@ -114,4 +115,34 @@ export const ControlledCheckboxPanel: Story = {
             </Flex>
         );
     },
+};
+
+export const MedFeil: Story = {
+    name: "Med feil",
+    tags: ["visual"],
+    render: (args) => (
+        <Flex
+            gap="xs"
+            direction="column"
+            as={FieldGroup}
+            legend="Velg dekninger"
+        >
+            <CheckboxPanelComponent
+                {...args}
+                name="minikasko"
+                label="Kasko"
+                amount="300 kr/mnd"
+                value="kasko"
+                aria-invalid="true"
+            />
+            <CheckboxPanelComponent
+                {...args}
+                name="minikasko"
+                label="Minikasko"
+                amount="200 kr/mnd"
+                value="minikasko"
+                aria-invalid="true"
+            />
+        </Flex>
+    ),
 };

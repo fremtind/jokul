@@ -1,23 +1,25 @@
-import type { Locator } from "@playwright/test";
-import { TestHelper } from "utils/playwright/TestHelper.mjs";
-import { expect, test } from "utils/playwright/base.mjs";
+import AxeBuilder from "@axe-core/playwright";
+import type { Locator, Page } from "@playwright/test";
+import { expect, test } from "@playwright/test";
+import { navigate } from "visual-regression/utils.js";
 
-let helper: TestHelper;
+// Story-ID generert av Storybook fra title "Visuell regresjonstesting/CheckboxPanel"
+// og export-navn "LysDefault"
+const INTERACTION_STORY_ID =
+    "visuell-regresjonstesting-checkboxpanel--lys-default";
+
 const alignmentTolerance = 3;
 
 const getBoundingBox = async (locator: Locator) => {
     const box = await locator.boundingBox();
-
     if (!box) {
         throw new Error("Could not read element bounding box");
     }
-
     return box;
 };
 
 const clickHeaderAt = async (header: Locator, position: number) => {
     const box = await getBoundingBox(header);
-
     await header.click({
         position: {
             x: Math.min(Math.max(box.width * position, 8), box.width - 8),
@@ -67,55 +69,51 @@ const expectInputAlignedWithLabel = async (panel: Locator) => {
     ).toBeLessThan(alignmentTolerance);
 };
 
-test.beforeEach(async ({ page }, workerInfo) => {
-    helper = new TestHelper({
-        page,
-        package: "checkbox-panel",
-        projectName: workerInfo.project.name,
-    });
-    await helper.init();
+const openStory = async (page: Page) => {
+    await navigate(page, INTERACTION_STORY_ID);
+    await page.evaluate(() => document.fonts.ready);
+};
+
+test.beforeEach(async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await openStory(page);
 });
 
-test.afterEach(async () => {
-    helper.close();
-});
-
-test("renders correctly", async () => {
-    await helper.open();
-
-    await helper.snapshots();
-});
-
-test("axe", async ({ axe }) => {
-    await helper.open();
-
-    // The plugin claims aria-expanded can't be used with the radio role. We disagree.
-    await axe({ disableRules: ["aria-allowed-attr"] });
-});
-
-test("header is clickable across the full width and the hidden input matches the icon position", async () => {
-    await helper.open();
-    await helper.page.evaluate(() => document.fonts.ready);
-
-    const panel = helper.page
+test("header er klikkbar over hele bredden", async ({ page }) => {
+    // Kasko-panelet er forhåndsavkrysset – finn Minikasko-panelet som ikke er det
+    const minikaskoPanel = page
         .locator(".jkl-checkbox-panel")
-        .filter({
-            has: helper.page.locator('.jkl-checkbox__input[name="minikasko"]'),
-        })
+        .filter({ hasText: "Minikasko" })
         .first();
-    const header = panel.locator(".jkl-input-panel__header");
-    const input = panel.locator(".jkl-checkbox__input");
+    const minikaskoHeader = minikaskoPanel.locator(".jkl-input-panel__header");
+    const minikaskoInput = minikaskoPanel.locator(".jkl-checkbox__input");
+
+    await expect(minikaskoInput).not.toBeChecked();
+
+    await clickHeaderAt(minikaskoHeader, 0.9);
+    await expect(minikaskoInput).toBeChecked();
+
+    await clickHeaderAt(minikaskoHeader, 0.5);
+    await expect(minikaskoInput).not.toBeChecked();
+
+    await clickHeaderAt(minikaskoHeader, 0.1);
+    await expect(minikaskoInput).toBeChecked();
+});
+
+test("den skjulte inputen er posisjonert i tråd med ikonets plassering", async ({
+    page,
+}) => {
+    const panel = page
+        .locator(".jkl-checkbox-panel")
+        .filter({ hasText: "Minikasko" })
+        .first();
 
     await expectInputAlignedWithLabel(panel);
+});
 
-    await expect(input).not.toBeChecked();
-
-    await clickHeaderAt(header, 0.9);
-    await expect(input).toBeChecked();
-
-    await clickHeaderAt(header, 0.5);
-    await expect(input).not.toBeChecked();
-
-    await clickHeaderAt(header, 0.1);
-    await expect(input).toBeChecked();
+test("axe", async ({ page }) => {
+    const results = await new AxeBuilder({ page })
+        .include("#storybook-root")
+        .analyze();
+    expect(results.violations).toEqual([]);
 });
