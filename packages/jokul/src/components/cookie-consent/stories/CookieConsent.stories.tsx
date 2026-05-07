@@ -177,6 +177,7 @@ export const Personverninnstillinger: Story = {
 
 export const Forstegangsvalg: Story = {
     name: "Førstegangsvalg",
+    tags: ["visual"],
     args: {
         heading: "Samtykke ved første besøk",
         body: (
