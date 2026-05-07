@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-@use "../../../core/jkl";
-=======
 @use "../../../styles/jkl";
->>>>>>> 4ef92dfc96 (feat: Text og Title typografikomponenter)
 
 // Hver `size` mapper til en komplett tekst-stil fra `$text-styles` i
-// `core/jkl/_typography.scss` — både font-size, line-height, font-weight
+// `styles/jkl/_typography.scss` — både font-size, line-height, font-weight
 // og ikon-variabler settes via `jkl.text-style`-mixinen.
 $_size-styles: (
     "xs": "heading-5",
@@ -33,10 +29,7 @@ $_size-styles: (
     // `.jkl-heading-<size>` tilsvarer `<Title size="<size>">` brukt på et
     // vilkårlig element.
     @each $name, $style in $_size-styles {
-<<<<<<< HEAD
-=======
 
->>>>>>> 4ef92dfc96 (feat: Text og Title typografikomponenter)
         .jkl-title[data-text-size="#{$name}"],
         .jkl-heading-#{$name} {
             @include jkl.text-style($style);
@@ -63,8 +56,14 @@ $_size-styles: (
         display: block;
         margin-block-end: var(--jkl-spacing-8);
     }
-<<<<<<< HEAD
+
+    <<<<<<< HEAD <<<<<<< HEAD
 }
+
 =======
 }
->>>>>>> 4ef92dfc96 (feat: Text og Title typografikomponenter)
+
+> > > > > > > 4ef92dfc96 (feat: Text og Title typografikomponenter)=======
+}
+
+> > > > > > > 7601b3217a (Fjerner core rester)
