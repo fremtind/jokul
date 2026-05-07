@@ -1,19 +1,14 @@
 @charset "UTF-8";
 @use "../../../styles/jkl";
+@use "../../icon/styles/base-styles" as icon;
 
-$_cross-light: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='8.75' fill='%23F6B3B3'/%3E%3Cpath fill='%231B1917' d='M5.54 12.68l7.14-7.1.84.85-7.13 7.09z'/%3E%3Cpath fill='%231B1917' d='M12.67 13.47l-7.13-7.1.85-.83 7.13 7.1z'/%3E%3C/svg%3E%0A");
-$_cross-dark: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='8.75' fill='%23DE9E9E'/%3E%3Cpath fill='%231B1917' d='M5.54 12.68l7.14-7.1.84.85-7.13 7.09z'/%3E%3Cpath fill='%231B1917' d='M12.67 13.47l-7.13-7.1.85-.83 7.13 7.1z'/%3E%3C/svg%3E%0A");
-$_check-light: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='9.5' fill='%23ACD3B5'/%3E%3Cpath d='M4.75 11l2.35 2.36 7.84-7.84' stroke='%231B1917' stroke-width='1.5'/%3E%3C/svg%3E%0A");
-$_check-dark: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='9.5' cy='9.5' r='9.5' fill='%2394B79B'/%3E%3Cpath d='M4.75 11l2.35 2.36 7.84-7.84' stroke='%231B1917' stroke-width='1.5'/%3E%3C/svg%3E%0A");
+/*
+ * NOTE: These markers should stay visually aligned with GreenCheckIcon and
+ *       RedCrossIcon in the icon package.
+ */
 
 @layer jokul.components {
     .jkl-list {
-        /* stylelint-disable declaration-block-no-duplicate-custom-properties -- fallback for browsers without light-dark() support */
-        --jkl-list-marker-cross: #{$_cross-light};
-        --jkl-list-marker-cross: light-dark(#{$_cross-light}, #{$_cross-dark});
-        --jkl-list-marker-check: #{$_check-light};
-        --jkl-list-marker-check: light-dark(#{$_check-light}, #{$_check-dark});
-        /* stylelint-enable declaration-block-no-duplicate-custom-properties */
         --list-text-color: var(--jkl-color-text-default);
 
         list-style-type: "\2022";
@@ -58,35 +53,44 @@ $_check-dark: url("data:image/svg+xml,%3Csvg width='19' height='19' fill='none' 
                 padding-left: 0;
 
                 &::before {
-                    text-indent: -9999px;
-                    background-size: contain;
-                    width: 1em;
-                    height: 1em;
+                    @include icon.base-styles;
+
+                    display: inline-grid;
+                    place-items: center;
+                    width: 1.1875em;
+                    height: 1.1875em;
+                    box-sizing: border-box;
                     flex-shrink: 0;
                     margin-right: 0.5em;
                     margin-top: 0.2em; // Vertical offset (using em for font-size scaling) to align icon properly with the first line.
+                    font-size: 1em;
+                    line-height: 1;
+                    border-radius: 999px;
+
+                    --jkl-icon-weight: var(--jkl-icon-weight-bold);
                 }
             }
 
             &--check::before {
-                @include jkl.decorative($content: "\2713");
-                background-image: var(--jkl-list-marker-check);
+                @include jkl.decorative($content: "\e5ca");
+                color: var(--jkl-color-success-text-on-contrast);
+                background-color: var(--jkl-color-success-background-contrast);
             }
 
             &--cross::before {
-                @include jkl.decorative($content: "\274C");
-                background-image: var(--jkl-list-marker-cross);
+                @include jkl.decorative($content: "\e5cd");
+                color: var(--jkl-color-error-text-on-contrast);
+                background-color: var(--jkl-color-error-background-contrast);
             }
         }
 
         @include jkl.forced-colors-mode {
             & .jkl-list__item {
-                &--check::before {
-                    background-image: _check(CanvasText, Canvas);
-                }
-
+                &--check::before,
                 &--cross::before {
-                    background-image: _cross(CanvasText, Canvas);
+                    background-color: Canvas;
+                    color: CanvasText;
+                    border: 1px solid CanvasText;
                 }
             }
         }
