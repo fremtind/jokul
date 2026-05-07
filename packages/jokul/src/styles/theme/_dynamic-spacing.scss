@@ -20,24 +20,29 @@
     :root {
         @each $spacing-combination in spacing.$combinations {
             $_step: list.nth($spacing-combination, 1);
+            $_value: map.get(jkl.$tokens, "spacing", $_step);
 
-            --#{get-class-name($spacing-combination)}: #{map.get(
-                jkl.$tokens,
-                "spacing",
-                $_step
-            )};
+            @if not $_value {
+                @error "Forsøker å lage en dynamisk spacing-variabel med en avstand som ikke finnes (#{$_step})!"
+            }
+
+            // Vi trenger ikke redefinere de vanlige spacing-variablene (de som bare har én verdi)
+            @if list.length($spacing-combination) != 1 {
+                --#{get-class-name($spacing-combination)}: #{$_value};
+            }
         }
 
         @include screens.from-medium-device {
             @each $spacing-combination in spacing.$combinations {
                 @if list.length($spacing-combination) > 1 {
                     $_step: list.nth($spacing-combination, 2);
+                    $_value: map.get(jkl.$tokens, "spacing", $_step);
 
-                    --#{get-class-name($spacing-combination)}: #{map.get(
-                        jkl.$tokens,
-                        "spacing",
-                        $_step
-                    )};
+                    @if not $_value {
+                        @error "Forsøker å lage en dynamisk spacing-variabel med en avstand som ikke finnes (#{$_step})!"
+                    }
+
+                    --#{get-class-name($spacing-combination)}: #{$_value};
                 }
             }
         }
@@ -46,12 +51,13 @@
             @each $spacing-combination in spacing.$combinations {
                 @if list.length($spacing-combination) > 2 {
                     $_step: list.nth($spacing-combination, 3);
+                    $_value: map.get(jkl.$tokens, "spacing", $_step);
 
-                    --#{get-class-name($spacing-combination)}: #{map.get(
-                        jkl.$tokens,
-                        "spacing",
-                        $_step
-                    )};
+                    @if not $_value {
+                        @error "Forsøker å lage en dynamisk spacing-variabel med en avstand som ikke finnes (#{$_step})!"
+                    }
+
+                    --#{get-class-name($spacing-combination)}: #{$_value};
                 }
             }
         }
