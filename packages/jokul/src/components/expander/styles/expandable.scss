@@ -88,7 +88,7 @@
 
                 @media (hover: hover) {
                     &:hover {
-                        background-color: var(--jkl-color-background-interactive-selected);
+                        background-color: color-mix(in srgb, currentColor 15%, transparent);
                     }
                 }
             }
@@ -102,10 +102,6 @@
     }
 
     .jkl-expander {
-        --hover-background-color: color-mix(in srgb,
-                currentColor 15%,
-                transparent);
-
         box-sizing: border-box;
         background: none;
         appearance: none;
@@ -142,12 +138,6 @@
                 transform: rotate(-0.5turn);
 
                 @include jkl.motion("standard", "snappy");
-            }
-        }
-
-        @media (hover: hover) {
-            &:hover {
-                background-color: var(--hover-background-color);
             }
         }
 
