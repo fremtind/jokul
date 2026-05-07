@@ -1,7 +1,7 @@
 @use "../../../styles/jkl";
 
 // Hver `size` mapper til en komplett tekst-stil fra `$text-styles` i
-// `core/jkl/_typography.scss` — både font-size, line-height, font-weight
+// `styles/jkl/_typography.scss` — både font-size, line-height, font-weight
 // og ikon-variabler settes via `jkl.text-style`-mixinen.
 $_size-styles: (
     "xs": "text-micro",
