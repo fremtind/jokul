@@ -6,15 +6,7 @@ $webfonts-dir: "/fonts" !default;
     @font-face {
         font-family: Jokul;
         font-display: fallback;
-        font-weight: 400;
-        font-style: normal;
-        src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
-    }
-
-    @font-face {
-        font-family: Jokul;
-        font-display: fallback;
-        font-weight: 700;
+        font-weight: 100 900;
         font-style: normal;
         src: url("#{$webfonts-dir}/InterVariable.woff2") format("woff2");
     }
@@ -39,8 +31,7 @@ $webfonts-dir: "/fonts" !default;
         font-family: "Jokul Icons";
         font-weight: 300 400;
         font-style: normal;
-        src: url("#{$webfonts-dir}/Fremtind-Material-Symbols.woff2")
-            format("woff2");
+        src: url("#{$webfonts-dir}/Fremtind-Material-Symbols.woff2") format("woff2");
     }
 
     @font-face {
