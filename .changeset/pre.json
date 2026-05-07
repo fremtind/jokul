@@ -11,6 +11,7 @@
     },
     "changesets": [
         "card-high-low-variants",
+        "clean-nights-jam",
         "codemod-remove-webfonts-css",
         "cool-pigs-fry",
         "five-schools-swim",
