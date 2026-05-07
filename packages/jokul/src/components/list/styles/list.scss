@@ -1,14 +1,9 @@
 @charset "UTF-8";
 @use "../../../styles/jkl";
+@use "../../icon/styles/base-styles" as icon;
 
 @layer jokul.components {
     .jkl-list {
-        /* stylelint-disable declaration-block-no-duplicate-custom-properties -- fallback for browsers without light-dark() support */
-        --jkl-list-marker-cross: #{$_cross-light};
-        --jkl-list-marker-cross: light-dark(#{$_cross-light}, #{$_cross-dark});
-        --jkl-list-marker-check: #{$_check-light};
-        --jkl-list-marker-check: light-dark(#{$_check-light}, #{$_check-dark});
-        /* stylelint-enable declaration-block-no-duplicate-custom-properties */
         --list-text-color: var(--jkl-color-text-default);
 
         list-style-type: "\2022";
@@ -66,19 +61,21 @@
                     font-size: 1em;
                     line-height: 1;
                     border-radius: 999px;
-                    color: var(--jkl-color-text-on-alert);
+
                     --jkl-icon-weight: var(--jkl-icon-weight-bold);
                 }
             }
 
             &--check::before {
                 @include jkl.decorative($content: "\e5ca");
-                background-color: var(--jkl-color-background-alert-success);
+                color: var(--jkl-color-success-text-on-contrast);
+                background-color: var(--jkl-color-success-background-contrast);
             }
 
             &--cross::before {
                 @include jkl.decorative($content: "\e5cd");
-                background-color: var(--jkl-color-background-alert-error);
+                color: var(--jkl-color-error-text-on-contrast);
+                background-color: var(--jkl-color-error-background-contrast);
             }
         }
 
