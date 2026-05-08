@@ -1,0 +1,1 @@
+import{j as e}from"./iframe-CLrGhnM6.js";import{I as s}from"./InputPanel-CuSOdlzm.js";const t=o=>e.jsx(s,{...o,type:"checkbox"});t.__docgenInfo={description:"",methods:[],displayName:"CheckboxPanel"};export{t as C};
