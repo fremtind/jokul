@@ -1,5 +1,14 @@
 # portal
 
+## 1.5.0-next.11
+
+### Patch Changes
+
+- c1b5c53: Fjerner fluid typografi for tittelen på komponentsiden som peker på fontstørrelser vi ikke har lenger. Det er også eneste sted i løsningen vi brukte fluid typografi.
+- Updated dependencies [de0a678]
+- Updated dependencies [dd6fa26]
+  - @fremtind/jokul@5.0.0-next.11
+
 ## 1.5.0-next.10
 
 ### Patch Changes
