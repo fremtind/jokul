@@ -473,6 +473,54 @@
                                     {
                                       "type": "object",
                                       "attributes": {
+                                        "route": {
+                                          "type": "objectAttribute",
+                                          "value": {
+                                            "type": "union",
+                                            "of": [
+                                              {
+                                                "type": "string",
+                                                "value": "komponenter"
+                                              },
+                                              {
+                                                "type": "string",
+                                                "value": "fundamenter"
+                                              },
+                                              {
+                                                "type": "string",
+                                                "value": "blog"
+                                              },
+                                              {
+                                                "type": "string",
+                                                "value": "release-notes"
+                                              }
+                                            ]
+                                          },
+                                          "optional": true
+                                        },
+                                        "_type": {
+                                          "type": "objectAttribute",
+                                          "value": {
+                                            "type": "string",
+                                            "value": "mainPageLink"
+                                          }
+                                        }
+                                      },
+                                      "rest": {
+                                        "type": "object",
+                                        "attributes": {
+                                          "_key": {
+                                            "type": "objectAttribute",
+                                            "value": {
+                                              "type": "string"
+                                            }
+                                          }
+                                        }
+                                      }
+                                    },
+                                    {
+                                      "type": "object",
+                                      "attributes": {
                                         "url": {
                                           "type": "objectAttribute",
                                           "value": {
