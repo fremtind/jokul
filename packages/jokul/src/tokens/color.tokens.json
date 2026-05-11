@@ -12,18 +12,18 @@
                 "container": {
                     "value": {
                         "light": "#FFFFFF",
-                        "dark": "#3E3A36"
+                        "dark": "#262321"
                     }
                 },
                 "container-accent": {
                     "value": {
-                        "light": "#E6E2DB",
-                        "dark": "#2A2724"
+                        "light": "#E4DFD8",
+                        "dark": "#191715"
                     }
                 },
                 "contrast": {
                     "value": {
-                        "light": "#1B1917",
+                        "light": "#000000",
                         "dark": "#F3F0ED"
                     }
                 }
@@ -31,7 +31,7 @@
             "text": {
                 "default": {
                     "value": {
-                        "light": "#1B1917",
+                        "light": "#000000",
                         "dark": "#F9F9F9"
                     }
                 },
@@ -49,8 +49,8 @@
                 },
                 "on-contrast": {
                     "value": {
-                        "light": "#F9F9F9",
-                        "dark": "#1B1917"
+                        "light": "#FFFFFF",
+                        "dark": "#000000"
                     }
                 }
             },
@@ -69,8 +69,8 @@
                 },
                 "strong": {
                     "value": {
-                        "light": "#1B1917",
-                        "dark": "#F9F9F9"
+                        "light": "#000000",
+                        "dark": "#FFFFFF"
                     }
                 }
             }
@@ -79,14 +79,14 @@
             "background": {
                 "page": {
                     "value": {
-                        "light": "#FFFFFF",
+                        "light": "#F3F0ED",
                         "dark": "#000000"
                     }
                 },
                 "container": {
                     "value": {
-                        "light": "#F1DFD1",
-                        "dark": "#61441F"
+                        "light": "#EDE2C4",
+                        "dark": "#473B2D"
                     }
                 },
                 "container-accent": {
@@ -97,8 +97,8 @@
                 },
                 "contrast": {
                     "value": {
-                        "light": "#8B6539",
-                        "dark": "#8B6539"
+                        "light": "#B56C17",
+                        "dark": "#E48E2A"
                     }
                 }
             },
@@ -123,7 +123,7 @@
                 },
                 "on-contrast": {
                     "value": {
-                        "light": "#FFFFFF",
+                        "light": "#000000",
                         "dark": "#000000"
                     }
                 }
@@ -153,14 +153,14 @@
             "background": {
                 "page": {
                     "value": {
-                        "light": "#FFFFFF",
+                        "light": "#F3F0ED",
                         "dark": "#000000"
                     }
                 },
                 "container": {
                     "value": {
-                        "light": "#C6E6CD",
-                        "dark": "#15341E"
+                        "light": "#CAE8D0",
+                        "dark": "#33372F"
                     }
                 },
                 "container-accent": {
@@ -171,8 +171,8 @@
                 },
                 "contrast": {
                     "value": {
-                        "light": "#345F40",
-                        "dark": "#467653"
+                        "light": "#24753A",
+                        "dark": "#33A451"
                     }
                 }
             },
@@ -212,7 +212,7 @@
                 "subdued": {
                     "value": {
                         "light": "#8CBC98",
-                        "dark": "#24492E"
+                        "dark": "#454F3B"
                     }
                 },
                 "strong": {
@@ -227,14 +227,14 @@
             "background": {
                 "page": {
                     "value": {
-                        "light": "#FFFFFF",
+                        "light": "#F3F0ED",
                         "dark": "#000000"
                     }
                 },
                 "container": {
                     "value": {
-                        "light": "#E3E3F4",
-                        "dark": "#1E1E81"
+                        "light": "#DEDEF2",
+                        "dark": "#29293D"
                     }
                 },
                 "container-accent": {
@@ -246,7 +246,7 @@
                 "contrast": {
                     "value": {
                         "light": "#4646D1",
-                        "dark": "#6262DC"
+                        "dark": "#7979E6"
                     }
                 }
             },
@@ -286,7 +286,7 @@
                 "subdued": {
                     "value": {
                         "light": "#B7B7F0",
-                        "dark": "#2D2DB3"
+                        "dark": "#373752"
                     }
                 },
                 "strong": {
@@ -301,14 +301,14 @@
             "background": {
                 "page": {
                     "value": {
-                        "light": "#FFFFFF",
+                        "light": "#F3F0ED",
                         "dark": "#000000"
                     }
                 },
                 "container": {
                     "value": {
-                        "light": "#F3DEDE",
-                        "dark": "#610F0F"
+                        "light": "#F0D6D6",
+                        "dark": "#391F1D"
                     }
                 },
                 "container-accent": {
@@ -360,7 +360,7 @@
                 "subdued": {
                     "value": {
                         "light": "#F6B3B3",
-                        "dark": "#891919"
+                        "dark": "#552E2B"
                     }
                 },
                 "strong": {
