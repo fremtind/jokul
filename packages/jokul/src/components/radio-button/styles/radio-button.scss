@@ -5,10 +5,6 @@
 
 @layer jokul.components {
     .jkl-radio-button {
-        /* stylelint-disable declaration-block-no-duplicate-custom-properties -- fallback for browsers without light-dark() support */
-        --jkl-radio-button-error-color: #ab2e43;
-        --jkl-radio-button-error-color: light-dark(#ab2e43, #d79ba5);
-        /* stylelint-enable declaration-block-no-duplicate-custom-properties */
         display: flex;
         position: relative;
 
@@ -66,7 +62,7 @@
         }
 
         &__input[aria-invalid="true"] + &__label::before {
-            color: var(--jkl-color-error-text-default);
+            color: var(--jkl-color-error-background-contrast);
         }
 
         & + &,
