@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.0.0-next.11
+
+### Patch Changes
+
+- de0a678: Bruk material symbols for punktene i dekningslister
+- dd6fa26: Expander brukt alene vil ikke lenger ha padding, hover og full bredde by default
+
 ## 5.0.0-next.10
 
 ### Patch Changes
