@@ -114,7 +114,7 @@
 
             &:focus,
             &:hover {
-                background-color: color-mix(in srgb, currentColor 10%, transparent);
+                background-color: var(--jkl-color-background-container-accent)
             }
 
             &-description {

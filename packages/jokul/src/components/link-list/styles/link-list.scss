@@ -50,7 +50,7 @@
                 }
 
                 &:is(:hover, :focus-visible) {
-                    background-color: color-mix(in srgb, var(--text-color) 15%);
+                    background-color: var(--jkl-color-background-container-accent);
 
                     &::after {
                         translate: 4px 0;

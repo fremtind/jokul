@@ -23,25 +23,25 @@
     gap: var(--gap);
 
     &--info {
-        --background-color: var(--jkl-color-info-background-container);
+        --background-color: var(--jkl-color-info-background-container-accent);
         --text-color: var(--jkl-color-info-text-default);
         --border-color: var(--jkl-color-info-border-subdued);
     }
 
     &--warning {
-        --background-color: var(--jkl-color-warning-background-container);
+        --background-color: var(--jkl-color-warning-background-container-accent);
         --text-color: var(--jkl-color-warning-text-default);
         --border-color: var(--jkl-color-warning-border-subdued);
     }
 
     &--error {
-        --background-color: var(--jkl-color-error-background-container);
+        --background-color: var(--jkl-color-error-background-container-accent);
         --text-color: var(--jkl-color-error-text-default);
         --border-color: var(--jkl-color-error-border-subdued);
     }
 
     &--success {
-        --background-color: var(--jkl-color-success-background-container);
+        --background-color: var(--jkl-color-success-background-container-accent);
         --text-color: var(--jkl-color-success-text-default);
         --border-color: var(--jkl-color-success-border-subdued);
     }
