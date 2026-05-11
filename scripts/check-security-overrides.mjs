@@ -55,15 +55,14 @@ function rangeMinVersion(range) {
         // Tillatte mønstre med klart nedre grense:
         // "^1.2.3", "~1.2.3", "1.2.3" (eksakt), ">=1.2.3", ">1.2.3"
         // Enkel versjon med bare major, f.eks. ">=6"
-        const match = part.match(/^[~^]?\s*(\d+(?:\.\d+)*(?:-[a-z0-9.]+)?)$/i)
-            ?? part.match(/^>=?\s*(\d+(?:\.\d+)*(?:-[a-z0-9.]+)?)\s*$/i);
+        const match =
+            part.match(/^[~^]?\s*(\d+(?:\.\d+)*(?:-[a-z0-9.]+)?)$/i) ??
+            part.match(/^>=?\s*(\d+(?:\.\d+)*(?:-[a-z0-9.]+)?)\s*$/i);
         return match ? match[1] : null;
     });
     const valid = mins.filter(Boolean);
     if (valid.length === 0) return null;
-    return valid.reduce((lowest, v) =>
-        versionGte(lowest, v) ? v : lowest,
-    );
+    return valid.reduce((lowest, v) => (versionGte(lowest, v) ? v : lowest));
 }
 
 // ── Les og valider konfig ─────────────────────────────────────────────────────
@@ -95,7 +94,13 @@ const securityOverrides = Object.entries(allOverrides)
         const packageName = hasVersionedKey ? key.slice(0, atIdx) : key;
         const keySpecifier = hasVersionedKey ? key.slice(atIdx + 1) : null; // f.eks. "3", "9", "10"
         const minSafe = rangeMinVersion(value);
-        return { key, packageName, keySpecifier, minSafe, overrideValue: value };
+        return {
+            key,
+            packageName,
+            keySpecifier,
+            minSafe,
+            overrideValue: value,
+        };
     })
     .filter(({ minSafe }) => minSafe !== null);
 
@@ -123,7 +128,9 @@ function buildConsumersIndex() {
             entry.name,
             "node_modules",
             // Dekod pnpm mappenavn: @scope+pkg@version_peer@v → @scope/pkg
-            entry.name.replace(/\+/g, "/").replace(/@[0-9].*$/, ""),
+            entry.name
+                .replace(/\+/g, "/")
+                .replace(/@[0-9].*$/, ""),
             "package.json",
         );
 
@@ -148,7 +155,9 @@ function buildConsumersIndex() {
                 if (seen.has(depName)) continue;
                 seen.add(depName);
                 if (!index.has(depName)) index.set(depName, []);
-                index.get(depName).push({ consumer: consumerLabel, declaredRange: range });
+                index
+                    .get(depName)
+                    .push({ consumer: consumerLabel, declaredRange: range });
             }
         }
     }
@@ -173,7 +182,13 @@ let staleCount = 0;
 let neededCount = 0;
 let unknownCount = 0;
 
-for (const { key, packageName, keySpecifier, minSafe, overrideValue } of securityOverrides) {
+for (const {
+    key,
+    packageName,
+    keySpecifier,
+    minSafe,
+    overrideValue,
+} of securityOverrides) {
     let consumers = consumersIndex.get(packageName) ?? [];
 
     // Hvis overriden er versjonsspesifikk (f.eks. minimatch@9), evaluer kun
@@ -217,7 +232,9 @@ for (const { key, packageName, keySpecifier, minSafe, overrideValue } of securit
         );
         const examples = consumers.slice(0, 3);
         for (const { consumer, declaredRange } of examples) {
-            console.log(`   • ${consumer} → "${packageName}": "${declaredRange}"`);
+            console.log(
+                `   • ${consumer} → "${packageName}": "${declaredRange}"`,
+            );
         }
         console.log();
         staleCount++;
@@ -255,4 +272,13 @@ if (staleCount > 0) {
     console.log(
         `   og kjør "pnpm install" for å verifisere at ingenting går i stykker.`,
     );
+
+    // GitHub Actions-annotasjon for å vise advarselen i UI-et
+    if (process.env.GITHUB_ACTIONS) {
+        console.log(
+            `::warning file=package.json::${staleCount} sikkerhetsoverride(s) kan fjernes fra pnpm.overrides. Kjør "pnpm check:security-overrides" lokalt for detaljer.`,
+        );
+    }
+
+    process.exit(1);
 }
