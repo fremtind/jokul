@@ -1,5 +1,16 @@
 # portal
 
+## 1.5.7
+
+### Patch Changes
+
+- 2ebee23: Fjerner fluid typografi for tittelen på komponentsiden. `clamp()`-funksjonen mangler en verdi for å fungere som den skal, og det er også eneste sted i løsningen vi brukte fluid typografi.
+- Updated dependencies [4fa11d8]
+- Updated dependencies [a605ac6]
+- Updated dependencies [306ae87]
+- Updated dependencies [163654c]
+  - @fremtind/jokul@4.7.1
+
 ## 1.5.6
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.7.1
+
+### Patch Changes
+
+- 4fa11d8: Fiks: `Expander` plukket opp open-state fra et omkringliggende `ExpandablePanel`. Konsekvensen var at f.eks. ekspanderbare tabellrader inne i et åpent panel viste pil opp selv om raden var lukket.
+
+  Eksplisitt `open`-prop på `Expander` overstyrer nå alltid context-verdien. Context brukes bare når `open`-propen er utelatt. Lukker [#5565](https://github.com/fremtind/jokul/issues/5565).
+
+- a605ac6: Expander bruke alene vil ikke lenger ha padding, hover og full bredde by default
+- 306ae87: Select-menyen rendres nå i en portal via `Popover`-komponenten. Det fikser at hele listen ikke ble synlig når `Select` ble brukt inne i containere med `overflow: hidden|clip|auto` (f.eks. `Card` eller `ExpandablePanel`), og at lista i tillegg flippes over til toppen dersom det ikke er plass under triggeren. Bredden til lista matcher triggeren via CSS `anchor-size()`, og `Popover` har fått en ny `onPlacementChange`-callback som lar Select bytte hvilken side av lista og knappen som er flat når lista flippes opp.
+- 163654c: Oppdaterte ToggleSwitch-storyen med en egen standardvisning og koblet temabryteren til Storybook sitt globale tema.
+
 ## 4.7.0
 
 ### Minor Changes
