@@ -5,7 +5,7 @@
 
 @layer jokul.components {
     .jkl-checkbox {
-        --text-color: var(--jkl-color-text-default);
+        --text-color: var(--jkl-color-background-contrast);
         --background-color: transparent;
 
         @include jkl.text-style("text-medium");
