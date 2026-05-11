@@ -53,7 +53,7 @@
 
         &:hover,
         &:focus-visible {
-            --background-color: color-mix(in srgb, currentColor 18%, transparent);
+            --background-color: var(--jkl-color-background-container-accent);
         }
     }
 }
