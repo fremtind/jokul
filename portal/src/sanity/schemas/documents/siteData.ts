@@ -99,6 +99,32 @@ export const siteData = defineType({
                                                             },
                                                         },
                                                         {
+                                                            name: "mainPageLink",
+                                                            type: "object",
+                                                            title: "Hovedside",
+                                                            fields: [
+                                                                {
+                                                                    name: "route",
+                                                                    type: "string",
+                                                                    title: "Side",
+                                                                    options: {
+                                                                        list: [
+                                                                            { title: "Komponenter", value: "komponenter" },
+                                                                            { title: "Fundamenter", value: "fundamenter" },
+                                                                            { title: "Blogg", value: "blog" },
+                                                                            { title: "Release notes", value: "release-notes" },
+                                                                        ],
+                                                                    },
+                                                                    validation: (Rule) => Rule.required(),
+                                                                },
+                                                            ],
+                                                            preview: {
+                                                                select: {
+                                                                    title: "route",
+                                                                },
+                                                            },
+                                                        },
+                                                        {
                                                             name: "externalLink",
                                                             type: "object",
                                                             title: "External Link",
