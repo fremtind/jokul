@@ -29,6 +29,7 @@ const usePopover = ({
     modal = true,
     offset: _offset = 4,
     positionReference,
+    onPlacementChange,
     hoverOptions,
     focusOptions,
     clickOptions,
@@ -71,6 +72,16 @@ const usePopover = ({
             data.refs.setPositionReference(positionReference?.current);
         }
     }, [positionReference, data.refs]);
+
+    // useLayoutEffect (i stedet for useEffect) sikrer at konsumenter får
+    // riktig placement før paint — ellers ville første frame bruke default
+    // placement og deretter snappe over til den faktiske, noe som gir et
+    // synlig "glitch" på styling som er placement-avhengig (f.eks. flat side
+    // / border-radius på Select-listboxen ved flip).
+    React.useLayoutEffect(() => {
+        if (!open) return;
+        onPlacementChange?.(data.placement);
+    }, [open, data.placement, onPlacementChange]);
 
     return React.useMemo(
         () => ({
@@ -216,8 +227,15 @@ const PopoverContent = React.forwardRef<
     },
     propRef,
 ) {
-    const { context, modal, refs, open, floatingStyles, getFloatingProps } =
-        usePopoverContext();
+    const {
+        context,
+        modal,
+        refs,
+        open,
+        floatingStyles,
+        getFloatingProps,
+        isPositioned,
+    } = usePopoverContext();
     const ref = useMergeRefs([refs.setFloating, propRef]);
 
     const referenceElement = refs.reference.current as ReferenceElement;
@@ -256,6 +274,14 @@ const PopoverContent = React.forwardRef<
                             ...style,
                             ...floatingStyles,
                             "--popover-padding": `var(--jkl-spacing-${padding})`,
+                            // Skjul popoveren inntil floating-ui har regnet
+                            // ut første posisjon — ellers blinker den
+                            // kort i (0,0) før den hopper på plass.
+                            // Bare for ikke-modale popovere; modale bruker
+                            // umiddelbar fokus-trap som forutsetter at
+                            // innholdet er fokuserbart fra første render.
+                            visibility:
+                                modal || isPositioned ? "visible" : "hidden",
                         } as React.CSSProperties
                     }
                     {...getFloatingProps(props)}

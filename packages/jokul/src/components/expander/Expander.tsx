@@ -39,11 +39,22 @@ export const Expander = React.forwardRef(function Expander<
     const internalRef = useRef<HTMLElement>();
     useImperativeHandle(ref, () => internalRef.current, []);
 
-    const isOpen = controlledOpen || contextOpen;
+    // Når `open`-propen er satt eier konsumenten state-en og Expander er
+    // kontrollert. Da skal vi ikke arve verken visning eller toggle-callback
+    // fra et omkringliggende ExpandablePanel — ellers ville klikk på en
+    // nestet Expander også togglet panelet.
+    const isControlled = typeof controlledOpen === "boolean";
+    const isOpen = isControlled ? controlledOpen : contextOpen;
 
     const Chevron = expandDirection === "up" ? ChevronUpIcon : ChevronDownIcon;
 
     useEffect(() => {
+        // Kontrollert Expander skal være helt isolert fra et eventuelt
+        // omkringliggende ExpandablePanel — hverken state, klikk eller
+        // høyde-rapportering skal arve oppover. Hopp over måling slik at
+        // panel-headerens fokuscontainer ikke får raden sin høyde.
+        if (isControlled) return;
+
         const observer = new ResizeObserver(() => {
             // Default to 64 if the height can not be read because that is
             // the height of the default summary element. In a custom component
@@ -56,7 +67,7 @@ export const Expander = React.forwardRef(function Expander<
             return () => observer.disconnect();
         }
         return () => {};
-    }, [setExpanderHeight]);
+    }, [isControlled, setExpanderHeight]);
 
     return (
         <El
@@ -73,7 +84,9 @@ export const Expander = React.forwardRef(function Expander<
             {...(as === "button" ? { type: rest.type || "button" } : {})}
             onClick={(e) => {
                 e.preventDefault();
-                onToggle();
+                if (!isControlled) {
+                    onToggle();
+                }
                 onClick?.(e);
             }}
             {...rest}
