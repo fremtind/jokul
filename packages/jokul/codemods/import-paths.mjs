@@ -1,15 +1,19 @@
-import { readdir, readFile, stat, writeFile } from "node:fs/promises";
+import { readFile, readdir, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import {
-    applyDirectReplacements,
+    applyCssTokenRenames,
+    applyTailwindColorRenames,
+} from "./transforms/color-tokens.mjs";
+import { applyExpandablePanelTransforms } from "./transforms/expandable-panel.mjs";
+import { applyFontFamilyReplacements } from "./transforms/font-family.mjs";
+import {
+    BASE_OR_COMPONENT_CSS_PATTERN,
     applyBetaStyleReplacements,
+    applyDirectReplacements,
     removeRedundantWebfontsCssImport,
     reorderConfiguredFontImport,
-    BASE_OR_COMPONENT_CSS_PATTERN,
 } from "./transforms/import-specifiers.mjs";
-import { applyCssTokenRenames, applyTailwindColorRenames } from "./transforms/color-tokens.mjs";
-import { applyFontFamilyReplacements } from "./transforms/font-family.mjs";
 import { collectManualMigrationWarnings } from "./transforms/warnings.mjs";
 
 const TEXT_EXTENSIONS = new Set([
@@ -51,7 +55,9 @@ const IGNORED_FILE_PATTERNS = [
 
 function shouldIgnoreFile(filePath) {
     const normalizedPath = filePath.split(path.sep).join("/");
-    return IGNORED_FILE_PATTERNS.some((pattern) => normalizedPath.includes(pattern));
+    return IGNORED_FILE_PATTERNS.some((pattern) =>
+        normalizedPath.includes(pattern),
+    );
 }
 
 function shouldIgnoreDirectory(directoryPath) {
@@ -65,7 +71,8 @@ export function transformImportPaths(text, filePath = "") {
     const beta = applyBetaStyleReplacements(direct.text);
     const cssTokens = applyCssTokenRenames(beta.text);
     const tailwindColors = applyTailwindColorRenames(cssTokens.text);
-    let next = tailwindColors.text;
+    const expandablePanel = applyExpandablePanelTransforms(tailwindColors.text);
+    let next = expandablePanel.text;
     let reordered = false;
 
     if (/\.(sass|scss)$/i.test(filePath)) {
@@ -79,7 +86,10 @@ export function transformImportPaths(text, filePath = "") {
         ...collectManualMigrationWarnings(text),
     ];
 
-    if (webfontsRemoval.count > 0 && !BASE_OR_COMPONENT_CSS_PATTERN.test(next)) {
+    if (
+        webfontsRemoval.count > 0 &&
+        !BASE_OR_COMPONENT_CSS_PATTERN.test(next)
+    ) {
         warnings.push(
             "Manuell vurdering: fjernet import av `styles/fonts/webfonts.css`. `@font-face`-definisjonene ligger nå i `@fremtind/jokul/styles/base.css`, så den må importeres for at fontene skal lastes.",
         );
@@ -94,7 +104,8 @@ export function transformImportPaths(text, filePath = "") {
             webfontsRemoval.count +
             fontFamily.count +
             cssTokens.count +
-            tailwindColors.count,
+            tailwindColors.count +
+            expandablePanel.count,
         warnings,
         reordered,
     };
@@ -109,7 +120,9 @@ async function collectFiles(targetPath, collected) {
         }
 
         const entries = await readdir(targetPath, { withFileTypes: true });
-        const sortedEntries = [...entries].sort((a, b) => a.name.localeCompare(b.name));
+        const sortedEntries = [...entries].sort((a, b) =>
+            a.name.localeCompare(b.name),
+        );
 
         for (const entry of sortedEntries) {
             if (entry.isDirectory() && IGNORED_DIRECTORIES.has(entry.name)) {
@@ -121,7 +134,10 @@ async function collectFiles(targetPath, collected) {
         return collected;
     }
 
-    if (TEXT_EXTENSIONS.has(path.extname(targetPath)) && !shouldIgnoreFile(targetPath)) {
+    if (
+        TEXT_EXTENSIONS.has(path.extname(targetPath)) &&
+        !shouldIgnoreFile(targetPath)
+    ) {
         collected.push(targetPath);
     }
 
@@ -133,8 +149,14 @@ function parseArguments(rawArgs) {
     const targets = [];
 
     for (const arg of rawArgs) {
-        if (arg === "--dry-run") { options.dryRun = true; continue; }
-        if (arg === "--verbose") { options.verbose = true; continue; }
+        if (arg === "--dry-run") {
+            options.dryRun = true;
+            continue;
+        }
+        if (arg === "--verbose") {
+            options.verbose = true;
+            continue;
+        }
         if (arg === "--help" || arg === "-h") {
             throw new Error(
                 "Bruk: jokul codemod [import-paths] [sti ...] [--dry-run] [--verbose]",
@@ -181,7 +203,9 @@ export async function runImportPathsCodemod(rawArgs = []) {
         }
 
         if (options.verbose || options.dryRun) {
-            console.log(`${options.dryRun ? "Ville endret" : "Endret"} ${filePath}`);
+            console.log(
+                `${options.dryRun ? "Ville endret" : "Endret"} ${filePath}`,
+            );
         }
     }
 

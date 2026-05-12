@@ -8,7 +8,7 @@ export type ExpandablePanelProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
         ElementType,
         {
-            variant?: "fill" | "stroke";
+            outlined?: boolean;
             open?: boolean;
             /*
              * Initiell state av content.

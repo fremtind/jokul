@@ -19,7 +19,7 @@ export const ExpandablePanel = Object.assign(
         const {
             children,
             as = "details",
-            variant = "fill",
+            outlined,
             open: controlledOpen,
             defaultOpen,
             onOpenChange,
@@ -74,7 +74,7 @@ export const ExpandablePanel = Object.assign(
         }, []);
 
         return (
-            <div className="jkl-expandable__wrapper">
+            <div className="jkl-expandable-panel__wrapper">
                 <div
                     /*
                         Setter `inert` manuelt for å støtte både React 18 og 19.
@@ -83,15 +83,15 @@ export const ExpandablePanel = Object.assign(
                         Se: https://github.com/WICG/inert/issues/58
                     */
                     ref={(node) => node?.setAttribute("inert", "true")}
-                    className="jkl-expandable__focus-container"
+                    className="jkl-expandable-panel__focus-container"
                     style={{ height: expanderHeight }}
                 />
                 <El
                     ref={internalRef}
                     data-testid={"jkl-expand-section"}
                     className={clsx(
-                        "jkl-expandable",
-                        `jkl-expandable--${variant}`,
+                        "jkl-expandable-panel",
+                        outlined && "jkl-expandable-panel--outlined",
                         className,
                     )}
                     open={

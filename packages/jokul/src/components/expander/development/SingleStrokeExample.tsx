@@ -21,7 +21,7 @@ export const SingleStrokeExample: FC<ExampleComponentProps> = () => {
                 Et standalone panel skal beholde ytre border radius selv om det
                 ikke har andre stroke-paneler over eller under seg.
             </p>
-            <ExpandablePanel variant="stroke" data-testid="single-stroke-panel">
+            <ExpandablePanel outlined data-testid="single-stroke-panel">
                 <ExpandablePanel.Header data-testid="single-stroke-trigger">
                     Se dekning for leiebil
                 </ExpandablePanel.Header>

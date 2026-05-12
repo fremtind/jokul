@@ -1,12 +1,12 @@
 @use "../../../styles/jkl";
 
 @layer jokul.components {
-    .jkl-expandable {
+    .jkl-expandable-panel {
         background-color: var(--jkl-color-background-container);
         // A transparent border will be visible in forced colors mode and replace
         // the role of the background-color in separating the component from other content
         border: 1px solid transparent;
-        border-radius: var(--border-radius);
+        border-radius: var(--jkl-border-radius-s);
         box-sizing: border-box;
         width: 100%;
         overflow: hidden;
@@ -31,22 +31,15 @@
             padding: var(--jkl-unit-20)
         }
 
-        &--stroke {
+        &--outlined {
             border-color: var(--jkl-color-border-subdued);
             background-color: transparent;
-
-            border-radius: 0;
-            border-radius: var(--border-top-left-radius) var(--border-top-right-radius) var(--border-bottom-right-radius) var(--border-bottom-left-radius);
         }
 
         &__wrapper {
             --border-radius: var(--jkl-border-radius-m);
             --outline-offset: 3px;
             --stroke-outline-offset: 3px;
-            --border-top-left-radius: var(--border-radius);
-            --border-top-right-radius: var(--border-radius);
-            --border-bottom-left-radius: var(--border-radius);
-            --border-bottom-right-radius: var(--border-radius);
 
             position: relative;
 
@@ -54,11 +47,6 @@
                 --border-top-left-radius: 0;
                 --border-top-right-radius: 0;
                 --stroke-outline-offset: -1px;
-
-                // Matches every expandable that follows directly after another
-                .jkl-expandable--stroke {
-                    border-top: none;
-                }
             }
 
             &:has(+ &) {
@@ -68,11 +56,11 @@
             }
 
             &:has(.jkl-expander:focus-visible) {
-                &:has(.jkl-expandable--stroke) {
+                &:has(.jkl-expandable-panel--outlined) {
                     --outline-offset: var(--stroke-outline-offset);
                 }
 
-                .jkl-expandable__focus-container {
+                .jkl-expandable-panel__focus-container {
                     @include jkl.focus-outline;
                     outline-offset: var(--outline-offset);
                 }
@@ -95,7 +83,6 @@
         }
 
         &__focus-container {
-            border-radius: var(--border-radius);
             position: absolute;
             inset: 0;
         }

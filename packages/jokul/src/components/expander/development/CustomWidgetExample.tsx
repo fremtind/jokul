@@ -15,7 +15,7 @@ export const CustomWidgetExample: FC<ExampleComponentProps> = () => {
     const id = useId();
 
     return (
-        <ExpandablePanel as="div" variant="stroke" open={open}>
+        <ExpandablePanel as="div" outlined open={open}>
             <Expander
                 as="button"
                 aria-controls={`${id}-content`}
