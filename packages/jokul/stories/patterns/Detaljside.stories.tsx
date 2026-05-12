@@ -111,7 +111,7 @@ export const Detaljside: Story = {
                         />
                     </Card>
                 </Flex>
-                <ExpandablePanel variant="fill">
+                <ExpandablePanel>
                     <Expander>Forsikringsdetaljer</Expander>
                     <ExpandablePanel.Content>
                         Her kommer nyttig informasjon om forsikringen
@@ -202,7 +202,7 @@ export const DetaljsideMedUlikeSizes: Story = {
                         />
                     </Card>
                 </Flex>
-                <ExpandablePanel variant="fill">
+                <ExpandablePanel>
                     <Expander>Forsikringsdetaljer</Expander>
                     <ExpandablePanel.Content>
                         Her kommer nyttig informasjon om forsikringen
@@ -277,7 +277,7 @@ export const SmartDelay: Story = {
                     "Når kan jeg registrere?",
                     "Hvilke flygninger kan jeg registrere?",
                 ].map((tittel) => (
-                    <ExpandablePanel variant="stroke" key={tittel}>
+                    <ExpandablePanel outlined key={tittel}>
                         <Expander>{tittel}</Expander>
                         <ExpandablePanel.Content>
                             En akkurat passe lang og meget god forklaring

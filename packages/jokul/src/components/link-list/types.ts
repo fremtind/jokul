@@ -4,6 +4,7 @@ import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polym
 export type LinkListProps = HTMLAttributes<HTMLUListElement> & {
     label: string;
     hideLabel?: boolean;
+    outlined?: boolean;
 };
 
 export type LinkListLinkComponent = <

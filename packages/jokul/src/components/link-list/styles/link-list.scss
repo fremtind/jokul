@@ -3,6 +3,7 @@
 
 @layer jokul.components {
     .jkl-link-list {
+        --background: var(--jkl-color-background-container);
         --border: 1px solid var(--jkl-color-border-subdued);
         --text-color: var(--jkl-color-text-default);
 
@@ -23,7 +24,7 @@
             height: min-content;
             border-radius: var(--jkl-unit-05);
             overflow: hidden;
-            background-color: var(--jkl-color-background-container);
+            background-color: var(--background);
 
             .jkl-link-list-link {
                 display: flex;
@@ -62,6 +63,12 @@
                 }
             }
         }
+
+        &[data-outlined="true"] ul {
+            border: var(--border);
+            --background: transparent;
+        }
+
 
         & .jkl-link-list-item {
             display: flex;

@@ -60,7 +60,7 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
                 src={`${STORYBOOK_URL}/iframe.html?viewMode=story&id=${story.storyId}&globals=backgrounds.value:page;backgrounds.grid:!false`}
             />
             {codeExample?.code && (
-                <ExpandablePanel variant="fill">
+                <ExpandablePanel>
                     <Expander>Kode</Expander>
                     <ExpandablePanel.Content>
                         <CodeBlock language={codeExample.language}>

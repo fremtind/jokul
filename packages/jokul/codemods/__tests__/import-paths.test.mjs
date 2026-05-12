@@ -1,5 +1,5 @@
-import test from "node:test";
 import assert from "node:assert/strict";
+import test from "node:test";
 import { transformImportPaths } from "../import-paths.mjs";
 
 test("migrates core, styles and utilities imports", () => {
@@ -16,7 +16,9 @@ import type { WithChildren } from "@fremtind/jokul/core";
         true,
     );
     assert.equal(
-        result.text.includes('import "@fremtind/jokul/styles/components.scss";'),
+        result.text.includes(
+            'import "@fremtind/jokul/styles/components.scss";',
+        ),
         true,
     );
     assert.equal(
@@ -64,9 +66,7 @@ import "@fremtind/jokul/styles/components/select";
     const result = transformImportPaths(source, "/tmp/MyForm.tsx");
 
     assert.equal(
-        result.text.includes(
-            '@fremtind/jokul/styles/components/beta/select',
-        ),
+        result.text.includes("@fremtind/jokul/styles/components/beta/select"),
         true,
     );
     assert.deepEqual(result.warnings, []);
@@ -114,12 +114,13 @@ test("removes css @import of webfonts.css", () => {
 
     assert.equal(result.text.includes("webfonts"), false);
     assert.equal(
-        result.text.includes('@import "@fremtind/jokul/styles/components.css";'),
+        result.text.includes(
+            '@import "@fremtind/jokul/styles/components.css";',
+        ),
         true,
     );
     assert.deepEqual(result.warnings, []);
 });
-
 
 test("renames Fremtind Material Symbols font-family", () => {
     const source = `.icon {
@@ -129,10 +130,7 @@ test("renames Fremtind Material Symbols font-family", () => {
 
     const result = transformImportPaths(source, "/tmp/icons.scss");
 
-    assert.equal(
-        result.text.includes("Fremtind Material Symbols"),
-        false,
-    );
+    assert.equal(result.text.includes("Fremtind Material Symbols"), false);
     assert.equal(
         result.text.includes(
             '"Jokul Icons", "Jokul Icons Fallback", sans-serif',
@@ -150,10 +148,7 @@ test("renames Fremtind Material Symbols inside CSS files too", () => {
 
     const result = transformImportPaths(source, "/tmp/icons.css");
 
-    assert.equal(
-        result.text.includes("Fremtind Material Symbols"),
-        false,
-    );
+    assert.equal(result.text.includes("Fremtind Material Symbols"), false);
     assert.equal(result.text.includes("'Jokul Icons'"), true);
 });
 
@@ -196,8 +191,14 @@ test("renames CSS container-high and container-low tokens", () => {
 
     const result = transformImportPaths(source, "/tmp/card.css");
 
-    assert.equal(result.text.includes("--jkl-color-background-container-high"), false);
-    assert.equal(result.text.includes("--jkl-color-background-container-low"), false);
+    assert.equal(
+        result.text.includes("--jkl-color-background-container-high"),
+        false,
+    );
+    assert.equal(
+        result.text.includes("--jkl-color-background-container-low"),
+        false,
+    );
     assert.equal(
         result.text.split("--jkl-color-background-container").length - 1,
         2,
@@ -215,10 +216,22 @@ test("renames CSS alert tokens to feedback tokens", () => {
     const result = transformImportPaths(source, "/tmp/alerts.css");
 
     assert.equal(result.text.includes("--jkl-color-background-alert-"), false);
-    assert.equal(result.text.includes("--jkl-color-info-background-container"), true);
-    assert.equal(result.text.includes("--jkl-color-warning-background-container"), true);
-    assert.equal(result.text.includes("--jkl-color-error-background-container"), true);
-    assert.equal(result.text.includes("--jkl-color-success-background-container"), true);
+    assert.equal(
+        result.text.includes("--jkl-color-info-background-container"),
+        true,
+    );
+    assert.equal(
+        result.text.includes("--jkl-color-warning-background-container"),
+        true,
+    );
+    assert.equal(
+        result.text.includes("--jkl-color-error-background-container"),
+        true,
+    );
+    assert.equal(
+        result.text.includes("--jkl-color-success-background-container"),
+        true,
+    );
 });
 
 test("warns about removed interactive tokens", () => {
@@ -297,7 +310,10 @@ test("renames container-inverted to background-contrast", () => {
 
     const result = transformImportPaths(source, "/tmp/inverted.css");
 
-    assert.equal(result.text.includes("--jkl-color-background-container-inverted"), false);
+    assert.equal(
+        result.text.includes("--jkl-color-background-container-inverted"),
+        false,
+    );
     assert.equal(result.text.includes("--jkl-color-background-contrast"), true);
     assert.deepEqual(result.warnings, []);
 });
@@ -364,15 +380,25 @@ test("renames container-high but leaves sibling container-low and base container
 
     const result = transformImportPaths(source, "/tmp/x.css");
 
-    assert.equal(result.text.includes("--jkl-color-background-container-high"), false);
-    assert.equal(result.text.includes("--jkl-color-background-container-low"), false);
-    assert.equal(result.text.includes("var(--jkl-color-background-container)"), true,
-        "base container token must survive unchanged");
+    assert.equal(
+        result.text.includes("--jkl-color-background-container-high"),
+        false,
+    );
+    assert.equal(
+        result.text.includes("--jkl-color-background-container-low"),
+        false,
+    );
+    assert.equal(
+        result.text.includes("var(--jkl-color-background-container)"),
+        true,
+        "base container token must survive unchanged",
+    );
     assert.equal(result.replacements, 2);
 });
 
 test("does not rename alert-info token that has a longer suffix", () => {
-    const source = ".x { background: var(--jkl-color-background-alert-info-extra); }";
+    const source =
+        ".x { background: var(--jkl-color-background-alert-info-extra); }";
 
     const result = transformImportPaths(source, "/tmp/x.css");
 
@@ -392,7 +418,10 @@ test("renames token used as a custom property definition, not just inside var()"
 
     assert.equal(result.text.includes("--jkl-color-background-action:"), false);
     assert.equal(result.text.includes("--jkl-color-text-inverted:"), false);
-    assert.equal(result.text.includes("--jkl-color-background-contrast:"), true);
+    assert.equal(
+        result.text.includes("--jkl-color-background-contrast:"),
+        true,
+    );
     assert.equal(result.text.includes("--jkl-color-text-on-contrast:"), true);
 });
 
@@ -430,7 +459,10 @@ test("renames only the fallback font-family if primary is absent", () => {
 
     const result = transformImportPaths(source, "/tmp/icons.css");
 
-    assert.equal(result.text.includes("Fremtind Material Symbols Fallback"), false);
+    assert.equal(
+        result.text.includes("Fremtind Material Symbols Fallback"),
+        false,
+    );
     assert.equal(result.text.includes("Jokul Icons Fallback"), true);
     assert.equal(result.replacements, 1);
 });
@@ -618,8 +650,14 @@ test("warns about bg-background-interactive Tailwind class", () => {
 
     const result = transformImportPaths(source, "/tmp/cmp.tsx");
 
-    assert.equal(result.warnings.some((w) => /background-interactive/.test(w)), true);
-    assert.equal(result.warnings.filter((w) => /background-interactive/.test(w)).length, 1);
+    assert.equal(
+        result.warnings.some((w) => /background-interactive/.test(w)),
+        true,
+    );
+    assert.equal(
+        result.warnings.filter((w) => /background-interactive/.test(w)).length,
+        1,
+    );
 });
 
 test("warns about border-border-separator Tailwind class", () => {
@@ -627,7 +665,12 @@ test("warns about border-border-separator Tailwind class", () => {
 
     const result = transformImportPaths(source, "/tmp/cmp.tsx");
 
-    assert.equal(result.warnings.some((w) => /border-border-separator/.test(w) || /kantklasser/.test(w)), true);
+    assert.equal(
+        result.warnings.some(
+            (w) => /border-border-separator/.test(w) || /kantklasser/.test(w),
+        ),
+        true,
+    );
 });
 
 // --- does not warn about valid 5.0 patterns ---
@@ -645,4 +688,60 @@ test("does not warn about valid 5.0 patterns", () => {
     const result = transformImportPaths(source, "/tmp/title.scss");
 
     assert.deepEqual(result.warnings, []);
+});
+
+test('ExpandablePanel: fjerner variant="fill" prop (fill er nå default)', () => {
+    const source = `<ExpandablePanel variant="fill" open={open}>`;
+    const result = transformImportPaths(source, "/tmp/MyPage.tsx");
+    assert.equal(result.text, "<ExpandablePanel open={open}>");
+    assert.equal(result.changed, true);
+});
+
+test("ExpandablePanel: fjerner variant={'fill'} prop", () => {
+    const source = `<ExpandablePanel variant={'fill'}>`;
+    const result = transformImportPaths(source, "/tmp/MyPage.tsx");
+    assert.equal(result.text, "<ExpandablePanel>");
+    assert.equal(result.changed, true);
+});
+
+test('ExpandablePanel: endrer variant="stroke" til outlined', () => {
+    const source = `<ExpandablePanel variant="stroke" className="my-panel">`;
+    const result = transformImportPaths(source, "/tmp/MyPage.tsx");
+    assert.equal(
+        result.text,
+        `<ExpandablePanel outlined className="my-panel">`,
+    );
+    assert.equal(result.changed, true);
+});
+
+test("ExpandablePanel: endrer variant={'stroke'} til outlined", () => {
+    const source = `<ExpandablePanel variant={'stroke'}>`;
+    const result = transformImportPaths(source, "/tmp/MyPage.tsx");
+    assert.equal(result.text, "<ExpandablePanel outlined>");
+    assert.equal(result.changed, true);
+});
+
+test("ExpandablePanel: endrer CSS-klasse jkl-expandable--stroke til jkl-expandable-panel--outlined", () => {
+    const source = ".jkl-expandable--stroke { border-color: red; }";
+    const result = transformImportPaths(source, "/tmp/custom.scss");
+    assert.equal(
+        result.text,
+        ".jkl-expandable-panel--outlined { border-color: red; }",
+    );
+    assert.equal(result.changed, true);
+});
+
+test("ExpandablePanel: håndterer flerlinjet JSX korrekt", () => {
+    const source = `<ExpandablePanel
+    variant="fill"
+    open={open}
+>`;
+    const result = transformImportPaths(source, "/tmp/MyPage.tsx");
+    assert.equal(
+        result.text,
+        `<ExpandablePanel
+    open={open}
+>`,
+    );
+    assert.equal(result.changed, true);
 });
