@@ -160,13 +160,14 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
 
                         return readFile(sourcePath, "utf-8").then((content) => {
                             const outputFilePath = `${outDirName}/${fileName}`;
-                            const modifiedContent = rewriteImportsForBuiltFile(content, sourcePath);
-
-                            writeFile(
-                                outputFilePath,
-                                modifiedContent,
-                                { encoding: "utf-8" },
+                            const modifiedContent = rewriteImportsForBuiltFile(
+                                content,
+                                sourcePath,
                             );
+
+                            writeFile(outputFilePath, modifiedContent, {
+                                encoding: "utf-8",
+                            });
                         });
                     }),
                 ),

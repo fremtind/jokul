@@ -3,13 +3,34 @@ import { replaceSpecifier, replaceTailwindClass } from "../utils.mjs";
 // Sortert lengst-først: spesifikke tokens (f.eks. -alert-info) må ikke bli
 // delvis matchet av kortere prefiks.
 const CSS_TOKEN_RENAMES = [
-    ["--jkl-color-background-alert-warning", "--jkl-color-warning-background-container"],
-    ["--jkl-color-background-alert-success", "--jkl-color-success-background-container"],
-    ["--jkl-color-background-alert-error", "--jkl-color-error-background-container"],
-    ["--jkl-color-background-alert-info", "--jkl-color-info-background-container"],
-    ["--jkl-color-background-container-high", "--jkl-color-background-container"],
-    ["--jkl-color-background-container-low", "--jkl-color-background-container"],
-    ["--jkl-color-background-container-inverted", "--jkl-color-background-contrast"],
+    [
+        "--jkl-color-background-alert-warning",
+        "--jkl-color-warning-background-container",
+    ],
+    [
+        "--jkl-color-background-alert-success",
+        "--jkl-color-success-background-container",
+    ],
+    [
+        "--jkl-color-background-alert-error",
+        "--jkl-color-error-background-container",
+    ],
+    [
+        "--jkl-color-background-alert-info",
+        "--jkl-color-info-background-container",
+    ],
+    [
+        "--jkl-color-background-container-high",
+        "--jkl-color-background-container",
+    ],
+    [
+        "--jkl-color-background-container-low",
+        "--jkl-color-background-container",
+    ],
+    [
+        "--jkl-color-background-container-inverted",
+        "--jkl-color-background-contrast",
+    ],
     ["--jkl-color-background-action", "--jkl-color-background-contrast"],
     ["--jkl-color-text-on-action", "--jkl-color-text-on-contrast"],
     ["--jkl-color-text-inverted", "--jkl-color-text-on-contrast"],
@@ -67,7 +88,11 @@ export function applyTailwindColorRenames(text) {
 
     for (const [fromKey, toKey] of TAILWIND_COLOR_RENAMES) {
         for (const prefix of TAILWIND_COLOR_PREFIXES) {
-            const result = replaceTailwindClass(next, `${prefix}-${fromKey}`, `${prefix}-${toKey}`);
+            const result = replaceTailwindClass(
+                next,
+                `${prefix}-${fromKey}`,
+                `${prefix}-${toKey}`,
+            );
             next = result.text;
             count += result.count;
         }
