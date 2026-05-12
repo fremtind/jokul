@@ -7,8 +7,8 @@
         --jkl-autosuggest-controller-button-width: auto;
         --jkl-autosuggest-controller-button-padding: 0 var(--jkl-unit-15);
         --jkl-autosuggest-controller-button-icon-size: #{jkl.rem(20px)};
-        --jkl-autosuggest-option-padding: var(--jkl-unit-10) 0.75em;
-        --jkl-autosuggest-option-height: #{jkl.rem(48px)};
+        --jkl-autosuggest-option-padding: var(--jkl-unit-10);
+        --jkl-autosuggest-option-height: min(var(--jkl-unit-60), #{jkl.rem(48px)});
 
         display: flex;
         flex-direction: column;
@@ -54,6 +54,7 @@
             color: unset;
             display: flex; // avoids wrapping long names "under" the focus arrow
             align-items: center;
+            box-sizing: border-box;
             border: 0; // removes native styling
             background-color: transparent;
             min-height: var(--jkl-autosuggest-option-height);
@@ -69,7 +70,7 @@
             &--active,
             &:hover {
                 color: var(--jkl-color-text-default);
-                background-color: color-mix(in srgb, currentColor 10%, transparent);
+                background-color: var(--jkl-color-background-container-accent);
             }
         }
     }
