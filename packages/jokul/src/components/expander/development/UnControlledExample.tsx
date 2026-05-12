@@ -62,7 +62,7 @@ export const UnControlledExample: FC<ExampleComponentProps> = ({
                 </ExpandablePanel>
             </div>
             <div>
-                <ExpandablePanel variant="stroke">
+                <ExpandablePanel outlined>
                     <Expander
                         icon={
                             boolValues?.["icon"] ? (
@@ -83,7 +83,7 @@ export const UnControlledExample: FC<ExampleComponentProps> = ({
                         på lørdagen). Søndager hviler vi – og det burde du også!
                     </ExpandablePanel.Content>
                 </ExpandablePanel>
-                <ExpandablePanel variant="stroke">
+                <ExpandablePanel outlined>
                     <Expander
                         icon={
                             boolValues?.["icon"] ? (
@@ -104,7 +104,7 @@ export const UnControlledExample: FC<ExampleComponentProps> = ({
                         på lørdagen). Søndager hviler vi – og det burde du også!
                     </ExpandablePanel.Content>
                 </ExpandablePanel>
-                <ExpandablePanel variant="stroke">
+                <ExpandablePanel outlined>
                     <Expander
                         icon={
                             boolValues?.["icon"] ? (
