@@ -337,7 +337,7 @@ test("returns changed: false for an already-migrated file", () => {
 
 test("does not rename token that is a prefix of a longer token", () => {
     // --jkl-color-text-inverted should not match inside --jkl-color-text-inverted-extra
-    const source = `.x { color: var(--jkl-color-text-inverted-extra); }`;
+    const source = ".x { color: var(--jkl-color-text-inverted-extra); }";
 
     const result = transformImportPaths(source, "/tmp/x.css");
 
@@ -346,7 +346,7 @@ test("does not rename token that is a prefix of a longer token", () => {
 });
 
 test("does not rename --jkl-color-background-container (base token, not a v4 token)", () => {
-    const source = `.x { background: var(--jkl-color-background-container); }`;
+    const source = ".x { background: var(--jkl-color-background-container); }";
 
     const result = transformImportPaths(source, "/tmp/x.css");
 
@@ -372,7 +372,7 @@ test("renames container-high but leaves sibling container-low and base container
 });
 
 test("does not rename alert-info token that has a longer suffix", () => {
-    const source = `.x { background: var(--jkl-color-background-alert-info-extra); }`;
+    const source = ".x { background: var(--jkl-color-background-alert-info-extra); }";
 
     const result = transformImportPaths(source, "/tmp/x.css");
 
