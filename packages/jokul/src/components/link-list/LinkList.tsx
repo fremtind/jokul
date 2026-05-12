@@ -6,6 +6,7 @@ import type { LinkListProps } from "./types.js";
 export const LinkList = ({
     label,
     hideLabel = true,
+    outlined = false,
     className,
     ...rest
 }: LinkListProps): React.JSX.Element => {
@@ -15,6 +16,7 @@ export const LinkList = ({
         <nav
             className={clsx("jkl-link-list", className)}
             aria-labelledby={`list-${id}-label`}
+            data-outlined={outlined}
         >
             <p
                 className="jkl-link-list-title"

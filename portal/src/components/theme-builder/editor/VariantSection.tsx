@@ -27,7 +27,7 @@ export function VariantSection({
     onTokenChange,
 }: VariantSectionProps) {
     return (
-        <ExpandablePanel variant="stroke" defaultOpen={defaultOpen}>
+        <ExpandablePanel outlined defaultOpen={defaultOpen}>
             <ExpandablePanel.Header>{variant}</ExpandablePanel.Header>
             <ExpandablePanel.Content>
                 <div className={styles.tokenList}>

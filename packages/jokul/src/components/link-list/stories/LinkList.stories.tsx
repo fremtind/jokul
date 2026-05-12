@@ -27,6 +27,7 @@ const meta: Meta = {
                 {link}
             </LinkList.Link>
         )),
+        outlined: false,
     },
     tags: ["autodocs"],
 } satisfies Meta<typeof LinkList>;

@@ -40,11 +40,13 @@ export const ExpandablePanelContent: ExpandablePanelContentComponent = ({
     return (
         <div
             ref={animationRef}
-            className={clsx("jkl-expandable__content", className)}
+            className={clsx("jkl-expandable-panel__content", className)}
             {...rest}
             data-expanded={open}
         >
-            <div className="jkl-expandable__content-wrapper">{children}</div>
+            <div className="jkl-expandable-panel__content-wrapper">
+                {children}
+            </div>
         </div>
     );
 };

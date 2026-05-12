@@ -52,7 +52,7 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
                 height={height}
             />
             {codeExample?.code && (
-                <ExpandablePanel variant="fill">
+                <ExpandablePanel>
                     <Expander>Kode</Expander>
                     <ExpandablePanel.Content>
                         <CodeBlock language={codeExample.language}>
