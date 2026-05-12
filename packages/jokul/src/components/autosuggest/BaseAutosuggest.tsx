@@ -37,7 +37,7 @@ function BaseAutosuggest<T>({
     leadText,
     errorLabel,
     helpLabel,
-    variant = "small",
+    variant,
     noHitsMessage,
     maxNumberOfHits,
     placeholder,
@@ -84,6 +84,7 @@ function BaseAutosuggest<T>({
                         {...getRootProps()}
                         label={label}
                         className={clsx("jkl-autosuggest", className)}
+                        data-size={variant}
                         labelProps={{
                             variant,
                             ...labelProps,
