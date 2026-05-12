@@ -13,8 +13,8 @@
         --jkl-combobox-chips-gap: var(--jkl-unit-05);
         --jkl-combobox-search-input-padding: var(--jkl-combobox-button-padding);
         --jkl-combobox-native-padding: 0 var(--jkl-unit-50) 0 var(--jkl-unit-10);
-        --jkl-combobox-option-padding: var(--jkl-unit-10) var(--jkl-unit-15);
-        --jkl-combobox-option-line-height: 2rem;
+        --jkl-combobox-option-padding: var(--jkl-unit-10);
+        --jkl-combobox-option-height: min(var(--jkl-unit-60), #{jkl.rem(48px)});
         --jkl-combobox-search-input-height: #{jkl.rem(28px)};
 
         @include jkl.small-device {
@@ -107,10 +107,10 @@
             background-color: transparent;
             transition-property: color, background-color;
             cursor: pointer;
+            min-height: var(--jkl-combobox-option-height);
             padding: var(--jkl-combobox-option-padding);
             width: 100%;
             text-align: left;
-            line-height: var(--jkl-combobox-option-line-height);
 
             &:focus,
             &:hover {
