@@ -5,10 +5,7 @@ const DIRECT_REPLACEMENTS = [
         "@fremtind/jokul/styles/core/core.min.css",
         "@fremtind/jokul/styles/base.min.css",
     ],
-    [
-        "@fremtind/jokul/styles/core/core.css",
-        "@fremtind/jokul/styles/base.css",
-    ],
+    ["@fremtind/jokul/styles/core/core.css", "@fremtind/jokul/styles/base.css"],
     [
         "@fremtind/jokul/styles/core/core.scss",
         "@fremtind/jokul/styles/base.scss",
@@ -18,16 +15,16 @@ const DIRECT_REPLACEMENTS = [
         "@fremtind/jokul/styles/styles.min.css",
         "@fremtind/jokul/styles/components.min.css",
     ],
-    ["@fremtind/jokul/styles/styles.css", "@fremtind/jokul/styles/components.css"],
+    [
+        "@fremtind/jokul/styles/styles.css",
+        "@fremtind/jokul/styles/components.css",
+    ],
     [
         "@fremtind/jokul/styles/styles.scss",
         "@fremtind/jokul/styles/components.scss",
     ],
     ["@fremtind/jokul/styles/styles", "@fremtind/jokul/styles/components"],
-    [
-        "@fremtind/jokul/styles/core/jkl/index",
-        "@fremtind/jokul/styles/jkl",
-    ],
+    ["@fremtind/jokul/styles/core/jkl/index", "@fremtind/jokul/styles/jkl"],
     ["@fremtind/jokul/styles/core/jkl", "@fremtind/jokul/styles/jkl"],
     [
         "@fremtind/jokul/styles/fonts/webfonts.scss",
@@ -110,9 +107,8 @@ const BETA_STYLE_MIGRATIONS = [
 const WEBFONTS_CSS_SPECIFIER =
     "@fremtind/jokul/styles/fonts/webfonts(?:\\.min)?\\.css";
 
-export const BASE_OR_COMPONENT_CSS_PATTERN = new RegExp(
-    "@fremtind/jokul/styles/(?:base|components)(?:\\.min)?\\.css",
-);
+export const BASE_OR_COMPONENT_CSS_PATTERN =
+    /@fremtind\/jokul\/styles\/(?:base|components)(?:\.min)?\.css/;
 
 const WEBFONTS_CSS_REMOVAL_PATTERNS = [
     // import "@fremtind/jokul/styles/fonts/webfonts.css"; (ESM)
