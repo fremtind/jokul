@@ -12,6 +12,7 @@
         --jkl-button-padding-icon-button: var(--jkl-unit-10);
         --jkl-button-tertiary-padding-icon: var(--jkl-unit-05);
         --jkl-button-text-ink-offset: 0.1em;
+        --button-min-width: 9ch;
         --jkl-icon-weight: var(--jkl-icon-weight-bold);
         --text-color: var(--jkl-color-text-default);
         --background-color: transparent;
@@ -43,7 +44,11 @@
         @include jkl.motion("standard", "productive", background-color);
 
         &:has(.jkl-button__text) {
-            min-width: 9.5ch;
+            min-width: var(--button-min-width);
+        }
+
+        &:has(.jkl-button__text):has(.jkl-icon) {
+            min-width: initial;
         }
 
         &:has(.jkl-icon:first-child) {
@@ -65,6 +70,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            justify-content: center;
             gap: jkl.$unit-02;
             pointer-events: none;
         }
@@ -85,7 +91,7 @@
             // Knappen vokser til teksten, men kan f.eks. begrenses
             // av sidebredde på mobil
             display: block;
-            width: 100%;
+            min-width: 0;
             max-width: 100%;
             // Gir diakritiske tegn litt ekstra plass i tekstboksen uten
             // å endre knappens totale høyde.
