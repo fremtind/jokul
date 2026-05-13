@@ -1,5 +1,9 @@
 import { defineConfig, devices } from "@playwright/test";
 
+const SERVER_ADDRESS = "127.0.0.1";
+const SERVER_PORT = "6007";
+export const STORYBOOK_URL = `http://${SERVER_ADDRESS}:${SERVER_PORT}`;
+
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
@@ -23,6 +27,14 @@ export default defineConfig({
             // False positives getting you down? Increase this number!
             maxDiffPixelRatio: 0.01,
         },
+    },
+
+    webServer: {
+        command: `pnpm exec http-server storybook-static -p ${SERVER_PORT} -a ${SERVER_ADDRESS} --silent`,
+        url: STORYBOOK_URL,
+        reuseExistingServer: !process.env.CI,
+        stdout: "ignore",
+        stderr: "pipe",
     },
 
     projects: [

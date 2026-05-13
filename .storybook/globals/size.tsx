@@ -6,7 +6,7 @@ export const sizes = [
     { title: "Liten", value: "small" },
     { title: "Medium", value: "medium" },
     { title: "Stor", value: "large" },
-];
+] as const;
 
 const applySize = (element: HTMLElement, size: string) => {
     element.classList.add("jkl");

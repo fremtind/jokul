@@ -51,6 +51,9 @@ jobs:
             - name: Build packages
               run: pnpm build
 
+            - name: Build Storybook
+              run: pnpm build:storybook
+
             - name: Find Playwright version
               shell: bash
               run: |
@@ -87,18 +90,31 @@ jobs:
                   name: test-results-${{ matrix.SHARD }}.tar.gz
                   path: test-results/
 
-            - name: Check for new screenshots
-              id: check
+            - name: Check for new legacy screenshots
+              id: check_legacy
               run: |
-                  echo "new-screenshots=$(if [ -z "$(git status --porcelain)" ]; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
+                  echo "new-screenshots=$(if [ -z "$(git status --porcelain packages/jokul/src/components/**/integration/__screenshots__)" ]; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
 
-            - name: Upload screenshots
-              if: steps.check.outputs.new-screenshots == 'true'
+            - name: Upload legacy screenshots
+              if: steps.check_legacy.outputs.new-screenshots == 'true'
               uses: actions/upload-artifact@v6
               with:
                   name: playwright-screenshots-${{ matrix.SHARD }}
                   path: |
                       packages/jokul/src/components/**/integration/__screenshots__/*
+
+            - name: Check for new visual snapshots
+              id: check_visual
+              run: |
+                  echo "new-snapshots=$(if [ -z "$(git status --porcelain visual-regression/visual.spec.ts-snapshots)" ]; then echo "false"; else echo "true"; fi)" >> $GITHUB_OUTPUT
+
+            - name: Upload visual snapshots
+              if: steps.check_visual.outputs.new-snapshots == 'true'
+              uses: actions/upload-artifact@v6
+              with:
+                  name: visual-snapshots-${{ matrix.SHARD }}
+                  path: |
+                      visual-regression/visual.spec.ts-snapshots/*
 
     commit:
         needs: [tests]
@@ -120,10 +136,18 @@ jobs:
                   path: packages/jokul/src/components
                   merge-multiple: true
 
+            - name: Download visual snapshots
+              uses: actions/download-artifact@v7
+              with:
+                  pattern: visual-snapshots-*
+                  path: visual-regression/visual.spec.ts-snapshots
+                  merge-multiple: true
+
             - name: Commit snapshots
               run: |
                   git config user.email "fremtind.designsystem@fremtind.no"
                   git config user.name "fremtind-bot"
-                  git add **/integration/__screenshots__/* || echo "No updated screenshots, nothing to add!"
+                  git add **/integration/__screenshots__/* || echo "No updated legacy screenshots, nothing to add!"
+                  git add visual-regression/visual.spec.ts-snapshots/* || echo "No updated visual snapshots, nothing to add!"
                   git commit -m "chore: update integration screenshots [ci skip playwright]" --no-verify || echo "No updated screenshots, nothing to commit!"
                   git push
