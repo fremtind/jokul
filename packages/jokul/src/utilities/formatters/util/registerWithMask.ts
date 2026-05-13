@@ -26,6 +26,9 @@ const formatters = {
 };
 export type Formatter = keyof typeof formatters;
 
+const clamp = (value: number, min: number, max: number) =>
+    Math.min(Math.max(value, min), max);
+
 export type RegisterWithMaskOptions<T extends FieldValues> = Omit<
     RegisterOptions<T>,
     "setValueAs"
@@ -40,6 +43,7 @@ const registerWithMask =
     ) => {
         let onKeyDownCaretPosition = 0;
         let onKeyDownKeyPressed = "";
+        let deletedCharactersOnKeyDown = "";
 
         const setValueAs = (value: string) => value.replace(/\s/g, "");
         const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -54,12 +58,12 @@ const registerWithMask =
                 onChangeCaretPosition = event.target.selectionStart;
             }
 
-            form.setValue(
-                name,
-                formatters[formatter](event.target.value, {
-                    partial: true,
-                }) as PathValue<T, Path<T>>,
-            );
+            const formattedValue = formatters[formatter](event.target.value, {
+                partial: true,
+            });
+            const formattedLength = formattedValue.toString().length;
+
+            form.setValue(name, formattedValue as PathValue<T, Path<T>>);
 
             let newPosition: number | null = null;
 
@@ -67,22 +71,32 @@ const registerWithMask =
                 // handle removing content
                 // calculate how much to move the caret, this also accounts for removing sections of text
                 const delta = onKeyDownCaretPosition - onChangeCaretPosition;
+                const formattedLengthChange =
+                    deletedCharactersOnKeyDown.trim() === ""
+                        ? 0
+                        : formattedLength - inputLength;
 
                 // calculate new caret position (- because we move backwards)
-                newPosition = onKeyDownCaretPosition - delta;
-            } else if (onChangeCaretPosition < event.target.value.length) {
+                newPosition =
+                    onKeyDownCaretPosition - delta + formattedLengthChange;
+            } else if (
+                onChangeCaretPosition < event.target.value.length ||
+                inputLength !== formattedLength
+            ) {
                 // handle adding content from inside the string
                 // calculate how much to move the caret forwards
-                const delta = event.target.value.length - inputLength;
+                const delta = formattedLength - inputLength;
 
                 // calculate new caret position (+ because we move forwards)
                 newPosition = onChangeCaretPosition + delta;
             }
 
             if (newPosition !== null) {
+                const clampedPosition = clamp(newPosition, 0, formattedLength);
+
                 event.target.setSelectionRange(
-                    newPosition,
-                    newPosition,
+                    clampedPosition,
+                    clampedPosition,
                     undefined,
                 );
             }
@@ -99,9 +113,26 @@ const registerWithMask =
 
         // save the caret position before the change occured
         const onKeyDown: KeyboardEventHandler<HTMLInputElement> = (event) => {
-            if ((event.target as HTMLInputElement).selectionStart !== null) {
-                onKeyDownCaretPosition = (event.target as HTMLInputElement)
-                    .selectionStart as number;
+            deletedCharactersOnKeyDown = "";
+
+            const input = event.target as HTMLInputElement;
+            const { selectionStart, selectionEnd, value } = input;
+
+            if (selectionStart !== null) {
+                onKeyDownCaretPosition = selectionStart;
+
+                if (selectionEnd !== null && selectionEnd > selectionStart) {
+                    deletedCharactersOnKeyDown = value.slice(
+                        selectionStart,
+                        selectionEnd,
+                    );
+                } else if (event.key === "Backspace") {
+                    deletedCharactersOnKeyDown =
+                        value[onKeyDownCaretPosition - 1] ?? "";
+                } else if (event.key === "Delete") {
+                    deletedCharactersOnKeyDown =
+                        value[onKeyDownCaretPosition] ?? "";
+                }
             }
             onKeyDownKeyPressed = event.key;
         };
