@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
+import { useForm } from "react-hook-form";
+import { registerWithMasks } from "../../../utilities/index.js";
 import { Flex } from "../../flex/index.js";
 import { IconButton } from "../../icon-button/index.js";
 import { CloseIcon } from "../../icon/index.js";
@@ -65,6 +67,47 @@ export const UnitAlign: Story = {
         placeholder: "0",
         unit: "kvm",
     },
+};
+
+type NumberMaskForm = {
+    amount: string;
+};
+
+const NumberMaskExample = (
+    args: React.ComponentProps<typeof TextInputComponent>,
+) => {
+    const form = useForm<NumberMaskForm>({
+        defaultValues: {
+            amount: "1 200",
+        },
+    });
+    const { registerWithNumber } = registerWithMasks(form);
+
+    return (
+        <TextInputComponent
+            {...args}
+            {...registerWithNumber("amount")}
+            label="Beløp"
+            maxLength={10}
+            placeholder="0"
+            unit="kr"
+        />
+    );
+};
+
+export const Tallmaskering: Story = {
+    name: "Tallmaskering",
+    parameters: {
+        docs: {
+            description: {
+                story: "Eksempel på TextInput brukt sammen med registerWithMasks().registerWithNumber for formattering av tall.",
+            },
+        },
+    },
+    args: {
+        placeholder: "0",
+    },
+    render: (args) => <NumberMaskExample {...args} />,
 };
 
 /**
