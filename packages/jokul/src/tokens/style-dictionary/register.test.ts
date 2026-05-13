@@ -20,24 +20,24 @@ describe("cssVarReferenceTransform", () => {
             expect(cssVarReferenceTransform(makeToken(["spacing", "24"]))).toBe(
                 "var(--jkl-spacing-24)",
             );
-            expect(cssVarReferenceTransform(makeToken(["spacing", "168"]))).toBe(
-                "var(--jkl-spacing-168)",
-            );
+            expect(
+                cssVarReferenceTransform(makeToken(["spacing", "168"])),
+            ).toBe("var(--jkl-spacing-168)");
         });
 
         it("genererer riktig CSS-variabelreferanse for alfanumeriske tokens (2xs, 2xl)", () => {
-            expect(cssVarReferenceTransform(makeToken(["spacing", "2xs"]))).toBe(
-                "var(--jkl-spacing-2xs)",
-            );
-            expect(cssVarReferenceTransform(makeToken(["spacing", "2xl"]))).toBe(
-                "var(--jkl-spacing-2xl)",
-            );
+            expect(
+                cssVarReferenceTransform(makeToken(["spacing", "2xs"])),
+            ).toBe("var(--jkl-spacing-2xs)");
+            expect(
+                cssVarReferenceTransform(makeToken(["spacing", "2xl"])),
+            ).toBe("var(--jkl-spacing-2xl)");
         });
 
         it("genererer riktig CSS-variabelreferanse for semantiske tokens", () => {
-            expect(cssVarReferenceTransform(makeToken(["spacing", "none"]))).toBe(
-                "var(--jkl-spacing-none)",
-            );
+            expect(
+                cssVarReferenceTransform(makeToken(["spacing", "none"])),
+            ).toBe("var(--jkl-spacing-none)");
             expect(cssVarReferenceTransform(makeToken(["spacing", "xs"]))).toBe(
                 "var(--jkl-spacing-xs)",
             );
@@ -47,6 +47,18 @@ describe("cssVarReferenceTransform", () => {
             expect(cssVarReferenceTransform(makeToken(["spacing", "xl"]))).toBe(
                 "var(--jkl-spacing-xl)",
             );
+        });
+    });
+
+    describe("breakpoint", () => {
+        it("beholder breakpoint-tokens som rå verdier", () => {
+            expect(
+                cssVarReferenceTransform({
+                    name: "breakpoint-medium",
+                    path: ["breakpoint", "medium"],
+                    value: "680px",
+                }),
+            ).toBe("680px");
         });
     });
 
@@ -67,17 +79,19 @@ describe("cssVarReferenceTransform", () => {
 
     describe("typografi (font)", () => {
         it("genererer riktig CSS-variabelreferanse for skriftstørrelse", () => {
-            expect(cssVarReferenceTransform(makeToken(["font", "size", "1"]))).toBe(
-                "var(--jkl-font-size-1)",
-            );
-            expect(cssVarReferenceTransform(makeToken(["font", "size", "10"]))).toBe(
-                "var(--jkl-font-size-10)",
-            );
+            expect(
+                cssVarReferenceTransform(makeToken(["font", "size", "1"])),
+            ).toBe("var(--jkl-font-size-1)");
+            expect(
+                cssVarReferenceTransform(makeToken(["font", "size", "10"])),
+            ).toBe("var(--jkl-font-size-10)");
         });
 
         it("genererer riktig CSS-variabelreferanse for tekststiler med bindestrek", () => {
             expect(
-                cssVarReferenceTransform(makeToken(["text", "style", "heading-1"])),
+                cssVarReferenceTransform(
+                    makeToken(["text", "style", "heading-1"]),
+                ),
             ).toBe("var(--jkl-text-style-heading-1)");
             expect(
                 cssVarReferenceTransform(
@@ -98,7 +112,9 @@ describe("cssVarReferenceTransform", () => {
 
         it("genererer riktig CSS-variabelreferanse for enkle motion-tokens", () => {
             expect(
-                cssVarReferenceTransform(makeToken(["motion", "timing", "productive"])),
+                cssVarReferenceTransform(
+                    makeToken(["motion", "timing", "productive"]),
+                ),
             ).toBe("var(--jkl-motion-timing-productive)");
         });
     });
