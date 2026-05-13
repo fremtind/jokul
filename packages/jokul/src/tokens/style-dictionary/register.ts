@@ -33,14 +33,23 @@ StyleDictionary.registerFormat(cssTailwind4Format);
  * Baserer seg på `token.name` som er satt av SD sitt innebygde `name/kebab`-transform,
  * slik at navngivingslogikken ligger ett sted og vi ikke gjenskaper den her.
  *
+ * Breakpoint-tokens beholdes som rå verdier fordi de brukes i media queries og
+ * Tailwind-screens, hvor CSS custom properties ikke er gyldige.
+ *
  * Eksempler (forutsetter at name/kebab har kjørt):
- * - token.name = "spacing-24"                     → var(--jkl-spacing-24)
- * - token.name = "spacing-2xs"                    → var(--jkl-spacing-2xs)
- * - token.name = "motion-easing-ease-in-bounce-out" → var(--jkl-motion-easing-ease-in-bounce-out)
+ * - token.path = ["breakpoint", "medium"], token.value = "680px" → 680px
+ * - token.name = "spacing-24"                                   → var(--jkl-spacing-24)
+ * - token.name = "spacing-2xs"                                  → var(--jkl-spacing-2xs)
+ * - token.name = "motion-easing-ease-in-bounce-out"             → var(--jkl-motion-easing-ease-in-bounce-out)
  */
 export function cssVarReferenceTransform(
-    token: Pick<TransformedToken, "name">,
+    token: Pick<TransformedToken, "name"> &
+        Partial<Pick<TransformedToken, "path" | "value">>,
 ): string {
+    if (token.path?.[0] === "breakpoint") {
+        return String(token.value);
+    }
+
     return `var(--${PREFIX}-${token.name})`;
 }
 
