@@ -2,7 +2,6 @@
 
 import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
-import { getURL } from "next/dist/shared/lib/utils";
 import styles from "../app/(frontend)/komponenter/[slug]/component.module.scss";
 
 type ComponentFooterProps = {
@@ -16,6 +15,8 @@ export const PageFooter = ({ name }: ComponentFooterProps) => {
                 <Link
                     external
                     href="https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BInnspill+til+innhold%5D%3A"
+                    target="_blank"
+                    rel="noopener noreferrer"
                 >
                     Innspill til innholdet
                 </Link>
@@ -28,12 +29,16 @@ export const PageFooter = ({ name }: ComponentFooterProps) => {
             <Link
                 external
                 href={`https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BBidra+med+innhold%5D%3A+${name}`}
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 Bidra med innhold
             </Link>
             <Link
                 external
                 href={`https://github.com/fremtind/jokul/issues/new?&template=innspill-komponent.yml&title=%5BInnspill+til+komponent%5D%3A+${name}`}
+                target="_blank"
+                rel="noopener noreferrer"
             >
                 Innspill til <span lang="en">{name}</span>
             </Link>
