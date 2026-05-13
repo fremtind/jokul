@@ -31,8 +31,8 @@
     "author": "Fremtind",
     "license": "MIT",
     "dependencies": {
-        "@modelcontextprotocol/sdk": "^1.0.0",
-        "@sanity/client": "^6.0.0",
+        "@modelcontextprotocol/sdk": "^1.29.0",
+        "@sanity/client": "^7.0.0",
         "cors": "^2.8.5",
         "express": "^4.21.0",
         "zod": "^3.25.0"

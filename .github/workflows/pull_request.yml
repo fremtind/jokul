@@ -141,6 +141,32 @@ jobs:
                 if: github.event_name == 'merge_group' || needs.changes.outputs.code_changes == 'true'
                 run: pnpm ci:test
 
+            -   name: Sjekk sikkerhetsoverrides
+                id: security_overrides
+                if: github.event_name != 'merge_group' && needs.changes.outputs.code_changes == 'true'
+                continue-on-error: true
+                run: pnpm check:security-overrides
+
+            -   name: Si fra om utdaterte sikkerhetsoverrides
+                if: github.event_name == 'pull_request' && steps.security_overrides.outcome == 'failure'
+                uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+                with:
+                    header: security-overrides
+                    GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                    message: |
+                        > [!NOTE]
+                        > En eller flere oppføringer i `pnpm.overrides` er ikke lenger nødvendige.
+                        >
+                        > Kjør `pnpm check:security-overrides` lokalt for å se hvilke som kan fjernes.
+
+            -   name: Fjern varsel om utdaterte sikkerhetsoverrides
+                if: github.event_name == 'pull_request' && steps.security_overrides.outcome != 'failure'
+                uses: marocchino/sticky-pull-request-comment@da224cb0e3c8b27cae68d40c93649421b5b93e45
+                with:
+                    header: security-overrides
+                    delete: true
+                    GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+
             -   name: Sjekk Figma Code Connect
                 id: code_connect
                 if: github.event_name != 'merge_group' && needs.changes.outputs.components == 'true'
