@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.0.0-next.12
+
+### Patch Changes
+
+- 15b0092: Fiks `useScreen` slik at hooken bruker konkrete breakpoint-verdier i media queries.
+- 65b72bd: Rett opp størrelse og spacing på valg i Autosuggest, Combobox og Select slik at nedtrekkslistene fremstår likt på tvers av størrelser.
+- bb73daf: Sikkerhetsoppdateringer
+
 ## 5.0.0-next.11
 
 ### Patch Changes

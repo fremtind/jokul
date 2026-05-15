@@ -1,5 +1,11 @@
 # @fremtind/jokul-mcp-server
 
+## 1.1.0-next.2
+
+### Patch Changes
+
+- bb73daf: Sikkerhetsoppdateringer
+
 ## 1.1.0-next.1
 
 ### Minor Changes
