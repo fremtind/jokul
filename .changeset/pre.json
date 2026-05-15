@@ -18,8 +18,10 @@
         "fix-brand-font-setup",
         "fix-dynamic-spacing-map-get",
         "fix-spacing-token-hyphen",
+        "fix-use-screen-breakpoints",
         "fluffy-laws-type",
         "funny-cars-exercise",
+        "good-maps-go",
         "lovely-ravens-draw",
         "moody-zoos-deny",
         "silent-seas-march",
@@ -29,6 +31,7 @@
         "tokens-refactor",
         "tough-wings-enter",
         "wacky-towns-stay",
+        "wet-geese-read",
         "wet-hounds-turn"
     ]
 }
