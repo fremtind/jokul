@@ -105,6 +105,7 @@
         text-align: left;
         cursor: pointer;
         color: var(--jkl-color);
+        -webkit-tap-highlight-color: transparent;
 
         display: flex;
         gap: jkl.rem(8px);
