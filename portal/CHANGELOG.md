@@ -1,5 +1,15 @@
 # portal
 
+## 1.5.0-next.12
+
+### Patch Changes
+
+- bb73daf: Sikkerhetsoppdateringer
+- Updated dependencies [15b0092]
+- Updated dependencies [65b72bd]
+- Updated dependencies [bb73daf]
+  - @fremtind/jokul@5.0.0-next.12
+
 ## 1.5.0-next.11
 
 ### Patch Changes
