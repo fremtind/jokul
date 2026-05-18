@@ -163,4 +163,12 @@ describe("Modal", () => {
         );
         expect(modalContainer).toHaveClass("jkl-modal-container--slide-in");
     });
+
+    it("should apply transparent overlay class", () => {
+        const { container } = setup(<ModalOverlay transparent />);
+
+        expect(container.firstChild).toHaveClass(
+            "jkl-modal-overlay--transparent",
+        );
+    });
 });
