@@ -5,6 +5,10 @@
         background-color: rgb(27 25 23 / 80%);
         opacity: 0;
 
+        &--transparent {
+            background-color: transparent;
+        }
+
         @include jkl.motion("entrance", "expressive", opacity);
     }
 
