@@ -1,10 +1,8 @@
 import { existsSync } from "node:fs";
 import type { Config } from "style-dictionary/types";
+import type { Brand } from "../../utilities/types.js";
 
 export const PREFIX = "jkl";
-export const BRAND_NAMES = ["fremtind", "dnb", "eika", "sparebank1"] as const;
-
-export type BrandName = (typeof BRAND_NAMES)[number];
 
 export const jokulTokens: Config = {
     log: {
@@ -80,7 +78,7 @@ export const jokulTokens: Config = {
  * Lager en separat CSS-config per brand for å bygge en egen SCSS-fil med et
  * komplett, brand-spesifikt fargesett basert på base tokens og brand tokens.
  */
-export function createBrandConfig(brand: BrandName): Config {
+export function createBrandConfig(brand: Brand): Config {
     const brandSources = [
         `src/tokens/brands/color.${brand}.tokens.json`,
         `src/tokens/brands/typography.${brand}.tokens.json`,
