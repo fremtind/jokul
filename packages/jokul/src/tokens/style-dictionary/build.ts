@@ -1,5 +1,6 @@
 import StyleDictionary from "style-dictionary";
-import { BRAND_NAMES, createBrandConfig, jokulTokens } from "./config.js";
+import { BRANDS } from "../../utilities/types.js";
+import { createBrandConfig, jokulTokens } from "./config.js";
 import "./register.js";
 
 async function build() {
@@ -9,7 +10,7 @@ async function build() {
     const dictionary = new StyleDictionary(jokulTokens);
     await dictionary.buildAllPlatforms();
 
-    for (const brand of BRAND_NAMES) {
+    for (const brand of BRANDS) {
         console.log(`⚙️ Building separate color output for brand "${brand}"`);
         const brandDictionary = new StyleDictionary(createBrandConfig(brand));
         await brandDictionary.buildPlatform("css");
