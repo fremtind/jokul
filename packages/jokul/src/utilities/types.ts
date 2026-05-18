@@ -11,6 +11,10 @@ export type ColorScheme = "light" | "dark";
 
 export type Size = "small" | "medium" | "large";
 
+export const BRANDS = ["fremtind", "dnb", "eika", "sparebank1"] as const;
+
+export type Brand = (typeof BRANDS)[number];
+
 export type Easing = keyof typeof tokens.motion.easing;
 export type Timing = keyof typeof tokens.motion.timing;
 
