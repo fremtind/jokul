@@ -7,19 +7,40 @@ import { Link } from "@fremtind/jokul/link";
 import clsx from "clsx";
 import type { PortableTextMarkComponentProps } from "next-sanity";
 import NextLink from "next/link";
-import { useId, useRef } from "react";
+import { useRef } from "react";
 import { createPortal } from "react-dom";
 
 import overview from "../../overview/overview.module.scss";
 import style from "./component-page-link.module.scss";
 
+type InternalLinkArticle = {
+    _type:
+        | "jokul_component"
+        | "jokul_blog_post"
+        | "jokul_fundamentals"
+        | "jokul_release_notes"
+        | "jokul_temaside";
+    name: string | null;
+    short_description: string | null;
+    slug: string | null;
+    image: NonNullable<ComponentBySlugQueryResult>["image"] | null;
+    imageDark: NonNullable<ComponentBySlugQueryResult>["imageDark"] | null;
+};
+
 type LinkProps = PortableTextMarkComponentProps<{
-    _type: "componentPageLink";
-    component: NonNullable<ComponentBySlugQueryResult>;
+    _type: "jokul_internal_link";
+    article: InternalLinkArticle;
 }>;
 
-export const ComponentPageLink = ({ value, children }: LinkProps) => {
-    const id = useId();
+const ARTICLE_TYPE_TO_PATH: Record<InternalLinkArticle["_type"], string> = {
+    jokul_component: "/komponenter",
+    jokul_blog_post: "/blog",
+    jokul_fundamentals: "/fundamenter",
+    jokul_release_notes: "/release-notes",
+    jokul_temaside: "/tema",
+};
+
+export const InternalLink = ({ value, children }: LinkProps) => {
     const popoverRef = useRef<HTMLDivElement>(null);
     const linkRef = useRef<HTMLAnchorElement>(null);
 
@@ -43,26 +64,27 @@ export const ComponentPageLink = ({ value, children }: LinkProps) => {
         clearTimeout(closeTimeout);
     };
 
-    if (!value?.component) return null;
+    if (!value?.article) return null;
 
-    const slug = value.component.slug || "#";
-    const { image, imageDark, name, short_description } = value.component;
+    const { _type, image, imageDark, name, short_description, slug } =
+        value.article;
+    const href = `${ARTICLE_TYPE_TO_PATH[_type]}/${slug}`;
 
     return (
         <>
             <Link
                 ref={linkRef}
                 // @ts-ignore
-                style={{ anchorName: `--${slug}-${id}-trigger` }}
-                id={`${slug}-${id}-trigger`}
+                style={{ anchorName: `--${slug}-trigger` }}
+                id={`${slug}-trigger`}
                 as={NextLink}
-                href={slug}
+                href={href}
                 onFocus={openPopover}
                 onMouseEnter={openPopover}
                 onBlur={closePopover}
                 onMouseLeave={closePopover}
             >
-                {name || children}
+                {children}
             </Link>
             {createPortal(
                 <Card
@@ -73,11 +95,11 @@ export const ComponentPageLink = ({ value, children }: LinkProps) => {
                         style.componentPageLinkPopover,
                     )}
                     ref={popoverRef}
-                    id={`${slug}-${id}-popover`}
+                    id={`${slug}-popover`}
                     // @ts-ignore
                     popover="auto"
                     // @ts-ignore
-                    style={{ positionAnchor: `--${slug}-${id}-trigger` }}
+                    style={{ positionAnchor: `--${slug}-trigger` }}
                     onMouseEnter={cancelClose}
                     onFocus={cancelClose}
                     onMouseLeave={closePopover}
