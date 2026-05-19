@@ -1,6 +1,7 @@
 "use client";
 
 import { ExampleList } from "@/components/portable-text/examples/ExampleList";
+import { InternalLink } from "@/components/portable-text/link/InternalLink";
 import { NewCodeBlock } from "@/components/portable-text/new-code-block/CodeBlock";
 import { QuestionsAndAnswers } from "@/components/portable-text/q-and-a/QuestionsAndAnswers";
 import { Storybook } from "@/components/portable-text/storybook-story/Storybook";
@@ -84,11 +85,7 @@ export const jokulPortableTextComponents: Partial<PortableTextReactComponents> =
         marks: {
             link: Link,
             componentPageLink: ComponentPageLink,
-            internalLink: ({ value, children }) => {
-                const { slug = {} } = value;
-                const href = `/${slug.current}`;
-                return <a href={href}>{children}</a>;
-            },
+            jokul_internal_link: InternalLink,
         },
         block: {
             h2: ({ children }) => {

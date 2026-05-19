@@ -1,3 +1,4 @@
+import { commonBlock } from "@/sanity/schemas/commonBlock";
 import { defineField, defineType } from "sanity";
 
 const MAX_LENGTH = 70;
@@ -55,9 +56,8 @@ export const fundamentals = defineType({
             title: "Artikkel",
             type: "array",
             of: [
-                { type: "block" },
+                ...commonBlock,
                 { type: "jokul_linkCard" },
-                { type: "image" },
                 { type: "jokul_code" },
                 { type: "jokul_codeBlock" },
                 { type: "jokul_examples" },
