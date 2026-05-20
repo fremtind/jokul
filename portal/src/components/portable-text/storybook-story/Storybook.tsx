@@ -1,14 +1,14 @@
 import { CodeBlock } from "@/components/portable-text/code-block";
+import { StorybookFrame } from "@/components/storybook/StorybookFrame";
 import type { Jokul_storybook } from "@/sanity/types";
+import { storyExists } from "@/storybook/storybookIndex";
 import { Card } from "@fremtind/jokul/card";
 import { ExpandablePanel, Expander } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
 import type { PortableTextTypeComponentProps } from "next-sanity";
 import NextLink from "next/link";
-import React, { type FC } from "react";
-
-import "./storybook.scss";
+import type { FC } from "react";
 
 export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
     value,
@@ -19,12 +19,12 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
     const codeExample = value.code;
     const height = value.height;
 
-    const storybookExampleHeight =
-        typeof height === "number" ? `${height}` : undefined;
-
     if (!story) {
         return null;
     }
+
+    const hasStory = storyExists(story.storyId);
+    const storyName = story.storyName ?? "Storybook-eksempel";
 
     return (
         <Flex
@@ -35,29 +35,21 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
             className="storybook-card"
         >
             <Flex alignItems="center" justifyContent="space-between" gap="m">
-                {STORYBOOK_URL && (
+                {STORYBOOK_URL && hasStory && (
                     <Link
                         as={NextLink}
                         href={`${STORYBOOK_URL}/?path=/story/${story.storyId}&globals=backgrounds.value:page;backgrounds.grid:!false`}
                         className={"jkl-link"}
                         external={true}
                     >
-                        {story.storyName}
+                        {storyName}
                     </Link>
                 )}
             </Flex>
-            <iframe
-                title={story.storyName}
-                className="storybook-example"
-                style={
-                    storybookExampleHeight
-                        ? ({
-                              "--storybook-example-height":
-                                  storybookExampleHeight,
-                          } as React.CSSProperties)
-                        : undefined
-                }
-                src={`${STORYBOOK_URL}/iframe.html?viewMode=story&id=${story.storyId}&globals=backgrounds.value:page;backgrounds.grid:!false`}
+            <StorybookFrame
+                storyId={story.storyId}
+                title={storyName}
+                height={height}
             />
             {codeExample?.code && (
                 <ExpandablePanel variant="fill">

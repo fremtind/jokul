@@ -1,0 +1,32 @@
+@use "@fremtind/jokul/styles/jkl";
+
+.storybook-frame {
+    --storybook-frame-height: 360;
+
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: calc(var(--storybook-frame-height) * #{jkl.rem(1px)});
+    border: 0;
+    border-radius: var(--jkl-border-radius-m);
+}
+
+.storybook-frame-fallback {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: var(--jkl-spacing-24);
+    border-radius: inherit;
+    background-color: var(--jkl-color-background-container);
+    color: var(--jkl-color-text-default);
+}
+
+.storybook-frame-fallback__title {
+    @include jkl.text-style("heading-5");
+}
+
+.storybook-frame-fallback__details {
+    color: var(--jkl-color-text-subdued);
+
+    @include jkl.text-style("paragraph-small");
+}
