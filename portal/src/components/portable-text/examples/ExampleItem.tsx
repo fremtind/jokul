@@ -1,8 +1,9 @@
+import { StorybookFrame } from "@/components/storybook/StorybookFrame";
 import type { Jokul_story } from "@/sanity/types";
+import { storyExists } from "@/storybook/storybookIndex";
 import { Card } from "@fremtind/jokul/card";
 import { Link } from "@fremtind/jokul/link";
 import NextLink from "next/link";
-import React from "react";
 
 type Props = {
     example: Jokul_story;
@@ -16,30 +17,25 @@ export const ExampleItem = ({ example }: Props) => {
     const theme = undefined;
     const density = undefined;
 
-    const exampleHeight = typeof height === "number" ? `${height}` : undefined;
-
-    if (!id || !name) {
+    if (!name) {
         return null;
     }
 
+    const hasStory = storyExists(id);
+
     return (
         <Card padding="m" className="example" outlined>
-            <iframe
+            <StorybookFrame
+                height={height}
                 inert={inert}
+                storyId={id}
                 title={name}
-                src={`${STORYBOOK_URL}/iframe.html?viewMode=story&id=${id}&globals=backgrounds.value:${backgroundColor};theme:${theme};density:${density}`}
-                style={
-                    exampleHeight
-                        ? ({
-                              "--example-height": exampleHeight,
-                          } as React.CSSProperties)
-                        : undefined
-                }
+                globals={`backgrounds.value:${backgroundColor};theme:${theme};density:${density}`}
             />
             <div className="info">
                 <p className="title">{name}</p>
                 {description && <p className="description">{description}</p>}
-                {STORYBOOK_URL && (
+                {STORYBOOK_URL && hasStory && (
                     <Link
                         as={NextLink}
                         href={`${STORYBOOK_URL}/?path=/story/${id}`}
