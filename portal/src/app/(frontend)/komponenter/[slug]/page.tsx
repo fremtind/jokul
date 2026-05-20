@@ -4,12 +4,10 @@ import { PageFooter } from "@/components/PageFooter";
 import { ComponentCard } from "@/components/component-card/ComponentCard";
 import { ComponentGrid } from "@/components/component-grid/ComponentGrid";
 import { PortableText } from "@/components/portable-text/PortableText";
-import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentBySlugQuery } from "@/sanity/queries/component";
 import { Flex } from "@fremtind/jokul/flex";
 import { NavLink } from "@fremtind/jokul/nav-link";
-import { createImageUrlBuilder } from "@sanity/image-url";
 import { logger } from "logger";
 import type { Metadata } from "next";
 import styles from "./component.module.scss";
@@ -53,14 +51,6 @@ export default async function Page({ params }: Props) {
         slug,
         time: `${Math.round(performance.now() - initialTime)}ms`,
     });
-
-    const builder = createImageUrlBuilder(client);
-
-    function urlFor(source?: { asset?: { _ref: string } }) {
-        return source?.asset?._ref ? builder.image(source).url() : undefined;
-    }
-
-    console.log("component.example_card", component.example_card);
 
     return (
         <article className={styles.article}>
