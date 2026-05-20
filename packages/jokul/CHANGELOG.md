@@ -1,5 +1,20 @@
 # Change Log
 
+## 5.0.0-next.13
+
+### Patch Changes
+
+- 3227bdf: `Brand` og `BRANDS` er tilgjengelig fra utilities. Bruk `Brand` for å type gyldige `data-brand`-verdier, og `BRANDS` når du trenger listen over støttede brand i kode.
+
+  ```ts
+  import { BRANDS, type Brand } from "@fremtind/jokul/utilities";
+
+  const brand: Brand = "fremtind";
+  const brandOptions = BRANDS.map((brand) => ({ label: brand, value: brand }));
+  ```
+
+- bf77428: La til manglende stil for Modal-overlay når `transparent`-propen brukes.
+
 ## 5.0.0-next.12
 
 ### Patch Changes
