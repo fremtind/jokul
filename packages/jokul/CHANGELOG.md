@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.7.2
+
+### Patch Changes
+
+- 3adb63f: Fjerner iOS sin klikkindikator fra ExpandablePanel.
+- 6da4cf0: Fjerner synlig border rundt ExpandablePanel i normal visning, samtidig som panelet fortsatt får tydelig border i high-contrast modus.
+
+  ExpandablePanel har også fått samme border-radius som Card, slik at komponentene ser bedre ut sammen.
+
+- 78c3295: Justerer minimumsbredde og sentrering av innhold i Button, slik at korte knapper med ikon ser riktige ut også når Button rendres som lenke.
+
 ## 4.7.1
 
 ### Patch Changes
