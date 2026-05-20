@@ -86,17 +86,6 @@
     .example {
         height: 100%;
 
-        --example-height: 360px;
-
-        iframe {
-            border: 0;
-            width: 100%;
-            max-width: 100%;
-            height: calc(var(--example-height, 360) * #{jkl.rem(1px)});
-            aspect-ratio: 1;
-            border-radius: jkl.rem(4px);
-        }
-
         .info {
             position: relative;
             gap: 1ex 1em;
