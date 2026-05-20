@@ -5,6 +5,15 @@ const nextConfig = {
     // Your Next.js config here
     pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
 
+    async rewrites() {
+        return [
+            {
+                source: "/mp/:path*",
+                destination: "https://api-eu.mixpanel.com/:path*",
+            },
+        ];
+    },
+
     async redirects() {
         return [
             {

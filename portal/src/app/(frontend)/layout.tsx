@@ -1,4 +1,5 @@
 import { DisableDraftMode } from "@/components/DisableDraftMode";
+import { MixpanelProvider } from "@/components/MixpanelProvider";
 import { TabListener } from "@/components/TabListener";
 import { Footer, Header } from "@/components/layout";
 import { SanityLive } from "@/sanity/lib/live";
@@ -17,11 +18,13 @@ export default async function PortalLayout({ children }: Props) {
             <body>
                 <TabListener />
                 <CookiesNextProvider>
-                    <div className="jkl-portal-layout">
-                        <Header />
-                        <main>{children}</main>
-                        <Footer />
-                    </div>
+                    <MixpanelProvider>
+                        <div className="jkl-portal-layout">
+                            <Header />
+                            <main>{children}</main>
+                            <Footer />
+                        </div>
+                    </MixpanelProvider>
                 </CookiesNextProvider>
                 <SanityLive />
                 {(await draftMode()).isEnabled && (
