@@ -1,5 +1,15 @@
 # portal
 
+## 1.5.8
+
+### Patch Changes
+
+- ae01ca8: Sørger for at GitHub-lenkene nederst på komponentsidene åpnes i ny fane.
+- Updated dependencies [3adb63f]
+- Updated dependencies [6da4cf0]
+- Updated dependencies [78c3295]
+  - @fremtind/jokul@4.7.2
+
 ## 1.5.7
 
 ### Patch Changes
