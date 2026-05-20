@@ -34,6 +34,7 @@
         "cross-env": "^10.1.0",
         "dompurify": "^3.4.0",
         "graphql": "^16.8.1",
+        "mixpanel-browser": "^2.79.0",
         "next": "16.2.6",
         "next-sanity": "^11.6.12",
         "react": "^18.3.1",
