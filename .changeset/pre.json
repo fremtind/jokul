@@ -10,6 +10,7 @@
         "portal": "1.4.34"
     },
     "changesets": [
+        "add-brand-type",
         "card-high-low-variants",
         "clean-nights-jam",
         "codemod-remove-webfonts-css",
@@ -18,6 +19,7 @@
         "fix-brand-font-setup",
         "fix-dynamic-spacing-map-get",
         "fix-spacing-token-hyphen",
+        "fix-transparent-modal-overlay",
         "fix-use-screen-breakpoints",
         "fluffy-laws-type",
         "funny-cars-exercise",
