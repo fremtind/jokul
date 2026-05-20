@@ -1,14 +1,8 @@
-import { StorySelector } from "@/sanity/components/StorySelector";
-import {
-    CheckmarkCircleIcon,
-    CloseCircleIcon,
-    EarthGlobeIcon,
-} from "@sanity/icons";
+import { commonBlock } from "@/sanity/schemas/commonBlock";
+import { COMPONENT_CATEGORIES } from "@/utils/user-preferences";
 import { defineField, defineType } from "sanity";
-import { componentPageLink } from "../links/componentPageLink";
 
 import "../lists/usageList.scss";
-import { COMPONENT_CATEGORIES } from "@/utils/user-preferences";
 
 const MAX_LENGTH = 70;
 
@@ -153,48 +147,7 @@ export const component = defineType({
             type: "array",
             group: "documentation",
             of: [
-                {
-                    type: "block",
-                    lists: [
-                        { title: "Punktliste", value: "bullet" },
-                        { title: "Nummerert liste", value: "number" },
-                        {
-                            title: "Oppfordringsliste",
-                            value: "check",
-                            icon: CheckmarkCircleIcon,
-                        },
-                        {
-                            title: "Frarådningsliste",
-                            value: "cross",
-                            icon: CloseCircleIcon,
-                        },
-                    ],
-                    marks: {
-                        annotations: [
-                            {
-                                name: "link",
-                                type: "object",
-                                title: "Ekstern lenke",
-                                icon: EarthGlobeIcon,
-                                fields: [
-                                    {
-                                        name: "href",
-                                        type: "url",
-                                        title: "URL",
-                                    },
-                                    {
-                                        title: "Åpne i ny fane",
-                                        name: "blank",
-                                        type: "boolean",
-                                        initialValue: false,
-                                    },
-                                ],
-                            },
-                            componentPageLink,
-                        ],
-                    },
-                },
-                { type: "image" },
+                ...commonBlock,
                 { type: "jokul_componentProps" },
                 { type: "jokul_componentKortFortalt" },
                 { type: "jokul_code" },

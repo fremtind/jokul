@@ -33,6 +33,19 @@ export const fundamentalsBySlugQuery = defineQuery(
                   code
                 },
             },
+            markDefs[] {
+                ...,
+                _type == "jokul_internal_link" => {
+                    article->{
+                        _type,
+                        "name": coalesce(name, tema, version),
+                        short_description,
+                        "slug": slug.current,
+                        image,
+                        imageDark
+                    }
+                },
+            }
         },
     }`,
 );

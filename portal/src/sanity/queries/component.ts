@@ -45,6 +45,7 @@ export const componentBySlugQuery =
                     bruk_punkt[] {
                         ...,
                         markDefs[] {
+                            ...,
                             _type == "componentPageLink" => {
                                 ...,
                                 component->{
@@ -52,6 +53,17 @@ export const componentBySlugQuery =
                                     short_description,
                                     "slug": slug.current,
                                     figma_image,
+                                    image,
+                                    imageDark
+                                }
+                            },
+                            _type == "jokul_internal_link" => {
+                                ...,
+                                article->{
+                                    _type,
+                                    "name": coalesce(name, tema, version),
+                                    short_description,
+                                    "slug": slug.current,
                                     image,
                                     imageDark
                                 }
@@ -63,6 +75,7 @@ export const componentBySlugQuery =
                     ikke_bruk_punkt[] {
                         ...,
                         markDefs[] {
+                            ...,
                             _type == "componentPageLink" => {
                                 ...,
                                 component->{
@@ -70,6 +83,17 @@ export const componentBySlugQuery =
                                     short_description,
                                     "slug": slug.current,
                                     figma_image,
+                                    image,
+                                    imageDark
+                                }
+                            },
+                            _type == "jokul_internal_link" => {
+                                ...,
+                                article->{
+                                    _type,
+                                    "name": coalesce(name, tema, version),
+                                    short_description,
+                                    "slug": slug.current,
                                     image,
                                     imageDark
                                 }
@@ -87,6 +111,16 @@ export const componentBySlugQuery =
                         short_description,
                         image,
                         imageDark,
+                    }
+                },
+                _type == "jokul_internal_link" => {
+                    article->{
+                        _type,
+                        "name": coalesce(name, tema, version),
+                        short_description,
+                        "slug": slug.current,
+                        image,
+                        imageDark
                     }
                 },
             }
