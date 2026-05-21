@@ -43,7 +43,7 @@ jobs:
               shell: bash
               run: |
                   if [ ! -f .changeset/pre.json ]; then
-                    exit 1
+                    exit 0
                   fi
 
                   node --input-type=module <<'NODE'
