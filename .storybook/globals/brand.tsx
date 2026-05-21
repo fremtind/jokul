@@ -1,13 +1,21 @@
 import type { ReactRenderer } from "@storybook/nextjs";
 import { useEffect } from "react";
 import type { DecoratorFunction } from "storybook/internal/types";
+import { BRANDS } from "../../packages/jokul/src/utilities/types.js";
 
-export const brands = [
-    { title: "Fremtind", value: "fremtind" },
-    { title: "DNB", value: "dnb" },
-    { title: "Eika", value: "eika" },
-    { title: "SpareBank 1", value: "sparebank1" },
-];
+const brandTitles: Record<string, string> = {
+    dnb: "DNB",
+    eika: "Eika",
+    fremtind: "Fremtind",
+    sparebank1: "SpareBank 1",
+};
+
+export const brands = (BRANDS as readonly string[]).map((brand) => ({
+    title: brandTitles[brand] ?? brand,
+    value: brand,
+}));
+
+export const hasBrands = brands.length > 0;
 
 const applyBrand = (element: HTMLElement, brand?: string) => {
     element.classList.add("jkl");
