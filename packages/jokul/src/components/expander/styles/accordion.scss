@@ -1,0 +1,24 @@
+@layer jokul.components {
+    .jkl-accordion {
+        background-color: var(--jkl-color-background-container);
+        border-radius: var(--jkl-border-radius-s);
+        padding-inline-start: unset;
+        list-style-type: unset;
+        overflow: clip;
+
+        .jkl-expandable-panel {
+            border-radius: unset;
+            border: unset;
+            background-color: transparent;
+        }
+
+        .jkl-expandable-panel__wrapper:not(:last-of-type) {
+            border-block-end: 1px solid var(--jkl-color-border-subdued);
+        }
+
+        &[data-outlined="true"] {
+            border: 1px solid var(--jkl-color-border-subdued);
+            background-color: transparent;
+        }
+    }
+}

@@ -1,4 +1,4 @@
-import type { ComponentProps, FC, RefObject } from "react";
+import type { ComponentProps, FC, HTMLAttributes, RefObject } from "react";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 
 export type ExpandablePanelContentComponent = FC<ComponentProps<"div"> & {}>;
@@ -57,4 +57,8 @@ export type ExpandableContext = {
         ref: RefObject<HTMLElement | HTMLDetailsElement | null>,
     ) => void;
     setExpanderHeight: (height: number) => void;
+};
+
+export type AccordionProps = HTMLAttributes<HTMLDivElement> & {
+    outlined?: boolean;
 };
