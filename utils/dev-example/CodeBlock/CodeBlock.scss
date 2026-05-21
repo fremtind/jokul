@@ -1,10 +1,10 @@
 @use "../../../packages/jokul/src/styles/jkl" as jkl;
 
 .jkl-portal-code-block {
-    --code-block-border-color: #{jkl.$color-border-separator};
+    --code-block-border-color: #{jkl.$color-border-default};
     --code-block-bg-color: #{jkl.$color-background-container};
-    --code-block-focus-color: #{jkl.$color-border-input-focus};
-    --language-tag-bg-color: #{jkl.$color-background-container-low};
+    --code-block-focus-color: #{jkl.$color-border-strong};
+    --language-tag-bg-color: #{jkl.$color-background-container-accent};
     --language-tag-text-color: #{jkl.$color-text-default};
 
     position: relative;
