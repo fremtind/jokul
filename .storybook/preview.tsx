@@ -1,7 +1,12 @@
 import type { Preview } from "@storybook/nextjs";
 import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
-import { brandDecorator, brandGlobal } from "./globals/brand.js";
+import {
+    brandDecorator,
+    brandGlobal,
+    brands,
+    hasBrands,
+} from "./globals/brand.js";
 import { sizeDecorator, sizeGlobal } from "./globals/size.js";
 import { themeDecorator, themeGlobal } from "./globals/theme.js";
 
@@ -22,12 +27,12 @@ const backgroundOptions = [
 
 const preview: Preview = {
     globalTypes: {
-        brand: brandGlobal,
+        ...(hasBrands ? { brand: brandGlobal } : {}),
         theme: themeGlobal,
         size: sizeGlobal,
     },
     initialGlobals: {
-        brand: "main",
+        ...(hasBrands ? { brand: brands[0]?.value } : {}),
         theme: undefined,
         size: undefined,
     },
