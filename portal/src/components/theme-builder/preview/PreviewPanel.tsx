@@ -36,11 +36,14 @@ export function PreviewPanel({
                 display={display}
                 onDisplayChange={onDisplayChange}
             />
-            <div className={styles.previewSurface} {...dataAttributes(display)}>
-                <PreviewScope tokens={tokens}>
+            <PreviewScope tokens={tokens}>
+                <div
+                    className={styles.previewSurface}
+                    {...dataAttributes(display)}
+                >
                     <DemoForm storyId={storyId} />
-                </PreviewScope>
-            </div>
+                </div>
+            </PreviewScope>
         </Flex>
     );
 }
