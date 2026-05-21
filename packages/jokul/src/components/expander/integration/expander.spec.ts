@@ -22,7 +22,7 @@ test("renders correctly", async () => {
     await helper.snapshots({
         focusElement: {
             target: ".jkl-expander",
-            outline: ".jkl-expandable__focus-container",
+            outline: ".jkl-expandable-panel__focus-container",
         },
     });
 });
@@ -32,7 +32,7 @@ test("opens correctly", async () => {
 
     await helper.clickElement("summary");
     await helper.clickElement(
-        ".jkl-expandable__wrapper:nth-of-type(3) summary",
+        ".jkl-expandable-panel__wrapper:nth-of-type(3) summary",
     );
 
     await helper.snapshots();
@@ -77,7 +77,7 @@ test("axe", async ({ axe }) => {
 
     await helper.clickElement("summary");
     await helper.clickElement(
-        ".jkl-expandable__wrapper:nth-of-type(3) summary",
+        ".jkl-expandable-panel__wrapper:nth-of-type(3) summary",
     );
 
     // The plugin claims aria-expanded can't be used with the checkbox role. We disagree.
