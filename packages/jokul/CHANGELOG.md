@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.0.0-next.14
+
+### Major Changes
+
+- 7ce210e: Legg til outlined prop på `LinkList`, og erstatt `variant`-prop med `outlined`-prop i `ExpandablePanel`. Klassene i `ExpandablePanel` er også endret til å reflektere elementet bedre.
+
+### Minor Changes
+
+- 39dbc22: Legg til Accordion, som brukes som wrapper på ExpandablePanels for å kontrollere stiler der som en helhetlig gruppe
+
 ## 5.0.0-next.13
 
 ### Patch Changes
