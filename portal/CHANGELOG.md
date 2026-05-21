@@ -1,5 +1,48 @@
 # portal
 
+## 1.7.0
+
+### Minor Changes
+
+- cb902b8: Fremtind Grotesk er historie og byttet ut med Inter.
+
+### Patch Changes
+
+- d059822: Utvider portalsøket til å søke i flere relevante Sanity-felt for komponenter, blant annet slug, dokumentasjonstekst og ting å tenke på.
+- 9554b03: La til en ny `/theme-builder`-flate i portalen for å utforske og redigere fargetokens.
+
+  Løsningen bygger på `color.tokens.json`, bruker Jøkul-komponenter i editor og forhåndsvisning, og støtter både visuell redigering og redigering i rå JSON.
+
+- 90597a3: Legger til fallback for Storybook-eksempler som ikke kan vises i portalen.
+- cb11a88: Sikkerhetsoppdateringer
+- 43f24fa: Fjerner fluid typografi for tittelen på komponentsiden som peker på fontstørrelser vi ikke har lenger. Det er også eneste sted i løsningen vi brukte fluid typografi.
+- Updated dependencies [c25012b]
+- Updated dependencies [0f2d59c]
+- Updated dependencies [1c9ed52]
+- Updated dependencies [139f367]
+- Updated dependencies [0618c96]
+- Updated dependencies [562fdc0]
+- Updated dependencies [b26782d]
+- Updated dependencies [64c9e3a]
+- Updated dependencies [a3724e9]
+- Updated dependencies [4af3668]
+- Updated dependencies [4f92a1c]
+- Updated dependencies [972f5e1]
+- Updated dependencies [bfa1179]
+- Updated dependencies [73b1b84]
+- Updated dependencies [e87c25a]
+- Updated dependencies [841287d]
+- Updated dependencies [2bcd1ff]
+- Updated dependencies [67f321f]
+- Updated dependencies [023fa4b]
+- Updated dependencies [0afce01]
+- Updated dependencies [e1f5100]
+- Updated dependencies [f6c71ab]
+- Updated dependencies [cb902b8]
+- Updated dependencies [e16b362]
+- Updated dependencies [cb11a88]
+  - @fremtind/jokul@5.0.0
+
 ## 1.6.0
 
 ### Minor Changes

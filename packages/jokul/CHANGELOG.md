@@ -1,5 +1,194 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+- 1c9ed52: Endrer API-et til `Card`: `variant` er fjernet, og kort med border styres nå med den nye boolean-propen `outlined`.
+
+  Dette betyr at tidligere outlined-kort må oppdateres fra:
+
+  ```tsx
+  <Card variant="outlined">Innhold</Card>
+  ```
+
+  til:
+
+  ```tsx
+  <Card outlined>Innhold</Card>
+  ```
+
+  `variant="high"` og `variant="low"` er også fjernet. Fjern prop-en for å bruke standard Card-flate:
+
+  ```tsx
+  <Card>Innhold</Card>
+  ```
+
+- e87c25a: Legg til outlined prop på `LinkList`, og erstatt `variant`-prop med `outlined`-prop i `ExpandablePanel`. Klassene i `ExpandablePanel` er også endret til å reflektere elementet bedre.
+- 0afce01: Oppdaterer fargetokens til Jøkul sitt v5-fargesystem.
+
+  `packages/jokul/src/tokens/color.tokens.json` er nå base-fargetemaet som brukes når ingen brand er valgt. Brand-spesifikke fargetemaer ligger i `packages/jokul/src/tokens/brands/color.*.tokens.json` og aktiveres med `data-brand`.
+
+  Dette er en breaking change for kode som bruker gamle fargetokens direkte. Flere tokens fra dagens `main` er fjernet eller erstattet med nye semantiske roller:
+
+  - bruk `--jkl-color-background-contrast` i stedet for `--jkl-color-background-action`
+  - bruk `--jkl-color-text-on-contrast` i stedet for `--jkl-color-text-on-action` og `--jkl-color-text-inverted`
+  - bruk `--jkl-color-background-container` i stedet for `--jkl-color-background-container-high` og `--jkl-color-background-container-low`
+  - bruk contrast-tokens der `--jkl-color-background-container-inverted` tidligere ble brukt som invertert flate
+  - bruk feedback-tokens for `info`, `warning`, `error` og `success` i stedet for `--jkl-color-background-alert-*` og `--jkl-color-text-on-alert*`
+  - bruk semantiske border-roller som `default`, `subdued` og `strong` i stedet for gamle input- og separator-border tokens
+
+  `--jkl-color-background-interactive*` og `--jkl-color-text-interactive*` er fjernet. Der komponenter trenger hoverflater, bruker Jøkul nå lokale `color-mix()`-verdier som kode-alternativ til overlay/state layer i Figma.
+
+- f6c71ab: Vi har ryddet opp i strukturen til grunnverdiene i Jøkul, og stilarkene som genereres på bakgrunn av dem. Dette fører til noen endringer i importstier, særlig for de grunnleggende stilarkene. Til gjengjeld får vi mye bedre kontroll over alle tilgjengelige verdier for farger, avstander, typografi og lignende, siden alt blir generert fra én felles definisjon.
+
+  ## Nye semantiske tekststil-variabler
+
+  Tekststilene våre eksporteres nå også som CSS custom properties via `font`-shorthand. Du kan bruke dem direkte i CSS:
+
+  ```css
+  .min-tittel {
+    font: var(--jkl-text-style-heading-1);
+  }
+  ```
+
+  Du kan fortsatt bruke Sass-mixin for å sette tekststil i dine egne Sass-stilark dersom du foretrekker det:
+
+  ```scss
+  .min-tittel {
+    @include jkl.text-style("heading-1");
+  }
+  ```
+
+  Tilgjengelige stiler: `title`, `title-small`, `heading-1`–`heading-5`, `paragraph-large`, `paragraph-medium`, `paragraph-small`, `text-large`, `text-medium`, `text-small`, `text-micro`.
+
+  ## Alle gamle fargevariabler er fjernet
+
+  Det er ikke lenger mulig å hente ut fargevariabler som `granitt`, `varde` og tilsvarende, verken som Sass- eller CSS-variabler. Bruk heller [de semantiske fargevariablene](https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/farger).
+
+  ## Mixins for custom dark-/light-farger er fjernet
+
+  Samtidig som vi faser ut de gamle fargene faser vi også ut mixins for å definere egne fargevariabler for mørk og lys modus. Bruk heller de semantiske fargevariablene linket til over.
+
+  ```diff
+  - @include jkl.light-mode-variables {
+  -     --min-farge: jkl.$color-granitt;
+  - }
+  - @include jkl.dark-mode-variables {
+  -     --min-farge: jkl.$color-snohvit;
+  - }
+  -
+  .min-klasse {
+  -     color: var(--min-farge);
+  +     color: var(--jkl-color-text-default);
+  }
+  ```
+
+  ## Nye importstier for Tailwind
+
+  Importstiene for Jøkul sitt Tailwind-oppsett er endret
+
+  - Preset og typografi-plugin for Tailwind versjon 3: `@fremtind/jokul/tailwind`
+  - Temafil for for Tailwind versjon 4: `@fremtind/jokul/styles/tailwind`.
+
+  ## Nye importstier for stilark og Sass-hjelpere
+
+  På grunn av ny struktur internt i Jøkul er importstiene for noen av hovedstilarkene og Sass-hjelperne endret. Grunnstiler og komponentstilark er også tilgjengelige som kompilert CSS (med filendelse `.css`) og som minifisert CSS (med filendelse `.min.css`)
+
+  | Funksjon                     | Gammel import                     | Ny import                                |
+  | ---------------------------- | --------------------------------- | ---------------------------------------- |
+  | Grunnstiler                  | `@fremtind/jokul/styles/core`     | `@fremtind/jokul/styles/base.scss`       |
+  | Stilark for ALLE komponenter | `@fremtind/jokul/styles`          | `@fremtind/jokul/styles/components.scss` |
+  | Sass-hjelpere                | `@fremtind/jokul/styles/core/jkl` | `@fremtind/jokul/styles/jkl`             |
+  | Stiler påkrevd for fonter    | `@fremtind/jokul/styles/fonts`    | Inkludert i `base.scss`                  |
+
+  Stilarkene for Beta-komponentene var tidligere bakt sammen med sine ikke-Beta varianter. De er nå eksportert for seg.
+
+  | Komponent        | Gammel import                                        | Ny import                                                      |
+  | ---------------- | ---------------------------------------------------- | -------------------------------------------------------------- |
+  | Description List | `@fremtind/jokul/styles/components/description-list` | `@fremtind/jokul/styles/components/beta/description-list.scss` |
+  | Nav Link         | `@fremtind/jokul/styles/components/nav-link`         | `@fremtind/jokul/styles/components/beta/nav-link.scss`         |
+  | Select           | `@fremtind/jokul/styles/components/select`           | `@fremtind/jokul/styles/components/beta/select.scss`           |
+
+  ## Ny importsti for typer som tidligere ble eksportert fra `core`
+
+  Vi har fjernet `core` som konsept, så typer som tidligere bodde her kan nå importeres fra `utilities`:
+
+  ```diff
+  - import type { WithChildren, DataTestAutoId } from "@fremtind/jokul/core";
+  + import type { WithChildren, DataTestAutoId } from "@fremtind/jokul/utilities";
+  ```
+
+  ## Øvrige strukturelle endringer
+
+  - Beta-komponentene `DescriptionList`, `NavLink` og `Select` er flyttet fra `components-beta/` til `components/beta/` internt i pakken. Eksportstiene er uendret.
+
+### Minor Changes
+
+- 0f2d59c: Legg til Accordion, som brukes som wrapper på ExpandablePanels for å kontrollere stiler der som en helhetlig gruppe
+- e1f5100: Nye typografikomponenter `Text` og `Title` under `@fremtind/jokul/typography`. Disse vil gjøre det lettere for teamene å gjennomføre migrasjon til Jøkul 5.0 fordi de abstraherer typografistilene, på samme måte som hjelpeklassene i CSS allerede gjør.
+
+  `Text` er polymorf med `as` begrenset til typografisk relevante elementer (`p`, `span`, `label`, `legend`, `small`, `strong`, `em`, `code`, `kbd`, `samp`, `var`), `size` på t-shirt-skala (`xs`, `s`, `m`, `l`) med default `m`, og boolean-toggles `bold`, `short` og `srOnly`. `code`/`kbd`/`samp`/`var` får automatisk monospace font.
+
+  `Title` er polymorf med `as` begrenset til `h1`–`h6` pluss skjema-elementene `label` og `legend`, `size` på `xs`, `s`, `m`, `l`, `xl` med default `l`, og `srOnly`-toggle. `as` og `size` er bevisst frakoblet — semantikk styres via `as`, visuell størrelse via `size`.
+
+  Nye hjelpeklasser `.jkl-heading-xs` til `.jkl-heading-xl` fra `components/typography` er ekvivalenter til `<Title size="…">` brukt på et vilkårlig element.
+
+  Eksisterende `.jkl-title`-utility-klasse er scoped med `:not([data-text-size])` slik at den ikke overstyrer Title-komponenten, men fortsatt fungerer som standalone hjelpeklasse på elementer uten `data-text-size`-attributtet.
+
+- cb902b8: Fremtind Grotesk er historie og byttet ut med Inter.
+
+### Patch Changes
+
+- c25012b: `Brand` og `BRANDS` er tilgjengelig fra utilities. Bruk `Brand` for å type gyldige `data-brand`-verdier, og `BRANDS` når du trenger listen over støttede brand i kode.
+
+  ```ts
+  import { BRANDS, type Brand } from "@fremtind/jokul/utilities";
+
+  const brand: Brand = "fremtind";
+  const brandOptions = BRANDS.map((brand) => ({ label: brand, value: brand }));
+  ```
+
+- 139f367: Bruk material symbols for punktene i dekningslister
+- 0618c96: Codemoden fjerner nå overflødige `@fremtind/jokul/styles/fonts/webfonts.css`- og `webfonts.min.css`-imports. I Jøkul 5 er `@font-face`-definisjonene flyttet inn i `styles/base.css`, og den frittstående webfonts-CSS-fila finnes ikke lenger i pakken – så uten denne opprydningen ville bygget feile etter migrering for konsumenter som bruker ren CSS.
+
+  Codemoden gir også en advarsel hvis import-fjerningen skjer i en fil som ikke har en `base.css`/`components.css`-import fra før, slik at man får beskjed om å legge til `base.css` for å beholde fontene.
+
+  Codemoden bytter også ut det gamle font-family-navnet `Fremtind Material Symbols` (og `Fremtind Material Symbols Fallback`) med `Jokul Icons` (og `Jokul Icons Fallback`), siden navnet ble omdøpt i Jøkul 5. Konsumenter som har skrevet font-family direkte i sin egen CSS/SCSS hadde ellers fått en stille brutt referanse.
+
+  I tillegg flagger codemoden tre vanlige 4 → 5-mønstre som ikke kan auto-erstattes, men som krever manuell migrering:
+
+  - Bruk av fjernede Sass-fargevariabler (`jkl.$color-granitt`, `jkl.$color-varde` osv.) — bytt til semantiske CSS-variabler.
+  - `@include jkl.light-mode-variables { … }` og `jkl.dark-mode-variables` — disse mixinene er fjernet.
+  - `text-style("body")` / `text-style("small")` — foretrekk `Text`-komponenten fra `@fremtind/jokul/components/typography`. Hvis du må sette stiler direkte, bytt til `paragraph-*`- eller `text-*`-varianter.
+
+- 562fdc0: Fjernet link-endringene for nå
+- b26782d: La til støtte for brand-spesifikke fonter via tokens, slik at fontvalg kan styres med `data-brand` på samme måte som brand-farger.
+
+  Brand-fontstiler genereres nå fra tokens (inkludert `@font-face` og `--jkl-font-family-*`), og typografi-oppsettet bruker disse CSS-variablene slik at riktig brand-font faktisk slår inn i komponentene.
+
+- 64c9e3a: Justerte oppsettet for fonter i branding:
+
+  - Inter-fontene ligger nå også i `src/fonts/` (ved siden av `src/fonts/brands/`) slik at de stemmer med URL-ene i `styles/theme/_fonts.scss`.
+  - "Brandet" Fremtind refereres nå til som `fremtind` overalt – både i mappestruktur (`src/fonts/brands/fremtind`, `src/styles/theme/brands/fremtind`), token-filer (`typography.fremtind.tokens.json`) og `data-brand`-selectorer (`[data-brand="fremtind"]`).
+  - Antallet `@font-face`-definisjoner per brand er ryddet opp så vi ikke har fler enn nødvendig. Den globale `_fonts.scss` er konsolidert tilsvarende.
+
+- a3724e9: Rett opp tom verdi for responsiv spacing (t.d. `--jkl-spacing-104-104-168`)
+- 4af3668: Fikser CSS-variabelnavn for tokens der bindestrek manglet mellom kategori og tall (f.eks. `jkl-spacing20` i stedet for `jkl-spacing-20`). Feilen skyldes at TypeScript-plattformen brukte `name/camel` i stedet for `name/kebab` som navnetransform.
+- 4f92a1c: La til manglende stil for Modal-overlay når `transparent`-propen brukes.
+- 972f5e1: Fiks `useScreen` slik at hooken bruker konkrete breakpoint-verdier i media queries.
+- bfa1179: Legger til spesifikk eksportsti for Sass-hjelpefunksjoner
+
+  Det virker som noen byggverktøy sliter med wildcard-eksportstier for Sass-filer, og derfor ikke klarer å laste inn f.eks. `@fremtind/jokul/styles/jkl`. Vi legger til denne filen som en spesifikk eksportsti.
+
+- 73b1b84: Rett opp størrelse og spacing på valg i Autosuggest, Combobox og Select slik at nedtrekkslistene fremstår likt på tvers av størrelser.
+- 841287d: Legg til `jokul codemod` for å migrere gamle importstier til Jøkul 5 sin nye struktur for stiler og utilities.
+- 2bcd1ff: Expander brukt alene vil ikke lenger ha padding, hover og full bredde by default
+- 67f321f: Bytter til riktig stilimport i NumberInput
+- 023fa4b: Fjern core-mappen med innhold som har blitt med over fra main-branchen ved et uhell.
+- e16b362: Retter opp navn på innebygde fonter i tokens, og fjerner autogenererte stilark fra innsjekking i git.
+- cb11a88: Sikkerhetsoppdateringer
+
 ## 4.7.2
 
 ### Patch Changes
