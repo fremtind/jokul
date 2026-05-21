@@ -1,4 +1,4 @@
-@use "../../../core/jkl/index" as jkl;
+@use "../../../styles/jkl";
 @use "../../../shared/input/styles/shared-input-styles" as shared;
 
 @layer jokul.components {
@@ -16,9 +16,7 @@
                 }
             }
 
-            &:has(.jkl-number-input__input:invalid):not(:focus-within):not(
-                    :has([data-focused="true"])
-                ) {
+            &:has(.jkl-number-input__input:invalid):not(:focus-within):not( :has([data-focused="true"])) {
                 --background-color: var(--jkl-color-background-alert-error);
                 --text-color: var(--jkl-color-text-on-alert);
                 --placeholder-color: color(from currentColor sRGB r g b / 75%);
@@ -26,16 +24,12 @@
         }
 
         &__wrapper--stepper {
-            --jkl-number-input-stepper-min-width: calc(
-                3ch + (var(--jkl-text-input-horizontal-padding) * 2)
-            );
+            --jkl-number-input-stepper-min-width: calc(3ch + (var(--jkl-text-input-horizontal-padding) * 2));
             --jkl-number-input-stepper-text-color: var(--text-color);
 
             display: grid;
             grid-template-columns:
-                max-content
-                minmax(var(--jkl-number-input-stepper-min-width), 1fr)
-                max-content;
+                max-content minmax(var(--jkl-number-input-stepper-min-width), 1fr) max-content;
             overflow: hidden;
 
             // Tillat at fokus-ringen på stepper-knappene vises i sin helhet,
