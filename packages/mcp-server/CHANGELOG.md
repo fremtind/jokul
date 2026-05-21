@@ -1,5 +1,15 @@
 # @fremtind/jokul-mcp-server
 
+## 1.1.0
+
+### Minor Changes
+
+- cb902b8: Fremtind Grotesk er historie og byttet ut med Inter.
+
+### Patch Changes
+
+- cb11a88: Sikkerhetsoppdateringer
+
 ## 1.0.1
 
 ### Patch Changes
