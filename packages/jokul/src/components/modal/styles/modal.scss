@@ -31,8 +31,8 @@
         z-index: jkl.$z-index--modal;
         position: relative;
 
-        background-color: var(--jkl-color-background-container-high);
-        border-radius: jkl.rem(2px);
+        background-color: var(--jkl-color-background-container);
+        border-radius: var(--jkl-border-radius-l);
         box-shadow: jkl.$shadow-task-card;
 
         width: 100%;
