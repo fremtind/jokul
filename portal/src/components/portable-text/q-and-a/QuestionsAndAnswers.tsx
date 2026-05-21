@@ -23,10 +23,7 @@ export const QuestionsAndAnswers: FC<
                 style={{ listStyleType: "none", padding: 0, margin: 0 }}
             >
                 {faq.map((qa) => (
-                    <ExpandablePanel
-                        variant={faq.length >= 2 ? "stroke" : "fill"}
-                        key={qa._key}
-                    >
+                    <ExpandablePanel outlined={faq.length >= 2} key={qa._key}>
                         <ExpandablePanel.Header>
                             {qa.question}
                         </ExpandablePanel.Header>
