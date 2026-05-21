@@ -1,5 +1,15 @@
 # portal
 
+## 1.5.0-next.14
+
+### Patch Changes
+
+- 4f6e61e: Utvider portalsøket til å søke i flere relevante Sanity-felt for komponenter, blant annet slug, dokumentasjonstekst og ting å tenke på.
+- 48f453c: Legger til fallback for Storybook-eksempler som ikke kan vises i portalen.
+- Updated dependencies [39dbc22]
+- Updated dependencies [7ce210e]
+  - @fremtind/jokul@5.0.0-next.14
+
 ## 1.5.0-next.13
 
 ### Patch Changes
