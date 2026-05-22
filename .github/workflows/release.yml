@@ -40,9 +40,9 @@ jobs:
               id: release-tag
               shell: bash
               run: |
-                  if [[ "$GITHUB_BASE_REF" = "main" ]]; then
+                  if [[ "$GITHUB_REF" = "main" ]]; then
                     exit 0
-                  elif [[ "$GITHUB_BASE_REF" =~ ^jokul-(\d)\.x$ ]]; then
+                  elif [[ "$GITHUB_REF" =~ ^jokul-(\d)\.x$ ]]; then
                     echo "tag=version-${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
                     exit 0
                   elif [[ -f .changeset/pre.json ]]; then
