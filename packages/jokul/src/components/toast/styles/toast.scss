@@ -39,7 +39,7 @@
         color: var(--text-color);
         background-color: var(--background-color);
         border: 1px solid var(--border-color);
-        border-radius: 4px;
+        border-radius: var(--jkl-border-radius-s);
         box-sizing: border-box;
         align-items: start;
         overflow: hidden;
@@ -152,11 +152,13 @@
 
     .jkl-toast[data-animation="entering"],
     .jkl-toast[data-animation="queued"] {
-        animation: $_entering jkl.timing("polite") jkl.easing("entrance") forwards;
+        animation: $_entering jkl.timing("polite") jkl.easing("entrance")
+            forwards;
     }
 
     .jkl-toast[data-animation="exiting"] {
-        animation: $_exiting jkl.timing("productive") jkl.easing("exit") forwards;
+        animation: $_exiting jkl.timing("productive") jkl.easing("exit")
+            forwards;
     }
 
     @keyframes #{$_entering} {
