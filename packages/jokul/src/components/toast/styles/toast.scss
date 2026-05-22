@@ -50,12 +50,14 @@
         @include jkl.text-style("paragraph-medium");
 
         &__progress {
-            --bar-color: var(--jkl-color-background-contrast);
-            --track-color: transparent;
-
-            border-radius: 0;
             position: absolute;
             inset: 0 0 auto;
+        }
+
+        .jkl-countdown {
+            --track-color: transparent;
+            --bar-color: var(--jkl-color-background-contrast);
+            border-radius: 0;
         }
 
         &__icon {
@@ -109,24 +111,56 @@
             --background-color: var(--jkl-color-info-background-container);
             --text-color: var(--jkl-color-info-text-default);
             --border-color: var(--jkl-color-info-border-subdued);
+
+            .jkl-countdown {
+                --bar-color: var(--jkl-color-info-background-contrast);
+            }
+
+            .jkl-toast__icon {
+                color: var(--jkl-color-info-background-contrast);
+            }
         }
 
         &--warning {
             --background-color: var(--jkl-color-warning-background-container);
             --text-color: var(--jkl-color-warning-text-default);
             --border-color: var(--jkl-color-warning-border-subdued);
+
+            .jkl-countdown {
+                --bar-color: var(--jkl-color-warning-background-contrast);
+            }
+
+            .jkl-toast__icon {
+                color: var(--jkl-color-warning-background-contrast);
+            }
         }
 
         &--error {
             --background-color: var(--jkl-color-error-background-container);
             --text-color: var(--jkl-color-error-text-default);
             --border-color: var(--jkl-color-error-border-subdued);
+
+            .jkl-countdown {
+                --bar-color: var(--jkl-color-error-background-contrast);
+            }
+
+            .jkl-toast__icon {
+                color: var(--jkl-color-error-background-contrast);
+            }
         }
 
         &--success {
             --background-color: var(--jkl-color-success-background-container);
             --text-color: var(--jkl-color-success-text-default);
             --border-color: var(--jkl-color-success-border-subdued);
+
+            .jkl-countdown {
+                --bar-color: var(--jkl-color-success-background-contrast);
+            }
+
+            .jkl-toast__icon {
+                color: var(--jkl-color-success-background-contrast);
+            }
         }
 
         @include jkl.forced-colors-mode {

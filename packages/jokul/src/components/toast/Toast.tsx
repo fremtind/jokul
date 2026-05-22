@@ -103,7 +103,6 @@ export function Toast<T extends ToastContent>({
                     className="jkl-toast__progress"
                     from={props.toast.timeout}
                     isPaused={isPaused}
-                    data-theme="light"
                     onAnimationEnd={(e) => {
                         // Avoid triggering the toast's onAnimationEnd handler so we still get our exit animation
                         e.stopPropagation();
@@ -131,7 +130,6 @@ export function Toast<T extends ToastContent>({
                         <div className="jkl-toast__action">
                             <Button
                                 variant="secondary"
-                                data-theme="light"
                                 onClick={props.toast.action.onClick}
                             >
                                 {props.toast.action.label}
