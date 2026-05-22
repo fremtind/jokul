@@ -59,7 +59,7 @@ jobs:
 
                     writeOutput("tag", preSettings.tag);
                     process.exit(0);
-                    NODE
+                  NODE
                   fi
                   exit 1
 
