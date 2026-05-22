@@ -42,9 +42,11 @@ jobs:
               run: |
                   branch=$(git branch --show-current)
                   version_regex="^jokul-(\d)\.x$"
+                  echo "::debug::${branch}"
                   if [[ "$branch" = "main" ]]; then
                     exit 0
                   elif [[ $branch =~ $version_regex ]]; then
+                    echo "::debug::${BASH_REMATCH[1]}"
                     echo "tag=version-${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
                     exit 0
                   elif [[ -f .changeset/pre.json ]]; then
