@@ -156,6 +156,10 @@
                 --link-color: var(--text-color);
                 --jkl-color-border-strong: currentColor;
             }
+
+            .jkl-file__content {
+                border-color: var(--jkl-color-error-border-default);
+            }
         }
     }
 
