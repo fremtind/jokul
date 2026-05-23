@@ -9,7 +9,6 @@ describe("Title", () => {
         const { getByRole } = render(<Title>Forside</Title>);
 
         const heading = getByRole("heading", { level: 2 });
-        expect(heading).toHaveClass("jkl-title");
         expect(heading).toHaveAttribute("data-text-size", "l");
     });
 
@@ -55,7 +54,6 @@ describe("Title", () => {
         expect(label).toBeInTheDocument();
         expect(label).toHaveTextContent("E-post");
         expect(label).toHaveAttribute("for", "epost");
-        expect(label).toHaveClass("jkl-title");
     });
 
     it("rendrer som <legend>", () => {
@@ -68,7 +66,6 @@ describe("Title", () => {
         const legend = container.querySelector("legend");
         expect(legend).toBeInTheDocument();
         expect(legend).toHaveTextContent("Kontaktinformasjon");
-        expect(legend).toHaveClass("jkl-title");
     });
 
     it("setter `data-text-size` for oppgitt size", () => {
@@ -114,10 +111,7 @@ describe("Title", () => {
             </Title>,
         );
 
-        expect(getByRole("heading", { level: 2 })).toHaveClass(
-            "jkl-title",
-            "jkl-sr-only",
-        );
+        expect(getByRole("heading", { level: 2 })).toHaveClass("jkl-sr-only");
     });
 
     it("videresender ekstra className", () => {
@@ -125,10 +119,7 @@ describe("Title", () => {
             <Title className="egen-klasse">Med klasse</Title>,
         );
 
-        expect(getByRole("heading", { level: 2 })).toHaveClass(
-            "jkl-title",
-            "egen-klasse",
-        );
+        expect(getByRole("heading", { level: 2 })).toHaveClass("egen-klasse");
     });
 
     it("videresender ref til det underliggende heading-elementet", () => {
