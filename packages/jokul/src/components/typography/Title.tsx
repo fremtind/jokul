@@ -16,7 +16,7 @@ export const Title: TitleComponent = forwardRef(function Title<
     const Tag = (as || "h2") as React.ElementType;
     return (
         <Tag
-            className={clsx("jkl-title", srOnly && "jkl-sr-only", className)}
+            className={clsx(srOnly && "jkl-sr-only", className)}
             data-text-size={size}
             ref={ref}
             {...rest}

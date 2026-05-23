@@ -12,7 +12,7 @@ $_size-styles: (
 
 @layer jokul.components {
     :where(.jkl-text) {
-        font-weight: var(--jkl-typography-weight-normal);
+        font-weight: var(--jkl-font-weight-normal);
         line-height: var(--jkl-line-height-relaxed);
     }
 
@@ -35,7 +35,7 @@ $_size-styles: (
     // tvinger normal weight via `jkl.text-style`-mixinen.
     .jkl-text[data-bold],
     strong.jkl-text[data-text-size] {
-        font-weight: var(--jkl-typography-weight-bold);
+        font-weight: var(--jkl-font-weight-bold);
     }
 
     .jkl-text[data-short] {
