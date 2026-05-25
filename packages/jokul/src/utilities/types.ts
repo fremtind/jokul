@@ -7,13 +7,21 @@ export interface DataTestAutoId {
     "data-testautoid"?: string;
 }
 
+export const BRANDS = [] as const;
+export type Brand = (typeof BRANDS)[number];
+export type Size = "small" | "medium" | "large";
 export type ColorScheme = "light" | "dark";
 
-export type Size = "small" | "medium" | "large";
-
-export const BRANDS = [] as const;
-
-export type Brand = (typeof BRANDS)[number];
+/**
+ * Eksplisitte typer for modusene som brukes i Jøkul, slik at de kan brukes aktivt i komponentene
+ * @example type Props = { myProp: string } & JokulModes;
+ * @example interface Props extends JokulModes { myProp: string };
+ */
+export interface JokulModes {
+    "data-brand"?: Brand;
+    "data-size"?: Size;
+    "data-theme"?: ColorScheme;
+}
 
 export type Easing = keyof typeof tokens.motion.easing;
 export type Timing = keyof typeof tokens.motion.timing;
