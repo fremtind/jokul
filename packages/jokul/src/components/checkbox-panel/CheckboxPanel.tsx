@@ -1,7 +1,9 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { InputPanel } from "../input-panel/InputPanel.js";
 import type { CheckboxPanelProps } from "./types.js";
 
-export const CheckboxPanel = (props: CheckboxPanelProps) => (
-    <InputPanel {...props} type="checkbox" />
+export const CheckboxPanel = forwardRef<HTMLInputElement, CheckboxPanelProps>(
+    function CheckboxPanel(props, ref) {
+        return <InputPanel {...props} ref={ref} type="checkbox" />;
+    },
 );
