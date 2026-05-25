@@ -16,6 +16,8 @@ export const InputPanel = forwardRef(function BasePanel(
         children,
         extraLabel,
         alwaysOpen = false,
+        "data-size": dataSize,
+        "data-theme": dataTheme,
         ...rest
     }: InputPanelProps,
     ref: ForwardedRef<HTMLInputElement>,
@@ -23,12 +25,18 @@ export const InputPanel = forwardRef(function BasePanel(
     return (
         <div
             className={clsx("jkl-input-panel", `jkl-${type}-panel`, className)}
-            ref={ref}
             data-always-open={alwaysOpen}
+            data-size={dataSize}
+            data-theme={dataTheme}
         >
             <div className="jkl-input-panel__header">
                 {type === "checkbox" && (
-                    <Checkbox value={value?.toString()} name={name} {...rest}>
+                    <Checkbox
+                        value={value?.toString()}
+                        name={name}
+                        ref={ref}
+                        {...rest}
+                    >
                         {label}
                     </Checkbox>
                 )}
@@ -36,6 +44,7 @@ export const InputPanel = forwardRef(function BasePanel(
                     <RadioButton
                         value={value?.toString()}
                         name={name}
+                        ref={ref}
                         {...rest}
                     >
                         {label}
