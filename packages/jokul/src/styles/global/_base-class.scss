@@ -26,6 +26,10 @@
         strong {
             font-weight: jkl.$font-weight-bold;
         }
+
+        a, button:not(:disabled) {
+            cursor: pointer;
+        }
     }
 
     @include jkl.prefers-reduced-motion {
