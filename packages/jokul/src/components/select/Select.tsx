@@ -53,6 +53,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             maxShownOptions = 5,
             style,
             tooltip,
+            "data-testautoid": dataTestAutoId,
             ...rest
         } = props;
 
@@ -498,6 +499,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                         "jkl-select--no-value": !hasSelectedValue,
                         "jkl-select--invalid": !!errorLabel || invalid,
                     })}
+                    data-testautoid={dataTestAutoId}
                     tooltip={
                         tooltip && React.isValidElement<PopupTipProps>(tooltip)
                             ? React.cloneElement(tooltip, {
@@ -670,6 +672,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                         }
                                         aria-labelledby={labelId}
                                         tabIndex={-1}
+                                        data-testid="jkl-select__listbox"
+                                        data-testautoid={
+                                            dataTestAutoId
+                                                ? `${dataTestAutoId}__listbox`
+                                                : "jkl-select__listbox"
+                                        }
                                         data-focus="controlled" // lar oss styre markering av valg vha focus
                                         style={
                                             {
