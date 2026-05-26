@@ -1,5 +1,22 @@
 # portal
 
+## 1.7.1
+
+### Patch Changes
+
+- 1c4ecfe: Fjerner unødvendig bruk av `cursor: pointer` i komponenter
+- Updated dependencies [8bbd3b3]
+- Updated dependencies [1c4ecfe]
+- Updated dependencies [b476334]
+- Updated dependencies [6eea5ba]
+- Updated dependencies [02e434c]
+- Updated dependencies [2e318ec]
+- Updated dependencies [855181b]
+- Updated dependencies [421f967]
+- Updated dependencies [81f3f21]
+- Updated dependencies [b0a5de5]
+  - @fremtind/jokul@5.0.1
+
 ## 1.7.0
 
 ### Minor Changes

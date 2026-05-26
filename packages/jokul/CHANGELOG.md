@@ -1,5 +1,21 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+- 8bbd3b3: Legger til et interface som eksponerer typer for moduser brukt i Jøkul (brand, størrelse og mørk/lys modus) så de enkelt kan brukes som props i komponenter.
+- 1c4ecfe: Fjerner unødvendig bruk av `cursor: pointer` i komponenter
+- b476334: Fikser en feil der moduser som `data-size` ble satt på uventet sted i komponenter som bruker InputPanel. `data-size` og `data-theme` vil nå gjelde _hele_ komponenten i `RadioPanel` og `CheckboxPanel`, ikke bare selve inputfeltet.
+- 6eea5ba: Sørger for at alle lenker og knapper får riktig musepeker ved hover.
+- 02e434c: Toast og Message får nå riktig kontrast på lukkeknappen ved hover i dark mode.
+- 2e318ec: Added missing export line for Accordion in Expander > index.ts
+- 855181b: Legg til `data-testautoid` på Select-listboxen for enklere og mer stabil testautomatisering.
+- 421f967: - Fikser en feil der `Text`-komponenten ikke ble bold
+  - Fikser en feil der `Title`-komponenten ikke fikk riktig tekststørrelse
+- 81f3f21: Fikser stiler som er feil definert i File, SystemMessage, Toast
+- b0a5de5: Sørger for at lenker vises riktig når de rendres som andre elementer
+
 ## 5.0.0
 
 ### Major Changes
