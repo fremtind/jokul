@@ -1,8 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Flex } from "../../flex/index.js";
-import { IconButton } from "../../icon-button/index.js";
-import { CloseIcon } from "../../icon/index.js";
 import { FieldGroup } from "../../input-group/index.js";
 import { TextInput as TextInputComponent } from "../TextInput.js";
 import "../styles/_index.scss";
@@ -20,31 +18,22 @@ const meta = {
         unit: {
             type: "string",
         },
-        actionButton: {
-            control: "select",
-            options: ["Uten action", "Med action"],
-            mapping: {
-                "Uten action": undefined,
-                "Med action": (
-                    <IconButton onClick={(_) => ""}>
-                        <CloseIcon />
-                    </IconButton>
-                ),
-            },
-        },
     },
     args: {
         label: "E-post",
         align: "left",
         inline: false,
-        placeholder: "E-post",
-        maxLength: 25,
+        placeholder: "ola.nordmann@eksempel.no",
+        maxLength: 80,
         unit: "",
         disabled: false,
         readOnly: false,
         defaultValue: "",
         description: "",
+        helpLabel: "",
+        errorLabel: "",
     },
+    tags: ["autodocs", "forms"],
 } satisfies Meta<typeof TextInputComponent>;
 
 export default meta;
@@ -52,17 +41,23 @@ type Story = StoryObj<typeof meta>;
 
 export const TextInput: Story = {};
 
-/**
- * Ved å bruke unit og align sammen vil du få et godt utgangspunkt for
- * nummer-baserte svar.
- */
+export const UgyldigEpost: Story = {
+    name: "Ugyldig e-post",
+    args: {
+        label: "E-post",
+        defaultValue: "ola.nordmann",
+        errorLabel: "Skriv inn en gyldig e-postadresse.",
+    },
+};
+
 export const UnitAlign: Story = {
     name: "Unit + Align",
     args: {
         label: "Boareal",
         align: "right",
-        maxLength: 10,
-        placeholder: "0",
+        inputMode: "numeric",
+        maxLength: 6,
+        placeholder: "120",
         unit: "kvm",
     },
 };
@@ -91,6 +86,7 @@ export const Datovelger: Story = {
                         label="Dag"
                         placeholder="dd"
                         autoComplete="bday-day"
+                        inputMode="numeric"
                         aria-label={"Fødselsdato dag"}
                     />
                     <TextInputComponent
@@ -99,14 +95,16 @@ export const Datovelger: Story = {
                         label="Måned"
                         placeholder="mm"
                         autoComplete="bday-month"
+                        inputMode="numeric"
                         aria-label={"Fødselsdato måned"}
                     />
                     <TextInputComponent
                         {...args}
-                        maxLength={4}
+                        maxLength={3}
                         label="År"
                         placeholder="åååå"
                         autoComplete="bday-year"
+                        inputMode="numeric"
                         aria-label={"Fødselsdato år"}
                     />
                 </Flex>
