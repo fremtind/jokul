@@ -580,6 +580,53 @@ describe("Select", () => {
         expect(inputGroup.contains(listbox)).toBe(false);
     });
 
+    it("should expose a stable test id for the portaled listbox", async () => {
+        const screen = setup(
+            <Select
+                name="snoop"
+                items={["drop", "it", "like", "its", "hot"]}
+                label="Snoop"
+            />,
+        );
+
+        await act(async () => {
+            await userEvent.click(screen.getByTestId("jkl-select__button"));
+        });
+
+        const listbox = screen.getByTestId("jkl-select__listbox");
+        expect(listbox).toHaveAttribute("role", "listbox");
+        expect(listbox).toHaveAttribute(
+            "data-testautoid",
+            "jkl-select__listbox",
+        );
+    });
+
+    it("should derive listbox testautoid from the root testautoid", async () => {
+        const screen = setup(
+            <Select
+                name="snoop"
+                items={["drop", "it", "like", "its", "hot"]}
+                label="Snoop"
+                data-testautoid="phone-brand-select"
+            />,
+        );
+
+        const inputGroup = screen.getByTestId("jkl-select");
+        expect(inputGroup).toHaveAttribute(
+            "data-testautoid",
+            "phone-brand-select",
+        );
+
+        await act(async () => {
+            await userEvent.click(screen.getByTestId("jkl-select__button"));
+        });
+
+        expect(screen.getByTestId("jkl-select__listbox")).toHaveAttribute(
+            "data-testautoid",
+            "phone-brand-select__listbox",
+        );
+    });
+
     it("should render options even when wrapped in an overflow-clipped ancestor (#4583, #5976)", async () => {
         const screen = setup(
             <div
@@ -610,9 +657,7 @@ describe("Select", () => {
         // eksplisitt for å unngå flakiness når posisjoneringen
         // fullføres etter klikk-`act`.
         await waitFor(() => {
-            expect(
-                screen.getByRole("option", { name: "drop" }),
-            ).toBeVisible();
+            expect(screen.getByRole("option", { name: "drop" })).toBeVisible();
         });
     });
 
