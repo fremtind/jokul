@@ -18,13 +18,13 @@
         --button-size: var(--jkl-unit-40);
 
         all: unset;
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         height: var(--button-size);
         min-width: var(--button-size);
         text-align: center;
-        cursor: pointer;
         user-select: none;
         border-radius: jkl.rem(3px);
         color: var(--jkl-color-text-default);

@@ -49,14 +49,12 @@
         // Other dates
         &:hover:not(:disabled) {
             background-color: color-mix(in srgb, currentColor 10%, transparent);
-            cursor: pointer;
         }
 
         // Selected date
         &[aria-pressed="true"] {
             background-color: var(--jkl-color-background-contrast);
             color: var(--jkl-color-text-on-contrast);
-            cursor: pointer;
 
             &:hover {
                 color: var(--jkl-color);
