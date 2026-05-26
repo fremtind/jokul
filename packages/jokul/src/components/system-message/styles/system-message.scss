@@ -48,7 +48,6 @@ $_dismiss-animation-duration: jkl.timing("lazy");
         &__dismiss-button {
             background-color: transparent;
             padding: 0;
-            cursor: pointer;
             display: grid;
             place-content: center;
             position: relative;
