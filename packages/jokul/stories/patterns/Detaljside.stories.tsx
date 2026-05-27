@@ -3,6 +3,7 @@ import React, { type CSSProperties } from "react";
 import { Button } from "../../src/components/button/Button.js";
 import { Card, CardImage } from "../../src/components/card/index.js";
 import {
+    Accordion,
     ExpandablePanel,
     Expander,
 } from "../../src/components/expander/index.js";
@@ -270,7 +271,7 @@ export const SmartDelay: Story = {
                 <h2 className="jkl-heading-4">Ofte stilte spørsmål</h2>
                 <Button variant="primary">Registrer SmartDelay+</Button>
             </Flex>
-            <div>
+            <Accordion>
                 {[
                     "Hva er SmartDelay+?",
                     "Hvem kan bruke tjenesten?",
@@ -284,7 +285,7 @@ export const SmartDelay: Story = {
                         </ExpandablePanel.Content>
                     </ExpandablePanel>
                 ))}
-            </div>
+            </Accordion>
         </Flex>
     ),
 };

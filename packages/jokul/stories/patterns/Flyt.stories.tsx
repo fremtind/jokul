@@ -12,6 +12,7 @@ import {
     DescriptionTerm,
 } from "../../src/components/description-list/index.js";
 import {
+    Accordion,
     ExpandablePanel,
     Expander,
 } from "../../src/components/expander/index.js";
@@ -354,7 +355,7 @@ const Aktivitetskort = ({
                     <option>e</option>
                 </BETA_Select>
             </Flex>
-            <Flex gap="xs" direction="column">
+            <Accordion outlined className="jkl-spacing-l--bottom">
                 <ExpandablePanel>
                     <ExpandablePanel.Header>
                         Vis særtillegg
@@ -367,7 +368,7 @@ const Aktivitetskort = ({
                     </ExpandablePanel.Header>
                     <ExpandablePanel.Content>Test</ExpandablePanel.Content>
                 </ExpandablePanel>
-            </Flex>
+            </Accordion>
         </Flex>
     ),
 }) => (

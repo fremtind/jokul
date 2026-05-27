@@ -6,22 +6,11 @@ import { type ReactNode, memo } from "react";
 // demoen i synk med det designere og utviklere ser i Storybook selv. Hele
 // `Skjermbilder/`-mappa er hentet inn — legges en ny pattern-story til der,
 // utvides DEMO_STORIES her med den.
-import {
-    Forsikringsoversikt as ForsikringsoversiktStory,
-    Hjem as HjemStory,
-} from "@jokul-stories/patterns/Bedriftsmarked.stories";
-import {
-    DetaljsideMedUlikeSizes as DetaljsideMedUlikeSizesStory,
-    Detaljside as DetaljsideStory,
-    SmartDelay as SmartDelayStory,
-} from "@jokul-stories/patterns/Detaljside.stories";
-import { ErstatningsBeregner as ErstatningsBeregnerStory } from "@jokul-stories/patterns/ErstatningsBeregner.stories";
-import { _Flyt as FlytStory } from "@jokul-stories/patterns/Flyt.stories";
-import {
-    HvaErBoligensAdresse as HvaErBoligensAdresseStory,
-    NårBleBoligenBygget as NårBleBoligenByggetStory,
-    SkalDuLeieUtBoligen as SkalDuLeieUtBoligenStory,
-} from "@jokul-stories/patterns/Kjopsflyt.stories";
+import * as Bedriftsmarked from "@jokul-stories/patterns/Bedriftsmarked.stories";
+import * as Detaljside from "@jokul-stories/patterns/Detaljside.stories";
+import * as Erstatningsberegner from "@jokul-stories/patterns/ErstatningsBeregner.stories";
+import * as Flyt from "@jokul-stories/patterns/Flyt.stories";
+import * as Kjopsflyt from "@jokul-stories/patterns/Kjopsflyt.stories";
 
 /**
  * Storybook-stories har en `render(args, context) => ReactNode`. Vi leser
@@ -39,40 +28,49 @@ export const DEMO_STORIES: {
     id: string;
     label: string;
     story: StorybookStory;
+    // biome-ignore lint/suspicious/noExplicitAny: args-typer varierer per story
+    args?: Record<string, any>;
 }[] = [
-    { id: "detaljside", label: "Detaljside", story: DetaljsideStory },
+    { id: "detaljside", label: "Detaljside", story: Detaljside.Detaljside },
     {
         id: "detaljside-sizes",
         label: "Detaljside — ulike størrelser",
-        story: DetaljsideMedUlikeSizesStory,
+        story: Detaljside.DetaljsideMedUlikeSizes,
     },
-    { id: "smart-delay", label: "SmartDelay", story: SmartDelayStory },
-    { id: "hjem", label: "Bedrift — hjem", story: HjemStory },
+    { id: "smart-delay", label: "SmartDelay", story: Detaljside.SmartDelay },
+    {
+        id: "hjem",
+        label: "Bedrift — hjem",
+        story: Bedriftsmarked.Hjem,
+        args: Bedriftsmarked.default.args,
+    },
     {
         id: "forsikringsoversikt",
         label: "Forsikringsoversikt",
-        story: ForsikringsoversiktStory,
+        story: Bedriftsmarked.Forsikringsoversikt,
+        args: Bedriftsmarked.default.args,
     },
     {
         id: "erstatning",
         label: "Erstatningsberegner",
-        story: ErstatningsBeregnerStory,
+        story: Erstatningsberegner.ErstatningsBeregner,
+        args: Erstatningsberegner.default.args,
     },
-    { id: "flyt", label: "Flyt", story: FlytStory },
+    { id: "flyt", label: "Flyt", story: Flyt._Flyt, args: Flyt.default.args },
     {
         id: "boligen-bygget",
         label: "Når ble boligen bygget?",
-        story: NårBleBoligenByggetStory,
+        story: Kjopsflyt.NårBleBoligenBygget,
     },
     {
         id: "boligens-adresse",
         label: "Hva er boligens adresse?",
-        story: HvaErBoligensAdresseStory,
+        story: Kjopsflyt.HvaErBoligensAdresse,
     },
     {
         id: "leie-ut",
         label: "Skal du leie ut boligen?",
-        story: SkalDuLeieUtBoligenStory,
+        story: Kjopsflyt.SkalDuLeieUtBoligen,
     },
 ];
 
@@ -90,5 +88,5 @@ type DemoFormProps = {
 export const DemoForm = memo(function DemoForm({ storyId }: DemoFormProps) {
     const selected =
         DEMO_STORIES.find((s) => s.id === storyId) ?? DEMO_STORIES[0];
-    return <>{selected.story.render?.()}</>;
+    return <>{selected.story.render?.(selected.args ?? {})}</>;
 });
