@@ -8,6 +8,7 @@
         display: flex;
         position: relative;
 
+        @include jkl.text-style("text-medium");
         @include jkl.reset-outline;
 
         &__input {
@@ -35,7 +36,6 @@
             @include jkl.motion;
             transition-property: color;
 
-            @include jkl.text-style("text-medium");
 
             &::before {
                 content: "radio_button_unchecked";
@@ -47,6 +47,7 @@
 
         &__input:focus-visible + &__label::before {
             border-radius: var(--jkl-border-radius-full);
+
             @include jkl.focus-outline;
         }
 
