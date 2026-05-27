@@ -8,7 +8,7 @@
         --shadow-color: light-dark(rgb(49 48 48 / 20%), rgb(0 0 0 / 50%));
         /* stylelint-enable declaration-block-no-duplicate-custom-properties */
         padding: var(--popover-padding, 0);
-        z-index: jkl.$z-index--floating;
+        z-index: var(--jkl-floating-z-index, #{jkl.$z-index--floating});
         box-shadow: 0 4px 20px 0 var(--shadow-color);
         background-color: var(--jkl-color-background-container);
         border-radius: var(--jkl-border-radius-s);
