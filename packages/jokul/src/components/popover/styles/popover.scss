@@ -12,7 +12,7 @@
 
     .jkl-popover {
         padding: var(--popover-padding, 0);
-        z-index: jkl.$z-index--floating;
+        z-index: var(--jkl-floating-z-index, #{jkl.$z-index--floating});
         box-shadow: 0 4px 20px 0 var(--jkl-datepicker-box-shadow);
         background-color: var(--jkl-color-background-container-high);
         border-radius: var(--jkl-border-radius-s);
