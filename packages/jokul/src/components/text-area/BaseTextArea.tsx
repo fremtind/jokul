@@ -2,11 +2,12 @@ import React, {
     type ChangeEvent,
     type FocusEvent,
     forwardRef,
-    type RefObject,
     useEffect,
+    useMemo,
     useRef,
     useState,
 } from "react";
+import { mergeRefs } from "../../utilities/mergeRefs.js";
 import { getCounterValue } from "./counter.js";
 import type { BaseTextAreaProps } from "./types.js";
 
@@ -31,12 +32,12 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         const strategy = counter?.strategy ?? "characters";
         const isControlled = typeof value !== "undefined";
 
-        const [uncontrolledValue, setUncontrolledValue] =
-            useState(defaultValue);
+        const [uncontrolledValue, setUncontrolledValue] = useState(
+            defaultValue ?? "",
+        );
         const [textAreaFocused, setTextAreaFocused] = useState(false);
         const internalRef = useRef<HTMLTextAreaElement>(null);
-        const textAreaRef =
-            (ref as RefObject<HTMLTextAreaElement>) || internalRef;
+        const textAreaRef = useMemo(() => mergeRefs(internalRef, ref), [ref]);
 
         // Hvis feltet styres utenfra bruker vi `value`, ellers holder vi styr på verdien selv.
         const textAreaValue = isControlled ? value : uncontrolledValue;
@@ -48,9 +49,18 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         const isOverLimit = Boolean(counter && counterCurrent > counterTotal);
         const invalid = Boolean(ariaInvalid || isOverLimit);
 
+        useEffect(() => {
+            if (!isControlled && internalRef.current) {
+                const value = internalRef.current.value;
+                setUncontrolledValue((currentValue) =>
+                    currentValue === value ? currentValue : value,
+                );
+            }
+        }, [isControlled]);
+
         // biome-ignore lint/correctness/useExhaustiveDependencies: counterCurrent trengs for å lytte på tekstendringer i textarea for auto-expand funksjonalitet
         useEffect(() => {
-            const textAreaElement = textAreaRef.current;
+            const textAreaElement = internalRef.current;
             if (textAreaElement) {
                 if (!autoExpand) {
                     textAreaElement.style.height = "";
@@ -64,13 +74,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
                     textAreaElement.style.height = "";
                 }
             }
-        }, [
-            autoExpand,
-            textAreaRef,
-            textAreaValue,
-            textAreaFocused,
-            counterCurrent,
-        ]);
+        }, [autoExpand, textAreaValue, textAreaFocused, counterCurrent]);
 
         function handleOnFocus(e: FocusEvent<HTMLTextAreaElement>) {
             setTextAreaFocused(true);
