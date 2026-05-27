@@ -40,8 +40,6 @@
             @include jkl.motion;
             transition-property: color;
 
-            @include jkl.text-style("text-medium");
-
             &::before {
                 content: "check_box_outline_blank";
                 margin-inline-end: 0.25em;
