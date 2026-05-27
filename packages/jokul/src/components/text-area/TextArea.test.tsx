@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
+import { useForm } from "react-hook-form";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
 import { TextArea } from "./TextArea.js";
@@ -117,6 +118,31 @@ describe("TextArea", () => {
         );
 
         expect(screen.getByText(/6\s*\/\s*10/)).toBeInTheDocument();
+    });
+
+    it("shows the initial character count when react-hook-form sets the textarea value from defaultValues", async () => {
+        type FormValues = {
+            message: string;
+        };
+
+        function WrappedTextArea(props: { defaultValues: FormValues }) {
+            const { register } = useForm<FormValues>({
+                defaultValues: props.defaultValues,
+            });
+
+            return (
+                <TextArea
+                    label="testing"
+                    counter={{ maxLength: 10 }}
+                    {...register("message")}
+                />
+            );
+        }
+
+        render(<WrappedTextArea defaultValues={{ message: "default" }} />);
+
+        expect(screen.getByRole("textbox")).toHaveValue("default");
+        expect(await screen.findByText(/7\s*\/\s*10/)).toBeInTheDocument();
     });
 });
 
