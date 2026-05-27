@@ -313,13 +313,13 @@
     // standard padding/bakgrunn/skygge slik at `.jkl-select__options-menu`
     // selv styrer ramme og bakgrunn — også når Select brukes inne i en
     // Card, ExpandablePanel eller andre containere med overflow-clip.
-    // Select skal følge samme lagdeling som andre dropdown-/menykomponenter
-    // (Combobox, Datepicker, Menu) og ikke arve Popover sitt floating-nivå.
+    // Select skal følge samme lagdeling som andre dropdown-/menykomponenter,
+    // men kan løftes av en portal-kontekst som Modal via `--jkl-floating-z-index`.
     .jkl-popover.jkl-select__popover {
         background: none;
         box-shadow: none;
         border-radius: 0;
-        z-index: jkl.$z-index--dropdown;
+        z-index: var(--jkl-floating-z-index, #{jkl.$z-index--dropdown});
     }
 
     // Mild fade + slide-in når lista mounter i portalen. Animeres på
@@ -346,6 +346,7 @@
             opacity: 0;
             transform: translateY(jkl.rem(-4px));
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -357,6 +358,7 @@
             opacity: 0;
             transform: translateY(jkl.rem(4px));
         }
+
         to {
             opacity: 1;
             transform: translateY(0);

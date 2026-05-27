@@ -9,6 +9,8 @@
     }
 
     .jkl-modal-container {
+        --jkl-floating-z-index: #{jkl.$z-index--floating};
+
         z-index: jkl.$z-index--modal;
         display: flex;
         align-items: center;
