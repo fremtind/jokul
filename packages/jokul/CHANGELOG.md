@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.7.3
+
+### Patch Changes
+
+- cbe026c: Fikser at TextArea-counteren viste 0 når feltet fikk startverdi fra react-hook-form defaultValues.
+- 455ee34: Gjør lagdelingen for flytende innhold kontekststyrt, slik at Popover-baserte komponenter som Select automatisk vises over innholdet når de brukes inni Modal.
+
 ## 4.7.2
 
 ### Patch Changes
