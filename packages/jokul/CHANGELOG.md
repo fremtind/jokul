@@ -1,5 +1,14 @@
 # Change Log
 
+## 5.0.2
+
+### Patch Changes
+
+- 4ad21c5: Lar symbolet skalere med tekststørrelse i `RadioButton` og `Checkbox`. Det respekterer nå tekststil/-størrelse satt på hele `RadioButton`- eller `Checkbox`-komponenten.
+- 214baac: Fiks markørplassering i `registerWithNumber` når brukeren redigerer formatterte tall.
+- 0e10fd3: Fikser at TextArea-counteren viste 0 når feltet fikk startverdi fra react-hook-form defaultValues.
+- f7d7ed5: Gjør lagdelingen for flytende innhold kontekststyrt, slik at Popover-baserte komponenter som Select automatisk vises over innholdet når de brukes inni Modal.
+
 ## 5.0.1
 
 ### Patch Changes

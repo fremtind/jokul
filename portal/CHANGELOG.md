@@ -1,5 +1,15 @@
 # portal
 
+## 1.7.2
+
+### Patch Changes
+
+- Updated dependencies [4ad21c5]
+- Updated dependencies [214baac]
+- Updated dependencies [0e10fd3]
+- Updated dependencies [f7d7ed5]
+  - @fremtind/jokul@5.0.2
+
 ## 1.7.1
 
 ### Patch Changes
