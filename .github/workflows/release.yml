@@ -2,9 +2,7 @@ name: Publiser Jøkul-pakker
 
 on:
     push:
-        branches:
-            - main
-            - release/next
+        branches: [ "main", "release/next", "jokul-*" ]
 
 concurrency:
     group: release-${{ github.workflow }}-${{ github.ref }}
@@ -42,22 +40,28 @@ jobs:
               id: release-tag
               shell: bash
               run: |
-                  if [ ! -f .changeset/pre.json ]; then
+                  if [[ "$GITHUB_REF_NAME" = "main" ]]; then
+                    exit 0
+                  elif [[ "$GITHUB_REF_NAME" =~ ^jokul-([0-9])\.x$ ]]; then
+                    echo "tag=version-${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
+                    exit 0
+                  elif [[ -f .changeset/pre.json ]]; then
+                    node --input-type=module <<'NODE'
+                    import { appendFileSync, readFileSync } from "node:fs";
+
+                    const writeOutput = (key, value) => {
+                        appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}\n`);
+                    };
+
+                    const preSettings = JSON.parse(readFileSync(".changeset/pre.json", "utf8"));
+
+                    writeOutput("tag", preSettings.tag);
+                    process.exit(0);
+                  NODE
                     exit 0
                   fi
+                  exit 1
 
-                  node --input-type=module <<'NODE'
-                  import { appendFileSync, readFileSync } from "node:fs";
-
-                  const writeOutput = (key, value) => {
-                    appendFileSync(process.env.GITHUB_OUTPUT, `${key}=${value}\n`);
-                  };
-
-                  const preSettings = JSON.parse(readFileSync(".changeset/pre.json", "utf8"));
-
-                  writeOutput("tag", preSettings.tag);
-                  process.exit(0);
-                  NODE
 
             - name: Installer avhengigheter
               run: |
@@ -90,7 +94,7 @@ jobs:
               if: steps.changesets.outputs.published == 'true'
               run: pnpm install --frozen-lockfile
 
-            - name: Publiser pakker til GitHub Packages med prerelease-tag
+            - name: Publiser pakker til GitHub Packages med riktig tag
               if: steps.changesets.outputs.published == 'true'
               run: pnpm -r publish --tag ${{ steps.release-tag.outputs.tag || 'latest' }} --publish-branch ${{ github.ref_name }}
               env:
