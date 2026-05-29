@@ -22,7 +22,7 @@
             padding: 0;
             margin: 0;
             height: min-content;
-            border-radius: var(--jkl-unit-05);
+            border-radius: var(--jkl-border-radius-s);
             overflow: hidden;
             background-color: var(--background);
 
@@ -59,13 +59,14 @@
                 }
 
                 &:focus-visible {
-                    @include jkl.focus-outline();
+                    @include jkl.focus-outline;
                 }
             }
         }
 
         &[data-outlined="true"] ul {
             border: var(--border);
+
             --background: transparent;
         }
 
