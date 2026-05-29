@@ -2,9 +2,21 @@ import type { Config } from "tailwindcss";
 import tokens from "../tokens.js";
 import { jokulTypographyPlugin } from "./plugins/jokulTypographyPlugin.js";
 
+const DEFAULT_COLOR_VARIANT_KEY = "@";
+
+function createTailwindColors() {
+    const { [DEFAULT_COLOR_VARIANT_KEY]: defaultColors, ...semanticColors } =
+        tokens.color;
+
+    return {
+        ...defaultColors,
+        ...semanticColors,
+    };
+}
+
 export const jokulPreset: Partial<Config> = {
     theme: {
-        colors: tokens.color,
+        colors: createTailwindColors(),
         spacing: tokens.spacing,
         fontWeight: tokens.font.weight,
         fontSize: tokens.font.size,
