@@ -71,7 +71,7 @@ jobs:
 
             - name: Versjonering eller publisering med Changesets
               id: changesets
-              uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
+              uses: changesets/action@63a615b9cd06ba9a3e6d13796c7fbcb080a60a0b
               with:
                   publish: "pnpm release:publish"
                   title: "Version Packages - ${{ github.ref_name }}"
