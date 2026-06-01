@@ -49,7 +49,7 @@
         "react-live": "^4.1.8",
         "sanity": "^4.22.0",
         "sharp": "0.34.5",
-        "slugify": "^1.6.6",
+        "slugify": "^1.6.9",
         "styled-components": "^6.1.17",
         "winston": "^3.17.0"
     },
