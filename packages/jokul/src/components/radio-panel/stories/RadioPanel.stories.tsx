@@ -1,8 +1,13 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
 import { Button } from "../../button/index.js";
+import { Card } from "../../card/index.js";
+import { ExpandablePanel } from "../../expander/index.js";
 import { Flex } from "../../flex/index.js";
 import { FieldGroup } from "../../input-group/index.js";
+import { CheckListItem, List } from "../../list/index.js";
+import { Tag } from "../../tag/index.js";
+import { Text, Title } from "../../typography/index.js";
 import { RadioPanel as RadioPanelComponent } from "../RadioPanel.js";
 
 import "../styles/_index.scss";
@@ -77,6 +82,70 @@ export const VelgForsikring: Story = {
             </Flex>
         );
     },
+};
+
+export const Husforsikring: Story = {
+    name: "Dekningsvelger husforsikring",
+    render: () => (
+        <Flex direction="column" gap="s" style={{ maxWidth: "50ch" }}>
+            <Title as="h1" size="l">
+                Hvilken forsikring passer for deg?
+            </Title>
+            <Flex
+                wrap="wrap"
+                gap="xs"
+                as={FieldGroup}
+                legend="Velg dekning"
+                labelProps={{ srOnly: true }}
+            >
+                <RadioPanelComponent
+                    defaultChecked
+                    name="dekning"
+                    label="Topp hus"
+                    value="topp"
+                />
+                <RadioPanelComponent
+                    name="dekning"
+                    label="Standard hus"
+                    value="standard"
+                />
+            </Flex>
+            <Card as={Flex} padding="l" direction="column">
+                <Flex
+                    as="hgroup"
+                    gap="none"
+                    direction="column"
+                    alignItems="center"
+                >
+                    <Text
+                        size="l"
+                        style={{ color: "var(--jkl-color-text-subdued)" }}
+                    >
+                        Topp hus
+                    </Text>
+                    <Title as="h2" size="l" className="jkl-spacing-s--bottom">
+                        997 kr/mnd
+                    </Title>
+                    <Tag variant="success">Inkludert 32 % ansattrabatt</Tag>
+                </Flex>
+                <Text size="l" style={{ textAlign: "center" }}>
+                    Det beste vi kan gi deg. Vi har satt sammen en forsikring så
+                    du kan sove litt bedre om natta.
+                </Text>
+                <ExpandablePanel outlined>
+                    <ExpandablePanel.Header>
+                        Forsikringen dekker
+                    </ExpandablePanel.Header>
+                    <ExpandablePanel.Content>
+                        <List>
+                            <CheckListItem>Alt du kan tenke deg</CheckListItem>
+                            <CheckListItem>Mere til</CheckListItem>
+                        </List>
+                    </ExpandablePanel.Content>
+                </ExpandablePanel>
+            </Card>
+        </Flex>
+    ),
 };
 
 export const Controlled: Story = {
