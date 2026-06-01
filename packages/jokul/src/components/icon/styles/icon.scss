@@ -17,36 +17,31 @@
         }
     }
 
-    .jkl-icon-red-cross {
-        --red-cross-circle: var(--jkl-color-error-background-contrast);
-        --red-cross-path: var(--jkl-color-error-text-on-contrast);
-
+    .jkl-icon-red-cross,
+    .jkl-icon-green-check {
         width: 1.3em;
         height: 1.3em;
+        box-sizing: border-box;
+        border-radius: 999px;
+        display: inline-grid;
+        place-items: center;
+        font-size: 1em;
 
-        & path {
-            fill: var(--red-cross-path);
-        }
-
-        & circle {
-            fill: var(--red-cross-circle);
+        @include jkl.forced-colors-mode {
+            background-color: Canvas;
+            color: CanvasText;
+            border: 1px solid CanvasText;
         }
     }
 
+    .jkl-icon-red-cross {
+        background-color: var(--jkl-color-error-background-contrast);
+        color: var(--jkl-color-error-text-on-contrast);
+    }
+
     .jkl-icon-green-check {
-        --green-check-circle: var(--jkl-color-success-background-contrast);
-        --green-check-path: var(--jkl-color-success-text-on-contrast);
-
-        width: 1.3em;
-        height: 1.3em;
-
-        & path {
-            fill: var(--green-check-path);
-        }
-
-        & circle {
-            fill: var(--green-check-circle);
-        }
+        background-color: var(--jkl-color-success-background-contrast);
+        color: var(--jkl-color-success-text-on-contrast);
     }
 
     .jkl-animated-horizontal-arrows,
