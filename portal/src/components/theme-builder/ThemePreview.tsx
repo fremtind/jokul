@@ -1,9 +1,15 @@
 "use client";
 
-import { Detaljside as DetaljsideStory } from "@jokul-stories/patterns/Detaljside.stories";
+import { Flex } from "@fremtind/jokul/flex";
 import { type ReactNode, useMemo } from "react";
+
+// Storybook-storyen ligger utenfor `portal/`. Ved å gjenbruke den holdes
+// demoen i synk med det designere og utviklere ser i Storybook selv.
+import { Detaljside as DetaljsideStory } from "@jokul-stories/patterns/Detaljside.stories";
 import { buildPreviewStyle } from "./colorTokenUtils";
 import type { ColorToken, ThemeMode } from "./colorTokens";
+
+import styles from "./theme-preview.module.scss";
 
 type ThemePreviewProps = {
     themeMode: ThemeMode;
@@ -15,9 +21,13 @@ export function ThemePreview({ themeMode, tokens }: ThemePreviewProps) {
     const demo = useMemo(() => <>{detailStory.render?.()}</>, []);
 
     return (
-        <div style={previewStyle} data-theme={themeMode}>
-            {demo}
-        </div>
+        <Flex direction="column" gap="m">
+            <div style={previewStyle}>
+                <div className={styles.previewSurface} data-theme={themeMode}>
+                    {demo}
+                </div>
+            </div>
+        </Flex>
     );
 }
 
