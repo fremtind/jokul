@@ -1,7 +1,7 @@
 "use client";
 import { PortableText } from "@/components/portable-text/PortableText";
 import type { Jokul_qa } from "@/sanity/types";
-import { ExpandablePanel } from "@fremtind/jokul/expander";
+import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
 import type { PortableTextTypeComponentProps } from "@portabletext/react";
 import React, { type FC } from "react";
@@ -16,14 +16,9 @@ export const QuestionsAndAnswers: FC<
     return (
         <Flex direction="column" gap="xs">
             <h2>{title ? title : "Spørsmål og svar"}</h2>
-            <Flex
-                direction="column"
-                gap="none"
-                as="ul"
-                style={{ listStyleType: "none", padding: 0, margin: 0 }}
-            >
+            <Accordion outlined>
                 {faq.map((qa) => (
-                    <ExpandablePanel outlined={faq.length >= 2} key={qa._key}>
+                    <ExpandablePanel key={qa._key}>
                         <ExpandablePanel.Header>
                             {qa.question}
                         </ExpandablePanel.Header>
@@ -36,7 +31,7 @@ export const QuestionsAndAnswers: FC<
                         </ExpandablePanel.Content>
                     </ExpandablePanel>
                 ))}
-            </Flex>
+            </Accordion>
         </Flex>
     );
 };
