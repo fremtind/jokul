@@ -61,7 +61,6 @@ type SampleValue = Schema["color"][Exclude<
         : never
     : never;
 export type ThemeMode = keyof SampleValue & string;
-export type EditorMode = "visual" | "json";
 export type ContrastRequirementId = "text" | "ui";
 
 /** Flat representasjon av ett token — alt editoren trenger for å vise og redigere det. */

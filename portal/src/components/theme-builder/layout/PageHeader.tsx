@@ -1,22 +1,15 @@
 "use client";
 
-import { Button } from "@fremtind/jokul/button";
 import { Flex } from "@fremtind/jokul/flex";
 import { Tag } from "@fremtind/jokul/tag";
 import { Title } from "@fremtind/jokul/typography";
 import { useThemeBuilder } from "../ThemeBuilderProvider";
 
-type PageHeaderProps = {
-    onOpenEditor: () => void;
-};
-
 /**
- * Toppen av siden: tittel til venstre, primary-knappen for "Rediger tokens"
- * til høyre. Visningsmodus-popoveren ligger inni demo-fanen siden den kun
- * påvirker innholdet der. En liten "Endret"-tag dukker opp på knappen når
- * arbeidskopien skiller seg fra basen.
+ * Toppen av siden. En liten "Endret"-tag dukker opp når arbeidskopien skiller
+ * seg fra basen.
  */
-export function PageHeader({ onOpenEditor }: PageHeaderProps) {
+export function PageHeader() {
     const { isDirty } = useThemeBuilder();
 
     return (
@@ -29,12 +22,7 @@ export function PageHeader({ onOpenEditor }: PageHeaderProps) {
             <Title as="h1" size="xl">
                 Temabygger
             </Title>
-            <Flex alignItems="center" gap="s">
-                {isDirty && <Tag variant="info">Endret</Tag>}
-                <Button variant="primary" onClick={onOpenEditor}>
-                    Rediger tokens
-                </Button>
-            </Flex>
+            {isDirty && <Tag variant="info">Endret</Tag>}
         </Flex>
     );
 }

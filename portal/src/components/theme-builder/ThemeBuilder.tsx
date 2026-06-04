@@ -1,54 +1,61 @@
 "use client";
 
+import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
-import {
-    Modal,
-    ModalCloseButton,
-    ModalContainer,
-    ModalHeader,
-    ModalOverlay,
-    ModalTitle,
-    useModal,
-} from "@fremtind/jokul/modal";
+import { Title } from "@fremtind/jokul/typography";
 import { useState } from "react";
 import { useThemeBuilder } from "./ThemeBuilderProvider";
-import { DEFAULT_DISPLAY_STATE, type DisplayState } from "./displayAttributes";
 import { EditorRoot } from "./editor/EditorRoot";
 import { PageHeader } from "./layout/PageHeader";
-import { WorkspaceTabs } from "./layout/WorkspaceTabs";
+import { type WorkspaceTab, WorkspaceTabs } from "./layout/WorkspaceTabs";
+import { THEME_MODES, type ThemeMode } from "./tokens";
 
-const EDITOR_TITLE = "Editor";
+import styles from "./theme-builder.module.scss";
 
 /**
- * Toppnivå-side for theme-builder. Editoren ligger i en høyre-festet Modal;
- * workspace-en under viser fanene fra {@link WorkspaceTabs}. Display-staten
- * (theme/brand/size) eies her men sendes inn til demo-fanen — øvrige faner
+ * Toppnivå-side for theme-builder. Editoren vises som et sidepanel ved siden
+ * av workspace-en, slik at demoen kan inspiseres mens tokens endres.
+ * Aktiv lys/mørk-modus eies her og sendes inn til demo-fanen — øvrige faner
  * inspiserer tokens, ikke det rendrede chromet, og ignorerer den.
  */
 export function ThemeBuilder() {
     const { tokens } = useThemeBuilder();
-    const [display, setDisplay] = useState<DisplayState>(DEFAULT_DISPLAY_STATE);
-    const [instance, { title, overlay, container, modal, closeButton }] =
-        useModal({ title: EDITOR_TITLE, role: "dialog" });
+    const [themeMode, setThemeMode] = useState<ThemeMode>(
+        THEME_MODES[0] as ThemeMode,
+    );
+    const [activeTab, setActiveTab] = useState<WorkspaceTab>("demo");
 
     return (
         <Flex direction="column" gap="l">
-            <PageHeader onOpenEditor={() => instance?.show()} />
-            <ModalContainer {...container} placement="right" slideIn>
-                <ModalOverlay {...overlay} transparent={true} />
-                <Modal {...modal} padding={24}>
-                    <ModalHeader>
-                        <ModalTitle {...title}>{EDITOR_TITLE}</ModalTitle>
-                        <ModalCloseButton {...closeButton} />
-                    </ModalHeader>
+            <PageHeader />
+            <div className={styles.workspace}>
+                <Card
+                    as="section"
+                    padding="l"
+                    outlined
+                    className={styles.editorCard}
+                    aria-labelledby="theme-builder-editor-title"
+                >
+                    <Title
+                        as="h2"
+                        size="s"
+                        id="theme-builder-editor-title"
+                        srOnly
+                    >
+                        Editor
+                    </Title>
                     <EditorRoot />
-                </Modal>
-            </ModalContainer>
-            <WorkspaceTabs
-                tokens={tokens}
-                display={display}
-                onDisplayChange={setDisplay}
-            />
+                </Card>
+                <div className={styles.workspaceContent}>
+                    <WorkspaceTabs
+                        tokens={tokens}
+                        themeMode={themeMode}
+                        onThemeModeChange={setThemeMode}
+                        activeTab={activeTab}
+                        onActiveTabChange={setActiveTab}
+                    />
+                </div>
+            </div>
         </Flex>
     );
 }

@@ -1,13 +1,8 @@
 @use "@fremtind/jokul/styles/jkl";
 
-.editorTopBar {
-    border-block-end: 1px solid var(--jkl-color-border-subdued);
-    padding-block-end: var(--jkl-spacing-16);
-}
-
-.fileNameHint {
-    color: var(--jkl-color-text-subdued);
-    font-variant-numeric: tabular-nums;
+.editorRoot {
+    container-type: inline-size;
+    min-width: 0;
 }
 
 .editorFooter {
@@ -16,7 +11,18 @@
     border-block-start: 1px solid var(--jkl-color-border-subdued);
 }
 
+.footerActions {
+    justify-content: space-between;
+    min-width: 0;
+
+    @container (width < 32rem) {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
+
 .footerGroup {
+    min-width: 0;
     padding: var(--jkl-spacing-4) var(--jkl-spacing-8);
     border-radius: var(--jkl-border-radius-s);
     background-color: var(--jkl-color-background-subdued);
@@ -48,12 +54,13 @@
     display: grid;
     grid-template-columns: repeat(var(--theme-mode-count, 2), minmax(0, 1fr));
     gap: var(--jkl-spacing-8);
-    margin-inline-start: auto;
+    inline-size: 100%;
     color: var(--jkl-color-text-subdued);
 
     @include jkl.text-style("text-micro");
 
-    @media (width >= 720px) {
+    @container (width >= 40rem) {
+        margin-inline-start: auto;
         inline-size: max(50%, 12rem);
     }
 }
@@ -65,7 +72,7 @@
     min-width: 0;
     padding-block: var(--jkl-spacing-4);
 
-    @media (width >= 720px) {
+    @container (width >= 40rem) {
         grid-template-columns: minmax(0, 1fr) auto;
     }
 }

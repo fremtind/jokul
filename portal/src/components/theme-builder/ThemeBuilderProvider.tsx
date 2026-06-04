@@ -33,10 +33,6 @@ type DraftSnapshot = {
 type ThemeBuilderContextValue = {
     /** Aktiv token-state (den redigerbare arbeidskopien av strukturen). */
     tokens: ColorToken[];
-    /** Pretty-printed JSON av nåværende tokens, klar for kopi/nedlasting. */
-    exportValue: string;
-    /** Foreslått filnavn for eksport. */
-    fileName: string;
     /** Sann når et eller flere tokens har ugyldig heks-verdi. */
     hasValidationErrors: boolean;
     /** Sann når arbeidskopien er endret fra opprinnelig lastede tokens. */
@@ -57,8 +53,6 @@ type ThemeBuilderContextValue = {
     downloadExport: () => void;
     /** Tilbakestiller tokens til opprinnelig sett. */
     reset: () => void;
-    /** Bytter alle tokens — brukes av JSON-editoren etter vellykket parse. */
-    replaceTokens: (tokens: ColorToken[]) => void;
     /** Oppdaterer én (token, mode) heks-verdi. `tokenId` er `tokenKey(token)`. */
     updateToken: (tokenId: string, mode: ThemeMode, value: string) => void;
 };
@@ -146,13 +140,6 @@ export function ThemeBuilderProvider({
             commit({ tokens: next });
         },
         [tokens, commit],
-    );
-
-    const replaceTokens = useCallback(
-        (next: ColorToken[]) => {
-            commit({ tokens: next });
-        },
-        [commit],
     );
 
     const reset = useCallback(() => {
@@ -249,8 +236,6 @@ export function ThemeBuilderProvider({
         () => ({
             copyExport,
             downloadExport,
-            exportValue,
-            fileName: EXPORT_FILE_NAME,
             hasValidationErrors,
             isDirty,
             editedTokenKeys,
@@ -262,7 +247,6 @@ export function ThemeBuilderProvider({
             canRedo: future.length > 0,
             undo,
             redo,
-            replaceTokens,
             reset,
             tokens,
             updateToken,
@@ -270,7 +254,6 @@ export function ThemeBuilderProvider({
         [
             copyExport,
             downloadExport,
-            exportValue,
             hasValidationErrors,
             isDirty,
             editedTokenKeys,
@@ -280,7 +263,6 @@ export function ThemeBuilderProvider({
             future.length,
             undo,
             redo,
-            replaceTokens,
             reset,
             tokens,
             updateToken,

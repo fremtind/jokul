@@ -11,10 +11,6 @@ type PreviewScopeProps = PropsWithChildren<{
 
 /**
  * Scoper de live tokens (som CSS-variabler) til sitt eget undertre.
- *
- * `data-theme` settes på et høyere wrapper-element av `PreviewPanel` via
- * `dataAttributes(display)`, så denne komponenten holder seg til å eksponere
- * token-verdiene som CSS-variabler.
  */
 export function PreviewScope({
     children,
