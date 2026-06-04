@@ -1,0 +1,8 @@
+.previewSurface {
+    display: grid;
+    gap: var(--jkl-spacing-24);
+    padding: var(--jkl-spacing-24);
+    border-radius: var(--jkl-border-radius-l);
+    border: 1px solid var(--jkl-color-border-subdued);
+    background-color: var(--jkl-color-background-page);
+}
