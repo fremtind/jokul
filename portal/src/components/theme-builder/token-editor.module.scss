@@ -5,37 +5,6 @@
     min-width: 0;
 }
 
-.editorFooter {
-    margin-block-start: var(--jkl-spacing-24);
-    padding-block-start: var(--jkl-spacing-16);
-    border-block-start: 1px solid var(--jkl-color-border-subdued);
-}
-
-.footerActions {
-    justify-content: space-between;
-    min-width: 0;
-
-    @container (width < 32rem) {
-        align-items: stretch;
-        flex-direction: column;
-    }
-}
-
-.footerGroup {
-    min-width: 0;
-    padding: var(--jkl-spacing-4) var(--jkl-spacing-8);
-    border-radius: var(--jkl-border-radius-s);
-    background-color: var(--jkl-color-background-subdued);
-}
-
-.footerDivider {
-    display: inline-block;
-    inline-size: 1px;
-    block-size: 1.5rem;
-    margin-inline: var(--jkl-spacing-4);
-    background-color: var(--jkl-color-border-subdued);
-}
-
 .variantStack {
     display: flex;
     flex-direction: column;
