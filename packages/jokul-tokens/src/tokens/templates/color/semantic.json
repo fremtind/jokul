@@ -1,0 +1,10 @@
+{
+    "color": {
+        "background": {
+            "base": {
+                "value": "{color.base.white.value}",
+                "type": "color"
+            }
+        }
+    }
+}

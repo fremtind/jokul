@@ -1,0 +1,84 @@
+{
+    "name": "@fremtind/jokul-tokens",
+    "version": "1.0.0-alpha.0",
+    "type": "module",
+    "publishConfig": {
+        "access": "public"
+    },
+    "description": "Design tokens for Jøkul Designsystem",
+    "homepage": "https://github.com/fremtind/jokul/tree/main/packages/jokul",
+    "keywords": [],
+    "license": "MIT",
+    "sideEffects": ["*.css", "*.scss"],
+    "files": ["./build"],
+    "main": "./build/cjs/colors/index.cjs",
+    "exports": {
+        "./colors": {
+            "import": {
+                "types": "./build/es/colors/index.d.ts",
+                "default": "./build/es/colors/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/colors/index.d.cts",
+                "default": "./build/cjs/colors/index.cjs"
+            }
+        },
+        "./styles/*": "./build/css/*"
+    },
+    "scripts": {
+        "jokul": "tsx ./bin/tokens.ts",
+        "generate:tokens": "node tokens.build.mjs",
+        "build": "pnpm run /compile:*/",
+        "dev": "babel --out-dir=. dev-server.mjs && node dev-server.js",
+        "compile:style": "node build-styles.mjs",
+        "compile:scripts": "vite build --config vite.build.config.mjs",
+        "test": "vitest --config vite.test.config.mjs"
+    },
+    "dependencies": {
+        "@commander-js/extra-typings": "^15.0.0",
+        "commander": "^15.0.0",
+        "match-sorter": "^6.3.4",
+        "picocolors": "^1.1.1"
+    },
+    "optionalDependencies": {
+        "tailwindcss": "^3.4.17"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.28.3",
+        "@rollup/plugin-terser": "^0.4.4",
+        "@types/chroma-js": "^3.1.1",
+        "@types/react": "18.3.1",
+        "autoprefixer": "^10.4.21",
+        "change-case": "^5.4.4",
+        "chroma-js": "^3.1.2",
+        "cssnano": "^7.1.0",
+        "cssnano-preset-lite": "^4.0.4",
+        "glob": "^11.0.3",
+        "hsluv": "^1.0.1",
+        "ink": "^5.1.0",
+        "ink-select-input": "^6.0.0",
+        "jsdom": "^26.1.0",
+        "nanoid": "^5.1.5",
+        "postcss": "^8.5.6",
+        "rollup-plugin-node-externals": "^8.0.1",
+        "rollup-plugin-visualizer": "^6.0.3",
+        "sass-embedded": "^1.90.0",
+        "style-dictionary": "^5.0.1",
+        "tailwindcss": "^3.4.17",
+        "tsx": "^4.20.6",
+        "vite": "^7.1.2",
+        "vite-plugin-dts": "^4.5.4",
+        "vitest": "^3.2.4",
+        "vitest-axe": "^0.1.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fremtind/jokul.git"
+    },
+    "bugs": {
+        "url": "https://github.com/fremtind/jokul/issues"
+    },
+    "babel": {
+        "presets": ["@babel/preset-react"]
+    }
+}

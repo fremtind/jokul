@@ -1,0 +1,234 @@
+{
+    "theme": {
+        "brand": {
+            "@": {
+                "$type": "color",
+                "$value": "#1b1917"
+            },
+            "on-brand": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "background": {
+                "$type": "color",
+                "$value": "#f3f3f3"
+            },
+            "surface": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "subtle-surface": {
+                "$type": "color",
+                "$value": "#d4d4d4"
+            },
+            "content": {
+                "$type": "color",
+                "$value": "#1d1b19"
+            },
+            "subtle-content": {
+                "$type": "color",
+                "$value": "#484745"
+            },
+            "subtle-border": {
+                "$type": "color",
+                "$value": "#acabaa"
+            },
+            "border": {
+                "$type": "color",
+                "$value": "#32302e"
+            }
+        }
+    },
+    "global": {
+        "neutral": {
+            "@": {
+                "$type": "color",
+                "$value": "#000000"
+            },
+            "on-neutral": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "background": {
+                "$type": "color",
+                "$value": "#f3f3f3"
+            },
+            "surface": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "subtle-surface": {
+                "$type": "color",
+                "$value": "#d4d4d4"
+            },
+            "content": {
+                "$type": "color",
+                "$value": "#1b1b1b"
+            },
+            "subtle-content": {
+                "$type": "color",
+                "$value": "#474747"
+            },
+            "subtle-border": {
+                "$type": "color",
+                "$value": "#ababab"
+            },
+            "border": {
+                "$type": "color",
+                "$value": "#303030"
+            }
+        },
+        "blue": {
+            "@": {
+                "$type": "color",
+                "$value": "#0C4AEE"
+            },
+            "on-blue": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "background": {
+                "$type": "color",
+                "$value": "#f2f3f7"
+            },
+            "surface": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "subtle-surface": {
+                "$type": "color",
+                "$value": "#c5d4fb"
+            },
+            "content": {
+                "$type": "color",
+                "$value": "#041749"
+            },
+            "subtle-content": {
+                "$type": "color",
+                "$value": "#0938b6"
+            },
+            "subtle-border": {
+                "$type": "color",
+                "$value": "#8ca9f7"
+            },
+            "border": {
+                "$type": "color",
+                "$value": "#06277d"
+            }
+        },
+        "green": {
+            "@": {
+                "$type": "color",
+                "$value": "#217549"
+            },
+            "on-green": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "background": {
+                "$type": "color",
+                "$value": "#f0f4f2"
+            },
+            "surface": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "subtle-surface": {
+                "$type": "color",
+                "$value": "#c3d9cd"
+            },
+            "content": {
+                "$type": "color",
+                "$value": "#091f13"
+            },
+            "subtle-content": {
+                "$type": "color",
+                "$value": "#175133"
+            },
+            "subtle-border": {
+                "$type": "color",
+                "$value": "#88b59d"
+            },
+            "border": {
+                "$type": "color",
+                "$value": "#103722"
+            }
+        },
+        "red": {
+            "@": {
+                "$type": "color",
+                "$value": "#AB2E43"
+            },
+            "on-red": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "background": {
+                "$type": "color",
+                "$value": "#f7f2f3"
+            },
+            "surface": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "subtle-surface": {
+                "$type": "color",
+                "$value": "#ebcdd2"
+            },
+            "content": {
+                "$type": "color",
+                "$value": "#340e14"
+            },
+            "subtle-content": {
+                "$type": "color",
+                "$value": "#832333"
+            },
+            "subtle-border": {
+                "$type": "color",
+                "$value": "#d79ba5"
+            },
+            "border": {
+                "$type": "color",
+                "$value": "#5a1823"
+            }
+        },
+        "yellow": {
+            "@": {
+                "$type": "color",
+                "$value": "#EDB10C"
+            },
+            "on-yellow": {
+                "$type": "color",
+                "$value": "#000000"
+            },
+            "background": {
+                "$type": "color",
+                "$value": "#f4f3f0"
+            },
+            "surface": {
+                "$type": "color",
+                "$value": "#ffffff"
+            },
+            "subtle-surface": {
+                "$type": "color",
+                "$value": "#ead394"
+            },
+            "content": {
+                "$type": "color",
+                "$value": "#231a02"
+            },
+            "subtle-content": {
+                "$type": "color",
+                "$value": "#5b4405"
+            },
+            "subtle-border": {
+                "$type": "color",
+                "$value": "#d9a20b"
+            },
+            "border": {
+                "$type": "color",
+                "$value": "#3d2e03"
+            }
+        }
+    }
+}
