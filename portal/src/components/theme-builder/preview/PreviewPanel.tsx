@@ -1,47 +1,27 @@
 "use client";
 
 import { Flex } from "@fremtind/jokul/flex";
-import { useState } from "react";
-import { type DisplayState, dataAttributes } from "../displayAttributes";
-import type { ColorToken } from "../tokens";
-import { DEMO_STORIES, DemoForm } from "./DemoForm";
-import { DemoToolbar } from "./DemoToolbar";
+import type { ColorToken, ThemeMode } from "../tokens";
+import { DemoForm } from "./DemoForm";
 import { PreviewScope } from "./PreviewScope";
 
 import styles from "./preview.module.scss";
 
 type PreviewPanelProps = {
-    display: DisplayState;
-    onDisplayChange: (next: DisplayState) => void;
+    themeMode: ThemeMode;
     tokens: ColorToken[];
 };
 
 /**
- * Demo-fanen: en toolbar (utenfor demo-chrome-et) for å velge story og
- * visningsmodus, så den valgte storyen rendret inni et scope som anvender
- * gjeldende `data-*`-visningsattributter og live tokens.
+ * Demo-fanen rendrer detaljside-storyen inni et scope som anvender gjeldende
+ * `data-theme` og live tokens.
  */
-export function PreviewPanel({
-    display,
-    onDisplayChange,
-    tokens,
-}: PreviewPanelProps) {
-    const [storyId, setStoryId] = useState(DEMO_STORIES[0].id);
-
+export function PreviewPanel({ themeMode, tokens }: PreviewPanelProps) {
     return (
         <Flex direction="column" gap="m">
-            <DemoToolbar
-                storyId={storyId}
-                onStoryChange={setStoryId}
-                display={display}
-                onDisplayChange={onDisplayChange}
-            />
             <PreviewScope tokens={tokens}>
-                <div
-                    className={styles.previewSurface}
-                    {...dataAttributes(display)}
-                >
-                    <DemoForm storyId={storyId} />
+                <div className={styles.previewSurface} data-theme={themeMode}>
+                    <DemoForm />
                 </div>
             </PreviewScope>
         </Flex>

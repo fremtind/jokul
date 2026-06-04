@@ -2,13 +2,10 @@ import { ColorSpace, contrastWCAG21, sRGB } from "colorjs.io/fn";
 import type { CSSProperties } from "react";
 import {
     COLOR_VARIANTS,
-    type ColorSchemeJson,
     type ColorToken,
     type ContrastRequirementId,
-    ROLE_ENTRIES,
     THEME_MODES,
     tokenKey,
-    tokensFromSchema,
 } from "./tokens";
 
 const HEX_COLOR_PATTERN = /^#[0-9a-fA-F]{6}$/;
@@ -95,97 +92,6 @@ export function evaluateColorContrast(
         ratio,
         status: getContrastStatus(ratio, requirementId),
     };
-}
-
-/**
- * Parser JSON skrevet inn i editoren og validerer den mot token-strukturen.
- * Returnerer norske feilmeldinger som editoren kan vise inline.
- */
-export function parseEditorJson(
-    value: string,
-): { ok: true; tokens: ColorToken[] } | { ok: false; error: string } {
-    let parsed: unknown;
-    try {
-        parsed = JSON.parse(value);
-    } catch {
-        return {
-            ok: false,
-            error: "JSON-en kan ikke parses. Kontroller komma og klammer.",
-        };
-    }
-
-    const missing = findMissingPaths(parsed);
-    if (missing.length > 0) {
-        const sample = missing.slice(0, 3).join(", ");
-        const suffix =
-            missing.length > 3 ? ` (+${missing.length - 3} til)` : "";
-        return {
-            ok: false,
-            error: `JSON-en mangler ${missing.length} ${missing.length === 1 ? "token" : "tokens"}: ${sample}${suffix}.`,
-        };
-    }
-
-    let tokens: ColorToken[];
-    try {
-        tokens = tokensFromSchema(parsed as ColorSchemeJson);
-    } catch {
-        return {
-            ok: false,
-            error: "JSON-en matcher ikke formatet for color tokens.",
-        };
-    }
-
-    if (tokensHaveErrors(tokens)) {
-        return { ok: false, error: "Alle verdier må bruke formatet #RRGGBB." };
-    }
-    return { ok: true, tokens };
-}
-
-/**
- * Lister alle (variant.group.role)-stier i strukturen som mangler i den
- * brukerleverte JSON-en, eller hvis verdiene ikke har `light`/`dark`-felt.
- */
-function findMissingPaths(source: unknown): string[] {
-    if (typeof source !== "object" || source === null) {
-        return ROLE_ENTRIES.map(
-            (entry) => `${entry.variant}.${entry.group}.${entry.role}`,
-        );
-    }
-    const root = source as { color?: Record<string, unknown> };
-    if (typeof root.color !== "object" || root.color === null) {
-        return ROLE_ENTRIES.map(
-            (entry) => `${entry.variant}.${entry.group}.${entry.role}`,
-        );
-    }
-    const missing: string[] = [];
-    for (const { variant, group, role } of ROLE_ENTRIES) {
-        const path = `${variant}.${group}.${role}`;
-        const variantNode = (root.color as Record<string, unknown>)[variant];
-        if (typeof variantNode !== "object" || variantNode === null) {
-            missing.push(path);
-            continue;
-        }
-        const groupNode = (variantNode as Record<string, unknown>)[group];
-        if (typeof groupNode !== "object" || groupNode === null) {
-            missing.push(path);
-            continue;
-        }
-        const roleNode = (groupNode as Record<string, unknown>)[role];
-        if (typeof roleNode !== "object" || roleNode === null) {
-            missing.push(path);
-            continue;
-        }
-        const value = (roleNode as { value?: unknown }).value;
-        if (typeof value !== "object" || value === null) {
-            missing.push(path);
-            continue;
-        }
-        const valueRecord = value as Record<string, unknown>;
-        if (THEME_MODES.some((mode) => typeof valueRecord[mode] !== "string")) {
-            missing.push(path);
-        }
-    }
-    return missing;
 }
 
 /** Sann hvis noe token har en ugyldig heks-verdi i noen theme-modus. */
