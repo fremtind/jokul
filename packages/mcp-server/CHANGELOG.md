@@ -1,5 +1,11 @@
 # @fremtind/jokul-mcp-server
 
+## 1.1.1
+
+### Patch Changes
+
+- 2acd4d4: Oppgraderer avhengigheter med kjente sårbarheter
+
 ## 1.1.0
 
 ### Minor Changes

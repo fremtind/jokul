@@ -1,5 +1,15 @@
 # portal
 
+## 1.7.4
+
+### Patch Changes
+
+- 3a1fed3: Flytter fargeredigeringen i temabyggeren ut av modal.
+- Updated dependencies [2acd4d4]
+- Updated dependencies [433192a]
+- Updated dependencies [469268f]
+  - @fremtind/jokul@5.0.4
+
 ## 1.7.3
 
 ### Patch Changes

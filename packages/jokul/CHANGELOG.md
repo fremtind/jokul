@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.0.4
+
+### Patch Changes
+
+- 2acd4d4: Oppgraderer avhengigheter med kjente sårbarheter
+- 433192a: Sørger for at ikke `RadioPanel` og `CheckboxPanel` med korte valgtekster bryter over flere linjer. Legger også til et eksempel for `RadioPanel` som viser bruk med korte tekster.
+- 469268f: Fikser fargene på GreenCheckIcon og RedCrossIcon slik at ikonene får riktig bakgrunns- og ikonfarge igjen.
+
 ## 5.0.3
 
 ### Patch Changes
