@@ -6,7 +6,7 @@ import {
     type ContrastRequirementId,
     THEME_MODES,
     tokenKey,
-} from "./tokens";
+} from "./colorTokens";
 
 const HEX_COLOR_PATTERN = /^#[0-9a-fA-F]{6}$/;
 const WCAG_TEXT_CONTRAST_AAA = 7;
@@ -94,21 +94,6 @@ export function evaluateColorContrast(
     };
 }
 
-/** Sann hvis noe token har en ugyldig heks-verdi i noen theme-modus. */
-export const tokensHaveErrors = (tokens: ColorToken[]): boolean =>
-    tokens.some((t) => THEME_MODES.some((mode) => !isHex(t[mode])));
-
-/** Strukturlik likhet for to token-lister — brukes for å regne ut "dirty"-status. */
-export const tokensEqual = (a: ColorToken[], b: ColorToken[]): boolean =>
-    a.length === b.length &&
-    a.every((t, i) => {
-        const o = b[i];
-        return (
-            tokenKey(t) === tokenKey(o) &&
-            THEME_MODES.every((mode) => t[mode] === o[mode])
-        );
-    });
-
 /**
  * Bygger inline CSS-variabler for preview-scopet. Hvert token slippes ut som
  * en `--jkl-color-<variant>-<group>-<role>`-variabel; den første varianten i
@@ -126,7 +111,7 @@ export function buildPreviewStyle(tokens: ColorToken[]): CSSProperties {
     const style: Record<string, string> = {};
     for (const t of tokens) {
         const value = `light-dark(${t[lightMode]}, ${t[darkMode]})`;
-        style[`--jkl-color-${t.variant}-${t.group}-${t.role}`] = value;
+        style[`--jkl-color-${tokenKey(t).replaceAll(".", "-")}`] = value;
         if (t.variant === baseVariant) {
             style[`--jkl-color-${t.group}-${t.role}`] = value;
         }

@@ -71,13 +71,10 @@ export type ColorToken = {
 } & Record<ThemeMode, string>;
 
 type ColorTokenNode = { value: Record<ThemeMode, string> };
-export type ColorSchemeJson = {
-    color: { type: "colorScheme" } & {
-        [V in ColorVariant]: {
-            [G in ColorGroup]: Record<string, ColorTokenNode>;
-        };
-    };
-};
+type ColorTokenTree = Record<
+    string,
+    Record<string, Record<string, ColorTokenNode>>
+>;
 
 /** Identifiserer et token via sin posisjon i strukturen, uten verdier. */
 export type RoleEntry = {
@@ -126,40 +123,22 @@ export const COLOR_ROLES = ROLE_ENTRIES.reduce(
 /** Theme-modusene (`light`, `dark`) lest av `value`-objektet på et tilfeldig token. */
 export const THEME_MODES: ThemeMode[] = (() => {
     const sample = ROLE_ENTRIES[0];
-    const node = (
-        schema.color as unknown as Record<
-            string,
-            Record<string, Record<string, ColorTokenNode>>
-        >
-    )[sample.variant][sample.group][sample.role];
+    const node = (schema.color as unknown as ColorTokenTree)[sample.variant][
+        sample.group
+    ][sample.role];
     return Object.keys(node.value) as ThemeMode[];
 })();
 
-// --- Toveis konvertering mellom strukturen og redigerbare tokens ---
+// --- Konvertering fra strukturen til redigerbare tokens ---
 
-/** Bygger redigerbare `ColorToken[]` fra JSON-strukturen (default: pakka JSON). */
-export function tokensFromSchema(
-    source: ColorSchemeJson = schema as unknown as ColorSchemeJson,
-): ColorToken[] {
+/** Bygger redigerbare `ColorToken[]` fra pakka JSON. */
+export function tokensFromSchema(): ColorToken[] {
+    const color = schema.color as unknown as ColorTokenTree;
     return ROLE_ENTRIES.map(({ variant, group, role }) => {
-        const value = source.color[variant]?.[group]?.[role]?.value;
+        const value = color[variant][group][role].value;
         const modes = Object.fromEntries(
-            THEME_MODES.map((mode) => [mode, value?.[mode] ?? ""]),
+            THEME_MODES.map((mode) => [mode, value[mode]]),
         ) as Record<ThemeMode, string>;
         return { variant, group, role, ...modes };
     });
-}
-
-/** Inversen av {@link tokensFromSchema} — brukes til eksport og JSON-redigering. */
-export function tokensToSchema(tokens: ColorToken[]): ColorSchemeJson {
-    const color = { type: "colorScheme" } as ColorSchemeJson["color"];
-    for (const t of tokens) {
-        color[t.variant] ??= {} as ColorSchemeJson["color"][ColorVariant];
-        color[t.variant][t.group] ??= {};
-        const value = Object.fromEntries(
-            THEME_MODES.map((mode) => [mode, t[mode]]),
-        ) as Record<ThemeMode, string>;
-        color[t.variant][t.group][t.role] = { value };
-    }
-    return { color };
 }
