@@ -24,6 +24,7 @@ $_focus-ring-width: jkl.rem(2px);
         background-color: var(--background-color);
         color: var(--jkl-color-text-on-contrast);
         display: inline-block;
+        border-radius: var(--jkl-border-radius-s);
         min-width: min-content;
         max-width: min(jkl.rem(310px),
                 100%); // 10px mindre enn smaleste støttede skjerm
