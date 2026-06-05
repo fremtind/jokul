@@ -10,10 +10,8 @@ const meta = {
     component: Help,
     args: {
         position: "top",
-        showButtonText: false,
         buttonText: "Hjelp",
         children: "Jeg er en hjelpetekst",
-        iconPosition: "left",
     },
 } satisfies Meta<typeof Help>;
 
