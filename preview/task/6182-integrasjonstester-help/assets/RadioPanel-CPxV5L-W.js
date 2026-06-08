@@ -1,1 +1,0 @@
-import{r,j as e}from"./iframe-DG2z7F0f.js";import{I as t}from"./InputPanel-bd-Ol9JZ.js";const n=r.forwardRef(function(o,a){return e.jsx(t,{...o,type:"radio",ref:a})});n.__docgenInfo={description:"",methods:[],displayName:"RadioPanel"};export{n as R};
