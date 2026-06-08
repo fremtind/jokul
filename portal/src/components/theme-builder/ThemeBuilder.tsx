@@ -5,8 +5,8 @@ import {
     SegmentedControl,
     SegmentedControlButton,
 } from "@fremtind/jokul/segmented-control";
-import { Title } from "@fremtind/jokul/typography";
 import { useState } from "react";
+import { ThemeBuilderLayout } from "./ThemeBuilderLayout";
 import { ThemePreview } from "./ThemePreview";
 import { TokenEditor } from "./TokenEditor";
 import { TokenOverview } from "./TokenOverview";
@@ -31,24 +31,6 @@ const THEME_MODE_LABELS: Partial<Record<ThemeMode, string>> = {
     dark: "Mørk",
 };
 
-type WorkspaceTab = "demo" | "tokens";
-
-const WORKSPACE_TABS: { value: WorkspaceTab; label: string }[] = [
-    { value: "demo", label: "Demo" },
-    { value: "tokens", label: "Farge-tokens" },
-];
-
-const THEME_MODE_LABELS: Partial<Record<ThemeMode, string>> = {
-    light: "Lys",
-    dark: "Mørk",
-};
-
-/**
- * Toppnivå-side for theme-builder. Editoren vises som et sidepanel ved siden
- * av workspace-en, slik at demoen kan inspiseres mens tokens endres.
- * Aktiv lys/mørk-modus eies her og sendes inn til demo-fanen — øvrige faner
- * inspiserer tokens, ikke det rendrede chromet, og ignorerer den.
- */
 export function ThemeBuilder() {
     const [tokens, setTokens] = useState(() => tokensFromSchema());
     const [themeMode, setThemeMode] = useState<ThemeMode>(
@@ -66,83 +48,52 @@ export function ThemeBuilder() {
         );
     };
 
-    const updateToken = (tokenId: string, mode: ThemeMode, value: string) => {
-        setTokens((previousTokens) =>
-            previousTokens.map((token) =>
-                tokenKey(token) === tokenId
-                    ? { ...token, [mode]: normalizeHex(value) }
-                    : token,
-            ),
-        );
-    };
-
     return (
-        <Flex direction="column" gap="l">
-            <Title as="h1" size="xl">
-                Temabygger
-            </Title>
-            <div className={styles.workspace}>
-                <Card
-                    as="section"
-                    padding="l"
-                    outlined
-                    className={styles.editorCard}
-                    aria-labelledby="theme-builder-editor-title"
-                >
-                    <Title
-                        as="h2"
-                        size="s"
-                        id="theme-builder-editor-title"
-                        srOnly
-                    >
-                        Editor
-                    </Title>
-                    <TokenEditor tokens={tokens} onTokenChange={updateToken} />
-                </Card>
-                <div className={styles.workspaceContent}>
-                    <Workspace
-                        activeTab={activeTab}
-                        onActiveTabChange={setActiveTab}
-                        onThemeModeChange={setThemeMode}
-                        themeMode={themeMode}
-                        tokens={tokens}
-                    />
-                </div>
-            </div>
-        </Flex>
+        <ThemeBuilderLayout>
+            <ThemeBuilderLayout.Preview>
+                <PreviewPanel
+                    activeTab={activeTab}
+                    onActiveTabChange={setActiveTab}
+                    onThemeModeChange={setThemeMode}
+                    themeMode={themeMode}
+                    tokens={tokens}
+                />
+            </ThemeBuilderLayout.Preview>
+            <ThemeBuilderLayout.Form>
+                <TokenEditor tokens={tokens} onTokenChange={updateToken} />
+            </ThemeBuilderLayout.Form>
+        </ThemeBuilderLayout>
     );
 }
 
-type WorkspaceProps = {
+type PreviewPanelProps = {
     tokens: ColorToken[];
     themeMode: ThemeMode;
     onThemeModeChange: (next: ThemeMode) => void;
-    activeTab: WorkspaceTab;
-    onActiveTabChange: (next: WorkspaceTab) => void;
+    activeTab: PreviewTab;
+    onActiveTabChange: (next: PreviewTab) => void;
 };
 
-function Workspace({
+function PreviewPanel({
     tokens,
     themeMode,
     onThemeModeChange,
     activeTab,
     onActiveTabChange,
-}: WorkspaceProps) {
+}: PreviewPanelProps) {
     return (
-        <div className={styles.workspaceTabsRoot}>
+        <Flex direction="column" gap="24">
             <Flex
-                className={styles.contentControls}
                 justifyContent="space-between"
                 alignItems="center"
                 wrap="wrap"
                 gap="m"
             >
                 <SegmentedControl
-                    className={styles.controlGroup}
                     legend="Temabyggerinnhold"
                     labelProps={{ srOnly: true }}
                 >
-                    {WORKSPACE_TABS.map((tab) => (
+                    {PREVIEW_TABS.map((tab) => (
                         <SegmentedControlButton
                             key={tab.value}
                             name="theme-builder-workspace-tab"
@@ -155,7 +106,6 @@ function Workspace({
                     ))}
                 </SegmentedControl>
                 <SegmentedControl
-                    className={styles.controlGroup}
                     legend="Fargemodus"
                     labelProps={{ srOnly: true }}
                 >
@@ -177,6 +127,6 @@ function Workspace({
             ) : (
                 <TokenOverview tokens={tokens} />
             )}
-        </div>
+        </Flex>
     );
 }
