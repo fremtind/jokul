@@ -1,0 +1,165 @@
+{
+    "color": {
+        "$type": "number",
+        "background": {
+            "page": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of background.page",
+                    "$value": 0.0041
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of background.page",
+                    "$value": 16.0
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of background.page",
+                    "$value": 0.0027
+                }
+            },
+            "container": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of background.container",
+                    "$value": 0.0626
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of background.container",
+                    "$value": 39.1
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of background.container",
+                    "$value": 0.0524
+                }
+            },
+            "container-accent": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of background.container-accent",
+                    "$value": 0.0962
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of background.container-accent",
+                    "$value": 45.2
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of background.container-accent",
+                    "$value": 0.0612
+                }
+            },
+            "contrast": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of background.contrast",
+                    "$value": 0.6255
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of background.contrast",
+                    "$value": 84.0
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of background.contrast",
+                    "$value": 0.138
+                }
+            }
+        },
+        "text": {
+            "default": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of text.default",
+                    "$value": 0.8835
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of text.default",
+                    "$value": 95.4
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of text.default",
+                    "$value": 0.0449
+                }
+            },
+            "subdued": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of text.subdued",
+                    "$value": 0.5615
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of text.subdued",
+                    "$value": 82.5
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of text.subdued",
+                    "$value": 0.018
+                }
+            },
+            "accent": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of text.accent",
+                    "$value": 0.6255
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of text.accent",
+                    "$value": 84.0
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of text.accent",
+                    "$value": 0.138
+                }
+            },
+            "on-contrast": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of text.on-contrast",
+                    "$value": 0.0041
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of text.on-contrast",
+                    "$value": 16.0
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of text.on-contrast",
+                    "$value": 0.0027
+                }
+            }
+        },
+        "border": {
+            "default": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of border.default",
+                    "$value": 0.6255
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of border.default",
+                    "$value": 84.0
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of border.default",
+                    "$value": 0.138
+                }
+            },
+            "subdued": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of border.subdued",
+                    "$value": 0.0962
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of border.subdued",
+                    "$value": 45.2
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of border.subdued",
+                    "$value": 0.0612
+                }
+            },
+            "strong": {
+                "luminance": {
+                    "$description": "Relative luminance (WCAG) of border.strong",
+                    "$value": 0.8835
+                },
+                "lightness": {
+                    "$description": "OKLCh lightness (L, 0–100) of border.strong",
+                    "$value": 95.4
+                },
+                "chroma": {
+                    "$description": "OKLCh chroma (C) of border.strong",
+                    "$value": 0.0449
+                }
+            }
+        }
+    }
+}
