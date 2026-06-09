@@ -114,6 +114,30 @@ describe("Title", () => {
         expect(getByRole("heading", { level: 2 })).toHaveClass("jkl-sr-only");
     });
 
+    it("setter `data-center` når `center` er true", () => {
+        const { getByRole } = render(
+            <Title as="h2" center>
+                Sentrert
+            </Title>,
+        );
+
+        expect(getByRole("heading", { level: 2 })).toHaveAttribute(
+            "data-center",
+        );
+    });
+
+    it("setter ikke `data-center` når `center` er false", () => {
+        const { getByRole } = render(
+            <Title as="h2" center={false}>
+                Venstrestilt
+            </Title>,
+        );
+
+        expect(getByRole("heading", { level: 2 })).not.toHaveAttribute(
+            "data-center",
+        );
+    });
+
     it("videresender ekstra className", () => {
         const { getByRole } = render(
             <Title className="egen-klasse">Med klasse</Title>,

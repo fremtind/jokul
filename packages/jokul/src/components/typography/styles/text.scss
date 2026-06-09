@@ -42,6 +42,14 @@ $_size-styles: (
         line-height: var(--jkl-line-height-tight);
     }
 
+    .jkl-text[data-center] {
+        text-align: center;
+    }
+
+    .jkl-text[data-subdued] {
+        color: var(--jkl-color-text-subdued);
+    }
+
     :is(code, kbd, samp, var).jkl-text {
         @include jkl.use-font-family("Jokul Mono");
     }
