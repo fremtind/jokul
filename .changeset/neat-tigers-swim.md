@@ -2,12 +2,8 @@
 "@fremtind/jokul": minor
 ---
 
-Legg til `center` og `subdued` props på Text og Title komponenter for enklere styling av vanlige layoutbehov.
+Legger til `center` og `subdued` props på `Text` og `Title` komponentene for å forenkle vanlige tekststyler uten custom CSS. Props følger eksisterende data-attributt-mønsteret og er dekket av nye tester.
 
-- `center`: Sentrerer teksten horisontalt (`text-align: center`)
-- `subdued`: Bruker dempet tekstfarge (`--jkl-color-text-subdued`)
+Oppdater også `tsconfig.json` med `@testing-library/jest-dom` typer for TypeScript-støtte i test-filer.
 
-Begge props er tilgjengelige på både Text og Title komponenter.
-
-Oppdater også `tsconfig.json` med `@testing-library/jest-dom` og `vitest/globals` typer for å fikse TypeScript-feil i test-filer.
 

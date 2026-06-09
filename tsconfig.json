@@ -19,7 +19,7 @@
         "esModuleInterop": true,
         "baseUrl": "./",
         "skipLibCheck": true,
-        "types": ["@testing-library/jest-dom", "vitest/globals"],
+        "types": ["@testing-library/jest-dom"],
     },
     "exclude": ["**/node_modules", "**/.*", "**/build", "**/dist"],
     "include": ["./packages/**/*"]
