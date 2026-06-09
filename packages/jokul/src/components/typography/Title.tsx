@@ -10,7 +10,15 @@ type TitleComponent = <As extends TitleElement = "h2">(
 export const Title: TitleComponent = forwardRef(function Title<
     As extends TitleElement = "h2",
 >(
-    { className, size = "l", as, srOnly, ...rest }: TitleProps<As>,
+    {
+        className,
+        size = "l",
+        as,
+        srOnly,
+        center,
+        subdued,
+        ...rest
+    }: TitleProps<As>,
     ref?: PolymorphicRef<As>,
 ) {
     const Tag = (as || "h2") as React.ElementType;
@@ -18,6 +26,8 @@ export const Title: TitleComponent = forwardRef(function Title<
         <Tag
             className={clsx(srOnly && "jkl-sr-only", className)}
             data-text-size={size}
+            data-center={center || undefined}
+            data-subdued={subdued || undefined}
             ref={ref}
             {...rest}
         />

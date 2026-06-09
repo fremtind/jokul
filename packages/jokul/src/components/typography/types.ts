@@ -51,6 +51,18 @@ type TextOwnProps = {
      * @default false
      */
     srOnly?: boolean;
+    /**
+     * Sentrerer teksten horisontalt (text-align: center).
+     * Bruk når sentrering ikke arves fra containeren, f.eks. inne i en Flex
+     * med alignItems: center.
+     * @default false
+     */
+    center?: boolean;
+    /**
+     * Bruker dempet tekstfarge (--jkl-color-text-subdued).
+     * @default false
+     */
+    subdued?: boolean;
 };
 
 type TitleOwnProps = {
@@ -67,6 +79,16 @@ type TitleOwnProps = {
      * @default false
      */
     srOnly?: boolean;
+    /**
+     * Sentrerer teksten horisontalt (text-align: center).
+     * @default false
+     */
+    center?: boolean;
+    /**
+     * Bruker dempet tekstfarge (--jkl-color-text-subdued).
+     * @default false
+     */
+    subdued?: boolean;
 };
 
 export type TextProps<As extends TextElement = "p"> = PolymorphicPropsWithRef<

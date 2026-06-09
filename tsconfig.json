@@ -18,7 +18,8 @@
         "verbatimModuleSyntax": true,
         "esModuleInterop": true,
         "baseUrl": "./",
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "types": ["@testing-library/jest-dom", "vitest/globals"],
     },
     "exclude": ["**/node_modules", "**/.*", "**/build", "**/dist"],
     "include": ["./packages/**/*"]
