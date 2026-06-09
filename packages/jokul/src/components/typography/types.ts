@@ -84,11 +84,6 @@ type TitleOwnProps = {
      * @default false
      */
     center?: boolean;
-    /**
-     * Bruker dempet tekstfarge (--jkl-color-text-subdued).
-     * @default false
-     */
-    subdued?: boolean;
 };
 
 export type TextProps<As extends TextElement = "p"> = PolymorphicPropsWithRef<

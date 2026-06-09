@@ -138,30 +138,6 @@ describe("Title", () => {
         );
     });
 
-    it("setter `data-subdued` når `subdued` er true", () => {
-        const { getByRole } = render(
-            <Title as="h2" subdued>
-                Dempet
-            </Title>,
-        );
-
-        expect(getByRole("heading", { level: 2 })).toHaveAttribute(
-            "data-subdued",
-        );
-    });
-
-    it("setter ikke `data-subdued` når `subdued` er false", () => {
-        const { getByRole } = render(
-            <Title as="h2" subdued={false}>
-                Normal
-            </Title>,
-        );
-
-        expect(getByRole("heading", { level: 2 })).not.toHaveAttribute(
-            "data-subdued",
-        );
-    });
-
     it("videresender ekstra className", () => {
         const { getByRole } = render(
             <Title className="egen-klasse">Med klasse</Title>,

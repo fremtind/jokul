@@ -37,8 +37,4 @@ $_size-styles: (
     :is(h1, h2, h3, h4, h5, h6, label, legend)[data-text-size][data-center] {
         text-align: center;
     }
-
-    :is(h1, h2, h3, h4, h5, h6, label, legend)[data-text-size][data-subdued] {
-        color: var(--jkl-color-text-subdued);
-    }
 }
