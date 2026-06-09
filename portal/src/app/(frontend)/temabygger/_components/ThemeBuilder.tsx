@@ -1,0 +1,38 @@
+"use client";
+
+import { type ReactNode, useState } from "react";
+import { useThemeDraft } from "../_context/ThemeDraftContext";
+import { ThemePreview } from "../_preview/ThemePreview";
+import { ThemeBuilderLayout } from "./ThemeBuilderLayout";
+
+export type ColorScheme = "light" | "dark";
+
+export const COLOR_SCHEMES = [
+    "light",
+    "dark",
+] as const satisfies readonly ColorScheme[];
+
+type ThemeBuilderProps = {
+    children: ReactNode;
+};
+
+export function ThemeBuilder({ children }: ThemeBuilderProps) {
+    const { color } = useThemeDraft();
+    const [previewColorScheme, setPreviewColorScheme] =
+        useState<ColorScheme>("light");
+
+    return (
+        <ThemeBuilderLayout>
+            <ThemeBuilderLayout.Form>{children}</ThemeBuilderLayout.Form>
+            <ThemeBuilderLayout.Preview
+                colorScheme={previewColorScheme}
+                tokens={color.tokens}
+            >
+                <ThemePreview
+                    colorScheme={previewColorScheme}
+                    onColorSchemeChange={setPreviewColorScheme}
+                />
+            </ThemeBuilderLayout.Preview>
+        </ThemeBuilderLayout>
+    );
+}

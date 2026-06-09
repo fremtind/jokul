@@ -16,120 +16,101 @@ import {
 import { Tag } from "@fremtind/jokul/tag";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { type CSSProperties, useMemo, useState } from "react";
-import {
-    type RatingCounts,
-    contrastReference,
-    countRatings,
-} from "./colorContrast";
+import { COLOR_SCHEMES, type ColorScheme } from "../_components/ThemeBuilder";
+import type { ColorToken, ColorTokens } from "../_context/ThemeDraftContext";
 import {
     type ContrastEvaluation,
     type ContrastRating,
+    type RatingCounts,
+    contrastReference,
+    countRatings,
     evaluateColorContrast,
-} from "./colorTokenUtils";
-import {
-    COLOR_VARIANTS,
-    type ColorGroup,
-    type ColorToken,
-    type ColorVariant,
-    type RoleEntry,
-    THEME_MODES,
-    type ThemeMode,
-    tokenKey,
-} from "./colorTokens";
+} from "./contrastEvaluation";
 
-import styles from "./token-overview.module.scss";
+import styles from "./contrast-view.module.scss";
 
-type TokenOverviewProps = {
-    tokens: ColorToken[];
+type ContrastViewProps = {
+    tokens: ColorTokens;
 };
 
-export function TokenOverview({ tokens }: TokenOverviewProps) {
+export function ContrastView({ tokens }: ContrastViewProps) {
     const counts = useMemo(() => countRatings(tokens), [tokens]);
 
     return (
         <Flex direction="column" gap="2xl">
             <ContrastSummary counts={counts} />
-            <Flex direction="column" gap="2xl">
-                {COLOR_VARIANTS.map((variant) => {
-                    const variantTokens = tokens.filter(
-                        (t) => t.variant === variant,
-                    );
-                    if (variantTokens.length === 0) return null;
-                    return (
-                        <VariantTable
-                            key={variant}
-                            variant={variant}
-                            tokens={variantTokens}
-                            allTokens={tokens}
-                        />
-                    );
-                })}
-            </Flex>
+            <TokenTable tokens={tokens} />
         </Flex>
     );
 }
 
-type VariantTableProps = {
-    variant: ColorVariant;
-    tokens: ColorToken[];
-    allTokens: ColorToken[];
+type TokenTableProps = {
+    tokens: ColorTokens;
 };
 
-function VariantTable({ variant, tokens, allTokens }: VariantTableProps) {
-    const tokensByKey = useMemo(
-        () => new Map(allTokens.map((t) => [tokenKey(t), t])),
-        [allTokens],
-    );
+type TokenTableItem = {
+    group: string;
+    role: string;
+    token: ColorToken;
+};
+
+function TokenTable({ tokens }: TokenTableProps) {
+    const tokenList = useMemo(() => getTokenTableItems(tokens), [tokens]);
 
     return (
         <Table
             fullWidth
             collapseToList
-            caption={<TableCaption srOnly={false}>{variant}</TableCaption>}
+            caption={
+                <TableCaption srOnly={false}>Fargekombinasjoner</TableCaption>
+            }
         >
             <TableHead>
                 <TableRow>
                     <TableHeader scope="col">group</TableHeader>
                     <TableHeader scope="col">role</TableHeader>
-                    {THEME_MODES.map((mode) => (
-                        <TableHeader key={mode} scope="col">
-                            {mode}
+                    {COLOR_SCHEMES.map((scheme) => (
+                        <TableHeader key={scheme} scope="col">
+                            {scheme}
                         </TableHeader>
                     ))}
                 </TableRow>
             </TableHead>
             <TableBody>
-                {tokens.map((token) => {
-                    const reference = contrastReference(token);
+                {tokenList.map(({ group, role, token }) => {
+                    const reference = contrastReference(group, role);
                     const referenceToken = reference
-                        ? tokensByKey.get(tokenKey(reference.against))
+                        ? tokens[reference.againstGroup]?.[
+                              reference.againstRole
+                          ]
                         : undefined;
 
                     return (
-                        <TableRow key={`${token.group}.${token.role}`}>
+                        <TableRow key={`${group}.${role}`}>
                             <TableCell data-th="group">
-                                <code>{token.group}</code>
+                                <code>{group}</code>
                             </TableCell>
                             <TableCell data-th="role">
-                                <code>{token.role}</code>
+                                <code>{role}</code>
                             </TableCell>
-                            {THEME_MODES.map((mode) => (
-                                <TableCell key={mode} data-th={mode}>
+                            {COLOR_SCHEMES.map((scheme) => (
+                                <TableCell key={scheme} data-th={scheme}>
                                     <TokenSwatch
-                                        group={token.group}
-                                        value={token[mode]}
+                                        group={group}
+                                        value={token[scheme]}
                                         contrast={evaluateContrastFor(
                                             token,
                                             reference,
                                             referenceToken,
-                                            mode,
+                                            scheme,
                                         )}
                                         reference={
                                             reference && referenceToken
                                                 ? {
-                                                      token: reference.against,
+                                                      group: reference.againstGroup,
+                                                      role: reference.againstRole,
                                                       value: referenceToken[
-                                                          mode
+                                                          scheme
                                                       ],
                                                   }
                                                 : undefined
@@ -145,25 +126,35 @@ function VariantTable({ variant, tokens, allTokens }: VariantTableProps) {
     );
 }
 
+function getTokenTableItems(tokens: ColorTokens): TokenTableItem[] {
+    return Object.entries(tokens).flatMap(([group, roles]) =>
+        Object.entries(roles).map(([role, token]) => ({
+            group,
+            role,
+            token,
+        })),
+    );
+}
+
 function evaluateContrastFor(
     token: ColorToken,
     reference: ReturnType<typeof contrastReference>,
     referenceToken: ColorToken | undefined,
-    mode: ThemeMode,
+    colorScheme: ColorScheme,
 ) {
     if (!reference || !referenceToken) return undefined;
     return evaluateColorContrast(
-        token[mode],
-        referenceToken[mode],
+        token[colorScheme],
+        referenceToken[colorScheme],
         reference.requirementId,
     );
 }
 
 type TokenSwatchProps = {
-    group: ColorGroup;
+    group: string;
     value: string;
     contrast?: ContrastEvaluation;
-    reference?: { token: RoleEntry; value: string };
+    reference?: { group: string; role: string; value: string };
 };
 
 function TokenSwatch({ group, value, contrast, reference }: TokenSwatchProps) {
@@ -189,7 +180,7 @@ function TokenSwatch({ group, value, contrast, reference }: TokenSwatchProps) {
 }
 
 type RolePreviewProps = {
-    group: ColorGroup;
+    group: string;
     value: string;
     pairValue?: string;
     size: "small" | "large";
@@ -244,9 +235,9 @@ function RolePreview({ group, value, pairValue, size }: RolePreviewProps) {
 
 type ContrastHintButtonProps = {
     evaluation: Extract<ContrastEvaluation, { kind: "measured" }>;
-    group: ColorGroup;
+    group: string;
     value: string;
-    reference?: { token: RoleEntry; value: string };
+    reference?: { group: string; role: string; value: string };
 };
 
 function ContrastHintButton({
@@ -299,9 +290,7 @@ function ContrastHintButton({
                     <Flex direction="column" gap="2xs">
                         <Text size="xs">Mot</Text>
                         <Flex alignItems="center" gap="s">
-                            <code>
-                                {`${reference.token.group}.${reference.token.role}`}
-                            </code>
+                            <code>{`${reference.group}.${reference.role}`}</code>
                             <code>{reference.value}</code>
                         </Flex>
                     </Flex>
@@ -397,7 +386,7 @@ function ContrastSummary({ counts }: ContrastSummaryProps) {
                         Kontrast-vurderinger
                     </Title>
                     <Text size="s">
-                        {`${total} (token, modus)-par evaluert mot deres "naturlige" par i samme variant. ${
+                        {`${total} (token, modus)-par evaluert mot deres "naturlige" par. ${
                             failing === 0
                                 ? "Alle par passerer."
                                 : `${failing} par feiler kravet.`
