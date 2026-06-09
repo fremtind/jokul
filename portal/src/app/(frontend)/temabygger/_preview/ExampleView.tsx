@@ -1,6 +1,6 @@
 "use client";
 
-import { Overblikk as ThemeBuilderOverviewStory } from "@jokul-stories/patterns/Temabygger.stories";
+import { Overblikk as ThemeBuilderOverviewStory } from "@jokul-stories/temabygger/Temabygger.overblikk.stories";
 import { type ReactNode, useMemo } from "react";
 
 export function ExampleView() {
