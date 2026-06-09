@@ -76,6 +76,30 @@ describe("Text", () => {
         expect(getByText("Skjult")).toHaveClass("jkl-text", "jkl-sr-only");
     });
 
+    it("setter `data-center` når `center` er true", () => {
+        const { getByText } = render(<Text center>Sentrert</Text>);
+
+        expect(getByText("Sentrert")).toHaveAttribute("data-center");
+    });
+
+    it("setter ikke `data-center` når `center` er false", () => {
+        const { getByText } = render(<Text center={false}>Venstrestilt</Text>);
+
+        expect(getByText("Venstrestilt")).not.toHaveAttribute("data-center");
+    });
+
+    it("setter `data-subdued` når `subdued` er true", () => {
+        const { getByText } = render(<Text subdued>Dempet</Text>);
+
+        expect(getByText("Dempet")).toHaveAttribute("data-subdued");
+    });
+
+    it("setter ikke `data-subdued` når `subdued` er false", () => {
+        const { getByText } = render(<Text subdued={false}>Normal</Text>);
+
+        expect(getByText("Normal")).not.toHaveAttribute("data-subdued");
+    });
+
     it("videresender ekstra className", () => {
         const { getByText } = render(
             <Text className="egen-klasse">Med klasse</Text>,
