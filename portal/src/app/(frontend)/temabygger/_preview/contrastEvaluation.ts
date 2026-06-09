@@ -1,14 +1,8 @@
 import { ColorSpace, contrastWCAG21, sRGB } from "colorjs.io/fn";
-import type { CSSProperties } from "react";
-import {
-    COLOR_VARIANTS,
-    type ColorToken,
-    type ContrastRequirementId,
-    THEME_MODES,
-    tokenKey,
-} from "./colorTokens";
+import { COLOR_SCHEMES } from "../_components/ThemeBuilder";
+import type { ColorToken, ColorTokens } from "../_context/ThemeDraftContext";
+import { isHex } from "../_lib/hexColor";
 
-const HEX_COLOR_PATTERN = /^#[0-9a-fA-F]{6}$/;
 const WCAG_TEXT_CONTRAST_AAA = 7;
 const WCAG_TEXT_CONTRAST_AA = 4.5;
 const WCAG_UI_CONTRAST_MINIMUM = 3;
@@ -26,8 +20,9 @@ ColorSpace.register(sRGB);
  * - `✕`   — feiler det gjeldende kravet
  */
 export type ContrastRating = "AAA" | "AA" | "A" | "✕";
+export type ContrastRequirementId = "text" | "ui";
 
-export type ContrastStatus = {
+type ContrastStatus = {
     rating: ContrastRating;
     /** Hvilket kontrastkrav som ble brukt — tekst eller grafisk/ikke-tekst. */
     scope: "tekst" | "grafisk";
@@ -44,7 +39,7 @@ export type ContrastEvaluation =
           status: ContrastStatus;
       };
 
-export const CONTRAST_REQUIREMENTS: Record<
+const CONTRAST_REQUIREMENTS: Record<
     ContrastRequirementId,
     { scope: "tekst" | "grafisk"; minimum: number }
 > = {
@@ -52,20 +47,75 @@ export const CONTRAST_REQUIREMENTS: Record<
     ui: { scope: "grafisk", minimum: WCAG_UI_CONTRAST_MINIMUM },
 };
 
-/** Sann når verdien matcher `#RRGGBB`. Case-insensitiv ved input — `normalizeHex` uppercaser ved lagring. */
-export const isHex = (value: string): boolean => HEX_COLOR_PATTERN.test(value);
+export type RatingCounts = Record<ContrastRating, number>;
 
-/** Stripper mellomrom og gjør om til store bokstaver — stabil form for lagring og sammenligning. */
-export const normalizeHex = (value: string): string =>
-    value.replace(/\s+/g, "").toUpperCase();
+type ContrastReference = {
+    againstGroup: string;
+    againstRole: string;
+    requirementId: ContrastRequirementId;
+};
 
-/** Inline feilmelding for heks-input, eller `undefined` om verdien er OK. */
-export const hexErrorLabel = (value: string): string | undefined =>
-    isHex(value) ? undefined : "Bruk formatet #RRGGBB";
+const EMPTY_COUNTS: RatingCounts = { AAA: 0, AA: 0, A: 0, "✕": 0 };
 
-/** Verdi for native `<input type="color">` — faller tilbake til svart ved ugyldig input. */
-export const colorInputValue = (value: string): string =>
-    isHex(value) ? value : "#000000";
+export function countRatings(tokens: ColorTokens): RatingCounts {
+    const counts: RatingCounts = { ...EMPTY_COUNTS };
+
+    for (const [group, roles] of Object.entries(tokens) as Array<
+        [string, Record<string, ColorToken>]
+    >) {
+        for (const [role, token] of Object.entries(roles)) {
+            const reference = contrastReference(group, role);
+            if (!reference) continue;
+
+            const referenceToken =
+                tokens[reference.againstGroup]?.[reference.againstRole];
+            if (!referenceToken) continue;
+
+            for (const scheme of COLOR_SCHEMES) {
+                const evaluation = evaluateColorContrast(
+                    token[scheme],
+                    referenceToken[scheme],
+                    reference.requirementId,
+                );
+                if (evaluation.kind !== "measured") continue;
+                counts[evaluation.status.rating] += 1;
+            }
+        }
+    }
+
+    return counts;
+}
+
+export function contrastReference(
+    group: string,
+    role: string,
+): ContrastReference | null {
+    if (group === "text" && role.startsWith("on-")) {
+        return {
+            againstGroup: "background",
+            againstRole: role.slice("on-".length),
+            requirementId: "text",
+        };
+    }
+
+    if (group === "background") {
+        return {
+            againstGroup: "text",
+            againstRole: `on-${role}`,
+            requirementId: "text",
+        };
+    }
+
+    if (group === "text" || group === "border") {
+        return {
+            againstGroup: "background",
+            againstRole: "page",
+            requirementId: group === "text" ? "text" : "ui",
+        };
+    }
+
+    return null;
+}
 
 /** WCAG 2.1-kontrastresultat, inkludert utledet status-tag. */
 export function evaluateColorContrast(
@@ -92,40 +142,6 @@ export function evaluateColorContrast(
         ratio,
         status: getContrastStatus(ratio, requirementId),
     };
-}
-
-/**
- * Bygger inline CSS-variabler for preview-scopet. Hvert token slippes ut som
- * en `--jkl-color-<variant>-<group>-<role>`-variabel; den første varianten i
- * JSON-en aliaseres i tillegg til bart `--jkl-color-<group>-<role>` slik at
- * uscopete Jøkul-komponenter plukker opp de live-verdiene.
- *
- * CSS `light-dark()`-funksjonen tar nøyaktig to argumenter, så vi krever at
- * `THEME_MODES` har akkurat to entries (`light` og `dark`). Skulle JSON-en
- * en gang utvides med en tredje mode, vil `assertTwoModes` kaste — det er et
- * tydelig signal om at preview-mekanismen må tenkes på nytt.
- */
-export function buildPreviewStyle(tokens: ColorToken[]): CSSProperties {
-    const [lightMode, darkMode] = assertTwoModes();
-    const baseVariant = COLOR_VARIANTS[0];
-    const style: Record<string, string> = {};
-    for (const t of tokens) {
-        const value = `light-dark(${t[lightMode]}, ${t[darkMode]})`;
-        style[`--jkl-color-${tokenKey(t).replaceAll(".", "-")}`] = value;
-        if (t.variant === baseVariant) {
-            style[`--jkl-color-${t.group}-${t.role}`] = value;
-        }
-    }
-    return style as CSSProperties;
-}
-
-function assertTwoModes(): readonly [string, string] {
-    if (THEME_MODES.length !== 2) {
-        throw new Error(
-            `Theme builder forventer akkurat 2 theme-modes (light + dark) for å støtte CSS light-dark(). Fant ${THEME_MODES.length}: ${THEME_MODES.join(", ")}.`,
-        );
-    }
-    return [THEME_MODES[0], THEME_MODES[1]];
 }
 
 /**

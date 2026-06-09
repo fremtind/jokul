@@ -1,4 +1,6 @@
 import "./global.scss";
+import { ThemeBuilder } from "./_components/ThemeBuilder";
+import { ThemeDraftProvider } from "./_context/ThemeDraftContext";
 
 type ThemeBuilderLayoutProps = {
     children: React.ReactNode;
@@ -7,5 +9,9 @@ type ThemeBuilderLayoutProps = {
 export default function ThemeBuilderLayout({
     children,
 }: ThemeBuilderLayoutProps) {
-    return children;
+    return (
+        <ThemeDraftProvider>
+            <ThemeBuilder>{children}</ThemeBuilder>
+        </ThemeDraftProvider>
+    );
 }

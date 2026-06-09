@@ -56,8 +56,6 @@ h4 {
 p,
 li {
     max-width: 55ch;
-
-    @include jkl.text-style("paragraph-medium");
 }
 
 code,

@@ -1,5 +1,6 @@
-import { ThemeBuilder } from "@/components/theme-builder/ThemeBuilder";
+import { redirect } from "next/navigation";
+import { FIRST_THEME_BUILDER_STEP } from "./_steps/stepConfig";
 
 export default function ThemeBuilderPage() {
-    return <ThemeBuilder />;
+    redirect(FIRST_THEME_BUILDER_STEP.path);
 }

@@ -1,0 +1,38 @@
+.colorPicker {
+    --color-picker-padding: var(--jkl-unit-02);
+
+    position: relative;
+    flex: 0 0 auto;
+    display: inline-flex;
+    width: var(--jkl-unit-60);
+    height: var(--jkl-unit-60);
+    padding: var(--color-picker-padding);
+    cursor: pointer;
+    background-color: var(--jkl-color-background-container);
+    border-radius: var(--jkl-border-radius-s);
+    box-shadow:
+        inset 0 0 0 1px var(--jkl-color-border-default),
+        0 0 0 1px transparent;
+}
+
+.colorPicker:hover {
+    box-shadow:
+        inset 0 0 0 1px var(--jkl-color-border-strong),
+        0 0 0 1px var(--jkl-color-border-strong);
+}
+
+.colorPicker:focus-within {
+    outline: 3px solid var(--jkl-color-border-strong);
+    outline-offset: var(--jkl-unit-05);
+}
+
+.swatch {
+    width: 100%;
+    height: 100%;
+    border-radius: calc(
+        var(--jkl-border-radius-s) - var(--color-picker-padding)
+    );
+    background-color: var(--theme-builder-color-picker-value);
+}
+
+
