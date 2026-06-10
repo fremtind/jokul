@@ -89,7 +89,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
             placement:
                 initialPlacement || (isNested ? "right-start" : "bottom-start"),
             middleware: [
-                offset(2),
+                offset(5),
                 flip({
                     fallbackAxisSideDirection: "end", // Allow bottom placement in narrow viewports (https://floating-ui.com/docs/flip#fallbackaxissidedirection)
                     crossAxis: false, // See https://floating-ui.com/docs/flip#combining-with-shift

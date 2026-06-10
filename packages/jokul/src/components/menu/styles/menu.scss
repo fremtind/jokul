@@ -18,9 +18,10 @@
         align-items: flex-start;
         flex-wrap: nowrap;
         box-shadow: 0 jkl.rem(4px) jkl.rem(20px) rgb(49 48 48 / 20%);
-        border-radius: jkl.rem(2px);
+        border-radius: var(--jkl-border-radius-s);
         border: 2px solid var(--border-color);
         z-index: jkl.$z-index--dropdown;
+        padding-block: var(--jkl-unit-15);
 
         &:focus-visible {
             outline: none;
