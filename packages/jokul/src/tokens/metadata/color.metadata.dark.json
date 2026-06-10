@@ -1,6 +1,6 @@
 {
+    "$type": "number",
     "color": {
-        "$type": "number",
         "background": {
             "page": {
                 "luminance": {
