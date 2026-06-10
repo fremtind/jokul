@@ -1,11 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
 import { Button } from "../../button/Button.js";
+import { HamburgerIcon } from "../../icon/index.js";
 import { Menu } from "../Menu.js";
+import { MenuDivider } from "../MenuDivider.js";
 import { MenuItem } from "../MenuItem.js";
 
 import "../styles/_index.scss";
-import { HamburgerIcon } from "../../icon/index.js";
 
 const meta = {
     title: "Komponenter/Menu/Menu",
@@ -25,31 +26,32 @@ const meta = {
         ),
         children: (
             <>
-                <MenuItem as="a" href="#forsikringene-dine">
+                <MenuItem as="a" href="#">
                     Forsikringene dine
                 </MenuItem>
-                <MenuItem as="a" href="#meld-skade">
+                <MenuItem as="a" href="#">
                     Meld skade
                 </MenuItem>
-                <MenuItem as="a" href="#skadesakene-dine">
+                <MenuItem as="a" href="#">
                     Skadesakene dine
                 </MenuItem>
                 <Menu
                     triggerElement={
-                        <MenuItem expandable={true}>Skjemaoppgaver</MenuItem>
+                        <MenuItem expandable>Endre forsikring</MenuItem>
                     }
                 >
-                    <MenuItem as="a" href="#flytte-forsikring">
+                    <MenuItem as="a" href="#">
                         Flytte forsikring
                     </MenuItem>
-                    <MenuItem as="a" href="#endre-forsikring">
-                        Endre forsikring
+                    <MenuItem as="a" href="#">
+                        Endre dekning
                     </MenuItem>
-                    <MenuItem as="a" href="#oppsigelse">
-                        Oppsigelse av forsikring
+                    <MenuItem as="a" href="#">
+                        Si opp forsikring
                     </MenuItem>
                 </Menu>
-                <MenuItem as="a" href="#kontakt-oss">
+                <MenuDivider />
+                <MenuItem as="a" href="#">
                     Kontakt oss
                 </MenuItem>
             </>
@@ -65,4 +67,6 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const _Menu: Story = {};
+export const Standard: Story = {
+    name: "Menu",
+};
