@@ -1,3 +1,55 @@
+@font-face {
+    font-family: "SpareBank 1";
+    font-display: swap;
+    font-weight: 400;
+    src: url("/fonts/brands/sparebank1/SpareBank1-Regular-Web.woff2")
+        format("woff2");
+}
+
+@font-face {
+    font-family: "SpareBank 1";
+    font-display: swap;
+    font-weight: 600;
+    src: url("/fonts/brands/sparebank1/SpareBank1-Medium-Web.woff2")
+        format("woff2");
+}
+
+@font-face {
+    font-family: "SpareBank 1 Display";
+    font-display: swap;
+    font-weight: 600;
+    src: url("/fonts/brands/sparebank1/SpareBank1-Title-Medium-Web.woff2")
+        format("woff2");
+}
+
+@font-face {
+    font-family: "DNB Sans";
+    font-display: swap;
+    font-weight: 400;
+    src: url("/fonts/brands/dnb/DNB-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "DNB Sans";
+    font-display: swap;
+    font-weight: 500;
+    src: url("/fonts/brands/dnb/DNB-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-display: swap;
+    font-weight: 400;
+    src: url("/fonts/brands/eika/OpenSans-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-display: swap;
+    font-weight: 600;
+    src: url("/fonts/brands/eika/OpenSans-SemiBold.woff2") format("woff2");
+}
+
 .jkl-theme-builder-layout {
     min-height: 100dvh;
     background-color: var(--jkl-color-background-page);

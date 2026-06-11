@@ -10,6 +10,7 @@ import {
 } from "react";
 // TODO(#6193): Importer ColorScheme fra "../generator/types" når PR er merget.
 import type { ColorScheme } from "../_components/ThemeBuilder";
+import { DEFAULT_FONT_OPTION_ID, type FontOptionId } from "../_lib/fontOptions";
 import { normalizeHex } from "../_lib/hexColor";
 
 // TODO(#6193): Erstatt ColorToken og ColorTokens med SimpleLightDarkPalette fra "../generator/types".
@@ -97,8 +98,22 @@ type ThemeColorDraft = {
     replaceTokens: (nextColorTokens: ColorTokens) => void;
 };
 
+type ThemeTypographyDraft = {
+    regularFont: FontOptionId;
+    displayFont: FontOptionId;
+    setRegularFont: (id: FontOptionId) => void;
+    setDisplayFont: (id: FontOptionId) => void;
+};
+
+type ThemeIdentityDraft = {
+    themeName: string;
+    setThemeName: (name: string) => void;
+};
+
 type ThemeDraftContextValue = {
     color: ThemeColorDraft;
+    identity: ThemeIdentityDraft;
+    typography: ThemeTypographyDraft;
 };
 
 const ThemeDraftContext = createContext<ThemeDraftContextValue | null>(null);
@@ -110,6 +125,13 @@ type ThemeDraftProviderProps = {
 export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
     const [colorTokens, setColorTokens] =
         useState<ColorTokens>(INITIAL_COLOR_TOKENS);
+    const [regularFont, setRegularFont] = useState<FontOptionId>(
+        DEFAULT_FONT_OPTION_ID,
+    );
+    const [displayFont, setDisplayFont] = useState<FontOptionId>(
+        DEFAULT_FONT_OPTION_ID,
+    );
+    const [themeName, setThemeName] = useState("");
 
     const updateToken = useCallback(
         (
@@ -186,6 +208,16 @@ export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
                 updateToken,
                 replaceTokens: replaceColorTokens,
             },
+            identity: {
+                themeName,
+                setThemeName,
+            },
+            typography: {
+                regularFont,
+                displayFont,
+                setRegularFont,
+                setDisplayFont,
+            },
         };
     }, [
         baseColor,
@@ -193,6 +225,9 @@ export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
         applyBaseColor,
         replaceColorTokens,
         updateToken,
+        regularFont,
+        displayFont,
+        themeName,
     ]);
 
     return (

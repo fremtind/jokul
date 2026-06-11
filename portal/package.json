@@ -10,7 +10,7 @@
         "prebuild": "pnpm sync-assets",
         "test": "vitest run --config vite.test.config.mjs",
         "sync-assets": "pnpm sync-fonts && pnpm sync-images",
-        "sync-fonts": "mkdir -p public/fonts && cp -R ../packages/jokul/src/fonts/brands/fremtind/. public/fonts/",
+        "sync-fonts": "mkdir -p public/fonts public/fonts/brands && cp -R ../packages/jokul/src/fonts/brands/fremtind/. public/fonts/ && cp -R ../packages/jokul/src/fonts/brands/. public/fonts/brands/",
         "sync-images": "mkdir -p public/images && cp -R ../storybook-public/images/. public/images/",
         "build": "cross-env NODE_OPTIONS=--no-deprecation next build --webpack",
         "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 3333 --webpack",
