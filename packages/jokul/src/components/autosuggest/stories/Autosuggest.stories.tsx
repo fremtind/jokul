@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import { countries } from "../../../../../../storybook-public/data/countryList.js";
-import { PopupTip } from "../../tooltip/index.js";
-import { Autosuggest as AutosuggestComponent } from "../Autosuggest.js";
+import { Autosuggest } from "../Autosuggest.js";
+import { userEvent } from "storybook/test";
+import { autosuggestItems } from "./shared.data.js";
+import { Help } from "../../help/index.js";
+
 import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/Autosuggest",
-    component: AutosuggestComponent,
+    component: Autosuggest,
     args: {
         label: "Velg land",
-        allItems: countries.map(
-            (country) => `${country.name} (${country.code})`,
-        ),
+        allItems: autosuggestItems.slice(0, 15).map((item) => item.label),
         value: "",
         placeholder: "Velg land",
         helpLabel: "Velg landet du har statsborgerskap i",
@@ -20,30 +20,53 @@ const meta = {
             srOnly: false,
             variant: "small",
         },
-        maxNumberOfHits: 5,
+        maxNumberOfHits: autosuggestItems.length,
         showDropdownControllerButton: false,
         noHits: {
             text: "Fant ikke landet du lette etter. Sjekk stavingen.",
-            items: countries
-                .filter((country) => country.name === "Norway")
-                .map((country) => country.name),
+            items: autosuggestItems
+                .filter((item) => item.label === "Norway")
+                .map((item) => item.label),
         },
+        tooltip: (
+            <Help
+                title="Hvorfor trenger vi dette?"
+                buttonText="Hvorfor trenger vi dette?"
+            >
+                Vi må vite om du var innenfor Norges landegrenser da skade
+                skjedde for å kunne vurdere kravet ditt.
+            </Help>
+        ),
+        isOpen: false,
     },
-} satisfies Meta<typeof AutosuggestComponent>;
+} satisfies Meta<typeof Autosuggest>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Autosuggest: Story = {};
+export const Default: Story = {};
 
-export const AutosuggestMedTooltip: Story = {
+export const OpenState: Story = {
     args: {
-        tooltip: (
-            <PopupTip
-                content={
-                    "Vi må vite om du var innenfor Norges landegrenser da skade skjedde"
-                }
-            />
-        ),
+        isOpen: true,
+    },
+};
+
+export const FocusState: Story = {
+    play: async () => {
+        await userEvent.tab();
+        await userEvent.tab();
+    },
+};
+
+export const ErrorState: Story = {
+    args: {
+        errorLabel: "Feilmelding",
+    },
+};
+
+export const HasValue: Story = {
+    args: {
+        value: autosuggestItems[2].label,
     },
 };

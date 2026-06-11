@@ -1,51 +1,53 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
-import { Select } from "../Select.jsx";
+import { Select } from "../Select.js";
+import { userEvent } from "storybook/test";
+import { selectOptions } from "./shared.data.js";
+
 import "../styles/_index.scss";
 
-const options = [
-    { value: "Apple", label: "Apple" },
-    { value: "Samsung", label: "Samsung" },
-    { value: "Google", label: "Google" },
-    { value: "OnePlus", label: "OnePlus" },
-    { value: "Nokia", label: "Nokia" },
-    { value: "Annet", label: "Annet" },
-];
-
 const meta: Meta = {
-    title: "Beta/Select",
+    title: "Komponenter/Select/Select (Beta)",
     component: Select,
-    parameters: {
-        layout: "centered",
-    },
     args: {
         name: "Select",
         label: "Hvilket merke er telefonen?",
         description: "Du kan kun velge ett merke",
-        placeholder: "Velg",
-        required: false,
-        disabled: false,
-        children: options.map((option) => (
-            <option value={option.value} key={option.value}>
-                {option.label}
+        labelProps: {
+            srOnly: false,
+            variant: "small",
+        },
+        children: selectOptions.map(({ value, label }) => (
+            <option key={value} value={value}>
+                {label}
             </option>
         )),
     },
-    tags: ["autodocs", "forms"],
 };
 
 export default meta;
 
 type Story = StoryObj<typeof Select>;
 
-export const SelectStory: Story = {
-    name: "Select",
+export const Default: Story = {
+    args: {
+        value: undefined,
+    },
 };
 
-export const InvalidStory: Story = {
-    name: "Invalid Select",
-    args: {
-        required: true,
+export const FocusState: Story = {
+    play: async () => {
+        await userEvent.tab();
     },
-    tags: ["dev"],
+};
+
+export const ErrorState: Story = {
+    args: {
+        errorLabel: "Feilmelding",
+    },
+};
+
+export const HasValue: Story = {
+    args: {
+        value: "Apple",
+    },
 };
