@@ -36,7 +36,7 @@ export const Default: Story = {
     },
 };
 
-export const FocusState: Story = {
+export const KeyboardFocusState: Story = {
     play: async () => {
         await userEvent.tab();
     },
