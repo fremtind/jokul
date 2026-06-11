@@ -74,3 +74,28 @@ export const HasValue: Story = {
         value: autosuggestItems[2].label,
     },
 };
+
+export const OpenState: Story = {
+    args: {
+        isOpen: true,
+    },
+};
+
+export const FocusState: Story = {
+    play: async () => {
+        await userEvent.tab();
+        await userEvent.tab();
+    },
+};
+
+export const ErrorState: Story = {
+    args: {
+        errorLabel: "Feilmelding",
+    },
+};
+
+export const HasValue: Story = {
+    args: {
+        value: autosuggestItems[2].label,
+    },
+};
