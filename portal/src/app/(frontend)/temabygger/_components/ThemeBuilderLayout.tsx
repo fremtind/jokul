@@ -5,6 +5,8 @@ import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { type CSSProperties, type ReactNode, useMemo } from "react";
 import type { ColorTokens } from "../_context/ThemeDraftContext";
+import { useThemeDraft } from "../_context/ThemeDraftContext";
+import { getFontOption } from "../_lib/fontOptions";
 import type { ColorScheme } from "./ThemeBuilder";
 
 type ThemeBuilderLayoutProps = {
@@ -41,7 +43,18 @@ const ThemeBuilderLayoutPreview = ({
     colorScheme,
     tokens,
 }: ThemeBuilderLayoutPreviewProps) => {
-    const previewStyle = useMemo(() => buildPreviewStyle(tokens), [tokens]);
+    const { typography } = useThemeDraft();
+    const previewStyle = useMemo(() => {
+        const regularFont = getFontOption(typography.regularFont);
+        const displayFont = getFontOption(typography.displayFont);
+        return {
+            ...buildColorStyle(tokens),
+            "--jkl-font-family-regular": regularFont.font.family.regular,
+            "--jkl-font-family-display": displayFont.font.family.display,
+            "--jkl-font-weight-normal": regularFont.font.weight.normal,
+            "--jkl-font-weight-bold": regularFont.font.weight.bold,
+        } as CSSProperties;
+    }, [tokens, typography.regularFont, typography.displayFont]);
 
     return (
         <Card
@@ -77,13 +90,13 @@ export const ThemeBuilderLayout = Object.assign(ThemeBuilderLayoutRoot, {
     Form: ThemeBuilderLayoutForm,
 });
 
-function buildPreviewStyle(tokens: ColorTokens): CSSProperties {
+function buildColorStyle(tokens: ColorTokens): Record<string, string> {
     const style: Record<string, string> = {};
     for (const [group, roles] of Object.entries(tokens)) {
         for (const [role, token] of Object.entries(roles)) {
-            const value = `light-dark(${token.light}, ${token.dark})`;
-            style[`--jkl-color-${group}-${role}`] = value;
+            style[`--jkl-color-${group}-${role}`] =
+                `light-dark(${token.light}, ${token.dark})`;
         }
     }
-    return style as CSSProperties;
+    return style;
 }

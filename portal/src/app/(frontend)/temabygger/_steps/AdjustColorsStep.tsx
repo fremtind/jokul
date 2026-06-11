@@ -21,13 +21,14 @@ type ColorSchemeEditorProps = {
 };
 
 export function AdjustColorsStep() {
-    const { color } = useThemeDraft();
+    const { color, identity } = useThemeDraft();
     const colorTokenGroups = getEditableColorTokenGroups(color.tokens);
+    const themeName = identity.themeName.trim() || "distributøren";
 
     return (
         <StepCard>
             <Title as="h3" size="m">
-                Tilpass farger for &lt;Distributør&gt;
+                Tilpass farger for {themeName}
             </Title>
             <Flex direction="column" gap="40">
                 <ColorSchemeSection

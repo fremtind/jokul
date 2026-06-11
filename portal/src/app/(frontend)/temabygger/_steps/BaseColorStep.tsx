@@ -15,15 +15,16 @@ type BaseColorStepProps = {
 };
 
 export function BaseColorStep({ nextStepPath }: BaseColorStepProps) {
-    const { color } = useThemeDraft();
+    const { color, identity } = useThemeDraft();
     const [includeDarkMode, setIncludeDarkMode] = useState(true);
     const contrastToken = color.tokens.background.contrast;
+    const themeName = identity.themeName.trim() || "distributøren";
 
     return (
         <StepCard>
             <Flex direction="column" gap="8">
                 <Title as="h3" size="m">
-                    Fyll inn kontrastfargen til &lt;Distributør&gt;
+                    Fyll inn kontrastfargen til {themeName}
                 </Title>
                 <Text>
                     Vi bruker fargen som utgangspunkt til å generere et tema som
