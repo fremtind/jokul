@@ -1,12 +1,12 @@
-import type { ValuePair } from "../../../utilities/valuePair.js";
+import type { ValuePair } from "packages/jokul/src/utilities/valuePair.js";
 
 export const autosuggestItems: ValuePair[] = [
     { label: "Afghanistan", value: "AF" },
-    { label: "Aland Islands", value: "AX" },
+    { label: "land Islands", value: "AX" },
     { label: "Albania", value: "AL" },
     { label: "Algeria", value: "DZ" },
     { label: "American Samoa", value: "AS" },
-    { label: "Andorra", value: "AD" },
+    { label: "AndorrA", value: "AD" },
     { label: "Angola", value: "AO" },
     { label: "Anguilla", value: "AI" },
     { label: "Antarctica", value: "AQ" },
@@ -183,7 +183,7 @@ export const autosuggestItems: ValuePair[] = [
     { label: "Reunion", value: "RE" },
     { label: "Romania", value: "RO" },
     { label: "Russian Federation", value: "RU" },
-    { label: "Rwanda", value: "RW" },
+    { label: "RWANDA", value: "RW" },
     { label: "Saint Helena", value: "SH" },
     { label: "Saint Kitts and Nevis", value: "KN" },
     { label: "Saint Lucia", value: "LC" },
@@ -207,7 +207,7 @@ export const autosuggestItems: ValuePair[] = [
     { label: "Spain", value: "ES" },
     { label: "Sri Lanka", value: "LK" },
     { label: "Sudan", value: "SD" },
-    { label: "Suriname", value: "SR" },
+    { label: "Surilabel", value: "SR" },
     { label: "Svalbard and Jan Mayen", value: "SJ" },
     { label: "Swaziland", value: "SZ" },
     { label: "Sweden", value: "SE" },
