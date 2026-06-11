@@ -52,7 +52,7 @@ export const OpenState: Story = {
     },
 };
 
-export const FocusState: Story = {
+export const KeyboardFocusState: Story = {
     play: async () => {
         await userEvent.tab();
         await userEvent.tab();

@@ -42,13 +42,7 @@ export const Default: Story = {
     },
 };
 
-export const FocusState: Story = {
-    play: async () => {
-        await userEvent.tab();
-    },
-};
-
-export const OpenState: Story = {
+export const Open: Story = {
     play: async ({ canvasElement }) => {
         const canvas = within(canvasElement);
         const button = canvas.getByTestId("jkl-combobox__button");
@@ -56,7 +50,14 @@ export const OpenState: Story = {
     },
 };
 
+export const KeyboardFocus: Story = {
+    play: async () => {
+        await userEvent.tab();
+    },
+};
+
 export const ErrorState: Story = {
+    name: "Error",
     args: {
         errorLabel: "Feilmelding",
     },
