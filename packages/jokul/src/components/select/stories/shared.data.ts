@@ -1,0 +1,8 @@
+export const selectOptions = [
+    { value: "Apple", label: "Apple" },
+    { value: "Samsung", label: "Samsung" },
+    { value: "Google", label: "Google" },
+    { value: "OnePlus", label: "OnePlus" },
+    { value: "Nokia", label: "Nokia" },
+    { value: "Annet", label: "Annet" },
+];
