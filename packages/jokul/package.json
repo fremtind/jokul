@@ -19,6 +19,7 @@
         "./codemods",
         "./styles",
         "./src/fonts",
+        "./src/tokens/metadata",
         "./package.json"
     ],
     "bin": {
@@ -28,6 +29,7 @@
         "./package.json": "./package.json",
         "./styles/jkl": "./styles/jkl/_index.scss",
         "./styles/*": "./styles/*",
+        "./tokens/metadata/*": "./src/tokens/metadata/*",
         "./tailwind": {
             "import": {
                 "types": "./build/es/tailwind/index.d.ts",
