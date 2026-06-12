@@ -8,16 +8,15 @@ import {
     useMemo,
     useState,
 } from "react";
-// TODO(#6193): Importer ColorScheme fra "../generator/types" når PR er merget.
-import type { ColorScheme } from "../_components/ThemeBuilder";
 import { DEFAULT_FONT_OPTION_ID, type FontOptionId } from "../_lib/fontOptions";
-import { normalizeHex } from "../_lib/hexColor";
+import { isHex, normalizeHex } from "../_lib/hexColor";
+import { generatePalette } from "../generator/generate";
+import type { ColorScheme } from "../generator/types";
 
 // TODO(#6193): Erstatt ColorToken og ColorTokens med SimpleLightDarkPalette fra "../generator/types".
 export type ColorToken = Record<ColorScheme, string>;
 export type ColorTokens = Record<string, Record<string, ColorToken>>;
 
-// TODO(#6193): Fjern BASE_COLOR_TOKEN når applyBaseColor erstattes med generatePalette().
 const BASE_COLOR_TOKEN = {
     group: "background",
     role: "contrast",
@@ -29,8 +28,7 @@ const BASE_COLOR_TOKEN = {
 };
 
 /**
- * Midlertidige standardfarger.
- * TODO(#6193): Fjern når generatePalette() er tilgjengelig.
+ * Standardfarger før distributøren har valgt en egen kontrastfarge.
  */
 const INITIAL_COLOR_TOKENS = {
     background: {
@@ -166,7 +164,11 @@ export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
     const applyBaseColor = useCallback((nextValue: string) => {
         const normalizedHexValue = normalizeHex(nextValue);
 
-        // TODO(#6193): Erstatt med setColorTokens(generatePalette(normalizedHexValue)).
+        if (isHex(normalizedHexValue)) {
+            setColorTokens(generatePalette(normalizedHexValue));
+            return;
+        }
+
         setColorTokens((previousTokens) => {
             const { group, role, colorScheme } = BASE_COLOR_TOKEN;
             const baseToken = previousTokens[group]?.[role];

@@ -1,7 +1,10 @@
+import type { HexColor } from "../generator/types";
+
 const HEX_COLOR_PATTERN = /^#[0-9a-fA-F]{6}$/;
 
 /** Sann når verdien matcher `#RRGGBB`. Case-insensitiv ved input — `normalizeHex` uppercaser ved lagring. */
-export const isHex = (value: string): boolean => HEX_COLOR_PATTERN.test(value);
+export const isHex = (value: string): value is HexColor =>
+    HEX_COLOR_PATTERN.test(value);
 
 /** Stripper mellomrom og gjør om til store bokstaver — stabil form for lagring og sammenligning. */
 export const normalizeHex = (value: string): string =>
