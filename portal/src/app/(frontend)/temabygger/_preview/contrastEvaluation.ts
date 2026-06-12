@@ -2,6 +2,7 @@ import { ColorSpace, contrastWCAG21, sRGB } from "colorjs.io/fn";
 import { COLOR_SCHEMES } from "../_components/ThemeBuilder";
 import type { ColorToken, ColorTokens } from "../_context/ThemeDraftContext";
 import { isHex } from "../_lib/hexColor";
+import type { ColorScheme } from "../generator/types";
 
 const WCAG_TEXT_CONTRAST_AAA = 7;
 const WCAG_TEXT_CONTRAST_AA = 4.5;
@@ -57,7 +58,10 @@ type ContrastReference = {
 
 const EMPTY_COUNTS: RatingCounts = { AAA: 0, AA: 0, A: 0, "✕": 0 };
 
-export function countRatings(tokens: ColorTokens): RatingCounts {
+export function countRatings(
+    tokens: ColorTokens,
+    colorSchemes: readonly ColorScheme[] = COLOR_SCHEMES,
+): RatingCounts {
     const counts: RatingCounts = { ...EMPTY_COUNTS };
 
     for (const [group, roles] of Object.entries(tokens) as Array<
@@ -71,7 +75,7 @@ export function countRatings(tokens: ColorTokens): RatingCounts {
                 tokens[reference.againstGroup]?.[reference.againstRole];
             if (!referenceToken) continue;
 
-            for (const scheme of COLOR_SCHEMES) {
+            for (const scheme of colorSchemes) {
                 const evaluation = evaluateColorContrast(
                     token[scheme],
                     referenceToken[scheme],

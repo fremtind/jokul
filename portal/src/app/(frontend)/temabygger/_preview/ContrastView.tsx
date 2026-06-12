@@ -30,21 +30,29 @@ import {
 import styles from "./contrast-view.module.scss";
 
 type ContrastViewProps = {
+    includeDarkMode: boolean;
     tokens: ColorTokens;
 };
 
-export function ContrastView({ tokens }: ContrastViewProps) {
-    const counts = useMemo(() => countRatings(tokens), [tokens]);
+const LIGHT_COLOR_SCHEMES = ["light"] as const satisfies readonly ColorScheme[];
+
+export function ContrastView({ includeDarkMode, tokens }: ContrastViewProps) {
+    const colorSchemes = includeDarkMode ? COLOR_SCHEMES : LIGHT_COLOR_SCHEMES;
+    const counts = useMemo(
+        () => countRatings(tokens, colorSchemes),
+        [colorSchemes, tokens],
+    );
 
     return (
         <Flex direction="column" gap="2xl">
             <ContrastSummary counts={counts} />
-            <TokenTable tokens={tokens} />
+            <TokenTable colorSchemes={colorSchemes} tokens={tokens} />
         </Flex>
     );
 }
 
 type TokenTableProps = {
+    colorSchemes: readonly ColorScheme[];
     tokens: ColorTokens;
 };
 
@@ -54,7 +62,7 @@ type TokenTableItem = {
     token: ColorToken;
 };
 
-function TokenTable({ tokens }: TokenTableProps) {
+function TokenTable({ colorSchemes, tokens }: TokenTableProps) {
     const tokenList = useMemo(() => getTokenTableItems(tokens), [tokens]);
 
     return (
@@ -69,7 +77,7 @@ function TokenTable({ tokens }: TokenTableProps) {
                 <TableRow>
                     <TableHeader scope="col">group</TableHeader>
                     <TableHeader scope="col">role</TableHeader>
-                    {COLOR_SCHEMES.map((scheme) => (
+                    {colorSchemes.map((scheme) => (
                         <TableHeader key={scheme} scope="col">
                             {scheme}
                         </TableHeader>
@@ -93,7 +101,7 @@ function TokenTable({ tokens }: TokenTableProps) {
                             <TableCell data-th="role">
                                 <code>{role}</code>
                             </TableCell>
-                            {COLOR_SCHEMES.map((scheme) => (
+                            {colorSchemes.map((scheme) => (
                                 <TableCell key={scheme} data-th={scheme}>
                                     <TokenSwatch
                                         group={group}
