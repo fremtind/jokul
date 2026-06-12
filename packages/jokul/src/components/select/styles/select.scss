@@ -138,7 +138,6 @@
         &__options-menu {
             background-color: var(--jkl-color-background-container);
             border: jkl.rem(2px) solid var(--jkl-color-border-strong);
-            border-top: none;
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             box-sizing: border-box;
             // Strekker seg ut over kantene på trigger-knappen for å dekke
@@ -225,8 +224,6 @@
         &--open {
             .jkl-select__search-input,
             .jkl-select__button {
-                border-bottom-left-radius: 0;
-                border-bottom-right-radius: 0;
                 border-color: var(--jkl-color-border-strong);
                 background-color: var(--jkl-color-background-container);
                 box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-strong);
