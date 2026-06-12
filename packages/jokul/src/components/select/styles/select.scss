@@ -136,12 +136,6 @@
         }
 
         &__options-menu {
-            position: absolute;
-            left: jkl.rem(-1px);
-            right: jkl.rem(-1px);
-            top: 100%;
-            z-index: jkl.$z-index--dropdown;
-
             background-color: var(--jkl-color-background-container);
             border: jkl.rem(2px) solid var(--jkl-color-border-strong);
             border-top: none;
