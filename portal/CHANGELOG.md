@@ -1,5 +1,19 @@
 # portal
 
+## 1.7.5
+
+### Patch Changes
+
+- 78919bb: Flytter temabyggeren inn i Next-strukturen og setter opp steg, tokenredigering og preview.
+- a754c89: Kobler kontrastfargefeltet i temabyggeren til generering av fargeskala.
+- 2cc4ac7: Legger til `Accordion` rundt `ExpandablePanel`s der vi bruker dem i portalen, så de ikke får feil utseende.
+- 739153e: Legger til fontvalg i temabyggeren og bruker valgt font i forhåndsvisningen.
+- d94cfc1: Legger til funksjonalitet for generering av farger i temabyggeren
+- Updated dependencies [fcee378]
+- Updated dependencies [d83d84e]
+- Updated dependencies [76ba2fd]
+  - @fremtind/jokul@5.0.5
+
 ## 1.7.4
 
 ### Patch Changes

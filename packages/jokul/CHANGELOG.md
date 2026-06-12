@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.0.5
+
+### Patch Changes
+
+- fcee378: Legger til definisjoner av egenskapene til fargerollene i Jøkul (ikke varslingsfargene i første omgang), for å gjøre det lettere å generere fargetemaer.
+- d83d84e: Samkjører hjørneradius for Tooltip og Help, og gir Help samme padding som Tooltip.
+- 76ba2fd: Eksporterer metadata om fargetokens fra Jøkul for bruk i generering av farger
+
 ## 5.0.4
 
 ### Patch Changes
