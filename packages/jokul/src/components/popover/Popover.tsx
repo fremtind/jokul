@@ -7,6 +7,7 @@ import {
     flip,
     offset,
     shift,
+    size,
     useClick,
     useDismiss,
     useFloating,
@@ -30,6 +31,7 @@ const usePopover = ({
     offset: _offset = 4,
     positionReference,
     onPlacementChange,
+    matchReferenceWidth = false,
     hoverOptions,
     focusOptions,
     clickOptions,
@@ -50,6 +52,15 @@ const usePopover = ({
             offset(_offset),
             flip({ padding: 5, fallbackPlacements: ["bottom", "top"] }),
             shift({ padding: 12 }),
+            ...(matchReferenceWidth
+                ? [
+                      size({
+                          apply({ rects, elements }) {
+                              elements.floating.style.width = `${rects.reference.width}px`;
+                          },
+                      }),
+                  ]
+                : []),
         ],
         whileElementsMounted: autoUpdate,
     });

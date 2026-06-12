@@ -61,9 +61,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const labelId = `${listId}_label`;
         const buttonId = `${listId}_button`;
         const searchInputId = `${listId}_search-input`;
-        // Unik anchor-name som CSS anchor positioning bruker for å la
-        // dropdown-listen matche bredden til triggeren.
-        const anchorName = `--${listId.replace(/[^a-zA-Z0-9-]/g, "-")}-anchor`;
 
         const [dropdownIsShown, setShown] = useState(false);
         const toggleListVisibility = useCallback(() => {
@@ -547,6 +544,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                 offset={0}
                                 modal={false}
                                 onPlacementChange={handlePlacementChange}
+                                matchReferenceWidth
                                 clickOptions={{ enabled: false }}
                                 dismissOptions={{ enabled: false }}
                                 roleOptions={{ enabled: false }}
@@ -557,12 +555,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                         data-popover-placement={
                                             popoverPlacement
                                         }
-                                        style={
-                                            {
-                                                width,
-                                                anchorName,
-                                            } as CSSProperties
-                                        }
+                                        style={{ width }}
                                     >
                                         {isSearchable && (
                                             <input
@@ -657,9 +650,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                     initialFocus={-1}
                                     returnFocus={false}
                                     className="jkl-select__popover"
-                                    style={{
-                                        width: `anchor-size(${anchorName} width)`,
-                                    }}
                                 >
                                     <div
                                         id={listId}
