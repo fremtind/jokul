@@ -1,55 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { NativeSelect } from "../NativeSelect.js";
+import { userEvent } from "storybook/test";
+import { selectOptions } from "./shared.data.js";
+
 import "../styles/_index.scss";
 
 const meta: Meta = {
-    title: "Komponenter/Select/Native",
+    title: "Komponenter/Select/Select (Native)",
     component: NativeSelect,
-    argTypes: {
-        className: {
-            table: {
-                disable: true,
-            },
-        },
-        id: {
-            table: {
-                disable: true,
-            },
-        },
-        "data-testautoid": {
-            table: {
-                disable: true,
-            },
-        },
-        onBlur: {
-            table: {
-                disable: true,
-            },
-        },
-        onFocus: {
-            table: {
-                disable: true,
-            },
-        },
-        onChange: {
-            table: {
-                disable: true,
-            },
-        },
-        searchable: {
-            control: "boolean",
-        },
-    },
     args: {
         name: "Select",
         label: "Hvilket merke er telefonen?",
-        items: [
-            { value: "Apple", label: "Apple" },
-            { value: "Samsung", label: "Samsung" },
-            { value: "Google", label: "Google" },
-            { value: "OnePlus", label: "OnePlus" },
-            { value: "Nokia", label: "Nokia" },
-        ],
+        items: selectOptions,
         placeholder: "Velg merke",
         inline: false,
         invalid: false,
@@ -66,6 +28,26 @@ export default meta;
 
 type Story = StoryObj<typeof NativeSelect>;
 
-export const Native: Story = {
-    name: "Native Select",
+export const Default: Story = {
+    args: {
+        value: undefined,
+    },
+};
+
+export const KeyboardFocusState: Story = {
+    play: async () => {
+        await userEvent.tab();
+    },
+};
+
+export const ErrorState: Story = {
+    args: {
+        errorLabel: "Feilmelding",
+    },
+};
+
+export const HasValue: Story = {
+    args: {
+        value: "Apple",
+    },
 };
