@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import { Autosuggest } from "../Autosuggest.js";
 import { userEvent } from "storybook/test";
-import { autosuggestItems } from "./shared.data.js";
 import { Help } from "../../help/index.js";
+import { Autosuggest } from "../Autosuggest.js";
+import { autosuggestItems } from "./shared.data.js";
 
 import "../styles/_index.scss";
 
@@ -29,11 +29,15 @@ const meta = {
                 .map((item) => item.label),
         },
         tooltip: (
-                    <Help title="Hvorfor trenger vi dette?" buttonText="Hvorfor trenger vi dette?">
-                        Vi må vite om du var innenfor Norges landegrenser da skade skjedden, for å kunne vurdere kravet ditt.
-                    </Help>
-                ),
-                isOpen: false,
+            <Help
+                title="Hvorfor trenger vi dette?"
+                buttonText="Hvorfor trenger vi dette?"
+            >
+                Vi må vite om du var innenfor Norges landegrenser da skaden
+                skjedde, for å kunne vurdere kravet ditt.
+            </Help>
+        ),
+        isOpen: false,
     },
 } satisfies Meta<typeof Autosuggest>;
 
@@ -42,7 +46,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        value: undefined,
+        value: "",
     },
 };
 
