@@ -19,6 +19,7 @@ type ThemeBuilderLayoutSlotProps = {
 
 type ThemeBuilderLayoutPreviewProps = ThemeBuilderLayoutSlotProps & {
     colorScheme: ColorScheme;
+    includeDarkMode: boolean;
     tokens: ColorTokens;
 };
 
@@ -41,6 +42,7 @@ const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
 const ThemeBuilderLayoutPreview = ({
     children,
     colorScheme,
+    includeDarkMode,
     tokens,
 }: ThemeBuilderLayoutPreviewProps) => {
     const { typography } = useThemeDraft();
@@ -48,13 +50,18 @@ const ThemeBuilderLayoutPreview = ({
         const regularFont = getFontOption(typography.regularFont);
         const displayFont = getFontOption(typography.displayFont);
         return {
-            ...buildColorStyle(tokens),
+            ...buildColorStyle(tokens, includeDarkMode),
             "--jkl-font-family-regular": regularFont.font.family.regular,
             "--jkl-font-family-display": displayFont.font.family.display,
             "--jkl-font-weight-normal": regularFont.font.weight.normal,
             "--jkl-font-weight-bold": regularFont.font.weight.bold,
         } as CSSProperties;
-    }, [tokens, typography.regularFont, typography.displayFont]);
+    }, [
+        tokens,
+        includeDarkMode,
+        typography.regularFont,
+        typography.displayFont,
+    ]);
 
     return (
         <Card
@@ -90,12 +97,16 @@ export const ThemeBuilderLayout = Object.assign(ThemeBuilderLayoutRoot, {
     Form: ThemeBuilderLayoutForm,
 });
 
-function buildColorStyle(tokens: ColorTokens): Record<string, string> {
+function buildColorStyle(
+    tokens: ColorTokens,
+    includeDarkMode: boolean,
+): Record<string, string> {
     const style: Record<string, string> = {};
     for (const [group, roles] of Object.entries(tokens)) {
         for (const [role, token] of Object.entries(roles)) {
-            style[`--jkl-color-${group}-${role}`] =
-                `light-dark(${token.light}, ${token.dark})`;
+            style[`--jkl-color-${group}-${role}`] = includeDarkMode
+                ? `light-dark(${token.light}, ${token.dark})`
+                : token.light;
         }
     }
     return style;

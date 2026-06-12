@@ -5,7 +5,6 @@ import { Checkbox } from "@fremtind/jokul/checkbox";
 import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
 import Link from "next/link";
-import { useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { StepCard } from "./StepCard";
@@ -15,8 +14,7 @@ type BaseColorStepProps = {
 };
 
 export function BaseColorStep({ nextStepPath }: BaseColorStepProps) {
-    const { color, identity } = useThemeDraft();
-    const [includeDarkMode, setIncludeDarkMode] = useState(true);
+    const { color, identity, settings } = useThemeDraft();
     const contrastToken = color.tokens.background.contrast;
     const themeName = identity.themeName.trim() || "distributøren";
 
@@ -44,8 +42,10 @@ export function BaseColorStep({ nextStepPath }: BaseColorStepProps) {
             <Checkbox
                 name="includeDarkMode"
                 value="includeDarkMode"
-                checked={includeDarkMode}
-                onChange={(event) => setIncludeDarkMode(event.target.checked)}
+                checked={settings.includeDarkMode}
+                onChange={(event) =>
+                    settings.setIncludeDarkMode(event.target.checked)
+                }
             >
                 Lag tema for mørk modus, også
             </Checkbox>

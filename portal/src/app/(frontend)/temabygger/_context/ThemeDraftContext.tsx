@@ -108,9 +108,15 @@ type ThemeIdentityDraft = {
     setThemeName: (name: string) => void;
 };
 
+type ThemeSettingsDraft = {
+    includeDarkMode: boolean;
+    setIncludeDarkMode: (includeDarkMode: boolean) => void;
+};
+
 type ThemeDraftContextValue = {
     color: ThemeColorDraft;
     identity: ThemeIdentityDraft;
+    settings: ThemeSettingsDraft;
     typography: ThemeTypographyDraft;
 };
 
@@ -130,6 +136,7 @@ export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
         DEFAULT_FONT_OPTION_ID,
     );
     const [themeName, setThemeName] = useState("");
+    const [includeDarkMode, setIncludeDarkMode] = useState(true);
 
     const updateToken = useCallback(
         (
@@ -214,6 +221,10 @@ export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
                 themeName,
                 setThemeName,
             },
+            settings: {
+                includeDarkMode,
+                setIncludeDarkMode,
+            },
             typography: {
                 regularFont,
                 displayFont,
@@ -230,6 +241,7 @@ export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
         regularFont,
         displayFont,
         themeName,
+        includeDarkMode,
     ]);
 
     return (
