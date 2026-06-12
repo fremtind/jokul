@@ -21,7 +21,7 @@ type ColorSchemeEditorProps = {
 };
 
 export function AdjustColorsStep() {
-    const { color, identity } = useThemeDraft();
+    const { color, identity, settings } = useThemeDraft();
     const colorTokenGroups = getEditableColorTokenGroups(color.tokens);
     const themeName = identity.themeName.trim() || "distributøren";
 
@@ -31,17 +31,27 @@ export function AdjustColorsStep() {
                 Tilpass farger for {themeName}
             </Title>
             <Flex direction="column" gap="40">
-                <ColorSchemeSection
-                    title="Lyst modus"
-                    colorScheme="light"
-                    groups={colorTokenGroups}
-                    defaultOpenGroup="background"
-                />
-                <ColorSchemeSection
-                    title="Mørk modus"
-                    colorScheme="dark"
-                    groups={colorTokenGroups}
-                />
+                {settings.includeDarkMode ? (
+                    <>
+                        <ColorSchemeSection
+                            title="Lyst modus"
+                            colorScheme="light"
+                            groups={colorTokenGroups}
+                            defaultOpenGroup="background"
+                        />
+                        <ColorSchemeSection
+                            title="Mørk modus"
+                            colorScheme="dark"
+                            groups={colorTokenGroups}
+                        />
+                    </>
+                ) : (
+                    <ColorSchemeSection
+                        colorScheme="light"
+                        groups={colorTokenGroups}
+                        defaultOpenGroup="background"
+                    />
+                )}
             </Flex>
             <Message variant="warning" title="Informasjon">
                 Her kommer relevant informasjon.
@@ -59,7 +69,7 @@ export function AdjustColorsStep() {
 }
 
 type ColorSchemeSectionProps = ColorSchemeEditorProps & {
-    title: string;
+    title?: string;
 };
 
 function ColorSchemeSection({
@@ -70,7 +80,7 @@ function ColorSchemeSection({
 }: ColorSchemeSectionProps) {
     return (
         <Flex direction="column" gap="16">
-            <Text bold>{title}</Text>
+            {title && <Text bold>{title}</Text>}
             <ColorSchemeEditor
                 colorScheme={colorScheme}
                 groups={groups}

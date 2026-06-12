@@ -32,11 +32,13 @@ const COLOR_SCHEME_ICONS: Record<ColorScheme, string> = {
 
 type ThemePreviewProps = {
     colorScheme: ColorScheme;
+    includeDarkMode: boolean;
     onColorSchemeChange: (colorScheme: ColorScheme) => void;
 };
 
 export function ThemePreview({
     colorScheme,
+    includeDarkMode,
     onColorSchemeChange,
 }: ThemePreviewProps) {
     const { color } = useThemeDraft();
@@ -68,20 +70,25 @@ export function ThemePreview({
                         </SegmentedControlButton>
                     ))}
                 </SegmentedControl>
-                <Button
-                    type="button"
-                    variant="ghost"
-                    icon={<Icon>{COLOR_SCHEME_ICONS[colorScheme]}</Icon>}
-                    onClick={() => onColorSchemeChange(nextColorScheme)}
-                    aria-label={`Bytt til ${COLOR_SCHEME_LABELS[nextColorScheme].toLowerCase()}`}
-                >
-                    {COLOR_SCHEME_LABELS[colorScheme]}
-                </Button>
+                {includeDarkMode && (
+                    <Button
+                        type="button"
+                        variant="ghost"
+                        icon={<Icon>{COLOR_SCHEME_ICONS[colorScheme]}</Icon>}
+                        onClick={() => onColorSchemeChange(nextColorScheme)}
+                        aria-label={`Bytt til ${COLOR_SCHEME_LABELS[nextColorScheme].toLowerCase()}`}
+                    >
+                        {COLOR_SCHEME_LABELS[colorScheme]}
+                    </Button>
+                )}
             </Flex>
             {activeTab === "overview" ? (
                 <ExampleView />
             ) : (
-                <ContrastView tokens={color.tokens} />
+                <ContrastView
+                    includeDarkMode={includeDarkMode}
+                    tokens={color.tokens}
+                />
             )}
         </Flex>
     );
