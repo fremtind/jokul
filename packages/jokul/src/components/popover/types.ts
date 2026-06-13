@@ -77,6 +77,16 @@ export interface PopoverOptions {
      */
     onPlacementChange?: (placement: Placement) => void;
     /**
+     * Setter bredden på popoveren lik bredden på referanse-elementet.
+     * Referanse-elementet er vanligvis `Popover.Trigger`, men kan overstyres
+     * med `positionReference`.
+     *
+     * @see https://floating-ui.com/docs/size#match-reference-width
+     *
+     * @default false
+     */
+    matchReferenceWidth?: boolean;
+    /**
      * Options for hover-interaksjoner.
      *
      * @see https://floating-ui.com/docs/usehover
