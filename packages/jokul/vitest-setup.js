@@ -25,14 +25,16 @@ vi.mock("vitest-axe", async () => {
 
 const defaultResizeObserver = globalThis.ResizeObserver;
 
+class MockResizeObserver {
+    observe = vi.fn();
+    unobserve = vi.fn();
+    disconnect = vi.fn();
+}
+
 beforeAll(() => {
     // Framer Motion og Floating UI bruker ResizeObserver i koden sin,
     // men den finnes ikke i JSDOM. Mock den, slik at testene kjører.
-    globalThis.ResizeObserver = vi.fn().mockImplementation(() => ({
-        observe: vi.fn(),
-        unobserve: vi.fn(),
-        disconnect: vi.fn(),
-    }));
+    globalThis.ResizeObserver = MockResizeObserver;
 });
 
 afterEach(() => {
