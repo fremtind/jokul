@@ -10,7 +10,17 @@ type TextComponent = <As extends TextElement = "p">(
 export const Text: TextComponent = forwardRef(function Text<
     As extends TextElement = "p",
 >(
-    { as, className, size = "m", bold, short, srOnly, ...rest }: TextProps<As>,
+    {
+        as,
+        className,
+        size = "m",
+        bold,
+        short,
+        srOnly,
+        center,
+        subdued,
+        ...rest
+    }: TextProps<As>,
     ref?: PolymorphicRef<As>,
 ) {
     const Component = (as || "p") as React.ElementType;
@@ -20,6 +30,8 @@ export const Text: TextComponent = forwardRef(function Text<
             data-text-size={size}
             data-bold={bold || undefined}
             data-short={short || undefined}
+            data-center={center || undefined}
+            data-subdued={subdued || undefined}
             ref={ref}
             {...rest}
         />
