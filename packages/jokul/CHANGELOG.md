@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.7.4
+
+### Patch Changes
+
+- ce16ab5: Matcher bredden på Select-menyen mot triggeren med Floating UI sin size-middleware i stedet for CSS Anchor Positioning.
+
 ## 4.7.3
 
 ### Patch Changes
