@@ -60,5 +60,5 @@ jobs:
 
             -   name: Add preview link to summary
                 run: |
-                    echo "Storybook preview: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/" >> "$GITHUB_STEP_SUMMARY"
+                    echo "Storybook preview: https://fremtind.github.io/jokul/${{ env.PREVIEW_PATH }}/" >> "$GITHUB_STEP_SUMMARY"
                     echo "Commit: ${{ github.sha }}" >> "$GITHUB_STEP_SUMMARY"
