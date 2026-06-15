@@ -288,7 +288,7 @@ jobs:
                     header: preview
                     GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
                     message: |
-                        <span aria-hidden="true">✅</span> Forhåndsvisning: https://jokul.fremtind.no/${{ env.PREVIEW_PATH }}/
+                        <span aria-hidden="true">✅</span> Forhåndsvisning: https://fremtind.github.io/jokul/${{ env.PREVIEW_PATH }}/
                         <span aria-hidden="true">🔍</span> Commit: ${{ github.sha }}
 
                         Forhåndsvisningen blir tilgjengelig innen et par minutter. Den fjernes automatisk når pull requesten lukkes.
