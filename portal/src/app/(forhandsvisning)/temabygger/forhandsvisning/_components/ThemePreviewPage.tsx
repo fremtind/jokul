@@ -11,6 +11,7 @@ import { Message } from "@fremtind/jokul/message";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { useMemo, useState } from "react";
 import styles from "./theme-preview-page.module.scss";
+import { createColorTokenMailHref } from "@/app/(frontend)/temabygger/_shared/colorTokenMailHref";
 
 const DEFAULT_THEME_NAME = "<SpareBank 1>";
 
@@ -64,7 +65,15 @@ export function ThemePreviewPage() {
                                 godkjent før det sendes til Jøkul.
                             </Message>
                         </Flex>
-                        <Button type="button" variant="primary">
+                        <Button
+                            as="a"
+                            href={createColorTokenMailHref({
+                                themeName,
+                                colorTokens: color.tokens,
+                                includeDarkMode: settings.includeDarkMode,
+                            })}
+                            variant="primary"
+                        >
                             Send til Jøkul
                         </Button>
                     </Flex>
