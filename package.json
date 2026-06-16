@@ -133,7 +133,7 @@
         "browserslist": "^4.28.1",
         "clsx": "^2.1.1",
         "commitizen": "^4.3.1",
-        "esbuild": "^0.25.5",
+        "esbuild": "^0.28.1",
         "express": "^4.21.2",
         "express-http-proxy": "^2.1.1",
         "gh-pages": "5.0.0",
@@ -146,7 +146,7 @@
         "stylelint": "^16.23.1",
         "tiny-glob": "^0.2.9",
         "typescript": "^5.9.2",
-        "vite": "^7.3.2"
+        "vite": "^7.3.5"
     },
     "browserslist": [
         ">0.2% in no",
