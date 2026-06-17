@@ -5,6 +5,7 @@ import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
 import { Message } from "@fremtind/jokul/message";
 import { Text, Title } from "@fremtind/jokul/typography";
+import Link from "next/link";
 import { ColorTokenField } from "../_components/ColorTokenField";
 import type { ColorScheme } from "../_components/ThemeBuilder";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
@@ -13,6 +14,7 @@ import {
     type EditableColorTokenGroup,
     getEditableColorTokenGroups,
 } from "./colorTokenMetadata";
+import { THEME_BUILDER_ROUTES } from "./stepConfig";
 
 type ColorSchemeEditorProps = {
     colorScheme: ColorScheme;
@@ -21,7 +23,7 @@ type ColorSchemeEditorProps = {
 };
 
 export function AdjustColorsStep() {
-    const { color, identity, settings } = useThemeDraft();
+    const { color, identity, saveThemeDraft, settings } = useThemeDraft();
     const colorTokenGroups = getEditableColorTokenGroups(color.tokens);
     const themeName = identity.themeName.trim() || "distributøren";
 
@@ -61,7 +63,14 @@ export function AdjustColorsStep() {
                 alignItems="center"
                 wrap="wrap"
             >
-                <Button variant="primary">Send tokens</Button>
+                <Button
+                    as={Link}
+                    href={THEME_BUILDER_ROUTES.preview}
+                    onClick={saveThemeDraft}
+                    variant="primary"
+                >
+                    Forhåndsvis tema
+                </Button>
                 <Button variant="ghost">Del visning</Button>
             </Flex>
         </StepCard>
