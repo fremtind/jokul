@@ -1,0 +1,20 @@
+@use "@fremtind/jokul/styles/theme/fonts" with (
+    $webfonts-dir: "/fonts"
+);
+@use "@fremtind/jokul/styles/base";
+@use "@fremtind/jokul/styles/components";
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    --max-width: 1440px;
+    --min-width: 320px;
+    background-color: var(--jkl-color-background-page);
+    min-height: 100dvh;
+}

@@ -1,4 +1,4 @@
-import "./global.scss";
+import "./theme-fonts.scss";
 import { ThemeBuilder } from "./_components/ThemeBuilder";
 import { ThemeDraftProvider } from "./_context/ThemeDraftContext";
 

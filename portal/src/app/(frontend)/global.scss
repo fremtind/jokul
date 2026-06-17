@@ -1,24 +1,5 @@
-@use "@fremtind/jokul/styles/theme/fonts" with (
-    $webfonts-dir: "/fonts"
-);
-@use "@fremtind/jokul/styles/base";
-@use "@fremtind/jokul/styles/components";
+@use "../base";
 @use "@fremtind/jokul/styles/jkl";
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    --max-width: 1440px;
-    --min-width: 320px;
-    background-color: var(--jkl-color-background-page);
-    min-height: 100dvh;
-}
 
 .jkl-portal-layout {
     --portal-header-height: #{jkl.rem(80px)};
