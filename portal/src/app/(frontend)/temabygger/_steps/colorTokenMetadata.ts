@@ -1,9 +1,12 @@
-import type { ColorToken, ColorTokens } from "../_context/ThemeDraftContext";
+import type {
+    ThemeDraftColorTokenValue,
+    ThemeDraftColorTokensState,
+} from "../_context/types";
 
 export type EditableColorToken = {
     group: string;
     role: string;
-    token: ColorToken;
+    token: ThemeDraftColorTokenValue;
     label: string;
     description?: string;
 };
@@ -86,12 +89,12 @@ const COLOR_TOKEN_METADATA: Record<string, ColorTokenMetadata> = {
 };
 
 export function getEditableColorTokenGroups(
-    colorTokens: ColorTokens,
+    colorTokens: ThemeDraftColorTokensState,
 ): EditableColorTokenGroup[] {
     const groups = new Map<string, EditableColorToken[]>();
 
     for (const [group, roles] of Object.entries(colorTokens) as Array<
-        [string, Record<string, ColorToken>]
+        [string, Record<string, ThemeDraftColorTokenValue>]
     >) {
         for (const [role, token] of Object.entries(roles)) {
             const groupId = getTokenGroupId(group, role);

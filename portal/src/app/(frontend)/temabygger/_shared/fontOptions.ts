@@ -70,3 +70,7 @@ export const FONT_SELECT_OPTIONS = Object.entries(FONT_OPTIONS).map(
 export function getFontOption(id: FontOptionId): FontOption {
     return FONT_OPTIONS[id];
 }
+
+export function isFontOptionId(value: unknown): value is FontOptionId {
+    return typeof value === "string" && value in FONT_OPTIONS;
+}
