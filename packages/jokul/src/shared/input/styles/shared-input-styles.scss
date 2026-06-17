@@ -39,7 +39,6 @@
     }
 
     &[data-invalid="true"]:not(:focus-within):not(:has([data-focused="true"])) {
-        --background-color: var(--jkl-color-error-background-container);
         --text-color: var(--jkl-color-error-text-default);
         --border-color: var(--jkl-color-error-border-default);
         --placeholder-color: var(--jkl-color-error-text-subdued);

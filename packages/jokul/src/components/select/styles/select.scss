@@ -11,7 +11,8 @@
         --min-option-height: min(var(--jkl-unit-60), #{jkl.rem(48px)});
 
         /* Vi må trekke fra bredden til rammen for å få riktig høyde */
-        --button-padding: calc(var(--jkl-unit-15) - var(--border-width)) calc(0.75em - var(--border-width));
+        --button-padding: calc(var(--jkl-unit-15) - var(--border-width))
+            calc(0.75em - var(--border-width));
         --option-padding: var(--jkl-unit-10);
 
         display: block;
@@ -127,8 +128,10 @@
             transition-property: transform, color;
 
             @include jkl.motion;
-            @include jkl.forced-colors-svg-fallback($stroke: CanvasText,
-                $fill: CanvasText);
+            @include jkl.forced-colors-svg-fallback(
+                $stroke: CanvasText,
+                $fill: CanvasText
+            );
 
             .jkl-select:has([aria-invalid="true"]) & {
                 color: var(--jkl-color-error-text-default);
@@ -152,14 +155,18 @@
 
             overflow-y: auto;
             // Sett makshøyde på listen til høyden av (maxShownOptions + 0.5) ganger høyden på ett enlinjes valg
-            max-height: calc(calc(var(--jkl-select-max-shown-options, 5) + 0.5) * var(--min-option-height));
+            max-height: calc(
+                calc(var(--jkl-select-max-shown-options, 5) + 0.5) *
+                    var(--min-option-height)
+            );
 
             // Standard: lista ligger under triggeren — flat topp, runde
             // bunnhjørner, ingen border på toppen som ville duplisert
             // knappens border.
             &[data-popover-placement="bottom"] {
                 border-top: none;
-                border-radius: 0 0 var(--jkl-border-radius-s) var(--jkl-border-radius-s);
+                border-radius: 0 0 var(--jkl-border-radius-s)
+                    var(--jkl-border-radius-s);
             }
 
             // Når `flip` snur lista over knappen byttes flat side og runde
@@ -167,7 +174,8 @@
             // visuelt.
             &[data-popover-placement="top"] {
                 border-bottom: none;
-                border-radius: var(--jkl-border-radius-s) var(--jkl-border-radius-s) 0 0;
+                border-radius: var(--jkl-border-radius-s)
+                    var(--jkl-border-radius-s) 0 0;
             }
         }
 
@@ -255,8 +263,8 @@
         &--invalid {
             .jkl-select__search-input,
             .jkl-select__button {
-                background-color: var(--jkl-color-error-background-container);
-                color: var(--jkl-color-error-text-subdued);
+                color: var(--jkl-color-error-text-default);
+                border-color: var(--jkl-color-error-border-default);
 
                 &--active-value {
                     color: revert;
@@ -265,7 +273,6 @@
         }
 
         @include jkl.forced-colors-mode {
-
             // Vi er en button (hvis ikke native) og får ButtonText, men vi later som vi er en select, og den har CanvasText
             & .jkl-select__button,
             & .jkl-select__search-input {
@@ -320,7 +327,9 @@
     // animasjonsvinduet, og lista ville blinket i (0,0).
     @media (prefers-reduced-motion: no-preference) {
         .jkl-select__options-menu {
-            animation: jkl-select-options-menu-in var(--jkl-motion-timing-snappy) var(--jkl-motion-easing-standard);
+            animation: jkl-select-options-menu-in
+                var(--jkl-motion-timing-snappy)
+                var(--jkl-motion-easing-standard);
 
             // Når lista flippes opp animerer vi fra motsatt retning slik
             // at bevegelsen alltid kommer fra triggeren.

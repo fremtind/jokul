@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
-import { CheckboxPanel as CheckboxPanelComponent } from "../CheckboxPanel.js";
-import "../styles/_index.scss";
 import { Button } from "../../button/index.js";
 import { Flex } from "../../flex/index.js";
 import { FieldGroup } from "../../input-group/index.js";
+import { CheckboxPanel as CheckboxPanelComponent } from "../CheckboxPanel.js";
 
 const meta = {
     title: "Komponenter/CheckboxPanel",
@@ -29,7 +28,6 @@ const meta = {
 } satisfies Meta<typeof CheckboxPanelComponent>;
 
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
 export const CheckboxPanelStory: Story = {};
