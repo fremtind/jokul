@@ -4,9 +4,16 @@ import { TabListener } from "@/components/TabListener";
 import { Footer, Header } from "@/components/layout";
 import { SanityLive } from "@/sanity/lib/live";
 import { CookiesNextProvider } from "cookies-next";
+import type { Metadata } from "next";
 import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
 import "./global.scss";
+
+export const metadata: Metadata = {
+    title: "Jøkul – Fremtinds designsystem",
+    description:
+        "Jøkul er Fremtinds designsystem for å bygge enkle og helhetlige brukeropplevelser.",
+};
 
 interface Props {
     children: React.ReactNode;
