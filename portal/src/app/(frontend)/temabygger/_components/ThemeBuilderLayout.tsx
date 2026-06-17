@@ -3,10 +3,10 @@
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
-import { type CSSProperties, type ReactNode, useMemo } from "react";
-import type { ColorTokens } from "../_context/ThemeDraftContext";
+import { type ReactNode, useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import { getFontOption } from "../_lib/fontOptions";
+import type { ThemeDraftColorTokensState } from "../_context/types";
+import { buildThemePreviewStyle } from "../_shared/previewStyle";
 import type { ColorScheme } from "./ThemeBuilder";
 
 type ThemeBuilderLayoutProps = {
@@ -20,7 +20,7 @@ type ThemeBuilderLayoutSlotProps = {
 type ThemeBuilderLayoutPreviewProps = ThemeBuilderLayoutSlotProps & {
     colorScheme: ColorScheme;
     includeDarkMode: boolean;
-    tokens: ColorTokens;
+    tokens: ThemeDraftColorTokensState;
 };
 
 const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
@@ -47,15 +47,12 @@ const ThemeBuilderLayoutPreview = ({
 }: ThemeBuilderLayoutPreviewProps) => {
     const { typography } = useThemeDraft();
     const previewStyle = useMemo(() => {
-        const regularFont = getFontOption(typography.regularFont);
-        const displayFont = getFontOption(typography.displayFont);
-        return {
-            ...buildColorStyle(tokens, includeDarkMode),
-            "--jkl-font-family-regular": regularFont.font.family.regular,
-            "--jkl-font-family-display": displayFont.font.family.display,
-            "--jkl-font-weight-normal": regularFont.font.weight.normal,
-            "--jkl-font-weight-bold": regularFont.font.weight.bold,
-        } as CSSProperties;
+        return buildThemePreviewStyle({
+            tokens,
+            includeDarkMode,
+            regularFont: typography.regularFont,
+            displayFont: typography.displayFont,
+        });
     }, [
         tokens,
         includeDarkMode,
@@ -96,18 +93,3 @@ export const ThemeBuilderLayout = Object.assign(ThemeBuilderLayoutRoot, {
     Preview: ThemeBuilderLayoutPreview,
     Form: ThemeBuilderLayoutForm,
 });
-
-function buildColorStyle(
-    tokens: ColorTokens,
-    includeDarkMode: boolean,
-): Record<string, string> {
-    const style: Record<string, string> = {};
-    for (const [group, roles] of Object.entries(tokens)) {
-        for (const [role, token] of Object.entries(roles)) {
-            style[`--jkl-color-${group}-${role}`] = includeDarkMode
-                ? `light-dark(${token.light}, ${token.dark})`
-                : token.light;
-        }
-    }
-    return style;
-}
