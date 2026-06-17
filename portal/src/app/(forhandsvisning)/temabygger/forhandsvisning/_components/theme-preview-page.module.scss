@@ -1,0 +1,12 @@
+.page {
+    min-height: 100dvh;
+    background-color: var(--jkl-color-background-page);
+}
+
+.main {
+    padding: var(--jkl-spacing-24);
+
+    @media (width >= 940px) {
+        padding: var(--jkl-spacing-64);
+    }
+}

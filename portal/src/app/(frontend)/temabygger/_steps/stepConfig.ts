@@ -1,20 +1,25 @@
+export const THEME_BUILDER_ROUTES = {
+    root: "/temabygger",
+    preview: "/temabygger/forhandsvisning",
+} as const;
+
 export const THEME_BUILDER_STEPS = [
     {
         id: "identitet",
         slug: "identitet",
-        path: "/temabygger/identitet",
+        path: `${THEME_BUILDER_ROUTES.root}/identitet`,
         label: "Identitet",
     },
     {
         id: "baseColor",
         slug: "grunnfarge",
-        path: "/temabygger/grunnfarge",
+        path: `${THEME_BUILDER_ROUTES.root}/grunnfarge`,
         label: "Grunnfarge",
     },
     {
         id: "colors",
         slug: "farger",
-        path: "/temabygger/farger",
+        path: `${THEME_BUILDER_ROUTES.root}/farger`,
         label: "Farger",
     },
 ] as const;
