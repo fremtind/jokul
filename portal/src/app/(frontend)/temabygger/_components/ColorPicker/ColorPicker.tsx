@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { isHex } from "../../_lib/hexColor";
+import { isHex } from "../../_shared/utils";
 import styles from "./color-picker.module.scss";
 
 const FALLBACK_COLOR = "#000000";

@@ -1,7 +1,10 @@
 import { ColorSpace, contrastWCAG21, sRGB } from "colorjs.io/fn";
 import { COLOR_SCHEMES } from "../_components/ThemeBuilder";
-import type { ColorToken, ColorTokens } from "../_context/ThemeDraftContext";
-import { isHex } from "../_lib/hexColor";
+import type {
+    ThemeDraftColorTokenValue,
+    ThemeDraftColorTokensState,
+} from "../_context/types";
+import { isHex } from "../_shared/utils";
 import type { ColorScheme } from "../generator/types";
 
 const WCAG_TEXT_CONTRAST_AAA = 7;
@@ -59,20 +62,24 @@ type ContrastReference = {
 const EMPTY_COUNTS: RatingCounts = { AAA: 0, AA: 0, A: 0, "✕": 0 };
 
 export function countRatings(
-    tokens: ColorTokens,
+    tokens: ThemeDraftColorTokensState,
     colorSchemes: readonly ColorScheme[] = COLOR_SCHEMES,
 ): RatingCounts {
     const counts: RatingCounts = { ...EMPTY_COUNTS };
+    const tokenLookup = tokens as Record<
+        string,
+        Record<string, ThemeDraftColorTokenValue>
+    >;
 
     for (const [group, roles] of Object.entries(tokens) as Array<
-        [string, Record<string, ColorToken>]
+        [string, Record<string, ThemeDraftColorTokenValue>]
     >) {
         for (const [role, token] of Object.entries(roles)) {
             const reference = contrastReference(group, role);
             if (!reference) continue;
 
             const referenceToken =
-                tokens[reference.againstGroup]?.[reference.againstRole];
+                tokenLookup[reference.againstGroup]?.[reference.againstRole];
             if (!referenceToken) continue;
 
             for (const scheme of colorSchemes) {

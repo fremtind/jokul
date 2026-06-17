@@ -17,7 +17,10 @@ import { Tag } from "@fremtind/jokul/tag";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { type CSSProperties, useMemo, useState } from "react";
 import { COLOR_SCHEMES, type ColorScheme } from "../_components/ThemeBuilder";
-import type { ColorToken, ColorTokens } from "../_context/ThemeDraftContext";
+import type {
+    ThemeDraftColorTokenValue,
+    ThemeDraftColorTokensState,
+} from "../_context/types";
 import {
     type ContrastEvaluation,
     type ContrastRating,
@@ -31,7 +34,7 @@ import styles from "./contrast-view.module.scss";
 
 type ContrastViewProps = {
     includeDarkMode: boolean;
-    tokens: ColorTokens;
+    tokens: ThemeDraftColorTokensState;
 };
 
 const LIGHT_COLOR_SCHEMES = ["light"] as const satisfies readonly ColorScheme[];
@@ -53,17 +56,21 @@ export function ContrastView({ includeDarkMode, tokens }: ContrastViewProps) {
 
 type TokenTableProps = {
     colorSchemes: readonly ColorScheme[];
-    tokens: ColorTokens;
+    tokens: ThemeDraftColorTokensState;
 };
 
 type TokenTableItem = {
     group: string;
     role: string;
-    token: ColorToken;
+    token: ThemeDraftColorTokenValue;
 };
 
 function TokenTable({ colorSchemes, tokens }: TokenTableProps) {
     const tokenList = useMemo(() => getTokenTableItems(tokens), [tokens]);
+    const tokenLookup = tokens as Record<
+        string,
+        Record<string, ThemeDraftColorTokenValue>
+    >;
 
     return (
         <Table
@@ -88,7 +95,7 @@ function TokenTable({ colorSchemes, tokens }: TokenTableProps) {
                 {tokenList.map(({ group, role, token }) => {
                     const reference = contrastReference(group, role);
                     const referenceToken = reference
-                        ? tokens[reference.againstGroup]?.[
+                        ? tokenLookup[reference.againstGroup]?.[
                               reference.againstRole
                           ]
                         : undefined;
@@ -134,7 +141,9 @@ function TokenTable({ colorSchemes, tokens }: TokenTableProps) {
     );
 }
 
-function getTokenTableItems(tokens: ColorTokens): TokenTableItem[] {
+function getTokenTableItems(
+    tokens: ThemeDraftColorTokensState,
+): TokenTableItem[] {
     return Object.entries(tokens).flatMap(([group, roles]) =>
         Object.entries(roles).map(([role, token]) => ({
             group,
@@ -145,9 +154,9 @@ function getTokenTableItems(tokens: ColorTokens): TokenTableItem[] {
 }
 
 function evaluateContrastFor(
-    token: ColorToken,
+    token: ThemeDraftColorTokenValue,
     reference: ReturnType<typeof contrastReference>,
-    referenceToken: ColorToken | undefined,
+    referenceToken: ThemeDraftColorTokenValue | undefined,
     colorScheme: ColorScheme,
 ) {
     if (!reference || !referenceToken) return undefined;

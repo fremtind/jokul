@@ -3,12 +3,13 @@
 import { Flex } from "@fremtind/jokul/flex";
 import { TextInput } from "@fremtind/jokul/text-input";
 import type { ColorScheme } from "../_components/ThemeBuilder";
-import { type ColorToken, useThemeDraft } from "../_context/ThemeDraftContext";
-import { hexErrorLabel } from "../_lib/hexColor";
+import { useThemeDraft } from "../_context/ThemeDraftContext";
+import type { ThemeDraftColorTokenValue } from "../_context/types";
+import { hexErrorLabel } from "../_shared/utils";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
 
 type ColorTokenFieldProps = {
-    token: ColorToken;
+    token: ThemeDraftColorTokenValue;
     group: string;
     tokenRole: string;
     colorScheme: ColorScheme;

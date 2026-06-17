@@ -61,12 +61,19 @@ export type Palette = PaletteShaped<Color>;
 /** En forenklet palett der hver rolle kun inneholder en hex-fargestreng. */
 export type SimplePalette = PaletteShaped<HexColor>;
 
+export type LightDarkPalette<T = HexColor> = PaletteShaped<
+    Record<ColorScheme, T>
+>;
+
+/**
+ * Palett-shape for redigerbar fargestate. Verdiene er `string`, ikke
+ * `HexColor`, fordi tekstfeltene må kunne holde midlertidig ugyldige verdier.
+ */
+export type EditableLightDarkPalette = LightDarkPalette<string>;
+
 /**
  * En forenklet palett der hver rolle inneholder to hex-farger —
  * én for lyst tema og én for mørkt tema. Brukes som det endelige
  * resultatet fra palettgeneratoren.
  */
-export type SimpleLightDarkPalette = PaletteShaped<{
-    light: HexColor;
-    dark: HexColor;
-}>;
+export type SimpleLightDarkPalette = LightDarkPalette<HexColor>;

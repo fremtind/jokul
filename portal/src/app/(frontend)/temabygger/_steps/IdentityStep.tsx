@@ -7,7 +7,7 @@ import { TextInput } from "@fremtind/jokul/text-input";
 import { Title } from "@fremtind/jokul/typography";
 import Link from "next/link";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import { FONT_SELECT_OPTIONS, type FontOptionId } from "../_lib/fontOptions";
+import { FONT_SELECT_OPTIONS, type FontOptionId } from "../_shared/fontOptions";
 import { StepCard } from "./StepCard";
 
 type IdentityStepProps = {
