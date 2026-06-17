@@ -5,20 +5,19 @@ import { FieldGroup } from "../../input-group/index.js";
 import { RadioButton } from "../RadioButton.js";
 import BaseRadioStory from "./BaseRadioButton.stories.js";
 
-import "../styles/_index.scss";
-
-const meta: Meta = {
+const meta = {
     title: "Komponenter/Radio Button",
     component: RadioButton,
     args: {
         ...BaseRadioStory.args,
         children: "Radio button",
+        value: "radio-button",
     },
 } satisfies Meta<typeof RadioButton>;
 
 export default meta;
 
-type Story = StoryObj<typeof RadioButton>;
+type Story = StoryObj<typeof meta>;
 
 export const RadioButtonStory: Story = {
     name: "Radio Button",

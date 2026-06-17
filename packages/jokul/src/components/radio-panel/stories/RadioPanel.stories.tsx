@@ -10,8 +10,6 @@ import { Tag } from "../../tag/index.js";
 import { Text, Title } from "../../typography/index.js";
 import { RadioPanel as RadioPanelComponent } from "../RadioPanel.js";
 
-import "../styles/_index.scss";
-
 const meta = {
     title: "Komponenter/RadioPanel",
     component: RadioPanelComponent,
@@ -35,7 +33,6 @@ const meta = {
 } satisfies Meta<typeof RadioPanelComponent>;
 
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
 export const RadioPanel: Story = {};

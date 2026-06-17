@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { BaseRadioButton as BaseRadioButtonComponent } from "../BaseRadioButton.js";
-import "../styles/_index.scss";
 
 const meta: Meta = {
     title: "Komponenter/Radio Button/Base Radio Button",

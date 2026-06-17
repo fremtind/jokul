@@ -408,6 +408,7 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                     tabIndex={-1}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
+                    data-invalid={!!errorLabel || invalid}
                 >
                     <div
                         className="jkl-combobox__chips"
