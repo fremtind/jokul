@@ -4,6 +4,7 @@ import {
     createContext,
     useCallback,
     useContext,
+    useEffect,
     useMemo,
     useState,
 } from "react";
@@ -12,6 +13,10 @@ import {
     type FontOptionId,
 } from "../_shared/fontOptions";
 import { isHex, normalizeHex } from "../_shared/utils";
+import {
+    getStoredThemeDraft,
+    setStoredThemeDraft,
+} from "../_storage/themeDraftStorage";
 import { generatePalette } from "../generator/generate";
 import type { ColorScheme } from "../generator/types";
 import { INITIAL_COLOR_TOKENS } from "./initialColorTokens";
@@ -21,6 +26,8 @@ import type {
     ThemeDraftContextState,
     ThemeDraftProviderProps,
 } from "./types";
+
+const DRAFT_SAVE_DELAY_MS = 250;
 
 const ThemeDraftContext = createContext<ThemeDraftContextState | null>(null);
 
@@ -35,6 +42,54 @@ export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
     );
     const [themeName, setThemeName] = useState("");
     const [includeDarkMode, setIncludeDarkMode] = useState(true);
+    const [storageLoaded, setStorageLoaded] = useState(false);
+    const saveThemeDraft = useCallback(() => {
+        if (!storageLoaded) {
+            return;
+        }
+
+        setStoredThemeDraft({
+            colorTokens,
+            regularFont,
+            displayFont,
+            themeName,
+            includeDarkMode,
+        });
+    }, [
+        colorTokens,
+        displayFont,
+        includeDarkMode,
+        regularFont,
+        storageLoaded,
+        themeName,
+    ]);
+
+    useEffect(() => {
+        const storedDraft = getStoredThemeDraft();
+
+        if (storedDraft) {
+            setColorTokens(storedDraft.colorTokens);
+            setRegularFont(storedDraft.regularFont);
+            setDisplayFont(storedDraft.displayFont);
+            setThemeName(storedDraft.themeName);
+            setIncludeDarkMode(storedDraft.includeDarkMode);
+        }
+
+        setStorageLoaded(true);
+    }, []);
+
+    useEffect(() => {
+        if (!storageLoaded) {
+            return;
+        }
+
+        const timeoutId = window.setTimeout(
+            saveThemeDraft,
+            DRAFT_SAVE_DELAY_MS,
+        );
+
+        return () => window.clearTimeout(timeoutId);
+    }, [saveThemeDraft, storageLoaded]);
 
     const updateToken = useCallback(
         (
@@ -116,6 +171,7 @@ export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
                 themeName,
                 setThemeName,
             },
+            saveThemeDraft,
             settings: {
                 includeDarkMode,
                 setIncludeDarkMode,
@@ -136,6 +192,7 @@ export function ThemeDraftProvider({ children }: ThemeDraftProviderProps) {
         displayFont,
         themeName,
         includeDarkMode,
+        saveThemeDraft,
     ]);
 
     return (

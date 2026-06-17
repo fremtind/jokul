@@ -37,6 +37,7 @@ export type ThemeDraftSettingsState = {
 export type ThemeDraftContextState = {
     color: ThemeDraftColorState;
     identity: ThemeDraftIdentityState;
+    saveThemeDraft: () => void;
     settings: ThemeDraftSettingsState;
     typography: ThemeDraftTypographyState;
 };
