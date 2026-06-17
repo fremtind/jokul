@@ -109,6 +109,7 @@ function ColorSchemeEditor({
             {groups.map((group) => (
                 <ExpandablePanel
                     key={group.id}
+                    name={colorScheme}
                     defaultOpen={group.id === defaultOpenGroup}
                 >
                     <ExpandablePanel.Header>
