@@ -15,7 +15,7 @@ type IdentityStepProps = {
 };
 
 export function IdentityStep({ nextStepPath }: IdentityStepProps) {
-    const { identity, typography } = useThemeDraft();
+    const { draft, dispatch } = useThemeDraft();
 
     return (
         <StepCard>
@@ -28,9 +28,12 @@ export function IdentityStep({ nextStepPath }: IdentityStepProps) {
                     description="Brukes til å navngi fila di"
                     name="themeName"
                     width="100%"
-                    value={identity.themeName}
+                    value={draft.themeName}
                     onChange={(event) =>
-                        identity.setThemeName(event.target.value)
+                        dispatch({
+                            type: "SET_THEME_NAME",
+                            themeName: event.target.value,
+                        })
                     }
                 />
                 <Select
@@ -38,11 +41,12 @@ export function IdentityStep({ nextStepPath }: IdentityStepProps) {
                     label="Velg font"
                     items={FONT_SELECT_OPTIONS}
                     width="100%"
-                    value={typography.regularFont}
+                    value={draft.regularFont}
                     onChange={(event) =>
-                        typography.setRegularFont(
-                            event.target.value as FontOptionId,
-                        )
+                        dispatch({
+                            type: "SET_REGULAR_FONT",
+                            font: event.target.value as FontOptionId,
+                        })
                     }
                 />
                 <Select
@@ -51,11 +55,12 @@ export function IdentityStep({ nextStepPath }: IdentityStepProps) {
                     description="Brukes til store overskrifter"
                     items={FONT_SELECT_OPTIONS}
                     width="100%"
-                    value={typography.displayFont}
+                    value={draft.displayFont}
                     onChange={(event) =>
-                        typography.setDisplayFont(
-                            event.target.value as FontOptionId,
-                        )
+                        dispatch({
+                            type: "SET_DISPLAY_FONT",
+                            font: event.target.value as FontOptionId,
+                        })
                     }
                 />
             </Flex>

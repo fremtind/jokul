@@ -1,11 +1,8 @@
 import { ColorSpace, contrastWCAG21, sRGB } from "colorjs.io/fn";
 import { COLOR_SCHEMES } from "../_components/ThemeBuilder";
-import type {
-    ThemeDraftColorTokenValue,
-    ThemeDraftColorTokensState,
-} from "../_context/types";
+import type { ThemeDraftColorTokenValue } from "../_context/types";
 import { isHex } from "../_shared/utils";
-import type { ColorScheme } from "../generator/types";
+import type { ColorScheme, EditableLightDarkPalette } from "../generator/types";
 
 const WCAG_TEXT_CONTRAST_AAA = 7;
 const WCAG_TEXT_CONTRAST_AA = 4.5;
@@ -62,7 +59,7 @@ type ContrastReference = {
 const EMPTY_COUNTS: RatingCounts = { AAA: 0, AA: 0, A: 0, "✕": 0 };
 
 export function countRatings(
-    tokens: ThemeDraftColorTokensState,
+    tokens: EditableLightDarkPalette,
     colorSchemes: readonly ColorScheme[] = COLOR_SCHEMES,
 ): RatingCounts {
     const counts: RatingCounts = { ...EMPTY_COUNTS };

@@ -14,9 +14,8 @@ type BaseColorStepProps = {
 };
 
 export function BaseColorStep({ nextStepPath }: BaseColorStepProps) {
-    const { color, identity, settings } = useThemeDraft();
-    const contrastToken = color.tokens.background.contrast;
-    const themeName = identity.themeName.trim() || "distributøren";
+    const { draft, dispatch } = useThemeDraft();
+    const themeName = draft.themeName.trim() || "distributøren";
 
     return (
         <StepCard>
@@ -29,22 +28,24 @@ export function BaseColorStep({ nextStepPath }: BaseColorStepProps) {
                     du kan tilpasse i neste steg.
                 </Text>
             </Flex>
-            {contrastToken && (
-                <ColorTokenField
-                    token={contrastToken}
-                    group="background"
-                    tokenRole="contrast"
-                    colorScheme="light"
-                    label="Kontrastfarge"
-                    onValueChange={color.applyBaseColor}
-                />
-            )}
+            <ColorTokenField
+                group="background"
+                tokenRole="contrast"
+                colorScheme="light"
+                label="Kontrastfarge"
+                onValueChange={(value) =>
+                    dispatch({ type: "APPLY_BASE_COLOR", value })
+                }
+            />
             <Checkbox
                 name="includeDarkMode"
                 value="includeDarkMode"
-                checked={settings.includeDarkMode}
+                checked={draft.includeDarkMode}
                 onChange={(event) =>
-                    settings.setIncludeDarkMode(event.target.checked)
+                    dispatch({
+                        type: "SET_INCLUDE_DARK_MODE",
+                        includeDarkMode: event.target.checked,
+                    })
                 }
             >
                 Lag tema for mørk modus, også

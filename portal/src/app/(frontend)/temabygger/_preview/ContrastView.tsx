@@ -17,10 +17,8 @@ import { Tag } from "@fremtind/jokul/tag";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { type CSSProperties, useMemo, useState } from "react";
 import { COLOR_SCHEMES, type ColorScheme } from "../_components/ThemeBuilder";
-import type {
-    ThemeDraftColorTokenValue,
-    ThemeDraftColorTokensState,
-} from "../_context/types";
+import type { ThemeDraftColorTokenValue } from "../_context/types";
+import type { EditableLightDarkPalette } from "../generator/types";
 import {
     type ContrastEvaluation,
     type ContrastRating,
@@ -34,7 +32,7 @@ import styles from "./contrast-view.module.scss";
 
 type ContrastViewProps = {
     includeDarkMode: boolean;
-    tokens: ThemeDraftColorTokensState;
+    tokens: EditableLightDarkPalette;
 };
 
 const LIGHT_COLOR_SCHEMES = ["light"] as const satisfies readonly ColorScheme[];
@@ -56,7 +54,7 @@ export function ContrastView({ includeDarkMode, tokens }: ContrastViewProps) {
 
 type TokenTableProps = {
     colorSchemes: readonly ColorScheme[];
-    tokens: ThemeDraftColorTokensState;
+    tokens: EditableLightDarkPalette;
 };
 
 type TokenTableItem = {
@@ -142,7 +140,7 @@ function TokenTable({ colorSchemes, tokens }: TokenTableProps) {
 }
 
 function getTokenTableItems(
-    tokens: ThemeDraftColorTokensState,
+    tokens: EditableLightDarkPalette,
 ): TokenTableItem[] {
     return Object.entries(tokens).flatMap(([group, roles]) =>
         Object.entries(roles).map(([role, token]) => ({

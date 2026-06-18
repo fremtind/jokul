@@ -17,10 +17,10 @@ type ThemeBuilderProps = {
 };
 
 export function ThemeBuilder({ children }: ThemeBuilderProps) {
-    const { color, settings } = useThemeDraft();
+    const { draft } = useThemeDraft();
     const [previewColorScheme, setPreviewColorScheme] =
         useState<ColorScheme>("light");
-    const activePreviewColorScheme = settings.includeDarkMode
+    const activePreviewColorScheme = draft.includeDarkMode
         ? previewColorScheme
         : "light";
 
@@ -29,12 +29,12 @@ export function ThemeBuilder({ children }: ThemeBuilderProps) {
             <ThemeBuilderLayout.Form>{children}</ThemeBuilderLayout.Form>
             <ThemeBuilderLayout.Preview
                 colorScheme={activePreviewColorScheme}
-                includeDarkMode={settings.includeDarkMode}
-                tokens={color.tokens}
+                includeDarkMode={draft.includeDarkMode}
+                tokens={draft.colorTokens}
             >
                 <ThemePreview
                     colorScheme={activePreviewColorScheme}
-                    includeDarkMode={settings.includeDarkMode}
+                    includeDarkMode={draft.includeDarkMode}
                     onColorSchemeChange={setPreviewColorScheme}
                 />
             </ThemeBuilderLayout.Preview>

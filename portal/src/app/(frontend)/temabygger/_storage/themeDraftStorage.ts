@@ -1,23 +1,15 @@
-import { type FontOptionId, isFontOptionId } from "../_shared/fontOptions";
-import type { EditableLightDarkPalette } from "../generator/types";
+import type { ThemeDraft } from "../_context/types";
+import { isFontOptionId } from "../_shared/fontOptions";
 
 const STORAGE_KEY = "jokul.temabygger.draft";
 const STORAGE_VERSION = 1;
 
 type StoredThemeDraft = {
     version: typeof STORAGE_VERSION;
-    draft: ThemeDraftData;
+    draft: ThemeDraft;
 };
 
-type ThemeDraftData = {
-    colorTokens: EditableLightDarkPalette;
-    regularFont: FontOptionId;
-    displayFont: FontOptionId;
-    themeName: string;
-    includeDarkMode: boolean;
-};
-
-export function getStoredThemeDraft(): ThemeDraftData | undefined {
+export function getStoredThemeDraft(): ThemeDraft | undefined {
     if (typeof window === "undefined") {
         return undefined;
     }
@@ -40,7 +32,7 @@ export function getStoredThemeDraft(): ThemeDraftData | undefined {
     }
 }
 
-export function setStoredThemeDraft(draft: ThemeDraftData) {
+export function setStoredThemeDraft(draft: ThemeDraft): void {
     if (typeof window === "undefined") {
         return;
     }
@@ -55,7 +47,7 @@ export function setStoredThemeDraft(draft: ThemeDraftData) {
     } catch {}
 }
 
-function parseStoredThemeDraft(value: unknown): ThemeDraftData | undefined {
+function parseStoredThemeDraft(value: unknown): ThemeDraft | undefined {
     if (typeof value !== "object" || value === null || Array.isArray(value)) {
         return undefined;
     }

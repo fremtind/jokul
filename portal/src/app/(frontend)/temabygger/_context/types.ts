@@ -1,45 +1,21 @@
-import type { ReactNode } from "react";
+import type { Dispatch, ReactNode } from "react";
 import type { FontOptionId } from "../_shared/fontOptions";
 import type { ColorScheme, EditableLightDarkPalette } from "../generator/types";
+import type { ThemeDraftAction } from "./themeDraftReducer";
 
-export type ThemeDraftColorTokenValue = Record<ColorScheme, string>;
-export type ThemeDraftColorTokensState = EditableLightDarkPalette;
-
-export type ThemeDraftColorState = {
-    tokens: ThemeDraftColorTokensState;
-    applyBaseColor: (value: string) => void;
-    updateToken: (
-        group: string,
-        role: string,
-        colorScheme: ColorScheme,
-        value: string,
-    ) => void;
-    replaceTokens: (nextColorTokens: ThemeDraftColorTokensState) => void;
-};
-
-export type ThemeDraftTypographyState = {
+export type ThemeDraft = {
+    colorTokens: EditableLightDarkPalette;
     regularFont: FontOptionId;
     displayFont: FontOptionId;
-    setRegularFont: (id: FontOptionId) => void;
-    setDisplayFont: (id: FontOptionId) => void;
-};
-
-export type ThemeDraftIdentityState = {
     themeName: string;
-    setThemeName: (name: string) => void;
+    includeDarkMode: boolean;
 };
 
-export type ThemeDraftSettingsState = {
-    includeDarkMode: boolean;
-    setIncludeDarkMode: (includeDarkMode: boolean) => void;
-};
+export type ThemeDraftColorTokenValue = Record<ColorScheme, string>;
 
 export type ThemeDraftContextState = {
-    color: ThemeDraftColorState;
-    identity: ThemeDraftIdentityState;
-    saveThemeDraft: () => void;
-    settings: ThemeDraftSettingsState;
-    typography: ThemeDraftTypographyState;
+    draft: ThemeDraft;
+    dispatch: Dispatch<ThemeDraftAction>;
 };
 
 export type ThemeDraftProviderProps = {
