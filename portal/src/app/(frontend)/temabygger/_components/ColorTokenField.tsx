@@ -4,12 +4,10 @@ import { Flex } from "@fremtind/jokul/flex";
 import { TextInput } from "@fremtind/jokul/text-input";
 import type { ColorScheme } from "../_components/ThemeBuilder";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import type { ThemeDraftColorTokenValue } from "../_context/types";
 import { hexErrorLabel } from "../_shared/utils";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
 
 type ColorTokenFieldProps = {
-    token: ThemeDraftColorTokenValue;
     group: string;
     tokenRole: string;
     colorScheme: ColorScheme;
@@ -19,7 +17,6 @@ type ColorTokenFieldProps = {
 };
 
 export function ColorTokenField({
-    token,
     group,
     tokenRole,
     colorScheme,
@@ -27,14 +24,26 @@ export function ColorTokenField({
     description,
     onValueChange,
 }: ColorTokenFieldProps) {
-    const { color } = useThemeDraft();
-    const value = token[colorScheme];
+    const { draft, dispatch } = useThemeDraft();
+    const value =
+        (
+            draft.colorTokens as Record<
+                string,
+                Record<string, Record<string, string>>
+            >
+        )[group]?.[tokenRole]?.[colorScheme] ?? "";
     const id = `${group}.${tokenRole}`;
     const accessibleLabel = `${label} ${colorScheme}`;
     const handleValueChange =
         onValueChange ??
         ((nextValue: string) =>
-            color.updateToken(group, tokenRole, colorScheme, nextValue));
+            dispatch({
+                type: "UPDATE_COLOR_TOKEN",
+                group,
+                role: tokenRole,
+                colorScheme,
+                value: nextValue,
+            }));
 
     return (
         <Flex alignItems="end" gap="8" fill>

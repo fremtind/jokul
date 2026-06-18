@@ -5,8 +5,8 @@ import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { type ReactNode, useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import type { ThemeDraftColorTokensState } from "../_context/types";
 import { buildThemePreviewStyle } from "../_shared/previewStyle";
+import type { EditableLightDarkPalette } from "../generator/types";
 import type { ColorScheme } from "./ThemeBuilder";
 
 type ThemeBuilderLayoutProps = {
@@ -20,7 +20,7 @@ type ThemeBuilderLayoutSlotProps = {
 type ThemeBuilderLayoutPreviewProps = ThemeBuilderLayoutSlotProps & {
     colorScheme: ColorScheme;
     includeDarkMode: boolean;
-    tokens: ThemeDraftColorTokensState;
+    tokens: EditableLightDarkPalette;
 };
 
 const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
@@ -45,20 +45,15 @@ const ThemeBuilderLayoutPreview = ({
     includeDarkMode,
     tokens,
 }: ThemeBuilderLayoutPreviewProps) => {
-    const { typography } = useThemeDraft();
+    const { draft } = useThemeDraft();
     const previewStyle = useMemo(() => {
         return buildThemePreviewStyle({
             tokens,
             includeDarkMode,
-            regularFont: typography.regularFont,
-            displayFont: typography.displayFont,
+            regularFont: draft.regularFont,
+            displayFont: draft.displayFont,
         });
-    }, [
-        tokens,
-        includeDarkMode,
-        typography.regularFont,
-        typography.displayFont,
-    ]);
+    }, [tokens, includeDarkMode, draft.regularFont, draft.displayFont]);
 
     return (
         <Card

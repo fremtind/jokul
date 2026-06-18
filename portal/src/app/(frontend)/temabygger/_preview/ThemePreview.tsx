@@ -41,7 +41,7 @@ export function ThemePreview({
     includeDarkMode,
     onColorSchemeChange,
 }: ThemePreviewProps) {
-    const { color } = useThemeDraft();
+    const { draft } = useThemeDraft();
     const [activeTab, setActiveTab] = useState<PreviewTab>("overview");
     const nextColorScheme: ColorScheme =
         colorScheme === "light" ? "dark" : "light";
@@ -87,7 +87,7 @@ export function ThemePreview({
             ) : (
                 <ContrastView
                     includeDarkMode={includeDarkMode}
-                    tokens={color.tokens}
+                    tokens={draft.colorTokens}
                 />
             )}
         </Flex>

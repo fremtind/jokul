@@ -3,6 +3,7 @@
 import type { ColorScheme } from "@/app/(frontend)/temabygger/_components/ThemeBuilder";
 import { useThemeDraft } from "@/app/(frontend)/temabygger/_context/ThemeDraftContext";
 import { ThemePreview } from "@/app/(frontend)/temabygger/_preview/ThemePreview";
+import { createColorTokenMailHref } from "@/app/(frontend)/temabygger/_shared/colorTokenMailHref";
 import { buildThemePreviewStyle } from "@/app/(frontend)/temabygger/_shared/previewStyle";
 import { Button } from "@fremtind/jokul/button";
 import { Card } from "@fremtind/jokul/card";
@@ -11,30 +12,29 @@ import { Message } from "@fremtind/jokul/message";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { useMemo, useState } from "react";
 import styles from "./theme-preview-page.module.scss";
-import { createColorTokenMailHref } from "@/app/(frontend)/temabygger/_shared/colorTokenMailHref";
 
 const DEFAULT_THEME_NAME = "<SpareBank 1>";
 
 export function ThemePreviewPage() {
-    const { color, identity, settings, typography } = useThemeDraft();
+    const { draft } = useThemeDraft();
     const [previewColorScheme, setPreviewColorScheme] =
         useState<ColorScheme>("light");
-    const activePreviewColorScheme = settings.includeDarkMode
+    const activePreviewColorScheme = draft.includeDarkMode
         ? previewColorScheme
         : "light";
-    const themeName = identity.themeName.trim() || DEFAULT_THEME_NAME;
+    const themeName = draft.themeName.trim() || DEFAULT_THEME_NAME;
     const previewStyle = useMemo(() => {
         return buildThemePreviewStyle({
-            tokens: color.tokens,
-            includeDarkMode: settings.includeDarkMode,
-            regularFont: typography.regularFont,
-            displayFont: typography.displayFont,
+            tokens: draft.colorTokens,
+            includeDarkMode: draft.includeDarkMode,
+            regularFont: draft.regularFont,
+            displayFont: draft.displayFont,
         });
     }, [
-        color.tokens,
-        settings.includeDarkMode,
-        typography.displayFont,
-        typography.regularFont,
+        draft.colorTokens,
+        draft.includeDarkMode,
+        draft.displayFont,
+        draft.regularFont,
     ]);
 
     return (
@@ -69,8 +69,8 @@ export function ThemePreviewPage() {
                             as="a"
                             href={createColorTokenMailHref({
                                 themeName,
-                                colorTokens: color.tokens,
-                                includeDarkMode: settings.includeDarkMode,
+                                colorTokens: draft.colorTokens,
+                                includeDarkMode: draft.includeDarkMode,
                             })}
                             variant="primary"
                         >
@@ -99,7 +99,7 @@ export function ThemePreviewPage() {
                     </Title>
                     <ThemePreview
                         colorScheme={activePreviewColorScheme}
-                        includeDarkMode={settings.includeDarkMode}
+                        includeDarkMode={draft.includeDarkMode}
                         onColorSchemeChange={setPreviewColorScheme}
                     />
                 </Card>

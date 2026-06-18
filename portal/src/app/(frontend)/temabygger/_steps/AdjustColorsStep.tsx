@@ -23,9 +23,9 @@ type ColorSchemeEditorProps = {
 };
 
 export function AdjustColorsStep() {
-    const { color, identity, saveThemeDraft, settings } = useThemeDraft();
-    const colorTokenGroups = getEditableColorTokenGroups(color.tokens);
-    const themeName = identity.themeName.trim() || "distributøren";
+    const { draft } = useThemeDraft();
+    const colorTokenGroups = getEditableColorTokenGroups(draft.colorTokens);
+    const themeName = draft.themeName.trim() || "distributøren";
 
     return (
         <StepCard>
@@ -33,7 +33,7 @@ export function AdjustColorsStep() {
                 Tilpass farger for {themeName}
             </Title>
             <Flex direction="column" gap="40">
-                {settings.includeDarkMode ? (
+                {draft.includeDarkMode ? (
                     <>
                         <ColorSchemeSection
                             title="Lyst modus"
@@ -66,7 +66,6 @@ export function AdjustColorsStep() {
                 <Button
                     as={Link}
                     href={THEME_BUILDER_ROUTES.preview}
-                    onClick={saveThemeDraft}
                     variant="primary"
                 >
                     Forhåndsvis tema
@@ -120,7 +119,6 @@ function ColorSchemeEditor({
                             {group.tokens.map((token) => (
                                 <ColorTokenField
                                     key={`${token.group}.${token.role}`}
-                                    token={token.token}
                                     group={token.group}
                                     tokenRole={token.role}
                                     colorScheme={colorScheme}
