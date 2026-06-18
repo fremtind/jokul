@@ -5,8 +5,7 @@
 /// av ikoner også der man ikke kan bruke jkl-icon-klassen.
 /// @output Basestiler for Jøkul-ikoner
 @mixin base-styles {
-    font-family:
-        "Jokul Icons", "Jokul Icons Fallback", sans-serif;
+    font-family: var(--jkl-font-family-icons);
     font-variation-settings: "FILL" var(--jkl-icon-fill, 0);
     font-feature-settings: "liga";
     -webkit-font-feature-settings: "liga";
