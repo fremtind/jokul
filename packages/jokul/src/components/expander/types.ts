@@ -21,7 +21,7 @@ export type ExpandablePanelProps<ElementType extends React.ElementType> =
 export type ExpandablePanelComponent = {
     Content: ExpandablePanelContentComponent;
     Header: ExpanderComponent;
-} & (<ElementType extends React.ElementType = "div">(
+} & (<ElementType extends React.ElementType = "details">(
     props: ExpandablePanelProps<ElementType>,
 ) => React.ReactElement | null);
 
