@@ -87,7 +87,10 @@
                 "value": "'Jokul Display', 'Adjusted Arial Display Fallback', arial, sans-serif"
             },
             "mono": {
-                "value": "'Jokul Mono', 'Adjusted Courier New Fallback', -apple-system, blinkmacsystemfont, monospace"
+                "value": "monospace"
+            },
+            "icons": {
+                "value": "'Jokul Icons', 'Jokul Icons Fallback', monospace"
             }
         }
     },

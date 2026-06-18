@@ -86,9 +86,7 @@ $_valid-font-family-values: (
     } @else if $font == "Jokul Display" {
         font-family: var(--jkl-font-family-display);
     } @else if $font == "Jokul Icons" {
-        font-family:
-            "Jokul Icons", "Jokul Icons Fallback",
-            monospace;
+        font-family: var(--jkl-font-family-icons);
     } @else {
         font-family: var(--jkl-font-family-regular);
     }
