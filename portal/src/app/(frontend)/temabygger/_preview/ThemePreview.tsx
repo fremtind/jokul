@@ -8,8 +8,8 @@ import {
     SegmentedControlButton,
 } from "@fremtind/jokul/segmented-control";
 import { useState } from "react";
-import type { ColorScheme } from "../_components/ThemeBuilder";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
+import type { ColorScheme } from "../generator/types";
 import { ContrastView } from "./ContrastView";
 import { ExampleView } from "./ExampleView";
 

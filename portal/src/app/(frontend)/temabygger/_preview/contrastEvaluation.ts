@@ -1,8 +1,11 @@
 import { ColorSpace, contrastWCAG21, sRGB } from "colorjs.io/fn";
-import { COLOR_SCHEMES } from "../_components/ThemeBuilder";
 import type { ThemeDraftColorTokenValue } from "../_context/types";
 import { isHex } from "../_shared/utils";
-import type { ColorScheme, EditableLightDarkPalette } from "../generator/types";
+import {
+    COLOR_SCHEMES,
+    type ColorScheme,
+    type EditableLightDarkPalette,
+} from "../generator/types";
 
 const WCAG_TEXT_CONTRAST_AAA = 7;
 const WCAG_TEXT_CONTRAST_AA = 4.5;

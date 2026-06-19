@@ -2,9 +2,9 @@
 
 import { Flex } from "@fremtind/jokul/flex";
 import { TextInput } from "@fremtind/jokul/text-input";
-import type { ColorScheme } from "../_components/ThemeBuilder";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { hexErrorLabel } from "../_shared/utils";
+import type { ColorScheme } from "../generator/types";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
 
 type ColorTokenFieldProps = {

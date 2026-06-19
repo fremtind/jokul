@@ -1,10 +1,10 @@
 "use client";
 
-import type { ColorScheme } from "@/app/(frontend)/temabygger/_components/ThemeBuilder";
 import { useThemeDraft } from "@/app/(frontend)/temabygger/_context/ThemeDraftContext";
 import { ThemePreview } from "@/app/(frontend)/temabygger/_preview/ThemePreview";
 import { createColorTokenMailHref } from "@/app/(frontend)/temabygger/_shared/colorTokenMailHref";
 import { buildThemePreviewStyle } from "@/app/(frontend)/temabygger/_shared/previewStyle";
+import type { ColorScheme } from "@/app/(frontend)/temabygger/generator/types";
 import { Button } from "@fremtind/jokul/button";
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
