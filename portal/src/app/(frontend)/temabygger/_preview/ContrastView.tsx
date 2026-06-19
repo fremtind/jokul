@@ -16,9 +16,12 @@ import {
 import { Tag } from "@fremtind/jokul/tag";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { type CSSProperties, useMemo, useState } from "react";
-import { COLOR_SCHEMES, type ColorScheme } from "../_components/ThemeBuilder";
 import type { ThemeDraftColorTokenValue } from "../_context/types";
-import type { EditableLightDarkPalette } from "../generator/types";
+import {
+    COLOR_SCHEMES,
+    type ColorScheme,
+    type EditableLightDarkPalette,
+} from "../generator/types";
 import {
     type ContrastEvaluation,
     type ContrastRating,

@@ -5,8 +5,10 @@ import { color as colorMetadata } from "@fremtind/jokul/tokens/metadata/color.me
 /** En hex-fargestreng som starter med `#`, typisk på formen `#rrggbb` eller `#rrggbbaa`. */
 export type HexColor = `#${string}`;
 
+export const COLOR_SCHEMES = ["light", "dark"] as const;
+
 /** Lys eller mørkt fargetema. */
-export type ColorScheme = "light" | "dark";
+export type ColorScheme = (typeof COLOR_SCHEMES)[number];
 
 /**
  * En streng på formen `"gruppe.rolle"` som identifiserer én bestemt fargetokens

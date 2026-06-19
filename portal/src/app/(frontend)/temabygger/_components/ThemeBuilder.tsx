@@ -3,14 +3,8 @@
 import { type ReactNode, useState } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { ThemePreview } from "../_preview/ThemePreview";
+import type { ColorScheme } from "../generator/types";
 import { ThemeBuilderLayout } from "./ThemeBuilderLayout";
-
-export type ColorScheme = "light" | "dark";
-
-export const COLOR_SCHEMES = [
-    "light",
-    "dark",
-] as const satisfies readonly ColorScheme[];
 
 type ThemeBuilderProps = {
     children: ReactNode;

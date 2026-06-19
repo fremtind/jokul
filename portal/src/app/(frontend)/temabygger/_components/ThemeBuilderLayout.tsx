@@ -6,8 +6,7 @@ import { Text, Title } from "@fremtind/jokul/typography";
 import { type ReactNode, useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { buildThemePreviewStyle } from "../_shared/previewStyle";
-import type { EditableLightDarkPalette } from "../generator/types";
-import type { ColorScheme } from "./ThemeBuilder";
+import type { ColorScheme, EditableLightDarkPalette } from "../generator/types";
 
 type ThemeBuilderLayoutProps = {
     children: ReactNode;

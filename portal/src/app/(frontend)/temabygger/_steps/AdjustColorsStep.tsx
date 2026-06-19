@@ -7,8 +7,8 @@ import { Message } from "@fremtind/jokul/message";
 import { Text, Title } from "@fremtind/jokul/typography";
 import Link from "next/link";
 import { ColorTokenField } from "../_components/ColorTokenField";
-import type { ColorScheme } from "../_components/ThemeBuilder";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
+import type { ColorScheme } from "../generator/types";
 import { StepCard } from "./StepCard";
 import {
     type EditableColorTokenGroup,
