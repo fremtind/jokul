@@ -1,7 +1,5 @@
-import type {
-    ThemeDraftColorTokenValue,
-    ThemeDraftColorTokensState,
-} from "../_context/types";
+import type { ThemeDraftColorTokenValue } from "../_context/types";
+import type { EditableLightDarkPalette } from "../generator/types";
 
 export type EditableColorToken = {
     group: string;
@@ -89,7 +87,7 @@ const COLOR_TOKEN_METADATA: Record<string, ColorTokenMetadata> = {
 };
 
 export function getEditableColorTokenGroups(
-    colorTokens: ThemeDraftColorTokensState,
+    colorTokens: EditableLightDarkPalette,
 ): EditableColorTokenGroup[] {
     const groups = new Map<string, EditableColorToken[]>();
 
