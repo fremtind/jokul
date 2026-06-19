@@ -6,6 +6,7 @@ import { Flex } from "@fremtind/jokul/flex";
 import { Message } from "@fremtind/jokul/message";
 import { Text, Title } from "@fremtind/jokul/typography";
 import Link from "next/link";
+import { useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import type { ColorScheme } from "../generator/types";
@@ -98,17 +99,23 @@ function ColorSchemeSection({
 }
 
 function ColorSchemeEditor({
-    colorScheme,
     groups,
     defaultOpenGroup,
+    colorScheme,
 }: ColorSchemeEditorProps) {
+    const [openGroupId, setOpenGroupId] = useState<string | null>(
+        defaultOpenGroup ?? null,
+    );
+
     return (
         <Accordion outlined>
             {groups.map((group) => (
                 <ExpandablePanel
                     key={group.id}
-                    name={colorScheme}
-                    defaultOpen={group.id === defaultOpenGroup}
+                    open={openGroupId === group.id}
+                    onOpenChange={(open) =>
+                        setOpenGroupId(open ? group.id : null)
+                    }
                 >
                     <ExpandablePanel.Header>
                         {group.title}
