@@ -1,10 +1,10 @@
-import type { ThemeDraftColorTokensState } from "../_context/types";
+import type { EditableLightDarkPalette } from "../generator/types";
 
 const COLOR_TOKEN_MAIL_RECIPIENT = "fremtind.designsystem@fremtind.no";
 
 type ColorTokenMailInput = {
     themeName: string;
-    colorTokens: ThemeDraftColorTokensState;
+    colorTokens: EditableLightDarkPalette;
     includeDarkMode: boolean;
 };
 
@@ -24,7 +24,7 @@ export function createColorTokenMailHref({
 }
 
 function formatColorTokensForMail(
-    colorTokens: ThemeDraftColorTokensState,
+    colorTokens: EditableLightDarkPalette,
     includeDarkMode: boolean,
 ) {
     if (includeDarkMode) {
