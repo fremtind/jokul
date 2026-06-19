@@ -63,13 +63,6 @@ export const KeyboardFocusState: Story = {
     },
 };
 
-export const FocusState: Story = {
-    play: async () => {
-        await userEvent.tab();
-        await userEvent.tab();
-    },
-};
-
 export const ErrorState: Story = {
     args: {
         errorLabel: "Feilmelding",
