@@ -12,5 +12,7 @@
         vertical-align: middle;
 
         @include icon.base-styles;
+
+        line-height: 1lh;
     }
 }

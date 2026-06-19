@@ -9,9 +9,9 @@ import {
 } from "@fremtind/jokul/segmented-control";
 import { useState } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import type { ColorScheme } from "../generator/types";
-import { ContrastView } from "./ContrastView";
+import { ColorCombinations } from "./ColorCombinations";
 import { ExampleView } from "./ExampleView";
+import { ColorScheme } from "../generator/types";
 
 type PreviewTab = "overview" | "contrast";
 
@@ -85,9 +85,10 @@ export function ThemePreview({
             {activeTab === "overview" ? (
                 <ExampleView />
             ) : (
-                <ContrastView
+                <ColorCombinations
                     includeDarkMode={includeDarkMode}
                     tokens={draft.colorTokens}
+                    colorScheme={colorScheme}
                 />
             )}
         </Flex>
