@@ -6,58 +6,64 @@ import type { ColorRole } from "../generator/types";
 
 import styles from "./color-combination.module.scss";
 
-type ContrastType = "text" | "border" | "container";
+type ContrastType = "text" | "border" | "background";
 
 type ColorCombinationCardProps = {
-    type?: ContrastType;
     foregroundRole: ColorRole;
     backgroundRole: ColorRole;
-    actualContrast: number;
-    expectedContrast: number;
+    contrastError?: {
+        actualContrast: number;
+        expectedContrast: number;
+    };
 };
 
 export const ColorCombinationCard = ({
-    type = "text",
     backgroundRole,
     foregroundRole,
-    actualContrast,
-    expectedContrast,
-}: ColorCombinationCardProps): JSX.Element => (
-    <Card
-        as={Flex}
-        padding="s"
-        direction="column"
-        gap="8"
-        style={{ flexBasis: "30ch" }}
-    >
+    contrastError,
+}: ColorCombinationCardProps): JSX.Element => {
+    const type = foregroundRole.split(".")[0] as ContrastType;
+
+    return (
         <Card
-            outlined={backgroundRole === "background.container"}
             as={Flex}
-            alignItems="center"
-            justifyContent="center"
-            style={{
-                backgroundColor: `var(--jkl-color-${backgroundRole.replaceAll(".", "-")})`,
-                aspectRatio: "2",
-            }}
+            padding="s"
+            direction="column"
+            gap="8"
+            style={{ flexBasis: "30ch" }}
         >
-            <ColorCombinationExample type={type} colorRole={foregroundRole} />
-        </Card>
-        <Text size="s" bold>
-            {foregroundRole}
-        </Text>
-        {actualContrast < expectedContrast && (
-            <Text size="s">
-                <Text as="span" bold className={styles.contrastError}>
-                    {actualContrast}:1
-                </Text>
-                <Text as="span">
-                    Krever {expectedContrast}:1 mot{" "}
-                    {backgroundRole.split(".")[1]}
-                </Text>
+            <Card
+                outlined={backgroundRole === "background.container"}
+                as={Flex}
+                alignItems="center"
+                justifyContent="center"
+                style={{
+                    backgroundColor: `var(--jkl-color-${backgroundRole.replaceAll(".", "-")})`,
+                    aspectRatio: "2",
+                }}
+            >
+                <ColorCombinationExample
+                    type={type}
+                    colorRole={foregroundRole}
+                />
+            </Card>
+            <Text short size="s" bold>
+                {foregroundRole}
             </Text>
-        )}
-    </Card>
-);
+            {contrastError && (
+                <Text short size="s">
+                    <Text short as="span" bold className={styles.contrastError}>
+                        {contrastError.actualContrast}:1
+                    </Text>
+                    <Text short as="span">
+                        Krever {contrastError.expectedContrast}:1 mot{" "}
+                        {backgroundRole.split(".")[1]}
+                    </Text>
+                </Text>
+            )}
+        </Card>
+    );
+};
 
 const ColorCombinationExample = ({
     type,
@@ -86,7 +92,7 @@ const ColorCombinationExample = ({
                     }}
                 />
             );
-        case "container":
+        case "background":
             return (
                 <div
                     style={{
