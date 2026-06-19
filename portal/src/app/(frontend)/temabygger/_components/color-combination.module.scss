@@ -1,0 +1,16 @@
+@use "@fremtind/jokul/styles/components/icon/base-styles" as icon;
+
+.contrastError {
+    color: var(--jkl-color-error-background-contrast);
+    margin-inline-end: var(--jkl-spacing-8);
+
+    &::before {
+        --jkl-icon-fill: 1;
+
+        content: "cancel" / "";
+        padding-inline-end: var(--jkl-spacing-4);
+        vertical-align: middle;
+
+        @include icon.base-styles;
+    }
+}
