@@ -7,16 +7,20 @@ import {
     SegmentedControl,
     SegmentedControlButton,
 } from "@fremtind/jokul/segmented-control";
-import { useState } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
+import {
+    type ThemePreviewTab,
+    useThemePreview,
+} from "../_context/ThemePreviewContext";
+import type { ColorScheme } from "../generator/types";
 import { ColorCombinations } from "./ColorCombinations";
+import { EmptyView } from "./EmptyView";
 import { ExampleView } from "./ExampleView";
-import { ColorScheme } from "../generator/types";
+import styles from "./theme-preview.module.scss";
 
-type PreviewTab = "overview" | "contrast";
-
-const PREVIEW_TABS: { value: PreviewTab; label: string }[] = [
+const PREVIEW_TABS: { value: ThemePreviewTab; label: string }[] = [
     { value: "overview", label: "Overblikk" },
+    { value: "components", label: "Komponenter" },
     { value: "contrast", label: "Fargekombinasjoner" },
 ];
 
@@ -31,65 +35,74 @@ const COLOR_SCHEME_ICONS: Record<ColorScheme, string> = {
 };
 
 type ThemePreviewProps = {
-    colorScheme: ColorScheme;
-    includeDarkMode: boolean;
-    onColorSchemeChange: (colorScheme: ColorScheme) => void;
+    segment?: string | null;
 };
 
-export function ThemePreview({
-    colorScheme,
-    includeDarkMode,
-    onColorSchemeChange,
-}: ThemePreviewProps) {
+export function ThemePreview({ segment }: ThemePreviewProps) {
     const { draft } = useThemeDraft();
-    const [activeTab, setActiveTab] = useState<PreviewTab>("overview");
-    const nextColorScheme: ColorScheme =
-        colorScheme === "light" ? "dark" : "light";
+    const { activeColorScheme, activeTab, setActiveTab, toggleColorScheme } =
+        useThemePreview();
 
     return (
         <Flex direction="column" gap="24">
-            <Flex
-                justifyContent="space-between"
-                alignItems="center"
-                wrap="wrap"
-                gap="m"
-            >
-                <SegmentedControl
-                    legend="Temabyggerinnhold"
-                    labelProps={{ srOnly: true }}
+            {(segment === "farger" || !segment) && (
+                <Flex
+                    justifyContent="space-between"
+                    alignItems="center"
+                    wrap="wrap"
+                    gap="m"
                 >
-                    {PREVIEW_TABS.map((tab) => (
-                        <SegmentedControlButton
-                            key={tab.value}
-                            name="theme-builder-workspace-tab"
-                            value={tab.value}
-                            checked={activeTab === tab.value}
-                            onChange={() => setActiveTab(tab.value)}
-                        >
-                            {tab.label}
-                        </SegmentedControlButton>
-                    ))}
-                </SegmentedControl>
-                {includeDarkMode && (
-                    <Button
-                        type="button"
-                        variant="ghost"
-                        icon={<Icon>{COLOR_SCHEME_ICONS[colorScheme]}</Icon>}
-                        onClick={() => onColorSchemeChange(nextColorScheme)}
-                        aria-label={`Bytt til ${COLOR_SCHEME_LABELS[nextColorScheme].toLowerCase()}`}
+                    <SegmentedControl
+                        legend="Temabyggerinnhold"
+                        labelProps={{ srOnly: true }}
                     >
-                        {COLOR_SCHEME_LABELS[colorScheme]}
-                    </Button>
-                )}
-            </Flex>
-            {activeTab === "overview" ? (
-                <ExampleView />
-            ) : (
+                        {PREVIEW_TABS.map((tab) => (
+                            <SegmentedControlButton
+                                key={tab.value}
+                                name="theme-builder-workspace-tab"
+                                value={tab.value}
+                                checked={activeTab === tab.value}
+                                onChange={() => setActiveTab(tab.value)}
+                            >
+                                {tab.label}
+                            </SegmentedControlButton>
+                        ))}
+                    </SegmentedControl>
+                    {draft.includeDarkMode && (
+                        <Button
+                            type="button"
+                            variant="ghost"
+                            icon={
+                                <Icon>
+                                    {COLOR_SCHEME_ICONS[activeColorScheme]}
+                                </Icon>
+                            }
+                            onClick={toggleColorScheme}
+                        >
+                            {COLOR_SCHEME_LABELS[activeColorScheme]}
+                        </Button>
+                    )}
+                </Flex>
+            )}
+            {segment === "identitet" && (
+                <div className={styles.stepPreviewContent}>
+                    <EmptyView />
+                </div>
+            )}
+            {segment === "grunnfarge" && (
+                <div className={styles.stepPreviewContent}>
+                    <ExampleView story="contrast" />
+                </div>
+            )}
+            {(segment === "farger" || !segment) && activeTab === "contrast" && (
                 <ColorCombinations
-                    includeDarkMode={includeDarkMode}
+                    includeDarkMode={draft.includeDarkMode}
                     tokens={draft.colorTokens}
-                    colorScheme={colorScheme}
+                    colorScheme={activeColorScheme}
                 />
+            )}
+            {(segment === "farger" || !segment) && activeTab !== "contrast" && (
+                <ExampleView story={activeTab} />
             )}
         </Flex>
     );

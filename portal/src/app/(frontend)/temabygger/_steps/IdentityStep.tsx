@@ -10,11 +10,7 @@ import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { FONT_SELECT_OPTIONS, type FontOptionId } from "../_shared/fontOptions";
 import { StepCard } from "./StepCard";
 
-type IdentityStepProps = {
-    nextStepPath: string;
-};
-
-export function IdentityStep({ nextStepPath }: IdentityStepProps) {
+export function IdentityStep() {
     const { draft, dispatch } = useThemeDraft();
 
     return (
@@ -64,7 +60,7 @@ export function IdentityStep({ nextStepPath }: IdentityStepProps) {
                     }
                 />
             </Flex>
-            <Button as={Link} href={nextStepPath} variant="primary">
+            <Button as={Link} href="/temabygger/grunnfarge" variant="primary">
                 Sett i gang!
             </Button>
         </StepCard>

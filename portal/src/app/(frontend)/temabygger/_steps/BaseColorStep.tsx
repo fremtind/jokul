@@ -9,11 +9,7 @@ import { ColorTokenField } from "../_components/ColorTokenField";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { StepCard } from "./StepCard";
 
-type BaseColorStepProps = {
-    nextStepPath: string;
-};
-
-export function BaseColorStep({ nextStepPath }: BaseColorStepProps) {
+export function BaseColorStep() {
     const { draft, dispatch } = useThemeDraft();
     const themeName = draft.themeName.trim() || "distributøren";
 
@@ -50,7 +46,7 @@ export function BaseColorStep({ nextStepPath }: BaseColorStepProps) {
             >
                 Lag tema for mørk modus, også
             </Checkbox>
-            <Button as={Link} href={nextStepPath} variant="primary">
+            <Button as={Link} href="/temabygger/farger" variant="primary">
                 Lag tema
             </Button>
         </StepCard>

@@ -5,8 +5,12 @@ import { BETA_Select } from "@fremtind/jokul/select";
 import { Title } from "@fremtind/jokul/typography";
 import { useState } from "react";
 import { ColorCombinationCard } from "../_components/ColorCombinationCard";
-import { COLOR_SCHEMES, type ColorScheme } from "../_components/ThemeBuilder";
-import type { ColorRole, EditableLightDarkPalette } from "../generator/types";
+import {
+    COLOR_SCHEMES,
+    type ColorRole,
+    type ColorScheme,
+    type EditableLightDarkPalette,
+} from "../generator/types";
 import {
     CONTRAST_REQUIREMENTS,
     getFailingContrasts,

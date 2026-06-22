@@ -1,16 +1,14 @@
 "use client";
 
-import { Overblikk as ThemeBuilderOverviewStory } from "@jokul-stories/temabygger/Temabygger.overblikk.stories";
-import { type ReactNode, useMemo } from "react";
+import {
+    type ThemePreviewStoryId,
+    renderThemePreviewStory,
+} from "./previewStories";
 
-export function ExampleView() {
-    const demo = useMemo(() => <>{themeBuilderOverviewStory.render?.()}</>, []);
-
-    return demo;
-}
-
-type StorybookStory = {
-    render?: () => ReactNode;
+type ExampleViewProps = {
+    story: ThemePreviewStoryId;
 };
 
-const themeBuilderOverviewStory = ThemeBuilderOverviewStory as StorybookStory;
+export function ExampleView({ story }: ExampleViewProps) {
+    return <>{renderThemePreviewStory(story)}</>;
+}
