@@ -14,7 +14,6 @@ import {
     type EditableColorTokenGroup,
     getEditableColorTokenGroups,
 } from "./colorTokenMetadata";
-import { THEME_BUILDER_ROUTES } from "./stepConfig";
 
 type ColorSchemeEditorProps = {
     colorScheme: ColorScheme;
@@ -65,7 +64,7 @@ export function AdjustColorsStep() {
             >
                 <Button
                     as={Link}
-                    href={THEME_BUILDER_ROUTES.preview}
+                    href="/temabygger/forhandsvisning"
                     variant="primary"
                 >
                     Forhåndsvis tema

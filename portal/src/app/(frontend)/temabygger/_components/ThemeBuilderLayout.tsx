@@ -5,8 +5,8 @@ import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { type ReactNode, useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
+import { useThemePreview } from "../_context/ThemePreviewContext";
 import { buildThemePreviewStyle } from "../_shared/previewStyle";
-import type { ColorScheme, EditableLightDarkPalette } from "../generator/types";
 
 type ThemeBuilderLayoutProps = {
     children: ReactNode;
@@ -16,11 +16,7 @@ type ThemeBuilderLayoutSlotProps = {
     children: ReactNode;
 };
 
-type ThemeBuilderLayoutPreviewProps = ThemeBuilderLayoutSlotProps & {
-    colorScheme: ColorScheme;
-    includeDarkMode: boolean;
-    tokens: EditableLightDarkPalette;
-};
+type ThemeBuilderLayoutPreviewProps = ThemeBuilderLayoutSlotProps;
 
 const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
     <Flex direction="column" gap="40">
@@ -40,19 +36,22 @@ const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
 
 const ThemeBuilderLayoutPreview = ({
     children,
-    colorScheme,
-    includeDarkMode,
-    tokens,
 }: ThemeBuilderLayoutPreviewProps) => {
     const { draft } = useThemeDraft();
+    const { activeColorScheme } = useThemePreview();
     const previewStyle = useMemo(() => {
         return buildThemePreviewStyle({
-            tokens,
-            includeDarkMode,
+            tokens: draft.colorTokens,
+            includeDarkMode: draft.includeDarkMode,
             regularFont: draft.regularFont,
             displayFont: draft.displayFont,
         });
-    }, [tokens, includeDarkMode, draft.regularFont, draft.displayFont]);
+    }, [
+        draft.colorTokens,
+        draft.includeDarkMode,
+        draft.regularFont,
+        draft.displayFont,
+    ]);
 
     return (
         <Card
@@ -60,7 +59,7 @@ const ThemeBuilderLayoutPreview = ({
             padding="l"
             outlined
             aria-labelledby="theme-builder-preview-title"
-            data-theme={colorScheme}
+            data-theme={activeColorScheme}
             style={{
                 ...previewStyle,
                 backgroundColor: "var(--jkl-color-background-page)",
