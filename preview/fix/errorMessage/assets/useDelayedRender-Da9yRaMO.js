@@ -1,0 +1,1 @@
+import{r as e}from"./iframe-eI5Yzu0I.js";function m(t){const[r,u]=e.useState(t===0);return e.useEffect(()=>{if(t===0)return;const n=setTimeout(()=>u(!0),t);return()=>clearTimeout(n)},[t]),r}export{m as u};
