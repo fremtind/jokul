@@ -13,6 +13,7 @@ type ColorTokenFieldProps = {
     colorScheme: ColorScheme;
     label: string;
     description?: string;
+    contrastErrorLabel?: string;
     onValueChange?: (value: string) => void;
 };
 
@@ -22,6 +23,7 @@ export function ColorTokenField({
     colorScheme,
     label,
     description,
+    contrastErrorLabel,
     onValueChange,
 }: ColorTokenFieldProps) {
     const { draft, dispatch } = useThemeDraft();
@@ -55,7 +57,7 @@ export function ColorTokenField({
                 maxLength={7}
                 spellCheck={false}
                 autoComplete="off"
-                errorLabel={hexErrorLabel(value)}
+                errorLabel={hexErrorLabel(value) ?? contrastErrorLabel}
                 width="100%"
                 onChange={(event) => handleValueChange(event.target.value)}
             />

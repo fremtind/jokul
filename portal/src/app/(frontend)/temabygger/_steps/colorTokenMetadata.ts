@@ -1,7 +1,8 @@
 import type { ThemeDraftColorTokenValue } from "../_context/types";
-import type { EditableLightDarkPalette } from "../generator/types";
+import type { ColorRole, EditableLightDarkPalette } from "../generator/types";
 
 export type EditableColorToken = {
+    colorRole: ColorRole;
     group: string;
     role: string;
     token: ThemeDraftColorTokenValue;
@@ -95,10 +96,12 @@ export function getEditableColorTokenGroups(
         [string, Record<string, ThemeDraftColorTokenValue>]
     >) {
         for (const [role, token] of Object.entries(roles)) {
+            const colorRole = getColorRole(group, role);
             const groupId = getTokenGroupId(group, role);
             groups.set(groupId, [
                 ...(groups.get(groupId) ?? []),
                 {
+                    colorRole,
                     group,
                     role,
                     token,
@@ -138,6 +141,10 @@ function getTokenDescription(group: string, role: string): string | undefined {
 
 function getTokenKey(group: string, role: string): string {
     return `${group}.${role}`;
+}
+
+function getColorRole(group: string, role: string): ColorRole {
+    return getTokenKey(group, role) as ColorRole;
 }
 
 function getGroupOrder(group: string): number {
