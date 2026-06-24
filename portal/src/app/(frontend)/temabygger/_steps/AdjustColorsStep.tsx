@@ -3,139 +3,229 @@
 import { Button } from "@fremtind/jokul/button";
 import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
+import { ErrorIcon } from "@fremtind/jokul/icon";
 import { Message } from "@fremtind/jokul/message";
-import { Text, Title } from "@fremtind/jokul/typography";
-import Link from "next/link";
-import { useState } from "react";
+import { Title } from "@fremtind/jokul/typography";
+import { useRouter } from "next/navigation";
+import { type FormEvent, useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import type { ColorScheme } from "../generator/types";
+import {
+    type FailingContrastCombination,
+    getFailingContrasts,
+} from "../_preview/contrastEvaluation";
+import {
+    COLOR_SCHEMES,
+    type ColorRole,
+    type ColorScheme,
+} from "../generator/types";
 import { StepCard } from "./StepCard";
 import {
     type EditableColorTokenGroup,
     getEditableColorTokenGroups,
 } from "./colorTokenMetadata";
 
-type ColorSchemeEditorProps = {
-    colorScheme: ColorScheme;
-    groups: EditableColorTokenGroup[];
-    defaultOpenGroup?: string;
-};
+type ContrastErrorLabelsByRole = Partial<Record<ColorRole, string>>;
 
 export function AdjustColorsStep() {
+    const router = useRouter();
     const { draft } = useThemeDraft();
-    const colorTokenGroups = getEditableColorTokenGroups(draft.colorTokens);
+    const [hasSubmitted, setHasSubmitted] = useState(false);
+
     const themeName = draft.themeName.trim() || "distributøren";
+    const colorTokenGroups = getEditableColorTokenGroups(draft.colorTokens);
+    const colorSchemes: readonly ColorScheme[] = draft.includeDarkMode
+        ? COLOR_SCHEMES
+        : ["light"];
+    const failingContrasts = getFailingContrasts(
+        draft.colorTokens,
+        colorSchemes,
+    );
+    const hasContrastErrors = failingContrasts.length > 0;
+
+    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        setHasSubmitted(true);
+
+        if (hasContrastErrors) {
+            return;
+        }
+
+        router.push("/temabygger/forhandsvisning");
+    };
 
     return (
         <StepCard>
-            <Title as="h3" size="m">
-                Tilpass farger for {themeName}
-            </Title>
-            <Flex direction="column" gap="40">
-                {draft.includeDarkMode ? (
-                    <>
-                        <ColorSchemeSection
-                            title="Lyst modus"
+            <Flex as="form" direction="column" gap="32" onSubmit={handleSubmit}>
+                <Title as="h3" size="m">
+                    Tilpass farger for {themeName}
+                </Title>
+                <Flex direction="column" gap="40">
+                    {draft.includeDarkMode ? (
+                        <>
+                            <ColorModeAccordion
+                                title="Lyst modus"
+                                colorScheme="light"
+                                groups={colorTokenGroups}
+                                failingContrasts={failingContrasts}
+                            />
+                            <ColorModeAccordion
+                                title="Mørk modus"
+                                colorScheme="dark"
+                                groups={colorTokenGroups}
+                                failingContrasts={failingContrasts}
+                            />
+                        </>
+                    ) : (
+                        <ColorModeAccordion
                             colorScheme="light"
                             groups={colorTokenGroups}
-                            defaultOpenGroup="background"
+                            failingContrasts={failingContrasts}
                         />
-                        <ColorSchemeSection
-                            title="Mørk modus"
-                            colorScheme="dark"
-                            groups={colorTokenGroups}
-                        />
-                    </>
-                ) : (
-                    <ColorSchemeSection
-                        colorScheme="light"
-                        groups={colorTokenGroups}
-                        defaultOpenGroup="background"
-                    />
+                    )}
+                </Flex>
+                {hasSubmitted && hasContrastErrors && (
+                    <Message variant="error" title="Kontrastfeil" role="alert">
+                        Noen fargekombinasjoner har for lav kontrast. Juster de
+                        markerte feltene før du bruker temaet.
+                    </Message>
                 )}
-            </Flex>
-            <Message variant="warning" title="Informasjon">
-                Her kommer relevant informasjon.
-            </Message>
-            <Flex
-                justifyContent="space-between"
-                alignItems="center"
-                wrap="wrap"
-            >
-                <Button
-                    as={Link}
-                    href="/temabygger/forhandsvisning"
-                    variant="primary"
+                <Flex
+                    justifyContent="space-between"
+                    alignItems="center"
+                    wrap="wrap"
                 >
-                    Forhåndsvis tema
-                </Button>
-                <Button variant="ghost">Del visning</Button>
+                    <Button type="submit" variant="primary">
+                        Forhåndsvis tema
+                    </Button>
+                    <Button type="button" variant="ghost">
+                        Del visning
+                    </Button>
+                </Flex>
             </Flex>
         </StepCard>
     );
 }
 
-type ColorSchemeSectionProps = ColorSchemeEditorProps & {
+type ColorModeAccordionProps = {
     title?: string;
+    colorScheme: ColorScheme;
+    groups: EditableColorTokenGroup[];
+    failingContrasts: FailingContrastCombination[];
 };
 
-function ColorSchemeSection({
+function ColorModeAccordion({
     title,
     colorScheme,
     groups,
-    defaultOpenGroup,
-}: ColorSchemeSectionProps) {
+    failingContrasts,
+}: ColorModeAccordionProps) {
+    const [openGroupId, setOpenGroupId] = useState<string | null>(
+        colorScheme === "light" ? "background" : null,
+    );
+    const contrastErrorLabels = getContrastErrorLabelsForColorScheme(
+        failingContrasts,
+        colorScheme,
+    );
+
     return (
         <Flex direction="column" gap="16">
-            {title && <Text bold>{title}</Text>}
-            <ColorSchemeEditor
-                colorScheme={colorScheme}
-                groups={groups}
-                defaultOpenGroup={defaultOpenGroup}
-            />
+            {title && (
+                <Title as="h4" size="xs">
+                    {title}
+                </Title>
+            )}
+            <Accordion outlined>
+                {groups.map((group) => {
+                    const groupHasContrastError = group.tokens.some((token) =>
+                        Boolean(contrastErrorLabels[token.colorRole]),
+                    );
+
+                    return (
+                        <ExpandablePanel
+                            key={group.id}
+                            open={openGroupId === group.id}
+                            onOpenChange={(open) =>
+                                setOpenGroupId(open ? group.id : null)
+                            }
+                        >
+                            <ExpandablePanel.Header
+                                icon={
+                                    groupHasContrastError ? (
+                                        <ErrorIcon
+                                            style={{
+                                                color: "var(--jkl-color-error-background-contrast)",
+                                            }}
+                                        />
+                                    ) : undefined
+                                }
+                            >
+                                {group.title}
+                                {groupHasContrastError && (
+                                    <span className="jkl-sr-only">
+                                        {" "}
+                                        har kontrastfeil
+                                    </span>
+                                )}
+                            </ExpandablePanel.Header>
+                            <ExpandablePanel.Content>
+                                <Flex direction="column" gap="24">
+                                    {group.tokens.map((token) => (
+                                        <ColorTokenField
+                                            key={token.colorRole}
+                                            group={token.group}
+                                            tokenRole={token.role}
+                                            colorScheme={colorScheme}
+                                            label={token.label}
+                                            description={token.description}
+                                            contrastErrorLabel={
+                                                contrastErrorLabels[
+                                                    token.colorRole
+                                                ]
+                                            }
+                                        />
+                                    ))}
+                                </Flex>
+                            </ExpandablePanel.Content>
+                        </ExpandablePanel>
+                    );
+                })}
+            </Accordion>
         </Flex>
     );
 }
 
-function ColorSchemeEditor({
-    groups,
-    defaultOpenGroup,
-    colorScheme,
-}: ColorSchemeEditorProps) {
-    const [openGroupId, setOpenGroupId] = useState<string | null>(
-        defaultOpenGroup ?? null,
-    );
+function getContrastErrorLabelsForColorScheme(
+    failingContrasts: FailingContrastCombination[],
+    colorScheme: ColorScheme,
+): ContrastErrorLabelsByRole {
+    const labels: ContrastErrorLabelsByRole = {};
 
+    for (const combination of failingContrasts) {
+        if (combination.colorScheme !== colorScheme) {
+            continue;
+        }
+
+        labels[combination.foregroundRole] ??= getContrastErrorLabel(
+            combination.backgroundRole,
+            combination,
+        );
+        labels[combination.backgroundRole] ??= getContrastErrorLabel(
+            combination.foregroundRole,
+            combination,
+        );
+    }
+
+    return labels;
+}
+
+function getContrastErrorLabel(
+    comparedRole: ColorRole,
+    combination: FailingContrastCombination,
+) {
     return (
-        <Accordion outlined>
-            {groups.map((group) => (
-                <ExpandablePanel
-                    key={group.id}
-                    open={openGroupId === group.id}
-                    onOpenChange={(open) =>
-                        setOpenGroupId(open ? group.id : null)
-                    }
-                >
-                    <ExpandablePanel.Header>
-                        {group.title}
-                    </ExpandablePanel.Header>
-                    <ExpandablePanel.Content>
-                        <Flex direction="column" gap="24">
-                            {group.tokens.map((token) => (
-                                <ColorTokenField
-                                    key={`${token.group}.${token.role}`}
-                                    group={token.group}
-                                    tokenRole={token.role}
-                                    colorScheme={colorScheme}
-                                    label={token.label}
-                                    description={token.description}
-                                />
-                            ))}
-                        </Flex>
-                    </ExpandablePanel.Content>
-                </ExpandablePanel>
-            ))}
-        </Accordion>
+        `Kontrasten mot ${comparedRole.replace(".", " ")} er ` +
+        `${combination.actualContrast}:1. Den må være minst ` +
+        `${combination.expectedContrast}:1.`
     );
 }
