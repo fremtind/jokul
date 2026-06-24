@@ -40,7 +40,6 @@ function systemFactory(
                 <div
                     className="jkl-system-message__content"
                     data-testid="system-message-content"
-                    data-theme="light"
                     style={{
                         maxWidth: maxContentWidth,
                         paddingLeft,
@@ -52,7 +51,6 @@ function systemFactory(
                     </span>
                     {dismissAction?.handleDismiss && (
                         <DismissButton
-                            data-theme="light"
                             aria-controls={systemId}
                             className="jkl-system-message__dismiss-button"
                             label={dismissAction.buttonTitle || "Lukk"}
@@ -99,7 +97,6 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
             <div
                 className="jkl-system-message__content"
                 data-testid="system-message-content"
-                data-theme="light"
                 style={{
                     maxWidth: maxContentWidth,
                     paddingLeft,
@@ -109,7 +106,6 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
                 <span className="jkl-system-message__message">{children}</span>
                 {dismissAction?.handleDismiss && (
                     <DismissButton
-                        data-theme="light"
                         aria-controls={systemId}
                         className="jkl-system-message__dismiss-button"
                         label={dismissAction.buttonTitle || "Lukk"}
