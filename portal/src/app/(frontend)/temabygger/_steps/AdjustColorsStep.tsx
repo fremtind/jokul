@@ -6,14 +6,15 @@ import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
 import { Message } from "@fremtind/jokul/message";
 import { Title } from "@fremtind/jokul/typography";
-import { useRouter } from "next/navigation";
-import { type FormEvent, useState } from "react";
+import Link from "next/link";
+import { type MouseEvent, useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import {
     type FailingContrastCombination,
     getFailingContrasts,
 } from "../_preview/contrastEvaluation";
+import { setStoredThemeDraft } from "../_storage/themeDraftStorage";
 import {
     COLOR_SCHEMES,
     type ColorRole,
@@ -28,7 +29,6 @@ import {
 type ContrastErrorLabelsByRole = Partial<Record<ColorRole, string>>;
 
 export function AdjustColorsStep() {
-    const router = useRouter();
     const { draft } = useThemeDraft();
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
@@ -43,20 +43,20 @@ export function AdjustColorsStep() {
     );
     const hasContrastErrors = failingContrasts.length > 0;
 
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const handlePreviewClick = (event: MouseEvent<HTMLAnchorElement>) => {
         setHasSubmitted(true);
 
         if (hasContrastErrors) {
+            event.preventDefault();
             return;
         }
 
-        router.push("/temabygger/forhandsvisning");
+        setStoredThemeDraft(draft);
     };
 
     return (
         <StepCard>
-            <Flex as="form" direction="column" gap="32" onSubmit={handleSubmit}>
+            <Flex direction="column" gap="32">
                 <Title as="h3" size="m">
                     Tilpass farger for {themeName}
                 </Title>
@@ -95,7 +95,14 @@ export function AdjustColorsStep() {
                     alignItems="center"
                     wrap="wrap"
                 >
-                    <Button type="submit" variant="primary">
+                    <Button
+                        as={Link}
+                        href="/temabygger/forhandsvisning"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        variant="primary"
+                        onClick={handlePreviewClick}
+                    >
                         Forhåndsvis tema
                     </Button>
                     <Button type="button" variant="ghost">
