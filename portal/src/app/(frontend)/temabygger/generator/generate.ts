@@ -1,7 +1,7 @@
-import { color as colorMetadataDark } from "@fremtind/jokul/tokens/metadata/color.metadata.saturated.dark.json" with {
+import { color as colorMetadataDark } from "@fremtind/jokul/tokens/metadata/color.metadata.dark.json" with {
     type: "json",
 };
-import { color as colorMetadataLight } from "@fremtind/jokul/tokens/metadata/color.metadata.saturated.light.json" with {
+import { color as colorMetadataLight } from "@fremtind/jokul/tokens/metadata/color.metadata.light.json" with {
     type: "json",
 };
 
