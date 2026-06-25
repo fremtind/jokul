@@ -5,7 +5,8 @@
 
 @layer jokul.components {
     .jkl-checkbox {
-        --text-color: var(--jkl-color-background-contrast);
+        --text-color: var(--jkl-color-text-default);
+        --icon-color: var(--jkl-color-background-contrast);
         --background-color: transparent;
 
         @include jkl.text-style("text-medium");
@@ -34,6 +35,7 @@
         }
 
         &__label {
+            color: var(--text-color);
             cursor: pointer;
             display: flex;
 
@@ -41,6 +43,7 @@
             transition-property: color;
 
             &::before {
+                color: var(--icon-color);
                 content: "check_box_outline_blank";
                 margin-inline-end: 0.25em;
 
