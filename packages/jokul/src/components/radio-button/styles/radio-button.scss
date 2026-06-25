@@ -8,6 +8,9 @@
         display: flex;
         position: relative;
 
+        --text-color: var(--jkl-color-text-default);
+        --icon-color: var(--jkl-color-background-contrast);
+
         @include jkl.text-style("text-medium");
         @include jkl.reset-outline;
 
@@ -32,12 +35,13 @@
         &__label {
             cursor: pointer;
             display: flex;
+            color: var(--text-color);
 
             @include jkl.motion;
             transition-property: color;
 
-
             &::before {
+                color: var(--icon-color);
                 content: "radio_button_unchecked";
                 margin-inline-end: 0.25em;
 

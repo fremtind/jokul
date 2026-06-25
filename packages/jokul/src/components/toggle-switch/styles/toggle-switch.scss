@@ -39,6 +39,8 @@
     [aria-checked="true"] > & {
         --indicator-color: var(--jkl-color-background-contrast);
         --knob-color: var(--jkl-color-text-on-contrast);
+        --switch-border-color: var(--indicator-color);
+        --knob-border-color: var(--knob-color);
         --knob-position: calc(var(--jkl-toggle-switch-width) - var(--jkl-toggle-switch-knob-size) - var(--switch-padding) * 2);
     }
 
@@ -52,6 +54,7 @@
         &[aria-pressed="true"],
         [aria-checked="true"] > & {
             --indicator-color: var(--jkl-color-border-subdued);
+            --switch-border-color: var(--indicator-color);
         }
     }
 }
