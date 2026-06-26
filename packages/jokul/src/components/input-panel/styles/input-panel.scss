@@ -37,6 +37,24 @@
                 inline-size: 100%;
             }
 
+            label::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+            }
+
+            label,
+            .jkl-radio-button,
+            .jkl-checkbox {
+                position: unset;
+            }
+
+            input[type="checkbox"],
+            input[type="radio"] {
+                inset-block-start: var(--jkl-unit-20);
+                inset-inline-start: var(--padding-inline);
+            }
+
             &__amount {
                 display: flex;
                 height: 100%;
