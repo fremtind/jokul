@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React from "react";
+import React, { useId } from "react";
 import { Button } from "../button/index.js";
 import { Icon } from "../icon/Icon.js";
 import type { HelpProps } from "./types.js";
@@ -13,6 +13,8 @@ export const Help = ({
     children,
     ...rest
 }: HelpProps) => {
+    const helpId = useId();
+
     return (
         <div className={clsx("jkl-help", className)}>
             <Button
@@ -24,8 +26,7 @@ export const Help = ({
                 icon={<Icon aria-hidden="true">help</Icon>}
                 data-testid="jkl-help-trigger"
                 // @ts-ignore
-                popovertarget={`${buttonText}-popover`}
-                style={{ anchorName: `${buttonText}-popover` }}
+                popovertarget={`${helpId}-popover`}
             >
                 {showButtonText && buttonText}
             </Button>
@@ -35,7 +36,7 @@ export const Help = ({
                     data-position={position}
                     // @ts-ignore
                     popover="auto"
-                    id={`${buttonText}-popover`}
+                    id={`${helpId}-popover`}
                     className="jkl-help-popover"
                 >
                     {children}
