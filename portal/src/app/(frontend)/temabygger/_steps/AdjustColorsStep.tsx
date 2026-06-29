@@ -6,14 +6,15 @@ import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
 import { Message } from "@fremtind/jokul/message";
 import { Title } from "@fremtind/jokul/typography";
-import { useRouter } from "next/navigation";
-import { type FormEvent, useState } from "react";
+import Link from "next/link";
+import { useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import {
     type FailingContrastCombination,
     getFailingContrasts,
 } from "../_preview/contrastEvaluation";
+import { createThemePreviewHref } from "../_shared/themeDraftPayload";
 import {
     COLOR_SCHEMES,
     type ColorRole,
@@ -28,7 +29,6 @@ import {
 type ContrastErrorLabelsByRole = Partial<Record<ColorRole, string>>;
 
 export function AdjustColorsStep() {
-    const router = useRouter();
     const { draft } = useThemeDraft();
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
@@ -42,21 +42,29 @@ export function AdjustColorsStep() {
         colorSchemes,
     );
     const hasContrastErrors = failingContrasts.length > 0;
+    const previewHref = createThemePreviewHref(draft);
 
-    const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    const handlePreviewButtonClick = () => {
+        setHasSubmitted(true);
+    };
+
+    const handleShareClick = async () => {
         setHasSubmitted(true);
 
         if (hasContrastErrors) {
             return;
         }
 
-        router.push("/temabygger/forhandsvisning");
+        try {
+            const shareUrl = new URL(previewHref, window.location.origin);
+
+            await navigator.clipboard.writeText(shareUrl.toString());
+        } catch {}
     };
 
     return (
         <StepCard>
-            <Flex as="form" direction="column" gap="32" onSubmit={handleSubmit}>
+            <Flex direction="column" gap="32">
                 <Title as="h3" size="m">
                     Tilpass farger for {themeName}
                 </Title>
@@ -95,10 +103,24 @@ export function AdjustColorsStep() {
                     alignItems="center"
                     wrap="wrap"
                 >
-                    <Button type="submit" variant="primary">
-                        Forhåndsvis tema
-                    </Button>
-                    <Button type="button" variant="ghost">
+                    {hasContrastErrors ? (
+                        <Button
+                            type="button"
+                            variant="primary"
+                            onClick={handlePreviewButtonClick}
+                        >
+                            Forhåndsvis tema
+                        </Button>
+                    ) : (
+                        <Button as={Link} href={previewHref} variant="primary">
+                            Forhåndsvis tema
+                        </Button>
+                    )}
+                    <Button
+                        type="button"
+                        variant="ghost"
+                        onClick={handleShareClick}
+                    >
                         Del visning
                     </Button>
                 </Flex>

@@ -1,13 +1,11 @@
 import type { ThemeDraft } from "../_context/types";
-import { isFontOptionId } from "../_shared/fontOptions";
+import {
+    THEME_DRAFT_VERSION,
+    type ThemeDraftPayload,
+    parseThemeDraftPayload,
+} from "../_shared/themeDraftPayload";
 
 const STORAGE_KEY = "jokul.temabygger.draft";
-const STORAGE_VERSION = 1;
-
-type StoredThemeDraft = {
-    version: typeof STORAGE_VERSION;
-    draft: ThemeDraft;
-};
 
 export function getStoredThemeDraft(): ThemeDraft | undefined {
     if (typeof window === "undefined") {
@@ -20,13 +18,13 @@ export function getStoredThemeDraft(): ThemeDraft | undefined {
             return undefined;
         }
 
-        const draft = parseStoredThemeDraft(JSON.parse(storedValue));
-        if (!draft) {
+        const payload = parseThemeDraftPayload(JSON.parse(storedValue));
+        if (!payload) {
             window.localStorage.removeItem(STORAGE_KEY);
             return undefined;
         }
 
-        return draft;
+        return payload.draft;
     } catch {
         return undefined;
     }
@@ -38,40 +36,11 @@ export function setStoredThemeDraft(draft: ThemeDraft): void {
     }
 
     try {
-        const storedDraft: StoredThemeDraft = {
-            version: STORAGE_VERSION,
+        const storedDraft: ThemeDraftPayload = {
+            version: THEME_DRAFT_VERSION,
             draft,
         };
 
         window.localStorage.setItem(STORAGE_KEY, JSON.stringify(storedDraft));
     } catch {}
-}
-
-function parseStoredThemeDraft(value: unknown): ThemeDraft | undefined {
-    if (typeof value !== "object" || value === null || Array.isArray(value)) {
-        return undefined;
-    }
-
-    const storedDraft = value as Partial<StoredThemeDraft>;
-    if (storedDraft.version !== STORAGE_VERSION) {
-        return undefined;
-    }
-
-    const { draft } = storedDraft;
-    if (typeof draft !== "object" || draft === null || Array.isArray(draft)) {
-        return undefined;
-    }
-
-    if (
-        typeof draft.colorTokens !== "object" ||
-        draft.colorTokens === null ||
-        !isFontOptionId(draft.regularFont) ||
-        !isFontOptionId(draft.displayFont) ||
-        typeof draft.themeName !== "string" ||
-        typeof draft.includeDarkMode !== "boolean"
-    ) {
-        return undefined;
-    }
-
-    return draft;
 }

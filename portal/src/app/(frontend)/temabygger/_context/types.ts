@@ -20,4 +20,5 @@ export type ThemeDraftContextState = {
 
 export type ThemeDraftProviderProps = {
     children: ReactNode;
+    initialDraft?: ThemeDraft;
 };
