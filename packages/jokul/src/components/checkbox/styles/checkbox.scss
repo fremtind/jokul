@@ -44,7 +44,7 @@
 
             &::before {
                 color: var(--icon-color);
-                content: "check_box_outline_blank";
+                content: "check_box_outline_blank" / "";
                 margin-inline-end: 0.25em;
 
                 @include icon.base-styles;
@@ -62,13 +62,13 @@
         }
 
         &__input:checked + &__label::before {
-            content: "check_box";
+            content: "check_box" / "";
 
             --jkl-icon-fill: 1;
         }
 
         &__input:indeterminate:not(:checked) + &__label::before {
-            content: "indeterminate_check_box";
+            content: "indeterminate_check_box" / "";
 
             --jkl-icon-fill: 1;
         }
