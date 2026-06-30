@@ -16,13 +16,13 @@ export const Kontrast: Story = {
     render: () => (
         <Flex alignItems="center">
             <Button variant="primary">Knapp</Button>
-            <Checkbox name="kjekkboks" value="kjekkboks">
+            <Checkbox name="kjekkboks" value="kjekkboks" defaultChecked>
                 Kjekkboks
             </Checkbox>
-            <RadioButton name="radio" value="radio">
+            <RadioButton name="radio" value="radio" defaultChecked>
                 Radio
             </RadioButton>
-            <ToggleSwitch />
+            <ToggleSwitch aria-label="Bryter" aria-pressed />
         </Flex>
     ),
 };
