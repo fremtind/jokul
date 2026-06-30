@@ -42,7 +42,7 @@
 
             &::before {
                 color: var(--icon-color);
-                content: "radio_button_unchecked";
+                content: "radio_button_unchecked" / "";
                 margin-inline-end: 0.25em;
 
                 @include icon.base-styles;
@@ -62,7 +62,7 @@
         }
 
         &__input:checked + &__label::before {
-            content: "radio_button_checked";
+            content: "radio_button_checked" / "";
         }
 
         &__input[aria-invalid="true"] + &__label::before {
