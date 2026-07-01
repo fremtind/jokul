@@ -146,7 +146,7 @@
         "stylelint": "^16.23.1",
         "tiny-glob": "^0.2.9",
         "typescript": "^5.9.2",
-        "vite": "^7.3.2"
+        "vite": "^7.3.5"
     },
     "browserslist": [
         ">0.2% in no",

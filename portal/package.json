@@ -40,7 +40,7 @@
         "colorjs.io": "0.6.1",
         "cookies-next": "^6.0.0",
         "cross-env": "^10.1.0",
-        "dompurify": "^3.4.0",
+        "dompurify": "^3.4.11",
         "graphql": "^16.8.1",
         "hsluv": "^1.0.1",
         "mixpanel-browser": "^2.79.0",
