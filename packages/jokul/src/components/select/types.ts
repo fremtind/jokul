@@ -1,7 +1,5 @@
 import type { ChangeEvent, SelectHTMLAttributes } from "react";
-import type { DataTestAutoId } from "../../utilities/types.js";
 import type { ValuePair } from "../../utilities/valuePair.js";
-import type { LabelProps } from "../input-group/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
 
 export interface NativeSelectProps
@@ -37,44 +35,26 @@ export type SelectChangeEventHandler = (
     event: SelectPartialChangeEvent,
 ) => void;
 
-export interface SelectProps
-    extends Omit<InputGroupProps, "children">,
-        DataTestAutoId {
-    id?: string;
-    name: string;
+export type SelectProps = Omit<
+    SelectHTMLAttributes<HTMLSelectElement>,
+    "onChange"
+> & {
     label: string;
-    labelProps?: Omit<LabelProps, "children" | "htmlFor" | "standAlone">;
     items: Array<string | ValuePair>;
-    /**
-     * @default false
-     */
-    inline?: boolean;
-    /**
-     * @default "Velg"
-     */
-    defaultPrompt?: string;
-    className?: string;
-    value?: string;
-    helpLabel?: string;
     errorLabel?: string;
     /**
      * @default false
      */
-    searchable?:
-        | boolean
-        | ((searchValue: string, searchItem: string | ValuePair) => boolean);
-    width?: string;
-    onChange?: SelectChangeEventHandler;
-    onBlur?: SelectChangeEventHandler;
-    onFocus?: SelectChangeEventHandler;
+    searchable?: boolean;
     /**
-     * Merk som ugyldig uten å sende inn en errorLabel.
-     * NB! Brukes kun i tilfeller der valideringsfeil dukker opp andre steder, for eksempel i en FieldGroup.
+     * Håndtering av søking, typisk brukt for å filtrere elementer asynkront. Hvis denne funksjonen er satt, vil ikke søkefeltet filtrere elementene lokalt.
+     * @default undefined
      */
-    invalid?: boolean;
+    onSearch?: (searchValue: string) => void;
     /**
-     * Hvor mange valg skal vises i listen før den begynner å scrolle.
-     * @default 5
+     * Laster inn elementer asynkront. Viser en spinner i nedtrekkslisten.
+     * @default false
      */
-    maxShownOptions?: number;
-}
+    loading?: boolean;
+    onChange?: (value: string | Array<string>) => void;
+};

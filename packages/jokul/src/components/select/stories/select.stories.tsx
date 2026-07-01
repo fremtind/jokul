@@ -4,9 +4,9 @@ import { Card } from "../../card/Card.js";
 import { ExpandablePanel } from "../../expander/ExpandablePanel.js";
 import { ExpandablePanelContent } from "../../expander/ExpandablePanelContent.js";
 import { Expander } from "../../expander/Expander.js";
-import { Flex } from "../../flex/index.js";
-import { PopupTip } from "../../tooltip/PopupTip.js";
 import { Select } from "../Select.js";
+import { fagsystemer, mobilmerker, saksbehandlere } from "./shared.data.js";
+
 import "../styles/_index.scss";
 import "../../card/styles/_index.scss";
 import "../../expander/styles/_index.scss";
@@ -14,64 +14,14 @@ import "../../expander/styles/_index.scss";
 const meta: Meta = {
     title: "Komponenter/Select",
     component: Select,
-    subcomponents: { PopupTip },
-    argTypes: {
-        className: {
-            table: {
-                disable: true,
-            },
-        },
-        id: {
-            table: {
-                disable: true,
-            },
-        },
-        "data-testautoid": {
-            table: {
-                disable: true,
-            },
-        },
-        onBlur: {
-            table: {
-                disable: true,
-            },
-        },
-        onFocus: {
-            table: {
-                disable: true,
-            },
-        },
-        onChange: {
-            table: {
-                disable: true,
-            },
-        },
-        searchable: {
-            control: "boolean",
-        },
-    },
     args: {
         name: "Select",
         label: "Hvilket merke er telefonen?",
         description: "Du kan kun velge ett merke",
-        items: [
-            { value: "Apple", label: "Apple" },
-            { value: "Samsung", label: "Samsung" },
-            { value: "Google", label: "Google" },
-            { value: "OnePlus", label: "OnePlus" },
-            { value: "Nokia", label: "Nokia" },
-            { value: "Annet", label: "Annet" },
-        ],
-        defaultPrompt: "Velg merke",
-        inline: false,
-        invalid: false,
-        labelProps: {
-            srOnly: false,
-            variant: "small",
-        },
-        maxShownOptions: 12,
-        width: "20ch",
-        searchable: false,
+        items: mobilmerker.map((item) => ({ value: item, label: item })),
+        multiple: false,
+        onSearch: undefined,
+        loading: false,
     },
 };
 
@@ -83,41 +33,88 @@ export const SelectStory: Story = {
     name: "Select",
 };
 
-export const SelectInline: Story = {
+export const SelectMedDescription: Story = {
+    name: "Select med description",
     args: {
-        label: "Hva jobber du som?",
-        items: [
-            "Frontend-utvikler",
-            "Backend-utvikler",
-            "Visuell designer",
-            "Interaksjonsdesigner",
-            "Tjenestedesigner",
-        ],
-        inline: true,
-        value: "Frontend-utvikler",
-        description: "",
-        helpLabel: "",
-    },
-    render: (args) => {
-        return (
-            <Flex gap="xs" alignItems="center">
-                <p>Jeg jobber som</p>
-                <Select {...args} />
-                <p>hos Fremtind Forsikring.</p>
-            </Flex>
-        );
+        label: "Velg system",
+        items: fagsystemer.map((fagsystem) => ({
+            value: fagsystem.navn,
+            label: fagsystem.navn,
+            description: fagsystem.beskrivelse,
+        })),
     },
 };
 
-export const SelectMedTooltip: Story = {
+export const SelectMedSok: Story = {
+    name: "Select med søk",
     args: {
-        tooltip: (
-            <PopupTip
-                content={
-                    "Er du usikker på hvilket merke du har kan du velge Annet"
-                }
+        label: "Velg saksbehandler",
+        description: "",
+        multiple: false,
+        items: saksbehandlere.map((saksbehandler) => ({
+            value: saksbehandler.id,
+            label: saksbehandler.navn,
+            description: saksbehandler.description,
+            media: (
+                <img
+                    src={saksbehandler.bilde}
+                    alt={saksbehandler.navn}
+                    width={32}
+                    height={32}
+                />
+            ),
+        })),
+        searchable: true,
+    },
+};
+
+export const SelectAsync: Story = {
+    name: "Select med asynkront søk",
+    args: {
+        label: "Velg saksbehandler",
+        description: "",
+        multiple: false,
+        items: [],
+        searchable: true,
+    },
+    render: (args) => {
+        const [items, setItems] = React.useState(args.items);
+        const [loading, setLoading] = React.useState(false);
+
+        const handleSearch = (searchValue: string) => {
+            setLoading(true);
+            setTimeout(() => {
+                const newItems = saksbehandlere
+                    .filter((saksbehandler) =>
+                        saksbehandler.navn
+                            .toLowerCase()
+                            .includes(searchValue.toLowerCase()),
+                    )
+                    .map((saksbehandler) => ({
+                        value: saksbehandler.id,
+                        label: saksbehandler.navn,
+                        media: (
+                            <img
+                                src={saksbehandler.bilde}
+                                alt={saksbehandler.navn}
+                                width={32}
+                                height={32}
+                            />
+                        ),
+                    }));
+                setItems(newItems);
+                setLoading(false);
+            }, 1000);
+        };
+
+        return (
+            <Select
+                {...args}
+                items={items}
+                onSearch={handleSearch}
+                loading={loading}
             />
-        ),
+        );
     },
 };
 

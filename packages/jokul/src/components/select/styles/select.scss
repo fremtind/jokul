@@ -5,370 +5,96 @@
 
 @layer jokul.components {
     .jkl-select {
-        --jkl-select-arrow-right: var(--jkl-unit-05);
-        --border-width: #{jkl.rem(1px)};
-        --border-radius: var(--jkl-border-radius-s);
-        --min-option-height: min(var(--jkl-unit-60), #{jkl.rem(48px)});
-
-        /* Vi må trekke fra bredden til rammen for å få riktig høyde */
-        --button-padding: calc(var(--jkl-unit-15) - var(--border-width))
-            calc(0.75em - var(--border-width));
-        --option-padding: var(--jkl-unit-10);
-
-        display: block;
-        position: relative;
-
-        @include jkl.reset-outline;
-
-        & *:focus-visible {
-            outline: none;
+        &__native-visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0 0 0 0);
+            clip-path: inset(50%);
+            white-space: nowrap;
+            border: 0;
         }
 
-        & .jkl-tooltip-question-button:focus {
-            @include jkl.focus-outline($offset: 0);
-        }
-
-        & select {
+        &__trigger {
             appearance: none;
+            border: 1px solid var(--jkl-color-border-default);
+            background: var(--jkl-color-background-container);
+            padding: var(--jkl-unit-15);
+            min-width: 12ch;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: var(--jkl-border-radius-s);
 
-            &:-moz-focusring {
-                color: transparent;
-                text-shadow: 0 0 0 var(--jkl-color-text-subdued);
-            }
-
-            & option {
-                font-weight: normal;
-                font-family: sans-serif;
-                color: var(--jkl-color-text-subdued);
-                background-color: var(--jkl-color-background-container);
+            &::after {
+                content: "arrow_downward";
+                margin-inline-start: var(--jkl-unit-15);
+                font-family: var(--jkl-font-family-icons);
             }
         }
 
-        &__outer-wrapper {
-            position: relative;
-            width: 15rem;
-            min-width: 7rem;
+        &__dropdown__search {
+            margin-block-end: var(--jkl-unit-15);
             max-width: 100%;
         }
 
-        &__search-input {
+        &__dropdown__listbox__option {
+            display: grid;
+            grid-template-columns: 16px 1fr 48px;
+            align-items: center;
+            column-gap: var(--jkl-unit-20);
+            padding: var(--jkl-unit-10);
             box-sizing: border-box;
-            color: var(--jkl-color-text-subdued);
-        }
-
-        &__search-input,
-        &__button {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            background-color: transparent;
-            color: var(--jkl-color-text-subdued);
+            border-radius: var(--jkl-border-radius-s);
             cursor: pointer;
 
-            height: var(--jkl-select-input-height);
-            border-radius: var(--border-radius);
-            border: var(--border-width) solid var(--jkl-color-border-default);
-            box-shadow: 0 0 0 jkl.rem(1px) transparent;
-            text-align: left;
-            width: 100%;
+            input {
+                position: absolute;
+                opacity: 0;
+                width: 1px;
+                height: 1px;
+            }
 
-            padding: var(--button-padding);
-
-            /* Øk padding for å gi plass til ikonet */
-            padding-inline-end: calc(0.75em + 1.3em);
-
-            transition-property: color, border-color, box-shadow;
-
-            @include jkl.motion;
-            @include jkl.text-style("text-medium");
-
-            &--active-value {
-                color: var(--jkl-color-text-default);
+            &::before {
+                font-family: var(--jkl-font-family-icons);
+                content: "";
+                grid-column: 1;
             }
 
             &:hover {
-                border-color: var(--jkl-color-border-strong);
-                box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-strong);
+                background: var(--jkl-color-background-container-accent);
+            }
 
-                & ~ .jkl-select__arrow {
-                    transform: translateY(calc(-50% + #{jkl.rem(3px)}));
+            &:has(input:checked) {
+                background: var(--jkl-color-background-container-accent);
+                font-weight: var(--jkl-font-weight-bold);
+
+                &::before {
+                    content: "check";
                 }
             }
 
-            &:focus-visible {
-                outline: none;
-            }
-        }
-
-        @include jkl.keyboard-navigation {
-            &__search-input,
-            &__button {
-                &:focus-visible,
-                &:has(:focus-visible) {
-                    @include jkl.focus-outline;
-                }
-            }
-
-            &:has(:focus-visible) {
-                .jkl-select__button,
-                .jkl-select__search-input {
-                    @include jkl.focus-outline;
-                }
-            }
-        }
-
-        &__arrow {
-            pointer-events: none;
-            position: absolute;
-            right: 0.75em;
-            top: 50%;
-            color: var(--jkl-color-text-default);
-
-            transform: translateY(-50%);
-            transition-property: transform, color;
-
-            @include jkl.motion;
-            @include jkl.forced-colors-svg-fallback(
-                $stroke: CanvasText,
-                $fill: CanvasText
-            );
-
-            .jkl-select:has([aria-invalid="true"]) & {
-                color: var(--jkl-color-error-text-default);
-            }
-        }
-
-        &__options-menu {
-            background-color: var(--jkl-color-background-container);
-            border: jkl.rem(2px) solid var(--jkl-color-border-strong);
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
-            box-sizing: border-box;
-            // Strekker seg ut over kantene på trigger-knappen for å dekke
-            // den 1px brede borderen, slik at listen visuelt henger sammen
-            // med inputfeltet.
-            margin-inline: jkl.rem(-1px);
-            width: calc(100% + #{jkl.rem(2px)});
-            // Definerer egne tokens her fordi listen rendres i en portal og
-            // ikke arver kaskaderte custom properties fra `.jkl-select`.
-            --min-option-height: min(var(--jkl-unit-60), 3rem);
-            --option-padding: var(--jkl-unit-05) 0.75em;
-
-            overflow-y: auto;
-            // Sett makshøyde på listen til høyden av (maxShownOptions + 0.5) ganger høyden på ett enlinjes valg
-            max-height: calc(
-                calc(var(--jkl-select-max-shown-options, 5) + 0.5) *
-                    var(--min-option-height)
-            );
-
-            // Standard: lista ligger under triggeren — flat topp, runde
-            // bunnhjørner, ingen border på toppen som ville duplisert
-            // knappens border.
-            &[data-popover-placement="bottom"] {
-                border-top: none;
-                border-radius: 0 0 var(--jkl-border-radius-s)
-                    var(--jkl-border-radius-s);
-            }
-
-            // Når `flip` snur lista over knappen byttes flat side og runde
-            // hjørner, slik at lista og knappen fortsatt henger sammen
-            // visuelt.
-            &[data-popover-placement="top"] {
-                border-bottom: none;
-                border-radius: var(--jkl-border-radius-s)
-                    var(--jkl-border-radius-s) 0 0;
-            }
-        }
-
-        &__option-wrapper {
-            margin: 0;
-            padding: 0;
-
-            list-style-type: none;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        &__option {
-            color: unset;
-            border: 0; // removes native styling
-            width: 100%;
-            background-color: inherit;
-            min-height: var(--min-option-height);
-            text-align: left;
-            transition-property: color, background-color;
-            position: relative;
-            padding: var(--option-padding);
-            cursor: pointer;
-
-            @include jkl.motion;
-            @include jkl.text-style("text-medium");
-
-            /* For å unngå "dobbel" markering skrur vi av markering på hover i React-
-        komponenten med data-focus="controlled". Uten dette satt vil valgene
-        markeres ved hover som normalt. */
-            &:focus,
-            :not([data-focus="controlled"]) > &:hover {
-                color: var(--jkl-color-text-default);
-                background-color: var(--jkl-color-background-container-accent);
-            }
-
-            &-description {
-                color: var(--jkl-color-text-subdued);
+            &__text > span {
                 display: block;
+            }
+
+            &__media {
                 width: 100%;
+                height: 100%;
+                aspect-ratio: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
-                @include jkl.text-style("text-small");
-            }
-        }
-
-        /* --------
-       VARIANTS
-       -------- */
-
-        &--inline {
-            display: inline-block;
-            vertical-align: top;
-        }
-
-        &--open {
-            .jkl-select__search-input,
-            .jkl-select__button {
-                border-color: var(--jkl-color-border-strong);
-                background-color: var(--jkl-color-background-container);
-                box-shadow: 0 0 0 jkl.rem(1px) var(--jkl-color-border-strong);
-
-                &:hover ~ .jkl-select__arrow {
-                    transform: translateY(calc(-50% + #{jkl.rem(-3px)}));
-                }
-            }
-
-            // Lista ligger under (default): flat bunn på input/knapp.
-            .jkl-select__outer-wrapper[data-popover-placement="bottom"] {
-                .jkl-select__search-input,
-                .jkl-select__button {
-                    border-bottom-left-radius: 0;
-                    border-bottom-right-radius: 0;
-                }
-            }
-
-            // Lista ligger over: flat topp på input/knapp.
-            .jkl-select__outer-wrapper[data-popover-placement="top"] {
-                .jkl-select__search-input,
-                .jkl-select__button {
-                    border-top-left-radius: 0;
-                    border-top-right-radius: 0;
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: contain;
                 }
             }
         }
-
-        &--invalid {
-            .jkl-select__search-input,
-            .jkl-select__button {
-                color: var(--jkl-color-error-text-default);
-                border-color: var(--jkl-color-error-border-default);
-
-                &--active-value {
-                    color: revert;
-                }
-            }
-        }
-
-        @include jkl.forced-colors-mode {
-            // Vi er en button (hvis ikke native) og får ButtonText, men vi later som vi er en select, og den har CanvasText
-            & .jkl-select__button,
-            & .jkl-select__search-input {
-                color: CanvasText;
-                border: 2px solid ButtonText;
-                background-color: Canvas;
-                outline: revert;
-
-                &:hover {
-                    border-color: Highlight;
-                }
-            }
-        }
-    }
-
-    // Options rendres i portal og er ikke descendants av `.jkl-select`,
-    // så forced-colors-reglene må stå på topp-nivå for å treffe dem.
-    @include jkl.forced-colors-mode {
-        .jkl-select__option {
-            color: CanvasText;
-
-            border-top: 1px solid Canvas;
-            border-bottom: 1px solid Canvas;
-
-            &:hover,
-            &:focus {
-                border-top: 1px solid SelectedItem;
-                border-bottom: 1px solid SelectedItem;
-
-                @include jkl.no-grow-bold;
-            }
-        }
-    }
-
-    // Listen rendres i en portal via `Popover`. Vi nøytraliserer Popover sin
-    // standard padding/bakgrunn/skygge slik at `.jkl-select__options-menu`
-    // selv styrer ramme og bakgrunn — også når Select brukes inne i en
-    // Card, ExpandablePanel eller andre containere med overflow-clip.
-    // Select skal følge samme lagdeling som andre dropdown-/menykomponenter,
-    // men kan løftes av en portal-kontekst som Modal via `--jkl-floating-z-index`.
-    .jkl-popover.jkl-select__popover {
-        background: none;
-        box-shadow: none;
-        border-radius: 0;
-        z-index: var(--jkl-floating-z-index, #{jkl.$z-index--dropdown});
-    }
-
-    // Mild fade + slide-in når lista mounter i portalen. Animeres på
-    // selve listbox-en — ikke på popover-wrapperen — fordi wrapperen
-    // bærer floating-ui sin posisjonerings-`transform`. Hadde vi animert
-    // wrapperen ville `translateY` overstyrt floating-ui's transform i
-    // animasjonsvinduet, og lista ville blinket i (0,0).
-    @media (prefers-reduced-motion: no-preference) {
-        .jkl-select__options-menu {
-            animation: jkl-select-options-menu-in
-                var(--jkl-motion-timing-snappy)
-                var(--jkl-motion-easing-standard);
-
-            // Når lista flippes opp animerer vi fra motsatt retning slik
-            // at bevegelsen alltid kommer fra triggeren.
-            &[data-popover-placement="top"] {
-                animation-name: jkl-select-options-menu-in-from-top;
-            }
-        }
-    }
-
-    @keyframes jkl-select-options-menu-in {
-        from {
-            opacity: 0;
-            transform: translateY(jkl.rem(-4px));
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    @keyframes jkl-select-options-menu-in-from-top {
-        from {
-            opacity: 0;
-            transform: translateY(jkl.rem(4px));
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    // Options rendres i en portal og er ikke lenger descendants av
-    // `.jkl-select`, så regelen `.jkl-select & *:focus-visible { outline:
-    // none }` treffer dem ikke. Vi gjenoppretter fokus-visualiseringen
-    // (background-color via &:focus) ved å eksplisitt fjerne den native
-    // outlinen på options i portalen.
-    .jkl-select__option:focus-visible {
-        outline: none;
     }
 }
