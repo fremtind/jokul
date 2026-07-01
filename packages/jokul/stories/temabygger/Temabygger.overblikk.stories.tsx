@@ -316,37 +316,42 @@ function SearchCard() {
 }
 
 function ConversationCard() {
+    const bubbleStyle = {
+        alignSelf: "flex-end",
+        backgroundColor: "var(--jkl-color-background-container-accent)",
+        color: "var(--jkl-color-text-default)",
+    } satisfies CSSProperties;
+
+    const timestampStyle = {
+        color: "var(--jkl-color-text-subdued)",
+    } satisfies CSSProperties;
+
     return (
         <Card padding="l" outlined as="section">
             <Flex direction="column" gap="16">
-                <Text size="s" style={{ alignSelf: "flex-end" }}>
-                    <strong>Deg</strong> 03.03.2025 kl. 09.42
-                </Text>
-                <Card
-                    padding="m"
+                <Text
+                    size="s"
                     style={{
+                        ...timestampStyle,
                         alignSelf: "flex-end",
-                        backgroundColor: "var(--jkl-color-background-contrast)",
-                        color: "var(--jkl-color-text-on-contrast)",
                     }}
                 >
+                    <strong>Deg</strong> 03.03.2025 kl. 09.42
+                </Text>
+                <Card padding="m" style={bubbleStyle}>
                     <Text size="s">
                         Da var bilen fikset, og her har du bilde av
                         kvitteringen.
                     </Text>
                     <Text size="s">Mvh Eivind</Text>
                 </Card>
-                <Card
-                    padding="m"
-                    style={{
-                        alignSelf: "flex-end",
-                        backgroundColor: "var(--jkl-color-background-contrast)",
-                        color: "var(--jkl-color-text-on-contrast)",
-                    }}
-                >
+                <Card padding="m" style={bubbleStyle}>
                     <Text size="s">IMG_3085.HEIC</Text>
                 </Card>
-                <Text size="s">
+                <Text
+                    size="s"
+                    style={{ ...timestampStyle, alignSelf: "flex-start" }}
+                >
                     <strong>Anita</strong> 03.03.2025 kl. 10.25
                 </Text>
                 <Card padding="m" style={{ alignSelf: "flex-start" }}>
