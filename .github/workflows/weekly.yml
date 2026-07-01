@@ -35,7 +35,7 @@ jobs:
               run: pnpm exec playwright install --with-deps chromium
 
             - name: Playwright binary cache
-              uses: actions/cache/save@v5
+              uses: actions/cache/save@v6
               id: playwright-cache
               with:
                   path: /home/runner/.cache/ms-playwright
