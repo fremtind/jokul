@@ -3,9 +3,9 @@
 
 @layer jokul.components {
     .jkl-link {
-        --link-color: var(--jkl-color-text-default);
+        --link-color: var(--jkl-color-text-accent);
 
-        color: inherit;
+        color: var(--link-color);
         outline: none;
         text-decoration: none;
 
@@ -64,7 +64,6 @@
         padding: 0;
         margin: 0;
         background: none;
-        line-height: inherit;
         font: inherit;
         text-align: inherit;
     }
