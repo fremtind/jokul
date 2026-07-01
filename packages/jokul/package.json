@@ -94,7 +94,7 @@
         "tailwindcss": "^3.4.17"
     },
     "devDependencies": {
-        "@babel/cli": "^7.28.6",
+        "@babel/cli": "^8.0.1",
         "@babel/preset-react": "^7.27.1",
         "@figma/code-connect": "^1.4.4",
         "@rollup/plugin-terser": "^1.0.0",
