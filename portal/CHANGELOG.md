@@ -1,5 +1,35 @@
 # portal
 
+## 1.7.6
+
+### Patch Changes
+
+- a8299a4: Oppdaterer lenketeksten i komponentvisningen i temabyggeren.
+- 61c1fa0: Legger til rette for delbar forhåndsvisningslenke i temabyggeren.
+- ad98e4d: Flytter temabyggerens stories til en egen mappe og legger til en ny kontrast-story. Oppdaterer også temabyggerens forhåndsvisning til å bruke overblikk-storyen fra den nye plasseringen.
+- 951772f: Oppdaterer hjelpetekstene for fargeroller i temabyggerens redigeringssteg.
+- 920e2f2: Samler definisjonen av fargetemaer i temabyggeren, slik at `ColorScheme` og `COLOR_SCHEMES` har samme kilde.
+- 409e912: Bruker `EditableLightDarkPalette` som fargetoken-type i temabyggeren.
+- 9d8982d: Styrer åpent ExpandablePanel i temabyggeren med kontrollert state.
+- 87fc574: Legger til visning av fargekombinasjoner og eventuelle feilende kontrastkrav i temabyggeren
+- 0ccbac6: Oppdaterer chatboblene i overblikk-visningen i temabyggeren.
+- bebf6a6: Gjør mørk modus valgfritt i temabyggeren.
+- 69f5480: Bytter temabyggerens palettgenerator til nøytral fargemetadata, slik at nye paletter får færre kontrastfeil etter valg av basefarge.
+- 3f882df: Legger til favicon for Jøkul-portalen
+- ca59e65: Legger til komponent for å vise kontraster mellom fargeroller i temabyggeren
+- Updated dependencies [99005fd]
+- Updated dependencies [ec2360f]
+- Updated dependencies [982e7df]
+- Updated dependencies [3837eb4]
+- Updated dependencies [afcf950]
+- Updated dependencies [de58f5c]
+- Updated dependencies [466c260]
+- Updated dependencies [c8d223b]
+- Updated dependencies [d26e11e]
+- Updated dependencies [9aee36f]
+- Updated dependencies [2620af5]
+  - @fremtind/jokul@5.1.0
+
 ## 1.7.5
 
 ### Patch Changes

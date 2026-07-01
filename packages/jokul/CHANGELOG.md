@@ -1,5 +1,24 @@
 # Change Log
 
+## 5.1.0
+
+### Minor Changes
+
+- de58f5c: Legger til `center` og `subdued` props på `Text` komponenten, og `center` prop på `Title` komponenten for å forenkle vanlige tekststyler uten custom CSS.
+- 466c260: errorLabel har fått oppdatert visuelt uttrykk for å gi en tydeligere feilmelding.
+
+### Patch Changes
+
+- 99005fd: Retter typene til ExpandablePanel slik at de matcher default-elementet `details`. Det gjør at `name` kan brukes direkte på komponenten for native accordion-oppførsel.
+- ec2360f: Fikser fargen på ikonene i SystemMessage i dark mode.
+- 982e7df: Justerer farger på checkbox, radio button og toggle switch slik at aktive skjemakontroller matcher designet bedre.
+- 3837eb4: Legger til token for ikonfonten, og oppdaterer verdi for monospace-fonten
+- afcf950: Sørger for at ikke navnet på ikonene til `RadioButton` og `Checkbox` leses opp av skjermlesere.
+- c8d223b: Hindrer at ikoner blir klemt i flex-layout.
+- d26e11e: Oppdaterer Link til å bruke text-accent som standard fargerolle.
+- 9aee36f: Gjør hele headeren i `RadioPanel` og `CheckboxPanel` klikkbar.
+- 2620af5: Sørger for at alle Help-komponenter har unik id, slik at de ikke uforvarende åpner andre Help-popovers.
+
 ## 5.0.5
 
 ### Patch Changes
