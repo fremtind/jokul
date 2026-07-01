@@ -13,7 +13,9 @@ export function createColorTokenMailHref({
     colorTokens,
     includeDarkMode,
 }: ColorTokenMailInput): string {
-    const subject = `Fargetokens for ${themeName}`;
+    const subject = themeName
+        ? `Fargetokens for ${themeName}`
+        : "Fargetokens fra temabygger";
     const body = JSON.stringify({
         color: formatColorTokensForMail(colorTokens, includeDarkMode),
     });
