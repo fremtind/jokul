@@ -6,12 +6,9 @@ import {
     useThemePreview,
 } from "@/app/(frontend)/temabygger/_context/ThemePreviewContext";
 import { ThemePreview } from "@/app/(frontend)/temabygger/_preview/ThemePreview";
-import { createColorTokenMailHref } from "@/app/(frontend)/temabygger/_shared/colorTokenMailHref";
 import { buildThemePreviewStyle } from "@/app/(frontend)/temabygger/_shared/previewStyle";
-import { Button } from "@fremtind/jokul/button";
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
-import { Message } from "@fremtind/jokul/message";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { useMemo } from "react";
 import styles from "./theme-preview-page.module.scss";
@@ -45,32 +42,14 @@ function PreviewPageAside() {
 
     return (
         <Card as="aside" padding="l">
-            <Flex direction="column" gap="32">
-                <Flex direction="column" gap="24">
-                    <Title as="h1" size="m">
-                        Forhåndsvisning av tema for {themeName}
-                    </Title>
-                    <Text>
-                        Dette er en visning av hvordan merkevaren deres vil
-                        representeres i Fremtinds designsystem, Jøkul.
-                    </Text>
-                    <Message variant="info">
-                        Vi anbefaler at denne forhåndsvisningen deles internt,
-                        slik at uttrykket er forankret og godkjent før det
-                        sendes til Jøkul.
-                    </Message>
-                </Flex>
-                <Button
-                    as="a"
-                    href={createColorTokenMailHref({
-                        themeName,
-                        colorTokens: draft.colorTokens,
-                        includeDarkMode: draft.includeDarkMode,
-                    })}
-                    variant="primary"
-                >
-                    Send til Jøkul
-                </Button>
+            <Flex direction="column" gap="24">
+                <Title as="h1" size="m">
+                    Forhåndsvisning av tema for {themeName}
+                </Title>
+                <Text>
+                    Dette er en visning av hvordan merkevaren deres vil
+                    representeres i Fremtinds designsystem, Jøkul.
+                </Text>
             </Flex>
         </Card>
     );

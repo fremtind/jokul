@@ -6,7 +6,6 @@ import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
 import { Message } from "@fremtind/jokul/message";
 import { Title } from "@fremtind/jokul/typography";
-import Link from "next/link";
 import { useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
@@ -14,12 +13,14 @@ import {
     type FailingContrastCombination,
     getFailingContrasts,
 } from "../_preview/contrastEvaluation";
+import { createColorTokenMailHref } from "../_shared/colorTokenMailHref";
 import { createThemePreviewHref } from "../_shared/themeDraftPayload";
 import {
     COLOR_SCHEMES,
     type ColorRole,
     type ColorScheme,
 } from "../generator/types";
+import { SharePreviewModal } from "./SharePreviewModal";
 import { StepCard } from "./StepCard";
 import {
     type EditableColorTokenGroup,
@@ -30,69 +31,57 @@ type ContrastErrorLabelsByRole = Partial<Record<ColorRole, string>>;
 
 export function AdjustColorsStep() {
     const { draft } = useThemeDraft();
-    const [hasSubmitted, setHasSubmitted] = useState(false);
+    const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
 
-    const themeName = draft.themeName.trim() || "distributøren";
-    const colorTokenGroups = getEditableColorTokenGroups(draft.colorTokens);
-    const colorSchemes: readonly ColorScheme[] = draft.includeDarkMode
-        ? COLOR_SCHEMES
-        : ["light"];
-    const failingContrasts = getFailingContrasts(
-        draft.colorTokens,
-        colorSchemes,
+    const { colorTokens, includeDarkMode, themeName } = draft;
+
+    const displayThemeName = themeName.trim() || "distributøren";
+
+    const editableColorTokenGroups = getEditableColorTokenGroups(colorTokens);
+    const contrastErrors = getFailingContrasts(
+        colorTokens,
+        includeDarkMode ? COLOR_SCHEMES : ["light"],
     );
-    const hasContrastErrors = failingContrasts.length > 0;
+    const hasContrastErrors = contrastErrors.length > 0;
+
     const previewHref = createThemePreviewHref(draft);
-
-    const handlePreviewButtonClick = () => {
-        setHasSubmitted(true);
-    };
-
-    const handleShareClick = async () => {
-        setHasSubmitted(true);
-
-        if (hasContrastErrors) {
-            return;
-        }
-
-        try {
-            const shareUrl = new URL(previewHref, window.location.origin);
-
-            await navigator.clipboard.writeText(shareUrl.toString());
-        } catch {}
-    };
+    const submitMailHref = createColorTokenMailHref({
+        themeName: displayThemeName,
+        colorTokens,
+        includeDarkMode,
+    });
 
     return (
         <StepCard>
             <Flex direction="column" gap="32">
                 <Title as="h3" size="m">
-                    Tilpass farger for {themeName}
+                    Tilpass farger for {displayThemeName}
                 </Title>
                 <Flex direction="column" gap="40">
-                    {draft.includeDarkMode ? (
+                    {includeDarkMode ? (
                         <>
                             <ColorModeAccordion
                                 title="Lyst modus"
                                 colorScheme="light"
-                                groups={colorTokenGroups}
-                                failingContrasts={failingContrasts}
+                                groups={editableColorTokenGroups}
+                                failingContrasts={contrastErrors}
                             />
                             <ColorModeAccordion
                                 title="Mørk modus"
                                 colorScheme="dark"
-                                groups={colorTokenGroups}
-                                failingContrasts={failingContrasts}
+                                groups={editableColorTokenGroups}
+                                failingContrasts={contrastErrors}
                             />
                         </>
                     ) : (
                         <ColorModeAccordion
                             colorScheme="light"
-                            groups={colorTokenGroups}
-                            failingContrasts={failingContrasts}
+                            groups={editableColorTokenGroups}
+                            failingContrasts={contrastErrors}
                         />
                     )}
                 </Flex>
-                {hasSubmitted && hasContrastErrors && (
+                {hasTriedToSubmit && hasContrastErrors && (
                     <Message variant="error" title="Kontrastfeil" role="alert">
                         Noen fargekombinasjoner har for lav kontrast. Juster de
                         markerte feltene før du bruker temaet.
@@ -107,22 +96,16 @@ export function AdjustColorsStep() {
                         <Button
                             type="button"
                             variant="primary"
-                            onClick={handlePreviewButtonClick}
+                            onClick={() => setHasTriedToSubmit(true)}
                         >
-                            Forhåndsvis tema
+                            Send til Jøkul
                         </Button>
                     ) : (
-                        <Button as={Link} href={previewHref} variant="primary">
-                            Forhåndsvis tema
+                        <Button as="a" href={submitMailHref} variant="primary">
+                            Send til Jøkul
                         </Button>
                     )}
-                    <Button
-                        type="button"
-                        variant="ghost"
-                        onClick={handleShareClick}
-                    >
-                        Del visning
-                    </Button>
+                    <SharePreviewModal previewHref={previewHref} />
                 </Flex>
             </Flex>
         </StepCard>
