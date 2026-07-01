@@ -70,7 +70,7 @@ export const KomponentOversikt: Story = {
                         </Text>
                     </Flex>
                     <Flex>
-                        <Link>Accent</Link>
+                        <Link>Link</Link>
                     </Flex>
 
                     <Flex direction="column" gap="16">
@@ -158,7 +158,7 @@ export const KomponentOversikt: Story = {
                         </Text>
                     </Flex>
                     <Flex>
-                        <Link>Accent</Link>
+                        <Link>Link</Link>
                     </Flex>
 
                     <Flex direction="column" gap="16">
