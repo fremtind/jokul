@@ -44,16 +44,15 @@ const COLOR_TOKEN_METADATA: Record<string, ColorTokenMetadata> = {
     },
     "background.container": {
         label: "Container",
-        description:
-            "Standard farge for fylte flater som ligger på sidebakgrunn",
+        description: "Standard overflate",
     },
     "background.container-accent": {
         label: "Container accent",
-        description: "Fremhevet farge med sterkere knytning til merkevaren",
+        description: "Fremhevet overflate",
     },
     "background.contrast": {
         label: "Background contrast",
-        description: "Kontrastfarge med sterk knytning til merkevaren",
+        description: "Kontrastflate",
         groupId: "contrast",
     },
     "text.default": {
@@ -70,20 +69,20 @@ const COLOR_TOKEN_METADATA: Record<string, ColorTokenMetadata> = {
     },
     "text.on-contrast": {
         label: "Text on contrast",
-        description: "Tekst- og ikonfarge på kontrast bakgrunn",
+        description: "Tekst- og ikonfarge på kontrastflate",
         groupId: "contrast",
     },
     "border.default": {
         label: "Border default",
-        description: "Standard",
+        description: "Standard kantlinje",
     },
     "border.subdued": {
         label: "Border subdued",
-        description: "Nedtonet",
+        description: "Nedtonet kantlinje",
     },
     "border.strong": {
         label: "Border strong",
-        description: "Fremhevet",
+        description: "Fremhevet kantlinje",
     },
 };
 
