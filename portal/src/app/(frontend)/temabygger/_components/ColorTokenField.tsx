@@ -1,6 +1,5 @@
 "use client";
 
-import { Flex } from "@fremtind/jokul/flex";
 import { TextInput } from "@fremtind/jokul/text-input";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { hexErrorLabel } from "../_shared/utils";
@@ -48,24 +47,24 @@ export function ColorTokenField({
             }));
 
     return (
-        <Flex alignItems="end" gap="8" fill>
-            <TextInput
-                label={label}
-                description={description}
-                name={id}
-                value={value}
-                maxLength={7}
-                spellCheck={false}
-                autoComplete="off"
-                errorLabel={hexErrorLabel(value) ?? contrastErrorLabel}
-                width="100%"
-                onChange={(event) => handleValueChange(event.target.value)}
-            />
-            <ColorPicker
-                aria-label={`${accessibleLabel} fargevelger`}
-                value={value}
-                onChange={handleValueChange}
-            />
-        </Flex>
+        <TextInput
+            label={label}
+            description={description}
+            name={id}
+            value={value}
+            maxLength={7}
+            spellCheck={false}
+            autoComplete="off"
+            errorLabel={hexErrorLabel(value) ?? contrastErrorLabel}
+            width="100%"
+            actionButton={
+                <ColorPicker
+                    aria-label={`${accessibleLabel} fargevelger`}
+                    value={value}
+                    onChange={handleValueChange}
+                />
+            }
+            onChange={(event) => handleValueChange(event.target.value)}
+        />
     );
 }
