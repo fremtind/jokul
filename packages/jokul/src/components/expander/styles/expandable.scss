@@ -116,9 +116,13 @@
             text-align: right;
         }
 
-        &--open {
+        &.jkl-expander--open {
             .jkl-expander__label {
                 @include jkl.no-grow-bold;
+            }
+
+            .jkl-expander__label * {
+                font-weight: inherit;
             }
 
             .jkl-expander__chevron {
