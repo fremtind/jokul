@@ -1,0 +1,3 @@
+import{j as t}from"./iframe-DJK-gxDV.js";import{S as o}from"./Select-lTuSajkA.js";import{o as a}from"./shared.data-BDE3WEh4.js";/* empty css               */import"./preload-helper-PPVm8Dsz.js";import"./clsx-B-dksMZM.js";const i={title:"Komponenter/Select/Select",component:o,args:{children:a.map(r=>t.jsx("option",{value:r.value,children:r.label},r.value)),multiple:!1,size:1},argTypes:{size:{table:{readonly:!0}}}},e={name:"Select"};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  name: "Select"
+}`,...e.parameters?.docs?.source}}};const S=["SelectStory"];export{e as SelectStory,S as __namedExportsOrder,i as default};
