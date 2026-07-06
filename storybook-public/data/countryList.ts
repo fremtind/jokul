@@ -1,10 +1,10 @@
 export const countries = [
     { name: "Afghanistan", code: "AF" },
-    { name: "land Islands", code: "AX" },
+    { name: "Aland Islands", code: "AX" },
     { name: "Albania", code: "AL" },
     { name: "Algeria", code: "DZ" },
     { name: "American Samoa", code: "AS" },
-    { name: "AndorrA", code: "AD" },
+    { name: "Andorra", code: "AD" },
     { name: "Angola", code: "AO" },
     { name: "Anguilla", code: "AI" },
     { name: "Antarctica", code: "AQ" },
@@ -181,7 +181,7 @@ export const countries = [
     { name: "Reunion", code: "RE" },
     { name: "Romania", code: "RO" },
     { name: "Russian Federation", code: "RU" },
-    { name: "RWANDA", code: "RW" },
+    { name: "Rwanda", code: "RW" },
     { name: "Saint Helena", code: "SH" },
     { name: "Saint Kitts and Nevis", code: "KN" },
     { name: "Saint Lucia", code: "LC" },
@@ -243,4 +243,4 @@ export const countries = [
     { name: "Yemen", code: "YE" },
     { name: "Zambia", code: "ZM" },
     { name: "Zimbabwe", code: "ZW" },
-];
+] as const;

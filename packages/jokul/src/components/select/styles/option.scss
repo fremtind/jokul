@@ -1,0 +1,81 @@
+@charset "UTF-8";
+@use "../../../styles/jkl";
+@use "../../icon/styles/base-styles" as icon;
+
+@layer jokul.components {
+    .jkl-option {
+        --icon-color: var(--jkl-color-background-contrast);
+        --text-color: var(--jkl-color-text-default);
+
+        background-color: transparent;
+        color: var(--text-color);
+        border: none;
+        border-radius: var(--jkl-border-radius-s);
+        outline: none;
+        display: flex;
+        align-items: center;
+        gap: var(--jkl-spacing-8);
+        padding: var(--jkl-spacing-8);
+        text-align: left;
+
+        &::before {
+            @include icon.base-styles;
+            color: var(--icon-color);
+            content: "check" / "";
+        }
+
+
+        &:hover,
+        &:focus {
+            background-color: var(--jkl-color-background-container-accent);
+        }
+
+        &[aria-selected="false"]::before {
+            --icon-color: transparent;
+        }
+
+        &[aria-selected="true"]::before {
+            content: "check" / "";
+        }
+
+        &--multiple {
+            &[aria-selected="false"]::before {
+                content: "check_box_outline_blank" / "";
+
+                --icon-color: var(--icon-color);
+            }
+
+            &[aria-selected="true"]::before {
+                content: "check_box" / "";
+
+                --jkl-icon-fill: 1;
+            }
+        }
+
+        &__text {
+            flex-grow: 999;
+        }
+
+        &__description {
+            color: var(--jkl-color-text-subdued);
+        }
+
+        &__media {
+            position: relative;
+            width: var(--media-size, 2em);
+            min-width: 2em;
+            aspect-ratio: 1;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: var(--jkl-border-radius-xs);
+
+            & :is(img, picture, video) {
+                position: absolute;
+                inset: 0;
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
