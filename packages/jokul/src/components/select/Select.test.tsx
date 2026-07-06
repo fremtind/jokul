@@ -32,8 +32,8 @@ describe("Select", () => {
         const { getAllByTestId, getByTestId } = setup(
             <Select
                 name="snoop"
-                items={["drop", "it", "like", "its", "hot"]}
                 label="Snoop"
+                items={["drop", "it", "like", "its", "hot"]}
             />,
         );
 
@@ -46,27 +46,12 @@ describe("Select", () => {
         expect(options.length).toBe(5);
     });
 
-    it("should be inline when specified", () => {
-        const screen = setup(
-            <Select
-                name="snoop"
-                inline
-                items={["drop", "it", "like", "its", "hot"]}
-                label="Snoop"
-            />,
-        );
-
-        const dropdown = screen.getByTestId("jkl-select");
-        expect(dropdown).toHaveClass("jkl-select--inline");
-    });
-
     it("should open when clicked", async () => {
         const screen = setup(
             <Select
                 name="snoop"
-                inline
-                items={["drop", "it", "like", "its", "hot"]}
                 label="Snoop"
+                items={["drop", "it", "like", "its", "hot"]}
             />,
         );
 
@@ -82,9 +67,8 @@ describe("Select", () => {
         const screen = setup(
             <Select
                 name="snoop"
-                inline
-                items={["drop", "it", "like", "its", "hot"]}
                 label="Snoop"
+                items={["drop", "it", "like", "its", "hot"]}
             />,
         );
 
@@ -103,9 +87,9 @@ describe("Select", () => {
             <Select
                 name="snoop"
                 onChange={onChange}
-                items={["drop", "it", "like", "its", "hot"]}
                 label="Snoop"
                 value={value}
+                items={["drop", "it", "like", "its", "hot"]}
             />,
         );
 
@@ -125,11 +109,9 @@ describe("Select", () => {
                     <Select
                         name={"Hello"}
                         label={"Utbetalingsmottaker"}
-                        items={["A", "B", "C"]}
                         value={value}
-                        onChange={(e) => {
-                            setValue(e.target.value);
-                        }}
+                        onChange={(e) => setValue(e.target.value)}
+                        items={["A", "B", "C"]}
                     />
                 </div>
             );
@@ -146,9 +128,9 @@ describe("Select", () => {
             <Select
                 label="Items"
                 name="items"
-                items={["A", "B", "C"]}
                 value="D"
                 onChange={onChange}
+                items={["A", "B", "C"]}
             />,
         );
 
@@ -163,13 +145,9 @@ describe("Select", () => {
             <Select
                 label="Items"
                 name="items"
-                items={[
-                    { label: "Item 1", value: "1" },
-                    { label: "Item 2", value: "2" },
-                    { label: "Item 3", value: "3" },
-                ]}
                 value={undefined}
                 onChange={onChange}
+                items={["A", "B", "C"]}
             />,
         );
 
@@ -190,12 +168,12 @@ describe("Select", () => {
                     <Select
                         name={"Hello"}
                         label={"Utbetalingsmottaker"}
-                        items={["A", "B", "C"]}
                         value={value}
                         onChange={(e) => {
                             setValue(e.target.value);
                             onChange();
                         }}
+                        items={["A", "B", "C"]}
                     />
                 </div>
             );
@@ -222,6 +200,7 @@ describe("Select", () => {
                         {...register("stilling", {
                             required: "Du må oppgi eierens stilling",
                         })}
+                        label="Stilling"
                         items={[
                             "Designer",
                             "Utvikler",
@@ -229,7 +208,6 @@ describe("Select", () => {
                             "Leder",
                             "Annet",
                         ]}
-                        label="Stilling"
                     />
                 </form>
             );
@@ -250,18 +228,17 @@ describe("Select", () => {
         function WrappedSelect() {
             const [state, setState] = useState<string>("");
 
-            const items = [
-                { label: "Item 1", value: "1" },
-                { label: "Item 2", value: "2" },
-                { label: "Item 3", value: "3" },
-            ];
             return (
                 <Select
                     name="items"
                     label="List of items"
-                    items={items}
                     value={state}
                     onChange={(e) => setState(e.target.value)}
+                    items={[
+                        { value: "1", label: "Item 1" },
+                        { value: "2", label: "Item 2" },
+                        { value: "3", label: "Item 3" },
+                    ]}
                 />
             );
         }
@@ -285,12 +262,17 @@ describe("Select", () => {
 
     it("should change the uncontrolled value of the select when clicking on a option", async () => {
         function WrappedSelect() {
-            const items = [
-                { label: "Item 1", value: "1" },
-                { label: "Item 2", value: "2" },
-                { label: "Item 3", value: "3" },
-            ];
-            return <Select name="items" label="List of items" items={items} />;
+            return (
+                <Select
+                    name="items"
+                    label="List of items"
+                    items={[
+                        { value: "1", label: "Item 1" },
+                        { value: "2", label: "Item 2" },
+                        { value: "3", label: "Item 3" },
+                    ]}
+                />
+            );
         }
 
         const { getByRole, getByText, getByTestId } = setup(<WrappedSelect />);
@@ -314,8 +296,8 @@ describe("Select", () => {
         const { getByTestId } = setup(
             <Select
                 name="snoop"
-                items={["drop", "it", "like", "its", "hot"]}
                 label="Snoop"
+                items={["drop", "it", "like", "its", "hot"]}
             />,
         );
 
@@ -341,15 +323,14 @@ describe("Select", () => {
 
     it("displays the ValuePair label of selected item on first render", () => {
         const onChange = vi.fn();
-        const valuePairs = [{ value: "datagreier", label: "Fin lesbar tekst" }];
 
         const { getByTestId } = setup(
             <Select
                 name="datagreier"
                 label="test"
-                items={valuePairs}
                 value="datagreier"
                 onChange={onChange}
+                items={[{ value: "datagreier", label: "Fin lesbar tekst" }]}
             />,
         );
 

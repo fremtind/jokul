@@ -28,12 +28,12 @@ export const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
                     value={value}
                     aria-describedby={helpLabel ? supportId : undefined}
                 />
-                <SupportLabel
+                {/*<SupportLabel
                     {...supportLabelProps}
                     label={helpLabel}
                     labelType={"help"}
                     id={supportId}
-                />
+                />*/}
             </>
         );
     },
