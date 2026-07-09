@@ -7,7 +7,11 @@ import { TextInput } from "@fremtind/jokul/text-input";
 import { Title } from "@fremtind/jokul/typography";
 import Link from "next/link";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import { FONT_SELECT_OPTIONS, type FontOptionId } from "../_shared/fontOptions";
+import {
+    DISPLAY_FONT_SELECT_OPTIONS,
+    type FontOptionId,
+    REGULAR_FONT_SELECT_OPTIONS,
+} from "../_shared/fontOptions";
 import { StepCard } from "./StepCard";
 
 export function IdentityStep() {
@@ -35,7 +39,7 @@ export function IdentityStep() {
                 <Select
                     name="regularFont"
                     label="Velg font"
-                    items={FONT_SELECT_OPTIONS}
+                    items={REGULAR_FONT_SELECT_OPTIONS}
                     width="100%"
                     value={draft.regularFont}
                     onChange={(event) =>
@@ -49,7 +53,7 @@ export function IdentityStep() {
                     name="displayFont"
                     label="Velg display font"
                     description="Brukes til store overskrifter"
-                    items={FONT_SELECT_OPTIONS}
+                    items={DISPLAY_FONT_SELECT_OPTIONS}
                     width="100%"
                     value={draft.displayFont}
                     onChange={(event) =>

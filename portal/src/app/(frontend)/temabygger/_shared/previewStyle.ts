@@ -20,10 +20,10 @@ export function buildThemePreviewStyle({
 
     return {
         ...buildColorStyle(tokens, includeDarkMode),
-        "--jkl-font-family-regular": regularFontOption.font.family.regular,
-        "--jkl-font-family-display": displayFontOption.font.family.display,
-        "--jkl-font-weight-normal": regularFontOption.font.weight.normal,
-        "--jkl-font-weight-bold": regularFontOption.font.weight.bold,
+        "--jkl-font-family-regular": regularFontOption.family,
+        "--jkl-font-family-display": displayFontOption.family,
+        "--jkl-font-weight-normal": regularFontOption.weight.normal,
+        "--jkl-font-weight-bold": regularFontOption.weight.bold,
     } as CSSProperties;
 }
 
