@@ -1,5 +1,5 @@
 import {
-    DEFAULT_FONT_OPTION_ID,
+    DEFAULT_REGULAR_FONT_OPTION_ID,
     type FontOptionId,
 } from "../_shared/fontOptions";
 import { isHex, normalizeHex } from "../_shared/utils";
@@ -14,8 +14,9 @@ import type { ThemeDraft } from "./types";
 
 export const INITIAL_STATE = {
     colorTokens: INITIAL_COLOR_TOKENS,
-    regularFont: DEFAULT_FONT_OPTION_ID,
-    displayFont: DEFAULT_FONT_OPTION_ID,
+    regularFont: DEFAULT_REGULAR_FONT_OPTION_ID,
+    displayFont: DEFAULT_REGULAR_FONT_OPTION_ID,
+    hasCustomDisplayFont: false,
     themeName: "",
     includeDarkMode: true,
 } as const satisfies ThemeDraft;
@@ -56,10 +57,20 @@ export function themeDraftReducer(
             return { ...state, includeDarkMode: action.includeDarkMode };
 
         case "SET_REGULAR_FONT":
-            return { ...state, regularFont: action.font };
+            return {
+                ...state,
+                regularFont: action.font,
+                displayFont: state.hasCustomDisplayFont
+                    ? state.displayFont
+                    : action.font,
+            };
 
         case "SET_DISPLAY_FONT":
-            return { ...state, displayFont: action.font };
+            return {
+                ...state,
+                displayFont: action.font,
+                hasCustomDisplayFont: true,
+            };
 
         case "SET_COLOR_TOKENS":
             return { ...state, colorTokens: action.tokens };

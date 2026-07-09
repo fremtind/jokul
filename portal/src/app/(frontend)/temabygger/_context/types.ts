@@ -7,6 +7,7 @@ export type ThemeDraft = {
     colorTokens: EditableLightDarkPalette;
     regularFont: FontOptionId;
     displayFont: FontOptionId;
+    hasCustomDisplayFont: boolean;
     themeName: string;
     includeDarkMode: boolean;
 };
