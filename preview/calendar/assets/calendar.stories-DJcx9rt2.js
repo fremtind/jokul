@@ -1,0 +1,42 @@
+import{r as v,j as e}from"./iframe-DIiopNB3.js";import{D as _,m as E}from"./Datepicker.stories-DnJL1Yri.js";import A from"./TextInput.stories-CPVQLgf2.js";import{c as V}from"./clsx-B-dksMZM.js";import{F as s}from"./Flex-D_DPvSJY.js";import{B as C}from"./Button-D9Fa5Sam.js";import{A as L,a as B}from"./ArrowRightIcon-Dq8BODcq.js";import{T as N}from"./Text-Bj0ikm2P.js";import{T as S}from"./Title-2P2EgiC-.js";import{I}from"./InputGroup-C92Jo-Du.js";import{T as Y}from"./TextInput-8O8PDnnM.js";import"./preload-helper-PPVm8Dsz.js";import"./index-DtIfTjz-.js";import"./index-DMpV4kb_.js";import"./formatDate-hwqa_80k.js";import"./IconButton-B8XEEFH6.js";import"./CalendarIcon-D6YxmCBd.js";import"./Icon-BMAoUHn_.js";import"./Popover-DQB31XQh.js";import"./floating-ui.react-DZ4KxK79.js";import"./getThemeAndSize-CZAj3IXt.js";import"./BaseTextInput-D1lDd5H2.js";import"./useId-DDaEoBWg.js";import"./ChevronDownIcon-CNu9l4Gd.js";/* empty css               */import"./FieldGroup-BFT82oSp.js";import"./Label-CaU1yhxi.js";import"./SupportLabel-CKxRMJDv.js";import"./SuccessIcon-DTlFWjBB.js";import"./WarningIcon-C8WoPLco.js";import"./unicode-DWvs0Pen.js";import"./formatOrganisasjonsnummer-DW0DyDi9.js";import"./formatNumber-Davy0grG.js";import"./SlotComponent-CcMsUyZy.js";import"./mergeRefs-CJavbxTn.js";import"./usePreviousValue-DyLCLSKA.js";import"./Loader-DCsJCkQJ.js";import"./useDelayedRender-B2eUJEBA.js";function P(m,l){const h=typeof navigator>"u"?"nb-NO":navigator.language,c=new Date,x=Number.isFinite(m)?m:c.getFullYear(),f=Number.isFinite(l)?l:c.getMonth(),p=new Date(x,f+1,0).getDate(),n=(new Date(x,f,1).getDay()-1+7)%7,r=[...Array(n).fill(null),...Array.from({length:p},(i,t)=>t+1)];for(;r.length%7!==0;)r.push(null);const d=[];for(let i=0;i<r.length;i+=7)d.push(r.slice(i,i+7));const w=new Intl.DateTimeFormat(h,{weekday:"narrow"});return{headers:Array.from({length:7},(i,t)=>{const o=new Date(2024,0,7+(1+t)%7);return w.format(o)}),weeks:d}}const k=["Januar","Februar","Mars","April","Mai","Juni","Juli","August","September","Oktober","November","Desember"],b=m=>{const{value:l,defaultValue:g,className:h,onChange:c,id:x,...f}=m,p=l??g,j=typeof p=="number"?new Date(p):p?new Date(p.toString()):new Date,[n,r]=v.useState({month:j.getMonth(),year:j.getFullYear()}),[d,w]=v.useState(j),{headers:T,weeks:i}=v.useMemo(()=>P(Number(n.year),Number(n.month)),[n]);return e.jsxs(s,{as:"fieldset",direction:"column",className:V("jkl-calendar",h),id:x,children:[e.jsx("legend",{className:"jkl-sr-only",children:"Velg dato"}),e.jsxs(s,{gap:"s",justifyContent:"space-between",className:"navigation",children:[e.jsxs(s,{gap:"none",className:"dropdowns",children:[e.jsx("select",{"aria-label":"Velg måned",name:"month",value:n.month,onChange:t=>r({...n,month:Number(t.target.value)}),children:k.map(t=>e.jsx("option",{value:new Date(0,k.indexOf(t)).getMonth(),children:t},t))}),e.jsx("select",{"aria-label":"Velg år",name:"year",value:n.year,onChange:t=>r({...n,year:Number(t.target.value)}),children:Array.from([2026,2025,2024]).map(t=>e.jsx("option",{value:t,children:t},t))})]}),e.jsxs(s,{gap:"none",className:"buttons",children:[e.jsx(C,{type:"button",icon:e.jsx(L,{}),variant:"ghost","aria-label":"Forrige måned",onClick:()=>r(({month:t,year:o})=>{const a=new Date(o,t-1,1);return{month:a.getMonth(),year:a.getFullYear()}})}),e.jsx(C,{type:"button",icon:e.jsx(B,{}),variant:"ghost","aria-label":"Neste måned",onClick:()=>r(({month:t,year:o})=>{const a=new Date(o,t+1,1);return{month:a.getMonth(),year:a.getFullYear()}})})]})]}),e.jsxs("table",{className:"month",children:[e.jsxs("caption",{className:"jkl-sr-only",children:[k[n.month],", ",n.year]}),e.jsx("thead",{className:"weekdays",children:e.jsx("tr",{children:T.map((t,o)=>e.jsx("th",{scope:"col",className:"weekday",children:e.jsx(N,{bold:!0,children:t})},o))})}),e.jsx("tbody",{children:i.map((t,o)=>e.jsx("tr",{className:"week",children:t.map((a,O)=>e.jsx("td",{children:d?e.jsxs("label",{className:"day",children:[e.jsx("input",{name:"dato",type:"radio",...f,disabled:!a,value:new Date(n.year,n.month,Number(a)).toISOString(),checked:d.getDate()===Number(a)&&d.getMonth()===n.month&&d.getFullYear()===n.year,onChange:M=>{const F=new Date(n.year,n.month,Number(a));w(F),c?.(M,F)}}),e.jsx(N,{as:"span",children:a})]}):""},O))},`${t}-${o}`))})]})]})};b.__docgenInfo={description:"",methods:[],displayName:"Calendar",props:{onChange:{required:!1,tsType:{name:"signature",type:"function",raw:"(event: ChangeEvent<HTMLInputElement>, date: Date) => void",signature:{arguments:[{type:{name:"ChangeEvent",elements:[{name:"HTMLInputElement"}],raw:"ChangeEvent<HTMLInputElement>"},name:"event"},{type:{name:"Date"},name:"date"}],return:{name:"void"}}},description:""}}};const{fn:$}=__STORYBOOK_MODULE_TEST__,Ce={title:"Komponenter/Calendar",component:b,args:{value:new Date(2025,2,22).valueOf(),onClick:$()},argTypes:{value:{control:"date"}}},u={},y={render:m=>{const[l,g]=v.useState(new Date);return e.jsxs(s,{direction:"column",children:[e.jsx(I,{label:"Velg dato for henting",description:"Du kan velge å få den utlevert mellom da og da",render:()=>e.jsx(b,{...m,value:l.valueOf(),onChange:(h,c)=>g(c)})}),e.jsxs("p",{children:["Du har valgt"," ",l.toLocaleDateString("no",{day:"2-digit",month:"long",year:"numeric"})]})]})}},D={render:(m,l)=>e.jsxs(s,{direction:"column",gap:"l",children:[e.jsxs("header",{children:[e.jsx(S,{size:"xl",children:"Skjematest"}),e.jsx(N,{children:"Dette er tenkt til å vise mulighetene med Calendar først og fremst."})]}),e.jsxs(s,{as:"form",direction:"column",gap:"l",children:[e.jsxs(s,{direction:"column",gap:"m",children:[e.jsx(S,{as:"h3",children:"Om mobilen"}),e.jsx(I,{label:"Velg dato for henting",description:"Du kan velge å få den utlevert mellom da og da",render:()=>e.jsx(b,{...u.args,form:"test"})})]}),e.jsxs(s,{direction:"column",gap:"m",children:[e.jsx(S,{as:"h3",children:"Personalia"}),e.jsx(Y,{...A.args,form:"test"}),e.jsx(_,{...E.args,label:"Når er du født?",description:""})]}),e.jsx("footer",{children:e.jsx(C,{variant:"primary",children:"Send"})})]})]})};u.parameters={...u.parameters,docs:{...u.parameters?.docs,source:{originalSource:"{}",...u.parameters?.docs?.source}}};y.parameters={...y.parameters,docs:{...y.parameters?.docs,source:{originalSource:`{
+  render: args => {
+    const [dato, setDato] = useState(new Date());
+    return <Flex direction="column">
+                <InputGroup label="Velg dato for henting" description="Du kan velge å få den utlevert mellom da og da" render={() => <Calendar {...args} value={dato.valueOf()} onChange={(_, date) => setDato(date)} />} />
+                <p>
+                    Du har valgt{" "}
+                    {dato.toLocaleDateString("no", {
+          day: "2-digit",
+          month: "long",
+          year: "numeric"
+        })}
+                </p>
+            </Flex>;
+  }
+}`,...y.parameters?.docs?.source}}};D.parameters={...D.parameters,docs:{...D.parameters?.docs,source:{originalSource:`{
+  render: (args, c) => {
+    return <Flex direction="column" gap="l">
+                <header>
+                    <Title size="xl">Skjematest</Title>
+                    <Text>
+                        Dette er tenkt til å vise mulighetene med Calendar først
+                        og fremst.
+                    </Text>
+                </header>
+                <Flex as="form" direction="column" gap="l">
+                    <Flex direction="column" gap="m">
+                        <Title as="h3">Om mobilen</Title>
+                        <InputGroup label="Velg dato for henting" description="Du kan velge å få den utlevert mellom da og da" render={() => <Calendar {...CalendarStory.args} form="test" />} />
+                    </Flex>
+                    <Flex direction="column" gap="m">
+                        <Title as="h3">Personalia</Title>
+                        <TextInput {...TextInputStories.args} form="test" />
+                        <DatePicker {...DatepickerStories.args} label="Når er du født?" description="" />
+                    </Flex>
+                    <footer>
+                        <Button variant="primary">Send</Button>
+                    </footer>
+                </Flex>
+            </Flex>;
+  }
+}`,...D.parameters?.docs?.source}}};const Ne=["CalendarStory","CalendarSomSkjemafelt","CalendarIFullverdigSkjema"];export{D as CalendarIFullverdigSkjema,y as CalendarSomSkjemafelt,u as CalendarStory,Ne as __namedExportsOrder,Ce as default};
