@@ -42,35 +42,15 @@ export function getCalendarTable(year: number, month: number) {
     return { headers, weeks };
 }
 
-export const isDateDisabled = (
-    date: Date,
-    min?: Date,
-    max?: Date,
-    disableWeekends?: boolean,
-): boolean => {
-    if (min) {
-        const minStart = new Date(min);
-        minStart.setHours(0, 0, 0, 0);
-        if (date < minStart) return true;
-    }
-    if (max) {
-        const maxEnd = new Date(max);
-        maxEnd.setHours(0, 0, 0, 0);
-        if (date > maxEnd) return true;
-    }
-    if (disableWeekends) {
-        const day = date.getDay();
-        if (day === 0 || day === 6) return true;
-    }
-    return false;
-};
-
 /** Genererer år-listen for dropdown, begrenset av minDate/maxDate */
 export function getYearOptions(
     currentYear: number,
-    minDate: Date | undefined,
-    maxDate: Date | undefined,
+    min?: string,
+    max?: string,
 ): number[] {
+    const minDate = min ? new Date(min) : undefined;
+    const maxDate = max ? new Date(max) : undefined;
+
     const startYear = minDate
         ? Math.max(currentYear - DEFAULT_YEARS_RANGE, minDate.getFullYear())
         : currentYear - DEFAULT_YEARS_RANGE;

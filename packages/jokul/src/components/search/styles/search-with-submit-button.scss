@@ -21,20 +21,6 @@
         border-bottom-left-radius: 0;
         min-width: unset;
 
-        &::before {
-            content: "";
-            position: absolute;
-            width: 1px;
-            inset: 0;
-            inset-block: 20%;
-            background-color: var(--jkl-color-border-subdued);
-
-            @include jkl.motion;
-            transition-property: inset;
-        }
-
-        &:hover::before {
-            inset-block: 0;
-        }
+        @include shared.input-seperator;
     }
 }

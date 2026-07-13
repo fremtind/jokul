@@ -1,0 +1,17 @@
+@use "../../../../shared/input/styles/shared-input-styles" as shared;
+
+@layer jokul.components {
+    .jkl-date-input {
+        input {
+            @include shared.input-styles;
+            @include shared.wrapper-styles;
+
+            padding: var(--jkl-unit-10);
+
+            &::-webkit-calendar-picker-indicator {
+                display: none;
+                -webkit-appearance: none;
+            }
+        }
+    }
+}

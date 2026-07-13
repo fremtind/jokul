@@ -3,17 +3,33 @@
 @layer jokul.global {
     [popover] {
         opacity: 0;
-        transition: opacity,
+
+        // Safari has not implemented the `overlay` CSS property (see
+        // [WebKit bug 276727](https://bugs.webkit.org/show_bug.cgi?id=276727)).
+        // Without `overlay allow-discrete`, the element is removed from the top layer
+        // immediately on close while the opacity transition is still running — leaving
+        // a transparent but fully interactive fixed element covering the viewport.
+        // We only apply the animated exit on browsers that support `overlay`.
+        @supports (overlay: auto) {
+            transition: opacity,
             overlay allow-discrete,
             display allow-discrete;
 
-        @include jkl.motion("standard", "productive");
+            @include jkl.motion("standard", "productive");
+        }
 
         &:popover-open {
             opacity: 1;
 
             @starting-style {
                 opacity: 0;
+            }
+
+            // Entry transition works on all browsers since it doesn't depend on overlay.
+            @supports not (overlay: auto) {
+                transition: opacity;
+
+                @include jkl.motion("standard", "productive");
             }
         }
     }

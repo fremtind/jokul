@@ -1,0 +1,68 @@
+@charset "UTF-8";
+@use "../../../../styles/jkl";
+@use "../../../../shared/input/styles/shared-input-styles" as shared;
+
+@layer jokul.components {
+    .jkl-datepicker {
+        &__input {
+            @include shared.wrapper-styles;
+            display: grid;
+            field-sizing: content;
+            max-width: max-content;
+            grid-template-columns: 1fr auto;
+            anchor-scope: all;
+
+            input {
+                @include shared.input-styles;
+                field-sizing: content;
+
+                padding-inline: var(--jkl-unit-10) var(--jkl-unit-20);
+
+                &::-webkit-calendar-picker-indicator {
+                    display: none;
+                    -webkit-appearance: none;
+                }
+            }
+
+            .jkl-button {
+                --jkl-button-padding-icon-button: var(--jkl-unit-15);
+                anchor-name: --calendar;
+                border-radius: 0;
+                position: relative;
+
+                @include shared.input-seperator;
+            }
+        }
+
+        .jkl-popover {
+            border: none;
+            position-anchor: --calendar;
+            box-sizing: border-box;
+            position-area: block-end span-inline-start;
+            inset: auto;
+            inset-block-end: auto;
+            margin: 0;
+            margin-block-start: var(--date-picker-padding);
+            padding: var(--jkl-unit-30);
+            width: max-content;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            &:popover-open {
+                display: flex;
+            }
+
+            .jkl-calendar-picker {
+                max-width: max-content;
+            }
+
+            @media screen and (max-width: 500px) {
+                width: 100svw;
+                inset-block-end: 0;
+                border-bottom-left-radius: 0;
+                border-bottom-right-radius: 0;
+            }
+        }
+    }
+}

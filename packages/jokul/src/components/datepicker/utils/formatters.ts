@@ -97,3 +97,19 @@ export function isBlurTargetOutside(
 
     return relatedTargetRoot !== targetRoot;
 }
+
+/** dd.mm.yyyy → yyyy-mm-dd for native date input */
+export function toNativeValue(date?: string): string {
+    if (!date) return "";
+    const d = parseDateString(date);
+    if (!d) return "";
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+}
+
+/** yyyy-mm-dd → dd.mm.yyyy for Calendar */
+export function toCalendarValue(inputString?: string): string {
+    if (!inputString) return "";
+    const d = parseDateString(inputString);
+    if (!d) return "";
+    return `${String(d.getDate()).padStart(2, "0")}.${String(d.getMonth() + 1).padStart(2, "0")}.${d.getFullYear()}`;
+}

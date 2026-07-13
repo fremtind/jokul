@@ -1,25 +1,26 @@
 @use "../../../../styles/jkl";
+@use "../../../../shared/input/styles/shared-input-styles" as shared;
 
 @layer jokul.components {
     .jkl-calendar-picker {
         --border-radius: var(--jkl-border-radius-full);
         --disabled: 0.5;
 
+        @include shared.wrapper-styles;
         display: flex;
-        color: var(--jkl-color);
         padding: var(--jkl-unit-20);
-        border-radius: var(--jkl-border-radius-s);
-        background-color: transparent;
         flex-direction: column;
-        border: 1px solid var(--jkl-color-border-default);
         gap: var(--jkl-unit-30);
 
         &[data-no-outline="true"] {
+            --border-color: transparent;
+
             padding: 0;
-            border-color: transparent;
+            background-color: transparent;
         }
 
         .navigation {
+            width: 100%;
             display: grid;
             grid-template-columns: repeat(3, min-content);
 
@@ -66,128 +67,6 @@
         .weekday[data-disabled="true"]:is(:nth-last-child(1), :nth-last-child(2)) {
             opacity: var(--disabled);
             cursor: default;
-        }
-
-        .day {
-            aspect-ratio: 1;
-            min-width: 4ch;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            border-radius: var(--border-radius);
-            @include jkl.motion("standard", "productive", background-color);
-
-            @include jkl.keyboard-navigation {
-                &:focus-visible,
-                &:has(:focus-visible) {
-                    @include jkl.focus-outline;
-                    outline-offset: 2px;
-                }
-            }
-
-            input {
-                position: absolute;
-                opacity: 0;
-                width: 100%;
-                height: 100%;
-            }
-
-            &::before {
-                content: "";
-                position: absolute;
-                border-radius: var(--border-radius);
-                top: 0;
-                left: 0;
-                inset: 1px;
-                z-index: 0;
-            }
-
-            &::after {
-                content: "";
-                border-radius: 100%;
-                height: var(--jkl-unit-05);
-                min-height: 4px;
-                aspect-ratio: 1;
-                background-color: transparent;
-                z-index: 2;
-                @include jkl.motion("standard", "productive", background-color);
-            }
-
-            > * {
-                z-index: 1;
-
-            }
-
-            &:where(:has(input:disabled)) {
-                opacity: var(--disabled);
-
-                &:hover > *, &::after, &::before {
-                    cursor: not-allowed;
-                }
-            }
-
-            &:where(:has(input:not(:disabled))) {
-                &:hover {
-                    > *,
-                    &::after,
-                    &::before {
-                        cursor: pointer;
-                    }
-                }
-
-                &:hover::before {
-                    background-color: color-mix(in srgb, var(--jkl-color-background-container), var(--jkl-color-text-default) 15%);
-                }
-
-                &:has(input:checked) {
-                    color: var(--jkl-color-text-on-contrast);
-
-                    &::before {
-                        background-color: var(--jkl-color-background-contrast);
-                    }
-
-                    &::after {
-                        background-color: var(--jkl-color-text-on-contrast);
-                    }
-                }
-            }
-        }
-
-        /* Bare for lols så la jeg til støtte for visuell cue
-        *  på at du har valgt til og fra dersom du har to ved
-        *  siden av hverandre.
-        */
-        &:first-of-type {
-            td:has(input:checked) ~ td {
-                .day {
-                    color: var(--jkl-color-text-on-contrast);
-
-                    &::before {
-                        background-color: var(--jkl-color-background-contrast);
-                    }
-
-                    &::after {
-                        background-color: var(--jkl-color-text-on-contrast);
-                    }
-                }
-            }
-
-            tr:has(input:checked) ~ tr {
-
-                .day {
-                    color: var(--jkl-color-text-on-contrast);
-
-                    &::before {
-                        background-color: var(--jkl-color-background-contrast);
-                    }
-
-                    &::after {
-                        background-color: var(--jkl-color-text-on-contrast);
-                    }
-                }
-            }
         }
     }
 }

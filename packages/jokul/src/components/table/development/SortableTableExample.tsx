@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { parseDateString } from "../../datepicker/utils.js";
+import { parseDateString } from "../../datepicker/utils/index.js";
 import type { TableSortDirection } from "../TableHeader.js";
 import {
     Table,

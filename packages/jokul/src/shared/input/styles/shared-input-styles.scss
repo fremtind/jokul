@@ -2,8 +2,7 @@
 @use "../../../styles/jkl";
 
 @mixin wrapper-styles {
-    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding)
-        var(--jkl-text-input-horizontal-padding);
+    --jkl-text-input-padding: var(--jkl-text-input-vertical-padding) var(--jkl-text-input-horizontal-padding);
     --jkl-text-input-vertical-padding: var(--jkl-unit-15);
     --jkl-text-input-horizontal-padding: var(--jkl-unit-15);
     --jkl-text-input-action-button-size: var(--jkl-unit-60);
@@ -18,6 +17,7 @@
     border-radius: var(--jkl-border-radius-s);
     box-sizing: border-box;
     max-width: 100%;
+    overflow: hidden;
 
     position: relative;
     display: flex;
@@ -29,9 +29,8 @@
 
     background-color: var(--background-color);
     color: var(--text-color);
-    box-shadow:
-        inset 0 0 0 jkl.rem(1px) var(--border-color),
-        0 0 0 jkl.rem(1px) transparent;
+    box-shadow: inset 0 0 0 jkl.rem(1px) var(--border-color),
+    0 0 0 jkl.rem(1px) transparent;
 
     &:focus-within,
     &:has([data-focused="true"]) {
@@ -49,9 +48,8 @@
     &:has([data-focused="true"]) {
         --border-color: var(--jkl-color-border-strong);
 
-        box-shadow:
-            inset 0 0 0 jkl.rem(1px) var(--border-color),
-            0 0 0 jkl.rem(1px) var(--border-color);
+        box-shadow: inset 0 0 0 jkl.rem(1px) var(--border-color),
+        0 0 0 jkl.rem(1px) var(--border-color);
 
         @include jkl.forced-colors-mode {
             border: jkl.rem(2px) solid ButtonText;
@@ -129,5 +127,29 @@
     &::placeholder {
         opacity: 1;
         color: var(--placeholder-color);
+    }
+}
+
+@mixin input-seperator {
+    --inset-size: 1ex;
+    --separator-color: var(--jkl-color-border-subdued);
+
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        block-size: calc(100% * var(--inset-size));
+        top: 0;
+        left: 0;
+        inset-block: var(--inset-size);
+        border-inline-end: 1px solid var(--separator-color);
+        z-index: 1;
+        @include jkl.motion("standard", "productive", inset, border-color);
+    }
+
+    &:hover, &:focus-within {
+        --inset-size: 1px;
+        --separator-color: var(--jkl-color-border-subdued);
     }
 }

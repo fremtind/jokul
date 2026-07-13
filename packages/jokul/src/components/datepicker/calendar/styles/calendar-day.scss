@@ -1,74 +1,12 @@
-@use "../../../styles/jkl";
+@use "../../../../styles/jkl";
+@use "../../../../shared/input/styles/shared-input-styles" as shared;
 
 @layer jokul.components {
     .jkl-calendar-picker {
-        --border-radius: var(--jkl-border-radius-full);
-        --disabled: 0.5;
-
-        display: flex;
-        color: var(--jkl-color);
-        padding: var(--jkl-unit-20);
-        border-radius: var(--jkl-border-radius-s);
-        background-color: transparent;
-        flex-direction: column;
-        border: 1px solid var(--jkl-color-border-default);
-        gap: var(--jkl-unit-30);
-
-        &[data-no-accessory="true"] {
-            padding: 0;
-            border-color: transparent;
-        }
-
-        .navigation {
-            display: grid;
-            grid-template-columns: repeat(3, min-content);
-
-            select, button {
-                appearance: none;
-                padding: var(--jkl-unit-05) var(--jkl-unit-15);
-                field-sizing: content;
-                cursor: pointer;
-                min-height: 36px;
-                border: 1px solid var(--jkl-color-border-subdued);
-                border-radius: var(--jkl-border-radius-xs);
-                background-color: var(--jkl-color-background-container);
-                color: var(--jkl-color-text-default);
-                @include jkl.motion("standard", "productive", background-color);
-
-                &:is(select:first-of-type) {
-                    border-start-end-radius: 0;
-                    border-end-end-radius: 0;
-                }
-
-                &:is(select:last-of-type) {
-                    border-inline-start: 0;
-                    border-start-start-radius: 0;
-                    border-end-start-radius: 0;
-                }
-
-                &:hover {
-                    background-color: color-mix(in srgb, var(--jkl-color-background-container), var(--jkl-color-text-default) 15%);
-                }
-
-                @include jkl.keyboard-navigation {
-                    &:focus-visible,
-                    &:has(:focus-visible) {
-                        @include jkl.focus-outline;
-                    }
-                }
-            }
-        }
-
-        .month {
-            width: 100%;
-        }
-
-        .weekday[data-disabled="true"]:is(:nth-last-child(1), :nth-last-child(2)) {
-            opacity: var(--disabled);
-            cursor: default;
-        }
-
         .day {
+            --border-radius: var(--jkl-border-radius-full);
+            --disabled: 0.5;
+
             aspect-ratio: 1;
             min-width: 4ch;
             display: flex;

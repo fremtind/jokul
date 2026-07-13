@@ -1,18 +1,13 @@
 import clsx from "clsx";
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { Button } from "../../button/index.js";
 import { Flex } from "../../flex/index.js";
 import { ArrowLeftIcon, ArrowRightIcon } from "../../icon/index.js";
 import { Text } from "../../typography/index.js";
-import { formatInput, parseDateString } from "../utils.js";
-import type { CalendarProps } from "./types.js";
-import {
-    getCalendarTable,
-    getYearOptions,
-    isDateDisabled,
-    locale,
-    months,
-} from "./utils.js";
+import type { CalendarProps } from "../types.js";
+import { getInputValidationState, toNativeValue } from "../utils/index.js";
+import { CalendarDay } from "./CalendarDay.js";
+import { getCalendarTable, getYearOptions, months } from "./utils.js";
 
 export const Calendar = (props: CalendarProps) => {
     const {
@@ -20,11 +15,12 @@ export const Calendar = (props: CalendarProps) => {
         defaultValue,
         className,
         onChange,
-        styleOptions = {
-            hideOutline: false,
-            hideNavigation: false,
-            hideWeekdayLabels: false,
-        },
+        onBlur,
+        onFocus,
+        onKeyDown,
+        hideOutline = false,
+        hideNavigation = false,
+        hideWeekdayLabels = false,
         min,
         max,
         disableAfterDate,
@@ -35,39 +31,21 @@ export const Calendar = (props: CalendarProps) => {
     } = props;
 
     const initialDate = value ?? defaultValue;
-    const parsedInitialDate = parseDateString(initialDate) ?? new Date();
-    const [day, setDay] = useState<Date>(parsedInitialDate);
-
-    const convertedMinDate = parseDateString(min || disableBeforeDate);
-    const convertedMaxDate = parseDateString(max || disableAfterDate);
-
-    const minDate = useMemo(
-        () => (convertedMinDate ? convertedMinDate : undefined),
-        [convertedMinDate],
-    );
-    const maxDate = useMemo(
-        () => (convertedMaxDate ? convertedMaxDate : undefined),
-        [convertedMaxDate],
+    const [selectedDate, setSelectedDate] = useState<string>(
+        toNativeValue(initialDate),
     );
 
     const [decorator, setDecorator] = useState<{
         month: number;
         year: number;
     }>({
-        month: parsedInitialDate.getMonth(),
-        year: parsedInitialDate.getFullYear(),
+        month: new Date(selectedDate).getMonth(),
+        year: new Date(selectedDate).getFullYear(),
     });
 
-    useEffect(() => {
-        const next = parseDateString(value);
-        if (!next) return;
-        setDay(next);
-        setDecorator({ month: next.getMonth(), year: next.getFullYear() });
-    }, [value]);
-
     const yearOptions = useMemo(
-        () => getYearOptions(decorator.year, minDate, maxDate),
-        [decorator.year, minDate, maxDate],
+        () => getYearOptions(decorator.year, min, max),
+        [decorator.year, min, max],
     );
 
     const { headers, weeks } = useMemo(
@@ -78,10 +56,10 @@ export const Calendar = (props: CalendarProps) => {
     return (
         <div
             className={clsx("jkl-calendar-picker", className)}
-            data-no-outline={styleOptions.hideOutline}
+            data-no-outline={hideOutline}
             {...rest}
         >
-            {!styleOptions.hideNavigation && (
+            {!hideNavigation && (
                 <Flex
                     gap="s"
                     justifyContent="space-between"
@@ -166,10 +144,7 @@ export const Calendar = (props: CalendarProps) => {
                                 data-disabled={disableWeekends}
                                 aria-label={weekday}
                             >
-                                <Text
-                                    bold
-                                    srOnly={styleOptions?.hideWeekdayLabels}
-                                >
+                                <Text bold srOnly={hideWeekdayLabels}>
                                     {weekday.charAt(0).toUpperCase()}
                                 </Text>
                             </th>
@@ -182,55 +157,45 @@ export const Calendar = (props: CalendarProps) => {
                             {week.map((cell, dayI) => (
                                 <td key={dayI}>
                                     {cell ? (
-                                        <label className="day">
-                                            <input
-                                                type="radio"
-                                                name={name}
-                                                disabled={isDateDisabled(
-                                                    new Date(
-                                                        decorator.year,
-                                                        decorator.month,
-                                                        Number(cell),
+                                        <CalendarDay
+                                            value={new Date(
+                                                decorator.year,
+                                                decorator.month,
+                                                cell,
+                                            ).toString()}
+                                            checked={
+                                                new Date(
+                                                    selectedDate,
+                                                ).getDate() === cell &&
+                                                new Date(
+                                                    selectedDate,
+                                                ).getMonth() ===
+                                                    decorator.month &&
+                                                new Date(
+                                                    selectedDate,
+                                                ).getFullYear() ===
+                                                    decorator.year
+                                            }
+                                            min={min || disableBeforeDate}
+                                            max={max || disableAfterDate}
+                                            disableWeekends={disableWeekends}
+                                            name={name}
+                                            onChange={(e) => {
+                                                setSelectedDate(e.target.value);
+                                                onChange?.(
+                                                    e,
+                                                    new Date(e.target.value),
+                                                    getInputValidationState(
+                                                        e.target.value,
+                                                        min,
+                                                        max,
                                                     ),
-                                                    minDate,
-                                                    maxDate,
-                                                    disableWeekends,
-                                                )}
-                                                aria-label={new Date(
-                                                    decorator.year,
-                                                    decorator.month,
-                                                    Number(cell),
-                                                ).toLocaleDateString(locale)}
-                                                value={new Date(
-                                                    decorator.year,
-                                                    decorator.month,
-                                                    Number(cell),
-                                                ).toLocaleDateString(locale)}
-                                                checked={
-                                                    day.getDate() ===
-                                                        Number(cell) &&
-                                                    day.getMonth() ===
-                                                        decorator.month &&
-                                                    day.getFullYear() ===
-                                                        decorator.year
-                                                }
-                                                onChange={(e) => {
-                                                    const selected = new Date(
-                                                        decorator.year,
-                                                        decorator.month,
-                                                        Number(cell),
-                                                    );
-                                                    setDay(selected);
-                                                    onChange?.(
-                                                        e,
-                                                        formatInput(selected),
-                                                    );
-                                                }}
-                                            />
-                                            <Text as="span" short aria-hidden>
-                                                {cell}
-                                            </Text>
-                                        </label>
+                                                );
+                                            }}
+                                            onBlur={onBlur}
+                                            onFocus={onFocus}
+                                            onKeyDown={onKeyDown}
+                                        />
                                     ) : (
                                         ""
                                     )}

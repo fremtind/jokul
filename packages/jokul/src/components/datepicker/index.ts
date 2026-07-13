@@ -1,19 +1,9 @@
-export { DatePicker } from "./DatePicker.js";
-export {
-    isCorrectFormat,
-    isWithinLowerBound,
-    isWithinUpperBound,
-} from "./validation.js";
-export { formatInput, parseDateString, isBlurTargetOutside } from "./utils.js";
+export { DatePicker } from "./date-picker/DatePicker.js";
+export { Calendar } from "./calendar/Calendar.js";
+export { DateInput } from "./date-input/DateInput.js";
 
 export type {
     DatePickerProps,
-    YearsToShow,
-    DatePickerChangeEventHandler,
-    DatePickerFocusEventHandler,
-    DatePickerBlurEventHandler,
-    DatePickerKeyDownEventHandler,
-    DatePickerAction,
-    ComparisonOptions,
-    DatePickerMetadata,
+    DateInputProps,
+    CalendarProps,
 } from "./types.js";
