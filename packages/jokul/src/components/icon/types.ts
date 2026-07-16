@@ -1,7 +1,6 @@
 export type IconVariant = "inherit" | "small" | "medium";
 
 export interface IconProps {
-    as?: "div" | "span";
     "data-testid"?: string;
     /**
      * @deprecated Størrelsen settes nå automatisk etter fontstørrelse.
@@ -11,7 +10,7 @@ export interface IconProps {
      */
     variant?: IconVariant;
     /**
-     * Angir om ikonet skal vises i fet versjon
+     * @deprecated Fra Jøkul 5.0 har ikonene alltid samme vekt, og bold har ingen effekt
      * @default false
      */
     bold?: boolean;

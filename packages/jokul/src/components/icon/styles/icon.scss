@@ -17,31 +17,12 @@
         }
     }
 
-    .jkl-icon-red-cross,
-    .jkl-icon-green-check {
-        width: 1.3em;
-        height: 1.3em;
-        box-sizing: border-box;
-        border-radius: 999px;
-        display: inline-grid;
-        place-items: center;
-        font-size: 1em;
-
-        @include jkl.forced-colors-mode {
-            background-color: Canvas;
-            color: CanvasText;
-            border: 1px solid CanvasText;
-        }
-    }
-
     .jkl-icon-red-cross {
-        background-color: var(--jkl-color-error-background-contrast);
-        color: var(--jkl-color-error-text-on-contrast);
+        color: var(--jkl-color-error-background-contrast);
     }
 
     .jkl-icon-green-check {
-        background-color: var(--jkl-color-success-background-contrast);
-        color: var(--jkl-color-success-text-on-contrast);
+        color: var(--jkl-color-success-background-contrast);
     }
 
     .jkl-animated-horizontal-arrows,

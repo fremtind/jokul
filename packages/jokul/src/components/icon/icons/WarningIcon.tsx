@@ -3,7 +3,7 @@ import { Icon, type IconComponent } from "../Icon.js";
 import type { IconProps } from "../types.js";
 
 export const WarningIcon: IconComponent = (props: IconProps) => (
-    <Icon bold filled {...props}>
+    <Icon {...props} filled>
         {"\uf083"}
     </Icon>
 );
