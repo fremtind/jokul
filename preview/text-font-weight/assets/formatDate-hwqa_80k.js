@@ -1,0 +1,1 @@
+const a={full:/^(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[0-2])(\d{2}|\d{4})$/,partial:/^(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[0-2])?(\d{1,4})?$/};function o(t,e){const l=t.replace(/\D/g,""),n=e?.partial?a.partial:a.full,r=l.match(n);return r?r.slice(1).filter(Boolean).join("."):t}export{o as f};
