@@ -12,7 +12,6 @@ $_size-styles: (
 
 @layer jokul.components {
     :where(.jkl-text) {
-        font-weight: var(--jkl-font-weight-normal);
         line-height: var(--jkl-line-height-relaxed);
     }
 
@@ -25,7 +24,9 @@ $_size-styles: (
 
     @each $name, $style in $_size-styles {
         .jkl-text[data-text-size="#{$name}"] {
-            @include jkl.text-style($style);
+            @include jkl.text-style($style) {
+                font-weight: inherit;
+            }
         }
     }
 

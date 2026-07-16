@@ -22,9 +22,10 @@
         color: var(--jkl-color);
 
         @include jkl.use-font-family("Jokul");
+        font-weight: var(--jkl-font-weight-normal);
 
         strong {
-            font-weight: jkl.$font-weight-bold;
+            font-weight: var(--jkl-font-weight-bold);
         }
 
         a, button:not(:disabled) {
