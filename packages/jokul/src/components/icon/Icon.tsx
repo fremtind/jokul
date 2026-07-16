@@ -4,33 +4,12 @@ import type {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
-import type { IconVariant } from "./types.js";
+import type { IconProps } from "./types.js";
 
-type IconComponentProps<
-    ElementType extends "span" | "div",
-> = PolymorphicPropsWithRef<
-    ElementType,
-    {
-        "data-testid"?: string;
-        /**
-         * Størrelsesvarianten til ikonet. `"small"` er 16px med 20px bounding box, og `"medium"` er 20px med 24px bounding box.
-         * `"inherit"` setter størrelsen til ikonet (ikke bounding box) lik skriftstørrelsen (1em).
-         */
-        variant?: IconVariant;
-        /**
-         * Angir om ikonet skal vises i fet versjon
-         * @default false
-         */
-        bold?: boolean;
-        filled?: boolean;
-        className?: string;
-        style?: React.CSSProperties;
-    }
->;
+type IconComponentProps<ElementType extends "span" | "div"> =
+    PolymorphicPropsWithRef<ElementType, IconProps>;
 
-export type IconComponent = (<
-    ElementType extends "span" | "div" = "span",
->(
+export type IconComponent = (<ElementType extends "span" | "div" = "span">(
     props: IconComponentProps<ElementType>,
 ) => React.ReactElement | null) & { displayName?: string };
 
