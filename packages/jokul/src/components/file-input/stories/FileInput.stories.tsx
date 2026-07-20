@@ -1,30 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { useState } from "react";
+import React, { useState, type ChangeEvent } from "react";
 import { Button } from "../../button/index.js";
-import { File } from "../../file/File.js";
-import FileStory, { FileDelete } from "../../file/stories/File.stories.js";
+import { File as FileComponent } from "../../file/File.js";
 import { Flex } from "../../flex/index.js";
 import { FileInput } from "../FileInput.js";
-import { Dropzone } from "../internal/Dropzone.js";
-import { MaxSize } from "../internal/MaxSize.js";
-import type { UploadedFile } from "../types.js";
-
-import "../styles/_index.scss";
 
 const meta = {
     title: "Komponenter/File Input",
     component: FileInput,
-    subcomponents: { File, Dropzone, MaxSize },
     args: {
-        variant: "flexible",
-        value: [],
-        onChange: console.info,
-        legend: "Legg til fil",
-        labelProps: {
-            variant: "medium",
-        },
+        label: "Velg fil",
         accept: "image/*,.pdf",
-        maxSizeBytes: 8_000_000,
+        multiple: true,
     },
 } satisfies Meta<typeof FileInput>;
 
@@ -32,168 +19,69 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+function getFiles(event: ChangeEvent<HTMLInputElement>): File[] {
+    return Array.from(event.currentTarget.files ?? []);
+}
+
+function createExampleFile(name = "eksempel.png"): File {
+    return new File(["Eksempelinnhold"], name, {
+        type: "image/png",
+        lastModified: Date.now(),
+    });
+}
+
 export const FileInputStory: Story = {
     name: "File Input",
-    render: (args) => {
-        const [files, setFiles] = useState<UploadedFile[]>([]);
-
-        return (
-            <FileInput
-                {...args}
-                id="file-input-example"
-                className="jkl-spacing-16-24--bottom"
-                value={files}
-                onChange={(_e, newFiles) => {
-                    setFiles((currentFiles) => [...currentFiles, ...newFiles]);
-                }}
-            >
-                {files.map(({ state, file, validation }, index) => {
-                    return (
-                        <File
-                            key={`${file.name}-${index}`}
-                            fileName={file.name}
-                            fileType={file.type}
-                            fileSize={file.size}
-                            path={`/path/fil-${index}`}
-                            file={file}
-                            state={state}
-                            onRemove={
-                                state !== "loading" ? (e) => "" : undefined
-                            }
-                        />
-                    );
-                })}
-            </FileInput>
-        );
-    },
 };
 
 export const FileInputWithFile: Story = {
     name: "File Input med valgte filer",
     render: (args) => {
-        const [files, setFiles] = useState<UploadedFile[]>([
-            {
-                file: {
-                    ...FileStory.args,
-                    lastModified: 0,
-                    name: FileStory.args.fileName,
-                    webkitRelativePath: FileStory.args.path,
-                    size: FileStory.args.fileSize,
-                    type: "png",
-                    arrayBuffer: (): Promise<ArrayBuffer> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    bytes: (): Promise<Uint8Array<ArrayBuffer>> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    slice: (
-                        start?: number,
-                        end?: number,
-                        contentType?: string,
-                    ): Blob => {
-                        throw new Error("Function not implemented.");
-                    },
-                    stream: (): ReadableStream<Uint8Array<ArrayBuffer>> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    text: (): Promise<string> => {
-                        throw new Error("Function not implemented.");
-                    },
-                },
-                state: undefined,
-                uploadProgress: 0,
-            },
-            {
-                file: {
-                    ...FileStory.args,
-                    lastModified: 0,
-                    name: FileStory.args.fileName,
-                    webkitRelativePath: FileStory.args.path,
-                    size: FileStory.args.fileSize,
-                    type: "png",
-                    arrayBuffer: (): Promise<ArrayBuffer> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    bytes: (): Promise<Uint8Array<ArrayBuffer>> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    slice: (
-                        start?: number,
-                        end?: number,
-                        contentType?: string,
-                    ): Blob => {
-                        throw new Error("Function not implemented.");
-                    },
-                    stream: (): ReadableStream<Uint8Array<ArrayBuffer>> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    text: (): Promise<string> => {
-                        throw new Error("Function not implemented.");
-                    },
-                },
-                state: undefined,
-                uploadProgress: 0,
-            },
-            {
-                file: {
-                    ...FileStory.args,
-                    lastModified: 0,
-                    name: FileStory.args.fileName,
-                    webkitRelativePath: FileStory.args.path,
-                    size: FileStory.args.fileSize,
-                    type: "png",
-                    arrayBuffer: (): Promise<ArrayBuffer> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    bytes: (): Promise<Uint8Array<ArrayBuffer>> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    slice: (
-                        start?: number,
-                        end?: number,
-                        contentType?: string,
-                    ): Blob => {
-                        throw new Error("Function not implemented.");
-                    },
-                    stream: (): ReadableStream<Uint8Array<ArrayBuffer>> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    text: (): Promise<string> => {
-                        throw new Error("Function not implemented.");
-                    },
-                },
-                state: undefined,
-                uploadProgress: 0,
-            },
+        const [files, setFiles] = useState<File[]>([
+            createExampleFile("forside.png"),
+            createExampleFile("kvittering.png"),
+            createExampleFile("vedlegg.png"),
         ]);
 
+        function handleChange(event: ChangeEvent<HTMLInputElement>) {
+            setFiles((currentFiles) => [...currentFiles, ...getFiles(event)]);
+
+            event.currentTarget.value = "";
+        }
+
+        function removeFile(fileToRemove: File) {
+            setFiles((currentFiles) =>
+                currentFiles.filter((file) => file !== fileToRemove),
+            );
+        }
+
         return (
-            <FileInput
-                {...args}
-                id="file-input-example"
-                className="jkl-spacing-16-24--bottom"
-                value={files}
-                onChange={(_, newFiles) => {
-                    setFiles((currentFiles) => [...currentFiles, ...newFiles]);
-                }}
-            >
-                {files.map(({ state, file }, index) => {
-                    return (
-                        <File
-                            key={`${file.name}-${index}`}
-                            fileName={file.name}
-                            fileType={file.type}
-                            fileSize={file.size}
-                            path={file.webkitRelativePath}
-                            file={file}
-                            state={state}
-                            onRemove={
-                                state !== "loading" ? (e) => "" : undefined
-                            }
-                        />
-                    );
-                })}
-            </FileInput>
+            <Flex direction="column">
+                <FileInput
+                    {...args}
+                    id="file-input-with-files"
+                    onChange={handleChange}
+                />
+
+                {files.length > 0 && (
+                    <ul className="jkl-file-input-example__files">
+                        {files.map((file, index) => (
+                            <li
+                                key={`${file.name}-${file.lastModified}-${index}`}
+                            >
+                                <FileComponent
+                                    file={file}
+                                    fileName={file.name}
+                                    fileType={file.type}
+                                    fileSize={file.size}
+                                    path={file.name}
+                                    onRemove={() => removeFile(file)}
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </Flex>
         );
     },
 };
@@ -201,79 +89,66 @@ export const FileInputWithFile: Story = {
 export const FileInputAndUploadButton: Story = {
     name: "File Input og opplastingsknapp",
     render: (args) => {
-        const [files, setFiles] = useState<UploadedFile[]>([
-            {
-                file: {
-                    ...FileStory.args,
-                    lastModified: 0,
-                    name: FileStory.args.fileName,
-                    webkitRelativePath: FileStory.args.path,
-                    size: FileStory.args.fileSize,
-                    type: "png",
-                    arrayBuffer: (): Promise<ArrayBuffer> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    bytes: (): Promise<Uint8Array<ArrayBuffer>> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    slice: (
-                        start?: number,
-                        end?: number,
-                        contentType?: string,
-                    ): Blob => {
-                        throw new Error("Function not implemented.");
-                    },
-                    stream: (): ReadableStream<Uint8Array<ArrayBuffer>> => {
-                        throw new Error("Function not implemented.");
-                    },
-                    text: (): Promise<string> => {
-                        throw new Error("Function not implemented.");
-                    },
-                },
-                state: undefined,
-                uploadProgress: 0,
-            },
-        ]);
+        const [files, setFiles] = useState<File[]>([createExampleFile()]);
         const [uploading, setUploading] = useState(false);
+
+        function handleChange(event: ChangeEvent<HTMLInputElement>) {
+            setFiles((currentFiles) => [...currentFiles, ...getFiles(event)]);
+
+            event.currentTarget.value = "";
+        }
+
+        function removeFile(fileToRemove: File) {
+            setFiles((currentFiles) =>
+                currentFiles.filter((file) => file !== fileToRemove),
+            );
+        }
+
+        function uploadFiles() {
+            setUploading(true);
+
+            window.setTimeout(() => {
+                setUploading(false);
+            }, 3000);
+        }
 
         return (
             <Flex direction="column">
                 <FileInput
                     {...args}
-                    id="file-input-example"
-                    className="jkl-spacing-16-24--bottom"
-                    value={files}
-                    onChange={(_e, newFiles) => {
-                        setFiles((currentFiles) => [
-                            ...currentFiles,
-                            ...newFiles,
-                        ]);
-                    }}
-                >
-                    {files.map(({ state, file, validation }, index) => {
-                        return (
-                            <File
-                                {...FileStory.args}
-                                {...FileDelete.args}
-                                key={`${file.name}-${index}`}
-                                fileName={file.name}
-                                fileType={file.type}
-                                fileSize={file.size}
-                                path={`/path/fil-${index}`}
-                                file={file}
-                                state={uploading ? "loading" : undefined}
-                            />
-                        );
-                    })}
-                </FileInput>
+                    id="file-input-with-upload"
+                    disabled={uploading}
+                    onChange={handleChange}
+                />
+
+                {files.length > 0 && (
+                    <ul className="jkl-file-input-example__files">
+                        {files.map((file, index) => (
+                            <li
+                                key={`${file.name}-${file.lastModified}-${index}`}
+                            >
+                                <FileComponent
+                                    file={file}
+                                    fileName={file.name}
+                                    fileType={file.type}
+                                    fileSize={file.size}
+                                    path={file.name}
+                                    state={uploading ? "loading" : undefined}
+                                    onRemove={
+                                        uploading
+                                            ? undefined
+                                            : () => removeFile(file)
+                                    }
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                )}
+
                 <Button
                     variant="primary"
-                    onClick={() => {
-                        setUploading(true);
-                        setTimeout(() => {
-                            setUploading(false);
-                        }, 3000);
-                    }}
+                    disabled={files.length === 0}
+                    onClick={uploadFiles}
                     loader={{
                         showLoader: uploading,
                         textDescription: "Laster opp fil(er)",
