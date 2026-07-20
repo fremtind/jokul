@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { CSSProperties } from "react";
 import { isHex } from "../../_shared/utils";
 import styles from "./color-picker.module.scss";
@@ -6,19 +7,21 @@ const FALLBACK_COLOR = "#000000";
 
 type ColorPickerProps = {
     "aria-label": string;
+    className?: string;
     value: string;
     onChange: (value: string) => void;
 };
 
 export function ColorPicker({
     "aria-label": ariaLabel,
+    className,
     value,
     onChange,
 }: ColorPickerProps) {
     const pickerValue = isHex(value) ? value : FALLBACK_COLOR;
 
     return (
-        <label className={styles.colorPicker}>
+        <label className={clsx(styles.colorPicker, className)}>
             <span
                 className={styles.swatch}
                 style={

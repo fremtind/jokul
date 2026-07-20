@@ -11,13 +11,15 @@ import { StepCard } from "./StepCard";
 
 export function BaseColorStep() {
     const { draft, dispatch } = useThemeDraft();
-    const themeName = draft.themeName.trim() || "distributøren";
+    const { themeName } = draft;
 
     return (
         <StepCard>
             <Flex direction="column" gap="8">
                 <Title as="h3" size="m">
-                    Fyll inn kontrastfargen til {themeName}
+                    {themeName
+                        ? `Fyll inn kontrastfargen til ${themeName}`
+                        : "Fyll inn kontrastfargen"}
                 </Title>
                 <Text>
                     Vi bruker fargen som utgangspunkt til å generere et tema som

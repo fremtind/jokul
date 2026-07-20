@@ -10,7 +10,11 @@ import {
 } from "../../src/components/expander/index.js";
 import { Flex } from "../../src/components/flex/index.js";
 import { Help } from "../../src/components/help/index.js";
-import { Icon, PenIcon } from "../../src/components/icon/index.js";
+import {
+    GreenCheckIcon,
+    Icon,
+    PenIcon,
+} from "../../src/components/icon/index.js";
 import { LinkList } from "../../src/components/link-list/index.js";
 import { Link } from "../../src/components/link/index.js";
 import { Message } from "../../src/components/message/index.js";
@@ -160,18 +164,11 @@ function CoverageCard() {
                     <Accordion>
                         {coverageItems.map((item) => (
                             <ExpandablePanel key={item} outlined>
-                                <Expander>
-                                    <Flex alignItems="center" gap="8">
-                                        <Icon filled>check_circle</Icon>
-                                        <Text as="span" size="s">
-                                            {item}
-                                        </Text>
-                                    </Flex>
+                                <Expander icon={<GreenCheckIcon />}>
+                                    {item}
                                 </Expander>
                                 <ExpandablePanel.Content>
-                                    <Text size="s">
-                                        Kort forklaring av dekningen kommer her.
-                                    </Text>
+                                    Kort forklaring av dekningen kommer her.
                                 </ExpandablePanel.Content>
                             </ExpandablePanel>
                         ))}

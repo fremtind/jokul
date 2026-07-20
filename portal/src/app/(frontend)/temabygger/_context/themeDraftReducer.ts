@@ -50,7 +50,7 @@ export function themeDraftReducer(
 ): ThemeDraft {
     switch (action.type) {
         case "SET_THEME_NAME":
-            return { ...state, themeName: action.themeName };
+            return { ...state, themeName: action.themeName.trim() };
 
         case "SET_INCLUDE_DARK_MODE":
             return { ...state, includeDarkMode: action.includeDarkMode };
@@ -118,7 +118,10 @@ export function themeDraftReducer(
         }
 
         case "SET_DRAFT":
-            return action.draft;
+            return {
+                ...action.draft,
+                themeName: action.draft.themeName.trim(),
+            };
 
         default:
             action satisfies never;
