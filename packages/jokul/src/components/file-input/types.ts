@@ -1,6 +1,5 @@
-import React from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import type { FileProps } from "../file/types.js";
-import type { FieldGroupProps } from "../input-group/index.js";
 
 export interface UploadedFileValidation {
     type: "TOO_LARGE" | "WRONG_TYPE";
@@ -14,28 +13,14 @@ export interface UploadedFile {
     uploadProgress: number;
 }
 
-export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
-    className?: string;
-    id?: string;
+export type FileInputProps = Omit<
+    ComponentPropsWithoutRef<"input">,
+    "type" | "value" | "children"
+> & {
     /**
-     * En string som begrenser hvilke filtyper som kan velges.
+     * Innholdet i knappen.
      *
-     * Flere filtyper kan defineres som en kommaseparert liste.
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
+     * @default "Velg fil"
      */
-    accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
-    maxSizeBytes?: number;
-    /**
-     * @default true
-     */
-    multiple?: boolean;
-    value: UploadedFile[];
-    variant?: "flexible" | "small";
-    onChange: (
-        e:
-            | React.ChangeEvent<HTMLInputElement>
-            | React.DragEvent<HTMLDivElement>,
-        files: UploadedFile[],
-    ) => void;
-}
+    label?: string;
+};
