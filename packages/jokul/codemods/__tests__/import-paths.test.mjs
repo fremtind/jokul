@@ -746,45 +746,157 @@ test("ExpandablePanel: håndterer flerlinjet JSX korrekt", () => {
     assert.equal(result.changed, true);
 });
 
-test("registerWithMask: migrerer JSX-spread til registerWithMasks(form).X()", () => {
-    const source = `<TextInput {...registerWithFodselsnummerMask(form, "fnr")} />`;
+test("renames DatePicker disable-bound props to min/max", () => {
+    const source = `import { DatePicker } from "@fremtind/jokul/date-inputs";
+
+<DatePicker
+    disableBeforeDate={lower}
+    disableAfterDate={upper}
+    onChange={(event, date, { error }) => handle(date)}
+/>;
+`;
+
     const result = transformImportPaths(source, "/tmp/Form.tsx");
-    assert.equal(
-        result.text,
-        `<TextInput {...registerWithMasks(form).registerWithFodselsnummerMask("fnr")} />`,
-    );
-    assert.equal(result.changed, true);
+
+    assert.equal(result.text.includes("min={lower}"), true);
+    assert.equal(result.text.includes("max={upper}"), true);
+    assert.equal(result.text.includes("disableBeforeDate"), false);
+    assert.equal(result.text.includes("disableAfterDate"), false);
 });
 
-test("registerWithMask: beholder options-argumentet", () => {
-    const source = `registerWithKontonummerMask(form, "konto", { required: true })`;
+test("warns about breaking DatePicker changes that need manual review", () => {
+    const source = `import { DatePicker } from "@fremtind/jokul/date-inputs";
+const iso = formatInput(new Date());
+<DatePicker defaultShow onChange={(e, d) => save(d)} />;
+`;
+
     const result = transformImportPaths(source, "/tmp/Form.tsx");
+
     assert.equal(
-        result.text,
-        `registerWithMasks(form).registerWithKontonummerMask("konto", { required: true })`,
+        result.warnings.some((w) => w.includes("ISO-datoformat")),
+        true,
+    );
+    assert.equal(
+        result.warnings.some((w) => w.includes("event.target.value")),
+        true,
+    );
+    assert.equal(
+        result.warnings.some((w) => w.includes("defaultShow")),
+        true,
+    );
+    assert.equal(
+        result.warnings.some((w) => w.includes("formatInput")),
+        true,
     );
 });
 
-test("registerWithMask: oppdaterer import og legger til registerWithMasks", () => {
-    const source = `import { registerWithFodselsnummerMask } from "@fremtind/jokul/utilities";`;
-    const result = transformImportPaths(source, "/tmp/Form.tsx");
+test("migrerer DatePicker-stilimporter (ESM import)", () => {
+    const source = `import "@fremtind/jokul/styles/components/datepicker/_index.scss";
+import "@fremtind/jokul/styles/components/datepicker/datepicker.min.css";
+import "@fremtind/jokul/styles/components/datepicker/datepicker.css";
+`;
+
+    const result = transformImportPaths(source, "/tmp/App.tsx");
+
     assert.equal(
         result.text,
-        `import { registerWithMasks } from "@fremtind/jokul/utilities";`,
+        `import "@fremtind/jokul/styles/components/date-input/_index.scss";
+import "@fremtind/jokul/styles/components/date-input/date-input.min.css";
+import "@fremtind/jokul/styles/components/date-input/date-input.css";
+`,
+    );
+    assert.equal(result.text.includes("datepicker"), false);
+});
+
+test("migrerer DatePicker-stilimporter (Sass @use/@forward)", () => {
+    const source = `@use "@fremtind/jokul/styles/components/datepicker";
+@use "@fremtind/jokul/styles/components/datepicker/datepicker.scss";
+@forward "@fremtind/jokul/styles/components/date-inputs";
+`;
+
+    const result = transformImportPaths(source, "/tmp/global.scss");
+
+    assert.equal(
+        result.text,
+        `@use "@fremtind/jokul/styles/components/date-input";
+@use "@fremtind/jokul/styles/components/date-input/date-input.scss";
+@forward "@fremtind/jokul/styles/components/date-input";
+`,
+    );
+    assert.deepEqual(result.warnings, []);
+});
+
+test("migrerer komponent- og stilimport i samme fil", () => {
+    const source = `import { DatePicker } from "@fremtind/jokul/datepicker";
+import "@fremtind/jokul/styles/components/datepicker/_index.scss";
+
+<DatePicker defaultValue={value} />;
+`;
+
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+
+    assert.equal(result.text.includes("datepicker"), false);
+    assert.equal(
+        result.text.includes(
+            'import "@fremtind/jokul/styles/components/date-input/_index.scss";',
+        ),
+        true,
+    );
+    assert.equal(result.text.includes("<DateInput"), true);
+});
+
+test("warns about removed DatePicker props", () => {
+    const source = `import { DatePicker } from "@fremtind/jokul/datepicker";
+<DatePicker extended yearsToShow={10} textInputProps={{}} action={reset} />;
+`;
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+
+    for (const prop of [
+        "extended",
+        "yearsToShow",
+        "textInputProps",
+        "action",
+    ]) {
+        assert.equal(
+            result.warnings.some((w) => w.includes(prop)),
+            true,
+        );
+    }
+});
+
+test("does not warn about identifiers that look like removed props", () => {
+    const source = `import { DateInput } from "@fremtind/jokul/date-input";
+const months = ["januar"];
+<DateInput aria-invalid={true} label={months[0]} />;
+`;
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+
+    assert.equal(
+        result.warnings.some((w) => w.includes("`months`")),
+        false,
+    );
+    assert.equal(
+        result.warnings.some((w) => w.includes("`invalid`")),
+        false,
     );
 });
 
-test("registerWithMask: beholder andre importer og eksisterende registerWithMasks", () => {
-    const source = `import { formatValuta, registerWithMasks, registerWithKortnummerMask } from "@fremtind/jokul/utilities";`;
-    const result = transformImportPaths(source, "/tmp/Form.tsx");
-    assert.equal(
-        result.text,
-        `import { formatValuta, registerWithMasks } from "@fremtind/jokul/utilities";`,
-    );
+test("DateInput: rører ikke like prop-navn på andre komponenter", () => {
+    const source =
+        "<OtherComponent disableBeforeDate={x} disableAfterDate={y} />;";
+    const result = transformImportPaths(source, "src/App.tsx");
+    assert.equal(result.text.includes("disableBeforeDate={x}"), true);
+    assert.equal(result.text.includes("disableAfterDate={y}"), true);
 });
 
-test("registerWithMask: rører ikke allerede migrert kode", () => {
-    const source = `registerWithMasks(form).registerWithTelefonnummerMask("tlf")`;
-    const result = transformImportPaths(source, "/tmp/Form.tsx");
-    assert.equal(result.changed, false);
+test("DateInput: håndterer piluttrykk i props ved omdøping", () => {
+    const source = `<DateInput onChange={(e) => setX(e)} disableBeforeDate={a} />;
+<Other disableAfterDate={b} />;
+`;
+    const result = transformImportPaths(source, "src/App.tsx");
+    assert.equal(
+        result.text.includes("<DateInput onChange={(e) => setX(e)} min={a} />"),
+        true,
+    );
+    assert.equal(result.text.includes("<Other disableAfterDate={b} />"), true);
 });

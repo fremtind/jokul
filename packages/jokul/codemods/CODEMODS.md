@@ -118,6 +118,41 @@ Tilsvarende omdøping for alle Tailwind v4-fargeklasser generert fra `--color-*`
 
 Tailwind-modifikatorer (`hover:`, `dark:`, `md:`, `focus:` o.l.), opacity-modifikatorer (`/50`) og viktig-prefiks (`!`) håndteres korrekt.
 
+#### DateInput (Jøkul 6)
+
+Import path, stilimporter og komponentnavn omdøpes automatisk:
+
+| Gammel import | Ny import |
+|---|---|
+| `@fremtind/jokul/datepicker` | `@fremtind/jokul/date-input` |
+| `@fremtind/jokul/date-inputs` | `@fremtind/jokul/date-input` |
+| `@fremtind/jokul/date-picker` | `@fremtind/jokul/date-input` |
+
+Stilmappa følger komponentmappa, så både mappe- og filnavn skrives om. Gjelder både `import "..."` og Sass `@use`/`@forward`:
+
+| Gammel stilimport | Ny stilimport |
+|---|---|
+| `@fremtind/jokul/styles/components/datepicker` | `@fremtind/jokul/styles/components/date-input` |
+| `@fremtind/jokul/styles/components/datepicker/_index.scss` | `@fremtind/jokul/styles/components/date-input/_index.scss` |
+| `@fremtind/jokul/styles/components/datepicker/datepicker.scss` | `@fremtind/jokul/styles/components/date-input/date-input.scss` |
+| `@fremtind/jokul/styles/components/datepicker/datepicker.css` | `@fremtind/jokul/styles/components/date-input/date-input.css` |
+| `@fremtind/jokul/styles/components/datepicker/datepicker.min.css` | `@fremtind/jokul/styles/components/date-input/date-input.min.css` |
+
+De samme variantene håndteres for de eldre mappenavnene `date-picker` og `date-inputs`.
+
+| Gammel komponent | Ny komponent |
+|---|---|
+| `DatePicker` | `DateInput` |
+
+Prop-navnene som begrenser datovalg omdøpes automatisk:
+
+| Gammel prop | Ny prop |
+|---|---|
+| `disableBeforeDate` | `min` |
+| `disableAfterDate` | `max` |
+
+Fjernede props endres ikke automatisk, men gir varsel når de finnes i en fil som bruker `DateInput`/`DatePicker`: `defaultShow`, `initialShow`, `extended`, `invalid`, `yearsToShow`, `days`, `months`, `monthLabel`, `yearLabel`, `action`, `showCalendarLabel`, `hideCalendarLabel` og `textInputProps`. Se [MIGRATION.md](../MIGRATION.md#fjernede-props-og-hjelpefunksjoner) for erstatninger.
+
 ---
 
 #### Fjernede maskefunksjoner
@@ -147,3 +182,7 @@ Disse mønstrene kan ikke omdøpes automatisk. Codemoden skriver ut ett varsel p
 | `variant="outlined\|high\|low"` (på `Card`) | `variant`-prop er fjernet. Bruk `outlined` (boolean) for ramme, fjern `high`/`low`. |
 | `bg-background-interactive` o.l. (Tailwind) | Fjernede Tailwind-klasser basert på `background-interactive`/`text-interactive`. |
 | `border-border-separator` o.l. (Tailwind) | Fjernede Tailwind-kantklasser. Bruk `border-border-default`, `-subdued` eller `-strong`. |
+| `<DateInput>` | Datoverdier bruker nå ISO-format (`yyyy-mm-dd`), ikke `dd.mm.yyyy`. |
+| `<DateInput>` `onChange` | Gir nå et standard React change-event. Les datoen fra `event.target.value`. |
+| `defaultShow` | Fjernet fra DateInput. Kalenderen åpnes via kalenderknappen. |
+| `extended`, `invalid`, `yearsToShow`, `days`, `months`, `monthLabel`, `yearLabel`, `action`, `showCalendarLabel`, `hideCalendarLabel`, `textInputProps` | Fjernet fra DateInput. Se migrasjonsguiden for erstatninger. |

@@ -1,5 +1,29 @@
 import { escapeRegExp, replaceSpecifier } from "../utils.mjs";
 
+// DatePicker ble omdøpt til DateInput i Jøkul 6. Den publiserte stilmappa følger
+// komponentmappa, så både mappe- og filnavn må skrives om.
+const DATE_INPUT_LEGACY_STYLE_DIRS = [
+    "datepicker",
+    "date-picker",
+    "date-inputs",
+];
+
+const DATE_INPUT_STYLE_REPLACEMENTS = DATE_INPUT_LEGACY_STYLE_DIRS.flatMap(
+    (legacy) => {
+        const from = `@fremtind/jokul/styles/components/${legacy}`;
+        const to = "@fremtind/jokul/styles/components/date-input";
+
+        return [
+            [`${from}/${legacy}.min.css`, `${to}/date-input.min.css`],
+            [`${from}/${legacy}.css`, `${to}/date-input.css`],
+            [`${from}/${legacy}.scss`, `${to}/date-input.scss`],
+            [`${from}/${legacy}`, `${to}/date-input`],
+            [`${from}/_index.scss`, `${to}/_index.scss`],
+            [from, to],
+        ];
+    },
+);
+
 const DIRECT_REPLACEMENTS = [
     [
         "@fremtind/jokul/styles/core/core.min.css",
@@ -45,6 +69,8 @@ const DIRECT_REPLACEMENTS = [
     ["@fremtind/jokul/styles/core", "@fremtind/jokul/styles/base.scss"],
     ["@fremtind/jokul/styles", "@fremtind/jokul/styles/components.scss"],
     ["@fremtind/jokul/core", "@fremtind/jokul/utilities"],
+    ["@fremtind/jokul/datepicker", "@fremtind/jokul/date-input"],
+    ...DATE_INPUT_STYLE_REPLACEMENTS,
 ].sort(([a], [b]) => b.length - a.length);
 
 const BETA_STYLE_MIGRATIONS = [

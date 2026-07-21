@@ -3,7 +3,7 @@ import type {
     ExampleComponentProps,
     ExampleKnobsProps,
 } from "utils/dev-example/index.js";
-import { parseDateString } from "../../datepicker/utils.js";
+import { toValidInputValue } from "../../date-input/utils.js";
 import type { TableSortDirection } from "../TableHeader.js";
 import {
     Table,
@@ -108,14 +108,24 @@ export const SortableTableExample: FC<ExampleComponentProps> = ({
                         let sorta = "";
                         let sortb = "";
                         if (sortBy === "dato") {
-                            const timeA = parseDateString(a[0])?.getTime() ?? 0;
-                            const timeB = parseDateString(b[0])?.getTime() ?? 0;
+                            sorta = toValidInputValue(a[0]);
+                            sortb = toValidInputValue(b[0]);
+                            if (sorta === sortb) {
+                                return 0;
+                            }
+                            if (sorta > sortb) {
+                                if (direction === "desc") {
+                                    return -1;
+                                }
 
-                            if (direction === "asc") {
-                                return timeA - timeB;
+                                return 1;
                             }
 
-                            return timeB - timeA;
+                            if (direction === "desc") {
+                                return 1;
+                            }
+
+                            return -1;
                         }
 
                         if (sortBy === "sak") {
