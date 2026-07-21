@@ -745,3 +745,47 @@ test("ExpandablePanel: håndterer flerlinjet JSX korrekt", () => {
     );
     assert.equal(result.changed, true);
 });
+
+test("renames DatePicker disable-bound props to min/max", () => {
+    const source = `import { DatePicker } from "@fremtind/jokul/date-inputs";
+
+<DatePicker
+    disableBeforeDate={lower}
+    disableAfterDate={upper}
+    onChange={(event, date, { error }) => handle(date)}
+/>;
+`;
+
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+
+    assert.equal(result.text.includes("min={lower}"), true);
+    assert.equal(result.text.includes("max={upper}"), true);
+    assert.equal(result.text.includes("disableBeforeDate"), false);
+    assert.equal(result.text.includes("disableAfterDate"), false);
+});
+
+test("warns about breaking DatePicker changes that need manual review", () => {
+    const source = `import { DatePicker } from "@fremtind/jokul/date-inputs";
+const iso = formatInput(new Date());
+<DatePicker defaultShow onChange={(e, d) => save(d)} />;
+`;
+
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+
+    assert.equal(
+        result.warnings.some((w) => w.includes("ISO-datoformat")),
+        true,
+    );
+    assert.equal(
+        result.warnings.some((w) => w.includes("event.target.value")),
+        true,
+    );
+    assert.equal(
+        result.warnings.some((w) => w.includes("defaultShow")),
+        true,
+    );
+    assert.equal(
+        result.warnings.some((w) => w.includes("formatInput")),
+        true,
+    );
+});

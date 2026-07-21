@@ -45,6 +45,7 @@ const DIRECT_REPLACEMENTS = [
     ["@fremtind/jokul/styles/core", "@fremtind/jokul/styles/base.scss"],
     ["@fremtind/jokul/styles", "@fremtind/jokul/styles/components.scss"],
     ["@fremtind/jokul/core", "@fremtind/jokul/utilities"],
+    ["@fremtind/jokul/datepicker", "@fremtind/jokul/date-input"],
 ].sort(([a], [b]) => b.length - a.length);
 
 const BETA_STYLE_MIGRATIONS = [

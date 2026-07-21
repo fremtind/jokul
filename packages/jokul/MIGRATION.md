@@ -14,6 +14,63 @@ pnpm exec jokul codemod [--dry-run] [--verbose] [sti ...]
 
 Se [codemods/CODEMODS.md](./codemods/CODEMODS.md) for full oversikt over hva hver codemod fikser automatisk og hva som krever manuell vurdering.
 
+## Jøkul 6.0
+
+### `DateInput` bygger på native `<input type="date">`
+
+`DateInput` er skrevet om fra bunnen. Kalenderen er skilt ut i en egen intern `Calendar`-komponent, og selve feltet bruker nå nettleserens native datofelt. Det gir bedre tilgjengelighet og mobilstøtte, men endrer API-et.
+
+#### Nytt datoformat: ISO (`yyyy-mm-dd`)
+
+`value`, `defaultValue`, `min` og `max` er nå ISO-strenger, ikke `dd.mm.yyyy`.
+
+```tsx
+// Før
+<DatePicker defaultValue="24.12.2019" />
+
+// Etter
+<DateInput defaultValue="2019-12-24" />
+```
+
+#### `min`/`max` erstatter `disableBeforeDate`/`disableAfterDate`
+
+| Før | Etter              |
+|---|--------------------|
+| `disableBeforeDate={formatInput(date)}` | `min="2026-07-22"` |
+| `disableAfterDate={formatInput(date)}` | `max="2027-07-22"` |
+
+#### `onChange` gir et vanlig change-event
+
+Tidligere fikk du `(event, date, { error, value })`. Nå får du et standard React `ChangeEvent`, og datoen leses fra `event.target.value` som en ISO-streng (tom streng når feltet er tomt).
+
+```tsx
+// Før
+<DatePicker
+onChange={(event, date, { error }) => {
+if (!error) setDate(date);
+}}
+/>
+
+// Etter
+<DateInput
+    value={value}
+    onChange={(event) => setValue(event.target.value)}
+/>
+```
+
+Feilkodene `WRONG_FORMAT`, `OUTSIDE_LOWER_BOUND` og `OUTSIDE_UPPER_BOUND` finnes ikke lenger. Grenser håndteres av `min`/`max` på det native feltet, og feilmeldinger settes med `errorLabel`.
+
+#### Fjernede props og hjelpefunksjoner
+
+| Fjernet                                         | Erstatning                      |
+|-------------------------------------------------|---------------------------------|
+| `disableBeforeDate` (norsk format)              | `min` (ISO-format)              |
+| `disableAfterDate` (norsk format)               | `max` (ISO-format)              |
+| `defaultShow`                                   | -                               |
+| Kompakt inntasting (`11112022`) og auto-punktum | Native inntasting i nettleseren |
+| `formatInput(date)`                             | `toValidInputValue(date)`       |
+
+
 ## Jøkul 5.0
 
 Jøkul 5.0 rydder opp i token-strukturen, fontoppsettet og importstiene. De fleste endringene kan gjøres automatisk med codemoden:

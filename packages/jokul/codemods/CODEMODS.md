@@ -118,6 +118,27 @@ Tilsvarende omdøping for alle Tailwind v4-fargeklasser generert fra `--color-*`
 
 Tailwind-modifikatorer (`hover:`, `dark:`, `md:`, `focus:` o.l.), opacity-modifikatorer (`/50`) og viktig-prefiks (`!`) håndteres korrekt.
 
+#### DateInput (Jøkul 6)
+
+Import path og komponentnavn omdøpes automatisk:
+
+| Gammel import | Ny import |
+|---|---|
+| `@fremtind/jokul/datepicker` | `@fremtind/jokul/date-input` |
+| `@fremtind/jokul/date-inputs` | `@fremtind/jokul/date-input` |
+| Gammel komponent | Ny komponent |
+|---|---|
+| `DatePicker` | `DateInput` |
+
+Prop-navnene som begrenser datovalg omdøpes automatisk:
+
+| Gammel prop | Ny prop |
+|---|---|
+| `disableBeforeDate` | `min` |
+| `disableAfterDate` | `max` |
+
+Kun JSX-attributter (etterfulgt av `=`) endres, så variabelnavn påvirkes ikke.
+
 ---
 
 ### Varsler (krever manuell vurdering)
@@ -131,3 +152,6 @@ Disse mønstrene kan ikke omdøpes automatisk. Codemoden skriver ut ett varsel p
 | `variant="outlined\|high\|low"` (på `Card`) | `variant`-prop er fjernet. Bruk `outlined` (boolean) for ramme, fjern `high`/`low`. |
 | `bg-background-interactive` o.l. (Tailwind) | Fjernede Tailwind-klasser basert på `background-interactive`/`text-interactive`. |
 | `border-border-separator` o.l. (Tailwind) | Fjernede Tailwind-kantklasser. Bruk `border-border-default`, `-subdued` eller `-strong`. |
+| `<DateInput>` | Datoverdier bruker nå ISO-format (`yyyy-mm-dd`), ikke `dd.mm.yyyy`. |
+| `<DateInput>` `onChange` | Gir nå et standard React change-event. Les datoen fra `event.target.value`. |
+| `defaultShow` | Fjernet fra DateInput. Kalenderen åpnes via kalenderknappen. |
