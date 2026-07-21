@@ -14,6 +14,96 @@ pnpm exec jokul codemod [--dry-run] [--verbose] [sti ...]
 
 Se [codemods/CODEMODS.md](./codemods/CODEMODS.md) for full oversikt over hva hver codemod fikser automatisk og hva som krever manuell vurdering.
 
+## Jøkul 6.0
+
+### `DateInput` bygger på native `<input type="date">`
+
+`DateInput` er skrevet om fra bunnen. Kalenderen er skilt ut i en egen intern `Calendar`-komponent, og selve feltet bruker nå nettleserens native datofelt. Det gir bedre tilgjengelighet og mobilstøtte, men endrer API-et.
+
+#### Nytt datoformat: ISO (`yyyy-mm-dd`)
+
+`value`, `defaultValue`, `min` og `max` er nå ISO-strenger, ikke `dd.mm.yyyy`.
+
+```tsx
+// Før
+<DatePicker defaultValue="24.12.2019" />
+
+// Etter
+<DateInput defaultValue="2019-12-24" />
+```
+
+#### Nye stilimporter
+
+> **Codemoden fikser dette automatisk.**
+
+Den publiserte stilmappa het `datepicker` og finnes ikke lenger. Både mappe- og filnavn er omdøpt:
+
+```scss
+// Før
+@use "@fremtind/jokul/styles/components/datepicker";
+@use "@fremtind/jokul/styles/components/datepicker/datepicker.scss";
+
+// Etter
+@use "@fremtind/jokul/styles/components/date-input";
+@use "@fremtind/jokul/styles/components/date-input/date-input.scss";
+
+// Før
+import "@fremtind/jokul/styles/components/datepicker/_index.scss";
+import "@fremtind/jokul/styles/components/datepicker/datepicker.min.css";
+
+// Etter
+import "@fremtind/jokul/styles/components/date-input/_index.scss";
+import "@fremtind/jokul/styles/components/date-input/date-input.min.css";
+```
+
+#### `min`/`max` erstatter `disableBeforeDate`/`disableAfterDate`
+
+| Før | Etter              |
+|---|--------------------|
+| `disableBeforeDate={formatInput(date)}` | `min="2026-07-22"` |
+| `disableAfterDate={formatInput(date)}` | `max="2027-07-22"` |
+
+#### `onChange`, `onFocus` og `onBlur` gir vanlige React-eventer
+
+Tidligere fikk du `(event, date, { error, value })` i alle tre. Nå er de vanlige React-handlere som kun får `event`, og datoen leses fra `event.target.value` som en ISO-streng (tom streng når feltet er tomt).
+
+```tsx
+// Før
+<DatePicker
+onChange={(event, date, { error }) => {
+if (!error) setDate(date);
+}}
+/>
+
+// Etter
+<DateInput
+    value={value}
+    onChange={(event) => setValue(event.target.value)}
+/>
+```
+
+Feilkodene `WRONG_FORMAT`, `OUTSIDE_LOWER_BOUND` og `OUTSIDE_UPPER_BOUND` finnes ikke lenger. Grenser håndteres av `min`/`max` på det native feltet, og feilmeldinger settes med `errorLabel`.
+
+#### Fjernede props og hjelpefunksjoner
+
+| Fjernet | Erstatning |
+|---|---|
+| `disableBeforeDate` (norsk format) | `min` (ISO-format) |
+| `disableAfterDate` (norsk format) | `max` (ISO-format) |
+| `defaultShow` / `initialShow` | – Kalenderen er en popover som åpnes med kalenderknappen |
+| `extended` | – Kalenderen har alltid måneds- og årsvelger |
+| `invalid` | `errorLabel` – setter både `aria-invalid` og feilstilen på feltet |
+| `yearsToShow` | – Årsvelgeren utledes fra `min`/`max`, med ±5 år som standard |
+| `months` | – Månedsnavn kommer fra `Intl` med `nb-NO` |
+| `days` | – Ukedagsnavn kommer fra `Intl` med `nb-NO`, uken starter mandag |
+| `monthLabel` / `yearLabel` | – Velgerne har faste, skjulte labels («Måned» og «År») |
+| `showCalendarLabel` / `hideCalendarLabel` | – Kalenderknappen har fast `aria-label` «Åpne kalender». Kalenderen lukkes med `Esc` eller klikk utenfor |
+| `action` | – Egne handlinger må plasseres utenfor feltet |
+| `textInputProps` | Send attributtene direkte på `<DateInput>` – ukjente props videresendes til `<input type="date">` |
+| Kompakt inntasting (`11112022`) og auto-punktum | Native inntasting i nettleseren |
+| `formatInput(date)` | `toValidInputValue(date)` |
+
+
 ## Jøkul 5.0
 
 Jøkul 5.0 rydder opp i token-strukturen, fontoppsettet og importstiene. De fleste endringene kan gjøres automatisk med codemoden:

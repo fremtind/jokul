@@ -5,6 +5,7 @@ import {
     applyCssTokenRenames,
     applyTailwindColorRenames,
 } from "./transforms/color-tokens.mjs";
+import { applyDateInputTransforms } from "./transforms/date-input.mjs";
 import { applyExpandablePanelTransforms } from "./transforms/expandable-panel.mjs";
 import { applyFontFamilyReplacements } from "./transforms/font-family.mjs";
 import {
@@ -73,10 +74,9 @@ export function transformImportPaths(text, filePath = "") {
     const cssTokens = applyCssTokenRenames(beta.text);
     const tailwindColors = applyTailwindColorRenames(cssTokens.text);
     const expandablePanel = applyExpandablePanelTransforms(tailwindColors.text);
-    const registerWithMask = applyRegisterWithMaskTransforms(
-        expandablePanel.text,
-    );
-    let next = registerWithMask.text;
+    const dateInput = applyDateInputTransforms(expandablePanel.text);
+    const masks = applyRegisterWithMaskTransforms(dateInput.text);
+    let next = masks.text;
     let reordered = false;
 
     if (/\.(sass|scss)$/i.test(filePath)) {
@@ -87,7 +87,8 @@ export function transformImportPaths(text, filePath = "") {
 
     const warnings = [
         ...beta.warnings,
-        ...registerWithMask.warnings,
+        ...dateInput.warnings,
+        ...masks.warnings,
         ...collectManualMigrationWarnings(text),
     ];
 
@@ -111,7 +112,8 @@ export function transformImportPaths(text, filePath = "") {
             cssTokens.count +
             tailwindColors.count +
             expandablePanel.count +
-            registerWithMask.count,
+            dateInput.count +
+            masks.count,
         warnings,
         reordered,
     };

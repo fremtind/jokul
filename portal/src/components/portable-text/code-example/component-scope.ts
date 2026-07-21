@@ -8,7 +8,7 @@ import * as chip from "@fremtind/jokul/chip";
 import * as combobox from "@fremtind/jokul/combobox";
 import * as cookieConsent from "@fremtind/jokul/cookie-consent";
 import * as countdown from "@fremtind/jokul/countdown";
-import * as datepicker from "@fremtind/jokul/datepicker";
+import * as dateInput from "@fremtind/jokul/date-input";
 import * as descriptionList from "@fremtind/jokul/description-list";
 import * as expander from "@fremtind/jokul/expander";
 import * as feedback from "@fremtind/jokul/feedback";
@@ -57,7 +57,7 @@ export const scope = {
     ...combobox,
     ...cookieConsent,
     ...countdown,
-    ...datepicker,
+    ...dateInput,
     ...descriptionList,
     ...expander,
     ...feedback,
