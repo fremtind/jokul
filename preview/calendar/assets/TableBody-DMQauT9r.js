@@ -1,1 +1,0 @@
-import{r as a,j as e}from"./iframe-GMJ0u05F.js";import{b as r}from"./TableRow-0aqHQKgG.js";const o=a.forwardRef((s,t)=>e.jsx(r,{state:{isTableHead:!1,isTableBody:!0,isTableFooter:!1},children:e.jsx("tbody",{...s,ref:t})}));o.displayName="TableBody";o.__docgenInfo={description:"",methods:[],displayName:"TableBody",composes:["HTMLAttributes"]};export{o as T};
