@@ -1,0 +1,15 @@
+import{j as e}from"./iframe-BLfSbMip.js";import{f as r}from"./_index-BJ0aGPsr.js";import{E as p,a as d}from"./ExpandableTableRow-BiTha5m6.js";import{T as m,a as c,b as n,c as b}from"./TableHeader-C10-E_Ni.js";import{T as x}from"./TableBody-Bf9LUU4K.js";import{T as s,a as T}from"./TableRow-DrAQlqTO.js";import{c as w}from"./paginated-table-data-ZMeh4d0Y.js";import{_ExpandableTableRowController as f}from"./expandableRowController.stories-BO9UGKy3.js";import{TableStory as g}from"./table.stories-CNwfeApZ.js";import{DescriptionListStory as i}from"./DescriptionList.stories-Bs-Y5xtv.js";import{L as u}from"./Link-CMpsXSnB.js";import{b as h}from"./DescriptionList-UEqF9CSx.js";import"./preload-helper-PPVm8Dsz.js";import"./clsx-B-dksMZM.js";import"./useAnimatedHeight-FKkRNOhP.js";import"./tokens-CW-NfdIE.js";import"./useBrowserPreferences-DWPxxyYK.js";import"./usePreviousValue-DDDQYDyI.js";import"./useId-CUhDxd68.js";import"./Expander-DgriJhvB.js";import"./ChevronUpIcon-Ck2DXwVr.js";import"./Icon-B1Vvpv6j.js";import"./utils-DYxs2h-a.js";import"./Button-WheCa2XA.js";import"./Loader-DaIlVznZ.js";import"./useDelayedRender-5ykCYusz.js";/* empty css               */const{fn:j}=__STORYBOOK_MODULE_TEST__,P={title:"Komponenter/Table/Expandable Table Row",component:d,subcomponents:{ExpandableTableRowController:p},parameters:{layout:"fullscreen"},args:{key:1,clickable:{isClicked:!1,onClick:j(),markClickedRows:!0},colSpan:100,expandedChildren:e.jsx(h,{...i.args,alignment:"horizontal",children:i.args?.children}),isOpen:!1,onToggle:a=>console.log(a)},decorators:a=>e.jsxs(m,{...g.args,caption:e.jsx(b,{srOnly:!0,children:"Testdata for ekspanderende rader"}),children:[e.jsx(c,{children:e.jsxs(T,{children:[r.columns.slice(0,4).map(o=>e.jsx(n,{bold:!0,children:o},o)),e.jsx(n,{})]})}),e.jsx(x,{children:e.jsx(a,{})})]}),tags:["autodocs","tabular data"]},l={render:a=>e.jsxs(d,{...a,children:[e.jsx(s,{children:e.jsx(u,{download:`${r.rows[3]} ${new Date(r.rows[0][0]).toLocaleDateString()}`,href:"#",children:new Date(r.rows[0][0]).toLocaleDateString()})}),r.rows[0].slice(1,4).map((o,t)=>e.jsx(s,{"data-th":w[t],children:o.toLocaleString()},t)),e.jsx(p,{...f.args,children:"Vis detaljer"})]})};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  render: args => <ExpandableTableRow {...args}>
+            <TableCell>
+                <Link download={\`\${faktura.rows[3]} \${new Date(faktura.rows[0][0] as Date).toLocaleDateString()}\`} href={"#"}>
+                    {new Date(faktura.rows[0][0] as Date).toLocaleDateString()}
+                </Link>
+            </TableCell>
+            {faktura.rows[0].slice(1, 4).map((cell, cellIndex) => <TableCell key={cellIndex} data-th={columns[cellIndex]}>
+                    {cell.toLocaleString()}
+                </TableCell>)}
+            <ExpandableTableRowController {...ExpandableTableRowControllerStory.args}>
+                Vis detaljer
+            </ExpandableTableRowController>
+        </ExpandableTableRow>
+}`,...l.parameters?.docs?.source}}};const Q=["_ExpandableTableRow"];export{l as _ExpandableTableRow,Q as __namedExportsOrder,P as default};
