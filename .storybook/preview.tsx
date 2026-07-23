@@ -1,61 +1,33 @@
 import type { Preview } from "@storybook/nextjs";
-import { INITIAL_VIEWPORTS } from "storybook/viewport";
 import { initTabListener } from "../packages/jokul/src/utilities/tabListener.js";
-import {
-    brandDecorator,
-    brandGlobal,
-    brands,
-    hasBrands,
-} from "./globals/brand.js";
+
+import "./global.scss";
+import { getPreferredColorScheme, themes } from "storybook/theming";
+import { brandDecorator, brandGlobal, brands } from "./globals/brand.js";
 import { sizeDecorator, sizeGlobal } from "./globals/size.js";
 import { themeDecorator, themeGlobal } from "./globals/theme.js";
 
-import "./global.scss";
-
 initTabListener();
-
-const backgroundOptions = [
-    {
-        name: "Page",
-        value: "var(--jkl-color-background-page)",
-    },
-    {
-        name: "Container",
-        value: "var(--jkl-color-background-container)",
-    },
-];
 
 const preview: Preview = {
     globalTypes: {
-        ...(hasBrands ? { brand: brandGlobal } : {}),
+        ...(brands.length > 0 ? { brand: brandGlobal } : {}),
         theme: themeGlobal,
         size: sizeGlobal,
     },
     initialGlobals: {
-        ...(hasBrands ? { brand: brands[0]?.value } : {}),
+        ...(brands.length > 0 ? { brand: brands[0]?.value } : {}),
         theme: undefined,
         size: undefined,
     },
     decorators: [themeDecorator, sizeDecorator, brandDecorator],
-    tags: ["autodocs"],
     parameters: {
-        backgrounds: {
-            value: backgroundOptions[0].value,
-            options: backgroundOptions,
-            grid: {
-                cellSize: 4,
-                opacity: 0.2,
-                cellAmount: 4,
-            },
-        },
-        viewport: {
-            options: INITIAL_VIEWPORTS,
-        },
         layout: "centered",
         controls: {
             sort: "requiredFirst",
         },
         docs: {
+            theme: themes[getPreferredColorScheme()],
             toc: {
                 headingSelector: "h2, h3",
                 disable: false,
@@ -66,38 +38,7 @@ const preview: Preview = {
             codePanel: true,
         },
     },
-    argTypes: {
-        className: {
-            table: {
-                disable: true,
-            },
-        },
-        inputClassName: {
-            table: {
-                disable: true,
-            },
-        },
-        id: {
-            table: {
-                disable: true,
-            },
-        },
-        name: {
-            table: {
-                disable: true,
-            },
-        },
-        "data-testautoid": {
-            table: {
-                disable: true,
-            },
-        },
-        density: {
-            table: {
-                disable: true,
-            },
-        },
-    },
+    tags: ["autodocs"],
 };
 
 export default preview;

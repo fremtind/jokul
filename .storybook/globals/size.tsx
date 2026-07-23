@@ -1,11 +1,12 @@
 import type { ReactRenderer } from "@storybook/nextjs";
 import { useEffect } from "react";
-import type { DecoratorFunction } from "storybook/internal/types";
+import type { DecoratorFunction, GlobalTypes } from "storybook/internal/types";
 
 export const sizes = [
-    { title: "Liten", value: "small" },
+    { title: "Auto", value: "" },
+    { title: "Small", value: "small" },
     { title: "Medium", value: "medium" },
-    { title: "Stor", value: "large" },
+    { title: "Large", value: "large" },
 ];
 
 const applySize = (element: HTMLElement, size: string) => {
@@ -14,10 +15,10 @@ const applySize = (element: HTMLElement, size: string) => {
 };
 
 const clearSize = (element: HTMLElement) => {
-    element.dataset.size = undefined;
+    delete element.dataset.size;
 };
 
-export const sizeGlobal = {
+export const sizeGlobal: GlobalTypes[string] = {
     toolbar: {
         title: "Størrelse",
         icon: "unfold",
