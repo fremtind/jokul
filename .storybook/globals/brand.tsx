@@ -1,6 +1,6 @@
 import type { ReactRenderer } from "@storybook/nextjs";
 import { useEffect } from "react";
-import type { DecoratorFunction } from "storybook/internal/types";
+import type { DecoratorFunction, GlobalTypes } from "storybook/internal/types";
 import { BRANDS } from "../../packages/jokul/src/utilities/types.js";
 
 const brandTitles: Record<string, string> = {
@@ -32,7 +32,7 @@ const clearBrand = (element: HTMLElement) => {
     delete element.dataset.brand;
 };
 
-export const brandGlobal = {
+export const brandGlobal: GlobalTypes[string] = {
     toolbar: {
         title: "Distributør",
         icon: "transfer",

@@ -1,22 +1,24 @@
 import type { ReactRenderer } from "@storybook/nextjs";
 import React, { useEffect } from "react";
-import type { DecoratorFunction } from "storybook/internal/types";
+import type { DecoratorFunction, GlobalTypes } from "storybook/internal/types";
 
 export const themes = [
-    { title: "Lyst", value: "light", icon: "sun" },
-    { title: "Mørkt", value: "dark", icon: "moon" },
+    { title: "Auto", value: "" },
+    { title: "Lyst", value: "light" },
+    { title: "Mørkt", value: "dark" },
 ];
 
-const applyTheme = (element: HTMLElement, theme: string) => {
+const applyTheme = (element: HTMLElement, theme: string | null) => {
     element.classList.add("jkl");
-    element.dataset.theme = theme;
+    if (theme) element.dataset.theme = theme;
+    else delete element.dataset.theme;
 };
 
 const clearTheme = (element: HTMLElement) => {
-    element.dataset.theme = undefined;
+    delete element.dataset.theme;
 };
 
-export const themeGlobal = {
+export const themeGlobal: GlobalTypes[string] = {
     toolbar: {
         title: "Tema",
         icon: "paintbrush",
