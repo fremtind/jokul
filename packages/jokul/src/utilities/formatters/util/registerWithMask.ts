@@ -142,10 +142,6 @@ const registerWithMask =
             onKeyDown,
         };
 
-        if (formatter === "number") {
-            extra.align = "right"; // Se https://github.com/fremtind/jokul/pull/2898
-        }
-
         return Object.assign(register, extra);
     };
 
@@ -197,12 +193,6 @@ export const registerWithMasks = <T extends FieldValues>(
     registerWithNumber: (
         name: Path<T>,
         options?: RegisterWithMaskOptions<T>,
-    ): UseFormRegisterReturn & { align: "right" } =>
-        registerWithMask("number")<T>(
-            form,
-            name,
-            options,
-        ) as unknown as UseFormRegisterReturn & {
-            align: "right";
-        },
+    ): UseFormRegisterReturn =>
+        registerWithMask("number")<T>(form, name, options),
 });
