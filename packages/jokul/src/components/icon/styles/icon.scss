@@ -52,6 +52,7 @@
             transform: translate3d(0, 0, 0);
         }
 
+        [data-toggled="true"] &,
         &[data-show="down"] {
             transform: translate3d(0, -50%, 0);
         }

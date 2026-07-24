@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import { Select } from "../../src/components/beta/select/Select.jsx";
 import { Button } from "../../src/components/button/Button.js";
 import { Flex } from "../../src/components/flex/Flex.js";
 import { FieldGroup } from "../../src/components/input-group/FieldGroup.js";
 import { RadioPanel } from "../../src/components/radio-panel/RadioPanel.js";
+import { Select } from "../../src/components/select/Select.js";
 import { TextInput } from "../../src/components/text-input/TextInput.js";
 
 const meta: Meta = {
@@ -57,12 +57,23 @@ export const HvaErBoligensAdresse: Story = {
                             label="Postnummer"
                             placeholder="Postnummer"
                         />
-                        <Select label="Adresse" placeholder="Velg adresse">
-                            <option value="Kitterødveien">Kitterødveien</option>
-                        </Select>
-                        <Select label="Gatenummer" placeholder="Velg nummer">
-                            <option value="Kitterødveien">10</option>
-                        </Select>
+                        <Select
+                            searchable
+                            label="Adresse"
+                            placeholder="Velg adresse"
+                            items={[
+                                {
+                                    value: "kitterødveien",
+                                    label: "Kitterødveien",
+                                },
+                            ]}
+                        />
+                        <Select
+                            searchable
+                            label="Gatenummer"
+                            placeholder="Velg nummer"
+                            items={[{ value: "10", label: "10" }]}
+                        />
                     </FieldGroup>
                 </Flex>
                 <Button variant="primary">Fortsett</Button>
