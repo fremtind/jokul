@@ -3,6 +3,7 @@ import UserEventModule from "@testing-library/user-event";
 import React, { useState } from "react";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
+import { Help } from "../help/index.js";
 import { Combobox } from "./Combobox.js";
 import type { ComboboxValuePair } from "./types.js";
 
@@ -95,6 +96,37 @@ describe("Combobox", () => {
             "data-size",
             "large",
         );
+    });
+
+    it("should render the Help tooltip inside the label", () => {
+        const screen = setup(
+            <Combobox
+                name="snoop"
+                label="Snoop"
+                items={[
+                    { label: "drop", value: "drop" },
+                    { label: "it", value: "it" },
+                ]}
+                onChange={() => {
+                    return;
+                }}
+                tooltip={
+                    <Help buttonText="Hjelp meg">Jeg er en hjelpetekst</Help>
+                }
+            />,
+        );
+
+        // Help-knappen (tooltip-triggeren) skal faktisk rendres
+        const helpTrigger = screen.getByTestId("jkl-help-trigger");
+        expect(helpTrigger).toBeInTheDocument();
+
+        // og den skal ligge inne i labelen
+        const label = screen.getByText("Snoop").closest("label");
+        expect(label).not.toBeNull();
+        expect(label).toContainElement(helpTrigger);
+
+        // hjelpeteksten skal være tilgjengelig i DOM-en
+        expect(screen.getByText("Jeg er en hjelpetekst")).toBeInTheDocument();
     });
 
     it("should change the value of the combobox when selecting two options", async () => {
