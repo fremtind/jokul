@@ -51,6 +51,7 @@ export const Combobox: FC<ComboboxProps> = (props) => {
         invalid,
         description,
         hasTagHover,
+        tooltip,
     } = props;
     const listId = useId(id || "jkl-combobox", { generateSuffix: !id });
     const labelId = `${listId}_label`;
@@ -399,6 +400,7 @@ export const Combobox: FC<ComboboxProps> = (props) => {
             helpLabel={helpLabel}
             errorLabel={errorLabel}
             description={description}
+            tooltip={tooltip}
             render={(inputProps) => (
                 <div
                     className={clsx("jkl-combobox__wrapper", {
