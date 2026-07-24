@@ -77,7 +77,6 @@ const categoryKeywords: Record<string, string[]> = {
  * Known hooks in Jøkul
  */
 const knownHooks = [
-    "useAnimatedDetails",
     "useAnimatedHeight",
     "useBrowserPreferences",
     "useClickOutside",
