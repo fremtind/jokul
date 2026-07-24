@@ -14,6 +14,7 @@ import {
     removeRedundantWebfontsCssImport,
     reorderConfiguredFontImport,
 } from "./transforms/import-specifiers.mjs";
+import { applyRegisterWithMaskTransforms } from "./transforms/register-with-mask.mjs";
 import { collectManualMigrationWarnings } from "./transforms/warnings.mjs";
 
 const TEXT_EXTENSIONS = new Set([
@@ -72,7 +73,10 @@ export function transformImportPaths(text, filePath = "") {
     const cssTokens = applyCssTokenRenames(beta.text);
     const tailwindColors = applyTailwindColorRenames(cssTokens.text);
     const expandablePanel = applyExpandablePanelTransforms(tailwindColors.text);
-    let next = expandablePanel.text;
+    const registerWithMask = applyRegisterWithMaskTransforms(
+        expandablePanel.text,
+    );
+    let next = registerWithMask.text;
     let reordered = false;
 
     if (/\.(sass|scss)$/i.test(filePath)) {
@@ -83,6 +87,7 @@ export function transformImportPaths(text, filePath = "") {
 
     const warnings = [
         ...beta.warnings,
+        ...registerWithMask.warnings,
         ...collectManualMigrationWarnings(text),
     ];
 
@@ -105,7 +110,8 @@ export function transformImportPaths(text, filePath = "") {
             fontFamily.count +
             cssTokens.count +
             tailwindColors.count +
-            expandablePanel.count,
+            expandablePanel.count +
+            registerWithMask.count,
         warnings,
         reordered,
     };

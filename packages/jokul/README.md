@@ -165,7 +165,7 @@ For å få tilgang til mixins vi tilbyr kan du i din .scss fil bruke
 Hooks importeres via `/hooks`-stien.
 
 ```jsx
-import { useAnimatedDetails, useLocalStorage } from "@fremtind/jokul/hooks";
+import { useLocalStorage } from "@fremtind/jokul/hooks";
 ```
 
 For en full liste over hooks kan du kikke i [hooks-mappa](src/hooks/)

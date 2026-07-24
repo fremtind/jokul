@@ -745,3 +745,46 @@ test("ExpandablePanel: håndterer flerlinjet JSX korrekt", () => {
     );
     assert.equal(result.changed, true);
 });
+
+test("registerWithMask: migrerer JSX-spread til registerWithMasks(form).X()", () => {
+    const source = `<TextInput {...registerWithFodselsnummerMask(form, "fnr")} />`;
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+    assert.equal(
+        result.text,
+        `<TextInput {...registerWithMasks(form).registerWithFodselsnummerMask("fnr")} />`,
+    );
+    assert.equal(result.changed, true);
+});
+
+test("registerWithMask: beholder options-argumentet", () => {
+    const source = `registerWithKontonummerMask(form, "konto", { required: true })`;
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+    assert.equal(
+        result.text,
+        `registerWithMasks(form).registerWithKontonummerMask("konto", { required: true })`,
+    );
+});
+
+test("registerWithMask: oppdaterer import og legger til registerWithMasks", () => {
+    const source = `import { registerWithFodselsnummerMask } from "@fremtind/jokul/utilities";`;
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+    assert.equal(
+        result.text,
+        `import { registerWithMasks } from "@fremtind/jokul/utilities";`,
+    );
+});
+
+test("registerWithMask: beholder andre importer og eksisterende registerWithMasks", () => {
+    const source = `import { formatValuta, registerWithMasks, registerWithKortnummerMask } from "@fremtind/jokul/utilities";`;
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+    assert.equal(
+        result.text,
+        `import { formatValuta, registerWithMasks } from "@fremtind/jokul/utilities";`,
+    );
+});
+
+test("registerWithMask: rører ikke allerede migrert kode", () => {
+    const source = `registerWithMasks(form).registerWithTelefonnummerMask("tlf")`;
+    const result = transformImportPaths(source, "/tmp/Form.tsx");
+    assert.equal(result.changed, false);
+});
