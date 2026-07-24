@@ -19,8 +19,8 @@ figma.connect(
             <Select
                 label={nested.label}
                 name={nested.label}
+                items={[]}
                 {...props}
-                items={["Dine", "valg", "her"]}
             />
         ),
     },

@@ -1,0 +1,7 @@
+@layer jokul.utility {
+    :is(ul, ol):is(.jkl-list-reset) {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+}

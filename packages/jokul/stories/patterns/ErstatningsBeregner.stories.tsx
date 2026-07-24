@@ -11,7 +11,7 @@ import { Flex } from "../../src/components/flex/Flex.jsx";
 import { PlusIcon, TrashCanIcon } from "../../src/components/icon/index.js";
 import { RadioButton } from "../../src/components/radio-button/RadioButton.js";
 import { RadioButtonGroup } from "../../src/components/radio-button/RadioButtonGroup.js";
-import { BETA_Select } from "../../src/components/select/index.js";
+import { Select } from "../../src/components/select/index.js";
 import { ExpandableTableRow } from "../../src/components/table/ExpandableTableRow.js";
 import { ExpandableTableRowController } from "../../src/components/table/ExpandableTableRowController.js";
 import { Table } from "../../src/components/table/Table.js";
@@ -41,9 +41,7 @@ const Oppvaskmaskin = () => {
             <Flex as="section" gap="m" direction="column">
                 <h2 className="jkl-heading-3">Oppvaskmaskin</h2>
                 <Flex direction="row">
-                    <BETA_Select label="Antall" defaultValue={1}>
-                        <option value={1}>1</option>
-                    </BETA_Select>
+                    <Select label="Antall" defaultValue={1} items={["1"]} />
                     <TextInput
                         label="Gjenstand"
                         defaultValue="Oppvaskmaskin (Hvitevare - Elektronikk)"
@@ -75,11 +73,11 @@ const Aldersfradrag = () => {
                     alignItems="start"
                     style={{ maxWidth: "fit-content" }}
                 >
-                    <BETA_Select label="Vurdert standard" defaultValue="Høy">
-                        <option value="Høy">Høy</option>
-                        <option value="Middels">Middels</option>
-                        <option value="Lav">Lav</option>
-                    </BETA_Select>
+                    <Select
+                        label="Vurdert standard"
+                        defaultValue="Høy"
+                        items={["Høy", "Middels", "Lav"]}
+                    />
                     <TextInput label="Antatt levetid" defaultValue="10" />
                     <Flex
                         style={{

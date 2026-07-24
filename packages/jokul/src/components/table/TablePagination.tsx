@@ -11,7 +11,7 @@ import { useId } from "../../hooks/useId/useId.js";
 import { IconButton } from "../icon-button/IconButton.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
-import { NativeSelect } from "../select/NativeSelect.js";
+import { Select } from "../select/Select.js";
 import { TextInput } from "../text-input/TextInput.js";
 import type { TablePaginationProps } from "./types.js";
 
@@ -140,7 +140,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                         >
                             {labels.rowsPerPage}:
                         </span>
-                        <NativeSelect
+                        <Select
                             className="jkl-table-pagination__picker-input"
                             label={labels.rowsPerPage}
                             labelProps={{ srOnly: true }}
@@ -156,7 +156,6 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                             value={String(rowsPerPage)}
                             onChange={onChangeRowsPerPage}
                             width="min(8rem, 100%)"
-                            inline
                         />
                     </div>
                 </div>

@@ -2,7 +2,7 @@ import React, { useEffect, useId, useMemo, useRef, useState } from "react";
 import { Button } from "../../button/index.js";
 import { Flex } from "../../flex/index.js";
 import { ArrowLeftIcon, ArrowRightIcon } from "../../icon/index.js";
-import { NativeSelect } from "../../select/index.js";
+import { Select } from "../../select/index.js";
 import { Table, TableCaption } from "../../table/index.js";
 import { Text } from "../../typography/index.js";
 import { toValidInputValue } from "../utils.js";
@@ -195,7 +195,7 @@ export const Calendar = (props: CalendarProps) => {
                 className="jkl-calendar__navigation"
             >
                 <Flex gap="xs" wrap="wrap" data-size="small">
-                    <NativeSelect
+                    <Select
                         placeholder="Måned"
                         label="Måned"
                         items={monthOptions.map((index) =>
@@ -222,7 +222,7 @@ export const Calendar = (props: CalendarProps) => {
                             )
                         }
                     />
-                    <NativeSelect
+                    <Select
                         placeholder="År"
                         label="År"
                         items={yearOptions.map((y) => y.toString())}
