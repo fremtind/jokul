@@ -21,7 +21,7 @@ export const BaseRadioButton = forwardRef<
         ...rest
     } = props;
 
-    const inputId = useId(id || "jkl-radio-button", { generateSuffix: !id });
+    const inputId = useId("jkl-radio-button", id);
 
     return (
         <div

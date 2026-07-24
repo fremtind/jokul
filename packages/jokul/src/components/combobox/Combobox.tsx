@@ -52,7 +52,7 @@ export const Combobox: FC<ComboboxProps> = (props) => {
         description,
         hasTagHover,
     } = props;
-    const listId = useId(id || "jkl-combobox", { generateSuffix: !id });
+    const listId = useId("jkl-combobox", id);
     const labelId = `${listId}_label`;
     const buttonId = `${listId}_button`;
     const inputId = `${listId}_search-input`;

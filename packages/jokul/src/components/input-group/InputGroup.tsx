@@ -23,7 +23,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
             ...rest
         } = props;
 
-        const uid = useId(id || "jkl-input", { generateSuffix: !id });
+        const uid = useId("jkl-input", id);
         const supportId = useId("jkl-support-label");
 
         const hasTooltip = !!tooltip;

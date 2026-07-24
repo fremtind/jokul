@@ -12,7 +12,7 @@ export const LogoStamp = ({
     title,
     ...rest
 }: LogoStampProps): JSX.Element => {
-    const uniqueId = useId(id || "jkl-logo-stamp", { generateSuffix: !id });
+    const uniqueId = useId("jkl-logo-stamp", id);
     const stampRef = useRef<SVGSVGElement>(null);
     const { hasAnimated, visible } = useTextSpinner(stampRef);
 
