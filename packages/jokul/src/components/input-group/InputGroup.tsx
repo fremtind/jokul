@@ -25,6 +25,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
 
         const uid = useId(id || "jkl-input", { generateSuffix: !id });
         const supportId = useId("jkl-support-label");
+        const descriptionId = useId("jkl-description");
 
         const hasTooltip = !!tooltip;
 
@@ -35,7 +36,13 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
               ? "help"
               : undefined;
 
-        const describedBy = supportText ? supportId : undefined;
+        const describedBy =
+            [
+                description ? descriptionId : undefined,
+                supportText ? supportId : undefined,
+            ]
+                .filter(Boolean)
+                .join(" ") || undefined;
 
         const inputProps: InputProps = {
             "aria-describedby": describedBy,
@@ -87,7 +94,12 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                     )}
                 </Label>
                 {description && (
-                    <p className="jkl-input-group-description">{description}</p>
+                    <p
+                        id={descriptionId}
+                        className="jkl-input-group-description"
+                    >
+                        {description}
+                    </p>
                 )}
                 {renderInput()}
                 <SupportLabel
