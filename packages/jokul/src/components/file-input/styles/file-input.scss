@@ -3,24 +3,37 @@
 
 @layer jokul.components {
     .jkl-file-input {
-        position: relative;
-        display: inline-block;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--jkl-unit-10);
 
         &__input {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0 0 0 0);
-            clip-path: inset(50%);
-            white-space: nowrap;
-            border: 0;
+            min-inline-size: 0;
+            font: inherit;
+            color: inherit;
+
+            &::file-selector-button {
+                inline-size: 0;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                opacity: 0;
+            }
         }
 
-        &__button {
-            cursor: pointer;
+        &--error {
+            .jkl-file-input__button {
+                border-color: var(--jkl-color-error-border-default);
+
+                .jkl-button__text {
+                    color: var(--jkl-color-error-text-default);
+                }
+
+                .jkl-icon {
+                    color: var(--jkl-color-error-text-default);
+                }
+            }
         }
     }
 }

@@ -1,42 +1,62 @@
 import clsx from "clsx";
-import React, { forwardRef, useId } from "react";
-import { UploadIcon } from "../icon/icons/UploadIcon.js";
+import React, { forwardRef } from "react";
+import { Button } from "../button/Button.js";
+import { UploadIcon } from "../icon/icons/UploadIcon.jsx";
+import { InputGroup } from "../input-group/InputGroup.js";
 import type { FileInputProps } from "./types.js";
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
     (
-        { id, label = "Velg fil", className, multiple = false, ...inputProps },
+        {
+            id,
+            label,
+            buttonLabel,
+            className,
+            multiple = false,
+            description,
+            disabled,
+            errorLabel,
+            helpLabel,
+            ...inputProps
+        },
         ref,
     ) => {
-        const generatedId = useId();
-        const inputId = id ?? generatedId;
-
         return (
-            <span className={clsx("jkl-file-input", className)}>
-                <input
-                    {...inputProps}
-                    ref={ref}
-                    id={inputId}
-                    type="file"
-                    multiple={multiple}
-                    className="jkl-file-input__input"
-                />
+            <InputGroup
+                id={id}
+                label={label || "Last opp dokumenter"}
+                description={description}
+                errorLabel={errorLabel}
+                helpLabel={helpLabel}
+                className={className}
+                render={(groupInputProps) => (
+                    <span
+                        className={clsx("jkl-file-input", {
+                            "jkl-file-input--error": Boolean(errorLabel),
+                        })}
+                    >
+                        <Button
+                            htmlFor={groupInputProps.id}
+                            as="label"
+                            variant="secondary"
+                            icon={<UploadIcon aria-hidden="true" />}
+                            className="jkl-file-input__button"
+                        >
+                            {buttonLabel || "Velg fil"}
+                        </Button>
 
-                <label
-                    htmlFor={inputId}
-                    className={clsx(
-                        "jkl-button",
-                        "jkl-button--secondary",
-                        "jkl-file-input__button",
-                    )}
-                >
-                    <div className="jkl-button__label">
-                        <UploadIcon aria-hidden="true" />
-
-                        <span className="jkl-button__text">{label}</span>
-                    </div>
-                </label>
-            </span>
+                        <input
+                            {...inputProps}
+                            {...groupInputProps}
+                            ref={ref}
+                            type="file"
+                            multiple={multiple}
+                            disabled={disabled}
+                            className="jkl-file-input__input"
+                        />
+                    </span>
+                )}
+            />
         );
     },
 );

@@ -9,9 +9,11 @@ const meta = {
     title: "Komponenter/File Input",
     component: FileInput,
     args: {
-        label: "Velg fil",
+        label: "Last opp dokumenter",
+        description: "Tillatte formater: JPG, PNG",
+        buttonLabel: "Velg fil",
         accept: "image/*,.pdf",
-        multiple: true,
+        multiple: false,
     },
 } satisfies Meta<typeof FileInput>;
 
@@ -146,7 +148,7 @@ export const FileInputAndUploadButton: Story = {
                 )}
 
                 <Button
-                    variant="primary"
+                    variant="secondary"
                     disabled={files.length === 0}
                     onClick={uploadFiles}
                     loader={{

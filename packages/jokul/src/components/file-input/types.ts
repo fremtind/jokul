@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { ComponentPropsWithoutRef } from "react";
 import type { FileProps } from "../file/types.js";
 
 export interface UploadedFileValidation {
@@ -17,10 +17,19 @@ export type FileInputProps = Omit<
     ComponentPropsWithoutRef<"input">,
     "type" | "value" | "children"
 > & {
+    label: string;
     /**
-     * Innholdet i knappen.
+     * Tekst på label til InputGroup.
+     *
+     * @default "Last opp dokumenter"
+     */
+    buttonLabel: string;
+    /**
+     * Tekst på knappen.
      *
      * @default "Velg fil"
      */
-    label?: string;
+    description?: string;
+    errorLabel?: string;
+    helpLabel?: string;
 };
