@@ -41,4 +41,5 @@ export { SuccessIcon } from "./icons/SuccessIcon.js";
 export { ThumbDownIcon } from "./icons/ThumbDownIcon.js";
 export { ThumbUpIcon } from "./icons/ThumbUpIcon.js";
 export { TrashCanIcon } from "./icons/TrashCanIcon.js";
+export { UploadIcon } from "./icons/UploadIcon.js";
 export { WarningIcon } from "./icons/WarningIcon.js";
