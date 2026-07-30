@@ -44,10 +44,7 @@
         "typescript": "^5.9.2"
     },
     "engines": {
-        "node": ">=20"
+        "node": "^22.22.2 || ^24.15.0 || ^26.0.0"
     },
-    "files": [
-        "dist",
-        "README.md"
-    ]
+    "files": ["dist", "README.md"]
 }
