@@ -1,5 +1,19 @@
 # Change Log
 
+## 5.2.0
+
+### Minor Changes
+
+- 4f47176: registerWithNumber-masken justerer ikke lenger teksten til høyre. Bruk heller `align`-propen i input-feltet for å endre tekstjustering i felter.
+
+### Patch Changes
+
+- 092abb9: Lar `Text`-komponenten arve fontvekt dersom ikke `bold` er satt eksplisitt.
+- 95cf07a: Flytter skillelinjen mellom to input-felter til en delt mixin, og legger til fix for overlay i Safari
+- 90e7062: Bruker ikon direkte fra Material Symbols for `GreenCheckIcon` og `RedCrossIcon`, og merker `bold`-propen som deprecated (den har ikke hatt effekt siden Jøkul 5.0). Overskriver `filled`-propen for ikoner som alltid skal være fylt.
+- f47ad11: fix: gjør at Combobox sender tooltip videre til InputGroup så den vises til brukerne
+- 997c560: Description har nå fått egen id i InputGroup, slik at denne leses opp av skjermlesere på lik linje som support-labels.
+
 ## 5.1.0
 
 ### Minor Changes

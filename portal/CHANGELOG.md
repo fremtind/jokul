@@ -1,5 +1,19 @@
 # portal
 
+## 1.7.7
+
+### Patch Changes
+
+- 7d28797: Holder colorpickeren i temabyggeren på linje med tekstfeltet også når feltet viser feilmelding.
+- 0dee705: Flytter innsending til fargesteget i temabyggeren, legger til modal for intern deling av forhåndsvisningslenke, og fjerner innsending fra forhåndsvisningssiden.
+- Updated dependencies [092abb9]
+- Updated dependencies [95cf07a]
+- Updated dependencies [4f47176]
+- Updated dependencies [90e7062]
+- Updated dependencies [f47ad11]
+- Updated dependencies [997c560]
+  - @fremtind/jokul@5.2.0
+
 ## 1.7.6
 
 ### Patch Changes
