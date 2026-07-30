@@ -3,7 +3,7 @@
     "version": "5.2.3",
     "type": "module",
     "engines": {
-        "node": "^20.19.0 || >=22.12.0"
+        "node": "^22.22.2 || ^24.15.0 || ^26.0.0"
     },
     "publishConfig": {
         "access": "public"
@@ -83,8 +83,8 @@
         "figma:publish": "figma connect publish"
     },
     "dependencies": {
-        "downshift": "^7.6.2",
-        "match-sorter": "^6.3.4"
+        "downshift": "^9.4.0",
+        "match-sorter": "^8.3.0"
     },
     "optionalDependencies": {
         "@floating-ui/react": "0.24.1 - 0.27",
@@ -94,36 +94,37 @@
         "tailwindcss": "^3.4.17"
     },
     "devDependencies": {
-        "@babel/cli": "^7.29.7",
-        "@babel/preset-react": "^7.29.7",
+        "@babel/core": "^8.0.1",
+        "@babel/cli": "^8.0.4",
+        "@babel/preset-react": "^8.0.1",
         "@figma/code-connect": "^1.5.2",
         "@rollup/plugin-terser": "^1.0.0",
         "@types/react": "18.3.1",
         "@vitejs/plugin-react": "^4.7.0",
-        "@vitejs/plugin-react-swc": "^3.11.0",
+        "@vitejs/plugin-react-swc": "^4.3.3",
         "autoprefixer": "^10.5.4",
         "change-case": "^5.4.4",
-        "cssnano": "^7.1.9",
-        "cssnano-preset-lite": "^4.0.6",
+        "cssnano": "^8.0.2",
+        "cssnano-preset-lite": "^5.0.1",
         "dayjs": "^1.11.21",
         "glob": "^13.0.6",
         "ink": "^5.1.0",
         "ink-select-input": "^6.0.0",
-        "jsdom": "^26.1.0",
-        "nanoid": "^5.1.16",
+        "jsdom": "^30.0.1",
+        "nanoid": "^6.0.1",
         "postcss": "^8.5.10",
         "react": "18.3.1",
         "react-dom": "18.3.1",
         "react-hook-form": "^7.84.0",
         "react-is": "18.3.1",
         "rollup-plugin-node-externals": "^8.0.1",
-        "rollup-plugin-visualizer": "^6.0.11",
+        "rollup-plugin-visualizer": "^7.0.1",
         "sass-embedded": "^1.100.0",
         "style-dictionary": "^5.5.0",
         "tailwindcss": "^3.4.17",
         "tsx": "^4.23.5",
         "vite": "^7.3.6",
-        "vite-plugin-dts": "^5.0.0",
+        "vite-plugin-dts": "^5.0.3",
         "vitest": "^4.1.10",
         "vitest-axe": "^0.1.0"
     },

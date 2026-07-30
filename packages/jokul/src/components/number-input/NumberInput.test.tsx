@@ -1,9 +1,4 @@
-import {
-    createEvent,
-    fireEvent,
-    render,
-    screen,
-} from "@testing-library/react";
+import { createEvent, fireEvent, render, screen } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
 import { axe } from "vitest-axe";
@@ -42,10 +37,7 @@ describe("NumberInput", () => {
 
     it("uses the passed input class name", () => {
         render(
-            <NumberInput
-                label="testing"
-                inputClassName="test-input-class"
-            />,
+            <NumberInput label="testing" inputClassName="test-input-class" />,
         );
 
         expect(screen.getByLabelText("testing")).toHaveClass(
@@ -100,9 +92,9 @@ describe("NumberInput", () => {
 
         const wrapper = screen
             .getByTestId("jkl-number-input")
-            .querySelector(".jkl-number-input__wrapper");
+            .querySelector<HTMLDivElement>(".jkl-number-input__wrapper");
 
-        expect(wrapper).toHaveStyle({ width: "12rem" });
+        expect(wrapper?.style.width).toBe("12rem");
     });
 
     it("forwards style to the input wrapper", () => {
@@ -189,11 +181,7 @@ describe("NumberInput", () => {
 
     it("does not render helpLabel if both helpLabel and errorLabel are given", () => {
         render(
-            <NumberInput
-                label="testing"
-                helpLabel="help"
-                errorLabel="error"
-            />,
+            <NumberInput label="testing" helpLabel="help" errorLabel="error" />,
         );
 
         expect(screen.queryByText("help")).not.toBeInTheDocument();
@@ -323,8 +311,12 @@ describe("NumberInput", () => {
     it("disables stepper buttons for disabled inputs", () => {
         render(<NumberInput label="testing" stepper disabled />);
 
-        expect(screen.getByRole("button", { name: "Senk verdien" })).toBeDisabled();
-        expect(screen.getByRole("button", { name: "Øk verdien" })).toBeDisabled();
+        expect(
+            screen.getByRole("button", { name: "Senk verdien" }),
+        ).toBeDisabled();
+        expect(
+            screen.getByRole("button", { name: "Øk verdien" }),
+        ).toBeDisabled();
     });
 
     it("disables the decrement button when the value is at min", () => {
@@ -486,5 +478,4 @@ describe("NumberInput a11y", () => {
 
         expect(results).toHaveNoViolations();
     });
-
 });
