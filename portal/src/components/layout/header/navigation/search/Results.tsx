@@ -17,7 +17,7 @@ type SearchResult = {
     slug: { current?: string } | null;
     short_description: string | null;
     image: string | null;
-    type: "Komponent" | "Fundament" | "Blogg";
+    type: "Komponent" | "Fundament" | "Blogg" | "Mønster";
     href: string;
 };
 
@@ -44,7 +44,8 @@ const getRankScore = (result: SearchResult, query: string) => {
     }
 
     const blogPenalty = result.type === "Blogg" ? 10_000 : 0;
-    return best + blogPenalty;
+    const monsterPenalty = result.type === "Mønster" ? 5_000 : 0;
+    return best + blogPenalty + monsterPenalty;
 };
 
 const escapeRegExp = (value: string) =>

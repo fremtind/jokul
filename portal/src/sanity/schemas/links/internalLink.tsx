@@ -17,6 +17,7 @@ export const internalLink = defineField({
                 { type: "jokul_fundamentals" },
                 { type: "jokul_release_notes" },
                 { type: "jokul_temaside" },
+                { type: "jokul_monster" },
             ],
             validation: (Rule) => Rule.required(),
         },

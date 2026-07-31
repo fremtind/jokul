@@ -196,6 +196,36 @@ export default async function Page({ params }: Props) {
                                 </>
                             ) : null}
 
+                            {component.related_patterns &&
+                            component.related_patterns.length > 0 ? (
+                                <>
+                                    <h2>Brukes i mønstre</h2>
+                                    <OverviewGridWithPreferences
+                                        initialPreferences={userPreferences}
+                                    >
+                                        {component.related_patterns.map(
+                                            (pattern) => (
+                                                <OverviewCardWithPreferences
+                                                    key={pattern.slug}
+                                                    title={pattern.name || ""}
+                                                    description={
+                                                        pattern.short_description ||
+                                                        ""
+                                                    }
+                                                    image={{
+                                                        light: pattern.image,
+                                                    }}
+                                                    link={`/monster/${pattern.slug}`}
+                                                    initialPreferences={
+                                                        userPreferences
+                                                    }
+                                                />
+                                            ),
+                                        )}
+                                    </OverviewGridWithPreferences>
+                                </>
+                            ) : null}
+
                             <PageFooter name={component.name} />
                         </>
                     ) : (

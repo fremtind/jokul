@@ -136,5 +136,11 @@ export const componentBySlugQuery =
                 related_components,
                 categories
             }
-        }
+        },
+        "related_patterns": *[_type == "jokul_monster" && references(^._id)]{
+            name,
+            "slug": slug.current,
+            short_description,
+            image
+        } | order(name)
     }`);
