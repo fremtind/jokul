@@ -1,4 +1,5 @@
 import { commonBlock } from "@/sanity/schemas/commonBlock";
+import { ComposeIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 const MAX_LENGTH = 70;
@@ -6,6 +7,7 @@ const MAX_LENGTH = 70;
 export const blogPost = defineType({
     name: "jokul_blog_post",
     title: "Bloggartikkel",
+    icon: ComposeIcon,
     type: "document",
     fields: [
         defineField({

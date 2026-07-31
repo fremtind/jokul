@@ -6,6 +6,7 @@ const MAX_LENGTH = 70;
 export const temaside = defineType({
     name: "jokul_temaside",
     title: "Temaside",
+    hidden: true,
     type: "document",
     groups: [
         { name: "basics", title: "Grunnleggende info" },

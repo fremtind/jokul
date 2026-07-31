@@ -85,16 +85,27 @@ export const siteData = defineType({
                                                                         {
                                                                             type: "jokul_release_notes",
                                                                         },
+                                                                        {
+                                                                            type: "jokul_monster",
+                                                                        },
                                                                     ],
                                                                 },
                                                             ],
                                                             preview: {
                                                                 select: {
                                                                     title: "internalReference.name",
-                                                                    version: "internalReference.version",
+                                                                    version:
+                                                                        "internalReference.version",
                                                                 },
-                                                                prepare({ title, version }) {
-                                                                    return { title: title ?? version };
+                                                                prepare({
+                                                                    title,
+                                                                    version,
+                                                                }) {
+                                                                    return {
+                                                                        title:
+                                                                            title ??
+                                                                            version,
+                                                                    };
                                                                 },
                                                             },
                                                         },
@@ -109,13 +120,33 @@ export const siteData = defineType({
                                                                     title: "Side",
                                                                     options: {
                                                                         list: [
-                                                                            { title: "Komponenter", value: "komponenter" },
-                                                                            { title: "Fundamenter", value: "fundamenter" },
-                                                                            { title: "Blogg", value: "blog" },
-                                                                            { title: "Release notes", value: "release-notes" },
+                                                                            {
+                                                                                title: "Komponenter",
+                                                                                value: "komponenter",
+                                                                            },
+                                                                            {
+                                                                                title: "Fundamenter",
+                                                                                value: "fundamenter",
+                                                                            },
+                                                                            {
+                                                                                title: "Mønster",
+                                                                                value: "monster",
+                                                                            },
+                                                                            {
+                                                                                title: "Blogg",
+                                                                                value: "blog",
+                                                                            },
+                                                                            {
+                                                                                title: "Release notes",
+                                                                                value: "release-notes",
+                                                                            },
                                                                         ],
                                                                     },
-                                                                    validation: (Rule) => Rule.required(),
+                                                                    validation:
+                                                                        (
+                                                                            Rule,
+                                                                        ) =>
+                                                                            Rule.required(),
                                                                 },
                                                             ],
                                                             preview: {

@@ -19,7 +19,8 @@ type InternalLinkArticle = {
         | "jokul_blog_post"
         | "jokul_fundamentals"
         | "jokul_release_notes"
-        | "jokul_temaside";
+        | "jokul_temaside"
+        | "jokul_monster";
     name: string | null;
     short_description: string | null;
     slug: string | null;
@@ -38,6 +39,7 @@ const ARTICLE_TYPE_TO_PATH: Record<InternalLinkArticle["_type"], string> = {
     jokul_fundamentals: "/fundamenter",
     jokul_release_notes: "/release-notes",
     jokul_temaside: "/tema",
+    jokul_monster: "/monster",
 };
 
 export const InternalLink = ({ value, children }: LinkProps) => {

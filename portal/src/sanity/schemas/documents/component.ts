@@ -1,5 +1,6 @@
 import { commonBlock } from "@/sanity/schemas/commonBlock";
 import { COMPONENT_CATEGORIES } from "@/utils/user-preferences";
+import { ComponentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 import "../lists/usageList.scss";
@@ -9,6 +10,7 @@ const MAX_LENGTH = 70;
 export const component = defineType({
     name: "jokul_component",
     title: "Komponent",
+    icon: ComponentIcon,
     type: "document",
     groups: [
         { name: "documentation", title: "Dokumentasjon" },
@@ -32,7 +34,10 @@ export const component = defineType({
                 source: "name",
                 maxLength: MAX_LENGTH,
                 slugify: (input) =>
-                    input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+                    input
+                        .toLowerCase()
+                        .replace(/\s+/g, "-")
+                        .slice(0, MAX_LENGTH),
             },
             validation: (Rule) => Rule.required(),
         }),

@@ -18,9 +18,9 @@ export const NavigationList = () => {
             style={{ listStyleType: "none", padding: 0, margin: 0 }}
             className={styles.list}
         >
-            {navigationLinks.map((link) => (
-                <Button as={Link} href={`/${link}`} variant="ghost" key={link}>
-                    {link.charAt(0).toUpperCase() + link.slice(1)}
+            {navigationLinks.map(({ href, label }) => (
+                <Button as={Link} href={href} variant="ghost" key={href}>
+                    {label}
                 </Button>
             ))}
         </Flex>

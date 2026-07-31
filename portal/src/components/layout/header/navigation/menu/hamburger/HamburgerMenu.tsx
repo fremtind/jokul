@@ -30,9 +30,9 @@ export const HamburgerMenu = () => {
                 className={styles.hamburger}
                 onClick={() => setOpen(!open)}
             >
-                {navigationLinks.map((link) => (
-                    <HamburgerMenuItem key={link} href={`/${link}`}>
-                        {link.charAt(0).toUpperCase() + link.slice(1)}
+                {navigationLinks.map(({ href, label }) => (
+                    <HamburgerMenuItem key={href} href={href}>
+                        {label}
                     </HamburgerMenuItem>
                 ))}
             </Popover.Content>

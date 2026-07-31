@@ -1,4 +1,5 @@
 import { commonBlock } from "@/sanity/schemas/commonBlock";
+import { TokenIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 const MAX_LENGTH = 70;
@@ -6,6 +7,7 @@ const MAX_LENGTH = 70;
 export const fundamentals = defineType({
     name: "jokul_fundamentals",
     title: "Fundamenter",
+    icon: TokenIcon,
     type: "document",
     fields: [
         defineField({
