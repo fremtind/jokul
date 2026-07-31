@@ -1,7 +1,8 @@
+import { ReferencedByView } from "@/sanity/components/ReferencedByView";
 import { dataset, projectId } from "@/sanity/env";
 import { schemaTypes } from "@/sanity/schemas";
 import { codeInput } from "@sanity/code-input";
-import { CogIcon, ComponentIcon } from "@sanity/icons";
+import { CogIcon, ComponentIcon, LinkIcon } from "@sanity/icons";
 import { nbNOLocale } from "@sanity/locale-nb-no";
 import { table } from "@sanity/table";
 import { visionTool } from "@sanity/vision";
@@ -51,6 +52,14 @@ export default defineConfig({
                                     .documentId("jokul_siteData"),
                             ),
                     ]),
+            defaultDocumentNode: (S) =>
+                S.document().views([
+                    S.view.form(),
+                    S.view
+                        .component(ReferencedByView)
+                        .title("Referanser")
+                        .icon(LinkIcon),
+                ]),
         }),
         visionTool(),
         nbNOLocale(),
