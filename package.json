@@ -36,6 +36,7 @@
         "integration:ci": "playwright test --project=chromium",
         "integration:interactive": "playwright test --project=chromium --ui",
         "integration:axe": "playwright test -g axe",
+        "get-metrics": "node scripts/get-metrics.mjs",
         "check:security-overrides": "node scripts/check-security-overrides.mjs",
         "prepare": "husky || true"
     },
