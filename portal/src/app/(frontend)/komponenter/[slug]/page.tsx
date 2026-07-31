@@ -5,7 +5,10 @@ import { OverviewCardWithPreferences } from "@/components/overview/OverviewCardW
 import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridWithPreferences";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
-import { componentBySlugQuery } from "@/sanity/queries/component";
+import {
+    componentBySlugQuery,
+    componentMetaBySlugQuery,
+} from "@/sanity/queries/component";
 import { parseUserPreferences } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { NavLink } from "@fremtind/jokul/nav-link";
@@ -27,9 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
 
     const { data: component } = await sanityFetch({
-        query: componentBySlugQuery,
+        query: componentMetaBySlugQuery,
         params: { slug },
         requestTag: "component-page",
+        tags: [`jokul_component:${slug}`],
     });
 
     return { title: component?.name || "Jøkul" };
@@ -43,6 +47,7 @@ export default async function Page({ params }: Props) {
         query: componentBySlugQuery,
         params: { slug },
         requestTag: "component-page",
+        tags: [`jokul_component:${slug}`],
     });
 
     if (!component) {

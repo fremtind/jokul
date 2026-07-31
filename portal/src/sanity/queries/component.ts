@@ -144,3 +144,7 @@ export const componentBySlugQuery =
             image
         } | order(name)
     }`);
+
+export const componentMetaBySlugQuery = defineQuery(
+    `*[_type == "jokul_component" && slug.current == $slug][0]{ name }`,
+);
