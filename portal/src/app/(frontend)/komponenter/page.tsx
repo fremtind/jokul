@@ -23,6 +23,7 @@ export default async function Components({
     let { data: components } = await sanityFetch({
         query: componentsQuery,
         requestTag: "component-overview",
+        tags: ["jokul_component"],
     });
 
     if (!components) {
