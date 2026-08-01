@@ -110,7 +110,7 @@
         "ink": "^5.1.0",
         "ink-select-input": "^6.0.0",
         "jsdom": "^26.1.0",
-        "nanoid": "^5.1.5",
+        "nanoid": "^6.0.0",
         "postcss": "^8.5.6",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
