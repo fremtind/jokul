@@ -35,7 +35,7 @@
         "@sanity/client": "^7.0.0",
         "cors": "^2.8.5",
         "express": "^4.21.0",
-        "zod": "^3.25.0"
+        "zod": "^4.4.3"
     },
     "devDependencies": {
         "@types/cors": "^2.8.17",
