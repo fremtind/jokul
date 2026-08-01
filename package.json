@@ -106,7 +106,7 @@
         "@axe-core/playwright": "^4.10.2",
         "@biomejs/biome": "1.9.4",
         "@changesets/cli": "^2.29.5",
-        "@commitlint/cli": "^17.8.1",
+        "@commitlint/cli": "^21.2.1",
         "@commitlint/config-conventional": "^17.8.1",
         "@commitlint/cz-commitlint": "^19.8.1",
         "@fremtind/stylelint-config-jkl": "workspace:*",
