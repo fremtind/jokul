@@ -1,35 +1,30 @@
-import type { ComponentPropsWithoutRef } from "react";
-import type { FileProps } from "../file/types.js";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { InputGroupProps } from "../input-group/types.js";
 
-export interface UploadedFileValidation {
-    type: "TOO_LARGE" | "WRONG_TYPE";
-    message: string;
-}
-
-export interface UploadedFile {
+export type UploadedFile = {
     file: File;
-    validation?: UploadedFileValidation;
-    state: FileProps["state"];
-    uploadProgress: number;
-}
+    state?: "loading" | "error";
+    uploadProgress?: number;
+    validation?: unknown;
+};
 
 export type FileInputProps = Omit<
     ComponentPropsWithoutRef<"input">,
     "type" | "value" | "children"
 > & {
-    label: string;
+    label?: InputGroupProps["label"];
     /**
      * Tekst på label til InputGroup.
      *
      * @default "Last opp dokumenter"
      */
-    children: string;
+    children: ReactNode;
     /**
      * Tekst på knappen.
      *
      * @default "Velg fil"
      */
-    description?: string;
-    errorLabel?: string;
-    helpLabel?: string;
+    description?: InputGroupProps["description"];
+    errorLabel?: InputGroupProps["errorLabel"];
+    helpLabel?: InputGroupProps["helpLabel"];
 };
