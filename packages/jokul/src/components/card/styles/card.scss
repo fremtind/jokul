@@ -61,7 +61,16 @@
             --background-color: transparent;
         }
 
-        &[data-clickable="true"] {
+        &:where(button) {
+            border: none;
+            outline: none;
+            font: inherit;
+            line-height: inherit;
+            text-align: inherit;
+        }
+
+        &[data-clickable="true"],
+        &:is(a, button:not(disabled)) {
             cursor: pointer;
 
             &:hover {

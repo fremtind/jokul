@@ -16,6 +16,7 @@ type Props = {
      */
     outlined?: boolean;
     /**
+     * @deprecated Kortet får automatisk riktige stiler dersom det rendres som `button` eller `a`
      * Angir om kortet visuelt skal fremstå som klikkbart. Du må selv rendre
      * kortet som et klikkbart element (f.eks. `<a>` eller en `<Link>` fra
      * et ruting-bibliotek) og gi det en `href` eller `onClick`-handler.
