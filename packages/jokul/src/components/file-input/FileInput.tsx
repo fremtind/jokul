@@ -10,7 +10,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
         {
             id,
             label,
-            buttonLabel,
+            children,
             className,
             multiple = false,
             description,
@@ -24,7 +24,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
         return (
             <InputGroup
                 id={id}
-                label={label || "Last opp dokumenter"}
+                label={label ?? "Last opp dokumenter"}
                 description={description}
                 errorLabel={errorLabel}
                 helpLabel={helpLabel}
@@ -39,10 +39,10 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                             htmlFor={groupInputProps.id}
                             as="label"
                             variant="secondary"
-                            icon={<UploadIcon aria-hidden="true" />}
+                            icon={<UploadIcon />}
                             className="jkl-file-input__button"
                         >
-                            {buttonLabel || "Velg fil"}
+                            {children ?? "Velg fil"}
                         </Button>
 
                         <input

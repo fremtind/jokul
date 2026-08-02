@@ -23,7 +23,7 @@ export type FileInputProps = Omit<
      *
      * @default "Last opp dokumenter"
      */
-    buttonLabel: string;
+    children: string;
     /**
      * Tekst på knappen.
      *
