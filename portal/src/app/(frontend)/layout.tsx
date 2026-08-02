@@ -9,10 +9,21 @@ import { VisualEditing } from "next-sanity/visual-editing";
 import { draftMode } from "next/headers";
 import "./global.scss";
 
+const SITE_URL =
+    process.env.NEXT_PUBLIC_SITE_URL ?? "https://jokul.fremtind.no";
+
 export const metadata: Metadata = {
+    metadataBase: new URL(SITE_URL),
     title: "Jøkul – Fremtinds designsystem",
     description:
         "Jøkul er Fremtinds designsystem for å bygge enkle og helhetlige brukeropplevelser.",
+    alternates: {
+        types: {
+            "application/rss+xml": [
+                { url: "/feed.xml", title: "Jøkul – Nylig oppdatert" },
+            ],
+        },
+    },
 };
 
 interface Props {

@@ -7,11 +7,12 @@ import styles from "./overview.module.scss";
 type OverviewHeaderProps = {
     title: string;
     children?: ReactNode;
+    actions?: ReactNode;
     showToolbar?: boolean;
 };
 
 export function OverviewHeader(props: OverviewHeaderProps) {
-    const { title, children, showToolbar = false } = props;
+    const { title, children, actions, showToolbar = false } = props;
 
     return (
         <Flex as="header" direction="column" gap="xl" className={styles.header}>
@@ -22,6 +23,7 @@ export function OverviewHeader(props: OverviewHeaderProps) {
                         <div className={styles.filters}>{children}</div>
                     )}
                     <div className={styles.views}>
+                        {actions}
                         <PreferencesMenu />
                     </div>
                 </search>

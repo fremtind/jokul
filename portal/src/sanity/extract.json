@@ -704,6 +704,10 @@
                                               {
                                                 "type": "string",
                                                 "value": "release-notes"
+                                              },
+                                              {
+                                                "type": "string",
+                                                "value": "nyheter"
                                               }
                                             ]
                                           },

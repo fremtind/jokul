@@ -140,6 +140,10 @@ export const siteData = defineType({
                                                                                 title: "Release notes",
                                                                                 value: "release-notes",
                                                                             },
+                                                                            {
+                                                                                title: "Nyheter",
+                                                                                value: "nyheter",
+                                                                            },
                                                                         ],
                                                                     },
                                                                     validation:

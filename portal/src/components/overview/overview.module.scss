@@ -14,6 +14,10 @@
 
         .views {
             grid-column: 2;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: var(--jkl-spacing-16);
         }
     }
 }
@@ -64,8 +68,6 @@
     }
 
     .description {
-        margin-bottom: auto;
-
         @include jkl.text-style("paragraph-small") {
             color: var(--jkl-color-text-subdued);
             word-wrap: break-word;
@@ -87,5 +89,10 @@
             object-position: center;
             aspect-ratio: inherit;
         }
+    }
+
+    .footer {
+        padding-block-start: 2lh;
+        margin-block-start: auto;
     }
 }
