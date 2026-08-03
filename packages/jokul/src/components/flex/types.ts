@@ -42,9 +42,11 @@ export type Breakpoint = (typeof BREAKPOINTS)[number];
 
 export type Responsive<T> = Partial<Record<Breakpoint, T>>;
 export function isResponsive<T>(value: unknown): value is Responsive<T> {
-    return BREAKPOINTS.includes(
-        Object.keys(value as Responsive<T>)[0] as Breakpoint,
-    );
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+        return false;
+    }
+    const keys = Object.keys(value);
+    return keys.length === 0 || BREAKPOINTS.includes(keys[0] as Breakpoint);
 }
 
 export const LAYOUTS = [
