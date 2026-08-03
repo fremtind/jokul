@@ -105,7 +105,7 @@
     "devDependencies": {
         "@axe-core/playwright": "^4.10.2",
         "@biomejs/biome": "1.9.4",
-        "@changesets/cli": "^2.29.5",
+        "@changesets/cli": "^2.31.1",
         "@commitlint/cli": "^17.8.1",
         "@commitlint/config-conventional": "^17.8.1",
         "@commitlint/cz-commitlint": "^19.8.1",
@@ -171,6 +171,8 @@
         "extends": "./packages/stylelint-config-jkl/index.mjs"
     },
     "eslintConfig": {
-        "extends": ["plugin:storybook/recommended"]
+        "extends": [
+            "plugin:storybook/recommended"
+        ]
     }
 }
