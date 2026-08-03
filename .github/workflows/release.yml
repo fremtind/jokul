@@ -24,13 +24,13 @@ jobs:
             pull-requests: write
         steps:
             - name: Checkout Repo
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
 
             - name: Setup pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093
 
             - name: Setup Node
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v7
               with:
                   registry-url: "https://registry.npmjs.org/"
                   node-version-file: ".nvmrc"
@@ -80,7 +80,7 @@ jobs:
 
             - name: Bytt registry til GitHub Packages
               if: steps.changesets.outputs.published == 'true'
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v7
               with:
                   registry-url: "https://npm.pkg.github.com"
                   scope: "@fremtind"

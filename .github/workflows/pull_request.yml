@@ -31,7 +31,7 @@ jobs:
             documentation: ${{ steps.documentation.outputs.has_matches }}
         steps:
             -   name: Checkout
-                uses: actions/checkout@v3
+                uses: actions/checkout@v7
 
             -   name: Se etter kodeendringer
                 uses: ./actions/paths-filter
@@ -120,13 +120,13 @@ jobs:
             contents: read
         steps:
             -   name: Checkout
-                uses: actions/checkout@v3
+                uses: actions/checkout@v7
 
             -   name: Setup pnpm
-                uses: pnpm/action-setup@v4
+                uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093
 
             -   name: Setup Node
-                uses: actions/setup-node@v4
+                uses: actions/setup-node@v7
                 with:
                     node-version-file: '.nvmrc'
                     cache: "pnpm"
@@ -246,13 +246,13 @@ jobs:
             pull-requests: write
         steps:
             -   name: Checkout
-                uses: actions/checkout@v3
+                uses: actions/checkout@v7
 
             -   name: Setup pnpm
-                uses: pnpm/action-setup@v4
+                uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093
 
             -   name: Setup Node
-                uses: actions/setup-node@v4
+                uses: actions/setup-node@v7
                 with:
                     node-version-file: '.nvmrc'
                     cache: "pnpm"
