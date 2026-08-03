@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.2.2
+
+### Patch Changes
+
+- c153cd7: Fikser en feil der `Flex` ikke fikk riktige klasser satt dersom man satte responsive verdier for `gap` eller `layout`
+
 ## 5.2.1
 
 ### Patch Changes
