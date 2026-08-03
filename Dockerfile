@@ -50,7 +50,7 @@ RUN \
 # Fjern devDependencies (Storybook, Vite, Playwright, Biome, ...) fra
 # node_modules før de kopieres til runner. Kutter fil-antall og lagstørrelse
 # drastisk – det som gjør at "exporting layers" timer ut.
-RUN pnpm prune --prod
+RUN CI=true pnpm prune --prod
 
 FROM base AS runner
 
