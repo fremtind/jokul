@@ -31,16 +31,16 @@ jobs:
                 NUM_SHARDS: [3]
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v7
               with:
                   ref: ${{ github.event.pull_request.head.ref }}
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
             - name: Setup pnpm
-              uses: pnpm/action-setup@v4
+              uses: pnpm/action-setup@0e279bb959325dab635dd2c09392533439d90093
 
             - name: Setup Node
-              uses: actions/setup-node@v4
+              uses: actions/setup-node@v7
               with:
                   node-version-file: '.nvmrc'
                   cache: "pnpm"
@@ -58,7 +58,7 @@ jobs:
                   echo "PLAYWRIGHT_VERSION=$PLAYWRIGHT_VERSION" >> $GITHUB_ENV
 
             - name: Playwright binary cache
-              uses: actions/cache@v5
+              uses: actions/cache@v6
               id: playwright-cache
               with:
                   path: /home/runner/.cache/ms-playwright
@@ -75,14 +75,14 @@ jobs:
 
             - name: Upload Playwright report on failure
               if: ${{ failure() }}
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v7
               with:
                   name: playwright-report-${{ matrix.SHARD }}.tar.gz
                   path: playwright-report/
 
             - name: Upload Playwright test-results on failure
               if: ${{ failure() }}
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v7
               with:
                   name: test-results-${{ matrix.SHARD }}.tar.gz
                   path: test-results/
@@ -94,7 +94,7 @@ jobs:
 
             - name: Upload screenshots
               if: steps.check.outputs.new-screenshots == 'true'
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v7
               with:
                   name: playwright-screenshots-${{ matrix.SHARD }}
                   path: |
@@ -108,13 +108,13 @@ jobs:
             contents: write
         steps:
             - name: Checkout
-              uses: actions/checkout@v3
+              uses: actions/checkout@v7
               with:
                   ref: ${{ github.event.pull_request.head.ref }}
                   token: ${{ secrets.BOT_PUBLISH_TOKEN }}
 
             - name: Download screenshots
-              uses: actions/download-artifact@v7
+              uses: actions/download-artifact@v8
               with:
                   pattern: playwright-screenshots-*
                   path: packages/jokul/src/components
