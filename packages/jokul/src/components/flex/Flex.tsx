@@ -76,7 +76,9 @@ export const Flex = forwardRef(function Flex<
  */
 function toObjectEntries<T>(value: T | Responsive<T>): [Breakpoint, T][] {
     if (isResponsive(value)) {
-        return Object.entries(value) as [Breakpoint, T][];
+        return (Object.entries(value) as [Breakpoint, T][]).filter(
+            ([, v]) => v !== undefined,
+        );
     }
 
     return [["small", value]];
