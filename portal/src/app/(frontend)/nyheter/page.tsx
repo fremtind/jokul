@@ -9,6 +9,7 @@ import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridW
 import { OverviewHeader } from "@/components/overview/header";
 import { sanityFetch } from "@/sanity/lib/live";
 import { newsPageQuery } from "@/sanity/queries/allPosts";
+import { documents } from "@/sanity/schemas/documents";
 import { parseUserPreferences } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { getCookie } from "cookies-next";
@@ -79,13 +80,7 @@ export default async function NyheterPage({
             end: start + PAGE_SIZE,
         },
         requestTag: "news-page",
-        tags: [
-            "jokul_blog_post",
-            "jokul_component",
-            "jokul_fundamentals",
-            "jokul_release_notes",
-            "jokul_temaside",
-        ],
+        tags: documents.map((doc) => doc.name),
     });
 
     const articles = data?.articles ?? [];

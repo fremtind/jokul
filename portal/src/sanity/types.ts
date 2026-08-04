@@ -1174,7 +1174,7 @@ export type AllSanitySchemaTypes = Jokul_internal_link | Seo | Jokul_siteData | 
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/allPosts.ts
 // Variable: latestUpdatedArticlesQuery
-// Query: *[        _type in [            "jokul_blog_post",            "jokul_component",            "jokul_fundamentals",            "jokul_release_notes",            "jokul_temaside"        ] && defined(slug.current)    ] | order(_updatedAt desc)[0...$limit]{        _id,        _type,        "type": select(            _type == "jokul_blog_post"     => "Blogg",            _type == "jokul_component"     => "Komponent",            _type == "jokul_fundamentals"  => "Fundament",            _type == "jokul_release_notes" => "Release notes",            _type == "jokul_temaside"      => "Temaside",            "Artikkel"        ),        "name": coalesce(name, tema, version),        short_description,        image,        imageDark,        "slug": slug.current,        "href": select(            _type == "jokul_blog_post"     => "/blog/" + slug.current,            _type == "jokul_component"     => "/komponenter/" + slug.current,            _type == "jokul_fundamentals"  => "/fundamenter/" + slug.current,            _type == "jokul_release_notes" => "/release-notes/" + slug.current,            _type == "jokul_temaside"      => "/temabygger/" + slug.current,            "/"        ),        "updated": _updatedAt,        "created": _createdAt,    }
+// Query: *[        _type in [            "jokul_blog_post",            "jokul_component",            "jokul_fundamentals",            "jokul_release_notes",            "jokul_monster"        ] && defined(slug.current)    ] | order(_updatedAt desc)[0...$limit]{        _id,        _type,        "type": select(            _type == "jokul_blog_post"     => "Blogg",            _type == "jokul_component"     => "Komponent",            _type == "jokul_fundamentals"  => "Fundament",            _type == "jokul_release_notes" => "Release notes",            _type == "jokul_monster"      => "Mønster",            "Artikkel"        ),        "name": coalesce(name, tema, version),        short_description,        image,        imageDark,        "slug": slug.current,        "href": select(            _type == "jokul_blog_post"     => "/blog/" + slug.current,            _type == "jokul_component"     => "/komponenter/" + slug.current,            _type == "jokul_fundamentals"  => "/fundamenter/" + slug.current,            _type == "jokul_release_notes" => "/release-notes/" + slug.current,            _type == "jokul_monster"      => "/monster/" + slug.current,            "/"        ),        "updated": _updatedAt,        "created": _createdAt,    }
 export type LatestUpdatedArticlesQueryResult = Array<{
   _id: string;
   _type: "jokul_blog_post";
@@ -1257,6 +1257,29 @@ export type LatestUpdatedArticlesQueryResult = Array<{
   created: string;
 } | {
   _id: string;
+  _type: "jokul_monster";
+  type: "M\xF8nster";
+  name: string | null;
+  short_description: string | null;
+  image: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+  } | null;
+  imageDark: null;
+  slug: string | null;
+  href: string | null;
+  updated: string;
+  created: string;
+} | {
+  _id: string;
   _type: "jokul_release_notes";
   type: "Release notes";
   name: string | null;
@@ -1267,21 +1290,9 @@ export type LatestUpdatedArticlesQueryResult = Array<{
   href: string | null;
   updated: string;
   created: string;
-} | {
-  _id: string;
-  _type: "jokul_temaside";
-  type: "Temaside";
-  name: string | null;
-  short_description: string | null;
-  image: null;
-  imageDark: null;
-  slug: string | null;
-  href: string | null;
-  updated: string;
-  created: string;
 }>;
 // Variable: newsPageQuery
-// Query: {        "articles": *[            _type in [                "jokul_blog_post",                "jokul_component",                "jokul_fundamentals",                "jokul_release_notes",                "jokul_temaside"            ] && defined(slug.current)            && (count($types) == 0 || _type in $types)            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60        ] | order(_updatedAt desc)[$start...$end]{            _id,            _type,            "type": select(                _type == "jokul_blog_post"     => "Blogg",                _type == "jokul_component"     => "Komponent",                _type == "jokul_fundamentals"  => "Fundament",                _type == "jokul_release_notes" => "Release notes",                _type == "jokul_temaside"      => "Temaside",                "Artikkel"            ),            "name": coalesce(name, tema, version),            short_description,            image,            imageDark,            "slug": slug.current,            "href": select(                _type == "jokul_blog_post"     => "/blog/" + slug.current,                _type == "jokul_component"     => "/komponenter/" + slug.current,                _type == "jokul_fundamentals"  => "/fundamenter/" + slug.current,                _type == "jokul_release_notes" => "/release-notes/" + slug.current,                _type == "jokul_temaside"      => "/temabygger/" + slug.current,                "/"            ),            "updated": _updatedAt,            "created": _createdAt,        },        "total": count(*[            _type in [                "jokul_blog_post",                "jokul_component",                "jokul_fundamentals",                "jokul_release_notes",                "jokul_temaside"            ] && defined(slug.current)            && (count($types) == 0 || _type in $types)            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60        ]),        "availableTypes": array::unique(*[            _type in [                "jokul_blog_post",                "jokul_component",                "jokul_fundamentals",                "jokul_release_notes",                "jokul_temaside"            ] && defined(slug.current)            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60        ]._type)    }
+// Query: {        "articles": *[            _type in [                "jokul_blog_post",                "jokul_component",                "jokul_fundamentals",                "jokul_release_notes",                "jokul_monster"            ] && defined(slug.current)            && (count($types) == 0 || _type in $types)            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60        ] | order(_updatedAt desc)[$start...$end]{            _id,            _type,            "type": select(                _type == "jokul_blog_post"     => "Blogg",                _type == "jokul_component"     => "Komponent",                _type == "jokul_fundamentals"  => "Fundament",                _type == "jokul_release_notes" => "Release notes",                _type == "jokul_monster"      => "Mønster",                "Artikkel"            ),            "name": coalesce(name, tema, version),            short_description,            image,            imageDark,            "slug": slug.current,            "href": select(                _type == "jokul_blog_post"     => "/blog/" + slug.current,                _type == "jokul_component"     => "/komponenter/" + slug.current,                _type == "jokul_fundamentals"  => "/fundamenter/" + slug.current,                _type == "jokul_release_notes" => "/release-notes/" + slug.current,                _type == "jokul_monster"      => "/monster/" + slug.current,                "/"            ),            "updated": _updatedAt,            "created": _createdAt,        },        "total": count(*[            _type in [                "jokul_blog_post",                "jokul_component",                "jokul_fundamentals",                "jokul_release_notes",                "jokul_monster"            ] && defined(slug.current)            && (count($types) == 0 || _type in $types)            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60        ]),        "availableTypes": array::unique(*[            _type in [                "jokul_blog_post",                "jokul_component",                "jokul_fundamentals",                "jokul_release_notes",                "jokul_monster"            ] && defined(slug.current)            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60        ]._type)    }
 export type NewsPageQueryResult = {
   articles: Array<{
     _id: string;
@@ -1365,6 +1376,29 @@ export type NewsPageQueryResult = {
     created: string;
   } | {
     _id: string;
+    _type: "jokul_monster";
+    type: "M\xF8nster";
+    name: string | null;
+    short_description: string | null;
+    image: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    } | null;
+    imageDark: null;
+    slug: string | null;
+    href: string | null;
+    updated: string;
+    created: string;
+  } | {
+    _id: string;
     _type: "jokul_release_notes";
     type: "Release notes";
     name: string | null;
@@ -1375,21 +1409,9 @@ export type NewsPageQueryResult = {
     href: string | null;
     updated: string;
     created: string;
-  } | {
-    _id: string;
-    _type: "jokul_temaside";
-    type: "Temaside";
-    name: string | null;
-    short_description: string | null;
-    image: null;
-    imageDark: null;
-    slug: string | null;
-    href: string | null;
-    updated: string;
-    created: string;
   }>;
   total: number;
-  availableTypes: Array<"jokul_blog_post" | "jokul_component" | "jokul_fundamentals" | "jokul_release_notes" | "jokul_temaside">;
+  availableTypes: Array<"jokul_blog_post" | "jokul_component" | "jokul_fundamentals" | "jokul_monster" | "jokul_release_notes">;
 };
 
 // Source: ./src/sanity/queries/blog.ts
@@ -3304,8 +3326,8 @@ export type ExamplesQueryResult = Array<never>;
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
-    "*[\n        _type in [\n            \"jokul_blog_post\",\n            \"jokul_component\",\n            \"jokul_fundamentals\",\n            \"jokul_release_notes\",\n            \"jokul_temaside\"\n        ] && defined(slug.current)\n    ] | order(_updatedAt desc)[0...$limit]{\n        _id,\n        _type,\n        \"type\": select(\n            _type == \"jokul_blog_post\"     => \"Blogg\",\n            _type == \"jokul_component\"     => \"Komponent\",\n            _type == \"jokul_fundamentals\"  => \"Fundament\",\n            _type == \"jokul_release_notes\" => \"Release notes\",\n            _type == \"jokul_temaside\"      => \"Temaside\",\n            \"Artikkel\"\n        ),\n        \"name\": coalesce(name, tema, version),\n        short_description,\n        image,\n        imageDark,\n        \"slug\": slug.current,\n        \"href\": select(\n            _type == \"jokul_blog_post\"     => \"/blog/\" + slug.current,\n            _type == \"jokul_component\"     => \"/komponenter/\" + slug.current,\n            _type == \"jokul_fundamentals\"  => \"/fundamenter/\" + slug.current,\n            _type == \"jokul_release_notes\" => \"/release-notes/\" + slug.current,\n            _type == \"jokul_temaside\"      => \"/temabygger/\" + slug.current,\n            \"/\"\n        ),\n        \"updated\": _updatedAt,\n        \"created\": _createdAt,\n    }": LatestUpdatedArticlesQueryResult;
-    "{\n        \"articles\": *[\n            _type in [\n                \"jokul_blog_post\",\n                \"jokul_component\",\n                \"jokul_fundamentals\",\n                \"jokul_release_notes\",\n                \"jokul_temaside\"\n            ] && defined(slug.current)\n            && (count($types) == 0 || _type in $types)\n            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60\n        ] | order(_updatedAt desc)[$start...$end]{\n            _id,\n            _type,\n            \"type\": select(\n                _type == \"jokul_blog_post\"     => \"Blogg\",\n                _type == \"jokul_component\"     => \"Komponent\",\n                _type == \"jokul_fundamentals\"  => \"Fundament\",\n                _type == \"jokul_release_notes\" => \"Release notes\",\n                _type == \"jokul_temaside\"      => \"Temaside\",\n                \"Artikkel\"\n            ),\n            \"name\": coalesce(name, tema, version),\n            short_description,\n            image,\n            imageDark,\n            \"slug\": slug.current,\n            \"href\": select(\n                _type == \"jokul_blog_post\"     => \"/blog/\" + slug.current,\n                _type == \"jokul_component\"     => \"/komponenter/\" + slug.current,\n                _type == \"jokul_fundamentals\"  => \"/fundamenter/\" + slug.current,\n                _type == \"jokul_release_notes\" => \"/release-notes/\" + slug.current,\n                _type == \"jokul_temaside\"      => \"/temabygger/\" + slug.current,\n                \"/\"\n            ),\n            \"updated\": _updatedAt,\n            \"created\": _createdAt,\n        },\n        \"total\": count(*[\n            _type in [\n                \"jokul_blog_post\",\n                \"jokul_component\",\n                \"jokul_fundamentals\",\n                \"jokul_release_notes\",\n                \"jokul_temaside\"\n            ] && defined(slug.current)\n            && (count($types) == 0 || _type in $types)\n            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60\n        ]),\n        \"availableTypes\": array::unique(*[\n            _type in [\n                \"jokul_blog_post\",\n                \"jokul_component\",\n                \"jokul_fundamentals\",\n                \"jokul_release_notes\",\n                \"jokul_temaside\"\n            ] && defined(slug.current)\n            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60\n        ]._type)\n    }": NewsPageQueryResult;
+    "*[\n        _type in [\n            \"jokul_blog_post\",\n            \"jokul_component\",\n            \"jokul_fundamentals\",\n            \"jokul_release_notes\",\n            \"jokul_monster\"\n        ] && defined(slug.current)\n    ] | order(_updatedAt desc)[0...$limit]{\n        _id,\n        _type,\n        \"type\": select(\n            _type == \"jokul_blog_post\"     => \"Blogg\",\n            _type == \"jokul_component\"     => \"Komponent\",\n            _type == \"jokul_fundamentals\"  => \"Fundament\",\n            _type == \"jokul_release_notes\" => \"Release notes\",\n            _type == \"jokul_monster\"      => \"M\xF8nster\",\n            \"Artikkel\"\n        ),\n        \"name\": coalesce(name, tema, version),\n        short_description,\n        image,\n        imageDark,\n        \"slug\": slug.current,\n        \"href\": select(\n            _type == \"jokul_blog_post\"     => \"/blog/\" + slug.current,\n            _type == \"jokul_component\"     => \"/komponenter/\" + slug.current,\n            _type == \"jokul_fundamentals\"  => \"/fundamenter/\" + slug.current,\n            _type == \"jokul_release_notes\" => \"/release-notes/\" + slug.current,\n            _type == \"jokul_monster\"      => \"/monster/\" + slug.current,\n            \"/\"\n        ),\n        \"updated\": _updatedAt,\n        \"created\": _createdAt,\n    }": LatestUpdatedArticlesQueryResult;
+    "{\n        \"articles\": *[\n            _type in [\n                \"jokul_blog_post\",\n                \"jokul_component\",\n                \"jokul_fundamentals\",\n                \"jokul_release_notes\",\n                \"jokul_monster\"\n            ] && defined(slug.current)\n            && (count($types) == 0 || _type in $types)\n            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60\n        ] | order(_updatedAt desc)[$start...$end]{\n            _id,\n            _type,\n            \"type\": select(\n                _type == \"jokul_blog_post\"     => \"Blogg\",\n                _type == \"jokul_component\"     => \"Komponent\",\n                _type == \"jokul_fundamentals\"  => \"Fundament\",\n                _type == \"jokul_release_notes\" => \"Release notes\",\n                _type == \"jokul_monster\"      => \"M\xF8nster\",\n                \"Artikkel\"\n            ),\n            \"name\": coalesce(name, tema, version),\n            short_description,\n            image,\n            imageDark,\n            \"slug\": slug.current,\n            \"href\": select(\n                _type == \"jokul_blog_post\"     => \"/blog/\" + slug.current,\n                _type == \"jokul_component\"     => \"/komponenter/\" + slug.current,\n                _type == \"jokul_fundamentals\"  => \"/fundamenter/\" + slug.current,\n                _type == \"jokul_release_notes\" => \"/release-notes/\" + slug.current,\n                _type == \"jokul_monster\"      => \"/monster/\" + slug.current,\n                \"/\"\n            ),\n            \"updated\": _updatedAt,\n            \"created\": _createdAt,\n        },\n        \"total\": count(*[\n            _type in [\n                \"jokul_blog_post\",\n                \"jokul_component\",\n                \"jokul_fundamentals\",\n                \"jokul_release_notes\",\n                \"jokul_monster\"\n            ] && defined(slug.current)\n            && (count($types) == 0 || _type in $types)\n            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60\n        ]),\n        \"availableTypes\": array::unique(*[\n            _type in [\n                \"jokul_blog_post\",\n                \"jokul_component\",\n                \"jokul_fundamentals\",\n                \"jokul_release_notes\",\n                \"jokul_monster\"\n            ] && defined(slug.current)\n            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60\n        ]._type)\n    }": NewsPageQueryResult;
     "*[_type == \"jokul_blog_post\"]{\n        name,\n        slug,\n        short_description,\n        \"date\": _createdAt,\n        _type == \"jokul_examples\" => {\n                ...,\n                title,\n                examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert\n                },\n          },\n    } | order(_createdAt desc)": BlogPostsQueryResult;
     "*[_type == \"jokul_blog_post\" && slug.current == $slug][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_code\" => {\n                ...,\n                title,\n                code,\n                language,\n          },\n            _type == \"jokul_examples\" => {\n    ...,\n    title,\n    examples[]->{\n                  title,\n                  id,\n                  description,\n                  height,\n                  inert,\n                  code\n                },\n  },\n            markDefs[] {\n                ...,\n                _type == \"jokul_internal_link\" => {\n                    article->{\n                        _type,\n                        \"name\": coalesce(name, tema, version),\n                        short_description,\n                        \"slug\": slug.current,\n                        image,\n                        imageDark\n                    }\n                },\n            }\n  },\n    }": BlogPostBySlugQueryResult;
     "*[_type == \"jokul_blog_post\" && slug.current == \"kom-i-gang\"][0] {...,\n    article[]{\n            ...,\n            _type == \"jokul_examples\" => {\n    ...,\n    title,\n    stories[]->{\n      storyName,\n      storyId,\n      storyDescription,\n    },\n  },\n            markDefs[] {\n                ...,\n                _type == \"jokul_internal_link\" => {\n                    article->{\n                        _type,\n                        \"name\": coalesce(name, tema, version),\n                        short_description,\n                        \"slug\": slug.current,\n                        image,\n                        imageDark\n                    }\n                },\n            }\n  },\n    }": KomIGangQueryResult;
