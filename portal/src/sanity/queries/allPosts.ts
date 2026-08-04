@@ -77,26 +77,5 @@ export const newsPageQuery = defineQuery(
             "updated": _updatedAt,
             "created": _createdAt,
         },
-        "total": count(*[
-            _type in [
-                "jokul_blog_post",
-                "jokul_component",
-                "jokul_fundamentals",
-                "jokul_release_notes",
-                "jokul_monster"
-            ] && defined(slug.current)
-            && (count($types) == 0 || _type in $types)
-            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60
-        ]),
-        "availableTypes": array::unique(*[
-            _type in [
-                "jokul_blog_post",
-                "jokul_component",
-                "jokul_fundamentals",
-                "jokul_release_notes",
-                "jokul_monster"
-            ] && defined(slug.current)
-            && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60
-        ]._type)
     }`,
 );
