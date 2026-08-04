@@ -1,4 +1,12 @@
-export const ARTICLE_TYPES = [
+import type { DocumentType } from "@/sanity/schemas/documents";
+
+type ArticleType = {
+    value: string;
+    sanityType: DocumentType;
+    label: string;
+};
+
+export const ARTICLE_TYPES: readonly ArticleType[] = [
     {
         value: "blogg",
         sanityType: "jokul_blog_post",
@@ -26,13 +34,12 @@ export const ARTICLE_TYPES = [
     },
 ] as const;
 
-export type ArticleType = (typeof ARTICLE_TYPES)[number];
-export type ArticleTypeValue = ArticleType["value"];
-
 const articleTypeValues = new Set<string>(
     ARTICLE_TYPES.map((type) => type.value),
 );
 
-export function isArticleTypeValue(value: string): value is ArticleTypeValue {
+export function isArticleTypeValue(
+    value: string,
+): value is ArticleType["value"] {
     return articleTypeValues.has(value);
 }

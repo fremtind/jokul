@@ -7,7 +7,7 @@ export const latestUpdatedArticlesQuery = defineQuery(
             "jokul_component",
             "jokul_fundamentals",
             "jokul_release_notes",
-            "jokul_temaside"
+            "jokul_monster"
         ] && defined(slug.current)
     ] | order(_updatedAt desc)[0...$limit]{
         _id,
@@ -17,7 +17,7 @@ export const latestUpdatedArticlesQuery = defineQuery(
             _type == "jokul_component"     => "Komponent",
             _type == "jokul_fundamentals"  => "Fundament",
             _type == "jokul_release_notes" => "Release notes",
-            _type == "jokul_temaside"      => "Temaside",
+            _type == "jokul_monster"      => "Mønster",
             "Artikkel"
         ),
         "name": coalesce(name, tema, version),
@@ -30,7 +30,7 @@ export const latestUpdatedArticlesQuery = defineQuery(
             _type == "jokul_component"     => "/komponenter/" + slug.current,
             _type == "jokul_fundamentals"  => "/fundamenter/" + slug.current,
             _type == "jokul_release_notes" => "/release-notes/" + slug.current,
-            _type == "jokul_temaside"      => "/temabygger/" + slug.current,
+            _type == "jokul_monster"      => "/monster/" + slug.current,
             "/"
         ),
         "updated": _updatedAt,
@@ -46,7 +46,7 @@ export const newsPageQuery = defineQuery(
                 "jokul_component",
                 "jokul_fundamentals",
                 "jokul_release_notes",
-                "jokul_temaside"
+                "jokul_monster"
             ] && defined(slug.current)
             && (count($types) == 0 || _type in $types)
             && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60
@@ -58,7 +58,7 @@ export const newsPageQuery = defineQuery(
                 _type == "jokul_component"     => "Komponent",
                 _type == "jokul_fundamentals"  => "Fundament",
                 _type == "jokul_release_notes" => "Release notes",
-                _type == "jokul_temaside"      => "Temaside",
+                _type == "jokul_monster"      => "Mønster",
                 "Artikkel"
             ),
             "name": coalesce(name, tema, version),
@@ -71,7 +71,7 @@ export const newsPageQuery = defineQuery(
                 _type == "jokul_component"     => "/komponenter/" + slug.current,
                 _type == "jokul_fundamentals"  => "/fundamenter/" + slug.current,
                 _type == "jokul_release_notes" => "/release-notes/" + slug.current,
-                _type == "jokul_temaside"      => "/temabygger/" + slug.current,
+                _type == "jokul_monster"      => "/monster/" + slug.current,
                 "/"
             ),
             "updated": _updatedAt,
@@ -83,7 +83,7 @@ export const newsPageQuery = defineQuery(
                 "jokul_component",
                 "jokul_fundamentals",
                 "jokul_release_notes",
-                "jokul_temaside"
+                "jokul_monster"
             ] && defined(slug.current)
             && (count($types) == 0 || _type in $types)
             && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60
@@ -94,7 +94,7 @@ export const newsPageQuery = defineQuery(
                 "jokul_component",
                 "jokul_fundamentals",
                 "jokul_release_notes",
-                "jokul_temaside"
+                "jokul_monster"
             ] && defined(slug.current)
             && dateTime(_updatedAt) > dateTime(now()) - 60*60*24*60
         ]._type)

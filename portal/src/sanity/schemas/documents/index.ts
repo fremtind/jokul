@@ -12,4 +12,6 @@ export const documents = [
     releaseNotes,
     temaside,
     monster,
-];
+] as const;
+
+export type DocumentType = (typeof documents)[number]["name"];
