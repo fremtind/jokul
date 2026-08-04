@@ -1,15 +1,11 @@
 import { FilterChip } from "@/app/(frontend)/nyheter/FilterChip";
 import { NewsPagination } from "@/app/(frontend)/nyheter/NewsPagination";
 import NewsPost from "@/app/(frontend)/nyheter/NewsPost";
-import {
-    ARTICLE_TYPES,
-    isArticleTypeValue,
-} from "@/app/(frontend)/nyheter/article.types";
 import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridWithPreferences";
 import { OverviewHeader } from "@/components/overview/header";
 import { sanityFetch } from "@/sanity/lib/live";
 import { newsPageQuery } from "@/sanity/queries/allPosts";
-import { documents } from "@/sanity/schemas/documents";
+import { type DocumentType, documents } from "@/sanity/schemas/documents";
 import { parseUserPreferences } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { getCookie } from "cookies-next";
@@ -23,6 +19,40 @@ const SITE_URL =
 const DESCRIPTION =
     "Nylig oppdaterte artikler, komponenter, fundamenter og release notes i Jøkul – Fremtinds designsystem.";
 const PAGE_SIZE = 12;
+
+type ArticleType = {
+    value: string;
+    sanityType: DocumentType;
+    label: string;
+};
+
+const ARTICLE_TYPES: readonly ArticleType[] = [
+    {
+        value: "blogg",
+        sanityType: "jokul_blog_post",
+        label: "Blogg",
+    },
+    {
+        value: "komponent",
+        sanityType: "jokul_component",
+        label: "Komponenter",
+    },
+    {
+        value: "fundament",
+        sanityType: "jokul_fundamentals",
+        label: "Fundamenter",
+    },
+    {
+        value: "release-notes",
+        sanityType: "jokul_release_notes",
+        label: "Release notes",
+    },
+    {
+        value: "monster",
+        sanityType: "jokul_monster",
+        label: "Mønster",
+    },
+] as const;
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
@@ -59,7 +89,7 @@ export default async function NyheterPage({
 
     const selectedValues = (typesParam ?? "")
         .split(",")
-        .filter(isArticleTypeValue);
+        .filter((value) => ARTICLE_TYPES.some((type) => type.value === value));
     const selectedTypes = ARTICLE_TYPES.filter((type) =>
         selectedValues.includes(type.value),
     );
@@ -84,18 +114,7 @@ export default async function NyheterPage({
     });
 
     const articles = data?.articles ?? [];
-    const total = data?.total ?? 0;
-    const availableTypes = data?.availableTypes ?? [];
-
-    if (articles.length === 0) {
-        logger.warn("No updated articles found");
-        return (
-            <>
-                <OverviewHeader title="Nylig oppdatert" />
-                <p>Fant ingen artikler :(</p>
-            </>
-        );
-    }
+    const total = articles.length;
 
     const numberOfPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
 
@@ -110,11 +129,6 @@ export default async function NyheterPage({
         const query = params.toString();
         redirect(query ? `/nyheter?${query}` : "/nyheter");
     }
-
-    const availableTypeSet = new Set(availableTypes);
-    const articleTypes = ARTICLE_TYPES.filter((type) =>
-        availableTypeSet.has(type.sanityType),
-    );
 
     return (
         <>
@@ -131,7 +145,7 @@ export default async function NyheterPage({
                 }
             >
                 <Flex wrap="wrap" gap="xs">
-                    {articleTypes.map((type) => (
+                    {ARTICLE_TYPES.map((type) => (
                         <FilterChip
                             key={type.value}
                             value={type.value}
@@ -142,6 +156,7 @@ export default async function NyheterPage({
                 </Flex>
             </OverviewHeader>
             <OverviewGridWithPreferences initialPreferences={userPreferences}>
+                {articles.length === 0 && <p>Fant ingen artikler :(</p>}
                 {articles.map((article) => (
                     <NewsPost key={article._id} article={article} />
                 ))}
