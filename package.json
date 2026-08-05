@@ -68,7 +68,6 @@
             "path-to-regexp@0": "^0.1.13",
             "path-to-regexp@8": "^8.4.0",
             "rollup": "^4.59.0",
-            "svgo": "^4.0.1",
             "terser-webpack-plugin": "^5.5.0",
             "undici": ">=6.24.0",
             "picomatch@2": "^2.3.2",
@@ -95,24 +94,24 @@
         }
     },
     "dependencies": {
-        "express": "^4.21.2",
+        "express": "^4.22.2",
         "express-http-proxy": "^2.1.1",
-        "fs-extra": "^11.3.1",
-        "glob": "^13.0.0",
-        "react": "^18.3.1",
-        "react-dom": "^18.3.1",
-        "react-is": "^18.3.1",
-        "winston": "^3.17.0"
+        "fs-extra": "^11.4.0",
+        "glob": "^13.0.6",
+        "react": "18.3.1",
+        "react-dom": "18.3.1",
+        "react-is": "18.3.1",
+        "winston": "^3.19.0"
     },
     "devDependencies": {
-        "@axe-core/playwright": "^4.10.2",
+        "@axe-core/playwright": "^4.12.1",
         "@biomejs/biome": "1.9.4",
         "@changesets/cli": "^2.31.1",
         "@commitlint/cli": "^17.8.1",
         "@commitlint/config-conventional": "^17.8.1",
         "@commitlint/cz-commitlint": "^19.8.1",
         "@fremtind/stylelint-config-jkl": "workspace:*",
-        "@playwright/test": "^1.54.2",
+        "@playwright/test": "^1.62.1",
         "@storybook/addon-a11y": "10.2.10",
         "@storybook/addon-docs": "10.2.10",
         "@storybook/addon-onboarding": "10.2.10",
@@ -120,11 +119,11 @@
         "@storybook/react-vite": "10.2.10",
         "@testing-library/dom": "^10.4.1",
         "@testing-library/jest-dom": "^6.7.0",
-        "@testing-library/react": "^16.3.0",
-        "@testing-library/user-event": "^14.5.2",
+        "@testing-library/react": "^16.3.2",
+        "@testing-library/user-event": "^14.6.3",
         "@types/express": "^4.17.23",
         "@types/glob": "^9.0.0",
-        "@types/node": "^18.19.123",
+        "@types/node": "^18.19.130",
         "@types/react": "18.3.1",
         "@types/react-dom": "18.3.1",
         "@types/react-is": "^18.3.1",
@@ -132,21 +131,21 @@
         "@types/testing-library__jest-dom": "^5.14.9",
         "@vitejs/plugin-react": "^4.7.0",
         "@vitejs/plugin-react-swc": "^3.11.0",
-        "browserslist": "^4.28.1",
+        "browserslist": "^4.28.7",
         "clsx": "^2.1.1",
-        "commitizen": "^4.3.1",
+        "commitizen": "^4.3.2",
         "esbuild": "^0.25.5",
         "gh-pages": "5.0.0",
         "husky": "^9.1.7",
         "lint-staged": "^13.3.0",
         "npm-run-all": "^4.1.5",
         "react-syntax-highlighter": "^16.0.0",
-        "sass": "^1.90.0",
+        "sass": "^1.102.0",
         "storybook": "10.2.10",
-        "stylelint": "^16.23.1",
+        "stylelint": "^16.26.1",
         "tiny-glob": "^0.2.9",
         "typescript": "^5.9.2",
-        "vite": "^7.3.2"
+        "vite": "^7.3.6"
     },
     "browserslist": [
         ">0.2% in no",
@@ -171,6 +170,8 @@
         "extends": "./packages/stylelint-config-jkl/index.mjs"
     },
     "eslintConfig": {
-        "extends": ["plugin:storybook/recommended"]
+        "extends": [
+            "plugin:storybook/recommended"
+        ]
     }
 }
