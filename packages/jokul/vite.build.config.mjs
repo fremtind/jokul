@@ -36,12 +36,18 @@ export default defineConfig({
                 "src/tokens/style-dictionary/**",
             ],
             entryRoot: "./src",
-            outDir: ["./build/es", "./build/cjs"],
+            outDirs: [
+                "./build/es",
+                { dir: "./build/cjs", moduleFormat: "cjs" },
+            ],
             beforeWriteFile(filePath, content) {
-                if (filePath.includes("/build/cjs")) {
+                // v5's `moduleFormat: "cjs"` renames declarations to `.d.cts`
+                // but leaves internal import specifiers as `.js`. Rewrite them
+                // to `.cjs` so CJS consumers resolve sibling types correctly.
+                if (filePath.includes("/build/cjs/")) {
                     return {
-                        filePath: filePath.replace(".d.ts", ".d.cts"),
-                        content: content.replace(/.js';/g, ".cjs';"),
+                        filePath,
+                        content: content.replace(/\.js';/g, ".cjs';"),
                     };
                 }
                 return { filePath, content };
