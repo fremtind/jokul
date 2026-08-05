@@ -1,4 +1,4 @@
-import { Label, Select, Stack } from "@sanity/ui";
+import { Select } from "@sanity/ui";
 import React, { useEffect, useState, useCallback, useId } from "react";
 import { set, unset } from "sanity";
 import type { ObjectInputProps } from "sanity";
@@ -10,7 +10,7 @@ export function StorybookInput(props: ObjectInputProps) {
     >({});
     const [loading, setLoading] = useState<boolean>(true);
     const fieldId = useId();
-    const fieldKey = /_key==\"(?<key>\w+)\"/g.exec(id)?.groups?.key;
+    const fieldKey = /_key=="(\w+)"/g.exec(id)?.[1];
 
     const findStoryById = useCallback(
         (storyId: string) => {
@@ -65,30 +65,26 @@ export function StorybookInput(props: ObjectInputProps) {
     );
 
     return (
-        <Stack space={2}>
-            <Label htmlFor={`storybook-story-${fieldId}`}>
-                Velg story fra Storybook
-            </Label>
-            <Select
-                onChange={handleChange}
-                disabled={loading}
-                value={value?.storyId}
-                id={`storybook-story-${fieldId}`}
-            >
-                <option value="">-- Velg en verdi --</option>
-                {Object.entries(stories)
-                    // Sorter alfabetisk etter komponentnavn
-                    .sort((a, b) => a[0].localeCompare(b[0]))
-                    .map(([componentName, stories]) => (
-                        <optgroup label={componentName} key={componentName}>
-                            {stories.map(({ id, name }) => (
-                                <option key={id} value={id}>
-                                    {name}
-                                </option>
-                            ))}
-                        </optgroup>
-                    ))}
-            </Select>
-        </Stack>
+        <Select
+            label="Velg story fra Storybook"
+            onChange={handleChange}
+            disabled={loading}
+            value={value?.storyId}
+            id={`storybook-story-${fieldId}`}
+        >
+            <option value="">-- Velg en verdi --</option>
+            {Object.entries(stories)
+                // Sorter alfabetisk etter komponentnavn
+                .sort((a, b) => a[0].localeCompare(b[0]))
+                .map(([componentName, stories]) => (
+                    <optgroup label={componentName} key={componentName}>
+                        {stories.map(({ id, name }) => (
+                            <option key={id} value={id}>
+                                {name}
+                            </option>
+                        ))}
+                    </optgroup>
+                ))}
+        </Select>
     );
 }
