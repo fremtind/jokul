@@ -55,9 +55,9 @@ RUN CI=true pnpm prune --prod
 # ødelagte/manglende `.bin`-symlinker for workspace-pakker – spesielt etter
 # tar-runden node_modules går gjennom mellom Docker-stegene. Det gjør at
 # runtime-kommandoer som `cross-env` og `run-p` feiler med «command not found».
-# Kjør en offline relink mot den allerede-prunede store-en for å gjenopprette
-# `.bin`-symlinkene uten å laste ned noe på nytt.
-RUN pnpm install --frozen-lockfile --prod --offline
+# Kjør en offline relink (om mulig) mot den allerede-prunede store-en for å
+# gjenopprette `.bin`-symlinkene uten å laste ned noe på nytt.
+RUN pnpm install --frozen-lockfile --prod --prefer-offline
 
 FROM base AS runner
 
