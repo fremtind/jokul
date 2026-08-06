@@ -91,7 +91,6 @@
             "react-is": "18.3.1",
             "resolve-url-loader>loader-utils": "^1.4.2",
             "rollup": "^4.59.0",
-            "sharp": "0.34.5",
             "shell-quote": "^1.9.0",
             "terser-webpack-plugin": "^5.5.0",
             "tmp": "^0.2.6",
