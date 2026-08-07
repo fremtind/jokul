@@ -1,5 +1,13 @@
 # Change Log
 
+## 5.2.3
+
+### Patch Changes
+
+- 9bd39b3: Sikkerhetsoppdateringer av avhengigheter
+- 088664b: Flere sikkerhetsoppdateringer: overstyrer versjoner av pakker med kjente sikkerhetshull.
+- f3c7329: Fikser en feil der typer ikke ble generert for Jøkul-pakkene
+
 ## 5.2.2
 
 ### Patch Changes

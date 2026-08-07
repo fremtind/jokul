@@ -1,5 +1,20 @@
 # portal
 
+## 1.8.0
+
+### Minor Changes
+
+- 39128c1: Bytt til `standalone`-modus for Next.js og trim ned mengden filer som blir med i containeren når vi bygger for release av portalen.
+
+### Patch Changes
+
+- 9bd39b3: Sikkerhetsoppdateringer av avhengigheter
+- 088664b: Flere sikkerhetsoppdateringer: overstyrer versjoner av pakker med kjente sikkerhetshull.
+- Updated dependencies [9bd39b3]
+- Updated dependencies [088664b]
+- Updated dependencies [f3c7329]
+  - @fremtind/jokul@5.2.3
+
 ## 1.7.9
 
 ### Patch Changes
