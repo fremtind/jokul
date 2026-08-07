@@ -1,0 +1,12 @@
+{
+    "name": "portal-proxy",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Minimal Express-proxy som serverer Storybook og proxyer til Next standalone i produksjon.",
+    "type": "module",
+    "dependencies": {
+        "express": "4.22.2",
+        "express-http-proxy": "2.1.2",
+        "winston": "3.19.0"
+    }
+}
