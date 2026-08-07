@@ -33,7 +33,7 @@ import {
     RadioButton,
     RadioButtonGroup,
 } from "../../src/components/radio-button/index.js";
-import { BETA_Select } from "../../src/components/select/index.js";
+import { Select } from "../../src/components/select/index.js";
 import {
     Tab,
     TabList,
@@ -319,9 +319,7 @@ const Aktivitetskort = ({
                 </RadioButton>
             </RadioButtonGroup>
             <Flex layout="3">
-                <BETA_Select label="T-tillegg">
-                    <option>e</option>
-                </BETA_Select>
+                <Select label="T-tillegg" items={["e"]} />
                 <Combobox
                     label="Årsakskoder (maks 2)"
                     items={[
@@ -350,9 +348,7 @@ const Aktivitetskort = ({
                 />
             </Flex>
             <Flex layout="3">
-                <BETA_Select label="Røyketillegg">
-                    <option>e</option>
-                </BETA_Select>
+                <Select label="Røyketillegg" items={["e"]} />
             </Flex>
             <Flex gap="xs" direction="column">
                 <ExpandablePanel>

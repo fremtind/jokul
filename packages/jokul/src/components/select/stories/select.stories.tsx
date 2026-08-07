@@ -1,78 +1,103 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
-import { Card } from "../../card/Card.js";
-import { ExpandablePanel } from "../../expander/ExpandablePanel.js";
-import { ExpandablePanelContent } from "../../expander/ExpandablePanelContent.js";
-import { Expander } from "../../expander/Expander.js";
-import { Flex } from "../../flex/index.js";
-import { PopupTip } from "../../tooltip/PopupTip.js";
+import { type ChangeEvent, useState } from "react";
+import { landkoder } from "../../../../../../storybook-public/data/landkoder.js";
+import * as catImage from "../../../../../../storybook-public/images/cat.jpg";
+import * as cowImage from "../../../../../../storybook-public/images/cow.jpg";
+import * as dogImage from "../../../../../../storybook-public/images/dog.jpg";
+import * as guineaPigImage from "../../../../../../storybook-public/images/guinea.jpg";
+import * as horseImage from "../../../../../../storybook-public/images/horse.jpg";
+import { getValuePair } from "../../../utilities/valuePair.js";
+import { Button } from "../../button/Button.js";
+import { Flex } from "../../flex/Flex.js";
+import { Text } from "../../typography/index.js";
 import { Select } from "../Select.js";
 import "../styles/_index.scss";
-import "../../card/styles/_index.scss";
-import "../../expander/styles/_index.scss";
+import { type SubmitHandler, useForm } from "react-hook-form";
+
+const telefonprodusenter = [
+    { value: "apple", label: "Apple" },
+    { value: "samsung", label: "Samsung" },
+    { value: "google", label: "Google" },
+    { value: "oneplus", label: "OnePlus" },
+    { value: "nothing", label: "Nothing" },
+    { value: "nokia", label: "Nokia" },
+    { value: "annet", label: "Annet" },
+];
+
+const dyr = [
+    {
+        value: "hund",
+        label: "Hund",
+        description: "Trofast og glad",
+        media: <img src={dogImage.default} alt="" width="50" height="50" />,
+    },
+    {
+        value: "katt",
+        label: "Katt",
+        description: "Selvstendig og nysgjerrig",
+        media: <img src={catImage.default} alt="" width="50" height="50" />,
+    },
+    {
+        value: "marsvin",
+        label: "Marsvin",
+        description: "Vennlig og sjenert",
+        media: (
+            <img src={guineaPigImage.default} alt="" width="50" height="50" />
+        ),
+    },
+    {
+        value: "hest",
+        label: "Hest",
+        description: "Kraftig og intelligent",
+        media: <img src={horseImage.default} alt="" width="50" height="50" />,
+    },
+    {
+        value: "ku",
+        label: "Ku",
+        description: "Stø og rolig",
+        media: <img src={cowImage.default} alt="" width="50" height="50" />,
+    },
+];
+
+function logSelectedValues(event: ChangeEvent<HTMLSelectElement>) {
+    const values = Array.from(
+        event.target.selectedOptions,
+        (option) => option.value,
+    );
+    console.log(values);
+}
 
 const meta: Meta = {
     title: "Komponenter/Select",
     component: Select,
-    subcomponents: { PopupTip },
+    parameters: {
+        layout: "centered",
+    },
     argTypes: {
-        className: {
+        name: {
+            table: {
+                disable: false,
+            },
+        },
+        items: {
             table: {
                 disable: true,
             },
-        },
-        id: {
-            table: {
-                disable: true,
-            },
-        },
-        "data-testautoid": {
-            table: {
-                disable: true,
-            },
-        },
-        onBlur: {
-            table: {
-                disable: true,
-            },
-        },
-        onFocus: {
-            table: {
-                disable: true,
-            },
-        },
-        onChange: {
-            table: {
-                disable: true,
-            },
-        },
-        searchable: {
-            control: "boolean",
         },
     },
     args: {
-        name: "Select",
+        name: "phone-brand",
         label: "Hvilket merke er telefonen?",
         description: "Du kan kun velge ett merke",
-        items: [
-            { value: "Apple", label: "Apple" },
-            { value: "Samsung", label: "Samsung" },
-            { value: "Google", label: "Google" },
-            { value: "OnePlus", label: "OnePlus" },
-            { value: "Nokia", label: "Nokia" },
-            { value: "Annet", label: "Annet" },
-        ],
-        defaultPrompt: "Velg merke",
-        inline: false,
-        invalid: false,
-        labelProps: {
-            srOnly: false,
-            variant: "small",
-        },
-        maxShownOptions: 12,
-        width: "20ch",
+        placeholder: "Velg",
         searchable: false,
+        multiple: false,
+        required: false,
+        disabled: false,
+        items: telefonprodusenter,
+        onChange: logSelectedValues,
     },
+    tags: ["autodocs", "forms"],
 };
 
 export default meta;
@@ -83,123 +108,180 @@ export const SelectStory: Story = {
     name: "Select",
 };
 
-export const SelectInline: Story = {
+export const ManyOptions: Story = {
+    name: "Select med mange valg",
     args: {
-        label: "Hva jobber du som?",
-        items: [
-            "Frontend-utvikler",
-            "Backend-utvikler",
-            "Visuell designer",
-            "Interaksjonsdesigner",
-            "Tjenestedesigner",
-        ],
-        inline: true,
-        value: "Frontend-utvikler",
-        description: "",
-        helpLabel: "",
+        label: "Hvilket land skjedde skaden i?",
+        placeholder: "Velg land",
+        description: undefined,
+        items: landkoder.map(({ navn, kode }) => ({
+            label: navn,
+            value: kode,
+        })),
     },
+};
+
+export const CustomFilter: Story = {
+    name: "Egendefinert filterfunksjon",
+    args: {
+        label: "Hvilket land skjedde skaden i?",
+        placeholder: "Velg land",
+        description: "Søker i både navn og landkode",
+        items: landkoder.map(({ navn, kode }) => ({
+            label: navn,
+            value: kode,
+        })),
+        searchable: true,
+        filterFunction: (item, filter) =>
+            item.label.toLowerCase().includes(filter.toLowerCase()) ||
+            item.value.toLowerCase().includes(filter.toLowerCase()),
+    },
+};
+
+export const Controlled: Story = {
+    name: "Kontrollert Select",
     render: (args) => {
+        const [value, setValue] = useState<string>("samsung");
+
         return (
-            <Flex gap="xs" alignItems="center">
-                <p>Jeg jobber som</p>
-                <Select {...args} />
-                <p>hos Fremtind Forsikring.</p>
+            <>
+                <label>
+                    <Text>
+                        Sett <code>value</code> for kontrollert Select:
+                    </Text>
+                    <select
+                        value={value}
+                        onChange={(e) => setValue(e.target.value)}
+                    >
+                        <option value="" />
+                        {args.items.map((item) => {
+                            const { value } = getValuePair(item);
+                            return (
+                                <option key={value} value={value}>
+                                    {value}
+                                </option>
+                            );
+                        })}
+                    </select>
+                </label>
+                <Select
+                    {...args}
+                    multiple={false}
+                    value={value}
+                    onChange={(e) => {
+                        args.onChange?.(e);
+                        setValue(e.target.value);
+                    }}
+                    className="jkl-spacing-24--top"
+                />
+            </>
+        );
+    },
+};
+
+export const Multiple: Story = {
+    name: "Select multiple",
+    args: {
+        name: "multiselect",
+        id: "min-select",
+        label: "Hvilke dyr liker du?",
+        description: "Velg så mange du vil fra listen",
+        placeholder: undefined,
+        multiple: true,
+        items: dyr,
+    },
+};
+
+export const ISkjema: Story = {
+    name: "I skjema",
+    args: {},
+    render: (args) => {
+        const [output, setOutput] = useState("");
+
+        return (
+            <Flex
+                direction="column"
+                alignItems="start"
+                gap="s"
+                as="form"
+                onSubmit={(event) => {
+                    event.preventDefault();
+                    setOutput(
+                        `Innsendt verdi for "${args.name || "feltet"}":
+                        ${new FormData(event.target as HTMLFormElement).getAll(
+                            args.name || "",
+                        )}`,
+                    );
+                }}
+            >
+                <Select {...args} onChange={() => setOutput("")} />
+                <Button variant="primary">Send inn</Button>
+                <output>
+                    {output === ""
+                        ? "Send inn skjemaet for å se verdien(e) til feltet."
+                        : output}
+                </output>
             </Flex>
         );
     },
 };
 
-export const SelectMedTooltip: Story = {
-    args: {
-        tooltip: (
-            <PopupTip
-                content={
-                    "Er du usikker på hvilket merke du har kan du velge Annet"
-                }
-            />
-        ),
-    },
-};
+export const ReactHookForm: Story = {
+    name: "Bruk med react-hook-form",
+    render: (args) => {
+        type Form = {
+            telefonmerke: string;
+            dyr: string[];
+        };
+        const { register, handleSubmit, formState } = useForm<Form>();
+        const [data, setData] = useState<Form | undefined>(undefined);
+        const logData: SubmitHandler<Form> = (data) => setData(data);
 
-/**
- * Demonstrerer at nedtrekkslisten ikke lenger klippes av en `Card` med
- * begrenset høyde (issue #5976).
- */
-export const SelectIKort: Story = {
-    name: "I et Card",
-    parameters: {
-        docs: {
-            description: {
-                story:
-                    "Tidligere ble lista klippet fordi `Card` har " +
-                    "`overflow: clip`. Lista rendres nå i en portal og " +
-                    "vises uavhengig av forelderens overflow.",
-            },
-        },
-    },
-    render: (args) => (
-        <Card padding="m" style={{ width: "20rem" }}>
-            <Select {...args} />
-        </Card>
-    ),
-};
-
-/**
- * Demonstrerer at nedtrekkslisten ikke lenger klippes av en
- * `ExpandablePanel` (issue #4583).
- */
-export const SelectIExpandablePanel: Story = {
-    name: "I en ExpandablePanel",
-    parameters: {
-        docs: {
-            description: {
-                story:
-                    "Tidligere ble lista klippet av panelets `overflow: " +
-                    "hidden` når innholdet i panelet var lavt. Etter " +
-                    "endringen rendres lista i en portal og vises som forventet.",
-            },
-        },
-    },
-    render: (args) => (
-        <div style={{ width: "30rem" }}>
-            <ExpandablePanel>
-                <Expander>Velg telefonmerke</Expander>
-                <ExpandablePanelContent>
-                    <Select {...args} />
-                </ExpandablePanelContent>
-            </ExpandablePanel>
-        </div>
-    ),
-};
-
-/**
- * Demonstrerer auto-flip: når Select er nederst i viewporten, åpner lista
- * seg over knappen i stedet for under, slik at hele lista alltid er synlig
- * (issue #3775).
- */
-export const SelectNederstPaSiden: Story = {
-    name: "Nederst på siden (flipper opp)",
-    parameters: {
-        docs: {
-            description: {
-                story:
-                    "Floating-ui-middlewaren `flip` snur listen over " +
-                    "knappen når det ikke er plass under. Scroll Select " +
-                    "ned mot bunnen av viewporten for å se effekten.",
-            },
-        },
-    },
-    render: (args) => (
-        <div style={{ height: "120dvh" }}>
-            <div
-                style={{
-                    position: "absolute",
-                    bottom: "1rem",
-                    left: "1rem",
-                }}
+        return (
+            <Flex
+                direction="column"
+                alignItems="start"
+                gap="s"
+                as="form"
+                onSubmit={handleSubmit(logData)}
             >
-                <Select {...args} />
-            </div>
-        </div>
-    ),
+                <Select
+                    {...args}
+                    {...register("telefonmerke", {
+                        required: "Du må velge merke",
+                    })}
+                    errorLabel={formState.errors.telefonmerke?.message}
+                />
+                <Select
+                    label="Hvilke dyr liker du?"
+                    description="Velg minst 2"
+                    multiple
+                    items={dyr}
+                    {...register("dyr", {
+                        validate: (values) =>
+                            values.length < 2 ? "Velg minst to dyr" : undefined,
+                    })}
+                    errorLabel={formState.errors.dyr?.message}
+                />
+                <Button variant="primary">Send inn</Button>
+                <output>
+                    <Text>
+                        <strong>telefonmerke</strong>: {data?.telefonmerke}
+                    </Text>
+                    <Text>
+                        <strong>dyr</strong>: [{data?.dyr.join(", ")}]
+                    </Text>
+                </output>
+            </Flex>
+        );
+    },
+};
+
+export const InvalidStory: Story = {
+    name: "Invalid Select",
+    args: {
+        required: true,
+        errorLabel: "Du må velge minst ett merke",
+    },
+    tags: ["dev"],
 };

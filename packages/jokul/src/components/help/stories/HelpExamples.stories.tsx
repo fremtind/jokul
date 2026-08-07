@@ -13,9 +13,7 @@ import FieldGroupStories from "../../input-group/stories/FieldGroup.stories.js";
 import InputGroupStories from "../../input-group/stories/InputGroup.stories.js";
 import { Search } from "../../search/index.js";
 import { Select } from "../../select/index.js";
-import SelectStories, {
-    SelectStory,
-} from "../../select/stories/select.stories.js";
+import SelectStories from "../../select/stories/select.stories.js";
 import { TextArea } from "../../text-area/index.js";
 import TextAreaStories from "../../text-area/stories/TextArea.stories.js";
 import { TextInput } from "../../text-input/index.js";
@@ -89,11 +87,10 @@ export const HelpSelect: Story = {
     render: (args) => {
         return (
             <Select
-                {...SelectStories.args}
-                {...SelectStory.args}
                 name="select"
                 label="Hva jobber du som?"
                 items={[]}
+                {...SelectStories.args}
                 tooltip={<Help {...args} />}
             />
         );
