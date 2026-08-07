@@ -30,7 +30,7 @@
         "prestart": "pnpm build:docs && pnpm build:portal:preview && pnpm sync-standalone-assets",
         "start": "run-p start:portal start:proxy",
         "start:portal": "PORT=3333 node portal/.next/standalone/portal/server.js",
-        "start:proxy": "node portal/deploy/server.js",
+        "start:proxy": "node portal/deploy/server.mjs",
         "sync-standalone-assets": "rm -rf portal/.next/standalone/portal/.next/static portal/.next/standalone/portal/public && cp -R portal/.next/static portal/.next/standalone/portal/.next/static && cp -R portal/public portal/.next/standalone/portal/public",
         "build:portal:preview": "pnpm --filter \"portal\" exec cross-env NEXT_PUBLIC_STORYBOOK_BASE_URL=/storybook pnpm build",
         "boot": "pnpm install && pnpm prepare && pnpm build",
