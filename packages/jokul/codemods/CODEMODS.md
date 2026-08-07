@@ -120,6 +120,22 @@ Tailwind-modifikatorer (`hover:`, `dark:`, `md:`, `focus:` o.l.), opacity-modifi
 
 ---
 
+#### Fjernede maskefunksjoner
+
+De frittstående, utgåtte maskefunksjonene er fjernet. Kall og importer skrives om
+til `registerWithMasks(form)`-API-et.
+
+| Fjernet funksjon | Erstatning |
+|---|---|
+| `registerWithFodselsnummerMask(form, name, options)` | `registerWithMasks(form).registerWithFodselsnummerMask(name, options)` |
+| `registerWithKontonummerMask(form, name, options)` | `registerWithMasks(form).registerWithKontonummerMask(name, options)` |
+| `registerWithKortnummerMask(form, name, options)` | `registerWithMasks(form).registerWithKortnummerMask(name, options)` |
+| `registerWithTelefonnummerMask(form, name, options)` | `registerWithMasks(form).registerWithTelefonnummerMask(name, options)` |
+
+Importer fra `@fremtind/jokul/utilities` (og gamle `@fremtind/jokul/core`) ryddes:
+de fjernede navnene tas ut og `registerWithMasks` legges til. Aliaserte importer
+(`... as x`) migreres ikke automatisk og gir et varsel.
+
 ### Varsler (krever manuell vurdering)
 
 Disse mønstrene kan ikke omdøpes automatisk. Codemoden skriver ut ett varsel per fil der mønsteret finnes.
