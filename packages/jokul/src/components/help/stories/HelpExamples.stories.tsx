@@ -7,7 +7,7 @@ import { Combobox } from "../../combobox/index.js";
 import ComboboxStories, {
     ComboboxStory,
 } from "../../combobox/stories/Combobox.stories.js";
-import { DatePicker } from "../../datepicker/index.js";
+import { DateInput } from "../../date-input/index.js";
 import { FieldGroup, InputGroup } from "../../input-group/index.js";
 import FieldGroupStories from "../../input-group/stories/FieldGroup.stories.js";
 import InputGroupStories from "../../input-group/stories/InputGroup.stories.js";
@@ -42,10 +42,10 @@ export const HelpTextInput: Story = {
     },
 };
 
-export const HelpDatePicker: Story = {
-    name: "Date Picker",
+export const HelpDateInput: Story = {
+    name: "Date Input",
     render: (args) => {
-        return <DatePicker label={"Navn"} tooltip={<Help {...args} />} />;
+        return <DateInput label={"Navn"} tooltip={<Help {...args} />} />;
     },
 };
 

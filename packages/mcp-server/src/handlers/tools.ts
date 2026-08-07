@@ -23,7 +23,7 @@ const categoryKeywords: Record<string, string[]> = {
         "checkbox",
         "radio-button",
         "toggle-switch",
-        "datepicker",
+        "date-input",
         "file-input",
         "autosuggest",
         "combobox",
@@ -37,7 +37,7 @@ const categoryKeywords: Record<string, string[]> = {
         "radio-button",
         "autosuggest",
         "combobox",
-        "datepicker",
+        "date-input",
         "file-input",
     ],
     navigation: [
