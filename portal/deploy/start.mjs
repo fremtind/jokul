@@ -78,7 +78,7 @@ start("next", process.execPath, [join(appDir, "portal", "server.js")], {
 });
 
 // 2. Express-proxy som serverer Storybook og proxyer til Next.
-start("proxy", process.execPath, [join(appDir, "proxy", "server.js")], {
+start("proxy", process.execPath, [join(appDir, "proxy", "server.mjs")], {
     STORYBOOK_STATIC_DIR: join(appDir, "storybook-static"),
     NEXT_UPSTREAM: `localhost:${NEXT_PORT}`,
 });

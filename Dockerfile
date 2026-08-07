@@ -2,6 +2,7 @@ FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-imag
 
 WORKDIR /app
 USER root
+COPY package.json .
 RUN npm install -g corepack
 RUN corepack enable
 RUN corepack prepare --activate
@@ -71,7 +72,7 @@ RUN cp -R portal/public portal/.next/standalone/portal/public
 
 # -----------------------------------------------------------------------------
 # proxy-deps: bygg et bittelite node_modules kun for Express-proxyen
-# (portal/deploy/server.js). Isolert fra portalens standalone node_modules slik
+# (portal/deploy/server.mjs). Isolert fra portalens standalone node_modules slik
 # at runner holder seg slank.
 # -----------------------------------------------------------------------------
 FROM base AS proxy-deps
@@ -96,8 +97,9 @@ COPY --from=builder /app/portal/.next/standalone ./
 # Bygd Storybook, servert under /storybook av proxyen.
 COPY --from=builder /app/storybook-static ./storybook-static
 
-# Express-proxyen og dens isolerte avhengigheter.
-COPY --from=builder /app/portal/deploy/server.js ./proxy/server.js
+# Express-proxyen og dens isolerte avhengigheter. Filendelsen .mjs sikrer at
+# Node tolker den som ESM uansett omkringliggende package.json.
+COPY --from=builder /app/portal/deploy/server.mjs ./proxy/server.mjs
 COPY --from=proxy-deps /app/proxy/node_modules ./proxy/node_modules
 
 # Felles entrypoint som starter Next standalone (:3333) + proxy (:3000).
