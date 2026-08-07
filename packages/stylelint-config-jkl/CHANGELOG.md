@@ -1,5 +1,12 @@
 # Change Log
 
+## 8.1.2
+
+### Patch Changes
+
+- 9bd39b3: Sikkerhetsoppdateringer av avhengigheter
+- 088664b: Flere sikkerhetsoppdateringer: overstyrer versjoner av pakker med kjente sikkerhetshull.
+
 ## 8.1.1
 
 ### Patch Changes
