@@ -16,11 +16,14 @@ const app = express();
 const PORT = 3000;
 
 // Server bygd Storybook under /storybook
-app.use("/storybook", express.static("storybook-static"));
+app.use(
+    "/storybook",
+    express.static(process.env.STORYBOOK_STATIC_DIR ?? "storybook-static"),
+);
 // Omdiriger alle andre paths til kjørende Next.js
-app.use("/", proxy("localhost:3333/"));
+app.use("/", proxy(`${process.env.NEXT_UPSTREAM ?? "localhost:3333"}/`));
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     logger.info(`Express server listening on port ${PORT}`);
 });
 
@@ -40,6 +43,9 @@ process.on("SIGTERM", (code) => {
         message: "Process SIGTERM event with code: ",
         meta: { code },
     });
+    // Lukk serveren og avslutt, ellers holder den åpne lyttesocketen prosessen
+    // i live og supervisoren må ty til SIGKILL.
+    server.close(() => process.exit(0));
 });
 
 process.on("SIGINT", (code) => {

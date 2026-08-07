@@ -1,9 +1,22 @@
+import { fileURLToPath } from "node:url";
+import { dirname, join } from "node:path";
 import createMDX from "@next/mdx";
+
+// portal/ -> workspace root (one level up)
+const workspaceRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    // Your Next.js config here
     pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
+    // Produser en selvstendig ("standalone") build: Next tracer nøyaktig de
+    // runtime-avhengighetene appen faktisk bruker inn i `.next/standalone`,
+    // med et minimalt `node_modules` og en generert server-entrypoint. Da
+    // slipper vi å sende med hele monorepoets `node_modules` til runner.
+    output: "standalone",
+    // I et pnpm-monorepo ligger avhengighetene (og de symlenkede
+    // workspace-pakkene som `@fremtind/jokul`) over `portal/`. Sett
+    // trace-roten til workspace-roten så tracing plukker dem med.
+    outputFileTracingRoot: workspaceRoot,
 
     async rewrites() {
         return [
@@ -39,7 +52,7 @@ const nextConfig = {
         // import paths.
         config.resolve = config.resolve ?? {};
         config.resolve.extensionAlias = {
-            ...(config.resolve.extensionAlias ?? {}),
+            ...config.resolve.extensionAlias,
             ".js": [".js", ".ts", ".tsx"],
             ".jsx": [".jsx", ".tsx"],
         };

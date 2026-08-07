@@ -29,7 +29,7 @@
         "dev:storybook": "storybook dev -p 6007 --no-open",
         "start": "run-p start:portal start:server",
         "start:portal": "pnpm --filter \"portal\" start",
-        "start:server": "node server.js",
+        "start:server": "node portal/deploy/server.js",
         "boot": "pnpm install && pnpm prepare && pnpm build",
         "reboot": "pnpm clean && pnpm boot",
         "integration:new": "playwright test --project=\"Nye integrasjonstester\"",
