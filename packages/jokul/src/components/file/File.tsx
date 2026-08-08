@@ -2,7 +2,6 @@ import clsx from "clsx";
 import React, { type ComponentProps, type FC, useId } from "react";
 import { formatBytes } from "../../utilities/index.js";
 import { Button } from "../button/index.js";
-import { useFileInputContext } from "../file-input/internal/fileInputContext.js";
 import { TrashCanIcon } from "../icon/index.js";
 import { SupportLabel } from "../input-group/index.js";
 import { Link } from "../link/index.js";
@@ -26,8 +25,6 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
 
     const id = `jkl-file-preview-${useId()}`;
     const supportId = `${id}-support`;
-
-    const context = useFileInputContext();
 
     const imageSrc =
         fileType.startsWith("image/") &&
@@ -86,5 +83,5 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
         </div>
     );
 
-    return context ? <li>{fileComponent}</li> : fileComponent;
+    return fileComponent;
 };

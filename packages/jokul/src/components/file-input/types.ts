@@ -1,41 +1,30 @@
-import React from "react";
-import type { FileProps } from "../file/types.js";
-import type { FieldGroupProps } from "../input-group/index.js";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
+import type { InputGroupProps } from "../input-group/types.js";
 
-export interface UploadedFileValidation {
-    type: "TOO_LARGE" | "WRONG_TYPE";
-    message: string;
-}
-
-export interface UploadedFile {
+export type UploadedFile = {
     file: File;
-    validation?: UploadedFileValidation;
-    state: FileProps["state"];
-    uploadProgress: number;
-}
+    state?: "loading" | "error";
+    uploadProgress?: number;
+    validation?: unknown;
+};
 
-export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
-    className?: string;
-    id?: string;
+export type FileInputProps = Omit<
+    ComponentPropsWithoutRef<"input">,
+    "type" | "value" | "children"
+> & {
+    label?: InputGroupProps["label"];
     /**
-     * En string som begrenser hvilke filtyper som kan velges.
+     * Tekst på label til InputGroup.
      *
-     * Flere filtyper kan defineres som en kommaseparert liste.
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
+     * @default "Last opp dokumenter"
      */
-    accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
-    maxSizeBytes?: number;
+    children: ReactNode;
     /**
-     * @default true
+     * Tekst på knappen.
+     *
+     * @default "Velg fil"
      */
-    multiple?: boolean;
-    value: UploadedFile[];
-    variant?: "flexible" | "small";
-    onChange: (
-        e:
-            | React.ChangeEvent<HTMLInputElement>
-            | React.DragEvent<HTMLDivElement>,
-        files: UploadedFile[],
-    ) => void;
-}
+    description?: InputGroupProps["description"];
+    errorLabel?: InputGroupProps["errorLabel"];
+    helpLabel?: InputGroupProps["helpLabel"];
+};

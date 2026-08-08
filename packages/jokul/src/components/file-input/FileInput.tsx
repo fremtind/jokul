@@ -1,102 +1,62 @@
 import clsx from "clsx";
-import React, { forwardRef, useId } from "react";
-import { FieldGroup } from "../../components/input-group/FieldGroup.js";
-import { Dropzone } from "./internal/Dropzone.js";
-import { Input } from "./internal/Input.js";
-import { MaxSize } from "./internal/MaxSize.js";
-import { FileInputContextProvider } from "./internal/fileInputContext.js";
+import React, { forwardRef } from "react";
+import { Button } from "../button/Button.js";
+import { UploadIcon } from "../icon/icons/UploadIcon.jsx";
+import { InputGroup } from "../input-group/InputGroup.js";
 import type { FileInputProps } from "./types.js";
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
-    (props, ref) => {
-        const {
-            accept,
-            className,
-            children,
+    (
+        {
             id,
-            value,
-            multiple = true,
-            maxSizeBytes,
-            onChange,
-            variant,
-            ...rest
-        } = props;
-
-        const hasFiles = value.length > 0;
-
-        const maxSizeDescriptionId = useId();
-
-        if (variant === "small") {
-            return (
-                <FileInputContextProvider
-                    context={{ accept, onChange, maxSizeBytes, files: value }}
-                >
-                    <FieldGroup
-                        className={clsx(
-                            "jkl-file-input",
-                            "jkl-file-input--small",
-                            className,
-                            {
-                                "jkl-file-input--has-files": hasFiles,
-                            },
-                        )}
-                        {...rest}
-                    >
-                        <Dropzone>
-                            <div className="jkl-file-input__call-to-action">
-                                <Input
-                                    id={id}
-                                    label="Legg til fil"
-                                    multiple={multiple}
-                                    ref={ref}
-                                    aria-describedby={maxSizeDescriptionId}
-                                />
-                            </div>
-                        </Dropzone>
-                        <MaxSize id={maxSizeDescriptionId} />
-                        {value.length > 0 && (
-                            <ul className="jkl-file-input__files">
-                                {children}
-                            </ul>
-                        )}
-                    </FieldGroup>
-                </FileInputContextProvider>
-            );
-        }
-
+            label,
+            children,
+            className,
+            multiple = false,
+            description,
+            disabled,
+            errorLabel,
+            helpLabel,
+            ...inputProps
+        },
+        ref,
+    ) => {
         return (
-            <FileInputContextProvider
-                context={{ accept, onChange, maxSizeBytes, files: value }}
-            >
-                <FieldGroup
-                    className={clsx("jkl-file-input", className, {
-                        "jkl-file-input--has-files": hasFiles,
-                    })}
-                    {...rest}
-                >
-                    <Dropzone>
-                        {value.length > 0 && (
-                            <ul className="jkl-file-input__files">
-                                {children}
-                            </ul>
-                        )}
-                        <div className="jkl-file-input__call-to-action">
-                            <Input
-                                id={id}
-                                label={
-                                    multiple && hasFiles
-                                        ? "Legg til flere filer"
-                                        : "Legg til fil"
-                                }
-                                multiple={multiple}
-                                ref={ref}
-                                aria-describedby={maxSizeDescriptionId}
-                            />
-                            <MaxSize id={maxSizeDescriptionId} />
-                        </div>
-                    </Dropzone>
-                </FieldGroup>
-            </FileInputContextProvider>
+            <InputGroup
+                id={id}
+                label={label ?? "Last opp dokumenter"}
+                description={description}
+                errorLabel={errorLabel}
+                helpLabel={helpLabel}
+                className={className}
+                render={(groupInputProps) => (
+                    <span
+                        className={clsx("jkl-file-input", {
+                            "jkl-file-input--error": Boolean(errorLabel),
+                        })}
+                    >
+                        <Button
+                            htmlFor={groupInputProps.id}
+                            as="label"
+                            variant="secondary"
+                            icon={<UploadIcon />}
+                            className="jkl-file-input__button"
+                        >
+                            {children ?? "Velg fil"}
+                        </Button>
+
+                        <input
+                            {...inputProps}
+                            {...groupInputProps}
+                            ref={ref}
+                            type="file"
+                            multiple={multiple}
+                            disabled={disabled}
+                            className="jkl-file-input__input"
+                        />
+                    </span>
+                )}
+            />
         );
     },
 );
