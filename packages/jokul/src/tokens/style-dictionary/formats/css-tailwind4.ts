@@ -146,7 +146,10 @@ function formatBorderWidthVariables(
  * Formats text style tokens as Tailwind v4 @utility rules.
  * Uses the CSS font shorthand property pointing to the existing text style variables.
  */
-function formatTextUtilities(tokens: TransformedToken[], prefix: string): string {
+function formatTextUtilities(
+    tokens: TransformedToken[],
+    prefix: string,
+): string {
     return tokens
         .filter(isTextStyleToken)
         .map((token) => {
@@ -179,6 +182,18 @@ function formatTextUtilities(tokens: TransformedToken[], prefix: string): string
  *     --radius-m: 0.75rem;
  * }
  *
+ * :root {
+ *     color-scheme: light dark;
+ * }
+ *
+ * [data-theme="light"] {
+ *     color-scheme: light;
+ * }
+ *
+ * [data-theme="dark"] {
+ *     color-scheme: dark;
+ * }
+ *
  * @utility heading-1 {
  *     font: var(--jkl-text-style-heading-1);
  * }
@@ -190,7 +205,11 @@ const cssTailwind4Format: Format = {
         dictionary,
         file,
         options,
-    }: { dictionary: Dictionary; file: File; options: Config & LocalOptions }) => {
+    }: {
+        dictionary: Dictionary;
+        file: File;
+        options: Config & LocalOptions;
+    }) => {
         const allTokens = dictionary.allTokens;
         const indentation = "    ";
         const prefix = options.prefix as string;
@@ -226,12 +245,32 @@ const cssTailwind4Format: Format = {
             .filter(Boolean)
             .join("\n\n");
 
+        // light-dark() krever at color-scheme er satt for at riktig verdi skal
+        // velges. Uten dette resolver native light-dark() alltid til lys verdi,
+        // og Lightning CSS (Tailwind v4) sin polyfill får udefinerte toggle-
+        // variabler og produserer ugyldig CSS. Speiler css/color-scheme-formatet.
+        const colorSchemeRules = [
+            ":root {",
+            "    color-scheme: light dark;",
+            "}",
+            "",
+            '[data-theme="light"] {',
+            "    color-scheme: light;",
+            "}",
+            "",
+            '[data-theme="dark"] {',
+            "    color-scheme: dark;",
+            "}",
+        ].join("\n");
+
         return `${await fileHeader({ file })}
 @theme {
     --*: initial;
 
 ${themeContent}
 }
+
+${colorSchemeRules}
 
 ${textUtilities}
 `;
