@@ -1,5 +1,27 @@
 # portal
 
+## 1.8.0
+
+### Minor Changes
+
+- 39128c1: Bytt til `standalone`-modus for Next.js og trim ned mengden filer som blir med i containeren når vi bygger for release av portalen.
+
+### Patch Changes
+
+- ebc010c: Oppdaterer `sharp` for å lukke et sikkerhetshull
+- a632bf4: Oppdaterer temabyggeren slik at innsendingen inkluderer fonttokens sammen med fargetokens.
+- 4010fb4: Fikser en feil der man kom til en tom side når man avsluttet draft mode for forhåndsvisning av Sanity-innhold.
+- 9bd39b3: Sikkerhetsoppdateringer av avhengigheter
+- 088664b: Flere sikkerhetsoppdateringer: overstyrer versjoner av pakker med kjente sikkerhetshull.
+- Updated dependencies [66abaa9]
+- Updated dependencies [51acfbd]
+- Updated dependencies [81bc34f]
+- Updated dependencies [81bc34f]
+- Updated dependencies [9bd39b3]
+- Updated dependencies [088664b]
+- Updated dependencies [f3c7329]
+  - @fremtind/jokul@5.2.3
+
 ## 1.7.9
 
 ### Patch Changes
