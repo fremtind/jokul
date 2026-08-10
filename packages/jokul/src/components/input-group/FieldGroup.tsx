@@ -23,6 +23,7 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
 
     const uid = useId(id || "jkl-field-group", { generateSuffix: !id });
     const supportId = `${uid}_support-label`;
+    const descriptionId = `${uid}_description`;
 
     const supportText = errorLabel || helpLabel;
     const supportTextType = errorLabel
@@ -31,7 +32,13 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
           ? "help"
           : undefined;
 
-    const describedBy = supportText ? supportId : undefined;
+    const describedBy =
+        [
+            description ? descriptionId : undefined,
+            supportText ? supportId : undefined,
+        ]
+            .filter(Boolean)
+            .join(" ") || undefined;
 
     return (
         <fieldset
@@ -57,7 +64,9 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
                 </Label>
             </legend>
             {description && (
-                <p className="jkl-input-group-description">{description}</p>
+                <p className="jkl-input-group-description" id={descriptionId}>
+                    {description}
+                </p>
             )}
             {children}
             {(helpLabel || errorLabel) && (
