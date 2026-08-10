@@ -1,0 +1,1 @@
+import{r,j as e}from"./iframe-CSgMYKjt.js";import{I as t}from"./InputPanel-CQ87GPO2.js";const n=r.forwardRef(function(o,a){return e.jsx(t,{...o,type:"radio",ref:a})});n.__docgenInfo={description:"",methods:[],displayName:"RadioPanel"};export{n as R};
