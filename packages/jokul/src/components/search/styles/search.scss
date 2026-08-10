@@ -11,6 +11,10 @@
 
     @include jkl.text-style("text-medium");
 
+    .jkl-input-group {
+        display: contents;
+    }
+
     input[type="search"] {
         appearance: none;
         padding: 0;
@@ -52,6 +56,11 @@
 
         &:has(.clear-button) {
             grid-template-columns: 1.3em 1fr 1.3em;
+        }
+
+        &:has(input:focus-visible) {
+            @include jkl.focus-outline;
+            background-color: var(--jkl-color-background-container);
         }
     }
 
