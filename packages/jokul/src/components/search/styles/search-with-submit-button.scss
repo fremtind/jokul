@@ -6,6 +6,12 @@
     grid-template-columns: 1fr max-content;
     align-items: end;
 
+    .jkl-input-group-description,
+    .jkl-label,
+    .input-wrapper {
+        grid-column: 1 / 2;
+    }
+
     .input-wrapper {
         border-inline-end: 0;
         border-top-right-radius: 0;
