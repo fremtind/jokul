@@ -58,6 +58,33 @@ describe("css/tailwind4-format", () => {
         });
     });
 
+    describe("color-scheme-regler", () => {
+        it("setter color-scheme: light dark på :root", async () => {
+            const token = makeToken(
+                ["color", "neutral", "background", "page"],
+                { light: "#F4F2EF", dark: "#1B1917" },
+            );
+            const result = await runFormat([token]);
+            expect(result).toContain(
+                ":root {\n    color-scheme: light dark;\n}",
+            );
+        });
+
+        it("setter color-scheme via data-theme for manuell overstyring", async () => {
+            const token = makeToken(
+                ["color", "neutral", "background", "page"],
+                { light: "#F4F2EF", dark: "#1B1917" },
+            );
+            const result = await runFormat([token]);
+            expect(result).toContain(
+                '[data-theme="light"] {\n    color-scheme: light;\n}',
+            );
+            expect(result).toContain(
+                '[data-theme="dark"] {\n    color-scheme: dark;\n}',
+            );
+        });
+    });
+
     describe("spacingvariabler (formatSpacingVariables)", () => {
         it("genererer riktig variabelnavn for numeriske spacing-tokens", async () => {
             const tokens = [
