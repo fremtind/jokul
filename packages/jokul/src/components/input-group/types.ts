@@ -17,6 +17,9 @@ export interface FieldGroupProps
     >;
     tooltip?: ReactNode;
     className?: string;
+    /**
+     * @deprecated Bruk heller `description`.
+     */
     helpLabel?: string;
     errorLabel?: string;
     description?: string;
@@ -35,6 +38,9 @@ export type InputGroupProps = WithOptionalChildren &
         "data-testid"?: string;
         "data-size"?: Size;
         errorLabel?: ReactNode;
+        /**
+         * @deprecated Bruk heller `description`.
+         */
         helpLabel?: ReactNode;
         inline?: boolean;
         label: ReactNode;
