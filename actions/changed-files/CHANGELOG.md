@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.18
+
+### Patch Changes
+
+- 088664b: Flere sikkerhetsoppdateringer: overstyrer versjoner av pakker med kjente sikkerhetshull.
+
 ## 1.0.17
 
 ### Patch Changes

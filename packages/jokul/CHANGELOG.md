@@ -1,5 +1,17 @@
 # Change Log
 
+## 5.2.3
+
+### Patch Changes
+
+- 66abaa9: Fikser en feil der Tailwind v4-temaet manglet `color-scheme`, slik at `light-dark()` ikke byttet farger og CSS-minifisering med Lightning CSS brøt stilene.
+- 51acfbd: Markerer `helpLabel` propen i input-komponenter som deprecated. Framover skal man heller bruke `description`.
+- 81bc34f: search: fikser en feil som gjorde at Search ikke hadde fokus-outline
+- 81bc34f: search: Fikser en feil som gjorde at Search ikke ble vist riktig med label og/eller description
+- 9bd39b3: Sikkerhetsoppdateringer av avhengigheter
+- 088664b: Flere sikkerhetsoppdateringer: overstyrer versjoner av pakker med kjente sikkerhetshull.
+- f3c7329: Fikser en feil der typer ikke ble generert for Jøkul-pakkene
+
 ## 5.2.2
 
 ### Patch Changes

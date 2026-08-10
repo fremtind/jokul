@@ -1,6 +1,6 @@
 {
     "name": "paths-filter",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "private": true,
     "description": "Find files that were modified in the pull request",
     "main": "build/main.js",
@@ -12,10 +12,7 @@
         "type": "git",
         "url": "git+https://github.com/fremtind/jokul.git"
     },
-    "keywords": [
-        "actions",
-        "node"
-    ],
+    "keywords": ["actions", "node"],
     "author": "",
     "license": "MIT",
     "dependencies": {
