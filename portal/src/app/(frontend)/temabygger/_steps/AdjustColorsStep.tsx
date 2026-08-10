@@ -13,8 +13,11 @@ import {
     type FailingContrastCombination,
     getFailingContrasts,
 } from "../_preview/contrastEvaluation";
-import { createColorTokenMailHref } from "../_shared/colorTokenMailHref";
 import { createThemePreviewHref } from "../_shared/themeDraftPayload";
+import {
+    createThemeTokenMailHref,
+    createThemeTokenMailPayload,
+} from "../_shared/themeTokenMail";
 import {
     COLOR_SCHEMES,
     type ColorRole,
@@ -43,10 +46,10 @@ export function AdjustColorsStep() {
     const hasContrastErrors = contrastErrors.length > 0;
 
     const previewHref = createThemePreviewHref(draft);
-    const submitMailHref = createColorTokenMailHref({
+    const submitMailPayload = createThemeTokenMailPayload(draft);
+    const submitMailHref = createThemeTokenMailHref({
         themeName,
-        colorTokens,
-        includeDarkMode,
+        payload: submitMailPayload,
     });
 
     return (
