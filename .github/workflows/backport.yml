@@ -1,0 +1,160 @@
+name: Backport til støttede grener
+
+on:
+    pull_request:
+        types: [closed]
+        branches:
+            - next
+    workflow_dispatch:
+        inputs:
+            pr_number:
+                description: "PR-nummer som skal backportes"
+                required: true
+                type: string
+
+concurrency:
+    group: backport-${{ github.event.pull_request.number || inputs.pr_number }}
+    cancel-in-progress: false
+
+run-name: Backport "${{ github.event.pull_request.title || inputs.pr_number }}" til støttede branches
+
+jobs:
+    find-targets:
+        name: Finn backport-mål
+        runs-on: ubuntu-latest
+        if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
+        permissions:
+            contents: read
+            pull-requests: read
+        outputs:
+            targets: ${{ steps.find.outputs.targets }}
+            highest_bump: ${{ steps.find.outputs.highest_bump }}
+            pr_title: ${{ steps.pr.outputs.title }}
+            pr_number: ${{ steps.pr.outputs.number }}
+        steps:
+            -   name: Hent PR-info
+                id: pr
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                run: |
+                    pr_number="${{ github.event.pull_request.number || inputs.pr_number }}"
+                    gh pr view "$pr_number" \
+                        --repo "${{ github.repository }}" \
+                        --json number,title,files \
+                        > pr.json
+
+                    echo "number=$(jq -r '.number' pr.json)" >> "$GITHUB_OUTPUT"
+                    echo "title=$(jq -r '.title' pr.json)" >> "$GITHUB_OUTPUT"
+
+                    # Skriv ut endrede changesetfiler for bruk av find-backport-targets.mjs
+                    jq -r '[.files[] | select(.path | test("^\\.changeset/.+\\.md$")) | select(.additions > 0) | .path]' pr.json \
+                        > changeset-files.json
+
+            -   name: Checkout
+                uses: actions/checkout@v7
+                with:
+                    ref: refs/pull/${{ github.event.pull_request.number || inputs.pr_number }}/head
+
+            -   name: Finn backport-mål
+                id: find
+                run: node scripts/find-backport-targets.mjs --files changeset-files.json
+
+    backport:
+        name: Backport til ${{ matrix.target }}
+        needs: find-targets
+        if: needs.find-targets.outputs.targets != '[]'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
+        strategy:
+            fail-fast: false
+            matrix:
+                target: ${{ fromJson(needs.find-targets.outputs.targets) }}
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v7
+                with:
+                    fetch-depth: 0
+                    token: ${{ secrets.BOT_PUBLISH_TOKEN }}
+
+            -   name: Sett opp git
+                run: |
+                    git config user.email "fremtind.designsystem@fremtind.no"
+                    git config user.name "fremtind-bot"
+
+            -   name: Opprett backport-branch
+                id: branch
+                run: |
+                    target="${{ matrix.target }}"
+                    branch_name="backport/pr-${{ needs.find-targets.outputs.pr_number }}-to-${target//\//-}"
+
+                    git fetch origin "${{ matrix.target }}"
+                    git checkout -b "$branch_name" "origin/${{ matrix.target }}"
+
+                    echo "name=$branch_name" >> "$GITHUB_OUTPUT"
+
+            -   name: Cherry-pick commits fra PR
+                id: cherry_pick
+                continue-on-error: true
+                run: |
+                    # Hent PR-branchen direkte — fungerer uavhengig av merge-strategi
+                    # (direkte merge, merge queue, rebase, osv.)
+                    git fetch origin "refs/pull/${{ needs.find-targets.outputs.pr_number }}/head"
+                    git cherry-pick "$(git merge-base origin/${{ matrix.target }} FETCH_HEAD)..FETCH_HEAD"
+
+            -   name: Håndter konflikt
+                id: conflict
+                if: steps.cherry_pick.outcome == 'failure'
+                run: |
+                    git cherry-pick --abort || true
+                    git commit --allow-empty -m "chore: backport pr-${{ needs.find-targets.outputs.pr_number }} — manuell konfliktløsning nødvendig"
+                    echo "had_conflict=true" >> "$GITHUB_OUTPUT"
+
+            -   name: Push backport-branch
+                run: |
+                    git push origin "${{ steps.branch.outputs.name }}"
+
+            -   name: Opprett pull request
+                env:
+                    GITHUB_TOKEN: ${{ secrets.FREMTIND_BOT_ACCESS_TOKEN }}
+                run: |
+                    pr_title="${{ needs.find-targets.outputs.pr_title }}"
+                    pr_number="${{ needs.find-targets.outputs.pr_number }}"
+                    bump="${{ needs.find-targets.outputs.highest_bump }}"
+                    had_conflict="${{ steps.conflict.outputs.had_conflict }}"
+
+                    if [ "$had_conflict" = "true" ]; then
+                        title="backport(${{ matrix.target }}): $pr_title [konflikt]"
+                        body="$(printf '%s\n\n%s\n\n%s\n%s\n%s' \
+                            "Automatisk backport av [#${pr_number}](https://github.com/${{ github.repository }}/pull/${pr_number}) til \`${{ matrix.target }}\`." \
+                            "> [!WARNING]" \
+                            "> Cherry-pick ga konflikt og kunne ikke anvendes automatisk." \
+                            "> Sjekk ut branchen og løs konflikten manuelt før PR-en merges:" \
+                            "> \`git fetch origin refs/pull/${pr_number}/head && git checkout ${{ steps.branch.outputs.name }} && git cherry-pick \$(git merge-base origin/${{ matrix.target }} FETCH_HEAD)..FETCH_HEAD\`")"
+                    else
+                        title="backport(${{ matrix.target }}): $pr_title"
+                        body="$(printf '%s\n\n%s' \
+                            "Automatisk backport av [#${pr_number}](https://github.com/${{ github.repository }}/pull/${pr_number}) til \`${{ matrix.target }}\`." \
+                            "Høyeste bump-nivå i denne PR-en: **${bump}**.")"
+                    fi
+
+                    gh pr create \
+                        --repo "${{ github.repository }}" \
+                        --base "${{ matrix.target }}" \
+                        --head "${{ steps.branch.outputs.name }}" \
+                        --title "$title" \
+                        --body "$body" \
+                        --label "🔙 backport"
+
+            -   name: Legg til oppsummering
+                if: always()
+                run: |
+                    had_conflict="${{ steps.conflict.outputs.had_conflict }}"
+                    if [ "$had_conflict" = "true" ]; then
+                        echo "### ⚠️ Backport til \`${{ matrix.target }}\` — konflikt" >> "$GITHUB_STEP_SUMMARY"
+                        echo "Cherry-pick av PR #${{ needs.find-targets.outputs.pr_number }} ga konflikt. En PR er opprettet med instruksjoner for manuell løsning." >> "$GITHUB_STEP_SUMMARY"
+                    else
+                        echo "### ✅ Backport til \`${{ matrix.target }}\`" >> "$GITHUB_STEP_SUMMARY"
+                        echo "Cherry-pick av PR #${{ needs.find-targets.outputs.pr_number }} ble anvendt og en PR er opprettet." >> "$GITHUB_STEP_SUMMARY"
+                    fi
