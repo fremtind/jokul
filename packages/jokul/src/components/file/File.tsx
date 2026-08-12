@@ -1,16 +1,19 @@
 import clsx from "clsx";
-import React, { type ComponentProps, type FC, useId } from "react";
+import { type ComponentProps, type FC, useId } from "react";
 import { formatBytes } from "../../utilities/index.js";
 import { Button } from "../button/index.js";
 import { useFileInputContext } from "../file-input/internal/fileInputContext.js";
+import { Flex } from "../flex/index.js";
 import { TrashCanIcon } from "../icon/index.js";
 import { SupportLabel } from "../input-group/index.js";
 import { Link } from "../link/index.js";
+import { Text } from "../typography/index.js";
 import type { FileProps } from "./types.js";
 
 export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
     const {
-        children,
+        children: _,
+        hideThumbnail,
         className,
         fileName,
         fileType,
@@ -40,40 +43,54 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
             data-state={state}
             {...rest}
         >
-            <div className={"jkl-file__content"}>
-                <div
-                    className="jkl-file__content__thumbnail"
-                    data-filetype={fileType}
+            <Flex
+                gap="8"
+                direction={variant === "card" ? "column" : "row"}
+                alignItems={variant === "card" ? "start" : "center"}
+                className={"jkl-file__content"}
+            >
+                {!hideThumbnail && (
+                    <div
+                        className="jkl-file__thumbnail"
+                        data-filetype={fileType}
+                    >
+                        {imageSrc && <img src={imageSrc} alt="" />}
+                    </div>
+                )}
+                <Flex
+                    gap="8"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    className="jkl-file__info"
                 >
-                    <img src={imageSrc || undefined} alt="" />
-                </div>
-                {path ? (
-                    <p className="jkl-file__content__name">
-                        <Link href={path}>
+                    {path ? (
+                        <Text size="s" className="jkl-file__name">
+                            <Link href={path}>
+                                {fileName}{" "}
+                                <span className="jkl-file__size">
+                                    ({formatBytes(fileSize)})
+                                </span>
+                            </Link>
+                        </Text>
+                    ) : (
+                        <Text size="s" className="jkl-file__name">
                             {fileName}{" "}
-                            <span className="jkl-file__content__name__size">
+                            <span className="jkl-file__size">
                                 ({formatBytes(fileSize)})
                             </span>
-                        </Link>
-                    </p>
-                ) : (
-                    <p className="jkl-file__content__name">
-                        {fileName}{" "}
-                        <span className="jkl-file__content__name__size">
-                            ({formatBytes(fileSize)})
-                        </span>
-                    </p>
-                )}
-                {onRemove && (
-                    <Button
-                        variant={"ghost"}
-                        className="jkl-file__content__button"
-                        onClick={onRemove}
-                        title={`Fjern ${fileName}`}
-                        icon={<TrashCanIcon />}
-                    />
-                )}
-            </div>
+                        </Text>
+                    )}
+                    {onRemove && (
+                        <Button
+                            variant={"ghost"}
+                            className="jkl-file__button"
+                            onClick={onRemove}
+                            title={`Fjern ${fileName}`}
+                            icon={<TrashCanIcon />}
+                        />
+                    )}
+                </Flex>
+            </Flex>
 
             {state === "error" && errorLabel && (
                 <SupportLabel
