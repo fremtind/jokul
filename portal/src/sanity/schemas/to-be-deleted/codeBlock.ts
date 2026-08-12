@@ -4,9 +4,7 @@ export const codeBlock = defineType({
     name: "jokul_codeBlock",
     title: "Kodeblokk",
     type: "object",
-    deprecated: {
-        reason: "Bruk den nye blokken",
-    },
+    hidden: true,
     fields: [
         defineField({
             name: "language",

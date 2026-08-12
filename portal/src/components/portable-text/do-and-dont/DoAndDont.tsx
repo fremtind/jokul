@@ -3,48 +3,79 @@ import type { Jokul_doAndDont } from "@/sanity/types";
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { GreenCheckIcon, RedCrossIcon } from "@fremtind/jokul/icon";
+import { Image } from "@fremtind/jokul/image";
+import { Text } from "@fremtind/jokul/typography";
 import type { PortableTextTypeComponentProps } from "@portabletext/react";
 import type { FC } from "react";
 
 import styles from "./doAndDont.module.scss";
 
-export const DoAndDont: FC<PortableTextTypeComponentProps<Jokul_doAndDont>> = ({
-    value,
-}) => {
-    if (!value?.do && !value?.dont) return null;
+const DoCard: FC<{ value: Jokul_doAndDont["do"] }> = ({ value }) => {
+    const imageSrc = getSanityImageUrl(value);
+
+    if (!imageSrc) {
+        return null;
+    }
 
     return (
-        <Flex className={styles.container} gap="xs">
-            <Card padding="l" className={styles.card}>
-                <Flex
-                    justifyContent="space-between"
-                    style={{ paddingBottom: "16px" }}
-                >
-                    <h4>Riktig bruk</h4>
+        <Card padding="l" asChild aria-hidden="true">
+            <Flex direction="column" gap="s">
+                <Flex justifyContent="space-between">
+                    <Text bold>Riktig</Text>
                     <GreenCheckIcon />
                 </Flex>
 
-                <img
+                <Image
                     className={styles.image}
-                    src={getSanityImageUrl(value.do)}
-                    alt={value.do?.alt}
+                    src={imageSrc}
+                    alt={value?.alt || ""}
                 />
-            </Card>
-            <Card padding="l" className={styles.card}>
-                <Flex
-                    justifyContent="space-between"
-                    style={{ paddingBottom: "16px" }}
-                >
-                    <h4>Feil bruk</h4>
+            </Flex>
+        </Card>
+    );
+};
+
+const DontCard: FC<{ value: Jokul_doAndDont["dont"] }> = ({ value }) => {
+    const imageSrc = getSanityImageUrl(value);
+
+    if (!imageSrc) {
+        return null;
+    }
+
+    return (
+        <Card padding="l" asChild aria-hidden="true">
+            <Flex direction="column" gap="s">
+                <Flex justifyContent="space-between">
+                    <Text bold>Feil</Text>
                     <RedCrossIcon />
                 </Flex>
 
-                <img
+                <Image
                     className={styles.image}
-                    src={getSanityImageUrl(value.dont)}
-                    alt={value.dont?.alt}
+                    src={imageSrc}
+                    alt={value?.alt || ""}
                 />
-            </Card>
-        </Flex>
+            </Flex>
+        </Card>
     );
+};
+
+export const DoAndDont: FC<PortableTextTypeComponentProps<Jokul_doAndDont>> = ({
+    value,
+}) => {
+    switch (true) {
+        case !value?.do && !value?.dont:
+            return null;
+        case !value?.do:
+            return <DontCard value={value.dont} />;
+        case !value?.dont:
+            return <DoCard value={value.do} />;
+        default:
+            return (
+                <Flex gap="xs" wrap="wrap" fill>
+                    <DoCard value={value.do} />
+                    <DontCard value={value.dont} />
+                </Flex>
+            );
+    }
 };

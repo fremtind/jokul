@@ -1,12 +1,13 @@
 import { CheckmarkCircleIcon, CloseCircleIcon, ListIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { componentPageLink } from "./links/componentPageLink";
+import { componentPageLink } from "./componentPageLink";
 
 export const kortFortalt = defineType({
     name: "jokul_componentKortFortalt",
     title: "Kort fortalt",
     type: "object",
     icon: ListIcon,
+    hidden: true,
     preview: {
         select: {
             bruk: "bruk",

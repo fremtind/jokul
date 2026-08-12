@@ -1,29 +1,6 @@
-@use "@fremtind/jokul/styles/jkl";
-
-.container {
-    @media (width <= 940px) {
-        flex-direction: column;
-        width: 100%;
-    }
-}
-
-.card {
-    width: 50%;
-
-    @media (width <= 940px) {
-        width: 100%;
-    }
-}
-
 .image {
-    width: 100%;
-    min-width: jkl.rem(274px);
-    height: auto;
-    object-fit: contain;
-    display: block;
-
-    @media (width <= 940px) {
-        object-fit: cover;
-        max-height: fit-content;
-    }
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--jkl-border-radius-xs);
+    border: 1px solid var(--jkl-color-border-subdued);
 }

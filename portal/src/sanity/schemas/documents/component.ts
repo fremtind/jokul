@@ -1,4 +1,4 @@
-import { commonBlock } from "@/sanity/schemas/commonBlock";
+import { commonBlock } from "@/sanity/schemas/blocks/commonBlock";
 import { COMPONENT_CATEGORIES } from "@/utils/user-preferences";
 import { ComponentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
@@ -155,13 +155,7 @@ export const component = defineType({
                 ...commonBlock,
                 { type: "jokul_componentProps" },
                 { type: "jokul_componentKortFortalt" },
-                { type: "jokul_code" },
                 { type: "jokul_codeExample" },
-                { type: "jokul_examples" },
-                { type: "jokul_storybook" },
-                { type: "jokul_codeBlock" },
-                { type: "jokul_doAndDont" },
-                { type: "jokul_messageBox" },
             ],
         }),
         defineField({

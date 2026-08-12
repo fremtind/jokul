@@ -3,50 +3,54 @@ import { defineType } from "sanity";
 
 export const doAndDont = defineType({
     name: "jokul_doAndDont",
-    title: "Riktig og feil bruk",
+    title: "Riktig/Feil",
     type: "object",
     icon: InlineIcon,
     fields: [
         {
             name: "do",
-            title: "Riktig bruk",
+            title: "Riktig",
             type: "image",
             fields: [
                 {
                     name: "alt",
                     type: "string",
                     title: "Alt-tekst",
-                    description:
-                        "Beskrivelse som brukes som alt-tekst for bildet",
-                    validation: (Rule) => Rule.required(),
                 },
             ],
-            validation: (Rule) => Rule.required(),
         },
         {
             name: "dont",
-            title: "Feil bruk",
+            title: "Feil",
             type: "image",
             fields: [
                 {
                     name: "alt",
                     type: "string",
                     title: "Alt-tekst",
-                    description:
-                        "Beskrivelse som brukes som alt-tekst for bildet",
-                    validation: (Rule) => Rule.required(),
                 },
             ],
-            validation: (Rule) => Rule.required(),
         },
     ],
     preview: {
         select: {
-            title: "Riktig og feil bruk",
+            do: "do",
+            dont: "dont",
         },
-        prepare(selection) {
+        prepare({ do: doImage, dont }) {
+            const type =
+                doImage?.asset && dont?.asset
+                    ? "Riktig/Feil"
+                    : doImage?.asset
+                      ? "Riktig/Feil: Riktig"
+                      : dont?.asset
+                        ? "Riktig/Feil: Feil"
+                        : "Riktig/Feil: Ingen eksempler enda";
+            const image = doImage?.asset ? doImage : dont?.asset ? dont : null;
+
             return {
-                title: "Riktig og feil bruk",
+                title: type,
+                media: image,
             };
         },
     },
