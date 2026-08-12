@@ -1,32 +1,29 @@
+import { richText } from "@/sanity/schemas/blocks/richText";
 import { HelpCircleIcon } from "@sanity/icons";
 import { defineType } from "sanity";
 
-const QandASectionName = "Spørsmål og svar";
-
 export const questionsAndAnswers = defineType({
     name: "jokul_qa",
-    title: `${QandASectionName} seksjon`,
+    title: "Spørsmål og svar",
     type: "object",
     icon: HelpCircleIcon,
-    initialValue: {
-        title: QandASectionName,
-    },
     fields: [
         {
             name: "title",
             title: "Tittel",
             type: "string",
+            hidden: ({ value }) => !value || value.length === 0,
         },
         {
             name: "faq",
-            title: QandASectionName,
+            title: "Spørsmål og svar",
             type: "array",
             of: [
                 {
                     type: "object",
                     icon: HelpCircleIcon,
                     name: "faqitem",
-                    title: QandASectionName,
+                    title: "Spørsmål og svar",
                     fields: [
                         {
                             type: "string",
@@ -37,7 +34,11 @@ export const questionsAndAnswers = defineType({
                             type: "array",
                             name: "answer",
                             title: "Svar",
-                            of: [{ type: "block" }],
+                            of: [richText],
+                            validation: (Rule) =>
+                                Rule.required()
+                                    .min(1)
+                                    .error("Svar kan ikke være tomt"),
                         },
                     ],
                     preview: {
@@ -52,13 +53,12 @@ export const questionsAndAnswers = defineType({
     ],
     preview: {
         select: {
-            title: "title",
-            questions: "questions_and_answers",
+            questions: "faq",
         },
-        prepare({ title, questions }) {
+        prepare({ questions }) {
             const count = questions ? questions.length : "Ingen";
             return {
-                title: title ? title : QandASectionName,
+                title: "Spørsmål og svar",
                 subtitle: `${count} spørsmål`,
             };
         },

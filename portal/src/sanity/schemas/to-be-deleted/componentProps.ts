@@ -5,6 +5,7 @@ export const componentProps = defineType({
     name: "jokul_componentProps",
     title: "Komponent Props",
     type: "object",
+    hidden: true,
     fields: [
         defineField({
             name: "componentFolder",

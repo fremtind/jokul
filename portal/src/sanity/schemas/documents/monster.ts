@@ -1,4 +1,4 @@
-import { commonBlock } from "@/sanity/schemas/commonBlock";
+import { commonBlock } from "@/sanity/schemas/blocks/commonBlock";
 import { BulbOutlineIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
@@ -71,15 +71,7 @@ export const monster = defineType({
             group: "basics",
             type: "array",
             description: "Selve innholdet i mønsteret.",
-            of: [
-                ...commonBlock,
-                { type: "jokul_code" },
-                { type: "jokul_examples" },
-                { type: "jokul_doAndDont" },
-                { type: "jokul_messageBox" },
-                { type: "jokul_table" },
-                { type: "jokul_qa" },
-            ],
+            of: [...commonBlock],
         }),
         defineField({
             name: "related_components",
