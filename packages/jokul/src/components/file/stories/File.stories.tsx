@@ -1,9 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { fn } from "storybook/test";
+import * as book from "../../../../../../storybook-public/data/metamorphosis.pdf";
 import * as url from "../../../../../../storybook-public/images/cow.jpg";
 import { Button } from "../../button/index.js";
 import { Flex } from "../../flex/index.js";
+import { Text } from "../../typography/index.js";
 import { File } from "../File.js";
 
 const meta = {
@@ -11,12 +13,22 @@ const meta = {
     component: File,
     subcomponents: { Button },
     args: {
+        hideThumbnail: false,
         fileName: "Skotsk høylandsfe.png",
         fileType: "image/png",
         fileSize: 3_490_000,
         path: url.default,
         variant: "list",
-        onRemove: fn(),
+        onRemove: undefined,
+    },
+    argTypes: {
+        variant: {
+            control: { type: "inline-radio" },
+        },
+        state: {
+            control: { type: "inline-radio" },
+            options: [undefined, "loading", "error"],
+        },
     },
 } satisfies Meta<typeof File>;
 export default meta;
@@ -25,6 +37,16 @@ type Story = StoryObj<typeof meta>;
 
 export const FileStory: Story = {
     name: "File",
+};
+
+export const Document: Story = {
+    name: "Dokument",
+    args: {
+        fileName: "kafka.pdf",
+        fileSize: 427_000,
+        fileType: ".pdf",
+        path: book.default,
+    },
 };
 
 export const FileCard: Story = {
@@ -36,13 +58,13 @@ export const FileCard: Story = {
 
 export const FileDelete: Story = {
     name: "Fil med slettefunksjon",
+    args: {
+        onRemove: fn(),
+    },
 };
 
 export const FileList: Story = {
     name: "Liste med filer",
-    args: {
-        onRemove: undefined,
-    },
     decorators: (Story, story) => (
         <Flex
             direction={story.args.variant === "list" ? "column" : "row"}
@@ -64,9 +86,9 @@ export const FileLoading: Story = {
         return (
             <Flex direction="column" gap="xs">
                 <Story />
-                <p style={{ fontSize: "0.75em", opacity: 0.5 }}>
+                <Text size="xs" subdued>
                     Oppdateres automatisk hvert 4. sekund
-                </p>
+                </Text>
             </Flex>
         );
     },
@@ -105,11 +127,15 @@ export const MultifileLoading: Story = {
     },
     decorators: (Story) => {
         return (
-            <Flex direction="column" gap="xs">
+            <Flex
+                direction="column"
+                gap="xs"
+                style={{ minWidth: "min(24rem, 90vw)" }}
+            >
                 <Story />
-                <p style={{ fontSize: "0.75em", opacity: 0.5 }}>
+                <Text size="xs" subdued>
                     Oppdateres automatisk hvert 2. sekund
-                </p>
+                </Text>
             </Flex>
         );
     },
