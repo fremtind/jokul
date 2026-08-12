@@ -1,23 +1,21 @@
-import { defineField, defineType } from "sanity";
+import { CommentIcon } from "@sanity/icons";
+import { defineType } from "sanity";
 
 export const messageBox = defineType({
     name: "jokul_messageBox",
     title: "Melding",
     type: "object",
+    icon: CommentIcon,
     fields: [
         {
             title: "Meldingstype",
             name: "messageType",
             type: "string",
             options: {
-                list: [
-                    { title: "Info", value: "info" },
-                    { title: "Warning", value: "warning" },
-                    { title: "Success", value: "success" },
-                    { title: "Error", value: "error" },
-                ],
-                layout: "radio",
+                list: ["info", "warning", "success", "error"],
+                layout: "select",
             },
+            initialValue: "info",
         },
         {
             title: "Tittel",
@@ -27,7 +25,20 @@ export const messageBox = defineType({
         {
             title: "Melding",
             name: "message",
-            type: "string",
+            type: "array",
+            of: [{ type: "block" }],
         },
     ],
+    preview: {
+        select: {
+            title: "title",
+            messageType: "messageType",
+        },
+        prepare({ title, messageType }) {
+            return {
+                title: title || "Uten tittel",
+                subtitle: messageType,
+            };
+        },
+    },
 });
