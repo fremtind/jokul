@@ -1,87 +1,106 @@
-import { type RenderOptions, render } from "@testing-library/react";
+import { type RenderOptions, render, screen } from "@testing-library/react";
 import UserEventModule from "@testing-library/user-event";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
-import { axe } from "vitest-axe";
-import { File } from "../file/index.js";
 import { FileInput } from "./index.js";
-import type { UploadedFile } from "./types.js";
 
 // https://github.com/testing-library/user-event/issues/1146
 // @ts-ignore typecheck liker ikke at default muligens ikke finnes
 const userEvent = UserEventModule.default ?? UserEventModule;
 
-function setup(jsx: JSX.Element, renderOptions?: RenderOptions) {
+function setup(jsx: React.ReactElement, renderOptions?: RenderOptions) {
     return {
         user: userEvent.setup(),
         ...render(jsx, renderOptions),
     };
 }
 
+function getFileInput() {
+    return screen.getByLabelText("Last opp dokumenter") as HTMLInputElement;
+}
+
 describe("FileInput", () => {
-    const files: UploadedFile[] = [];
-
-    it("should render", () => {
+    it("should call onChange when a file is selected", async () => {
         const onChange = vi.fn();
-        const { getByText, queryByText } = setup(
-            <FileInput legend="Vedlegg" onChange={onChange} value={files}>
-                {files.map((file) => (
-                    <File
-                        key={file.file.name}
-                        fileName={file.file.name}
-                        fileType={file.file.type}
-                        fileSize={file.file.size}
-                    />
-                ))}
-            </FileInput>,
-        );
 
-        expect(getByText("Legg til fil")).toBeInTheDocument();
-        expect(
-            queryByText(/^Maksimum filstørrelse er/),
-        ).not.toBeInTheDocument();
-    });
+        const file = new File(["innhold"], "dokument.pdf", {
+            type: "application/pdf",
+        });
 
-    it("should render hint about max size if given one", () => {
-        const onChange = vi.fn();
-        const { getByText } = setup(
+        const { user } = setup(
             <FileInput
-                legend="Vedlegg"
+                label="Last opp dokumenter"
+                accept=".pdf"
                 onChange={onChange}
-                value={files}
-                maxSizeBytes={8_000_000}
             >
-                {files.map((file) => (
-                    <File
-                        key={file.file.name}
-                        fileName={file.file.name}
-                        fileType={file.file.type}
-                        fileSize={file.file.size}
-                    />
-                ))}
+                Velg fil
             </FileInput>,
         );
 
-        expect(getByText(/per fil/)).toBeInTheDocument();
+        const input = getFileInput();
+
+        await user.upload(input, file);
+
+        expect(onChange).toHaveBeenCalledOnce();
+        expect(input.files).toHaveLength(1);
+        expect(input.files?.[0]).toEqual(file);
     });
 
-    it("should pass jext-axe tests in default state", async () => {
-        const onChange = vi.fn();
-        const { container } = setup(
-            <FileInput legend="Vedlegg" onChange={onChange} value={files}>
-                {files.map((file) => (
-                    <File
-                        key={file.file.name}
-                        fileName={file.file.name}
-                        fileType={file.file.type}
-                        fileSize={file.file.size}
-                    />
-                ))}
+    it("should support multiple files", async () => {
+        const files = [
+            new File(["første"], "første.pdf", {
+                type: "application/pdf",
+            }),
+            new File(["andre"], "andre.pdf", {
+                type: "application/pdf",
+            }),
+        ];
+
+        const { user } = setup(
+            <FileInput label="Last opp dokumenter" multiple>
+                Velg filer
             </FileInput>,
         );
 
-        const result = await axe(container);
+        const input = getFileInput();
 
-        expect(result).toHaveNoViolations();
+        await user.upload(input, files);
+
+        expect(input).toHaveAttribute("multiple");
+        expect(Array.from(input.files ?? [])).toEqual(files);
+    });
+
+    it("should expose an error state", () => {
+        setup(
+            <FileInput
+                label="Last opp dokumenter"
+                errorLabel="Du må velge en fil"
+            >
+                Velg fil
+            </FileInput>,
+        );
+
+        const input = getFileInput();
+
+        expect(input).toHaveAttribute("aria-invalid", "true");
+        expect(screen.getByText("Du må velge en fil")).toBeInTheDocument();
+    });
+
+    it("should connect help text to the input", () => {
+        setup(
+            <FileInput
+                label="Last opp dokumenter"
+                helpLabel="Maksimal filstørrelse er 8 MB"
+            >
+                Velg fil
+            </FileInput>,
+        );
+
+        const input = getFileInput();
+        const helpText = screen.getByText("Maksimal filstørrelse er 8 MB");
+
+        const describedBy = input.getAttribute("aria-describedby")?.split(" ");
+
+        expect(describedBy).toContain(helpText.closest("[id]")?.id);
     });
 });

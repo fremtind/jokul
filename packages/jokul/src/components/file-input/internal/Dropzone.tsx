@@ -1,67 +1,51 @@
 import clsx from "clsx";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, type DragEventHandler } from "react";
 import type { WithChildren } from "../../../utilities/types.js";
-import type { UploadedFile } from "../types.js";
-import { useFileInputContext } from "./fileInputContext.js";
-import { validateFileInputFiles } from "./validateFileInputFiles.js";
 
-interface DropzoneProps extends WithChildren {}
+interface DropzoneProps extends WithChildren {
+    onFiles: (files: File[]) => void;
+    className?: string;
+}
 
 export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(
-    (props, ref) => {
-        const { children, ...rest } = props;
-        const [onDragClassName, setOnDragClassName] = useState<string>("");
+    ({ children, className, onFiles, ...rest }, ref) => {
+        const [isDragging, setIsDragging] = useState(false);
 
-        const context = useFileInputContext();
-        if (!context) {
-            return (
-                <p>
-                    Dropzone must be placed inside a FileInputContextProvider.
-                </p>
-            );
-        }
-        const { maxSizeBytes, accept, onChange } = context;
+        const handleDrop: DragEventHandler<HTMLDivElement> = (event) => {
+            event.preventDefault();
+            setIsDragging(false);
+
+            const files = Array.from(event.dataTransfer.files);
+
+            if (files.length > 0) {
+                onFiles(files);
+            }
+        };
 
         return (
             <div
                 {...rest}
                 ref={ref}
-                className={clsx("jkl-file-input__dropzone", onDragClassName)}
-                onDragEnter={(e) => {
-                    setOnDragClassName("jkl-file-input__dropzone--enter");
-                    e.preventDefault();
+                className={clsx(
+                    "jkl-file-input__dropzone",
+                    {
+                        "jkl-file-input__dropzone--enter": isDragging,
+                    },
+                    className,
+                )}
+                onDragEnter={(event) => {
+                    event.preventDefault();
+                    setIsDragging(true);
                 }}
-                onDragOver={(e) => {
-                    /* Prevent browser from opening file in a new tab */
-                    setOnDragClassName("jkl-file-input__dropzone--enter");
-                    e.preventDefault();
+                onDragOver={(event) => {
+                    event.preventDefault();
+                    setIsDragging(true);
                 }}
-                onDrop={(e) => {
-                    e.preventDefault();
-                    setOnDragClassName("");
-
-                    if (e.dataTransfer.files) {
-                        onChange(
-                            e,
-                            [...e.dataTransfer.files].map<UploadedFile>(
-                                (file) => ({
-                                    file,
-                                    state: undefined,
-                                    validation: validateFileInputFiles(
-                                        file,
-                                        accept,
-                                        maxSizeBytes,
-                                    ),
-                                    uploadProgress: 0,
-                                }),
-                            ),
-                        );
-                    }
+                onDragLeave={(event) => {
+                    event.preventDefault();
+                    setIsDragging(false);
                 }}
-                onDragLeave={(e) => {
-                    setOnDragClassName("");
-                    e.preventDefault();
-                }}
+                onDrop={handleDrop}
             >
                 {children}
             </div>
