@@ -1,3 +1,4 @@
+import { richText } from "@/sanity/schemas/blocks/richText";
 import { HelpCircleIcon } from "@sanity/icons";
 import { defineType } from "sanity";
 
@@ -37,7 +38,7 @@ export const questionsAndAnswers = defineType({
                             type: "array",
                             name: "answer",
                             title: "Svar",
-                            of: [{ type: "block" }],
+                            of: [richText],
                         },
                     ],
                     preview: {
@@ -53,7 +54,7 @@ export const questionsAndAnswers = defineType({
     preview: {
         select: {
             title: "title",
-            questions: "questions_and_answers",
+            questions: "faq",
         },
         prepare({ title, questions }) {
             const count = questions ? questions.length : "Ingen";

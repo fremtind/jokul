@@ -1,3 +1,4 @@
+import { richText } from "@/sanity/schemas/blocks/richText";
 import { CommentIcon } from "@sanity/icons";
 import { defineType } from "sanity";
 
@@ -26,7 +27,7 @@ export const messageBox = defineType({
             title: "Melding",
             name: "message",
             type: "array",
-            of: [{ type: "block" }],
+            of: [richText],
         },
     ],
     preview: {

@@ -1,0 +1,26 @@
+.linkCard {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--jkl-unit-20);
+    grid-template-columns: 1fr 4lh;
+}
+
+.accessory {
+    justify-self: end;
+
+    &:has(img) {
+        display: contents;
+    }
+}
+
+.linkCardImage {
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--jkl-border-radius-xs);
+
+    img {
+        height: 150%;
+        width: 150%;
+    }
+}

@@ -1,35 +1,70 @@
-"use client";
-import type { Jokul_linkCard } from "@/sanity/types";
+import { getSanityImageUrl } from "@/sanity/lib/image";
+import type { SanityImageLike } from "@/sanity/lib/image";
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { OpenInNewIcon } from "@fremtind/jokul/icon";
+import { Image } from "@fremtind/jokul/image";
+import { Text } from "@fremtind/jokul/typography";
 import type { PortableTextTypeComponentProps } from "@portabletext/react";
+import Link from "next/link";
 import type { FC } from "react";
-import styles from "./linkCard.module.scss";
+import styles from "./LinkCard.module.scss";
 
-export const LinkCard: FC<PortableTextTypeComponentProps<Jokul_linkCard>> = ({
+type LinkCardValue = {
+    _type: "jokul_linkCard";
+    title?: string;
+    description?: string;
+    url?: string;
+    image?: SanityImageLike;
+    imageDark?: SanityImageLike;
+};
+
+export const LinkCard: FC<PortableTextTypeComponentProps<LinkCardValue>> = ({
     value,
 }) => {
-    if (!value?.external_links?.length) return null;
+    if (!value?.url) return null;
+
+    const { title, description, url } = value;
+
+    const isExternalLink = url.startsWith("http");
+    const imageSrc = value.image ? getSanityImageUrl(value.image) : undefined;
 
     return (
-        <Flex gap="m" className={styles.linkCardWrapper}>
-            {value.external_links.map((link, index) => {
-                return (
-                    <Card asChild clickable={true} key={link._key || index}>
-                        <a href={link.url} aria-label={link.title}>
-                            <div className={styles.linkCard}>
-                                <div className={"jkl-heading-4"}>
-                                    <strong>{link.title}</strong>
-                                    <OpenInNewIcon />
-                                </div>
-
-                                <p>{link.description}</p>
-                            </div>
-                        </a>
-                    </Card>
-                );
-            })}
-        </Flex>
+        <Card
+            as={Link}
+            href={url}
+            aria-label={title}
+            padding="l"
+            target={isExternalLink ? "_blank" : undefined}
+            rel={isExternalLink ? "noopener noreferrer" : undefined}
+            className={styles.linkCard}
+        >
+            <Flex direction="column" gap="s">
+                <Flex direction="column" gap="none">
+                    <Text bold short>
+                        {title}
+                    </Text>
+                    <Text size="s">{description}</Text>
+                </Flex>
+                {isExternalLink && (
+                    <Text size="xs" subdued>
+                        {url}
+                    </Text>
+                )}
+            </Flex>
+            <div className={styles.accessory}>
+                {isExternalLink ? (
+                    <OpenInNewIcon />
+                ) : (
+                    imageSrc && (
+                        <Image
+                            src={imageSrc}
+                            alt=""
+                            className={styles.linkCardImage}
+                        />
+                    )
+                )}
+            </div>
+        </Card>
     );
 };

@@ -1,4 +1,4 @@
-import { commonBlock } from "@/sanity/schemas/commonBlock";
+import { commonBlock } from "@/sanity/schemas/blocks/commonBlock";
 import { defineField, defineType } from "sanity";
 
 const MAX_LENGTH = 70;
@@ -46,16 +46,7 @@ export const temaside = defineType({
             title: "Artikkel",
             group: "basics",
             type: "array",
-            of: [
-                ...commonBlock,
-                { type: "jokul_linkCard" },
-                { type: "jokul_code" },
-                { type: "jokul_codeBlock" },
-                { type: "jokul_examples" },
-                { type: "jokul_storybook" },
-                { type: "jokul_table" },
-                { type: "jokul_qa" },
-            ],
+            of: [...commonBlock],
         }),
         defineField({
             name: "related_components",

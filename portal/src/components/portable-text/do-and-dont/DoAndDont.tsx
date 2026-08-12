@@ -72,7 +72,7 @@ export const DoAndDont: FC<PortableTextTypeComponentProps<Jokul_doAndDont>> = ({
             return <DoCard value={value.do} />;
         default:
             return (
-                <Flex gap="xs" wrap="wrap" fill>
+                <Flex gap="xs" wrap="wrap" fill aria-hidden="true">
                     <DoCard value={value.do} />
                     <DontCard value={value.dont} />
                 </Flex>
