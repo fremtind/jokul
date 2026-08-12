@@ -3,36 +3,95 @@
 
 @layer jokul.components {
     .jkl-file-input {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: var(--jkl-unit-10);
+        &--button {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            align-items: center;
+            gap: var(--jkl-unit-20);
 
-        &__input {
-            min-inline-size: 0;
-            font: inherit;
-            color: inherit;
+            &:has(.jkl-file-input__input:focus-visible)
+                .jkl-file-input__button {
+                @include jkl.focus-outline;
+            }
 
-            &::file-selector-button {
-                inline-size: 0;
-                margin: 0;
-                padding: 0;
-                border: 0;
-                opacity: 0;
+            .jkl-file-input__input {
+                min-inline-size: 0;
+                font: inherit;
+                color: inherit;
+
+                &::file-selector-button {
+                    inline-size: 0;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                    opacity: 0;
+                }
+
+                &[data-hide-file-name] {
+                    @include jkl.screenreader-only;
+                }
             }
         }
 
-        &--error {
-            .jkl-file-input__button {
+        &__dropzone {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: var(--jkl-unit-25);
+            padding: var(--jkl-spacing-40) var(--jkl-spacing-24);
+            border: var(--jkl-border-width-1) dashed
+                var(--jkl-color-border-default);
+            border-radius: var(--jkl-border-radius-m);
+            cursor: pointer;
+
+            .jkl-file-input__input {
+                @include jkl.screenreader-only;
+            }
+
+            &:has(.jkl-file-input__input:focus-visible) {
+                @include jkl.focus-outline;
+            }
+
+            &[data-drag-over="true"] {
+                background-color: var(--jkl-color-background-container);
+                border-color: transparent;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: calc(var(--jkl-border-width-1) * -1);
+                    border: var(--jkl-border-width-2) dashed
+                        var(--jkl-color-border-default);
+                    border-radius: inherit;
+                }
+
+                .jkl-file-input__button {
+                    background-color: var(--background-color);
+                }
+            }
+        }
+
+        &__call-to-action {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--jkl-unit-25);
+            text-align: center;
+        }
+
+        &__dropzone-text {
+            @include jkl.text-style("text-medium");
+
+            color: var(--jkl-color-text-default);
+        }
+
+        &__dropzone:has(.jkl-file-input__input[aria-invalid="true"]) {
+            border-color: var(--jkl-color-error-border-default);
+
+            &::after {
                 border-color: var(--jkl-color-error-border-default);
-
-                .jkl-button__text {
-                    color: var(--jkl-color-error-text-default);
-                }
-
-                .jkl-icon {
-                    color: var(--jkl-color-error-text-default);
-                }
             }
         }
     }
