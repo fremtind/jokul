@@ -65,4 +65,22 @@ describe("File", () => {
 
         expect(results).toHaveNoViolations();
     });
+
+    it("should not render the thumbnail when hideThumbnail is true", () => {
+        const onRemove = vi.fn();
+        const { container } = render(
+            <File
+                fileName="test.txt"
+                fileType="application/text"
+                fileSize={1000}
+                file={new window.File([], "test.txt")}
+                onRemove={onRemove}
+                hideThumbnail
+            />,
+        );
+
+        expect(
+            container.querySelector(".jkl-file__thumbnail"),
+        ).not.toBeInTheDocument();
+    });
 });
