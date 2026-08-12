@@ -1,8 +1,16 @@
 import { ReferencedByView } from "@/sanity/components/ReferencedByView";
 import { dataset, projectId } from "@/sanity/env";
 import { schemaTypes } from "@/sanity/schemas";
+import { documents } from "@/sanity/schemas/documents";
+import { VersionManager } from "@/sanity/tools/version-manager/VersionManager";
 import { codeInput } from "@sanity/code-input";
-import { CogIcon, ComponentIcon, LinkIcon } from "@sanity/icons";
+import { documentInternationalization } from "@sanity/document-internationalization";
+import {
+    CogIcon,
+    ComponentIcon,
+    EarthGlobeIcon,
+    LinkIcon,
+} from "@sanity/icons";
 import { nbNOLocale } from "@sanity/locale-nb-no";
 import { table } from "@sanity/table";
 import { visionTool } from "@sanity/vision";
@@ -24,12 +32,11 @@ export default defineConfig({
                     .items([
                         ...S.documentTypeListItems().filter(
                             (listItem) =>
-                                !["jokul_story"].includes(
-                                    listItem.getId() || "",
-                                ) &&
-                                !["jokul_siteData"].includes(
-                                    listItem.getId() || "",
-                                ),
+                                ![
+                                    "jokul_story",
+                                    "jokul_siteData",
+                                    "translation.metadata",
+                                ].includes(listItem.getId() || ""),
                         ),
                         S.divider(),
                         S.listItem()
@@ -72,8 +79,29 @@ export default defineConfig({
                 },
             },
         }),
+        documentInternationalization({
+            supportedLanguages: [
+                { id: "next", title: "6.0" },
+                { id: "v5", title: "5.0" },
+                { id: "v4", title: "4.0" },
+            ],
+            schemaTypes: documents.map((s) => s.name),
+            languageField: "versjon",
+            apiVersion: "2025-04-03",
+            bulkPublish: true, // publish all versions of a doc together
+            weakReferences: true, // don't let cross-version refs block deletes
+        }),
     ],
     schema: {
         types: schemaTypes,
     },
+    tools: (prev) => [
+        ...prev,
+        {
+            name: "versjoner",
+            title: "Versjoner",
+            icon: EarthGlobeIcon,
+            component: VersionManager,
+        },
+    ],
 });
