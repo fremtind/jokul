@@ -1,10 +1,11 @@
-import { InlineElementIcon } from "@sanity/icons";
+import { BookIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
+
 export const examples = defineType({
     name: "jokul_examples",
-    title: "Eksempler",
+    title: "Storybook-eksempler",
     type: "object",
-    icon: InlineElementIcon,
+    icon: BookIcon,
     fields: [
         defineField({
             name: "title",
@@ -16,7 +17,7 @@ export const examples = defineType({
         }),
         defineField({
             name: "examples",
-            title: "Eksempler",
+            title: "Stories",
             type: "array",
             validation: (Rule) => Rule.unique(),
             of: [
