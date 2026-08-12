@@ -1,4 +1,4 @@
-import { commonBlock } from "@/sanity/schemas/commonBlock";
+import { commonBlock } from "@/sanity/schemas/blocks/commonBlock";
 import { TokenIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
@@ -57,16 +57,7 @@ export const fundamentals = defineType({
             name: "article",
             title: "Artikkel",
             type: "array",
-            of: [
-                ...commonBlock,
-                { type: "jokul_linkCard" },
-                { type: "jokul_code" },
-                { type: "jokul_codeBlock" },
-                { type: "jokul_examples" },
-                { type: "jokul_doAndDont" },
-                { type: "jokul_table" },
-                { type: "jokul_qa" },
-            ],
+            of: [...commonBlock, { type: "jokul_codeBlock" }],
         }),
     ],
 });

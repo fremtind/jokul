@@ -1,7 +1,6 @@
 import { code } from "./code";
 import { doAndDont } from "./doAndDont";
 import { examples } from "./examples";
-import { feedbackBlock } from "./feedbackBlock";
 import { linkCard } from "./linkCard";
 import { messageBox } from "./messageBox";
 import { questionsAndAnswers } from "./questionsAndAnswers";
@@ -15,5 +14,4 @@ export const blocks = [
     table,
     messageBox,
     questionsAndAnswers,
-    feedbackBlock,
 ];

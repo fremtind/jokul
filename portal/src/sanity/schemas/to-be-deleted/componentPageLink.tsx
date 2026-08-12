@@ -5,9 +5,7 @@ export const componentPageLink = defineField({
     type: "object",
     name: "componentPageLink",
     title: "Lenke til komponentside",
-    deprecated: {
-        reason: "Bruk internlenke istedenfor",
-    },
+    hidden: true,
     icon: ComponentIcon,
     fields: [
         {

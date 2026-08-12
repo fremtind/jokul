@@ -916,29 +916,6 @@
     }
   },
   {
-    "name": "jokul_feedbackBlock",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "jokul_feedbackBlock"
-          }
-        },
-        "question": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
     "name": "jokul_qa",
     "type": "type",
     "value": {
@@ -3622,21 +3599,6 @@
                   "type": "inline",
                   "name": "jokul_doAndDont"
                 }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
-                  "name": "jokul_feedbackBlock"
-                }
               }
             ]
           }
@@ -4419,21 +4381,6 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_doAndDont"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
-                  "name": "jokul_feedbackBlock"
                 }
               },
               {
@@ -5499,21 +5446,6 @@
                 },
                 "rest": {
                   "type": "inline",
-                  "name": "jokul_feedbackBlock"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
                   "name": "jokul_codeBlock"
                 }
               }
@@ -6169,21 +6101,6 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_doAndDont"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
-                  "name": "jokul_feedbackBlock"
                 }
               },
               {
@@ -6860,21 +6777,6 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_doAndDont"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
-                  "name": "jokul_feedbackBlock"
                 }
               }
             ]
@@ -7733,21 +7635,6 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_doAndDont"
-                }
-              },
-              {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "rest": {
-                  "type": "inline",
-                  "name": "jokul_feedbackBlock"
                 }
               }
             ]

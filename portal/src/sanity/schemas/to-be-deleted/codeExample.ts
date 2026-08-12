@@ -1,13 +1,11 @@
 import { defineField, defineType } from "sanity";
-import { CodeExampleInput } from "../components/CodeExampleInput";
+import { CodeExampleInput } from "../../components/CodeExampleInput";
 
 export const codeExample = defineType({
     name: "jokul_codeExample",
     title: "Kodeeksempel",
     type: "object",
-    deprecated: {
-        reason: "Bruk den nye blokken",
-    },
+    hidden: true,
     fields: [
         defineField({
             name: "showEditor",
