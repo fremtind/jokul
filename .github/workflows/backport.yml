@@ -46,9 +46,9 @@ jobs:
                     echo "number=$(jq -r '.number' pr.json)" >> "$GITHUB_OUTPUT"
                     echo "title=$(jq -r '.title' pr.json)" >> "$GITHUB_OUTPUT"
 
-                    # Skriv ut endrede changesetfiler for bruk av find-backport-targets.mjs
-                    jq -r '[.files[] | select(.path | test("^\\.changeset/.+\\.md$")) | select(.additions > 0) | .path]' pr.json \
-                        > changeset-files.json
+                    # Send changesetfiler via output — checkout-steget sletter arbeidsområdet
+                    changeset_files="$(jq -c '[.files[] | select(.path | test("^\\.changeset/.+\\.md$")) | select(.additions > 0) | .path]' pr.json)"
+                    echo "changeset_files=$changeset_files" >> "$GITHUB_OUTPUT"
 
             -   name: Checkout
                 uses: actions/checkout@v7
@@ -57,7 +57,9 @@ jobs:
 
             -   name: Finn backport-mål
                 id: find
-                run: node scripts/find-backport-targets.mjs --files changeset-files.json
+                run: |
+                    echo '${{ steps.pr.outputs.changeset_files }}' > changeset-files.json
+                    node scripts/find-backport-targets.mjs --files changeset-files.json
 
     backport:
         name: Backport til ${{ matrix.target }}
