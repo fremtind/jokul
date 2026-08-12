@@ -1669,6 +1669,94 @@
     }
   },
   {
+    "name": "jokul_examples",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "jokul_examples"
+          }
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "examples": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "array",
+            "of": {
+              "type": "object",
+              "attributes": {
+                "_ref": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string"
+                  }
+                },
+                "_type": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "string",
+                    "value": "reference"
+                  }
+                },
+                "_weak": {
+                  "type": "objectAttribute",
+                  "value": {
+                    "type": "boolean"
+                  },
+                  "optional": true
+                }
+              },
+              "dereferencesTo": "jokul_story",
+              "rest": {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "optional": true
+        },
+        "layout": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "gallery"
+              },
+              {
+                "type": "string",
+                "value": "carousel"
+              },
+              {
+                "type": "string",
+                "value": "list"
+              }
+            ]
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
     "name": "jokul_componentKortFortalt",
     "type": "type",
     "value": {
@@ -2130,94 +2218,6 @@
     }
   },
   {
-    "name": "jokul_examples",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "jokul_examples"
-          }
-        },
-        "title": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        },
-        "examples": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "array",
-            "of": {
-              "type": "object",
-              "attributes": {
-                "_ref": {
-                  "type": "objectAttribute",
-                  "value": {
-                    "type": "string"
-                  }
-                },
-                "_type": {
-                  "type": "objectAttribute",
-                  "value": {
-                    "type": "string",
-                    "value": "reference"
-                  }
-                },
-                "_weak": {
-                  "type": "objectAttribute",
-                  "value": {
-                    "type": "boolean"
-                  },
-                  "optional": true
-                }
-              },
-              "dereferencesTo": "jokul_story",
-              "rest": {
-                "type": "object",
-                "attributes": {
-                  "_key": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "optional": true
-        },
-        "layout": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "union",
-            "of": [
-              {
-                "type": "string",
-                "value": "gallery"
-              },
-              {
-                "type": "string",
-                "value": "carousel"
-              },
-              {
-                "type": "string",
-                "value": "list"
-              }
-            ]
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
     "name": "jokul_codeBlock",
     "type": "type",
     "value": {
@@ -2271,6 +2271,75 @@
           "type": "objectAttribute",
           "value": {
             "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "jokul_componentProps",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "jokul_componentProps"
+          }
+        },
+        "componentFolder": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "componentPageLink",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "componentPageLink"
+          }
+        },
+        "component": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "object",
+            "attributes": {
+              "_ref": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string"
+                }
+              },
+              "_type": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "string",
+                  "value": "reference"
+                }
+              },
+              "_weak": {
+                "type": "objectAttribute",
+                "value": {
+                  "type": "boolean"
+                },
+                "optional": true
+              }
+            },
+            "dereferencesTo": "jokul_component"
           },
           "optional": true
         }
@@ -2806,7 +2875,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "image"
+                      "value": "bilde"
                     }
                   }
                 },
@@ -3574,7 +3643,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "image"
+                      "value": "bilde"
                     }
                   }
                 },
@@ -4595,7 +4664,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "image"
+                      "value": "bilde"
                     }
                   }
                 },
@@ -5234,7 +5303,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "image"
+                      "value": "bilde"
                     }
                   }
                 },
@@ -5880,7 +5949,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "image"
+                      "value": "bilde"
                     }
                   }
                 },
@@ -6723,7 +6792,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "image"
+                      "value": "bilde"
                     }
                   }
                 },
@@ -7186,29 +7255,6 @@
           "value": {
             "type": "inline",
             "name": "code"
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
-    "name": "jokul_componentProps",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "jokul_componentProps"
-          }
-        },
-        "componentFolder": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
           },
           "optional": true
         }

@@ -271,6 +271,19 @@ export type Jokul_linkCard = {
   }>;
 };
 
+export type Jokul_examples = {
+  _type: "jokul_examples";
+  title?: string;
+  examples?: Array<{
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    _key: string;
+    [internalGroqTypeReferenceTo]?: "jokul_story";
+  }>;
+  layout?: "gallery" | "carousel" | "list";
+};
+
 export type Jokul_componentKortFortalt = {
   _type: "jokul_componentKortFortalt";
   bruk?: Array<{
@@ -340,19 +353,6 @@ export type Jokul_storybook = {
   height?: number;
 };
 
-export type Jokul_examples = {
-  _type: "jokul_examples";
-  title?: string;
-  examples?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "jokul_story";
-  }>;
-  layout?: "gallery" | "carousel" | "list";
-};
-
 export type Jokul_codeBlock = {
   _type: "jokul_codeBlock";
   language?: string;
@@ -363,6 +363,21 @@ export type Jokul_codeExample = {
   _type: "jokul_codeExample";
   showEditor?: boolean;
   codeExample?: string;
+};
+
+export type Jokul_componentProps = {
+  _type: "jokul_componentProps";
+  componentFolder?: string;
+};
+
+export type ComponentPageLink = {
+  _type: "componentPageLink";
+  component?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "jokul_component";
+  };
 };
 
 export type Jokul_blog_post = {
@@ -437,7 +452,7 @@ export type Jokul_blog_post = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: "bilde";
     _key: string;
   } | {
     _key: string;
@@ -547,7 +562,7 @@ export type Jokul_component = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: "bilde";
     _key: string;
   } | {
     _key: string;
@@ -703,7 +718,7 @@ export type Jokul_fundamentals = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: "bilde";
     _key: string;
   } | {
     _key: string;
@@ -794,7 +809,7 @@ export type Jokul_release_notes = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: "bilde";
     _key: string;
   } | {
     _key: string;
@@ -886,7 +901,7 @@ export type Jokul_temaside = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: "bilde";
     _key: string;
   } | {
     _key: string;
@@ -1009,7 +1024,7 @@ export type Jokul_monster = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: "image";
+    _type: "bilde";
     _key: string;
   } | {
     _key: string;
@@ -1079,11 +1094,6 @@ export type Jokul_code = {
   _type: "jokul_code";
   title?: string;
   code?: Code;
-};
-
-export type Jokul_componentProps = {
-  _type: "jokul_componentProps";
-  componentFolder?: string;
 };
 
 export type TableRow = {
@@ -1187,7 +1197,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_internal_link | Seo | Jokul_siteData | SanityImageCrop | SanityImageHotspot | Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_doAndDont | Jokul_linkCard | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_examples | Jokul_codeBlock | Jokul_codeExample | Jokul_blog_post | Jokul_component | Jokul_fundamentals | Jokul_release_notes | Jokul_temaside | Jokul_monster | Table | Slug | Jokul_story | Code | Jokul_code | Jokul_componentProps | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Jokul_internal_link | Seo | Jokul_siteData | SanityImageCrop | SanityImageHotspot | Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_doAndDont | Jokul_linkCard | Jokul_examples | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | ComponentPageLink | Jokul_blog_post | Jokul_component | Jokul_fundamentals | Jokul_release_notes | Jokul_temaside | Jokul_monster | Table | Slug | Jokul_story | Code | Jokul_code | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/allPosts.ts
 // Variable: latestUpdatedArticlesQuery
@@ -1451,6 +1461,19 @@ export type BlogPostBySlugQueryResult = {
   short_description?: string;
   category?: "Blogg" | "Kom i gang" | "Referat" | "Release notes";
   article: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "bilde";
+    _key: string;
+    markDefs: null;
+  } | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -1569,19 +1592,6 @@ export type BlogPostBySlugQueryResult = {
     level?: number;
     _type: "block";
     _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-    markDefs: null;
   } | {
     _key: string;
     _type: "jokul_code";
@@ -1679,6 +1689,19 @@ export type KomIGangQueryResult = {
   short_description?: string;
   category?: "Blogg" | "Kom i gang" | "Referat" | "Release notes";
   article: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "bilde";
+    _key: string;
+    markDefs: null;
+  } | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -1797,19 +1820,6 @@ export type KomIGangQueryResult = {
     level?: number;
     _type: "block";
     _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-    markDefs: null;
   } | {
     _key: string;
     _type: "jokul_code";
@@ -1976,6 +1986,19 @@ export type ComponentBySlugQueryResult = {
     _key: string;
   }>;
   documentation_article: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "bilde";
+    _key: string;
+    markDefs: null;
+  } | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -2094,19 +2117,6 @@ export type ComponentBySlugQueryResult = {
     level?: number;
     _type: "block";
     _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-    markDefs: null;
   } | {
     _key: string;
     _type: "jokul_code";
@@ -2473,6 +2483,19 @@ export type FundamentalsBySlugQueryResult = {
     _type: "image";
   };
   article: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "bilde";
+    _key: string;
+    markDefs: null;
+  } | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -2591,19 +2614,6 @@ export type FundamentalsBySlugQueryResult = {
     level?: number;
     _type: "block";
     _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-    markDefs: null;
   } | {
     _key: string;
     _type: "jokul_code";
@@ -2760,6 +2770,19 @@ export type MonsterBySlugQueryResult = {
     _type: "image";
   };
   article: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "bilde";
+    _key: string;
+    markDefs: null;
+  } | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -2878,19 +2901,6 @@ export type MonsterBySlugQueryResult = {
     level?: number;
     _type: "block";
     _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-    markDefs: null;
   } | {
     _key: string;
     _type: "jokul_code";
@@ -3071,6 +3081,19 @@ export type ReleaseNoteBySlugQueryResult = {
   migrationUrl: string | null;
   figmaUrl: string | null;
   article: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "bilde";
+    _key: string;
+    markDefs: null;
+  } | {
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -3189,19 +3212,6 @@ export type ReleaseNoteBySlugQueryResult = {
     level?: number;
     _type: "block";
     _key: string;
-  } | {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    media?: unknown;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-    markDefs: null;
   } | {
     _key: string;
     _type: "jokul_code";
