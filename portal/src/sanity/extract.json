@@ -3457,7 +3457,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "bilde"
+                      "value": "image"
                     }
                   }
                 },
@@ -4240,7 +4240,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "bilde"
+                      "value": "image"
                     }
                   }
                 },
@@ -5291,7 +5291,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "bilde"
+                      "value": "image"
                     }
                   }
                 },
@@ -5960,7 +5960,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "bilde"
+                      "value": "image"
                     }
                   }
                 },
@@ -6636,7 +6636,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "bilde"
+                      "value": "image"
                     }
                   }
                 },
@@ -7494,7 +7494,7 @@
                     "type": "objectAttribute",
                     "value": {
                       "type": "string",
-                      "value": "bilde"
+                      "value": "image"
                     }
                   }
                 },
