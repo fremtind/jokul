@@ -1,4 +1,5 @@
 import { defineQuery } from "next-sanity";
+import { commonBlockBody, markDefsFragment } from "./fragments";
 
 export const componentsQuery = defineQuery(`*[_type == "jokul_component"]{
     name,
@@ -11,8 +12,8 @@ export const componentsQuery = defineQuery(`*[_type == "jokul_component"]{
     categories
 } | order(name)`);
 
-export const componentBySlugQuery =
-    defineQuery(`*[_type == "jokul_component" && slug.current == $slug][0] {
+export const componentBySlugQuery = defineQuery(
+    `*[_type == "jokul_component" && slug.current == $slug][0]{
         ...,
         "slug": slug.current,
         "example_card": {
@@ -20,109 +21,21 @@ export const componentBySlugQuery =
             "story": example_card.story->
         },
         documentation_article[]{
-            ...,
-            _type == "jokul_code" => {
-                ...,
-                title,
-                code,
-                language,
-          },
-            _type == "jokul_examples" => {
-                ...,
-                title,
-                examples[]->{
-                  name,
-                  id,
-                  description,
-                  height,
-                  inert,
-                  code
-                },
-              },
+            ${commonBlockBody},
             _type == "jokul_componentKortFortalt" => {
                 ...,
                 bruk[]{
-                    bruk_punkt[] {
+                    bruk_punkt[]{
                         ...,
-                        markDefs[] {
-                            ...,
-                            _type == "componentPageLink" => {
-                                ...,
-                                component->{
-                                    name,
-                                    short_description,
-                                    "slug": slug.current,
-                                    figma_image,
-                                    image,
-                                    imageDark
-                                }
-                            },
-                            _type == "jokul_internal_link" => {
-                                ...,
-                                article->{
-                                    _type,
-                                    "name": coalesce(name, tema, version),
-                                    short_description,
-                                    "slug": slug.current,
-                                    image,
-                                    imageDark
-                                }
-                            }
-                        }
+                        ${markDefsFragment}
                     }
                 },
                 ikke_bruk[]{
-                    ikke_bruk_punkt[] {
+                    ikke_bruk_punkt[]{
                         ...,
-                        markDefs[] {
-                            ...,
-                            _type == "componentPageLink" => {
-                                ...,
-                                component->{
-                                    name,
-                                    short_description,
-                                    "slug": slug.current,
-                                    figma_image,
-                                    image,
-                                    imageDark
-                                }
-                            },
-                            _type == "jokul_internal_link" => {
-                                ...,
-                                article->{
-                                    _type,
-                                    "name": coalesce(name, tema, version),
-                                    short_description,
-                                    "slug": slug.current,
-                                    image,
-                                    imageDark
-                                }
-                            }
-                        }
+                        ${markDefsFragment}
                     }
                 }
-            },
-            markDefs[] {
-                ...,
-                _type == "componentPageLink" => {
-                    component-> {
-                        "slug": slug.current,
-                        name,
-                        short_description,
-                        image,
-                        imageDark,
-                    }
-                },
-                _type == "jokul_internal_link" => {
-                    article->{
-                        _type,
-                        "name": coalesce(name, tema, version),
-                        short_description,
-                        "slug": slug.current,
-                        image,
-                        imageDark
-                    }
-                },
             }
         },
         related_components {
@@ -143,7 +56,8 @@ export const componentBySlugQuery =
             short_description,
             image
         } | order(name)
-    }`);
+    }`,
+);
 
 export const componentMetaBySlugQuery = defineQuery(
     `*[_type == "jokul_component" && slug.current == $slug][0]{ name }`,

@@ -1,4 +1,4 @@
-import { commonBlock } from "@/sanity/schemas/commonBlock";
+import { commonBlock } from "@/sanity/schemas/blocks/commonBlock";
 import { RocketIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
@@ -52,16 +52,7 @@ export const releaseNotes = defineType({
             title: "Artikkel",
             type: "array",
             group: "innhold",
-            of: [
-                ...commonBlock,
-                { type: "jokul_linkCard" },
-                { type: "jokul_code" },
-                { type: "jokul_codeBlock" },
-                { type: "jokul_examples" },
-                { type: "jokul_storybook" },
-                { type: "jokul_table" },
-                { type: "jokul_qa" },
-            ],
+            of: [...commonBlock, { type: "jokul_codeBlock" }],
         }),
         defineField({
             name: "migrationUrl",

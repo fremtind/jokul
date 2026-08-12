@@ -1,4 +1,5 @@
 import { defineQuery } from "next-sanity";
+import { commonBlockBody } from "./fragments";
 
 export const fundamentalsQuery = defineQuery(
     `*[_type == "jokul_fundamentals"]{
@@ -7,45 +8,15 @@ export const fundamentalsQuery = defineQuery(
         short_description,
         image,
         imageDark,
-        "date": _createdAt,
+        "date": _createdAt
     } | order(_createdAt desc)`,
 );
 
 export const fundamentalsBySlugQuery = defineQuery(
-    `*[_type == "jokul_fundamentals" && slug.current == $slug][0] {...,
-    article[]{
-            ...,
-            _type == "jokul_code" => {
-                ...,
-                title,
-                code,
-                language,
-          },
-            _type == "jokul_examples" => {
-                ...,
-                title,
-                examples[]->{
-                  title,
-                  id,
-                  description,
-                  height,
-                  inert,
-                  code
-                },
-            },
-            markDefs[] {
-                ...,
-                _type == "jokul_internal_link" => {
-                    article->{
-                        _type,
-                        "name": coalesce(name, tema, version),
-                        short_description,
-                        "slug": slug.current,
-                        image,
-                        imageDark
-                    }
-                },
-            }
-        },
+    `*[_type == "jokul_fundamentals" && slug.current == $slug][0]{
+        ...,
+        article[]{
+            ${commonBlockBody}
+        }
     }`,
 );
