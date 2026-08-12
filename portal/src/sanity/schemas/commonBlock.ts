@@ -3,6 +3,7 @@ import {
     CheckmarkCircleIcon,
     CloseCircleIcon,
     EarthGlobeIcon,
+    ImageIcon,
 } from "@sanity/icons";
 import { defineField } from "sanity";
 
@@ -49,5 +50,5 @@ export const commonBlock = [
             ],
         },
     }),
-    { type: "image" },
+    { type: "image", name: "bilde", icon: ImageIcon },
 ];
