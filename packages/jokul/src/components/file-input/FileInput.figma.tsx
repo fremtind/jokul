@@ -34,11 +34,10 @@ figma.connect(
             <FileInput
                 label="Last opp dokumenter"
                 description="Tillatte formater: JPG, PNG og PDF"
+                buttonText="Velg fil"
                 accept="image/*,.pdf"
                 onChange={() => undefined}
-            >
-                Velg fil
-            </FileInput>
+            />
         ),
     },
 );

@@ -62,12 +62,30 @@ const FileInputExample = ({ onChange, ...props }: FileInputExampleProps) => {
 const meta = {
     title: "Komponenter/File Input",
     component: FileInput,
+    argTypes: {
+        "data-testautoid": { table: { disable: true } },
+        id: { control: "text" },
+        className: { control: "text" },
+        "data-testid": { table: { disable: true } },
+        "data-size": {
+            control: "select",
+            options: ["small", "medium", "large"],
+        },
+        errorLabel: { control: "text" },
+        helpLabel: { control: "text" },
+        disabled: { control: "boolean" },
+        inline: { control: "boolean" },
+        label: { control: "text" },
+        description: { control: "text" },
+        tooltip: { control: false },
+    },
     args: {
         label: "Last opp kvittering",
         description: "JPG, PNG eller PDF",
-        children: "Velg fil",
+        buttonText: "Velg fil",
         accept: "image/jpeg,image/png,application/pdf",
         multiple: false,
+        disabled: false,
     },
     decorators: (Story) => (
         <div style={{ maxWidth: "32rem" }}>
@@ -92,7 +110,7 @@ export const DokumentasjonTilSkadesak: Story = {
         label: "Last opp dokumentasjon til skadesaken",
         description:
             "Bilder av skaden, kvitteringer eller takst (JPG, PNG eller PDF)",
-        children: "Velg filer",
+        buttonText: "Velg filer",
         multiple: true,
     },
     render: (args) => <FileInputExample {...args} />,

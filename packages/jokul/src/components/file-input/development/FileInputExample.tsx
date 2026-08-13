@@ -30,6 +30,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                 id="file-input-example"
                 label="Last opp dokumenter"
                 description="Tillatte formater: JPG, PNG og PDF"
+                buttonText="Velg filer"
                 className="jkl-spacing-16-24--bottom"
                 accept="image/*,.pdf"
                 multiple
@@ -48,9 +49,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
                         })),
                     ]);
                 }}
-            >
-                Velg filer
-            </FileInput>
+            />
 
             {files.length > 0 && (
                 <ul className="jkl-file-input-example__files">
@@ -124,6 +123,7 @@ return (
         <FileInput
             label="Last opp dokumenter"
             description="Tillatte formater: JPG, PNG og PDF"
+            buttonText="Velg filer"
             accept="image/*,.pdf"
             multiple
             onChange={(event) => {
@@ -136,9 +136,7 @@ return (
                     ...selectedFiles,
                 ]);
             }}
-        >
-            Velg filer
-        </FileInput>
+        />
 
         {files.length > 0 && (
             <ul>

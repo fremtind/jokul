@@ -3,34 +3,40 @@
 
 @layer jokul.components {
     .jkl-file-input {
-        &--button {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            align-items: center;
-            gap: var(--jkl-unit-20);
+        position: relative;
 
-            &:has(.jkl-file-input__input:focus-visible)
-                .jkl-file-input__button {
+        &__input {
+            position: absolute;
+            inset: 0;
+            inline-size: 100%;
+            block-size: 100%;
+            min-inline-size: 0;
+            font: inherit;
+            color: inherit;
+            cursor: pointer;
+            opacity: 0;
+        }
+
+        &:where(:not(.jkl-file-input--disabled)):hover
+            .jkl-file-input__button {
+            background-color: color-mix(
+                in srgb,
+                var(--background-color),
+                var(--text-color) 15%
+            );
+
+            @media (forced-colors: active) {
                 @include jkl.focus-outline;
             }
+        }
 
-            .jkl-file-input__input {
-                min-inline-size: 0;
-                font: inherit;
-                color: inherit;
+        &:has(.jkl-file-input__input:focus-visible)
+            .jkl-file-input__button {
+            @include jkl.focus-outline;
+        }
 
-                &::file-selector-button {
-                    inline-size: 0;
-                    margin: 0;
-                    padding: 0;
-                    border: 0;
-                    opacity: 0;
-                }
-
-                &[data-hide-file-name] {
-                    @include jkl.screenreader-only;
-                }
-            }
+        &--button {
+            display: inline-flex;
         }
 
         &__dropzone {
@@ -39,20 +45,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: var(--jkl-unit-25);
             padding: var(--jkl-spacing-40) var(--jkl-spacing-24);
             border: var(--jkl-border-width-1) dashed
                 var(--jkl-color-border-default);
             border-radius: var(--jkl-border-radius-m);
             cursor: pointer;
-
-            .jkl-file-input__input {
-                @include jkl.screenreader-only;
-            }
-
-            &:has(.jkl-file-input__input:focus-visible) {
-                @include jkl.focus-outline;
-            }
 
             &[data-drag-over="true"] {
                 background-color: var(--jkl-color-background-container);
@@ -87,7 +84,8 @@
             color: var(--jkl-color-text-default);
         }
 
-        &__dropzone:has(.jkl-file-input__input[aria-invalid="true"]) {
+        &--dropzone:has(.jkl-file-input__input[aria-invalid="true"])
+            &__dropzone {
             border-color: var(--jkl-color-error-border-default);
 
             &::after {

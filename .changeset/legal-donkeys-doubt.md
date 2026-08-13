@@ -2,4 +2,10 @@
 "@fremtind/jokul": major
 ---
 
-Refaktorerer `FileInput`til en enklere wrapper rundt native `<input type="file">`. `FileInput`håndterer nå kun valg av filer og bruker native input-props som `accept`,`multiple`, `disabled`og `onChange`. Visning av valgte filer, filvalidering, opplastningsstatus og drag-and-drop må håndteres utenfor komponenten. Følgende props og intern funksjonalitet er fjernet: `value`, `variant`,`maxSizeBytes`, intern filliste via `children`, innebygd dropzone, intern context for filer og validering. Komponenten har nå egne props for feltnavn, beskrivele og knappetekst.
+`FileInput` er forenklet og har fått et nytt API. Komponenten brukes nå kun til å velge filer. Løsningen som bruker komponenten, har selv ansvar for å validere filene, vise dem og håndtere opplastingsstatus.
+
+Bytt ut `legend` med `label`, og bruk `buttonText` til teksten på knappen. Valgte filer hentes fra `event.currentTarget.files` i `onChange`. Funksjonen som sendes til `onChange`, mottar ikke lenger en egen filliste som andre argument, og valgte filer må vises utenfor `FileInput`.
+
+Komponenten har nå variantene `"button"` og `"dropzone"`. De tidligere variantene `"flexible"` og `"small"` er fjernet. Som standard kan brukeren nå bare velge én fil. Sett `multiple` dersom flere filer skal kunne velges.
+
+Propsene `value` og `maxSizeBytes` er fjernet. Det samme gjelder eksportene `upload`, `UploadedFile` og `UploadedFileValidation`.

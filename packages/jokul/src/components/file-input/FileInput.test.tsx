@@ -24,30 +24,20 @@ function getFileInput() {
     return screen.getByLabelText("Last opp dokumenter") as HTMLInputElement;
 }
 
-function getDropzone(): HTMLLabelElement {
-    const dropzone = screen.getByText("eller slipp fil her").closest("label");
+function getDropzone(): HTMLDivElement {
+    const dropzone = screen
+        .getByText(/eller slipp fil/)
+        .closest(".jkl-file-input__dropzone");
 
-    if (!(dropzone instanceof HTMLLabelElement)) {
+    if (!(dropzone instanceof HTMLDivElement)) {
         throw new Error("Fant ikke dropzone");
     }
 
     return dropzone;
 }
 
-function createFileList(files: File[]): FileList {
-    const fileList = {
-        ...files,
-        length: files.length,
-        item: (index: number) => files[index] ?? null,
-        [Symbol.iterator]: () => files[Symbol.iterator](),
-    };
-
-    return fileList as FileList;
-}
-
 function createFileDataTransfer(files: File[] = []) {
     return {
-        files: createFileList(files),
         items: files.map((file) => ({ kind: "file", type: file.type })),
     };
 }
@@ -61,17 +51,6 @@ function getDescribedElements(input: HTMLElement): HTMLElement[] {
 }
 
 describe("FileInput", () => {
-    it("should visually hide the native file name when requested", () => {
-        setup(
-            <FileInput label="Last opp dokumenter" hideFileName>
-                Velg fil
-            </FileInput>,
-        );
-
-        expect(getFileInput()).toHaveAttribute("data-hide-file-name");
-        expect(getFileInput()).not.toHaveAttribute("aria-hidden");
-    });
-
     it("should call onChange when a file is selected", async () => {
         const onChange = vi.fn();
 
@@ -83,10 +62,9 @@ describe("FileInput", () => {
             <FileInput
                 label="Last opp dokumenter"
                 accept=".pdf"
+                buttonText="Velg fil"
                 onChange={onChange}
-            >
-                Velg fil
-            </FileInput>,
+            />,
         );
 
         const input = getFileInput();
@@ -98,13 +76,113 @@ describe("FileInput", () => {
         expect(input.files?.[0]).toEqual(file);
     });
 
-    it("should expose drag-over state while files are over the dropzone", () => {
+    it.each(["button", "dropzone"] as const)(
+        "should use the InputGroup label as its only accessible label for the %s variant",
+        (variant) => {
+            setup(
+                <FileInput
+                    label="Last opp dokumenter"
+                    variant={variant}
+                    buttonText="Velg fil"
+                />,
+            );
+
+            const input = getFileInput();
+
+            expect(input.labels).toHaveLength(1);
+            expect(input).toHaveAccessibleName("Last opp dokumenter");
+        },
+    );
+
+    it("should use the default button text", () => {
+        setup(<FileInput label="Last opp dokumenter" />);
+
+        expect(screen.getByText("Velg fil")).toBeInTheDocument();
+    });
+
+    it("should pass InputGroup layout props to the group", () => {
         setup(
-            <FileInput label="Last opp dokumenter" variant="dropzone">
-                Velg fil
-            </FileInput>,
+            <FileInput
+                label="Last opp dokumenter"
+                data-size="small"
+                buttonText="Velg fil"
+                style={{ maxWidth: "20rem" }}
+            />,
         );
 
+        const input = getFileInput();
+        const inputGroup = input.closest(".jkl-input-group");
+
+        expect(inputGroup).toHaveAttribute("data-size", "small");
+        expect(inputGroup).toHaveStyle({ maxWidth: "20rem" });
+        expect(input).not.toHaveAttribute("data-size");
+        expect(input).not.toHaveAttribute("style");
+    });
+
+    it("should expose drag-over state while files are over the dropzone", () => {
+        setup(
+            <FileInput
+                label="Last opp dokumenter"
+                variant="dropzone"
+                buttonText="Velg fil"
+            />,
+        );
+
+        const input = getFileInput();
+        const dropzone = getDropzone();
+
+        const dataTransfer = createFileDataTransfer([
+            new File(["innhold"], "dokument.pdf", {
+                type: "application/pdf",
+            }),
+        ]);
+
+        fireEvent.dragOver(input, { dataTransfer });
+
+        expect(dropzone).toHaveAttribute("data-drag-over", "true");
+
+        fireEvent.dragLeave(input);
+
+        expect(dropzone).not.toHaveAttribute("data-drag-over", "true");
+
+        fireEvent.dragOver(input, { dataTransfer });
+        fireEvent.drop(input);
+
+        expect(dropzone).not.toHaveAttribute("data-drag-over", "true");
+    });
+
+    it("should ignore drag-over events without files", () => {
+        setup(
+            <FileInput
+                label="Last opp dokumenter"
+                variant="dropzone"
+                buttonText="Velg fil"
+            />,
+        );
+
+        const input = getFileInput();
+        const dropzone = getDropzone();
+
+        fireEvent.dragOver(input, {
+            dataTransfer: {
+                items: [{ kind: "string", type: "text/plain" }],
+            },
+        });
+
+        expect(dropzone).not.toHaveAttribute("data-drag-over", "true");
+    });
+
+    it("should not expose drag-over state when disabled", () => {
+        setup(
+            <FileInput
+                label="Last opp dokumenter"
+                variant="dropzone"
+                buttonText="Velg fil"
+                disabled
+            />,
+        );
+
+        const input = getFileInput();
         const dropzone = getDropzone();
         const dataTransfer = createFileDataTransfer([
             new File(["innhold"], "dokument.pdf", {
@@ -112,56 +190,10 @@ describe("FileInput", () => {
             }),
         ]);
 
-        expect(fireEvent.dragOver(dropzone, { dataTransfer })).toBe(false);
+        fireEvent.dragOver(input, { dataTransfer });
 
-        expect(dropzone).toHaveAttribute("data-drag-over", "true");
-
-        const internalDragLeave = new Event("dragleave", { bubbles: true });
-        Object.defineProperty(internalDragLeave, "relatedTarget", {
-            value: dropzone,
-        });
-        fireEvent(screen.getByText("Velg fil"), internalDragLeave);
-
-        expect(dropzone).toHaveAttribute("data-drag-over", "true");
-
-        fireEvent.dragLeave(dropzone, { dataTransfer });
-
-        expect(dropzone).not.toHaveAttribute("data-drag-over");
-    });
-
-    it("should pass dropped files through the native input", () => {
-        const onChange = vi.fn();
-        const file = new File(["innhold"], "dokument.pdf", {
-            type: "application/pdf",
-        });
-
-        setup(
-            <FileInput
-                label="Last opp dokumenter"
-                variant="dropzone"
-                onChange={onChange}
-            >
-                Velg fil
-            </FileInput>,
-        );
-
-        const input = getFileInput();
-        const dropzone = getDropzone();
-        const dataTransfer = createFileDataTransfer([file]);
-
-        Object.defineProperty(input, "files", {
-            configurable: true,
-            value: createFileList([]),
-            writable: true,
-        });
-
-        fireEvent.dragOver(dropzone, { dataTransfer });
-        fireEvent.drop(dropzone, { dataTransfer });
-
-        expect(input.files).toHaveLength(1);
-        expect(input.files?.[0]).toEqual(file);
-        expect(onChange).toHaveBeenCalledOnce();
-        expect(dropzone).not.toHaveAttribute("data-drag-over");
+        expect(input).toBeDisabled();
+        expect(dropzone).not.toHaveAttribute("data-drag-over", "true");
     });
 
     it("should support multiple files", async () => {
@@ -175,9 +207,11 @@ describe("FileInput", () => {
         ];
 
         const { user } = setup(
-            <FileInput label="Last opp dokumenter" multiple>
-                Velg filer
-            </FileInput>,
+            <FileInput
+                label="Last opp dokumenter"
+                buttonText="Velg filer"
+                multiple
+            />,
         );
 
         const input = getFileInput();
@@ -193,9 +227,8 @@ describe("FileInput", () => {
             <FileInput
                 label="Last opp dokumenter"
                 description="Maksimal filstørrelse er 8 MB"
-            >
-                Velg fil
-            </FileInput>,
+                buttonText="Velg fil"
+            />,
         );
 
         const input = getFileInput();
@@ -213,9 +246,8 @@ describe("FileInput", () => {
             <FileInput
                 label="Last opp dokumenter"
                 helpLabel="Maksimal filstørrelse er 8 MB"
-            >
-                Velg fil
-            </FileInput>,
+                buttonText="Velg fil"
+            />,
         );
 
         const input = getFileInput();
@@ -233,9 +265,8 @@ describe("FileInput", () => {
             <FileInput
                 label="Last opp dokumenter"
                 errorLabel="Du må velge en fil"
-            >
-                Velg fil
-            </FileInput>,
+                buttonText="Velg fil"
+            />,
         );
 
         const input = getFileInput();
