@@ -3,7 +3,6 @@ FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-imag
 WORKDIR /app
 USER root
 COPY package.json .
-RUN npm install -g corepack
 RUN corepack enable
 RUN corepack prepare --activate
 RUN useradd -ms /bin/bash appuser
