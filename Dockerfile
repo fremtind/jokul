@@ -2,16 +2,20 @@ FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-imag
 
 WORKDIR /app
 USER root
-COPY package.json .
-RUN corepack enable
-RUN corepack prepare --activate
 RUN useradd -ms /bin/bash appuser
+
+# pnpm trengs bare under bygging. Versjonen hentes fra packageManager.
+# https://docs.docker.com/build/building/multi-stage/
+FROM base AS build-base
+
+COPY package.json .
+RUN npm install --global "$(node --print 'require("./package.json").packageManager')"
 
 # -----------------------------------------------------------------------------
 # dependencies: installer hele workspace-en én gang. node_modules holder seg
 # i dette laget og gjenbrukes av builder via `COPY --from` (ingen tar-dans).
 # -----------------------------------------------------------------------------
-FROM base AS dependencies
+FROM build-base AS dependencies
 
 WORKDIR /app
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
@@ -37,7 +41,7 @@ RUN pnpm install --frozen-lockfile --ignore-scripts
 # den trenger inn i `.next/standalone` – vi slipper å sende med hele monorepoets
 # node_modules til runner.
 # -----------------------------------------------------------------------------
-FROM base AS builder
+FROM build-base AS builder
 ARG NEXT_PUBLIC_SANITY_PROJECT_ID=rppnrdtw
 ARG NEXT_PUBLIC_SANITY_DATASET=test
 ARG NEXT_PUBLIC_STORYBOOK_BASE_URL=/storybook
