@@ -10,6 +10,9 @@
 # ─────────────────────────────────────────────────────────────────────────────
 FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-images/node22-ubi9-minimal:latest AS base
 
+# Node uses its bundled CA store by default. Extend it with the UBI trust store,
+# which contains the organization CA used by the build environment's proxy.
+ENV NODE_EXTRA_CA_CERTS=/etc/pki/tls/certs/ca-bundle.crt
 # Route package-manager downloads through the internal registry.
 ENV NPM_CONFIG_REGISTRY=https://nexus.intern.sparebank1.no/repository/npmgroup/
 ENV COREPACK_NPM_REGISTRY=https://nexus.intern.sparebank1.no/repository/npmgroup/
