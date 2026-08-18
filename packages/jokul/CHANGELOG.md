@@ -1,5 +1,34 @@
 # Change Log
 
+## 6.0.0-next.0
+
+### Major Changes
+
+- 797512d: Fjerner den utgåtte hooken `useAnimatedDetails`. Bruk `useAnimatedHeight` i stedet. Se MIGRATION.md for et eksempel.
+- 797512d: Fjerner de utgåtte maskefunksjonene `registerWithFodselsnummerMask`, `registerWithKontonummerMask`, `registerWithKortnummerMask` og `registerWithTelefonnummerMask`.
+
+  Bruk metodene på `registerWithMasks(form)` i stedet:
+
+  ```diff
+  - import { registerWithFodselsnummerMask } from "@fremtind/jokul/utilities";
+  - <TextInput {...registerWithFodselsnummerMask(form, "fnr")} />
+  + import { registerWithMasks } from "@fremtind/jokul/utilities";
+  + <TextInput {...registerWithMasks(form).registerWithFodselsnummerMask("fnr")} />
+  ```
+
+  Codemoden `jokul codemod` migrerer kall og importer automatisk.
+
+- 797512d: Fjerner utgåtte skygge-stiler
+- 797512d: Fjerner isValidDogId da denne har vært deprecated siden 2021
+
+### Minor Changes
+
+- d913d30: Legger til muligheten for å skjule forhåndsvisning i `File`-komponenten
+
+### Patch Changes
+
+- 636b747: Bytter ikonfonten fra Material Symbols Sharp til Rounded, slik at ikonene samsvarer med ikoner brukt i Figma.
+
 ## 5.2.3
 
 ### Patch Changes

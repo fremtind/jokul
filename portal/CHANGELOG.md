@@ -1,5 +1,17 @@
 # portal
 
+## 1.8.1-next.0
+
+### Patch Changes
+
+- Updated dependencies [d913d30]
+- Updated dependencies [797512d]
+- Updated dependencies [797512d]
+- Updated dependencies [797512d]
+- Updated dependencies [636b747]
+- Updated dependencies [797512d]
+  - @fremtind/jokul@6.0.0-next.0
+
 ## 1.8.0
 
 ### Minor Changes
