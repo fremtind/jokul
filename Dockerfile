@@ -2,6 +2,8 @@ FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-imag
 
 WORKDIR /app
 USER root
+# Route package-manager downloads through the internal registry.
+ENV NPM_CONFIG_REGISTRY=https://nexus.intern.sparebank1.no/repository/npmgroup/
 RUN useradd -ms /bin/bash appuser
 
 # pnpm trengs bare under bygging. Versjonen hentes fra packageManager.
