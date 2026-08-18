@@ -10,6 +10,10 @@
 # ─────────────────────────────────────────────────────────────────────────────
 FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-images/node22-ubi9-minimal:latest AS base
 
+# Route package-manager downloads through the internal registry.
+ENV NPM_CONFIG_REGISTRY=https://nexus.intern.sparebank1.no/repository/npmgroup/
+ENV COREPACK_NPM_REGISTRY=https://nexus.intern.sparebank1.no/repository/npmgroup/
+
 # ─────────────────────────────────────────────────────────────────────────────
 # Stage 1: Build
 # ─────────────────────────────────────────────────────────────────────────────
