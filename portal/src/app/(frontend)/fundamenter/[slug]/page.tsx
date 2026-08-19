@@ -2,7 +2,7 @@ import { PageFooter } from "@/components/PageFooter";
 import { PortableText } from "@/components/portable-text/PortableText";
 import { sanityFetch } from "@/sanity/lib/live";
 import { fundamentalsBySlugQuery } from "@/sanity/queries/fundamentals";
-import { logger } from "logger";
+import { logger } from "@/logger";
 
 import { ArticleHeader } from "@/components/article/header";
 import type { Metadata } from "next";

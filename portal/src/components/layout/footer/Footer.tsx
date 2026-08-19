@@ -4,7 +4,7 @@ import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
 import { List, ListItem } from "@fremtind/jokul/list";
 import jokul from "@fremtind/jokul/package.json";
-import { logger } from "../../../../logger";
+import { logger } from "@/logger";
 
 import styles from "../global-layout.module.scss";
 
