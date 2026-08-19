@@ -1,7 +1,7 @@
 import { CodeBlock } from "@/components/portable-text/code-block";
 import { StorybookFrame } from "@/components/storybook/StorybookFrame";
 import type { Jokul_storybook } from "@/sanity/types";
-import { storyExists } from "@/storybook/storybookIndex";
+
 import { Card } from "@fremtind/jokul/card";
 import { ExpandablePanel, Expander } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
@@ -13,18 +13,21 @@ import type { FC } from "react";
 export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
     value,
 }) => {
-    const STORYBOOK_URL = process.env.NEXT_PUBLIC_STORYBOOK_BASE_URL;
-
     const story = value.story;
     const codeExample = value.code;
     const height = value.height;
 
-    if (!story) {
+    if (!story || !story.storyId) {
         return null;
     }
 
-    const hasStory = storyExists(story.storyId);
     const storyName = story.storyName ?? "Storybook-eksempel";
+    const storybookUrl =
+        story.storyUrl?.replace(
+            /\/iframe\.html\?viewMode=story&id=(.+)/,
+            "/?path=/story/$1",
+        ) ??
+        `https://fremtind.github.io/jokul/latest/?path=/story/${story.storyId}`;
 
     return (
         <Flex
@@ -35,10 +38,10 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
             className="storybook-card"
         >
             <Flex alignItems="center" justifyContent="space-between" gap="m">
-                {STORYBOOK_URL && hasStory && (
+                {storybookUrl && (
                     <Link
                         as={NextLink}
-                        href={`${STORYBOOK_URL}/?path=/story/${story.storyId}&globals=backgrounds.value:page;backgrounds.grid:!false`}
+                        href={storybookUrl}
                         className={"jkl-link"}
                         external={true}
                     >
@@ -48,6 +51,7 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
             </Flex>
             <StorybookFrame
                 storyId={story.storyId}
+                storyUrl={story.storyUrl}
                 title={storyName}
                 height={height}
             />

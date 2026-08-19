@@ -1,14 +1,15 @@
-import stories from "@storybook-index";
+import * as z from "zod";
 
-type StorybookEntry = {
-    type?: string;
-};
+export const storybookEntrySchema = z.object({
+    type: z.string().optional(),
+    id: z.string(),
+    name: z.string(),
+    title: z.string(),
+});
 
-type StorybookIndex = {
-    entries: Record<string, StorybookEntry | undefined>;
-};
+export const storybookIndexSchema = z.object({
+    entries: z.record(z.string(), storybookEntrySchema),
+});
 
-const storybookIndex = stories as StorybookIndex;
-
-export const storyExists = (storyId?: string | null) =>
-    Boolean(storyId && storybookIndex.entries[storyId]?.type === "story");
+export type StorybookEntry = z.infer<typeof storybookEntrySchema>;
+export type StorybookIndex = z.infer<typeof storybookIndexSchema>;

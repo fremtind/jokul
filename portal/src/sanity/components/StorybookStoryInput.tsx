@@ -1,12 +1,30 @@
-import { Select } from "@sanity/ui";
+import {
+    parseStorybookVersion,
+    MAINTAINED_VERSIONS,
+    type SupportedVersion,
+} from "@/app/api/stories/versions";
+import { Select, Inline } from "@sanity/ui";
 import React, { useEffect, useState, useCallback, useId } from "react";
 import { set, unset } from "sanity";
 import type { ObjectInputProps } from "sanity";
 
+const isLocalDev = process.env.NODE_ENV === "development";
+
 export function StorybookInput(props: ObjectInputProps) {
     const { value, onChange, id } = props;
+    const [version, setVersion] = useState<SupportedVersion>(
+        parseStorybookVersion(value?.storyUrl || ""),
+    );
     const [stories, setStories] = useState<
-        Record<string, Array<{ id: string; name: string; title: string }>>
+        Record<
+            string,
+            Array<{
+                id: string;
+                name: string;
+                title: string;
+                url: string;
+            }>
+        >
     >({});
     const [loading, setLoading] = useState<boolean>(true);
     const fieldId = useId();
@@ -30,19 +48,20 @@ export function StorybookInput(props: ObjectInputProps) {
     useEffect(() => {
         async function fetchData() {
             try {
-                const storiesResult = await fetch("/api/stories", {
+                const storiesResult = await fetch(`/api/stories/${version}`, {
                     cache: "no-store",
                 });
                 const stories = await storiesResult.json();
                 setStories(stories);
             } catch (error) {
                 console.error("Failed to fetch options:", error);
+                setStories({});
             } finally {
                 setLoading(false);
             }
         }
         fetchData();
-    }, []);
+    }, [version]);
 
     const handleChange = React.useCallback(
         (event: React.FormEvent<HTMLSelectElement> | undefined) => {
@@ -54,6 +73,7 @@ export function StorybookInput(props: ObjectInputProps) {
                     set({
                         storyId: selectedValue,
                         storyName: story.name,
+                        storyUrl: story.url,
                         _key: `${fieldKey}-${selectedValue}`,
                     }),
                 );
@@ -65,26 +85,47 @@ export function StorybookInput(props: ObjectInputProps) {
     );
 
     return (
-        <Select
-            label="Velg story fra Storybook"
-            onChange={handleChange}
-            disabled={loading}
-            value={value?.storyId}
-            id={`storybook-story-${fieldId}`}
-        >
-            <option value="">-- Velg en verdi --</option>
-            {Object.entries(stories)
-                // Sorter alfabetisk etter komponentnavn
-                .sort((a, b) => a[0].localeCompare(b[0]))
-                .map(([componentName, stories]) => (
-                    <optgroup label={componentName} key={componentName}>
-                        {stories.map(({ id, name }) => (
-                            <option key={id} value={id}>
-                                {name}
-                            </option>
-                        ))}
-                    </optgroup>
+        <Inline gap={2}>
+            <Select
+                label="Jøkul-versjon"
+                value={version}
+                id={`storybook-version-${fieldId}`}
+                onChange={(event) => {
+                    setVersion(event.currentTarget.value as SupportedVersion);
+                    onChange(unset());
+                }}
+            >
+                {isLocalDev && <option value="local">Lokal Storybook</option>}
+                <option value="next">Prerelease</option>
+                <option value="latest">Nyeste</option>
+                {MAINTAINED_VERSIONS.map((version) => (
+                    <option
+                        key={version}
+                        value={`version-${version}`}
+                    >{`v${version}`}</option>
                 ))}
-        </Select>
+            </Select>
+            <Select
+                label="Velg story fra Storybook"
+                onChange={handleChange}
+                disabled={loading}
+                value={value?.storyId ?? ""}
+                id={`storybook-story-${fieldId}`}
+            >
+                <option value="">-- Velg en verdi --</option>
+                {Object.entries(stories)
+                    // Sorter alfabetisk etter komponentnavn
+                    .sort((a, b) => a[0].localeCompare(b[0]))
+                    .map(([componentName, stories]) => (
+                        <optgroup label={componentName} key={componentName}>
+                            {stories.map(({ id, name }) => (
+                                <option key={id} value={id}>
+                                    {name}
+                                </option>
+                            ))}
+                        </optgroup>
+                    ))}
+            </Select>
+        </Inline>
     );
 }

@@ -313,6 +313,7 @@ export type Jokul_componentKortFortalt = {
 export type Jokul_storybookStory = {
   _type: "jokul_storybookStory";
   storyId?: string;
+  storyUrl?: string;
   storyName?: string;
 };
 

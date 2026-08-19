@@ -1,17 +1,67 @@
+"use client";
+
 import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
-import type { CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 
 import "./storybook-frame.scss";
-import { storyExists } from "@/storybook/storybookIndex";
 
 type StorybookFrameProps = {
     storyId?: string | null;
+    storyUrl?: string | null;
     title: string;
     height?: number | null;
     globals?: string;
     inert?: boolean;
 };
+
+type StorybookChannelMessage = {
+    key: "storybook-channel";
+    event: {
+        type: string;
+        args: string[];
+    };
+};
+
+type StoryStatus = "loading" | "ready" | "error";
+
+const isStorybookMessage = (data: unknown): data is StorybookChannelMessage =>
+    typeof data === "object" &&
+    data !== null &&
+    (data as StorybookChannelMessage).key === "storybook-channel";
+
+const storybookEventStatusMap: Partial<Record<string, StoryStatus>> = {
+    storyMissing: "error",
+    storyRendered: "ready",
+};
+
+const TRUSTED_STORYBOOK_ORIGINS = [
+    "https://fremtind.github.io",
+    "http://localhost:6007",
+];
+
+function parseStorybookEvent(
+    event: MessageEvent,
+    storyId: string,
+): StoryStatus | undefined {
+    if (!TRUSTED_STORYBOOK_ORIGINS.includes(event.origin)) return;
+
+    let data: unknown;
+    try {
+        data =
+            typeof event.data === "string"
+                ? JSON.parse(event.data)
+                : event.data;
+    } catch {
+        return;
+    }
+
+    if (!isStorybookMessage(data)) return;
+    const { type, args } = data.event;
+    if (args[0] !== storyId) return;
+
+    return storybookEventStatusMap[type];
+}
 
 const getFrameStyle = (height?: number | null) =>
     typeof height === "number"
@@ -42,16 +92,35 @@ const getIssueUrl = (title: string, storyId?: string | null) => {
 
 export const StorybookFrame = ({
     storyId,
+    storyUrl,
     title,
     height,
     globals = "backgrounds.value:page;backgrounds.grid:!false",
     inert,
 }: StorybookFrameProps) => {
-    const storybookUrl = process.env.NEXT_PUBLIC_STORYBOOK_BASE_URL;
-    const hasStory = storyExists(storyId);
+    const frameSrc = storyUrl ?? (storyId ? `https://fremtind.github.io/jokul/latest/iframe.html?viewMode=story&id=${storyId}` : undefined);
     const frameStyle = getFrameStyle(height);
 
-    if (!storybookUrl || !hasStory) {
+    const [status, setStatus] = useState<StoryStatus>("loading");
+
+    useEffect(() => {
+        if (!storyId) {
+            setStatus("error");
+            return;
+        }
+
+        setStatus("loading");
+
+        const handler = (event: MessageEvent) => {
+            const status = parseStorybookEvent(event, storyId);
+            if (status) setStatus(status);
+        };
+
+        window.addEventListener("message", handler);
+        return () => window.removeEventListener("message", handler);
+    }, [storyId]);
+
+    if (!frameSrc || status === "error") {
         const issueUrl = getIssueUrl(title, storyId);
 
         return (
@@ -94,8 +163,11 @@ export const StorybookFrame = ({
             inert={inert}
             title={title}
             className="storybook-frame"
-            style={frameStyle}
-            src={`${storybookUrl}/iframe.html?viewMode=story&id=${storyId}&globals=${globals}`}
+            style={{
+                ...frameStyle,
+                visibility: status === "loading" ? "hidden" : "visible",
+            }}
+            src={`${frameSrc}&globals=${globals}`}
         />
     );
 };
