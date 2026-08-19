@@ -1,6 +1,6 @@
 import { Studio } from "../Studio";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export { metadata, viewport } from "next-sanity/studio";
 
