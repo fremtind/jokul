@@ -4,7 +4,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { releaseNoteBySlugQuery } from "@/sanity/queries/releaseNotes";
 
 import { ArticleHeader } from "@/components/article/header";
-import { logger } from "logger";
+import { logger } from "@/logger";
 import type { Metadata } from "next";
 
 type Props = {
