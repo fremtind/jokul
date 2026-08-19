@@ -1908,6 +1908,13 @@
           },
           "optional": true
         },
+        "storyUrl": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
         "storyName": {
           "type": "objectAttribute",
           "value": {

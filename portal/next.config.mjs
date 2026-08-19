@@ -8,15 +8,16 @@ const workspaceRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
-    // Produser en selvstendig ("standalone") build: Next tracer nøyaktig de
-    // runtime-avhengighetene appen faktisk bruker inn i `.next/standalone`,
-    // med et minimalt `node_modules` og en generert server-entrypoint. Da
-    // slipper vi å sende med hele monorepoets `node_modules` til runner.
+    // Produser en selvstendig ("standalone") build med kun de avhengighetene
+    // som trengs for å kjøre opp den bygde siden. Da slipper vi å sende med
+    // hele monorepoets `node_modules` til runner.
     output: "standalone",
-    // I et pnpm-monorepo ligger avhengighetene (og de symlenkede
-    // workspace-pakkene som `@fremtind/jokul`) over `portal/`. Sett
-    // trace-roten til workspace-roten så tracing plukker dem med.
     outputFileTracingRoot: workspaceRoot,
+    // Ekskluder de andre pakkene spesifikt fra det resulterende bygget for å
+    // unngå at Jøkul-pakken sin kildekode blir med i bygget unødvendig.
+    outputFileTracingExcludes: {
+        "/**": ["../packages/**"],
+    },
 
     async rewrites() {
         return [

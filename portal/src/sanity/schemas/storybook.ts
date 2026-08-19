@@ -59,6 +59,12 @@ export const storybookStory = defineType({
             validation: (Rule) => Rule.required(),
         }),
         defineField({
+            name: "storyUrl",
+            title: "URL for story",
+            type: "string",
+            readOnly: true,
+        }),
+        defineField({
             name: "storyName",
             title: "Navn på story",
             type: "string",
