@@ -9,7 +9,7 @@ import {
 } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { getCookie } from "cookies-next";
-import { logger } from "logger";
+import { logger } from "@/logger";
 import { cookies } from "next/headers";
 import { FilterChip } from "./FilterChip";
 

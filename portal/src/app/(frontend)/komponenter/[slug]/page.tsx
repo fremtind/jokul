@@ -13,7 +13,7 @@ import { parseUserPreferences } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { NavLink } from "@fremtind/jokul/nav-link";
 import { getCookie } from "cookies-next";
-import { logger } from "logger";
+import { logger } from "@/logger";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import styles from "./component.module.scss";

@@ -9,7 +9,7 @@ import { type DocumentType, documents } from "@/sanity/schemas/documents";
 import { parseUserPreferences } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { getCookie } from "cookies-next";
-import { logger } from "logger";
+import { logger } from "@/logger";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";

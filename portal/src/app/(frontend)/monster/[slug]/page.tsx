@@ -8,7 +8,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { monsterBySlugQuery } from "@/sanity/queries/monster";
 import { parseUserPreferences } from "@/utils/user-preferences";
 import { getCookie } from "cookies-next";
-import { logger } from "logger";
+import { logger } from "@/logger";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 
