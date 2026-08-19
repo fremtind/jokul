@@ -5,7 +5,7 @@ import { sanityFetch } from "@/sanity/lib/live";
 import { monstreQuery } from "@/sanity/queries/monster";
 import { parseUserPreferences } from "@/utils/user-preferences";
 import { getCookie } from "cookies-next";
-import { logger } from "logger";
+import { logger } from "@/logger";
 import { cookies } from "next/headers";
 import { MonsterFilter } from "./MonsterFilter";
 

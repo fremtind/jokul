@@ -3,7 +3,7 @@ import { OverviewGrid } from "@/components/overview/grid";
 import { OverviewHeader } from "@/components/overview/header";
 import { sanityFetch } from "@/sanity/lib/live";
 import { blogPostsQuery } from "@/sanity/queries/blog";
-import { logger } from "logger";
+import { logger } from "@/logger";
 
 export default async function BlogPage() {
     logger.info("Rendering blog overview page");
