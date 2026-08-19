@@ -9,9 +9,8 @@
         "predev": "pnpm sync-assets",
         "prebuild": "pnpm sync-assets",
         "test": "vitest run --config vite.test.config.mjs",
-        "sync-assets": "pnpm sync-fonts && pnpm sync-images",
+        "sync-assets": "pnpm sync-fonts",
         "sync-fonts": "mkdir -p public/fonts public/fonts/brands && cp -R ../packages/jokul/src/fonts/brands/fremtind/. public/fonts/ && cp -R ../packages/jokul/src/fonts/brands/. public/fonts/brands/",
-        "sync-images": "mkdir -p public/images && cp -R ../storybook-public/images/. public/images/",
         "build": "cross-env NODE_OPTIONS=--no-deprecation next build --webpack",
         "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -p 3333 --webpack",
         "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev -p 3333 --webpack",
@@ -53,7 +52,8 @@
         "sharp": "^0.35.0",
         "slugify": "^1.6.9",
         "styled-components": "^6.4.4",
-        "winston": "^3.19.0"
+        "winston": "^3.19.0",
+        "zod": "^4.4.3"
     },
     "devDependencies": {
         "@eslint/eslintrc": "^3.3.6",
