@@ -1,11 +1,11 @@
-import { CodeIcon } from "@sanity/icons";
+import { TerminalIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
 
 export const code = defineType({
     name: "jokul_code",
     title: "Kode",
     type: "object",
-    icon: CodeIcon,
+    icon: TerminalIcon,
     fields: [
         defineField({
             name: "title",
@@ -21,12 +21,10 @@ export const code = defineType({
     preview: {
         select: {
             title: "title",
-            language: "code.language",
         },
-        prepare({ title, language }) {
+        prepare({ title }) {
             return {
                 title,
-                media: () => <small>.{language}</small>,
             };
         },
     },

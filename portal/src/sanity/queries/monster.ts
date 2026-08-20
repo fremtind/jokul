@@ -1,4 +1,5 @@
 import { defineQuery } from "next-sanity";
+import { commonBlockBody } from "./fragments";
 
 export const monstreQuery = defineQuery(`*[_type == "jokul_monster"]{
     name,
@@ -33,47 +34,7 @@ export const monsterBySlugQuery = defineQuery(
             image
         } | order(name),
         article[]{
-            ...,
-            _type == "jokul_code" => {
-                ...,
-                title,
-                code,
-                language
-            },
-            _type == "jokul_examples" => {
-                ...,
-                title,
-                examples[]->{
-                    name,
-                    id,
-                    description,
-                    height,
-                    inert,
-                    code
-                }
-            },
-            markDefs[] {
-                ...,
-                _type == "jokul_internal_link" => {
-                    article->{
-                        _type,
-                        "name": coalesce(name, tema, version),
-                        short_description,
-                        "slug": slug.current,
-                        image,
-                        imageDark
-                    }
-                },
-                _type == "componentPageLink" => {
-                    component->{
-                        name,
-                        short_description,
-                        "slug": slug.current,
-                        image,
-                        imageDark
-                    }
-                }
-            }
+            ${commonBlockBody}
         }
     }`,
 );

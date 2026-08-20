@@ -1,14 +1,12 @@
 import { ComponentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { StorybookInput } from "../components/StorybookStoryInput";
+import { StorybookInput } from "../../components/StorybookStoryInput";
 export const storybook = defineType({
     name: "jokul_storybook",
     title: "Eksempel fra Storybook",
     type: "object",
     icon: ComponentIcon,
-    deprecated: {
-        reason: "Bruk den nye Eksempler modulen",
-    },
+    hidden: true,
     fields: [
         defineField({
             name: "story",
@@ -51,6 +49,7 @@ export const storybookStory = defineType({
     name: "jokul_storybookStory",
     title: "Story fra Storybook",
     type: "object",
+    hidden: true,
     fields: [
         defineField({
             name: "storyId",
