@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.3.0
+
+### Minor Changes
+
+- f202127: Legger til muligheten for å skjule forhåndsvisning i `File`-komponenten
+
 ## 5.2.3
 
 ### Patch Changes
