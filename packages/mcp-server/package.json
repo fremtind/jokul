@@ -15,7 +15,7 @@
         "start:http": "node dist/index.js --http",
         "start:http:dev": "node dist/index.js --http --port 3000",
         "prepare": "pnpm build",
-        "docker:build": "cd ../.. && docker build -f Dockerfile.mcp-server -t jokul-mcp-server .",
+        "docker:build": "cd ../.. && docker build -f mcp-server.Dockerfile -t jokul-mcp-server .",
         "docker:run": "docker run -p 3000:3000 -e SANITY_PROJECT_ID=${SANITY_PROJECT_ID} jokul-mcp-server"
     },
     "keywords": [

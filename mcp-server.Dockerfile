@@ -1,7 +1,7 @@
 # Jøkul MCP Server Docker Image
 #
 # Build from the monorepo root:
-#   docker build -f Dockerfile.mcp-server -t jokul-mcp-server .
+#   docker build -f mcp-server.Dockerfile -t jokul-mcp-server .
 #
 # Multi-stage build using `pnpm deploy` to produce a lean production image.
 
@@ -22,7 +22,7 @@ USER root
 RUN npm install -g corepack
 RUN corepack enable
 
-# Copy the entire monorepo (respects .dockerignore).
+# Copy the entire monorepo (respects mcp-server.Dockerfile.dockerignore).
 # Having all package.json files available lets pnpm resolve the workspace graph.
 COPY . .
 
