@@ -1,0 +1,1 @@
+import{j as o}from"./iframe-DkWzlxd-.js";import{c as r}from"./clsx-B-dksMZM.js";import{I as s}from"./Icon-CEH0yyGC.js";const n=({className:e,...c})=>o.jsx(s,{...c,filled:!0,className:r("jkl-icon-green-check",e),children:""});n.displayName="GreenCheckIcon";export{n as G};

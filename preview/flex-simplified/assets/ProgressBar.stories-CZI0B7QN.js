@@ -1,0 +1,138 @@
+import{j as e,r as d}from"./iframe-DkWzlxd-.js";import{F as v,m as x}from"./File.stories-B7zfPztQ.js";import f from"./select.stories-CFcmZGqE.js";import y,{Datovelger as h}from"./TextInput.stories-DdeX7VTM.js";import{F as j}from"./Flex-DgR9zN_l.js";import{B as p}from"./Button-CMyYvT5D.js";import{C as w}from"./Card-D9d_S_jz.js";import{S as k}from"./Select-yOdxAp59.js";import{T as F}from"./TextInput-BSa2ZMRm.js";import"./preload-helper-PPVm8Dsz.js";import"./cow-CdXr5BwN.js";import"./clsx-B-dksMZM.js";import"./Text-DH-bTwj1.js";import"./Link-bWEz236F.js";import"./formatNumber-Davy0grG.js";import"./unicode-DWvs0Pen.js";import"./TrashCanIcon-mfkRbdoP.js";import"./Icon-CEH0yyGC.js";import"./SupportLabel-Ec81dW36.js";import"./SuccessIcon-DfDVkpsR.js";import"./WarningIcon-BBmxHX54.js";import"./index.esm-DY7W65Jw.js";import"./landkoder-DlcCquOp.js";/* empty css               *//* empty css               */import"./FieldGroup-flbewP91.js";import"./useId-Bh0TjDrf.js";import"./Label-B0iIqUDx.js";import"./registerWithMask-D7cNL3Nf.js";import"./formatDate-Dke5WO_s.js";import"./formatOrganisasjonsnummer-DW0DyDi9.js";import"./InputGroup-CaFfjJS8.js";import"./BaseTextInput-DN5qYbEK.js";import"./IconButton-CJuP0V7q.js";import"./SlotComponent-H_cWLzDU.js";import"./mergeRefs-DlasLgYa.js";import"./usePreviousValue-DJEfkI-V.js";import"./Loader-rp8cfTm2.js";import"./useDelayedRender-Da02rP2Z.js";import"./Search-BdVYKL7R.js";import"./Title-DPAsKNfk.js";import"./useListNavigation-DHfgsgU5.js";import"./ArrowDownIcon-vWdr9GWX.js";import"./CloseIcon-B-YCyNQI.js";const b=(r,a)=>a===0?0:r*100/a,c=({"aria-valuenow":r,"aria-valuemin":a=0,"aria-valuemax":n=100,title:t="Fremdrift",className:i,...u})=>{const m=`${b(r,n)}%`;return e.jsx("div",{tabIndex:0,className:`jkl-progress-bar ${i??""}`,role:"progressbar",title:t,"aria-valuenow":r,"aria-valuemin":a,"aria-valuemax":n,"data-testid":"jkl-progress-bar",...u,children:e.jsx("span",{className:"jkl-progress-bar__tracker",style:{width:m},"data-testid":"jkl-progress-bar__tracker"})})},ve={title:"Komponenter/ProgressBar",component:c,args:{"aria-valuenow":10,"aria-valuemin":0,"aria-valuemax":100,title:"Fremdrift",style:{width:"100%",minWidth:"50cqi"}}},s={},l={name:"Progress Bar ved filopplasting ",args:{"aria-valuenow":0,"aria-valuemin":0,"aria-valuemax":5,"aria-valuetext":"[antall] filer lastet opp"},render:r=>{const[a,n]=d.useState(!1),[t,i]=d.useState(r["aria-valuemax"]||-1);d.useEffect(()=>{t!==r["aria-valuemax"]&&setTimeout(()=>i(t+1),1500)},[t]);const u=()=>{n(!0),i(0)};return e.jsxs(e.Fragment,{children:[e.jsx("h2",{children:"Filer"}),e.jsx(j,{as:"ul",style:{listStyle:"none",padding:0},direction:"column",gap:"xs",children:[1,2,3,4,5].map((m,g)=>e.jsx("li",{children:e.jsx(v,{...x.args,state:a&&t<=g?"loading":void 0})},m))}),e.jsxs("div",{style:{display:"grid",gridTemplateColumns:"repeat(2, 300px)",placeItems:"center",gap:"1em"},children:[e.jsx(c,{...r,"aria-valuenow":t,"aria-valuetext":`${t} fil${t>1?"er":""} lastet opp`,style:{gridColumn:"1 / -1"}}),e.jsxs("div",{style:{display:"grid",width:"100%"},children:[e.jsx("input",{type:"file",disabled:!0,style:{opacity:"0",gridArea:"1/1",zIndex:1,width:"100%"}}),e.jsx(p,{disabled:!0,style:{gridArea:"1/1",zIndex:0,width:"100%"},children:"Velg filer"})]}),e.jsx(p,{onClick:u,loader:{showLoader:a,textDescription:"Laster opp filer"},style:{width:"100%"},children:"Last opp"})]})]})}},o={name:"Progress Bar i skjemaflyt",args:{"aria-valuenow":1,"aria-valuemin":1,"aria-valuemax":4,"aria-valuetext":"[antall] steg: [navn på steget]"},render:r=>{const[a,n]=d.useState(r["aria-valuenow"]),t=()=>{switch(a){case 1:return e.jsx("p",{className:"jkl-heading-2",children:'Klikk "neste steg" for å starte saken'});case 2:return e.jsx(e.Fragment,{children:h.render()});case 3:return e.jsx(F,{...y.args});default:return e.jsx(k,{...f.args})}};return e.jsxs(w,{as:"form",padding:"xl",outlined:!0,style:{minHeight:"50cqb",display:"grid",gridTemplateRows:"auto auto 1fr auto",alignItems:"end",gap:"2ex"},children:[e.jsx(c,{...r,"aria-valuenow":a}),e.jsxs("h2",{className:"jkl-heading-5",children:["Mobilskade (steg ",a," av ",r["aria-valuemax"],")"]}),t(),e.jsxs("footer",{style:{display:"grid",gridTemplateColumns:"repeat(2, min-content)",justifyContent:"space-between"},children:[a!==1?e.jsx(p,{variant:"secondary",onClick:()=>{a!==r["aria-valuemin"]&&n(a-1)},type:"button",disabled:a===0,children:"Forrige"}):"",e.jsx(p,{variant:"primary",onClick:()=>{a!==r["aria-valuemax"]&&n(a+1)},type:"button",style:{gridColumn:2},children:a===r["aria-valuemax"]?"Fullfør":"Neste"})]})]})}};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:"{}",...s.parameters?.docs?.source}}};l.parameters={...l.parameters,docs:{...l.parameters?.docs,source:{originalSource:`{
+  name: "Progress Bar ved filopplasting ",
+  args: {
+    "aria-valuenow": 0,
+    "aria-valuemin": 0,
+    "aria-valuemax": 5,
+    "aria-valuetext": "[antall] filer lastet opp"
+  },
+  render: args => {
+    const [uploading, setUploading] = useState(false);
+    const [filesUploaded, setFilesUploaded] = useState(args["aria-valuemax"] || -1);
+
+    // biome-ignore lint/correctness/useExhaustiveDependencies: Value bør ikke endres bare fordi arg endres
+    useEffect(() => {
+      if (filesUploaded === args["aria-valuemax"]) {
+        return;
+      }
+      setTimeout(() => setFilesUploaded(filesUploaded + 1), 1500);
+    }, [filesUploaded]);
+    const handleUpload = () => {
+      setUploading(true);
+      setFilesUploaded(0);
+    };
+    return <>
+                <h2>Filer</h2>
+                <Flex as="ul" style={{
+        listStyle: "none",
+        padding: 0
+      }} direction="column" gap="xs">
+                    {[1, 2, 3, 4, 5].map((file, i) => <li key={file}>
+                            <File {...FileStories.args} state={uploading && filesUploaded <= i ? "loading" : undefined} />
+                        </li>)}
+                </Flex>
+                <div style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2, 300px)",
+        placeItems: "center",
+        gap: "1em"
+      }}>
+                    <ProgressBarComponent {...args} aria-valuenow={filesUploaded} aria-valuetext={\`\${filesUploaded} fil\${filesUploaded > 1 ? "er" : ""} lastet opp\`} style={{
+          gridColumn: "1 / -1"
+        }} />
+                    <div style={{
+          display: "grid",
+          width: "100%"
+        }}>
+                        <input type="file" disabled style={{
+            opacity: "0",
+            gridArea: "1/1",
+            zIndex: 1,
+            width: "100%"
+          }} />
+                        <Button disabled style={{
+            gridArea: "1/1",
+            zIndex: 0,
+            width: "100%"
+          }}>
+                            Velg filer
+                        </Button>
+                    </div>
+
+                    <Button onClick={handleUpload} loader={{
+          // @ts-ignore
+          showLoader: uploading,
+          textDescription: "Laster opp filer"
+        }} style={{
+          width: "100%"
+        }}>
+                        Last opp
+                    </Button>
+                </div>
+            </>;
+  }
+}`,...l.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  name: "Progress Bar i skjemaflyt",
+  args: {
+    "aria-valuenow": 1,
+    "aria-valuemin": 1,
+    "aria-valuemax": 4,
+    "aria-valuetext": "[antall] steg: [navn på steget]"
+  },
+  render: args => {
+    const [value, setValue] = useState(args["aria-valuenow"]);
+    const currentsteg = () => {
+      switch (value) {
+        case 1:
+          return <p className="jkl-heading-2">
+                            Klikk "neste steg" for å starte saken
+                        </p>;
+        case 2:
+          // @ts-ignore
+          return <>{Datovelger.render()}</>;
+        case 3:
+          return <TextInput {...TextInputStories.args} />;
+        default:
+          return (
+            // @ts-ignore
+            <Select {...SelectStories.args} />
+          );
+      }
+    };
+    return <Card as="form" padding="xl" outlined style={{
+      minHeight: "50cqb",
+      display: "grid",
+      gridTemplateRows: "auto auto 1fr auto",
+      alignItems: "end",
+      gap: "2ex"
+    }}>
+                <ProgressBarComponent {...args} aria-valuenow={value} />
+                <h2 className="jkl-heading-5">
+                    Mobilskade (steg {value} av {args["aria-valuemax"]})
+                </h2>
+                {currentsteg()}
+                <footer style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(2, min-content)",
+        justifyContent: "space-between"
+      }}>
+                    {value !== 1 ? <Button variant="secondary" onClick={() => {
+          if (value !== args["aria-valuemin"]) {
+            setValue(value - 1);
+          }
+        }} type="button" disabled={value === 0}>
+                            Forrige
+                        </Button> : ""}
+                    <Button variant="primary" onClick={() => {
+          if (value !== args["aria-valuemax"]) {
+            setValue(value + 1);
+          }
+        }} type="button" style={{
+          gridColumn: 2
+        }}>
+                        {value === args["aria-valuemax"] ? "Fullfør" : "Neste"}
+                    </Button>
+                </footer>
+            </Card>;
+  }
+}`,...o.parameters?.docs?.source}}};const xe=["ProgressBar","FileUploading","Flow"];export{l as FileUploading,o as Flow,s as ProgressBar,xe as __namedExportsOrder,ve as default};

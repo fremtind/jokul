@@ -1,0 +1,1 @@
+import{r as a,j as s}from"./iframe-DkWzlxd-.js";import{C as n}from"./CloseIcon-B-YCyNQI.js";const e=a.forwardRef(({label:t="Lukk",...r},o)=>s.jsxs("button",{ref:o,type:"button",title:t,...r,children:[s.jsx(n,{variant:"small",bold:!0}),s.jsx("span",{className:"jkl-sr-only",children:t})]}));e.displayName="DismissButton";export{e as D};

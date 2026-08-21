@@ -1,0 +1,19 @@
+import{j as n,R as f,r as I}from"./iframe-DkWzlxd-.js";import{c as S}from"./clsx-B-dksMZM.js";import{I as d}from"./IconButton-CJuP0V7q.js";import{C as u}from"./ChevronLeftIcon-B1Ge_p2a.js";import{C as E}from"./ChevronRightIcon-CosvVMPM.js";import"./preload-helper-PPVm8Dsz.js";import"./Icon-CEH0yyGC.js";const s=({isActive:l,number:o,onClick:t,total:i})=>n.jsx("li",{"aria-setsize":i,"aria-posinset":o,children:n.jsx("button",{className:S("jkl-pagination-button",{"jkl-pagination-button--current":l}),"aria-current":l,type:"button",onClick:t,tabIndex:l?-1:0,"aria-disabled":l,title:`side ${o}`,children:n.jsx("span",{"aria-hidden":!0,children:o})})}),_=f.forwardRef(function({onPageChange:o,currentPage:t,numberOfPages:i,labels:a={previous:"Forrige side",next:"Neste side"},as:x,className:r,...m},v){I.useEffect(()=>{t<1&&console.error("[Pagination]: currentPage prop should be set to a value larger than 0"),t>i&&console.error("[Pagination]: currentPage prop should not be set to a value larger than numberOfPages")},[t,i]);const C=x||"nav";if(i<=7)return n.jsxs(C,{ref:v,...m,className:S("jkl-pagination",r),children:[n.jsx(d,{className:"jkl-pagination-button",title:a.previous,onClick:()=>o(t-1,t),"aria-disabled":t===1,tabIndex:t===1?-1:0,children:n.jsx(u,{})}),n.jsx("ol",{className:"jkl-pagination__pages",children:Array.from({length:i}).map((w,N)=>{const b=N+1;return n.jsx(s,{isActive:t===b,number:b,total:i,onClick:()=>o(b,t)},N)})}),n.jsx(d,{className:"jkl-pagination-button",title:a.next,onClick:()=>o(t+1,t),"aria-disabled":t===i,tabIndex:t===i?-1:0,children:n.jsx(E,{})})]});const A=t>4,M=t<i-3,c=Math.min(Math.max(t-2,2),i-5),e=Math.min(c+1,i-4),j=Math.min(e+1,i-3),h=Math.min(e+2,i-2),k=Math.min(e+3,i-1);return n.jsxs(C,{ref:v,...m,className:"jkl-pagination",children:[n.jsx(d,{className:"jkl-pagination-button",title:a.previous,onClick:()=>o(t-1,t),"aria-disabled":t===1,tabIndex:t===1?-1:0,children:n.jsx(u,{})}),n.jsxs("ol",{className:"jkl-pagination__pages",children:[n.jsx(s,{isActive:t===1,number:1,total:i,onClick:()=>o(1,t)}),A?n.jsx("span",{"aria-hidden":!0,className:"jkl-pagination-button--elipsis",children:"..."}):n.jsx(s,{isActive:t===c,number:c,total:i,onClick:()=>o(c,t)}),n.jsx(s,{isActive:t===e,number:e,total:i,onClick:()=>o(e,t)}),n.jsx(s,{isActive:t===j,number:j,total:i,onClick:()=>o(j,t)}),n.jsx(s,{isActive:t===h,number:h,total:i,onClick:()=>o(h,t)}),M?n.jsx("span",{"aria-hidden":!0,className:"jkl-pagination-button--elipsis",children:"..."}):n.jsx(s,{isActive:t===k,number:k,total:i,onClick:()=>o(k,t)}),n.jsx(s,{isActive:t===i,number:i,total:i,onClick:()=>o(i,t)})]}),n.jsx(d,{className:"jkl-pagination-button",title:a.next,onClick:()=>o(t+1,t),"aria-disabled":t===i,tabIndex:t===i?-1:0,children:n.jsx(E,{})})]})}),L={title:"Komponenter/Pagination",component:_},p={args:{currentPage:1,numberOfPages:10,onPageChange:()=>{}},decorators:[(l,o)=>{const[t,i]=I.useState(o.args.currentPage),a=o.args.numberOfPages,x=(r,m)=>{r>0&&r<=a&&i(r)};return n.jsx("div",{children:n.jsx(_,{currentPage:t,numberOfPages:a,onPageChange:x})})}]};p.parameters={...p.parameters,docs:{...p.parameters?.docs,source:{originalSource:`{
+  args: {
+    currentPage: 1,
+    numberOfPages: 10,
+    onPageChange: () => {}
+  },
+  decorators: [(Story, context) => {
+    const [currentPage, setCurrentPage] = useState<number>(context.args.currentPage);
+    const numberOfPages = context.args.numberOfPages;
+    const onPageChange = (newPage: number, fromPage: number) => {
+      if (newPage > 0 && newPage <= numberOfPages) {
+        setCurrentPage(newPage);
+      }
+    };
+    return <div>
+                    <PaginationComponent currentPage={currentPage} numberOfPages={numberOfPages} onPageChange={onPageChange} />
+                </div>;
+  }]
+}`,...p.parameters?.docs?.source}}};const q=["Pagination"];export{p as Pagination,q as __namedExportsOrder,L as default};

@@ -1,0 +1,1 @@
+import{R as a,j as i}from"./iframe-DkWzlxd-.js";import{c as t}from"./clsx-B-dksMZM.js";const u=a.forwardRef(function(r,s){const{className:e,...o}=r;return i.jsx("hr",{ref:s,className:t("jkl-menu-divider",e),...o})});export{u as M};

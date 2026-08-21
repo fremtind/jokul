@@ -1,0 +1,1 @@
+import{r as n,j as l}from"./iframe-DkWzlxd-.js";import{c as x}from"./clsx-B-dksMZM.js";const d=n.forwardRef(function({className:t,size:r="l",as:s,srOnly:a,center:o,...e},c){const i=s||"h2";return l.jsx(i,{className:x(a&&"jkl-sr-only",t),"data-text-size":r,"data-center":o||void 0,ref:c,...e})});export{d as T};
