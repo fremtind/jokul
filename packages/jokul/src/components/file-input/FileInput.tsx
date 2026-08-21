@@ -1,102 +1,111 @@
 import clsx from "clsx";
-import React, { forwardRef, useId } from "react";
-import { FieldGroup } from "../../components/input-group/FieldGroup.js";
+import React, { forwardRef, useState } from "react";
+import { Button } from "../button/Button.js";
+import { UploadIcon } from "../icon/icons/UploadIcon.jsx";
+import { InputGroup } from "../input-group/InputGroup.js";
 import { Dropzone } from "./internal/Dropzone.js";
-import { Input } from "./internal/Input.js";
-import { MaxSize } from "./internal/MaxSize.js";
-import { FileInputContextProvider } from "./internal/fileInputContext.js";
-import type { FileInputProps } from "./types.js";
+import type { FileInputGroupProps, FileInputProps } from "./types.js";
 
 export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
-    (props, ref) => {
-        const {
-            accept,
-            className,
-            children,
+    (
+        {
+            "data-size": dataSize,
+            "data-testautoid": dataTestAutoId,
+            "data-testid": dataTestId,
             id,
-            value,
-            multiple = true,
-            maxSizeBytes,
-            onChange,
-            variant,
-            ...rest
-        } = props;
+            label,
+            buttonText = "Velg fil",
+            className,
+            variant = "button",
+            multiple = false,
+            description,
+            disabled,
+            errorLabel,
+            helpLabel,
+            inline,
+            labelProps,
+            supportLabelProps,
+            tooltip,
+            style,
+            ...nativeInputProps
+        },
+        ref,
+    ) => {
+        const [isDragOver, setIsDragOver] = useState(false);
 
-        const hasFiles = value.length > 0;
+        const inputGroupProps = {
+            "data-size": dataSize,
+            "data-testautoid": dataTestAutoId,
+            "data-testid": dataTestId,
+            id,
+            label,
+            className,
+            description,
+            errorLabel,
+            helpLabel,
+            inline,
+            labelProps,
+            supportLabelProps,
+            tooltip,
+            style,
+        } satisfies FileInputGroupProps;
 
-        const maxSizeDescriptionId = useId();
-
-        if (variant === "small") {
-            return (
-                <FileInputContextProvider
-                    context={{ accept, onChange, maxSizeBytes, files: value }}
-                >
-                    <FieldGroup
-                        className={clsx(
-                            "jkl-file-input",
-                            "jkl-file-input--small",
-                            className,
-                            {
-                                "jkl-file-input--has-files": hasFiles,
-                            },
-                        )}
-                        {...rest}
-                    >
-                        <Dropzone>
-                            <div className="jkl-file-input__call-to-action">
-                                <Input
-                                    id={id}
-                                    label="Legg til fil"
-                                    multiple={multiple}
-                                    ref={ref}
-                                    aria-describedby={maxSizeDescriptionId}
-                                />
-                            </div>
-                        </Dropzone>
-                        <MaxSize id={maxSizeDescriptionId} />
-                        {value.length > 0 && (
-                            <ul className="jkl-file-input__files">
-                                {children}
-                            </ul>
-                        )}
-                    </FieldGroup>
-                </FileInputContextProvider>
+        const handleDragOver = (event: React.DragEvent<HTMLDivElement>) => {
+            const hasFiles = Array.from(event.dataTransfer.items).some(
+                (item) => item.kind === "file",
             );
-        }
+
+            if (hasFiles && !disabled) {
+                setIsDragOver(true);
+            }
+        };
 
         return (
-            <FileInputContextProvider
-                context={{ accept, onChange, maxSizeBytes, files: value }}
-            >
-                <FieldGroup
-                    className={clsx("jkl-file-input", className, {
-                        "jkl-file-input--has-files": hasFiles,
-                    })}
-                    {...rest}
-                >
-                    <Dropzone>
-                        {value.length > 0 && (
-                            <ul className="jkl-file-input__files">
-                                {children}
-                            </ul>
+            <InputGroup
+                {...inputGroupProps}
+                render={(inputPropsFromInputGroup) => (
+                    <div
+                        className={clsx(
+                            "jkl-file-input",
+                            `jkl-file-input--${variant}`,
+                            {
+                                "jkl-file-input--disabled": disabled,
+                            },
                         )}
-                        <div className="jkl-file-input__call-to-action">
-                            <Input
-                                id={id}
-                                label={
-                                    multiple && hasFiles
-                                        ? "Legg til flere filer"
-                                        : "Legg til fil"
-                                }
+                        onDragOver={handleDragOver}
+                        onDragLeave={() => setIsDragOver(false)}
+                        onDrop={() => setIsDragOver(false)}
+                    >
+                        {variant === "dropzone" ? (
+                            <Dropzone
+                                data-drag-over={isDragOver}
                                 multiple={multiple}
-                                ref={ref}
-                                aria-describedby={maxSizeDescriptionId}
+                                buttonText={buttonText}
                             />
-                            <MaxSize id={maxSizeDescriptionId} />
-                        </div>
-                    </Dropzone>
-                </FieldGroup>
-            </FileInputContextProvider>
+                        ) : (
+                            <Button
+                                as="div"
+                                aria-hidden="true"
+                                variant="secondary"
+                                icon={<UploadIcon aria-hidden="true" />}
+                                className="jkl-file-input__button"
+                            >
+                                {buttonText}
+                            </Button>
+                        )}
+
+                        <input
+                            {...nativeInputProps}
+                            {...inputPropsFromInputGroup}
+                            ref={ref}
+                            type="file"
+                            multiple={multiple}
+                            disabled={disabled}
+                            className="jkl-file-input__input"
+                        />
+                    </div>
+                )}
+            />
         );
     },
 );
