@@ -20,6 +20,17 @@ const config: StorybookConfig = {
         name: "@storybook/react-vite",
         options: {},
     },
+    typescript: {
+        reactDocgen: "react-docgen-typescript",
+        reactDocgenTypescriptOptions: {
+            include: ["**/components/flex/**/*.tsx"],
+            exclude: ["**/*.stories.tsx"],
+            shouldExtractLiteralValuesFromEnum: true,
+            shouldRemoveUndefinedFromOptional: true,
+            propFilter: (prop) =>
+                !/node_modules/.test(prop.parent?.fileName ?? ""),
+        },
+    },
     viteFinal: (config) =>
         mergeConfig(config, {
             plugins: [react()],
