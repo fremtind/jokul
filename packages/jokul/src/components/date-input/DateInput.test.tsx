@@ -174,15 +174,17 @@ describe("DateInput", () => {
     it("navigates to the next and previous month with the arrow buttons", () => {
         render(<DateInput label="Dato" defaultValue="2020-01-10" />);
 
-        // Kalenderen ligger i en lukket popover, som jsdom regner som skjult.
-        // Rollebaserte søk finner den derfor ikke – vi går via aria-label.
         const nextMonth = screen.getByLabelText("Neste måned");
         const previousMonth = screen.getByLabelText("Forrige måned");
 
+        const calendarId = screen.getByTestId("jkl-calendar").id;
+        const monthSelect = screen.getByTestId(`${calendarId}-month-select`);
+        const yearSelect = screen.getByTestId(`${calendarId}-year-select`);
+
         fireEvent.click(nextMonth);
 
-        expect(screen.getByLabelText("Måned")).toHaveValue("februar");
-        expect(screen.getByLabelText("År")).toHaveValue("2020");
+        expect(monthSelect).toHaveValue("februar");
+        expect(yearSelect).toHaveValue("2020");
         expect(
             document.querySelector('input[type="radio"][value="2020-02-15"]'),
         ).not.toBeNull();
@@ -190,18 +192,19 @@ describe("DateInput", () => {
         fireEvent.click(previousMonth);
         fireEvent.click(previousMonth);
 
-        expect(screen.getByLabelText("Måned")).toHaveValue("desember");
-        expect(screen.getByLabelText("År")).toHaveValue("2019");
+        expect(monthSelect).toHaveValue("desember");
+        expect(yearSelect).toHaveValue("2019");
         expect(
             document.querySelector('input[type="radio"][value="2019-12-15"]'),
         ).not.toBeNull();
     });
 
-    it("changes month via the month select", () => {
+    it("changes month via the month select", async () => {
         render(<DateInput label="Dato" defaultValue="2020-01-10" />);
+        const calendarId = screen.getByTestId("jkl-calendar").id;
 
-        fireEvent.change(screen.getByLabelText("Måned"), {
-            target: { value: "mars" },
+        fireEvent.change(screen.getByTestId(`${calendarId}-month-select`), {
+            target: { value: "mars" }
         });
 
         expect(
@@ -211,8 +214,9 @@ describe("DateInput", () => {
 
     it("changes year via the year select", () => {
         render(<DateInput label="Dato" defaultValue="2020-01-10" />);
+        const calendarId = screen.getByTestId("jkl-calendar").id;
 
-        fireEvent.change(screen.getByLabelText("År"), {
+        fireEvent.change(screen.getByTestId(`${calendarId}-year-select`), {
             target: { value: "2021" },
         });
 

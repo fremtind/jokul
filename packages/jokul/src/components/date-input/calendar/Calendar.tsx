@@ -198,6 +198,7 @@ export const Calendar = (props: CalendarProps) => {
                     <Select
                         placeholder="Måned"
                         label="Måned"
+                        data-testid={`${calendarId}-month-select`}
                         items={monthOptions.map((index) =>
                             months[index].toLowerCase(),
                         )}
@@ -225,6 +226,7 @@ export const Calendar = (props: CalendarProps) => {
                     <Select
                         placeholder="År"
                         label="År"
+                        data-testid={`${calendarId}-year-select`}
                         items={yearOptions.map((y) => y.toString())}
                         labelProps={{ srOnly: true }}
                         width="4ch"
