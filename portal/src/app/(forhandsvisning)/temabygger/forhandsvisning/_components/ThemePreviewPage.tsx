@@ -16,15 +16,7 @@ import styles from "./theme-preview-page.module.scss";
 export function ThemePreviewPage() {
     return (
         <div className={styles.page}>
-            <Flex
-                as="main"
-                className={styles.main}
-                center="2xl"
-                gap={{ small: "24", medium: "32" }}
-                layout={{ small: "1", medium: "3.9" }}
-                wrap="wrap"
-                alignItems="start"
-            >
+            <Flex as="main" className={styles.main} wrap alignItems="start">
                 <PreviewPageAside />
                 <ThemePreviewProvider>
                     <PreviewPageContent />

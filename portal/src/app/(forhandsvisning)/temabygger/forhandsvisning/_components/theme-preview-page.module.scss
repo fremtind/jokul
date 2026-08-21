@@ -1,12 +1,22 @@
 .page {
     min-height: 100dvh;
     background-color: var(--jkl-color-background-page);
-}
 
-.main {
-    padding: var(--jkl-spacing-24);
+    .main {
+        gap: var(--jkl-spacing-24);
+        padding: var(--jkl-spacing-24);
 
-    @media (width >= 940px) {
-        padding: var(--jkl-spacing-64);
+        > aside {
+            flex: 1 35ch;
+        }
+
+        > section {
+            flex: 3 105ch;
+        }
+
+        @media (width >= 940px) {
+            gap: var(--jkl-spacing-32);
+            padding: var(--jkl-spacing-64);
+        }
     }
 }

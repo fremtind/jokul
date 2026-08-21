@@ -1,0 +1,13 @@
+.themeBuilder {
+    container-type: inline-size;
+
+    .panels {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--jkl-spacing-40);
+
+        @container (min-width: 60rem) {
+            grid-template-columns: minmax(0, 25rem) minmax(0, 1fr);
+        }
+    }
+}

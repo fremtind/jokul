@@ -49,7 +49,7 @@ export const DateInputRange: Story = {
         const latestDate = "2026-10-24";
 
         return (
-            <Flex>
+            <Flex gap="m">
                 <DateInput
                     label="Fra"
                     value={fromDate}

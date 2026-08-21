@@ -2,7 +2,7 @@
 
 import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
-import { useEffect, useState, type CSSProperties } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 
 import "./storybook-frame.scss";
 
@@ -98,7 +98,11 @@ export const StorybookFrame = ({
     globals = "backgrounds.value:page;backgrounds.grid:!false",
     inert,
 }: StorybookFrameProps) => {
-    const frameSrc = storyUrl ?? (storyId ? `https://fremtind.github.io/jokul/latest/iframe.html?viewMode=story&id=${storyId}` : undefined);
+    const frameSrc =
+        storyUrl ??
+        (storyId
+            ? `https://fremtind.github.io/jokul/latest/iframe.html?viewMode=story&id=${storyId}`
+            : undefined);
     const frameStyle = getFrameStyle(height);
 
     const [status, setStatus] = useState<StoryStatus>("loading");
@@ -135,7 +139,6 @@ export const StorybookFrame = ({
                     direction="column"
                     gap="8"
                     justifyContent="center"
-                    textAlign="center"
                     className="storybook-frame-fallback"
                 >
                     <span className="storybook-frame-fallback__title">

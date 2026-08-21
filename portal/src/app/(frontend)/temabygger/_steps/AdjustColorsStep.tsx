@@ -91,6 +91,7 @@ export function AdjustColorsStep() {
                     </Message>
                 )}
                 <Flex
+                    gap="m"
                     justifyContent="space-between"
                     alignItems="center"
                     wrap="wrap"

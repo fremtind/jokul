@@ -68,10 +68,9 @@ const AvtaleTilBehandling = ({ text = "Li Liv", amount = 500000 }) => (
                 alignItems="center"
                 gap="none s"
                 wrap="wrap"
-                fill
             >
                 <p className="jkl-text-medium">{text}</p>
-                <Flex fill gap="none">
+                <Flex gap="none">
                     <p className="jkl-text-medium">{formatNumber(amount)} kr</p>
                     <Flex justifyContent="end">
                         <ChevronDownIcon />
@@ -107,12 +106,13 @@ const ArkivKort = ({
             <Card padding="m">
                 <Flex direction="column" gap="xs">
                     <Flex
+                        gap="m"
                         as="menu"
                         justifyContent="space-between"
                         alignItems="center"
                         style={{ margin: 0, padding: 0 }}
                     >
-                        <Flex>
+                        <Flex gap="m">
                             <p className="jkl-text-small">{saksbehandler}</p>
                             <p className="jkl-text-small">{tidspunkt}</p>
                         </Flex>
@@ -147,10 +147,14 @@ const ArkivKort = ({
 };
 
 const Sidebar = () => (
-    <Flex as="aside" direction="column">
-        <Flex direction="column">
+    <Flex gap="m" as="aside" direction="column">
+        <Flex gap="m" direction="column">
             <Flex as="header" direction="column" gap="none">
-                <Flex justifyContent="space-between" alignItems="center">
+                <Flex
+                    gap="m"
+                    justifyContent="space-between"
+                    alignItems="center"
+                >
                     <p className="jkl-text-medium">Saksinformasjon</p>
                     <Button icon={<PenIcon />} aria-label="Rediger" />
                 </Flex>
@@ -175,8 +179,9 @@ const Sidebar = () => (
                 <Link href="#">ROFF (2)</Link>
             </Flex>
         </Flex>
-        <Flex direction="column">
+        <Flex gap="m" direction="column">
             <Flex
+                gap="m"
                 as="header"
                 alignItems="center"
                 justifyContent="space-between"
@@ -196,8 +201,9 @@ const Sidebar = () => (
                 <AvtaleTilBehandling text="BHFB Behandlingsforsikring" />
             </Flex>
         </Flex>
-        <Flex direction="column">
+        <Flex gap="m" direction="column">
             <Flex
+                gap="m"
                 as="header"
                 justifyContent="space-between"
                 alignItems="center"
@@ -227,6 +233,7 @@ const ArkivSidebar = () => (
     >
         <Card asChild>
             <Flex
+                gap="m"
                 as="menu"
                 justifyContent="space-between"
                 style={{ marginBlockEnd: 0 }}
@@ -302,7 +309,7 @@ const Aktivitetskort = ({
     tittel = "Vurder Livsforsikring • 500 000 kr",
     sakOgDato = "1. LI Livsforsikring, 23.11.2023",
     children = (
-        <Flex direction="column">
+        <Flex gap="m" direction="column">
             <DescriptionList>
                 <DescriptionTerm>AHV</DescriptionTerm>
                 <DescriptionDetail>Devlis bedømt</DescriptionDetail>
@@ -318,7 +325,7 @@ const Aktivitetskort = ({
                     Avslutt avtale
                 </RadioButton>
             </RadioButtonGroup>
-            <Flex layout="3">
+            <Flex gap="m">
                 <Select label="T-tillegg" items={["e"]} />
                 <Combobox
                     label="Årsakskoder (maks 2)"
@@ -347,7 +354,7 @@ const Aktivitetskort = ({
                     }}
                 />
             </Flex>
-            <Flex layout="3">
+            <Flex>
                 <Select label="Røyketillegg" items={["e"]} />
             </Flex>
             <Flex gap="xs" direction="column">
@@ -368,11 +375,11 @@ const Aktivitetskort = ({
     ),
 }) => (
     <Card asChild padding="xl">
-        <Flex direction="column">
+        <Flex gap="m" direction="column">
             <Flex
+                gap="m"
                 as="header"
                 justifyContent="space-between"
-                layout="10.2"
                 alignItems="center"
             >
                 <Flex direction="column" gap="none">
@@ -383,6 +390,7 @@ const Aktivitetskort = ({
             </Flex>
             {children}
             <Flex
+                gap="m"
                 as="footer"
                 justifyContent="space-between"
                 alignItems="center"
@@ -398,6 +406,7 @@ const Main = () => (
     <Flex as="article" direction="column">
         <Tabs defaultTab={1}>
             <Flex
+                gap="m"
                 as={TabList}
                 // @ts-ignore
                 style={{
@@ -410,13 +419,12 @@ const Main = () => (
             </Flex>
             <TabPanel>Oversikt</TabPanel>
             <Flex as={TabPanel} direction="column">
-                <Flex wrap="wrap" layout={{ small: "1", xl: "8.4" }}>
-                    <Flex direction="column">
+                <Flex gap="m" wrap="wrap">
+                    <Flex gap="m" direction="column">
                         <Flex
                             justifyContent="space-between"
                             alignItems="start"
                             gap="l"
-                            // @ts-ignore
                             style={{
                                 borderBlockEnd:
                                     "1px solid var(--jkl-color-border-subdued)",
@@ -430,7 +438,7 @@ const Main = () => (
                                 <Expander>Prosessvalg</Expander>
                             </Flex>
                         </Flex>
-                        <Flex direction="column">
+                        <Flex gap="m" direction="column">
                             <Aktivitetskort />
                             <Aktivitetskort />
                             <Aktivitetskort />
@@ -456,12 +464,13 @@ export const _Flyt: StoryObj = {
         return (
             <Flex direction="column" gap="l">
                 <Flex
+                    gap="m"
                     as="header"
                     justifyContent="space-between"
                     alignItems="end"
                     wrap="wrap"
                 >
-                    <Flex alignItems="end" wrap="wrap">
+                    <Flex gap="m" alignItems="end" wrap="wrap">
                         <h1 className="jkl-heading-1">{args.navn}</h1>
                         <Flex as="header" alignItems="end" gap="xs">
                             <p className="jkl-text-small">
@@ -485,11 +494,7 @@ export const _Flyt: StoryObj = {
                         <Button>...</Button>
                     </Flex>
                 </Flex>
-                <Flex
-                    as="main"
-                    wrap="wrap"
-                    layout={{ small: "1", large: "3.9", xl: "2.10" }}
-                >
+                <Flex gap="m" as="main" wrap="wrap">
                     <Sidebar />
                     <Main />
                 </Flex>

@@ -325,6 +325,7 @@ export const ExpandablePanelNestedExpanders: Story = {
                         style={{ width: "100%" }}
                     >
                         <Flex
+                            gap="m"
                             direction="row"
                             justifyContent="space-between"
                             style={{ flex: 1 }}
