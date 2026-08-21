@@ -1,5 +1,51 @@
 # Change Log
 
+## 6.0.0-next.1
+
+### Major Changes
+
+- fd1526e: Dropper støtte for Node 20, som er end-of-life og ikke lenger får sikkerhetsoppdateringer. Støttede versjoner er nå `^22.22.2`, `^24.15.0` og `^26.0.0`. **Vi anbefaler på det sterkeste å bruke siste LTS-versjon**.
+- d9d0a41: Skriver om `DatePicker` til å bygge på det native `<input type="date">`-elementet og bytter navn til `DateInput`.
+
+  - `DateInput` bruker nå ISO-datoformat (`yyyy-mm-dd`) for `value`, `defaultValue`, `min` og `max`.
+
+  BREAKING CHANGE: API-et til `DateInput` er endret. Se migrasjonsguiden for detaljer.
+
+  - `disableBeforeDate`/`disableAfterDate` er erstattet av `min`/`max` (ISO-strenger).
+  - `onChange` gir nå et vanlig React change-event; les datoen fra `event.target.value` (ISO-streng) i stedet for `(event, date, { error, value })`.
+  - Datoformatet er endret fra `dd.mm.yyyy` til `yyyy-mm-dd`.
+  - Kompakt inntasting (`11112022`) og automatisk punktum-formatering er fjernet – inntasting håndteres nå av nettleseren.
+  - `defaultShow` og den interne hjelpefunksjonen `formatInput` er fjernet (bruk `toValidInputValue`).
+  - `extended`, `invalid`, `yearsToShow`, `days`, `months`, `monthLabel`, `yearLabel`, `action`, `showCalendarLabel`, `hideCalendarLabel` og `textInputProps` er fjernet. Kalenderen henter måneds- og ukedagsnavn fra `Intl` (`nb-NO`), årsvelgeren utledes fra `min`/`max`, feiltilstand settes med `errorLabel`, og øvrige attributter sendes direkte på komponenten.
+
+- b8e524b: **`Select` — komplett omskriving**
+
+  - Ny implementasjon basert på det native [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) i stedet for egendefinert listeboks
+  - Støtter nå `multiple` (multiselect) med checkboxer og bekreft-knapp
+  - `onChange` / `onBlur` / `onFocus` bruker nå standard DOM-events (`React.ChangeEvent<HTMLSelectElement>`) i stedet for egne typer
+  - `defaultPrompt` er omdøpt til `placeholder`; ny standardverdi er `"Ingen valgt"`
+  - `searchable` er forenklet til kun `boolean` — egendefinert søkefunksjon støttes ikke lenger
+  - `inline` og `maxShownOptions` er fjernet
+  - Bedre integrasjon med react-hook-form: `register()` fungerer nå uten workarounds
+
+  Se egen migrasjonsguide i Select-komponenten for informasjon om hvordan du tar denne i bruk.
+
+  **`NativeSelect` — fjernet**
+
+  - Komponenten er slettet; bruk den nye `Select` i stedet
+
+  **`BETA_Select` — fjernet**
+
+  - Erstattet av ny stabil `Select`
+
+  **`useListNavigation` — refaktorert**
+
+  - Bruker nå `useEffect` i stedet for `useLayoutEffect`; fått støtte for `disableTypeahead`
+
+  **`ValuePair` — bakoverkompatibel utvidelse**
+
+  - Nytt valgfritt felt `media?: ReactNode`
+
 ## 6.0.0-next.0
 
 ### Major Changes
