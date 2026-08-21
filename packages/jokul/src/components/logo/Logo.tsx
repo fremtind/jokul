@@ -12,7 +12,7 @@ export const Logo = ({
     title = "Fremtind",
     ...rest
 }: LogoProps): JSX.Element => {
-    const uniqueId = useId(id || "jkl-logo", { generateSuffix: !id });
+    const uniqueId = useId("jkl-logo", id);
 
     return (
         <svg
