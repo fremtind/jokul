@@ -1,0 +1,1 @@
+import{j as r}from"./iframe-CjhOYAjm.js";import{c as p}from"./clsx-B-dksMZM.js";const i=({variant:s="small",srOnly:e,children:o,standAlone:a,htmlFor:l,className:b="",...c})=>{const j=p("jkl-label",b,{[`jkl-label--${s}`]:s,"jkl-label--sr-only":e}),m=a?"label":"span";return!a&&l&&(l=void 0),r.jsx(m,{...c,className:j,htmlFor:l,children:o})};export{i as L};

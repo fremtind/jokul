@@ -1,0 +1,1 @@
+import{r as t,j as a}from"./iframe-CjhOYAjm.js";const e=t.createContext({collapseToList:!1,setHasStickyHead:()=>{}}),x=()=>t.useContext(e),n=({state:s,children:o})=>a.jsx(e.Provider,{value:s,children:o});export{n as T,x as u};
