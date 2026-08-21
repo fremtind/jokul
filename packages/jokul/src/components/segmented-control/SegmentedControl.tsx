@@ -12,4 +12,4 @@ export const SegmentedControl = (props: SegmentedControlProps) => {
     );
 };
 
-SegmentedControl.displayName = "Segmented Control";
+SegmentedControl.displayName = "SegmentedControl";

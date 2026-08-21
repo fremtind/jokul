@@ -129,6 +129,7 @@ export const BigSearch: Story = {
     },
     render: (args) => (
         <Flex
+            gap="m"
             as="form"
             direction="column"
             justifyContent="center"
@@ -272,6 +273,7 @@ export const SearchHeaderButton: Story = {
         return (
             <>
                 <Flex
+                    gap="m"
                     as="header"
                     alignItems="center"
                     justifyContent="space-between"

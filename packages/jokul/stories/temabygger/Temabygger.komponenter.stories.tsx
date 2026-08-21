@@ -57,7 +57,7 @@ const state = {
 
 export const KomponentOversikt: Story = {
     render: () => (
-        <Flex>
+        <Flex gap="m">
             <Card padding="l">
                 <Flex gap="32" direction="column">
                     <Flex direction="column" gap="4">
@@ -107,7 +107,7 @@ export const KomponentOversikt: Story = {
                         </FieldGroup>
                     </Flex>
 
-                    <Flex direction="column">
+                    <Flex gap="m" direction="column">
                         <Button variant="primary">Primary</Button>
                         <Button variant="secondary">Secondary</Button>
                         <Button variant="ghost">Ghost</Button>
@@ -125,7 +125,7 @@ export const KomponentOversikt: Story = {
                         </ToggleSwitch>
                     </Flex>
 
-                    <Flex>
+                    <Flex gap="m">
                         <Tag variant="neutral">Neutral</Tag>
                         <Tag variant="success">Success</Tag>
                         <Tag variant="info">Info</Tag>
@@ -195,7 +195,7 @@ export const KomponentOversikt: Story = {
                         </FieldGroup>
                     </Flex>
 
-                    <Flex direction="column">
+                    <Flex gap="m" direction="column">
                         <Button variant="primary">Primary</Button>
                         <Button variant="secondary">Secondary</Button>
                         <Button variant="ghost">Ghost</Button>
@@ -213,7 +213,7 @@ export const KomponentOversikt: Story = {
                         </ToggleSwitch>
                     </Flex>
 
-                    <Flex>
+                    <Flex gap="m">
                         <Tag variant="neutral">Neutral</Tag>
                         <Tag variant="success">Success</Tag>
                         <Tag variant="info">Info</Tag>

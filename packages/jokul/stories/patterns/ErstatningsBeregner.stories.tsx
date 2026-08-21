@@ -40,7 +40,7 @@ const Oppvaskmaskin = () => {
         <Card padding="l" asChild>
             <Flex as="section" gap="m" direction="column">
                 <h2 className="jkl-heading-3">Oppvaskmaskin</h2>
-                <Flex direction="row">
+                <Flex gap="m" direction="row">
                     <Select label="Antall" defaultValue={1} items={["1"]} />
                     <TextInput
                         label="Gjenstand"
@@ -69,6 +69,7 @@ const Aldersfradrag = () => {
             <Flex as="section" gap="m" direction="column">
                 <h2 className="jkl-heading-3">Aldersfradrag</h2>
                 <Flex
+                    gap="m"
                     direction="column"
                     alignItems="start"
                     style={{ maxWidth: "fit-content" }}
@@ -80,6 +81,7 @@ const Aldersfradrag = () => {
                     />
                     <TextInput label="Antatt levetid" defaultValue="10" />
                     <Flex
+                        gap="m"
                         style={{
                             width: "100%",
                             justifyContent: "space-between", // Bug i flex-komponenten: justify-between -> justify-around
@@ -131,14 +133,14 @@ const prisUtenKortRabatt = [
 const ForklaringTilKunde = () => {
     return (
         <Card padding="l">
-            <Flex direction="column">
+            <Flex gap="m" direction="column">
                 <p className="jkl-heading-3">Forklaring til kunde</p>
                 <p className="jkl-paragraph-medium">
                     Vi har funnet Samsung 55” TU55CU7105KXXC på Power og vurdert
                     den til å være tilsvarende TV-en du hadde og har basert
                     verdivurderingen på dette.
                 </p>
-                <Flex direction="column">
+                <Flex gap="m" direction="column">
                     <DescriptionList alignment="justified" separators>
                         {pris.map((p) => (
                             <Fragment key={p.title}>
@@ -191,7 +193,7 @@ const tilsvarendegjenstand = {
 const TilsvarendeGjenstand = () => {
     return (
         <Card as="section" padding="l">
-            <Flex direction="column" alignItems="start">
+            <Flex gap="m" direction="column" alignItems="start">
                 <p className="jkl-heading-3">Tilsvarende gjenstand</p>
                 <Table
                     caption={
@@ -324,10 +326,10 @@ export const ErstatningsBeregner: Story = {
                             key={row[rowIndex]}
                             isOpen={rowIndex === 1}
                             expandedChildren={
-                                <Flex direction="column">
+                                <Flex gap="m" direction="column">
                                     <Oppvaskmaskin />
                                     <TilsvarendeGjenstand />
-                                    <Flex layout={"5.7"}>
+                                    <Flex gap="m">
                                         <Aldersfradrag />
                                         <ForklaringTilKunde />
                                     </Flex>
