@@ -68,10 +68,9 @@ const AvtaleTilBehandling = ({ text = "Li Liv", amount = 500000 }) => (
                 alignItems="center"
                 gap="none s"
                 wrap="wrap"
-                fill
             >
                 <p className="jkl-text-medium">{text}</p>
-                <Flex fill gap="none">
+                <Flex gap="none">
                     <p className="jkl-text-medium">{formatNumber(amount)} kr</p>
                     <Flex justifyContent="end">
                         <ChevronDownIcon />
@@ -318,7 +317,7 @@ const Aktivitetskort = ({
                     Avslutt avtale
                 </RadioButton>
             </RadioButtonGroup>
-            <Flex layout="3">
+            <Flex>
                 <Select label="T-tillegg" items={["e"]} />
                 <Combobox
                     label="Årsakskoder (maks 2)"
@@ -347,7 +346,7 @@ const Aktivitetskort = ({
                     }}
                 />
             </Flex>
-            <Flex layout="3">
+            <Flex>
                 <Select label="Røyketillegg" items={["e"]} />
             </Flex>
             <Flex gap="xs" direction="column">
@@ -372,7 +371,6 @@ const Aktivitetskort = ({
             <Flex
                 as="header"
                 justifyContent="space-between"
-                layout="10.2"
                 alignItems="center"
             >
                 <Flex direction="column" gap="none">
@@ -410,13 +408,12 @@ const Main = () => (
             </Flex>
             <TabPanel>Oversikt</TabPanel>
             <Flex as={TabPanel} direction="column">
-                <Flex wrap="wrap" layout={{ small: "1", xl: "8.4" }}>
+                <Flex wrap="wrap">
                     <Flex direction="column">
                         <Flex
                             justifyContent="space-between"
                             alignItems="start"
                             gap="l"
-                            // @ts-ignore
                             style={{
                                 borderBlockEnd:
                                     "1px solid var(--jkl-color-border-subdued)",
@@ -485,11 +482,7 @@ export const _Flyt: StoryObj = {
                         <Button>...</Button>
                     </Flex>
                 </Flex>
-                <Flex
-                    as="main"
-                    wrap="wrap"
-                    layout={{ small: "1", large: "3.9", xl: "2.10" }}
-                >
+                <Flex as="main" wrap="wrap">
                     <Sidebar />
                     <Main />
                 </Flex>

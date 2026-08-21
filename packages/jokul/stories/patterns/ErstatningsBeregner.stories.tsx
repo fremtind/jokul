@@ -327,7 +327,7 @@ export const ErstatningsBeregner: Story = {
                                 <Flex direction="column">
                                     <Oppvaskmaskin />
                                     <TilsvarendeGjenstand />
-                                    <Flex layout={"5.7"}>
+                                    <Flex>
                                         <Aldersfradrag />
                                         <ForklaringTilKunde />
                                     </Flex>

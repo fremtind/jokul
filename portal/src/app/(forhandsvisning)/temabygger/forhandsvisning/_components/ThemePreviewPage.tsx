@@ -19,11 +19,9 @@ export function ThemePreviewPage() {
             <Flex
                 as="main"
                 className={styles.main}
-                center="2xl"
-                gap={{ small: "24", medium: "32" }}
-                layout={{ small: "1", medium: "3.9" }}
                 wrap="wrap"
                 alignItems="start"
+                gap="40"
             >
                 <PreviewPageAside />
                 <ThemePreviewProvider>

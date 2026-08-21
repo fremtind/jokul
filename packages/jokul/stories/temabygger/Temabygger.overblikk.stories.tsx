@@ -43,7 +43,13 @@ const coverageItems = [
 
 function ThemeBuilderOverview() {
     return (
-        <Flex gap="16" layout={{ small: "1", large: "2" }} wrap="wrap">
+        <div
+            style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: "var(--jkl-spacing-16)",
+            }}
+        >
             <Flex direction="column" gap="16">
                 <InsuranceSummaryCard />
                 <CoverageCard />
@@ -56,7 +62,7 @@ function ThemeBuilderOverview() {
                 <VehicleCard />
                 <AreaCard />
             </Flex>
-        </Flex>
+        </div>
     );
 }
 

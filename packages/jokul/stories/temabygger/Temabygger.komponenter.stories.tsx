@@ -57,7 +57,7 @@ const state = {
 
 export const KomponentOversikt: Story = {
     render: () => (
-        <Flex>
+        <Flex gap="16">
             <Card padding="l">
                 <Flex gap="32" direction="column">
                     <Flex direction="column" gap="4">
