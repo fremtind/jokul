@@ -2,7 +2,7 @@
 /**
  * check-security-overrides.mjs
  *
- * Sjekker om pnpm.overrides-oppføringer merket som sikkerhetsfikser
+ * Sjekker om overrides-oppføringer merket som sikkerhetsfikser
  * er fortsatt nødvendige.
  *
  * En override er UTDATERT hvis alle konsumentpakker allerede deklarerer
@@ -15,8 +15,9 @@
  */
 
 import { readFileSync, readdirSync } from "node:fs";
-import { join, dirname } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { parse } from "yaml";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 
@@ -67,8 +68,10 @@ function rangeMinVersion(range) {
 
 // ── Les og valider konfig ─────────────────────────────────────────────────────
 
-const pkgJson = JSON.parse(readFileSync(join(ROOT, "package.json"), "utf8"));
-const allOverrides = pkgJson?.pnpm?.overrides ?? {};
+const workspace = parse(
+    readFileSync(join(ROOT, "pnpm-workspace.yaml"), "utf8"),
+);
+const allOverrides = workspace?.overrides ?? {};
 
 // Disse overrides er ikke sikkerhetsrelaterte — hopp over dem
 const NON_SECURITY_OVERRIDES = new Set([
@@ -176,7 +179,7 @@ function rangeMajor(range) {
 
 // ── Kjør sjekk for hver sikkerhetsoverride ────────────────────────────────────
 
-console.log("🔍 Sjekker sikkerhetsoverrides i pnpm.overrides...\n");
+console.log("🔍 Sjekker sikkerhetsoverrides i pnpm-workspace.yaml...\n");
 
 let staleCount = 0;
 let neededCount = 0;
@@ -266,9 +269,7 @@ if (unknownCount > 0) console.log(`   ⚠️  Ukjent:             ${unknownCount
 console.log();
 
 if (staleCount > 0) {
-    console.log(
-        `💡 Fjern utdaterte overrides fra "pnpm.overrides" i package.json`,
-    );
+    console.log(`💡 Fjern utdaterte overrides fra pnpm-workspace.yaml`);
     console.log(
         `   og kjør "pnpm install" for å verifisere at ingenting går i stykker.`,
     );
@@ -276,7 +277,7 @@ if (staleCount > 0) {
     // GitHub Actions-annotasjon for å vise advarselen i UI-et
     if (process.env.GITHUB_ACTIONS) {
         console.log(
-            `::warning file=package.json::${staleCount} sikkerhetsoverride(s) kan fjernes fra pnpm.overrides. Kjør "pnpm check:security-overrides" lokalt for detaljer.`,
+            `::warning file=pnpm-workspace.yaml::${staleCount} sikkerhetsoverride(s) kan fjernes. Kjør "pnpm check:security-overrides" lokalt for detaljer.`,
         );
     }
 
