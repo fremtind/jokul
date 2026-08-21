@@ -1,4 +1,0 @@
-import{r as e,j as n}from"./iframe-DNeBsABU.js";const t=e.createContext({collapseToList:!1,setHasStickyHead:()=>{}}),i=()=>e.useContext(t),r=({state:a,children:o})=>n.jsx(t.Provider,{value:a,children:o});r.__docgenInfo={description:"",methods:[],displayName:"TableContextProvider",props:{children:{required:!0,tsType:{name:"union",raw:"ReactNode | ReactNode[]",elements:[{name:"ReactNode"},{name:"Array",elements:[{name:"ReactNode"}],raw:"ReactNode[]"}]},description:""},state:{required:!0,tsType:{name:"signature",type:"object",raw:`{
-    collapseToList: boolean;
-    setHasStickyHead: (hasStcikyHead: boolean) => void;
-}`,signature:{properties:[{key:"collapseToList",value:{name:"boolean",required:!0}},{key:"setHasStickyHead",value:{name:"signature",type:"function",raw:"(hasStcikyHead: boolean) => void",signature:{arguments:[{type:{name:"boolean"},name:"hasStcikyHead"}],return:{name:"void"}},required:!0}}]}},description:""}}};export{r as T,i as u};
