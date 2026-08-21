@@ -214,6 +214,9 @@ importers:
       vite:
         specifier: ^7.3.6
         version: 7.3.6(@types/node@24.13.3)(jiti@2.6.1)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0)
+      yaml:
+        specifier: ^2.8.3
+        version: 2.9.0
 
   actions/changed-files:
     dependencies:
