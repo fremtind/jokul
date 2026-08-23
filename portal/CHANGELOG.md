@@ -1,5 +1,20 @@
 # portal
 
+## 1.9.0-next.1
+
+### Minor Changes
+
+- 5323f3c: Storybook-stories hentes nå fra den publiserte Storybook-en på GitHub Pages i stedet for en lokal fil. I Sanity Studio kan redaktører velge hvilken versjon av Jøkul de vil hente stories fra – enten siste stabile versjon, prereleases, eldre vedlikeholdte versjoner, eller en lokal Storybook-instans under utvikling. Stories-visningen i portalen er oppdatert til å bruke samme versjonsstyrte API.
+
+  Siden portalen ikke lenger bundler Storybook i Docker-bygget, er Dockerfile forenklet betraktelig: Express-proxyen, prosessmanageren og tilhørende avhengigheter er fjernet, og Next standalone-serveren eksponeres direkte.
+
+### Patch Changes
+
+- Updated dependencies [fd1526e]
+- Updated dependencies [d9d0a41]
+- Updated dependencies [b8e524b]
+  - @fremtind/jokul@6.0.0-next.1
+
 ## 1.8.1-next.0
 
 ### Patch Changes
