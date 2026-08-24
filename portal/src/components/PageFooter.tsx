@@ -1,7 +1,5 @@
-"use client";
-
+import { FooterLink } from "@/components/layout/footer/FooterLink";
 import { Flex } from "@fremtind/jokul/flex";
-import { Link } from "@fremtind/jokul/link";
 import styles from "../app/(frontend)/komponenter/[slug]/component.module.scss";
 
 type ComponentFooterProps = {
@@ -12,36 +10,24 @@ export const PageFooter = ({ name }: ComponentFooterProps) => {
     if (!name) {
         return (
             <Flex as="footer" gap="m" wrap="wrap" className={styles.footer}>
-                <Link
-                    external
+                <FooterLink
                     href="https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BInnspill+til+innhold%5D%3A"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Innspill til innholdet
-                </Link>
+                    text="Innspill til innholdet"
+                />
             </Flex>
         );
     }
 
     return (
         <Flex as="footer" gap="m" wrap="wrap" className={styles.footer}>
-            <Link
-                external
+            <FooterLink
                 href={`https://github.com/fremtind/jokul/issues/new?&template=dokumentasjon.yml&title=%5BBidra+med+innhold%5D%3A+${name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Bidra med innhold
-            </Link>
-            <Link
-                external
+                text="Bidra med innhold"
+            />
+            <FooterLink
                 href={`https://github.com/fremtind/jokul/issues/new?&template=innspill-komponent.yml&title=%5BInnspill+til+komponent%5D%3A+${name}`}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Innspill til <span lang="en">{name}</span>
-            </Link>
+                text={`Innspill til ${name}`}
+            />
         </Flex>
     );
 };

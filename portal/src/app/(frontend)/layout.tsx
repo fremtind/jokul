@@ -36,7 +36,7 @@ export default async function PortalLayout({ children }: Props) {
             <body>
                 <TabListener />
                 <CookiesNextProvider>
-                    <MixpanelProvider>
+                    <MixpanelProvider disabled={(await draftMode()).isEnabled}>
                         <div className="jkl-portal-layout">
                             <Header />
                             <main>{children}</main>
