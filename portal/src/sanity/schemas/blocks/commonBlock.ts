@@ -12,4 +12,5 @@ export const commonBlock = [
     { type: "jokul_qa" },
     { type: "jokul_messageBox" },
     { type: "jokul_doAndDont" },
+    { type: "jokul_feedbackBlock" },
 ];
