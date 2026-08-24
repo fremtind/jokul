@@ -5,6 +5,8 @@ import { Button } from "@fremtind/jokul/button";
 import { Flex } from "@fremtind/jokul/flex";
 import Link from "next/link";
 
+import { trackEvent } from "@/utils/tracking/mixpanel";
+import { Events } from "@/utils/tracking/types";
 import styles from "../../navigation.module.scss";
 
 export const NavigationList = () => {
@@ -19,7 +21,18 @@ export const NavigationList = () => {
             className={styles.list}
         >
             {navigationLinks.map(({ href, label }) => (
-                <Button as={Link} href={href} variant="ghost" key={href}>
+                <Button
+                    as={Link}
+                    href={href}
+                    variant="ghost"
+                    key={href}
+                    onClick={() => {
+                        trackEvent(Events.CLICK, {
+                            element: label || "",
+                            type: "header link",
+                        });
+                    }}
+                >
                     {label}
                 </Button>
             ))}
