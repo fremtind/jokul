@@ -1,11 +1,10 @@
+import { FooterLink } from "@/components/layout/footer/FooterLink";
+import { logger } from "@/logger";
 import { sanityFetch } from "@/sanity/lib/live";
 import { siteDataQuery } from "@/sanity/queries/siteData";
 import { Flex } from "@fremtind/jokul/flex";
-import { Link } from "@fremtind/jokul/link";
 import { List, ListItem } from "@fremtind/jokul/list";
 import jokul from "@fremtind/jokul/package.json";
-import { logger } from "@/logger";
-
 import styles from "../global-layout.module.scss";
 
 export const Footer = async () => {
@@ -38,16 +37,10 @@ export const Footer = async () => {
                         <List>
                             {linkGroup.linkList?.map((link) => (
                                 <ListItem key={link.text}>
-                                    <Link
+                                    <FooterLink
                                         href={link.url || ""}
-                                        target={
-                                            link.url?.includes("https")
-                                                ? "_blank"
-                                                : undefined
-                                        }
-                                    >
-                                        {link.text}
-                                    </Link>
+                                        text={link.text || ""}
+                                    />
                                 </ListItem>
                             ))}
                         </List>
@@ -55,12 +48,10 @@ export const Footer = async () => {
                 ))}
             </Flex>
             <p>
-                Jøkul{" "}
-                <Link
+                <FooterLink
                     href={`https://github.com/fremtind/jokul/releases/tag/@fremtind/jokul@${jokul.version}`}
-                >
-                    versjon {jokul.version}
-                </Link>
+                    text={`Jøkul versjon ${jokul.version}`}
+                />
                 .
             </p>
             <p>{footer.text}</p>
