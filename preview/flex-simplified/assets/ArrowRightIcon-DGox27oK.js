@@ -1,0 +1,1 @@
+import{j as r}from"./iframe-DomUvUQy.js";import{I as s}from"./Icon-3-pG6ozW.js";const t=o=>r.jsx(s,{...o,children:""});t.displayName="ArrowLeftIcon";const n=o=>r.jsx(s,{...o,children:""});n.displayName="ArrowRightIcon";export{t as A,n as a};

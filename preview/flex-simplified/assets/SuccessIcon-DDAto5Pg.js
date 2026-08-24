@@ -1,0 +1,1 @@
+import{j as s}from"./iframe-DomUvUQy.js";import{I as o}from"./Icon-3-pG6ozW.js";const c=r=>s.jsx(o,{...r,filled:!0,children:""});c.displayName="ErrorIcon";const e=r=>s.jsx(o,{...r,filled:!0,children:""});e.displayName="SuccessIcon";export{c as E,e as S};

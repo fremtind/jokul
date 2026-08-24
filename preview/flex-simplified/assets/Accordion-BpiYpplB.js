@@ -1,0 +1,1 @@
+import{j as t}from"./iframe-DomUvUQy.js";import{c as r}from"./clsx-B-dksMZM.js";const m=({children:o,outlined:s=!1,className:a,...c})=>t.jsx("section",{className:r("jkl-accordion",a),"data-outlined":s,...c,children:o});export{m as A};

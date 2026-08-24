@@ -1,0 +1,1 @@
+import{r as a,j as c}from"./iframe-DomUvUQy.js";import{c as e}from"./clsx-B-dksMZM.js";const i=a.forwardRef((t,o)=>{const{className:s,children:n,...r}=t;return c.jsx("button",{ref:o,type:"button",className:e("jkl-icon-button",s),"data-testid":"jkl-icon-button",...r,children:n})});i.displayName="IconButton";export{i as I};

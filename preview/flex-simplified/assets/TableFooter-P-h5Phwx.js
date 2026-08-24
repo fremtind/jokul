@@ -1,0 +1,1 @@
+import{r,j as e}from"./iframe-DomUvUQy.js";import{c as s}from"./clsx-B-dksMZM.js";import{T as l}from"./TableRow-BUfDF2RJ.js";const i=r.forwardRef(({className:o,...t},a)=>e.jsx(l,{state:{isTableHead:!1,isTableBody:!1,isTableFooter:!0},children:e.jsx("tfoot",{className:s("jkl-table-foot",o),...t,ref:a})}));i.displayName="TableFooter";export{i as T};

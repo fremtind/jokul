@@ -1,0 +1,1 @@
+import{j as r}from"./iframe-DomUvUQy.js";const x=({className:s,header:t,content:e,...o})=>r.jsxs("tr",{...o,className:s,children:[r.jsx("th",{scope:"row",children:t}),r.jsx("td",{children:e})]});export{x as S};

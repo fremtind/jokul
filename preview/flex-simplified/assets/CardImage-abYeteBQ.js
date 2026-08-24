@@ -1,0 +1,1 @@
+import{R as n,j as c}from"./iframe-DomUvUQy.js";import{c as i}from"./clsx-B-dksMZM.js";import{S as p}from"./SlotComponent-BZ1S-NZp.js";const l=n.forwardRef(function({as:o,asChild:a,className:r,placement:m="top",...t},s){const e=a?p:o||"img";return c.jsx(e,{ref:s,className:i("jkl-card-image",`jkl-card-image--${m}`,r),...t})});export{l as C};
