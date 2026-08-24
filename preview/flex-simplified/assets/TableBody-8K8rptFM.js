@@ -1,0 +1,1 @@
+import{r as t,j as o}from"./iframe-CG_7dJ_z.js";import{T as s}from"./TableRow-1qVXXbCo.js";const e=t.forwardRef((a,r)=>o.jsx(s,{state:{isTableHead:!1,isTableBody:!0,isTableFooter:!1},children:o.jsx("tbody",{...a,ref:r})}));e.displayName="TableBody";try{e.displayName="TableBody",e.__docgenInfo={description:"",displayName:"TableBody",props:{}}}catch{}export{e as T};
