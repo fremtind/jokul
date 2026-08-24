@@ -2,13 +2,14 @@
 
 import { client } from "@/sanity/lib/client";
 import { searchQuery } from "@/sanity/queries/search";
+import { trackEvent } from "@/utils/tracking/mixpanel";
+import { Events } from "@/utils/tracking/types";
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { Icon } from "@fremtind/jokul/icon";
 import { Link as JklLink } from "@fremtind/jokul/link";
 import Link from "next/link";
 import { Fragment, useEffect, useRef, useState } from "react";
-
 import styles from "./search.module.scss";
 
 type SearchResult = {
@@ -100,6 +101,16 @@ export const Results = ({
                     });
 
                     setResults(ranked);
+
+                    trackEvent(Events.SEARCH, {
+                        query: trimmed,
+                        results: ranked.map(
+                            (rankedResult) => rankedResult.name || "",
+                        ),
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error fetching search results:", error);
                 });
             setSelectedIndex(-1);
         } else {
@@ -196,7 +207,6 @@ export const Results = ({
                     alignItems="center"
                     justifyContent="center"
                     gap="s"
-                    textAlign="center"
                 >
                     <Icon>sentiment_very_dissatisfied</Icon>
                     <p>
