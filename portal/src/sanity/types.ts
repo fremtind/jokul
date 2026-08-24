@@ -169,6 +169,11 @@ export type SanityImageHotspot = {
   width?: number;
 };
 
+export type Jokul_feedbackBlock = {
+  _type: "jokul_feedbackBlock";
+  question?: string;
+};
+
 export type Jokul_qa = {
   _type: "jokul_qa";
   title?: string;
@@ -574,7 +579,9 @@ export type Jokul_blog_post = {
     _key: string;
   } & Jokul_messageBox | {
     _key: string;
-  } & Jokul_doAndDont>;
+  } & Jokul_doAndDont | {
+    _key: string;
+  } & Jokul_feedbackBlock>;
 };
 
 export type Jokul_component = {
@@ -687,6 +694,8 @@ export type Jokul_component = {
   } & Jokul_messageBox | {
     _key: string;
   } & Jokul_doAndDont | {
+    _key: string;
+  } & Jokul_feedbackBlock | {
     _key: string;
   } & Jokul_componentProps | {
     _key: string;
@@ -848,6 +857,8 @@ export type Jokul_fundamentals = {
     _key: string;
   } & Jokul_doAndDont | {
     _key: string;
+  } & Jokul_feedbackBlock | {
+    _key: string;
   } & Jokul_codeBlock>;
 };
 
@@ -943,6 +954,8 @@ export type Jokul_release_notes = {
     _key: string;
   } & Jokul_doAndDont | {
     _key: string;
+  } & Jokul_feedbackBlock | {
+    _key: string;
   } & Jokul_codeBlock>;
   migrationUrl?: string;
   figmaUrl?: string;
@@ -1037,7 +1050,9 @@ export type Jokul_temaside = {
     _key: string;
   } & Jokul_messageBox | {
     _key: string;
-  } & Jokul_doAndDont>;
+  } & Jokul_doAndDont | {
+    _key: string;
+  } & Jokul_feedbackBlock>;
   related_components?: Array<{
     _ref: string;
     _type: "reference";
@@ -1162,7 +1177,9 @@ export type Jokul_monster = {
     _key: string;
   } & Jokul_messageBox | {
     _key: string;
-  } & Jokul_doAndDont>;
+  } & Jokul_doAndDont | {
+    _key: string;
+  } & Jokul_feedbackBlock>;
   related_components?: Array<{
     _ref: string;
     _type: "reference";
@@ -1315,7 +1332,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_internal_link | Seo | Jokul_siteData | SanityImageCrop | SanityImageHotspot | Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_doAndDont | Jokul_linkCard | Jokul_examples | Jokul_code | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | ComponentPageLink | Jokul_blog_post | Jokul_component | Jokul_fundamentals | Jokul_release_notes | Jokul_temaside | Jokul_monster | Table | Code | Slug | Jokul_story | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Jokul_internal_link | Seo | Jokul_siteData | SanityImageCrop | SanityImageHotspot | Jokul_feedbackBlock | Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_doAndDont | Jokul_linkCard | Jokul_examples | Jokul_code | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | ComponentPageLink | Jokul_blog_post | Jokul_component | Jokul_fundamentals | Jokul_release_notes | Jokul_temaside | Jokul_monster | Table | Code | Slug | Jokul_story | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/allPosts.ts
 // Variable: latestUpdatedArticlesQuery
@@ -1759,6 +1776,11 @@ export type BlogPostBySlugQueryResult = {
       code: Code | null;
     }> | null;
     layout?: "carousel" | "gallery" | "list";
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_feedbackBlock";
+    question?: string;
     markDefs: null;
   } | {
     _key: string;
@@ -2475,6 +2497,11 @@ export type ComponentBySlugQueryResult = {
     markDefs: null;
   } | {
     _key: string;
+    _type: "jokul_feedbackBlock";
+    question?: string;
+    markDefs: null;
+  } | {
+    _key: string;
     _type: "jokul_linkCard";
     title?: string;
     description?: string;
@@ -3161,6 +3188,11 @@ export type FundamentalsBySlugQueryResult = {
     markDefs: null;
   } | {
     _key: string;
+    _type: "jokul_feedbackBlock";
+    question?: string;
+    markDefs: null;
+  } | {
+    _key: string;
     _type: "jokul_linkCard";
     title?: string;
     description?: string;
@@ -3724,6 +3756,11 @@ export type MonsterBySlugQueryResult = {
       code: Code | null;
     }> | null;
     layout?: "carousel" | "gallery" | "list";
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_feedbackBlock";
+    question?: string;
     markDefs: null;
   } | {
     _key: string;
@@ -4313,6 +4350,11 @@ export type ReleaseNoteBySlugQueryResult = {
       code: Code | null;
     }> | null;
     layout?: "carousel" | "gallery" | "list";
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_feedbackBlock";
+    question?: string;
     markDefs: null;
   } | {
     _key: string;
