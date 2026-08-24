@@ -1,6 +1,7 @@
 "use client";
 
 import { ExampleList } from "@/components/portable-text/examples/ExampleList";
+import { FeedbackBlock } from "@/components/portable-text/feedback-block/FeedbackBlock";
 import { InternalLink } from "@/components/portable-text/link/InternalLink";
 import { NewCodeBlock } from "@/components/portable-text/new-code-block/CodeBlock";
 import { QuestionsAndAnswers } from "@/components/portable-text/q-and-a/QuestionsAndAnswers";
@@ -43,6 +44,7 @@ const jokulBlockTypes = {
     jokul_table: Table,
     jokul_qa: QuestionsAndAnswers,
     jokul_messageBox: MessageBox,
+    jokul_feedbackBlock: FeedbackBlock,
     image: function ImageRenderer({
         value,
     }: {
