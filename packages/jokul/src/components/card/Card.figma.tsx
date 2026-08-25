@@ -4,7 +4,7 @@ import { Card } from "./Card.js";
 
 figma.connect(
     Card,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14660%3A328",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14660%3A328",
     {
         imports: ['import { Card } from "@fremtind/jokul/components/card";'],
         props: {

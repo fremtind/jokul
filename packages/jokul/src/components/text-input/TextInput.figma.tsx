@@ -11,23 +11,23 @@ import { TextInput } from "./TextInput.js";
 
 figma.connect(
     TextInput,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=2007%3A2426",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=30699%3A1281",
     {
         imports: [
             'import { TextInput } from "@fremtind/jokul/components/text-input";',
         ],
         props: {
-            value: figma.boolean("Show Text", {
-                true: figma.string("↳ Text"),
+            value: figma.enum("Has Value", {
+                True: figma.string("Value"),
+                False: undefined,
+            }),
+            description: figma.boolean("Show Description", {
+                true: figma.string("Description"),
                 false: undefined,
             }),
-            placeholder: figma.string("↳ Placeholder Text"),
-            nested: figma.nestedProps("Label", {
-                label: figma.string("Text"),
-            }),
+            placeholder: figma.string("Placeholder"),
+            label: figma.string("Label"),
         },
-        example: ({ nested, ...props }) => (
-            <TextInput label={nested.label} {...props} />
-        ),
+        example: ({ ...props }) => <TextInput {...props} />,
     },
 );

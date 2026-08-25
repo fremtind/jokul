@@ -4,7 +4,7 @@ import { DotsIcon } from "../DotsIcon.jsx";
 
 figma.connect(
     DotsIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14606%3A9953",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14606%3A9953",
     {
         imports: [
             'import { DotsIcon } from "@fremtind/jokul/components/icon";',

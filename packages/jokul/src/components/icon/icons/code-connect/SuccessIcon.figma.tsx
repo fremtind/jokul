@@ -4,7 +4,7 @@ import { SuccessIcon } from "../SuccessIcon.jsx";
 
 figma.connect(
     SuccessIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14606%3A2522",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14606%3A2522",
     {
         imports: [
             'import { SuccessIcon } from "@fremtind/jokul/components/icon";',

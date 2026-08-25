@@ -4,7 +4,7 @@ import { ThumbDownIcon } from "../ThumbDownIcon.jsx";
 
 figma.connect(
     ThumbDownIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14471%3A133",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14471%3A133",
     {
         imports: [
             'import { ThumbDownIcon } from "@fremtind/jokul/components/icon";',

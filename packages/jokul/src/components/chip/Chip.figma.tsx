@@ -4,7 +4,7 @@ import { Chip } from "./Chip.js";
 
 figma.connect(
     Chip,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=17770%3A1129",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=17770%3A1129",
     {
         imports: ['import { Chip } from "@fremtind/jokul/components/chip";'],
         variant: { Variant: "Filter" },
@@ -20,7 +20,7 @@ figma.connect(
 
 figma.connect(
     Chip,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=17770%3A1129",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=17770%3A1129",
     {
         imports: ['import { Chip } from "@fremtind/jokul/components/chip";'],
         props: {

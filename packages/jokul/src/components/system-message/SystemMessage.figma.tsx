@@ -4,7 +4,7 @@ import { SystemMessage } from "./SystemMessage.js";
 
 figma.connect(
     SystemMessage,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14268%3A9754",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14268%3A9754",
     {
         imports: [
             'import { ErrorSystemMessage } from "@fremtind/jokul/components/system-message";',

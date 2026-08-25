@@ -4,7 +4,7 @@ import { QuestionIcon } from "../QuestionIcon.jsx";
 
 figma.connect(
     QuestionIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14606%3A9464",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14606%3A9464",
     {
         imports: [
             'import { QuestionIcon } from "@fremtind/jokul/components/icon";',

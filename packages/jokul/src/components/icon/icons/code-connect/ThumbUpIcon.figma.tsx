@@ -4,7 +4,7 @@ import { ThumbUpIcon } from "../ThumbUpIcon.jsx";
 
 figma.connect(
     ThumbUpIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14471%3A132",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14471%3A132",
     {
         imports: [
             'import { ThumbUpIcon } from "@fremtind/jokul/components/icon";',

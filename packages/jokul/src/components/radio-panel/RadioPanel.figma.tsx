@@ -4,19 +4,22 @@ import { RadioPanel } from "./RadioPanel.js";
 
 figma.connect(
     RadioPanel,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=15978%3A7446",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=28385%3A1082",
     {
         imports: [
             'import { RadioPanel } from "@fremtind/jokul/components/radio-panel";',
         ],
         props: {
-            label: figma.textContent("Label"),
-            value: figma.textContent("Label"),
-            checked: figma.enum("State", {
-                Selected: true,
+            description: figma.enum("Description", {
+                True: figma.string("Description text"),
+                False: undefined,
             }),
-            amount: figma.textContent("xxx kr/md."),
+            checked: figma.enum("State", { Selected: true }),
+            amount: figma.boolean("Show Amount", {
+                true: figma.string("Amount"),
+                false: undefined,
+            }),
         },
-        example: (props) => <RadioPanel {...props} />,
+        example: (props) => <RadioPanel label="Skriv noe her" {...props} />,
     },
 );
