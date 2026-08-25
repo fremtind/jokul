@@ -17,6 +17,7 @@
         "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
         "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
         "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 3333",
+        "typecheck": "next typegen && tsc --noEmit",
         "typegen": "sanity schema extract --path=src/sanity/extract.json && sanity typegen generate"
     },
     "dependencies": {
