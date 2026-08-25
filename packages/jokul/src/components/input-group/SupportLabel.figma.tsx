@@ -4,7 +4,7 @@ import { SupportLabel } from "./SupportLabel.js";
 
 figma.connect(
     SupportLabel,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=2388%3A376",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=2388%3A376",
     {
         imports: [
             'import { SupportLabel } from "@fremtind/jokul/components/input-group";',

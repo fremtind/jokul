@@ -4,7 +4,7 @@ import { ArrowDownIcon } from "../ArrowDownIcon.jsx";
 
 figma.connect(
     ArrowDownIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=15493%3A7173",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=15493%3A7173",
     {
         imports: [
             'import { ArrowDownIcon } from "@fremtind/jokul/components/icon";',

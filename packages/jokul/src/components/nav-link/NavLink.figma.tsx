@@ -4,7 +4,7 @@ import { NavLink } from "./NavLink.js";
 
 figma.connect(
     NavLink,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=13893%3A14591",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=13893%3A14591",
     {
         imports: [
             'import { NavLink } from "@fremtind/jokul/components/nav-link";',

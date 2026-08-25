@@ -12,7 +12,7 @@ import { CalendarIcon } from "../CalendarIcon.jsx";
 
 figma.connect(
     CalendarIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14463%3A243",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14463%3A243",
     {
         imports: [
             'import { CalendarIcon } from "@fremtind/jokul/components/icon";',

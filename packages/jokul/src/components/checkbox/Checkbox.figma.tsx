@@ -4,7 +4,7 @@ import { Checkbox } from "./Checkbox.js";
 
 figma.connect(
     Checkbox,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=2006%3A3746",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=2006%3A3746",
     {
         imports: [
             'import { Checkbox } from "@fremtind/jokul/components/checkbox";',

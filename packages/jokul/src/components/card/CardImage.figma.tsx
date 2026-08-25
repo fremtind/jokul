@@ -4,7 +4,7 @@ import { CardImage } from "./CardImage.js";
 
 figma.connect(
     CardImage,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14660%3A368",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14660%3A368",
     {
         imports: [
             'import { CardImage } from "@fremtind/jokul/components/card";',

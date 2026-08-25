@@ -4,7 +4,7 @@ import { PenIcon } from "../PenIcon.jsx";
 
 figma.connect(
     PenIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14606%3A9435",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14606%3A9435",
     {
         imports: ['import { PenIcon } from "@fremtind/jokul/components/icon";'],
         props: {
