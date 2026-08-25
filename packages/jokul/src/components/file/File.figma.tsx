@@ -11,7 +11,7 @@ import { File } from "./File.js";
 
 figma.connect(
     File,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=23716%3A13629",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=23716%3A13629",
     {
         imports: ['import { File } from "@fremtind/jokul/components/file";'],
         props: {

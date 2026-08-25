@@ -4,7 +4,7 @@ import { TrashCanIcon } from "../TrashCanIcon.jsx";
 
 figma.connect(
     TrashCanIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14606%3A9436",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14606%3A9436",
     {
         imports: [
             'import { TrashCanIcon } from "@fremtind/jokul/components/icon";',

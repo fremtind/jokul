@@ -4,7 +4,7 @@ import { ChevronUpIcon } from "../ChevronUpIcon.jsx";
 
 figma.connect(
     ChevronUpIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=15493%3A7207",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=15493%3A7207",
     {
         imports: [
             'import { ChevronUpIcon } from "@fremtind/jokul/components/icon";',

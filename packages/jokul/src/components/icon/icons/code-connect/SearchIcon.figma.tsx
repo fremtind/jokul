@@ -4,7 +4,7 @@ import { SearchIcon } from "../SearchIcon.jsx";
 
 figma.connect(
     SearchIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14463%3A229",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14463%3A229",
     {
         imports: [
             'import { SearchIcon } from "@fremtind/jokul/components/icon";',

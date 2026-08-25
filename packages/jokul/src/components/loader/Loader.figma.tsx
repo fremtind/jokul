@@ -12,7 +12,7 @@ import { Loader } from "./Loader.js";
 
 figma.connect(
     Loader,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=5199%3A7304",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=5199%3A7304",
     {
         imports: [
             'import { Loader } from "@fremtind/jokul/components/loader";',

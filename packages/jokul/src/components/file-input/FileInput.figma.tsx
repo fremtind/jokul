@@ -11,7 +11,7 @@ import { FileInput } from "./FileInput.js";
 
 figma.connect(
     FileInput,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=13371%3A2526",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=13371%3A2526",
     {
         imports: [
             'import { FileInput } from "@fremtind/jokul/components/file-input";',

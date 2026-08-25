@@ -4,7 +4,7 @@ import { CloseIcon } from "../CloseIcon.jsx";
 
 figma.connect(
     CloseIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14571%3A9228",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14571%3A9228",
     {
         imports: [
             'import { CloseIcon } from "@fremtind/jokul/components/icon";',

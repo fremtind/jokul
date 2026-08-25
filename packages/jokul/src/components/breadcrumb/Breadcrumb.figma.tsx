@@ -12,7 +12,7 @@ import { BreadcrumbItem } from "./BreadcrumbItem.js";
 
 figma.connect(
     BreadcrumbItem,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=2006%3A3137",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=2006%3A3137",
     {
         imports: [
             'import { BreadcrumbItem } from "@fremtind/jokul/components/breadcrumb";',

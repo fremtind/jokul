@@ -4,7 +4,7 @@ import { InfoIcon } from "../InfoIcon.jsx";
 
 figma.connect(
     InfoIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14606%3A9388",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14606%3A9388",
     {
         imports: [
             'import { InfoIcon } from "@fremtind/jokul/components/icon";',

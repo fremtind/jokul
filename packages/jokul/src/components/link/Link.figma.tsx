@@ -4,7 +4,7 @@ import { Link } from "./Link.js";
 
 figma.connect(
     Link,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=2006%3A2335",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=2006%3A2335",
     {
         imports: ['import { Link } from "@fremtind/jokul/components/link";'],
         props: {

@@ -4,7 +4,7 @@ import { MinusIcon } from "../MinusIcon.jsx";
 
 figma.connect(
     MinusIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14606%3A9463",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14606%3A9463",
     {
         imports: [
             'import { MinusIcon } from "@fremtind/jokul/components/icon";',

@@ -4,33 +4,24 @@ import { CheckboxPanel } from "./CheckboxPanel.js";
 
 figma.connect(
     CheckboxPanel,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=15978%3A22094",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=28385%3A3692",
     {
         imports: [
             'import { CheckboxPanel } from "@fremtind/jokul/components/checkbox-panel";',
         ],
         props: {
-            alwaysOpen: figma.boolean("Always Open"),
-            children: figma.enum("State", {
-                Default: figma.boolean("Always Open", {
-                    true: figma.instance("↳ Additional Content"),
-                    false: undefined,
-                }),
-                Selected: figma.boolean("Show Additional Content", {
-                    true: figma.instance("↳ Additional Content"),
-                    false: undefined,
-                }),
+            description: figma.enum("Description", {
+                True: figma.string("Description text"),
+                False: undefined,
             }),
             checked: figma.enum("State", { Selected: true }),
-            amount: figma.boolean("Show Content Header", {
-                true: figma.instance("↳ Content"),
+            amount: figma.boolean("Show Amount", {
+                true: figma.string("Amount"),
                 false: undefined,
             }),
         },
-        example: ({ children, ...props }) => (
-            <CheckboxPanel label="Skriv noe her" {...props}>
-                {children}
-            </CheckboxPanel>
+        example: ({ ...props }) => (
+            <CheckboxPanel label="Skriv noe her" {...props} />
         ),
     },
 );

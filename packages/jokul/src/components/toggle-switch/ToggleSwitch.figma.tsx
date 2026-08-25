@@ -4,7 +4,7 @@ import { ToggleSwitch } from "./ToggleSwitch.js";
 
 figma.connect(
     ToggleSwitch,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=2007%3A18937",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=2007%3A18937",
     {
         imports: [
             'import { ToggleSwitch } from "@fremtind/jokul/components/toggle-switch";',
