@@ -4,7 +4,7 @@ import { ArrowRightIcon } from "../ArrowRightIcon.jsx";
 
 figma.connect(
     ArrowRightIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14618%3A10306",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14618%3A10306",
     {
         imports: [
             'import { ArrowRightIcon } from "@fremtind/jokul/components/icon";',

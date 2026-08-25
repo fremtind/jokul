@@ -4,7 +4,7 @@ import { Message } from "./Message.js";
 
 figma.connect(
     Message,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14268%3A9812",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14268%3A9812",
     {
         imports: [
             'import { InfoMessage } from "@fremtind/jokul/components/message";',

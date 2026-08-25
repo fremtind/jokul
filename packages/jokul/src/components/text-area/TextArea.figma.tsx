@@ -4,7 +4,7 @@ import { TextArea } from "./TextArea.js";
 
 figma.connect(
     TextArea,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=2007%3A2473",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=30701%3A395",
     {
         imports: [
             'import { TextArea } from "@fremtind/jokul/components/text-area";',

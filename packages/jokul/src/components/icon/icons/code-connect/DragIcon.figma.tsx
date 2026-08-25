@@ -4,7 +4,7 @@ import { DragIcon } from "../DragIcon.jsx";
 
 figma.connect(
     DragIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14471%3A131",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14471%3A131",
     {
         imports: [
             'import { DragIcon } from "@fremtind/jokul/components/icon";',

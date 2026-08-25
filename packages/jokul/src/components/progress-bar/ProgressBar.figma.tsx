@@ -5,7 +5,7 @@ import { ProgressBar } from "./ProgressBar.js";
 
 figma.connect(
     ProgressBar,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=13371%3A2589",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=13371%3A2589",
     {
         imports: [
             'import { ProgressBar } from "@fremtind/jokul/components/progress-bar";',
