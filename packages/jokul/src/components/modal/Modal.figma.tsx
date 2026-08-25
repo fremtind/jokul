@@ -22,16 +22,13 @@ import {
 
 figma.connect(
     Modal,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=2075%3A15258",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=34145%3A601",
     {
         imports: [
             'import { Modal, ModalContainer, ModalOverlay, ModalHeader, ModalTitle, ModalCloseButton, ModalBody, ModalActions } from "@fremtind/jokul/components/modal";',
         ],
         props: {
-            children: figma.boolean("Show Text", {
-                false: figma.instance("Content"),
-                true: figma.string("Text"),
-            }),
+            children: figma.instance("Content"),
             title: figma.string("Title"),
         },
         example: (props) => (

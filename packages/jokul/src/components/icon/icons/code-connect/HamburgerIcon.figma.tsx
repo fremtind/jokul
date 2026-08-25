@@ -4,7 +4,7 @@ import { HamburgerIcon } from "../HamburgerIcon.jsx";
 
 figma.connect(
     HamburgerIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14607%3A10210",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14607%3A10210",
     {
         imports: [
             'import { HamburgerIcon } from "@fremtind/jokul/components/icon";',

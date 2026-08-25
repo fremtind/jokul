@@ -4,7 +4,7 @@ import { RadioButton } from "./RadioButton.js";
 
 figma.connect(
     RadioButton,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=2007%3A9587",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=2007%3A9587",
     {
         imports: [
             'import { RadioButton } from "@fremtind/jokul/components/radio-button";',

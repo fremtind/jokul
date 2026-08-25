@@ -4,7 +4,7 @@ import { WarningIcon } from "../WarningIcon.jsx";
 
 figma.connect(
     WarningIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14463%3A7735",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14463%3A7735",
     {
         imports: [
             'import { WarningIcon } from "@fremtind/jokul/components/icon";',

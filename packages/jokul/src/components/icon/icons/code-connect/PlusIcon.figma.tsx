@@ -4,7 +4,7 @@ import { PlusIcon } from "../PlusIcon.jsx";
 
 figma.connect(
     PlusIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14571%3A8298",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14571%3A8298",
     {
         imports: [
             'import { PlusIcon } from "@fremtind/jokul/components/icon";',

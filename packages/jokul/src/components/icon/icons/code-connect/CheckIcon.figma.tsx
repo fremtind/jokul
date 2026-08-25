@@ -4,7 +4,7 @@ import { CheckIcon } from "../CheckIcon.jsx";
 
 figma.connect(
     CheckIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14571%3A213",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14571%3A213",
     {
         imports: [
             'import { CheckIcon } from "@fremtind/jokul/components/icon";',

@@ -4,7 +4,7 @@ import { ErrorIcon } from "../ErrorIcon.jsx";
 
 figma.connect(
     ErrorIcon,
-    "https://www.figma.com/design/jd7QGZJIQ5ZU6AhAq31yuv?node-id=14579%3A146",
+    "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK?node-id=14579%3A146",
     {
         imports: [
             'import { ErrorIcon } from "@fremtind/jokul/components/icon";',
