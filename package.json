@@ -66,6 +66,7 @@
         "@commitlint/cli": "^17.8.1",
         "@commitlint/config-conventional": "^17.8.1",
         "@commitlint/cz-commitlint": "^19.8.1",
+        "@figma/code-connect": "^2.0.0",
         "@fremtind/stylelint-config-jkl": "workspace:*",
         "@playwright/test": "^1.62.1",
         "@storybook/addon-a11y": "10.2.10",

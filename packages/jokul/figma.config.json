@@ -1,7 +1,8 @@
 {
     "codeConnect": {
-        "include": ["src/components/**/*.{tsx,jsx}"],
+        "include": ["**/*.figma.ts"],
         "label": "React",
+        "language": "jsx",
         "interactiveSetupFigmaFileUrl": "https://www.figma.com/design/jnE6mPCHVfbjn7a0AiKGEK"
     }
 }
