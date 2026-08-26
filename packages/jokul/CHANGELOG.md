@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.0-next.2
+
+### Patch Changes
+
+- 01d51c4: Retter en feil som gjorde at innholdet i `Message` alltid ble vist med `data-theme="light"`.
+
 ## 6.0.0-next.1
 
 ### Major Changes
