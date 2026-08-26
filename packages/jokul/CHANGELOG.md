@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.3.1
+
+### Patch Changes
+
+- 70f488e: Retter en feil som gjorde at innholdet i `Message` alltid ble vist med `data-theme="light"`.
+
 ## 5.3.0
 
 ### Minor Changes
