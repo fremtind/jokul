@@ -19,7 +19,7 @@
         "esModuleInterop": true,
         "baseUrl": "./",
         "skipLibCheck": true,
-        "types": ["@testing-library/jest-dom"],
+        "types": ["@testing-library/jest-dom", "@figma/code-connect/figma-types"],
     },
     "exclude": ["**/node_modules", "**/.*", "**/build", "**/dist"],
     "include": ["./packages/**/*"]
