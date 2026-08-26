@@ -62,7 +62,7 @@ function messageFactory(messageType: MessageProps["variant"]) {
                 role={role}
             >
                 {getIcon(messageType)}
-                <div className="jkl-message__content" data-theme="light">
+                <div className="jkl-message__content">
                     {title && <p className="jkl-message__title">{title}</p>}
                     <div className="jkl-message__message">{newChildren}</div>
                 </div>
@@ -123,7 +123,7 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
                 role={role}
             >
                 {getIcon(variant)}
-                <div className="jkl-message__content" data-theme="light">
+                <div className="jkl-message__content">
                     {title && <p className="jkl-message__title">{title}</p>}
                     <div className="jkl-message__message">{newChildren}</div>
                 </div>
