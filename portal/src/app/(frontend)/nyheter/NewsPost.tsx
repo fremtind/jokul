@@ -5,16 +5,8 @@ import { Text } from "@fremtind/jokul/typography";
 export default function NewsPost({
     article,
 }: { article: NewsPageQueryResult["articles"][number] }) {
-    const {
-        name,
-        short_description,
-        updated,
-        created,
-        type,
-        href,
-        image,
-        imageDark,
-    } = article;
+    const { name, short_description, updated, created, type, href, images } =
+        article;
 
     if (!href) return null;
 
@@ -50,11 +42,7 @@ export default function NewsPost({
     return (
         <OverviewCardWithPreferences
             link={href || ""}
-            image={
-                image || imageDark
-                    ? { light: image, dark: imageDark }
-                    : undefined
-            }
+            image={images.light || images.dark ? images : undefined}
             title={name || ""}
             description={short_description || ""}
             footer={

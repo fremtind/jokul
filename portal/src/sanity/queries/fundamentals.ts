@@ -1,13 +1,12 @@
 import { defineQuery } from "next-sanity";
-import { commonBlockBody } from "./fragments";
+import { cardImagesProjection, commonBlockBody } from "./fragments";
 
 export const fundamentalsQuery = defineQuery(
     `*[_type == "jokul_fundamentals"]{
         name,
         slug,
         short_description,
-        image,
-        imageDark,
+        ${cardImagesProjection},
         "date": _createdAt
     } | order(_createdAt desc)`,
 );
@@ -15,6 +14,7 @@ export const fundamentalsQuery = defineQuery(
 export const fundamentalsBySlugQuery = defineQuery(
     `*[_type == "jokul_fundamentals" && slug.current == $slug][0]{
         ...,
+        ${cardImagesProjection},
         article[]{
             ${commonBlockBody}
         }

@@ -1,6 +1,7 @@
 import { OverviewCardWithPreferences } from "@/components/overview/OverviewCardWithPreferences";
 import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridWithPreferences";
 import { OverviewHeader } from "@/components/overview/header";
+import { logger } from "@/logger";
 import { sanityFetch } from "@/sanity/lib/live";
 import { componentsQuery } from "@/sanity/queries/component";
 import {
@@ -9,7 +10,6 @@ import {
 } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { getCookie } from "cookies-next";
-import { logger } from "@/logger";
 import { cookies } from "next/headers";
 import { FilterChip } from "./FilterChip";
 
@@ -72,10 +72,7 @@ export default async function Components({
                         key={component.slug}
                         title={component.name || ""}
                         description={component.short_description || ""}
-                        image={{
-                            light: component.image,
-                            dark: component.imageDark,
-                        }}
+                        image={component.images}
                         link={`/komponenter/${component.slug}`}
                         initialPreferences={userPreferences}
                     />

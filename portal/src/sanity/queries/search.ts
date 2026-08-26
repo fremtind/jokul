@@ -20,8 +20,18 @@ export const searchQuery = defineQuery(
         slug,
         short_description,
         "image": select(
-            _type == "jokul_component" => image.asset->url,
-            _type == "jokul_monster" => image.asset->url,
+            _type == "jokul_component" => coalesce(
+                cardImages.light.asset->url,
+                cardImages.dark.asset->url,
+                image.asset->url,
+                imageDark.asset->url
+            ),
+            _type == "jokul_monster" => coalesce(
+                cardImages.light.asset->url,
+                cardImages.dark.asset->url,
+                image.asset->url,
+                imageDark.asset->url
+            ),
             null
         ),
         "type": select(

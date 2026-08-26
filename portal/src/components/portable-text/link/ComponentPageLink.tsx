@@ -46,7 +46,7 @@ export const ComponentPageLink = ({ value, children }: LinkProps) => {
     if (!value?.component) return null;
 
     const slug = value.component.slug || "#";
-    const { image, imageDark, name, short_description } = value.component;
+    const { images, name, short_description } = value.component;
 
     return (
         <>
@@ -90,8 +90,8 @@ export const ComponentPageLink = ({ value, children }: LinkProps) => {
                         </p>
                     )}
                     <OverviewThumbnail
-                        darkImage={imageDark}
-                        lightImage={image}
+                        darkImage={images.dark}
+                        lightImage={images.light}
                     />
                 </Card>,
                 // Vi rendrer popoveren rett i body for å unngå å legge
