@@ -4,6 +4,7 @@ import { PageFooter } from "@/components/PageFooter";
 import { OverviewCardWithPreferences } from "@/components/overview/OverviewCardWithPreferences";
 import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridWithPreferences";
 import { PortableText } from "@/components/portable-text/PortableText";
+import { logger } from "@/logger";
 import { sanityFetch } from "@/sanity/lib/live";
 import {
     componentBySlugQuery,
@@ -13,7 +14,6 @@ import { parseUserPreferences } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { NavLink } from "@fremtind/jokul/nav-link";
 import { getCookie } from "cookies-next";
-import { logger } from "@/logger";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import styles from "./component.module.scss";
@@ -186,10 +186,9 @@ export default async function Page({ params }: Props) {
                                                         relatedComponent.short_description ||
                                                         ""
                                                     }
-                                                    image={{
-                                                        light: relatedComponent.image,
-                                                        dark: relatedComponent.imageDark,
-                                                    }}
+                                                    image={
+                                                        relatedComponent.images
+                                                    }
                                                     link={`/komponenter/${relatedComponent.slug}`}
                                                     initialPreferences={
                                                         userPreferences
@@ -217,9 +216,7 @@ export default async function Page({ params }: Props) {
                                                         pattern.short_description ||
                                                         ""
                                                     }
-                                                    image={{
-                                                        light: pattern.image,
-                                                    }}
+                                                    image={pattern.images}
                                                     link={`/monster/${pattern.slug}`}
                                                     initialPreferences={
                                                         userPreferences

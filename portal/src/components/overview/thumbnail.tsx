@@ -2,6 +2,7 @@ import { getSanityImageUrl } from "@/sanity/lib/image";
 import type { SanityImageLike } from "@/sanity/lib/image";
 
 import styles from "./overview.module.scss";
+import { resolveImageUrls } from "./resolveImageUrls";
 
 // Bruk placeholderbilde midlertidig, mens vi finner ut av problemene
 // med å hente figma-bilder under bygging av applikasjonen.
@@ -20,16 +21,20 @@ export function OverviewThumbnail({
     darkImage,
     lightImage,
 }: OverviewThumbnailProps) {
-    const imageLightUrl = getSanityImageUrl(lightImage) || fallbackLight;
-    const imageDarkUrl = getSanityImageUrl(darkImage) || fallbackDark;
+    const lightImageUrl = getSanityImageUrl(lightImage);
+    const darkImageUrl = getSanityImageUrl(darkImage);
+    const imageUrls = resolveImageUrls(lightImageUrl, darkImageUrl, {
+        light: fallbackLight,
+        dark: fallbackDark,
+    });
 
     return (
         <picture className={styles.thumbnail}>
             <source
                 media="(prefers-color-scheme: dark)"
-                srcSet={imageDarkUrl}
+                srcSet={imageUrls.dark}
             />
-            <img src={imageLightUrl} alt="" />
+            <img src={imageUrls.light} alt="" />
         </picture>
     );
 }

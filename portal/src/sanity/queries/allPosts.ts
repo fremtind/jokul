@@ -1,4 +1,5 @@
 import { defineQuery } from "next-sanity";
+import { cardImagesProjection } from "./fragments";
 
 export const latestUpdatedArticlesQuery = defineQuery(
     `*[
@@ -22,8 +23,7 @@ export const latestUpdatedArticlesQuery = defineQuery(
         ),
         "name": coalesce(name, tema, version),
         short_description,
-        image,
-        imageDark,
+        ${cardImagesProjection},
         "slug": slug.current,
         "href": select(
             _type == "jokul_blog_post"     => "/blog/" + slug.current,
@@ -63,8 +63,7 @@ export const newsPageQuery = defineQuery(
             ),
             "name": coalesce(name, tema, version),
             short_description,
-            image,
-            imageDark,
+            ${cardImagesProjection},
             "slug": slug.current,
             "href": select(
                 _type == "jokul_blog_post"     => "/blog/" + slug.current,
