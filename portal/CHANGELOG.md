@@ -1,5 +1,17 @@
 # portal
 
+## 1.10.0
+
+### Minor Changes
+
+- b06d9ac: Legger til feedback block
+- bd9876a: Legg til tracking av ulike interaksjoner i portalen.
+
+### Patch Changes
+
+- Updated dependencies [70f488e]
+  - @fremtind/jokul@5.3.1
+
 ## 1.9.0
 
 ### Minor Changes
