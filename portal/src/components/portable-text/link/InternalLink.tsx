@@ -24,8 +24,7 @@ type InternalLinkArticle = {
     name: string | null;
     short_description: string | null;
     slug: string | null;
-    image: NonNullable<ComponentBySlugQueryResult>["image"] | null;
-    imageDark: NonNullable<ComponentBySlugQueryResult>["imageDark"] | null;
+    images: NonNullable<ComponentBySlugQueryResult>["images"];
 };
 
 type LinkProps = PortableTextMarkComponentProps<{
@@ -68,8 +67,7 @@ export const InternalLink = ({ value, children }: LinkProps) => {
 
     if (!value?.article) return null;
 
-    const { _type, image, imageDark, name, short_description, slug } =
-        value.article;
+    const { _type, images, name, short_description, slug } = value.article;
     const href = `${ARTICLE_TYPE_TO_PATH[_type]}/${slug}`;
 
     return (
@@ -114,8 +112,8 @@ export const InternalLink = ({ value, children }: LinkProps) => {
                         </p>
                     )}
                     <OverviewThumbnail
-                        darkImage={imageDark}
-                        lightImage={image}
+                        darkImage={images.dark}
+                        lightImage={images.light}
                     />
                 </Card>,
                 // Vi rendrer popoveren rett i body for å unngå å legge

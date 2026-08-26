@@ -1,11 +1,11 @@
 import { OverviewCardWithPreferences } from "@/components/overview/OverviewCardWithPreferences";
 import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridWithPreferences";
 import { OverviewHeader } from "@/components/overview/header";
+import { logger } from "@/logger";
 import { sanityFetch } from "@/sanity/lib/live";
 import { monstreQuery } from "@/sanity/queries/monster";
 import { parseUserPreferences } from "@/utils/user-preferences";
 import { getCookie } from "cookies-next";
-import { logger } from "@/logger";
 import { cookies } from "next/headers";
 import { MonsterFilter } from "./MonsterFilter";
 
@@ -71,7 +71,7 @@ export default async function MonstrePage({
                         key={monster.slug}
                         title={monster.name || ""}
                         description={monster.short_description || ""}
-                        image={{ light: monster.image }}
+                        image={monster.images}
                         link={`/monster/${monster.slug}`}
                         initialPreferences={userPreferences}
                     />

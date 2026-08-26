@@ -1,11 +1,11 @@
 import { defineQuery } from "next-sanity";
-import { commonBlockBody } from "./fragments";
+import { cardImagesProjection, commonBlockBody } from "./fragments";
 
 export const monstreQuery = defineQuery(`*[_type == "jokul_monster"]{
     name,
     "slug": slug.current,
     short_description,
-    image,
+    ${cardImagesProjection},
     related_components[]->{
         name,
         "slug": slug.current
@@ -16,12 +16,12 @@ export const monsterBySlugQuery = defineQuery(
     `*[_type == "jokul_monster" && slug.current == $slug][0]{
         ...,
         "slug": slug.current,
+        ${cardImagesProjection},
         related_components[]->{
             name,
             short_description,
             "slug": slug.current,
-            image,
-            imageDark
+            ${cardImagesProjection}
         },
         "related_patterns": *[
             _type == "jokul_monster"
@@ -31,7 +31,7 @@ export const monsterBySlugQuery = defineQuery(
             name,
             short_description,
             "slug": slug.current,
-            image
+            ${cardImagesProjection}
         } | order(name),
         article[]{
             ${commonBlockBody}
