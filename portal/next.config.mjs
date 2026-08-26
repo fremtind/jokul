@@ -1,5 +1,5 @@
-import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import createMDX from "@next/mdx";
 
 // portal/ -> workspace root (one level up)
@@ -42,6 +42,39 @@ const nextConfig = {
                 source: "/",
                 destination: "/komponenter",
                 permanent: false,
+            },
+            {
+                source: "/storybook",
+                destination: "https://fremtind.github.io/jokul/latest/",
+                permanent: true,
+            },
+            {
+                source: "/storybook/next",
+                destination: "https://fremtind.github.io/jokul/next/",
+                permanent: true,
+            },
+            {
+                source: "/storybook/:version(\\d+)",
+                destination:
+                    "https://fremtind.github.io/jokul/version-:version/",
+                permanent: true,
+            },
+            {
+                source: "/github",
+                destination: "https://github.com/fremtind/jokul",
+                permanent: true,
+            },
+            {
+                source: "/github/:version(\\d+)",
+                destination:
+                    "https://github.com/fremtind/jokul/tree/jokul-:version.x",
+                permanent: true,
+            },
+            {
+                source: "/figma",
+                destination:
+                    "https://www.figma.com/files/784861794507029203/folder/52944370",
+                permanent: true,
             },
         ];
     },
