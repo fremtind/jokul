@@ -3,12 +3,12 @@ import { ArticleHeader } from "@/components/article/header";
 import { OverviewCardWithPreferences } from "@/components/overview/OverviewCardWithPreferences";
 import { OverviewGridWithPreferences } from "@/components/overview/OverviewGridWithPreferences";
 import { PortableText } from "@/components/portable-text/PortableText";
+import { logger } from "@/logger";
 import { getSanityImageUrl } from "@/sanity/lib/image";
 import { sanityFetch } from "@/sanity/lib/live";
 import { monsterBySlugQuery } from "@/sanity/queries/monster";
 import { parseUserPreferences } from "@/utils/user-preferences";
 import { getCookie } from "cookies-next";
-import { logger } from "@/logger";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 
@@ -26,7 +26,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         tags: [`jokul_monster:${slug}`],
     });
 
-    const ogImage = getSanityImageUrl(monster?.image);
+    const ogImage = getSanityImageUrl(
+        monster?.images.light || monster?.images.dark,
+    );
 
     return {
         title: monster?.name || "Mønster",
@@ -79,10 +81,7 @@ export default async function MonsterPage({ params }: Props) {
                                 key={component.slug}
                                 title={component.name || ""}
                                 description={component.short_description || ""}
-                                image={{
-                                    light: component.image,
-                                    dark: component.imageDark,
-                                }}
+                                image={component.images}
                                 link={`/komponenter/${component.slug}`}
                                 initialPreferences={userPreferences}
                             />
@@ -102,7 +101,7 @@ export default async function MonsterPage({ params }: Props) {
                                 key={pattern.slug}
                                 title={pattern.name || ""}
                                 description={pattern.short_description || ""}
-                                image={{ light: pattern.image }}
+                                image={pattern.images}
                                 link={`/monster/${pattern.slug}`}
                                 initialPreferences={userPreferences}
                             />

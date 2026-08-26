@@ -15,8 +15,10 @@ type LinkCardValue = {
     title?: string;
     description?: string;
     url?: string;
-    image?: SanityImageLike;
-    imageDark?: SanityImageLike;
+    images?: {
+        light?: SanityImageLike;
+        dark?: SanityImageLike;
+    };
 };
 
 export const LinkCard: FC<PortableTextTypeComponentProps<LinkCardValue>> = ({
@@ -27,7 +29,9 @@ export const LinkCard: FC<PortableTextTypeComponentProps<LinkCardValue>> = ({
     const { title, description, url } = value;
 
     const isExternalLink = url.startsWith("http");
-    const imageSrc = value.image ? getSanityImageUrl(value.image) : undefined;
+    const imageSrc = getSanityImageUrl(
+        value.images?.light ?? value.images?.dark,
+    );
 
     return (
         <Card

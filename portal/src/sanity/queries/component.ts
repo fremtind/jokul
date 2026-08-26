@@ -1,13 +1,16 @@
 import { defineQuery } from "next-sanity";
-import { commonBlockBody, markDefsFragment } from "./fragments";
+import {
+    cardImagesProjection,
+    commonBlockBody,
+    markDefsFragment,
+} from "./fragments";
 
 export const componentsQuery = defineQuery(`*[_type == "jokul_component"]{
     name,
     short_description,
     "slug": slug.current,
     figma_image,
-    image,
-    imageDark,
+    ${cardImagesProjection},
     related_components,
     categories
 } | order(name)`);
@@ -16,6 +19,7 @@ export const componentBySlugQuery = defineQuery(
     `*[_type == "jokul_component" && slug.current == $slug][0]{
         ...,
         "slug": slug.current,
+        ${cardImagesProjection},
         "example_card": {
             ...example_card,
             "story": example_card.story->
@@ -44,8 +48,7 @@ export const componentBySlugQuery = defineQuery(
                 short_description,
                 "slug": slug.current,
                 figma_image,
-                image,
-                imageDark,
+                ${cardImagesProjection},
                 related_components,
                 categories
             }
@@ -54,7 +57,7 @@ export const componentBySlugQuery = defineQuery(
             name,
             "slug": slug.current,
             short_description,
-            image
+            ${cardImagesProjection}
         } | order(name)
     }`,
 );

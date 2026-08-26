@@ -1,3 +1,10 @@
+export const cardImagesProjection = /* groq */ `
+    "images": {
+        "light": coalesce(cardImages.light, image),
+        "dark": coalesce(cardImages.dark, imageDark)
+    }
+`;
+
 export const markDefsFragment = /* groq */ `
     markDefs[]{
         ...,
@@ -8,8 +15,7 @@ export const markDefsFragment = /* groq */ `
                 "name": coalesce(name, tema, version),
                 short_description,
                 "slug": slug.current,
-                image,
-                imageDark
+                ${cardImagesProjection}
             }
         },
         _type == "componentPageLink" => {
@@ -19,8 +25,7 @@ export const markDefsFragment = /* groq */ `
                 short_description,
                 "slug": slug.current,
                 figma_image,
-                image,
-                imageDark
+                ${cardImagesProjection}
             }
         }
     }
@@ -52,8 +57,10 @@ export const commonBlockBody = /* groq */ `
                 article->_type == "jokul_monster"       => "/monster/"       + article->slug.current
             )
         ),
-        "image": article->image,
-        "imageDark": article->imageDark
+        "images": {
+            "light": coalesce(article->cardImages.light, article->image),
+            "dark": coalesce(article->cardImages.dark, article->imageDark)
+        }
     },
     _type == "jokul_qa" => {
         ...,
