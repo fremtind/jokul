@@ -125,8 +125,5 @@
     },
     "stylelint": {
         "extends": "./packages/stylelint-config-jkl/index.mjs"
-    },
-    "eslintConfig": {
-        "extends": ["plugin:storybook/recommended"]
     }
 }
