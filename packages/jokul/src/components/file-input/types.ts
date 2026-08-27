@@ -1,41 +1,24 @@
-import React from "react";
-import type { FileProps } from "../file/types.js";
-import type { FieldGroupProps } from "../input-group/index.js";
+import type { InputHTMLAttributes } from "react";
+import type { InputGroupProps } from "../input-group/types.js";
 
-export interface UploadedFileValidation {
-    type: "TOO_LARGE" | "WRONG_TYPE";
-    message: string;
-}
+export type FileInputGroupProps = Omit<InputGroupProps, "children" | "render">;
 
-export interface UploadedFile {
-    file: File;
-    validation?: UploadedFileValidation;
-    state: FileProps["state"];
-    uploadProgress: number;
-}
-
-export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
-    className?: string;
-    id?: string;
+export interface FileInputProps
+    extends FileInputGroupProps,
+        Omit<
+            InputHTMLAttributes<HTMLInputElement>,
+            keyof FileInputGroupProps | "children" | "type" | "value"
+        > {
     /**
-     * En string som begrenser hvilke filtyper som kan velges.
+     * Bestemmer om komponenten skal vises som knapp eller dropzone.
      *
-     * Flere filtyper kan defineres som en kommaseparert liste.
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
+     * @default "button"
      */
-    accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
-    maxSizeBytes?: number;
+    variant?: "button" | "dropzone";
     /**
-     * @default true
+     * Tekst på knappen.
+     *
+     * @default "Velg fil"
      */
-    multiple?: boolean;
-    value: UploadedFile[];
-    variant?: "flexible" | "small";
-    onChange: (
-        e:
-            | React.ChangeEvent<HTMLInputElement>
-            | React.DragEvent<HTMLDivElement>,
-        files: UploadedFile[],
-    ) => void;
+    buttonText?: string;
 }

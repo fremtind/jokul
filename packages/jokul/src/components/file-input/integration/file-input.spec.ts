@@ -9,6 +9,7 @@ test.beforeEach(async ({ page }, workerInfo) => {
         package: "file-input",
         projectName: workerInfo.project.name,
     });
+
     await helper.init();
 });
 
@@ -21,21 +22,8 @@ test("renders correctly", async () => {
 
     await helper.snapshots({
         focusElement: {
-            target: "#file-input-example",
-            outline: "#file-input-example__add-btn",
-        },
-    });
-});
-
-test("renders correctly in small mode", async () => {
-    await helper.open();
-
-    await helper.checkProp("choice-prop-small");
-
-    await helper.snapshots({
-        focusElement: {
-            target: "#file-input-example",
-            outline: "#file-input-example__add-btn",
+            target: ".jkl-file-input__input",
+            outline: ".jkl-file-input__button",
         },
     });
 });

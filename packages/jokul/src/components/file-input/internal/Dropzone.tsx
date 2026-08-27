@@ -1,72 +1,28 @@
-import clsx from "clsx";
-import React, { forwardRef, useState } from "react";
-import type { WithChildren } from "../../../utilities/types.js";
-import type { UploadedFile } from "../types.js";
-import { useFileInputContext } from "./fileInputContext.js";
-import { validateFileInputFiles } from "./validateFileInputFiles.js";
+import React from "react";
+import { Button } from "../../button/Button.js";
+import { UploadIcon } from "../../icon/icons/UploadIcon.jsx";
 
-interface DropzoneProps extends WithChildren {}
+type DropzoneProps = {
+    buttonText: string;
+    "data-drag-over"?: boolean;
+    multiple: boolean;
+};
 
-export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(
-    (props, ref) => {
-        const { children, ...rest } = props;
-        const [onDragClassName, setOnDragClassName] = useState<string>("");
-
-        const context = useFileInputContext();
-        if (!context) {
-            return (
-                <p>
-                    Dropzone must be placed inside a FileInputContextProvider.
-                </p>
-            );
-        }
-        const { maxSizeBytes, accept, onChange } = context;
-
-        return (
-            <div
-                {...rest}
-                ref={ref}
-                className={clsx("jkl-file-input__dropzone", onDragClassName)}
-                onDragEnter={(e) => {
-                    setOnDragClassName("jkl-file-input__dropzone--enter");
-                    e.preventDefault();
-                }}
-                onDragOver={(e) => {
-                    /* Prevent browser from opening file in a new tab */
-                    setOnDragClassName("jkl-file-input__dropzone--enter");
-                    e.preventDefault();
-                }}
-                onDrop={(e) => {
-                    e.preventDefault();
-                    setOnDragClassName("");
-
-                    if (e.dataTransfer.files) {
-                        onChange(
-                            e,
-                            [...e.dataTransfer.files].map<UploadedFile>(
-                                (file) => ({
-                                    file,
-                                    state: undefined,
-                                    validation: validateFileInputFiles(
-                                        file,
-                                        accept,
-                                        maxSizeBytes,
-                                    ),
-                                    uploadProgress: 0,
-                                }),
-                            ),
-                        );
-                    }
-                }}
-                onDragLeave={(e) => {
-                    setOnDragClassName("");
-                    e.preventDefault();
-                }}
+export const Dropzone = ({ buttonText, multiple, ...rest }: DropzoneProps) => (
+    <div {...rest} className="jkl-file-input__dropzone" aria-hidden="true">
+        <div className="jkl-file-input__call-to-action">
+            <Button
+                as="div"
+                variant="secondary"
+                icon={<UploadIcon aria-hidden="true" />}
+                className="jkl-file-input__button"
             >
-                {children}
-            </div>
-        );
-    },
-);
+                {buttonText}
+            </Button>
 
-Dropzone.displayName = "Dropzone";
+            <span className="jkl-file-input__dropzone-text">
+                {multiple ? "eller slipp filer her" : "eller slipp fil her"}
+            </span>
+        </div>
+    </div>
+);
