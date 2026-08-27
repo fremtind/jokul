@@ -122,7 +122,7 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
                         ),
                         new Promise((resolve, reject) => {
                             postcss([autoprefixer(), cssnano(litePreset)])
-                                .process(content.css)
+                                .process(content.css, { from: sourcePath })
                                 .then((result) =>
                                     writeFile(
                                         `${outDirName}/${fileName.replace(
