@@ -72,9 +72,6 @@ importers:
       fs-extra:
         specifier: ^11.4.0
         version: 11.4.0
-      glob:
-        specifier: ^13.0.6
-        version: 13.0.6
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
@@ -145,9 +142,6 @@ importers:
       '@types/express':
         specifier: ^4.17.23
         version: 4.17.25
-      '@types/glob':
-        specifier: ^9.0.0
-        version: 9.0.0
       '@types/node':
         specifier: ^24.13.3
         version: 24.13.3
@@ -205,9 +199,6 @@ importers:
       stylelint:
         specifier: ^16.26.1
         version: 16.26.1(typescript@5.9.3)
-      tiny-glob:
-        specifier: ^0.2.9
-        version: 0.2.9
       typescript:
         specifier: ^5.9.2
         version: 5.9.3
@@ -310,9 +301,6 @@ importers:
       dayjs:
         specifier: ^1.11.21
         version: 1.11.21
-      glob:
-        specifier: ^13.0.6
-        version: 13.0.6
       ink:
         specifier: ^5.1.0
         version: 5.2.1(@types/react@18.3.1)(react@18.3.1)
@@ -4991,10 +4979,6 @@ packages:
   '@types/gensync@1.0.5':
     resolution: {integrity: sha512-MbsRCT7mTikHwKZ0X+LVUTLRrZZRLipTuXEO9qOYO+zmjMVk81axyClMROf6uoPD9MRVu46bx8zoR0Ad9q3NAg==}
 
-  '@types/glob@9.0.0':
-    resolution: {integrity: sha512-00UxlRaIUvYm4R4W9WYkN8/J+kV8fmOQ7okeH6YFtGWFMt3odD45tpG5yA5wnL7HE6lLgjaTW5n14ju2hl2NNA==}
-    deprecated: This is a stub types definition. glob provides its own type definitions, so you do not need this installed.
-
   '@types/graceful-fs@4.1.9':
     resolution: {integrity: sha512-olP3sd1qOEe5dXTSaFvQG+02VdRXcdytWLAZsAq1PecU8uqQAhkrnbli7DagjtXKW/Bl7YJbUsa8MPcuc8LHEQ==}
 
@@ -7867,9 +7851,6 @@ packages:
   globalthis@1.0.4:
     resolution: {integrity: sha512-DpLKbNU4WylpxJykQujfCcwYWiV/Jhm50Goo0wrVILAv5jOr9d+H+UR3PhSCD2rCCEIg0uc+G+muBTwD54JhDQ==}
     engines: {node: '>= 0.4'}
-
-  globalyzer@0.1.0:
-    resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
 
   globby@11.1.0:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
@@ -11707,9 +11688,6 @@ packages:
   timers-browserify@2.0.12:
     resolution: {integrity: sha512-9phl76Cqm6FhSX9Xe1ZUAMLtm1BLkKj2Qd5ApyWkXzsMRaA7dgr81kf4wJmQf/hAvg8EEyJxDo3du/0KlhPiKQ==}
     engines: {node: '>=0.6.0'}
-
-  tiny-glob@0.2.9:
-    resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
 
   tiny-inflate@1.0.3:
     resolution: {integrity: sha512-pkY1fj1cKHb2seWDy0B16HeWyczlJA9/WW3u3c4z/NiWDsO3DOU5D7nhTLE9CF0yXv/QZFY7sEJmj24dK+Rrqw==}
@@ -17908,10 +17886,6 @@ snapshots:
 
   '@types/gensync@1.0.5': {}
 
-  '@types/glob@9.0.0':
-    dependencies:
-      glob: 13.0.6
-
   '@types/graceful-fs@4.1.9':
     dependencies:
       '@types/node': 24.13.3
@@ -21478,8 +21452,6 @@ snapshots:
     dependencies:
       define-properties: 1.2.1
       gopd: 1.2.0
-
-  globalyzer@0.1.0: {}
 
   globby@11.1.0:
     dependencies:
@@ -26221,11 +26193,6 @@ snapshots:
   timers-browserify@2.0.12:
     dependencies:
       setimmediate: 1.0.5
-
-  tiny-glob@0.2.9:
-    dependencies:
-      globalyzer: 0.1.0
-      globrex: 0.1.2
 
   tiny-inflate@1.0.3: {}
 

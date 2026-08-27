@@ -1,10 +1,10 @@
+import { glob } from "node:fs/promises";
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import react from "@vitejs/plugin-react-swc";
 import { Box, Text, render, useApp, useInput } from "ink";
 import SelectInput from "ink-select-input";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import glob from "tiny-glob";
 import { createServer } from "vite";
 import { copyJklFonts, setupDev } from "../../utils/vite/index.mjs";
 
@@ -51,7 +51,7 @@ export default function App() {
     }, [log]);
 
     useEffect(() => {
-        glob("**/development/Example.tsx").then((result) => {
+        Array.fromAsync(glob("**/development/Example.tsx")).then((result) => {
             setComponents(
                 result.map((file) => {
                     return {
