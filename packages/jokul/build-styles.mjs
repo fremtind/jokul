@@ -1,11 +1,10 @@
 import { mkdirSync } from "node:fs";
-import { readFile, writeFile } from "node:fs/promises";
+import { glob, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import litePreset from "cssnano-preset-lite";
-import { glob } from "glob";
 import postcss from "postcss";
 import * as sass from "sass-embedded";
 
@@ -66,6 +65,7 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
                 path.dirname(sourceFilePath),
                 importPath,
             );
+
             // Sass forventer POSIX-separatorer i import paths, også på andre OS.
             let rewrittenImportPath = path
                 .relative(
@@ -85,16 +85,26 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
 
 (async function build() {
     try {
-        const sources = await glob("./src/**/[!_]*.scss", {
-            ignore: ["node_modules/**", "**/documentation/**", "**/stories/**"],
-        });
-        const unfilteredSources = await glob("./src/**/*.scss", {
-            ignore: ["node_modules/**", "**/documentation/**"],
-        });
+        const sources = await Array.fromAsync(
+            glob("./src/**/[!_]*.scss", {
+                exclude: [
+                    "node_modules/**",
+                    "**/documentation/**",
+                    "**/stories/**",
+                ],
+            }),
+        );
+
+        const unfilteredSources = await Array.fromAsync(
+            glob("./src/**/*.scss", {
+                exclude: ["node_modules/**", "**/documentation/**"],
+            }),
+        );
+
         await Promise.all(
             sources
                 .flatMap((source) => {
-                    const fileName = source.slice(source.lastIndexOf("/") + 1);
+                    const fileName = path.basename(source);
                     const sourcePath = fileURLToPath(
                         new URL(source, import.meta.url),
                     );
@@ -105,37 +115,30 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
                     const content = sass.compile(sourcePath);
                     mkdirSync(outDirName, { recursive: true });
 
+                    const cssFilePath = path.join(
+                        outDirName,
+                        fileName.replace(".scss", ".css"),
+                    );
+
+                    const minifiedCssFilePath = path.join(
+                        outDirName,
+                        fileName.replace(".scss", ".min.css"),
+                    );
+
                     return [
-                        writeFile(
-                            `${outDirName}/${fileName.replace(
-                                ".scss",
-                                ".css",
-                            )}`,
-                            content.css,
-                        ).then(() =>
-                            console.log(
-                                `Wrote ${outDirName}/${fileName.replace(
-                                    ".scss",
-                                    ".css",
-                                )}`,
-                            ),
+                        writeFile(cssFilePath, content.css).then(() =>
+                            console.log(`Wrote ${cssFilePath}`),
                         ),
                         new Promise((resolve, reject) => {
                             postcss([autoprefixer(), cssnano(litePreset)])
                                 .process(content.css)
                                 .then((result) =>
                                     writeFile(
-                                        `${outDirName}/${fileName.replace(
-                                            ".scss",
-                                            ".min.css",
-                                        )}`,
+                                        minifiedCssFilePath,
                                         result.css,
                                     ).then(() => {
                                         console.log(
-                                            `Wrote ${outDirName}/${fileName.replace(
-                                                ".scss",
-                                                ".min.css",
-                                            )}`,
+                                            `Wrote ${minifiedCssFilePath}`,
                                         );
                                         resolve();
                                     }),
@@ -145,10 +148,8 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
                     ];
                 })
                 .concat(
-                    unfilteredSources.map((source) => {
-                        const fileName = source.slice(
-                            source.lastIndexOf("/") + 1,
-                        );
+                    unfilteredSources.map(async (source) => {
+                        const fileName = path.basename(source);
                         const sourcePath = fileURLToPath(
                             new URL(source, import.meta.url),
                         );
@@ -158,17 +159,19 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
 
                         mkdirSync(outDirName, { recursive: true });
 
-                        return readFile(sourcePath, "utf-8").then((content) => {
-                            const outputFilePath = `${outDirName}/${fileName}`;
-                            const modifiedContent = rewriteImportsForBuiltFile(
-                                content,
-                                sourcePath,
-                            );
-
-                            writeFile(outputFilePath, modifiedContent, {
+                        const content = await readFile(sourcePath, "utf-8");
+                        const outputFilePath = path.join(
+                            outDirName,
+                            fileName);
+                        const modifiedContent = rewriteImportsForBuiltFile(
+                            content,
+                            sourcePath);
+                        return await writeFile(
+                            outputFilePath,
+                            modifiedContent,
+                            {
                                 encoding: "utf-8",
                             });
-                        });
                     }),
                 ),
         );
