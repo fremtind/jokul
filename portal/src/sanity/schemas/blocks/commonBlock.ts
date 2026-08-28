@@ -8,6 +8,7 @@ export const commonBlock = [
     { type: "jokul_code" },
     { type: "jokul_examples" },
     { type: "jokul_storybook" },
+    { type: "jokul_storyId" },
     { type: "jokul_table" },
     { type: "jokul_qa" },
     { type: "jokul_messageBox" },

@@ -33,17 +33,6 @@ export default defineConfig({
                         ),
                         S.divider(),
                         S.listItem()
-                            .title("Stories")
-                            .icon(BookIcon)
-                            .child(
-                                S.documentList()
-                                    .apiVersion("2026-03-06")
-                                    .title("Stories")
-                                    .schemaType("jokul_story")
-                                    .filter('_type == "jokul_story"'),
-                            ),
-                        S.divider(),
-                        S.listItem()
                             .title("Nettstedsinformasjon")
                             .icon(CogIcon)
                             .child(

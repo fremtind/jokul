@@ -916,6 +916,13 @@
     }
   },
   {
+    "name": "jokul_story2",
+    "type": "type",
+    "value": {
+      "type": "string"
+    }
+  },
+  {
     "name": "jokul_feedbackBlock",
     "type": "type",
     "value": {
@@ -3637,6 +3644,21 @@
                   "type": "inline",
                   "name": "jokul_feedbackBlock"
                 }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_story2"
+                }
               }
             ]
           }
@@ -4434,6 +4456,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_feedbackBlock"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_story2"
                 }
               },
               {
@@ -5514,6 +5551,21 @@
                 },
                 "rest": {
                   "type": "inline",
+                  "name": "jokul_story2"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
                   "name": "jokul_codeBlock"
                 }
               }
@@ -6184,6 +6236,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_feedbackBlock"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_story2"
                 }
               },
               {
@@ -6875,6 +6942,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_feedbackBlock"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_story2"
                 }
               }
             ]
@@ -7748,6 +7830,21 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_feedbackBlock"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_story2"
                 }
               }
             ]

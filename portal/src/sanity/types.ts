@@ -169,6 +169,8 @@ export type SanityImageHotspot = {
   width?: number;
 };
 
+export type Jokul_story2 = string;
+
 export type Jokul_feedbackBlock = {
   _type: "jokul_feedbackBlock";
   question?: string;
@@ -581,7 +583,9 @@ export type Jokul_blog_post = {
     _key: string;
   } & Jokul_doAndDont | {
     _key: string;
-  } & Jokul_feedbackBlock>;
+  } & Jokul_feedbackBlock | {
+    _key: string;
+  } & Jokul_story2>;
 };
 
 export type Jokul_component = {
@@ -696,6 +700,8 @@ export type Jokul_component = {
   } & Jokul_doAndDont | {
     _key: string;
   } & Jokul_feedbackBlock | {
+    _key: string;
+  } & Jokul_story2 | {
     _key: string;
   } & Jokul_componentProps | {
     _key: string;
@@ -859,6 +865,8 @@ export type Jokul_fundamentals = {
     _key: string;
   } & Jokul_feedbackBlock | {
     _key: string;
+  } & Jokul_story2 | {
+    _key: string;
   } & Jokul_codeBlock>;
 };
 
@@ -956,6 +964,8 @@ export type Jokul_release_notes = {
     _key: string;
   } & Jokul_feedbackBlock | {
     _key: string;
+  } & Jokul_story2 | {
+    _key: string;
   } & Jokul_codeBlock>;
   migrationUrl?: string;
   figmaUrl?: string;
@@ -1052,7 +1062,9 @@ export type Jokul_temaside = {
     _key: string;
   } & Jokul_doAndDont | {
     _key: string;
-  } & Jokul_feedbackBlock>;
+  } & Jokul_feedbackBlock | {
+    _key: string;
+  } & Jokul_story2>;
   related_components?: Array<{
     _ref: string;
     _type: "reference";
@@ -1179,7 +1191,9 @@ export type Jokul_monster = {
     _key: string;
   } & Jokul_doAndDont | {
     _key: string;
-  } & Jokul_feedbackBlock>;
+  } & Jokul_feedbackBlock | {
+    _key: string;
+  } & Jokul_story2>;
   related_components?: Array<{
     _ref: string;
     _type: "reference";
@@ -1332,7 +1346,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_internal_link | Seo | Jokul_siteData | SanityImageCrop | SanityImageHotspot | Jokul_feedbackBlock | Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_doAndDont | Jokul_linkCard | Jokul_examples | Jokul_code | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | ComponentPageLink | Jokul_blog_post | Jokul_component | Jokul_fundamentals | Jokul_release_notes | Jokul_temaside | Jokul_monster | Table | Code | Slug | Jokul_story | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Jokul_internal_link | Seo | Jokul_siteData | SanityImageCrop | SanityImageHotspot | Jokul_story2 | Jokul_feedbackBlock | Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_doAndDont | Jokul_linkCard | Jokul_examples | Jokul_code | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | ComponentPageLink | Jokul_blog_post | Jokul_component | Jokul_fundamentals | Jokul_release_notes | Jokul_temaside | Jokul_monster | Table | Code | Slug | Jokul_story | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/allPosts.ts
 // Variable: latestUpdatedArticlesQuery
@@ -2116,7 +2130,7 @@ export type BlogPostBySlugQueryResult = {
     sticky_header?: boolean;
     copy_button?: boolean;
     markDefs: null;
-  }> | null;
+  } | unknown> | null;
 } | null;
 
 // Source: ./src/sanity/queries/component.ts
@@ -2834,7 +2848,7 @@ export type ComponentBySlugQueryResult = {
     sticky_header?: boolean;
     copy_button?: boolean;
     markDefs: null;
-  }> | null;
+  } | unknown> | null;
   related_components: {
     components: Array<{
       name: string | null;
@@ -3525,7 +3539,7 @@ export type FundamentalsBySlugQueryResult = {
     sticky_header?: boolean;
     copy_button?: boolean;
     markDefs: null;
-  }> | null;
+  } | unknown> | null;
 } | null;
 
 // Source: ./src/sanity/queries/monster.ts
@@ -4096,7 +4110,7 @@ export type MonsterBySlugQueryResult = {
     sticky_header?: boolean;
     copy_button?: boolean;
     markDefs: null;
-  }> | null;
+  } | unknown> | null;
   related_components: Array<{
     name: string | null;
     short_description: string | null;
@@ -4690,7 +4704,7 @@ export type ReleaseNoteBySlugQueryResult = {
     sticky_header?: boolean;
     copy_button?: boolean;
     markDefs: null;
-  }> | null;
+  } | unknown> | null;
 } | null;
 
 // Source: ./src/sanity/queries/search.ts

@@ -8,6 +8,7 @@ export const story = defineType({
     title: "Story",
     type: "document",
     icon: BookIcon,
+    hidden: true,
     fields: [
         defineField({
             name: "name",

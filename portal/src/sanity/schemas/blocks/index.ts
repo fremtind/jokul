@@ -5,6 +5,7 @@ import { feedbackBlock } from "./feedbackBlock";
 import { linkCard } from "./linkCard";
 import { messageBox } from "./messageBox";
 import { questionsAndAnswers } from "./questionsAndAnswers";
+import { story } from "./story";
 import { table } from "./table";
 
 export const blocks = [
@@ -16,4 +17,5 @@ export const blocks = [
     messageBox,
     questionsAndAnswers,
     feedbackBlock,
+    story,
 ];

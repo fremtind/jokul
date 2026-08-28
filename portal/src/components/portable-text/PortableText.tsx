@@ -45,6 +45,9 @@ const jokulBlockTypes = {
     jokul_qa: QuestionsAndAnswers,
     jokul_messageBox: MessageBox,
     jokul_feedbackBlock: FeedbackBlock,
+    jokul_story2: () => {
+        return <div>hei</div>;
+    },
     image: function ImageRenderer({
         value,
     }: {
