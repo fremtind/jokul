@@ -7,6 +7,19 @@ export type SupportedVersion =
     | `version-${MaintainedVersion}`
     | "local";
 
+export function getStorybookBaseUrl(version: SupportedVersion = "latest") {
+    const configuredBaseUrl =
+        process.env.NEXT_PUBLIC_STORYBOOK_BASE_URL?.replace(/\/+$/, "");
+
+    if (configuredBaseUrl) {
+        return configuredBaseUrl;
+    }
+
+    return version === "local"
+        ? "http://localhost:6007"
+        : `https://fremtind.github.io/jokul/${version}`;
+}
+
 export function isSupportedVersion(
     maybeVersion: string,
 ): maybeVersion is SupportedVersion {

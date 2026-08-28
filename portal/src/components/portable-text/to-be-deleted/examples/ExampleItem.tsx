@@ -1,5 +1,6 @@
 import { StorybookFrame } from "@/components/storybook/StorybookFrame";
 import type { Jokul_story } from "@/sanity/types";
+import { getStorybookBaseUrl } from "@/storybook/versions";
 
 import { Card } from "@fremtind/jokul/card";
 import { Link } from "@fremtind/jokul/link";
@@ -10,9 +11,7 @@ type Props = {
 };
 
 export const ExampleItem = ({ example }: Props) => {
-    const STORYBOOK_URL =
-        process.env.NEXT_PUBLIC_STORYBOOK_BASE_URL ??
-        "https://fremtind.github.io/jokul/latest";
+    const storybookUrl = getStorybookBaseUrl();
     const { name, id, description, height, inert } = example;
 
     const backgroundColor = undefined;
@@ -38,7 +37,7 @@ export const ExampleItem = ({ example }: Props) => {
                 {id && (
                     <Link
                         as={NextLink}
-                        href={`${STORYBOOK_URL}/?path=/story/${id}`}
+                        href={`${storybookUrl}/?path=/story/${id}`}
                         className={"jkl-link"}
                         external={true}
                         target="_blank"
