@@ -1,5 +1,102 @@
 [
   {
+    "name": "jokul_storybookExample",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "jokul_storybookExample"
+          }
+        },
+        "embed": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "jokul_storybookEmbed"
+          },
+          "optional": true
+        },
+        "code": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "code"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "jokul_storybookEmbed",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "jokul_storybookEmbed"
+          }
+        },
+        "storyId": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "storyName": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "version": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "union",
+            "of": [
+              {
+                "type": "string",
+                "value": "latest"
+              },
+              {
+                "type": "string",
+                "value": "next"
+              },
+              {
+                "type": "string",
+                "value": "version-4"
+              }
+            ]
+          },
+          "optional": true
+        },
+        "height": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "number"
+          },
+          "optional": true
+        },
+        "interactive": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
     "name": "jokul_internal_link",
     "type": "type",
     "value": {
@@ -2397,6 +2494,60 @@
     }
   },
   {
+    "name": "jokul_code",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "jokul_code"
+          }
+        },
+        "title": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "code": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "code"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
+    "name": "jokul_storyId",
+    "type": "type",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "jokul_storyId"
+          }
+        },
+        "story": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        }
+      }
+    }
+  },
+  {
     "name": "jokul_examples",
     "type": "type",
     "value": {
@@ -2478,37 +2629,6 @@
                 "value": "list"
               }
             ]
-          },
-          "optional": true
-        }
-      }
-    }
-  },
-  {
-    "name": "jokul_code",
-    "type": "type",
-    "value": {
-      "type": "object",
-      "attributes": {
-        "_type": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string",
-            "value": "jokul_code"
-          }
-        },
-        "title": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "string"
-          },
-          "optional": true
-        },
-        "code": {
-          "type": "objectAttribute",
-          "value": {
-            "type": "inline",
-            "name": "code"
           },
           "optional": true
         }
@@ -3729,6 +3849,36 @@
                 },
                 "rest": {
                   "type": "inline",
+                  "name": "jokul_storybookExample"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storyId"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
                   "name": "jokul_table"
                 }
               },
@@ -3943,8 +4093,24 @@
                 "dereferencesTo": "jokul_story"
               },
               "optional": true
+            },
+            "storybook": {
+              "type": "objectAttribute",
+              "value": {
+                "type": "inline",
+                "name": "jokul_storybookEmbed"
+              },
+              "optional": true
             }
           }
+        },
+        "optional": true
+      },
+      "storybook": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "inline",
+          "name": "jokul_storybookEmbed"
         },
         "optional": true
       },
@@ -4513,6 +4679,36 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_storybook"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storybookExample"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storyId"
                 }
               },
               {
@@ -5609,6 +5805,36 @@
                 },
                 "rest": {
                   "type": "inline",
+                  "name": "jokul_storybookExample"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storyId"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
                   "name": "jokul_table"
                 }
               },
@@ -6279,6 +6505,36 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_storybook"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storybookExample"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storyId"
                 }
               },
               {
@@ -6970,6 +7226,36 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_storybook"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storybookExample"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storyId"
                 }
               },
               {
@@ -7851,6 +8137,36 @@
                 "rest": {
                   "type": "inline",
                   "name": "jokul_storybook"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storybookExample"
+                }
+              },
+              {
+                "type": "object",
+                "attributes": {
+                  "_key": {
+                    "type": "objectAttribute",
+                    "value": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "rest": {
+                  "type": "inline",
+                  "name": "jokul_storyId"
                 }
               },
               {
