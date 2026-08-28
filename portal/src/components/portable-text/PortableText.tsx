@@ -1,11 +1,12 @@
 "use client";
 
-import { ExampleList } from "@/components/portable-text/examples/ExampleList";
 import { FeedbackBlock } from "@/components/portable-text/feedback-block/FeedbackBlock";
 import { InternalLink } from "@/components/portable-text/link/InternalLink";
 import { NewCodeBlock } from "@/components/portable-text/new-code-block/CodeBlock";
 import { QuestionsAndAnswers } from "@/components/portable-text/q-and-a/QuestionsAndAnswers";
-import { Storybook } from "@/components/portable-text/storybook-story/Storybook";
+import { StorybookExample } from "@/components/portable-text/storybook-example/StorybookExample";
+import { ExampleList } from "@/components/portable-text/to-be-deleted/examples/ExampleList";
+import { Storybook } from "@/components/portable-text/to-be-deleted/storybook-story/Storybook";
 import { getSanityImageUrlBuilder } from "@/sanity/lib/image";
 import type { PortableTextReactComponents } from "@portabletext/react";
 import { PortableText as PortableTextReact } from "@portabletext/react";
@@ -36,6 +37,7 @@ interface Props {
 const jokulBlockTypes = {
     jokul_examples: ExampleList,
     jokul_storybook: Storybook,
+    jokul_storybookExample: StorybookExample,
     jokul_componentKortFortalt: KortFortalt,
     jokul_code: NewCodeBlock,
     jokul_codeBlock: CodeBlock,
