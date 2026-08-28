@@ -6,6 +6,7 @@ export const examples = defineType({
     title: "Storybook-eksempler",
     type: "object",
     icon: BookIcon,
+    hidden: true,
     fields: [
         defineField({
             name: "title",

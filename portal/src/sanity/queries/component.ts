@@ -21,8 +21,8 @@ export const componentBySlugQuery = defineQuery(
         "slug": slug.current,
         ${cardImagesProjection},
         "example_card": {
-            ...example_card,
-            "story": example_card.story->
+            "story": example_card.story->,
+            "storybook": example_card.storybook
         },
         documentation_article[]{
             ${commonBlockBody},
