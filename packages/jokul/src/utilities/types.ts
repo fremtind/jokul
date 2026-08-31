@@ -7,7 +7,7 @@ export interface DataTestAutoId {
     "data-testautoid"?: string;
 }
 
-export const BRANDS = [] as const;
+export const BRANDS = ["dnb"] as const;
 export type Brand = (typeof BRANDS)[number];
 export type Size = "small" | "medium" | "large";
 export type ColorScheme = "light" | "dark";

@@ -112,6 +112,10 @@ export function createBrandConfig(brand: Brand): Config {
                             webfontsVarName: `webfonts-dir-${brand}`,
                         },
                     },
+                    {
+                        destination: "_index.scss",
+                        format: "scss/brand-index",
+                    },
                 ],
             },
         },

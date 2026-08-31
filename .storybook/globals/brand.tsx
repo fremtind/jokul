@@ -1,19 +1,21 @@
 import type { ReactRenderer } from "@storybook/nextjs";
 import { useEffect } from "react";
 import type { DecoratorFunction, GlobalTypes } from "storybook/internal/types";
-import { BRANDS } from "../../packages/jokul/src/utilities/types.js";
+import {
+    BRANDS,
+    type Brand,
+} from "../../packages/jokul/src/utilities/types.js";
 
-const brandTitles: Record<string, string> = {
+const brandTitles: Record<Brand, string> = {
     dnb: "DNB",
-    eika: "Eika",
-    fremtind: "Fremtind",
-    sparebank1: "SpareBank 1",
 };
 
-export const brands = (BRANDS as readonly string[]).map((brand) => ({
+export const brands = BRANDS.map((brand) => ({
     title: brandTitles[brand] ?? brand,
     value: brand,
 }));
+
+const resetItem = { title: "Jøkul (ingen merkevare)", value: "" };
 
 export const hasBrands = brands.length > 0;
 
@@ -34,9 +36,9 @@ const clearBrand = (element: HTMLElement) => {
 
 export const brandGlobal: GlobalTypes[string] = {
     toolbar: {
-        title: "Distributør",
+        title: "Merkevare",
         icon: "transfer",
-        items: brands,
+        items: [resetItem, ...brands],
         dynamicTitle: true,
     },
 };
