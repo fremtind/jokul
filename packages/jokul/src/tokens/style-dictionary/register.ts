@@ -7,6 +7,7 @@ import cssColorScheme from "./formats/css-color-scheme.js";
 import cssSizeFormat from "./formats/css-size.js";
 import cssTailwind4Format from "./formats/css-tailwind4.js";
 import cssThemeVariablesFormat from "./formats/css-theme-variables.js";
+import scssBrandIndexFormat from "./formats/scss-brand-index.js";
 
 import {
     isBrandFontValue,
@@ -24,6 +25,7 @@ StyleDictionary.registerFormat(cssColorSchemeBrand);
 StyleDictionary.registerFormat(cssBrandFontsFormat);
 StyleDictionary.registerFormat(cssSizeFormat);
 StyleDictionary.registerFormat(cssTailwind4Format);
+StyleDictionary.registerFormat(scssBrandIndexFormat);
 
 // Transforms
 
