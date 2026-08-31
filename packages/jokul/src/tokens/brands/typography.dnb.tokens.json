@@ -1,0 +1,57 @@
+{
+    "font": {
+        "face": {
+            "regular": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "DNB Sans",
+                    "weight": 400,
+                    "style": "normal",
+                    "fileName": "DNB-Regular.woff2"
+                }
+            },
+            "bold": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "DNB Sans",
+                    "weight": 500,
+                    "style": "normal",
+                    "fileName": "DNB-Medium.woff2"
+                }
+            },
+            "mono": {
+                "type": "brandFontFace",
+                "value": {
+                    "family": "DNB Mono",
+                    "weight": 400,
+                    "style": "normal",
+                    "fileName": "DNBMono-Regular.woff2"
+                }
+            }
+        },
+        "family": {
+            "regular": {
+                "type": "fontFamily",
+                "value": "'DNB Sans', sans-serif"
+            },
+            "display": {
+                "type": "fontFamily",
+                "value": "'DNB Sans', sans-serif"
+            },
+            "mono": {
+                "type": "fontFamily",
+                "value": "'DNB Mono', 'Adjusted Courier New Fallback', -apple-system, blinkmacsystemfont, monospace"
+            }
+        },
+        "weight": {
+            "normal": {
+                "type": "fontWeight",
+                "value": "400"
+            },
+            "bold": {
+                "type": "fontWeight",
+                "value": "500"
+            }
+        }
+    }
+}

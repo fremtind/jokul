@@ -1,3 +1,4 @@
+import { writeFile } from "node:fs/promises";
 import StyleDictionary from "style-dictionary";
 import { BRANDS } from "../../utilities/types.js";
 import { createBrandConfig, jokulTokens } from "./config.js";
@@ -15,6 +16,13 @@ async function build() {
         const brandDictionary = new StyleDictionary(createBrandConfig(brand));
         await brandDictionary.buildPlatform("css");
     }
+
+    console.log("⚙️ Writing index file for brands");
+    const forwards = BRANDS.map((brand) => `@forward "${brand}";`).join("\n");
+    await writeFile(
+        "./src/styles/theme/brands/_index.scss",
+        `// Do not edit directly, this file was auto-generated.\n${forwards}\n`,
+    );
 
     console.log("\nBuild complete.");
 }
