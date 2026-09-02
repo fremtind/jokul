@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { type CSSProperties } from "react";
+import { assetUrl } from "../../../../storybook-public/assetUrl.js";
+import * as poolsideImage from "../../../../storybook-public/images/poolside.jpg";
 import { Button } from "../../src/components/button/index.js";
 import { Card, CardImage } from "../../src/components/card/index.js";
 import { Countdown } from "../../src/components/countdown/index.js";
@@ -84,7 +86,7 @@ function InsuranceSummaryCard() {
         <Card padding="l" outlined as="section">
             <Flex direction="column" gap="24">
                 <CardImage
-                    src="/images/poolside.jpg"
+                    src={assetUrl(poolsideImage)}
                     alt=""
                     style={
                         {
