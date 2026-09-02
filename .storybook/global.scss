@@ -1,2 +1,6 @@
+@use "../packages/jokul/src/styles/theme/fonts" with (
+    // La Vite håndtere innlasting og kopiering av fontfiler
+    $webfonts-dir: "../packages/jokul/src/fonts"
+);
 @use "../packages/jokul/src/styles/base";
 @use "../packages/jokul/src/styles/components";

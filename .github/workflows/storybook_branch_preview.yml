@@ -62,8 +62,6 @@ jobs:
 
             -   name: Build packages and site
                 run: pnpm build && pnpm build:storybook
-                env:
-                    STORYBOOK_FONTS_BASE_PATH: /jokul/${{ steps.release-tag.outputs.tag || 'latest' }}
 
             -   name: Deploy preview
                 env:
