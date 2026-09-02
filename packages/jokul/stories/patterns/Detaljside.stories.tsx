@@ -1,5 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { type CSSProperties } from "react";
+import { assetUrl } from "../../../../storybook-public/assetUrl.js";
+import * as poolsideImage from "../../../../storybook-public/images/poolside.jpg";
 import { Button } from "../../src/components/button/Button.js";
 import { Card, CardImage } from "../../src/components/card/index.js";
 import {
@@ -32,7 +34,7 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const poolside = "/images/poolside.jpg";
+const poolside = assetUrl(poolsideImage);
 
 const Header = () => (
     <Flex
