@@ -112,8 +112,9 @@ eller i ts/js
 import "@fremtind/jokul/styles/components.scss";
 ```
 
-Vær obs på at du da kan få med en del mer stilark enn du trenger så vurder dette opp mot
-størrelsen på bundelen du sender ut. Bruker du SSR kan dette ende med veldig mye overhead.
+> [!CAUTION]
+> Vær obs på at du på denne måten kan få med en del mer stilark enn du trenger, så vurder dette opp mot
+> størrelsen på bundelen du sender ut. Bruker du SSR kan dette ende med veldig mye overhead.
 
 ## Fonter
 
@@ -132,6 +133,11 @@ Dette gjør du med
     $webfonts-dir: "relative/path/to/node_modules/@fremtind/jokul/src/fonts"
 );
 ```
+
+> [!IMPORTANT]
+> Merk at `@use ... with` må komme **før** du drar inn `styles/base` eller andre
+> stilark som laster fontene, ellers rekker Sass å laste modulen med standard-
+> verdien først.
 
 ### CSS
 

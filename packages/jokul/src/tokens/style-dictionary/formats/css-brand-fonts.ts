@@ -9,7 +9,8 @@ import { PREFIX } from "../config.js";
 
 type BrandFontsOptions = {
     selector?: string;
-    webfontsDir?: string;
+    baseFontsModule?: string;
+    webfontsSubdir?: string;
     webfontsVarName?: string;
 };
 
@@ -49,12 +50,18 @@ const cssBrandFontsFormat: Format = {
         options?: BrandFontsOptions;
     }) => {
         const selector = options?.selector;
-        const webfontsDir = options?.webfontsDir;
+        const baseFontsModule = options?.baseFontsModule;
+        const webfontsSubdir = options?.webfontsSubdir;
         const webfontsVarName = options?.webfontsVarName;
 
-        if (!selector || !webfontsDir || !webfontsVarName) {
+        if (
+            !selector ||
+            !baseFontsModule ||
+            !webfontsSubdir ||
+            !webfontsVarName
+        ) {
             throw new Error(
-                'The "css/brand-fonts" format requires selector, webfontsDir and webfontsVarName options.',
+                'The "css/brand-fonts" format requires selector, baseFontsModule, webfontsSubdir and webfontsVarName options.',
             );
         }
 
@@ -84,7 +91,11 @@ const cssBrandFontsFormat: Format = {
             .join("\n");
 
         return `${await fileHeader({ file })}
-$${webfontsVarName}: "${webfontsDir}" !default;
+@use "${baseFontsModule}" as jokul-fonts;
+
+// Arver $webfonts-dir slik at konsumenter som flytter fontmappa bare trenger å
+// konfigurere den ene variabelen. Kan fortsatt overstyres alene ved behov.
+$${webfontsVarName}: "#{jokul-fonts.$webfonts-dir}/${webfontsSubdir}" !default;
 
 @layer jokul.theme {
 ${faceDeclarations}
