@@ -106,7 +106,9 @@ export function createBrandConfig(brand: Brand): Config {
                         format: "css/brand-fonts",
                         options: {
                             selector: `[data-brand="${brand}"]`,
-                            webfontsDir: `/fonts/brands/${brand}`,
+                            // Relativt fra buildPath ovenfor til src/styles/theme/_fonts.scss
+                            baseFontsModule: "../../fonts",
+                            webfontsSubdir: `brands/${brand}`,
                             webfontsVarName: `webfonts-dir-${brand}`,
                         },
                     },
