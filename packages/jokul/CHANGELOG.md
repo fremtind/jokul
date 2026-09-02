@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.0.0-next.3
+
+### Minor Changes
+
+- 51aa54a: Legger til brand-farger for DNB til bruk med theming
+
+  Sett `data-brand="dnb"` på toppnivå i applikasjonen din (f.eks. `html`-elementet) for å velge temaet.
+
+### Patch Changes
+
+- 495a6a0: Oppdaterer Figma Code Connect-tilknytning for alle komponentene til å peke på riktig bibliotek i Figma, og oppdaterer endrede properties der det var nødvendig.
+- 1defd0b: Gjør innlasting av distributørtilpassede fonter mer robust ved å arve samme
+  variabel for plassering av fontfiler i prosjektet.
+- a4d5c7e: Oppdaterer Figma Code Connect til nyeste versjon, blant annet med støtte for slots og nøstede komponenter. Klikk på en Jøkul-komponent i Dev Mode i Figma for å se React-koden du må skrive for å få samme resultat!
+
 ## 6.0.0-next.2
 
 ### Patch Changes

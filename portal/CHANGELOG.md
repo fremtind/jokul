@@ -1,5 +1,20 @@
 # portal
 
+## 1.9.0-next.3
+
+### Minor Changes
+
+- 016aeb7: Sett opp redirects til Storybook, Figma og GitHub. Storybook og GitHub lenkene har også mulighet for å sende brukerne til en relevant versjon av Jøkul dersom de er på en eldre versjon. Figma lenken vil gå til bibliotek-mappa fordi det er litt annerledes distribusjonsmetode der.
+- 09f6c7d: Legger til egne kortbilder for lys og mørk modus i portalen.
+
+### Patch Changes
+
+- Updated dependencies [495a6a0]
+- Updated dependencies [51aa54a]
+- Updated dependencies [1defd0b]
+- Updated dependencies [a4d5c7e]
+  - @fremtind/jokul@6.0.0-next.3
+
 ## 1.9.0-next.2
 
 ### Minor Changes
