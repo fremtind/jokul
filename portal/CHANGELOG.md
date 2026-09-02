@@ -1,5 +1,22 @@
 # portal
 
+## 1.11.0
+
+### Minor Changes
+
+- 770d4c4: Legger til feedback block
+- 4378f55: Legg til tracking av ulike interaksjoner i portalen.
+- 406efc1: Sett opp redirects til Storybook, Figma og GitHub. Storybook og GitHub lenkene har også mulighet for å sende brukerne til en relevant versjon av Jøkul dersom de er på en eldre versjon. Figma lenken vil gå til bibliotek-mappa fordi det er litt annerledes distribusjonsmetode der.
+- 1eef09a: Legger til egne kortbilder for lys og mørk modus i portalen.
+
+### Patch Changes
+
+- Updated dependencies [e11f9e1]
+- Updated dependencies [af52ad7]
+- Updated dependencies [9821f6e]
+- Updated dependencies [d977c8f]
+  - @fremtind/jokul@5.4.0
+
 ## 1.10.0
 
 ### Minor Changes
