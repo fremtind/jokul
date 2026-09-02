@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
+import dog1200 from "../../../../../../storybook-public/images/dog-1200.jpg";
 import { CardImage } from "../../card/CardImage.js";
 import { Flex } from "../../flex/index.js";
 import { CheckIcon, CopyIcon } from "../../icon/index.js";
@@ -9,8 +10,6 @@ import { Card } from "../Card.js";
 import { CARD_PADDINGS } from "../types.js";
 
 import "../styles/_index.scss";
-
-const dog1200 = "/images/dog-1200.jpg";
 
 const meta = {
     title: "Komponenter/Card",

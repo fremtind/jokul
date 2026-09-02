@@ -272,8 +272,6 @@ jobs:
 
             -   name: Build packages and site
                 run: pnpm build && pnpm build:storybook
-                env:
-                    STORYBOOK_FONTS_BASE_PATH: /jokul/${{ env.PREVIEW_PATH }}
 
             -   name: Deploy preview
                 env:

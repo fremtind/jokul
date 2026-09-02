@@ -1,19 +1,11 @@
 import type { StorybookConfig } from "@storybook/react-vite";
 import react from "@vitejs/plugin-react";
 import { mergeConfig } from "vite";
-const fontsBasePath = process.env.STORYBOOK_FONTS_BASE_PATH;
 
 const config: StorybookConfig = {
     stories: [
         "../packages/jokul/**/*.stories.@(ts|tsx|md|mdx)",
         "./docs/*.mdx",
-    ],
-    staticDirs: [
-        "../storybook-public",
-        {
-            from: "../packages/jokul/src/fonts",
-            to: "/fonts",
-        },
     ],
     addons: ["@storybook/addon-docs"],
     framework: {
@@ -27,13 +19,6 @@ const config: StorybookConfig = {
                 preprocessorOptions: {
                     scss: {
                         api: "modern",
-                        additionalData: (source: string, filename: string) =>
-                            fontsBasePath &&
-                            filename
-                                .replace(/\\/g, "/")
-                                .endsWith("/.storybook/global.scss")
-                                ? `@use "../packages/jokul/src/styles/theme/fonts" with ($webfonts-dir: "${fontsBasePath}/fonts");\n${source}`
-                                : source,
                     },
                 },
             },

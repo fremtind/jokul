@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
+import dog400 from "../../../../../../storybook-public/images/dog-400.jpg";
+import dog800 from "../../../../../../storybook-public/images/dog-800.jpg";
+import dog1200 from "../../../../../../storybook-public/images/dog-1200.jpg";
+import dog1920 from "../../../../../../storybook-public/images/dog-1920.jpg";
+import thumbnail from "../../../../../../storybook-public/images/thumbnail.jpg";
 import { Image } from "../Image.js";
 import type { ImageProps } from "../types.js";
 import "../styles/_index.scss";
 import "./styles.scss";
-
-const dog400 = "/images/dog-400.jpg";
-const dog800 = "/images/dog-800.jpg";
-const dog1200 = "/images/dog-1200.jpg";
-const dog1920 = "/images/dog-1920.jpg";
-const thumbnail = "/images/thumbnail.jpg";
 
 export default {
     title: "Komponenter/Image",
