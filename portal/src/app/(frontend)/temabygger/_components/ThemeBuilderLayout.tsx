@@ -28,9 +28,15 @@ const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
                 Gjør forsikring til en naturlig del av kundereisen
             </Text>
         </Flex>
-        <Flex gap="32" layout={{ small: "1", large: "4.8" }} wrap="wrap">
+        <div
+            style={{
+                display: "grid",
+                gridTemplateColumns: "400px 1fr",
+                gap: "var(--jkl-spacing-40)",
+            }}
+        >
             {children}
-        </Flex>
+        </div>
     </Flex>
 );
 

@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Kontrast: Story = {
     render: () => (
-        <Flex alignItems="center">
+        <Flex alignItems="center" gap="m">
             <Button variant="primary">Knapp</Button>
             <Checkbox name="kjekkboks" value="kjekkboks" defaultChecked>
                 Kjekkboks

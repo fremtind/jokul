@@ -119,7 +119,7 @@ export const Hjem: Story = {
                 }}
             >
                 <Header />
-                <Flex gap="none" fill>
+                <Flex gap="none">
                     <Sidebar
                         name={args.forretningsnavn}
                         number={args.organisasjonsnummer}
@@ -286,7 +286,7 @@ export const Forsikringsoversikt: Story = {
                 }}
             >
                 <Header />
-                <Flex gap="none" fill>
+                <Flex gap="none">
                     <Sidebar
                         name={args.forretningsnavn}
                         number={args.organisasjonsnummer}

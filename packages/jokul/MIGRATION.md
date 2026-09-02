@@ -2,6 +2,7 @@
 
 ## Innhold
 
+- [Migrering til Jøkul 6](#jøkul-60)
 - [Migrering til Jøkul 5](#jøkul-50)
 - [Migrering til Jøkul 4](#jøkul-40)
 - [Oppgradering av Jøkul til versjon 1.x.x](#oppgradering-av-jøkul-til-versjon-1xx)
@@ -103,6 +104,119 @@ Feilkodene `WRONG_FORMAT`, `OUTSIDE_LOWER_BOUND` og `OUTSIDE_UPPER_BOUND` finnes
 | Kompakt inntasting (`11112022`) og auto-punktum | Native inntasting i nettleseren |
 | `formatInput(date)` | `toValidInputValue(date)` |
 
+### `Flex` er forenklet til en ren flex-container
+
+`Flex` eksponerer nå flexbox-egenskapene direkte, i stedet for å generere et eget klassesystem med kolonneoppsett og breakpoints. Stilarket er dermed redusert fra rundt 460 genererte regler til under 20. Ingen av endringene fanges av codemoden fordi funksjonene som har meningsfulle endringer ble så lite brukt.
+
+#### `layout` og `fill` er fjernet
+
+Kolonnesystemet med 12 kolonner, uniforme oppsett (`"3"`) og asymmetriske oppsett (`"4.8"`) er tatt ut. `Flex` styrer flexbox-egenskaper, ikke bredden på barna. Bruk CSS Grid, som løser dette bedre enn `flex-basis`-utregningen gjorde:
+
+```tsx
+// Før
+<Flex layout={{ small: "1", large: "3" }} gap="m">
+
+// Etter
+<div className="grid">
+```
+
+```scss
+.grid {
+    display: grid;
+    gap: var(--jkl-spacing-m);
+    grid-template-columns: 1fr;
+
+    @include jkl.from-large-device {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+```
+
+`fill` erstattes med `flex: 1` på elementet som skal fylle resten av plassen.
+
+#### `gap` er forenklet til én streng
+
+`gap` tar én verdi. Objektsyntaksen med breakpoints er fjernet sammen med resten av breakpoint-genereringen. Enkeltverdier og to-verdi-syntaksen er uendret.
+
+```tsx
+// Før
+<Flex gap={{ small: "s", large: "xl" }}>
+
+// Etter
+<Flex className="rad">
+```
+
+```scss
+.rad {
+    gap: var(--jkl-spacing-s);
+
+    @include jkl.from-large-device {
+        gap: var(--jkl-spacing-xl);
+    }
+}
+```
+
+#### Ingen standardverdier for `gap` og `wrap`
+
+`Flex` la tidligere på `gap="m"` og `flex-wrap: nowrap` uten at du ba om det. Nå gjelder CSS-ens egne initialverdier: ingen avstand og ingen linjebryting. **Dette endrer utseendet på eksisterende kode uten at du får noen feilmelding.**
+
+```tsx
+// Før — ga avstand og linjebryting automatisk
+<Flex>
+
+// Etter — sett verdiene eksplisitt
+<Flex gap="m" wrap>
+```
+
+Samtidig er to feil rettet, som også kan endre utseendet:
+
+| Verdi | Før | Etter |
+|---|---|---|
+| `wrap={false}` | Ingen effekt, innholdet brøt likevel | `nowrap` |
+| `wrap="reverse"` | Ingen effekt | `wrap-reverse` |
+
+#### De genererte hjelpeklassene finnes ikke lenger
+
+`Flex` rendrer nå kun klassen `jkl-flex`. Klassenavnene var globale og uprefiksede, så det er verdt å søke etter dem i egne stilark selv om du ikke har brukt dem bevisst.
+
+| Fjernet klasse | Erstatning |
+|---|---|
+| `align-items-*`, `align-content-*` | `alignItems` / `alignContent` |
+| `justify-content-*` | `justifyContent` |
+| `flex-direction-*`, `flex-wrap-*` | `direction` / `wrap` |
+| `screen-<breakpoint>-row-gap-*`, `screen-<breakpoint>-col-gap-*` | `gap`, eller eget stilark |
+| `screen-<breakpoint>-<layout>` | CSS Grid, se over |
+| `display-inline-flex` | Eget stilark |
+
+#### Stilene settes inline
+
+Verdiene settes som custom properties i `style`-attributtet:
+
+```html
+<div class="jkl-flex" style="--gap: var(--jkl-spacing-m); --flex-direction: column"></div>
+```
+
+Har du en streng `Content-Security-Policy`, må `style-src` tillate `unsafe-inline`, eller du må sende nonce/hash for inline-stiler. Overstyring gjøres ved å sette custom propertyene selv:
+
+```scss
+.min-flex {
+    --gap: var(--jkl-spacing-xl);
+}
+```
+
+#### Spacing-verdier uten tokens er fjernet
+
+`20`, `28`, `48`, `56`, `72` og `80` var gyldige i typen, men hadde aldri noen tilsvarende `--jkl-spacing-*`-token og ga derfor aldri noen avstand. Nå får du en typefeil i stedet for stille feil oppførsel. Rund av til nærmeste steg i skalaen:
+
+```tsx
+// Før — kompilerte, men ga ingen avstand
+<Flex gap="20">
+
+// Etter
+<Flex gap="16">
+```
+
+Typen avledes nå direkte fra designtokenene, så den kan ikke lenger komme i utakt med skalaen.
 
 ## Jøkul 5.0
 
