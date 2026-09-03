@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import dog400 from "../../../../../../storybook-public/images/dog-400.jpg";
-import dog800 from "../../../../../../storybook-public/images/dog-800.jpg";
-import dog1200 from "../../../../../../storybook-public/images/dog-1200.jpg";
-import dog1920 from "../../../../../../storybook-public/images/dog-1920.jpg";
-import thumbnail from "../../../../../../storybook-public/images/thumbnail.jpg";
 import { Image } from "../Image.js";
 import type { ImageProps } from "../types.js";
+import dog400 from "./assets/dog-400.jpg";
+import dog800 from "./assets/dog-800.jpg";
+import dog1200 from "./assets/dog-1200.jpg";
+import dog1920 from "./assets/dog-1920.jpg";
+import thumbnail from "./assets/thumbnail.jpg";
 import "../styles/_index.scss";
 import "./styles.scss";
 

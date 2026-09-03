@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { useEffect, useState } from "react";
 import { fn } from "storybook/test";
-import * as book from "../../../../../../storybook-public/data/metamorphosis.pdf";
-import * as url from "../../../../../../storybook-public/images/cow.jpg";
+import * as url from "../../../../stories/assets/cow.jpg";
 import { Button } from "../../button/index.js";
 import { Flex } from "../../flex/index.js";
 import { Text } from "../../typography/index.js";
 import { File } from "../File.js";
+import * as book from "./assets/metamorphosis.pdf";
 
 const meta = {
     title: "Komponenter/File",

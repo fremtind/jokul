@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import { faktura } from "../../../../../../storybook-public/data/table-data.js";
 import { Link } from "../../link/index.js";
 import { ExpandableTableRow } from "../ExpandableTableRow.js";
 import { ExpandableTableRowController } from "../ExpandableTableRowController.js";
 import { TableCell } from "../TableCell.js";
 import { columns } from "../development/paginated-table-data.js";
+import { faktura } from "./assets/table-data.js";
 
 import "../styles/_index.scss";
 

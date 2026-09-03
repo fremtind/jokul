@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React from "react";
-import { countries } from "../../../../../../storybook-public/data/countryList.js";
+import { landkoder } from "../../../../stories/assets/landkoder.js";
 import { PopupTip } from "../../tooltip/index.js";
 import { Autosuggest as AutosuggestComponent } from "../Autosuggest.js";
 import "../styles/_index.scss";
@@ -10,8 +9,8 @@ const meta = {
     component: AutosuggestComponent,
     args: {
         label: "Velg land",
-        allItems: countries.map(
-            (country) => `${country.name} (${country.code})`,
+        allItems: landkoder.map(
+            (country) => `${country.navn} (${country.kode})`,
         ),
         value: "",
         placeholder: "Velg land",
@@ -24,9 +23,9 @@ const meta = {
         showDropdownControllerButton: false,
         noHits: {
             text: "Fant ikke landet du lette etter. Sjekk stavingen.",
-            items: countries
-                .filter((country) => country.name === "Norway")
-                .map((country) => country.name),
+            items: landkoder
+                .filter((country) => country.navn === "Norge")
+                .map((country) => country.navn),
         },
     },
 } satisfies Meta<typeof AutosuggestComponent>;
