@@ -20,6 +20,7 @@ export type ClickEventProps = {
         | "header link"
         | "footer link"
         | "component link"
+        | "toc link"
         | "button"
         | "copy button"
         | "q&a";
