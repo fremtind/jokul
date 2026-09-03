@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { type CSSProperties } from "react";
-import { assetUrl } from "../../../../storybook-public/assetUrl.js";
-import * as poolsideImage from "../../../../storybook-public/images/poolside.jpg";
 import { Button } from "../../src/components/button/Button.js";
 import { Card, CardImage } from "../../src/components/card/index.js";
 import {
@@ -13,6 +11,8 @@ import { CopyIcon, HamburgerIcon } from "../../src/components/icon/index.js";
 import { LinkList } from "../../src/components/link-list/index.js";
 import { NavLink } from "../../src/components/nav-link/NavLink.js";
 import { PopupTip } from "../../src/components/tooltip/PopupTip.js";
+import { assetUrl } from "../assets/assetUrl.js";
+import * as poolsideImage from "../assets/poolside.jpg";
 
 import "../../src/components/button/styles/_index.scss";
 import "../../src/components/expander/styles/_index.scss";
