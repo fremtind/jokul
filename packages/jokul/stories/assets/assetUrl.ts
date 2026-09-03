@@ -1,18 +1,18 @@
 /**
  * Normaliserer en bilde-import til en URL-streng.
  *
- * Storiene under `packages/jokul/stories/` bygges av to ulike bundlere:
- * Storybook bruker Vite, mens portalen importerer noen av de samme storiene inn
- * i Next.js (se `portal/src/app/(frontend)/temabygger/_preview/`). De to gir
- * ulikt resultat for `import bilde from "…jpg"` — Vite gir en URL-streng, mens
- * Next gir et `StaticImageData`-objekt med URLen i `src`.
+ * Storiene i denne mappa bygges av to ulike bundlere: Storybook bruker Vite,
+ * mens portalen importerer noen av dem inn i Next.js (se
+ * `portal/src/app/(frontend)/temabygger/_preview/`). De to gir ulikt resultat
+ * for `import bilde from "…jpg"` — Vite gir en URL-streng, mens Next gir et
+ * `StaticImageData`-objekt med URLen i `src`.
  *
- * Stories som bare kjører i Storybook trenger ikke denne hjelperen og kan bruke
- * importen direkte.
+ * Stories som bare kjører i Storybook (`src/components/…/stories/`) trenger
+ * ikke denne hjelperen og kan bruke importen direkte.
  *
  * Vi importerer bilder i stedet for å skrive absolutte stier som `/images/…`,
  * fordi Storybook publiseres under en underbane (`/jokul/<versjon>/`) der slike
- * stier ikke finnes. Bundleren gir oss relative URL-er som virker begge steder.
+ * stier ikke finnes. Bundleren gir oss URL-er som virker begge steder.
  */
 export function assetUrl(asset: unknown): string {
     const value =
