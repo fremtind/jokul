@@ -57,7 +57,8 @@ jobs:
                           - "packages/jokul/src/components/**/!(*.stories|*.test).tsx"
                         preview:
                           - ".storybook/**/*.(ts|tsx|scss|html)"
-                          - "storybook-public/**/*"
+                          - "packages/jokul/stories/**/*"
+                          - "packages/jokul/src/**/stories/assets/**/*"
                           - "packages/jokul/src/**/*.stories.tsx"
                           - "packages/jokul/src/**/*.scss"
                           - "packages/jokul/src/**/!(*.stories|*.test|*.d).ts"
@@ -79,7 +80,8 @@ jobs:
                     filters: |
                         stories:
                           - ".storybook/**/*.(ts|tsx|scss|html)"
-                          - "storybook-public/**/*"
+                          - "packages/jokul/stories/**/*"
+                          - "packages/jokul/src/**/stories/assets/**/*"
                           - "packages/jokul/src/**/*.stories.tsx"
                         changeset:
                           - ".changeset/!(README).md"

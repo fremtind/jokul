@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import contactChoices from "../../../../../../storybook-public/data/contactChoices.js";
+import contactChoices from "../../../../stories/assets/contactChoices.js";
 import { FieldGroup } from "../../input-group/index.js";
 import { Checkbox } from "../Checkbox.js";
 
