@@ -1,7 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { type CSSProperties } from "react";
-import { assetUrl } from "../../../../storybook-public/assetUrl.js";
-import * as poolsideImage from "../../../../storybook-public/images/poolside.jpg";
 import { Button } from "../../src/components/button/index.js";
 import { Card, CardImage } from "../../src/components/card/index.js";
 import { Countdown } from "../../src/components/countdown/index.js";
@@ -28,6 +26,8 @@ import {
 import { Tag } from "../../src/components/tag/index.js";
 import { TextInput } from "../../src/components/text-input/index.js";
 import { Text, Title } from "../../src/components/typography/index.js";
+import { assetUrl } from "../assets/assetUrl.js";
+import * as poolsideImage from "../assets/poolside.jpg";
 
 const insuranceLinks = [
     "Hva dekker forsikringen?",

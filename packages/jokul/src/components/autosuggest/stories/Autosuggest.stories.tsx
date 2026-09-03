@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { landkoder } from "../../../../../../storybook-public/data/landkoder.js";
+import { landkoder } from "../../../../stories/assets/landkoder.js";
 import { PopupTip } from "../../tooltip/index.js";
 import { Autosuggest as AutosuggestComponent } from "../Autosuggest.js";
 import "../styles/_index.scss";

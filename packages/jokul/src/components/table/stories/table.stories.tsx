@@ -1,9 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
-import {
-    faktura,
-    skadesaker,
-} from "../../../../../../storybook-public/data/table-data.js";
 import { Button } from "../../button/index.js";
 import { Icon } from "../../icon/index.js";
 import { Table } from "../Table.js";
@@ -15,6 +11,7 @@ import { TableHeader, type TableSortDirection } from "../TableHeader.js";
 import { TableRow } from "../TableRow.js";
 import { columns } from "../development/paginated-table-data.js";
 import { useSortableTableHeader } from "../utils.js";
+import { faktura, skadesaker } from "./assets/table-data.js";
 
 import "../styles/_index.scss";
 
