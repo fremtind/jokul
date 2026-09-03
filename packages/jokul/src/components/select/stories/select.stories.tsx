@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { type ChangeEvent, useEffect, useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
-import { landkoder } from "../../../../../../storybook-public/data/landkoder.js";
-import * as catImage from "../../../../../../storybook-public/images/cat.jpg";
-import * as cowImage from "../../../../../../storybook-public/images/cow.jpg";
-import * as dogImage from "../../../../../../storybook-public/images/dog.jpg";
-import * as guineaPigImage from "../../../../../../storybook-public/images/guinea.jpg";
-import * as horseImage from "../../../../../../storybook-public/images/horse.jpg";
-import { getValuePair, type ValuePair } from "../../../utilities/valuePair.js";
+import * as cowImage from "../../../../stories/assets/cow.jpg";
+import { landkoder } from "../../../../stories/assets/landkoder.js";
+import { type ValuePair, getValuePair } from "../../../utilities/valuePair.js";
 import { Button } from "../../button/Button.js";
 import { Flex } from "../../flex/Flex.js";
 import { Text } from "../../typography/index.js";
 import { Select } from "../Select.js";
+import * as catImage from "./assets/cat.jpg";
+import * as dogImage from "./assets/dog.jpg";
+import * as guineaPigImage from "./assets/guinea.jpg";
+import * as horseImage from "./assets/horse.jpg";
 import "../styles/_index.scss";
 
 const telefonprodusenter = [
@@ -289,24 +289,25 @@ export const SlowLoad: Story = {
         const [items, setItems] = useState<ValuePair[]>([]);
 
         useEffect(() => {
-            const timeout = setTimeout(() => setItems(landkoder.map(({ navn, kode }) => ({
-                label: navn,
-                value: kode,
-            }))), 3000);
+            const timeout = setTimeout(
+                () =>
+                    setItems(
+                        landkoder.map(({ navn, kode }) => ({
+                            label: navn,
+                            value: kode,
+                        })),
+                    ),
+                3000,
+            );
 
             return () => {
                 clearTimeout(timeout);
-            }
-        }, [])
+            };
+        }, []);
 
-        return (
-            <Select
-                {...args}
-                items={items}
-            />
-        )
-    }
-}
+        return <Select {...args} items={items} />;
+    },
+};
 
 export const AsyncSearch: Story = {
     name: "Asynkront søk",
@@ -330,9 +331,7 @@ export const AsyncSearch: Story = {
             }
             setTimeout(() => {
                 const filtered = allItems.filter((item) =>
-                    item.label
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase()),
+                    item.label.toLowerCase().includes(searchTerm.toLowerCase()),
                 );
                 setItems(filtered);
             }, 300);
@@ -340,13 +339,16 @@ export const AsyncSearch: Story = {
 
         return (
             <Flex direction="column" gap="16">
-            <Select
-                {...args}
-                items={items}
-                searchable
-                onSearch={handleSearch}
+                <Select
+                    {...args}
+                    items={items}
+                    searchable
+                    onSearch={handleSearch}
                 />
-                <Text>Vurder heller å bruke <code>Search</code>-komponenten enn å søke asynkront i <code>Select</code></Text>
+                <Text>
+                    Vurder heller å bruke <code>Search</code>-komponenten enn å
+                    søke asynkront i <code>Select</code>
+                </Text>
             </Flex>
         );
     },

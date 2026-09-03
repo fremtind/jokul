@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import { faktura } from "../../../../../../storybook-public/data/table-data.js";
 import { Link } from "../../link/index.js";
 import { ExpandableTableRow } from "../ExpandableTableRow.js";
 import { ExpandableTableRowController } from "../ExpandableTableRowController.js";
@@ -12,6 +11,7 @@ import { TableHead } from "../TableHead.js";
 import { TableHeader } from "../TableHeader.js";
 import { TableRow } from "../TableRow.js";
 import { columns } from "../development/paginated-table-data.js";
+import { faktura } from "./assets/table-data.js";
 import { _ExpandableTableRowController as ExpandableTableRowControllerStory } from "./expandableRowController.stories.js";
 import { TableStory } from "./table.stories.js";
 
