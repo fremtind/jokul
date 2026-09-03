@@ -1,5 +1,7 @@
 "use client";
 
+import { trackEvent } from "@/utils/tracking/mixpanel";
+import { Events } from "@/utils/tracking/types";
 import { TableOfContents } from "@fremtind/jokul/table-of-contents";
 import { useEffect, useState } from "react";
 import slugify from "slugify";
@@ -37,6 +39,12 @@ export const ComponentNav = () => {
         <TableOfContents label="Innhold" className="jkl-body">
             {headings.map((heading) => (
                 <TableOfContents.Link
+                    onClick={() =>
+                        trackEvent(Events.CLICK, {
+                            type: "toc link",
+                            element: heading.text,
+                        })
+                    }
                     href={`#${heading.slug}`}
                     key={heading.slug}
                 >
