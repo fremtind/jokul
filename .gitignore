@@ -17,8 +17,8 @@ dist/
 .iml
 .DS_Store
 .stylelintcache
+# Genereres av `pnpm --filter portal sync-fonts` (kjører automatisk før dev/build)
 **/public/fonts
-portal/public/images
 **/vite.build.config.mjs.timestamp-*
 test-results/
 playwright-report/

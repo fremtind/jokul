@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React from "react";
-import contactChoices from "../../../../../../storybook-public/data/contactChoices.js";
+import contactChoices from "../../../../stories/assets/contactChoices.js";
+import { CheckboxPanel } from "../../checkbox-panel/index.js";
+import { CheckboxPanelStory } from "../../checkbox-panel/stories/CheckboxPanel.stories.js";
 import { Checkbox } from "../../checkbox/index.js";
 import { CheckboxStory } from "../../checkbox/stories/Checkbox.stories.js";
 import { Help } from "../../help/index.js";
 import HelpStories from "../../help/stories/Help.stories.js";
 import { RadioButton } from "../../radio-button/index.js";
 import RadioButtonStories from "../../radio-button/stories/RadioButton.stories.js";
-import { FieldGroup } from "../FieldGroup.js";
-import { CheckboxPanel } from "../../checkbox-panel/index.js";
-import { CheckboxPanelStory } from "../../checkbox-panel/stories/CheckboxPanel.stories.js";
 import { RadioPanel } from "../../radio-panel/index.js";
 import { RadioPanel as RadioPanelStory } from "../../radio-panel/stories/RadioPanel.stories.js";
+import { FieldGroup } from "../FieldGroup.js";
 
 const meta: Meta = {
     title: "Komponenter/Field Group",

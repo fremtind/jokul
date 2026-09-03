@@ -12,10 +12,8 @@ Det gir to begrensninger som ikke gjelder for storiene under
 ### 1. Alt som importeres må ligge inne i `packages/jokul/`
 
 Docker-imaget for portalen kopierer bare inn `packages/jokul` og `portal` (se
-`Dockerfile`). Importerer du noe utenfor — for eksempel fra `storybook-public/`
-— bygger det fint lokalt, men feiler med `Module not found` i CI.
-
-Legg derfor delte bilder og hjelpefunksjoner i `stories/assets/`.
+`Dockerfile`). Importerer du noe som ligger utenfor `packages/jokul/`, bygger det
+fint lokalt, men feiler med `Module not found` i CI.
 
 ### 2. Bruk `assetUrl()` på bilde-importer
 
@@ -32,3 +30,15 @@ import * as poolsideImage from "../assets/poolside.jpg";
 
 Ikke skriv absolutte stier som `src="/images/poolside.jpg"`. De finnes ikke når
 Storybook publiseres under en underbane.
+
+## Hvor legger jeg bilder og testdata?
+
+Filer som stories bruker (bilder, PDF-er, datasett) importeres gjennom
+bundleren, og legges i en `assets/`-mappe ved siden av storiene:
+
+- Brukes de av **én** komponent:
+  `src/components/<komponent>/stories/assets/`
+- Brukes de av **flere** komponenter, eller av stories i denne mappa:
+  `stories/assets/` (denne mappa)
+
+Husk `assetUrl()` for bilder i stories som også kjører i portalen.
