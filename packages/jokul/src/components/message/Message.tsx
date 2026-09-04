@@ -37,7 +37,7 @@ function messageFactory(messageType: MessageProps["variant"]) {
             ...rest
         } = props;
 
-        const boxId = useId(id || "jkl-message", { generateSuffix: !id });
+        const boxId = useId("jkl-message", id);
 
         const hasStringChild = React.Children.map(
             children,
@@ -98,7 +98,7 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
             ...rest
         } = props;
 
-        const boxId = useId(id || "jkl-message", { generateSuffix: !id });
+        const boxId = useId("jkl-message", id);
 
         const hasStringChild = React.Children.map(
             children,

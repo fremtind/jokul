@@ -21,7 +21,7 @@ export const FieldGroup: FC<FieldGroupProps> = (props) => {
         ...rest
     } = props;
 
-    const uid = useId(id || "jkl-field-group", { generateSuffix: !id });
+    const uid = useId("jkl-field-group", id);
     const supportId = `${uid}_support-label`;
     const descriptionId = `${uid}_description`;
 
