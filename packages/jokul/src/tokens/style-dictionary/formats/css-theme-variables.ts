@@ -108,7 +108,8 @@ const cssThemeVariablesFormat: Format = {
 @layer jokul.theme {
     :root,
     [data-size],
-    [data-theme] {
+    [data-theme],
+    [data-brand] {
 ${allVariables}
     }
 }`;
