@@ -1,5 +1,14 @@
 # portal
 
+## 1.11.1
+
+### Patch Changes
+
+- ebbdcdd: Fikser en feil der assets for noen stories ikke ble med i Docker-imaget til portalen, slik at bygget feilet.
+- 02f95d0: Legger til tracking av klikk på innholdsfortegnelsen på komponentsidene i portalen
+- Updated dependencies [3e16ff3]
+  - @fremtind/jokul@5.4.1
+
 ## 1.11.0
 
 ### Minor Changes

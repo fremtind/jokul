@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.4.1
+
+### Patch Changes
+
+- 3e16ff3: Fikser en feil der distributørtema ikke overstyrte fonter på riktig måte
+
 ## 5.4.0
 
 ### Minor Changes
