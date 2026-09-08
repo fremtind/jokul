@@ -103,15 +103,9 @@ export const component = defineType({
                     title: "Velg story",
                     type: "reference",
                     to: [{ type: "jokul_story" }],
-                    hidden: true,
                     options: {
                         filter: '_type == "jokul_story"',
                     },
-                }),
-                defineField({
-                    name: "storybook",
-                    title: "Storybook",
-                    type: "jokul_storybookEmbed",
                 }),
             ],
         }),
