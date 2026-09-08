@@ -74,6 +74,10 @@
               {
                 "type": "string",
                 "value": "version-4"
+              },
+              {
+                "type": "string",
+                "value": "version-5"
               }
             ]
           },
@@ -4091,14 +4095,6 @@
                   }
                 },
                 "dereferencesTo": "jokul_story"
-              },
-              "optional": true
-            },
-            "storybook": {
-              "type": "objectAttribute",
-              "value": {
-                "type": "inline",
-                "name": "jokul_storybookEmbed"
               },
               "optional": true
             }

@@ -1,4 +1,4 @@
-import { CodeBlock } from "@/components/portable-text/code-block";
+import { CodeBlock } from "@/components/portable-text/new-code-block/CodeBlock";
 import { StorybookFrame } from "@/components/storybook/StorybookFrame";
 import type { Jokul_storybook } from "@/sanity/types";
 
@@ -59,9 +59,13 @@ export const Storybook: FC<PortableTextTypeComponentProps<Jokul_storybook>> = ({
                 <ExpandablePanel>
                     <Expander>Kode</Expander>
                     <ExpandablePanel.Content>
-                        <CodeBlock language={codeExample.language}>
-                            {codeExample.code.toString()}
-                        </CodeBlock>
+                        <CodeBlock
+                            code={{
+                                _type: "code",
+                                code: codeExample.code,
+                                language: codeExample.language,
+                            }}
+                        />
                     </ExpandablePanel.Content>
                 </ExpandablePanel>
             )}
