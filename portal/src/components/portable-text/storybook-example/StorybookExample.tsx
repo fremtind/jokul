@@ -1,4 +1,4 @@
-import { CodeBlock } from "@/components/portable-text/code-block";
+import { CodeBlock } from "@/components/portable-text/new-code-block/CodeBlock";
 import {
     StorybookFrame,
     getStorybookUrl,
@@ -53,9 +53,7 @@ export const StorybookExample: FC<
                 <ExpandablePanel>
                     <Expander>Kode</Expander>
                     <ExpandablePanel.Content>
-                        <CodeBlock language={code.language}>
-                            {code.code.toString()}
-                        </CodeBlock>
+                        <CodeBlock code={code} />
                     </ExpandablePanel.Content>
                 </ExpandablePanel>
             )}

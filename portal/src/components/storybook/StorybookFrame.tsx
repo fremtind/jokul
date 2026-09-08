@@ -7,7 +7,7 @@ import {
 import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
 import { stegaClean } from "next-sanity";
-import { type CSSProperties, useEffect, useRef, useState } from "react";
+import { type CSSProperties, useCallback, useEffect, useState } from "react";
 
 import "./storybook-frame.scss";
 
@@ -141,7 +141,14 @@ export const StorybookFrame = ({
         version,
     });
     const frameStyle = getFrameStyle(height);
-    const frameRef = useRef<HTMLIFrameElement>(null);
+    const frameRef = useCallback(
+        (frame: HTMLIFrameElement | null) => {
+            if (frame) {
+                frame.inert = Boolean(inert);
+            }
+        },
+        [inert],
+    );
 
     const [status, setStatus] = useState<StoryStatus>("loading");
 
@@ -163,12 +170,6 @@ export const StorybookFrame = ({
         window.addEventListener("message", handler);
         return () => window.removeEventListener("message", handler);
     }, [cleanStoryId, frameSrc]);
-
-    useEffect(() => {
-        if (frameRef.current) {
-            frameRef.current.inert = Boolean(inert);
-        }
-    }, [inert]);
 
     if (!frameSrc || status === "error") {
         const issueUrl = getIssueUrl(cleanTitle, cleanStoryId);

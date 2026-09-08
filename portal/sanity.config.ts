@@ -2,7 +2,7 @@ import { ReferencedByView } from "@/sanity/components/ReferencedByView";
 import { dataset, projectId } from "@/sanity/env";
 import { schemaTypes } from "@/sanity/schemas";
 import { codeInput } from "@sanity/code-input";
-import { BookIcon, CogIcon, LinkIcon } from "@sanity/icons";
+import { CogIcon, LinkIcon } from "@sanity/icons";
 import { nbNOLocale } from "@sanity/locale-nb-no";
 import { table } from "@sanity/table";
 import { visionTool } from "@sanity/vision";
