@@ -50,37 +50,21 @@
 }
 
 .card {
-    --aspect-ratio: 1.5;
-
-    display: flex;
-    flex-direction: column;
-    color: var(--jkl-color-text-default);
-
-
     .name {
-        margin-bottom: var(--jkl-spacing-8);
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
         @include jkl.text-style("heading-5");
     }
 
     .description {
-        @include jkl.text-style("paragraph-small") {
-            color: var(--jkl-color-text-subdued);
-            word-wrap: break-word;
-        }
+        word-wrap: break-word;
     }
 
 
     .thumbnail {
         height: auto;
         width: 100%;
-        aspect-ratio: var(--aspect-ratio);
+        aspect-ratio: var(--aspect-ratio, 1.5);
         overflow: hidden;
-        margin-block-start: var(--jkl-unit-20);
+        margin-block-start: auto;
 
         img {
             width: 100%;
@@ -92,7 +76,6 @@
     }
 
     .footer {
-        padding-block-start: 2lh;
         margin-block-start: auto;
     }
 }
