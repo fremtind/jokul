@@ -9,6 +9,7 @@ dev-server.js
 src/tokens.ts
 src/styles/theme/_tokens.scss
 src/styles/theme/_color-scheme.scss
+src/styles/theme/_color-mode.scss
 src/styles/theme/_size.scss
 src/styles/theme/brands/**/*.scss
 !src/styles/theme/brands/**/_index.scss

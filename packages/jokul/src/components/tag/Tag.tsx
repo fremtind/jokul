@@ -21,17 +21,9 @@ function getDisplayName(variant?: TagProps["variant"]) {
 function tagFactory(variant?: TagProps["variant"]) {
     const Tag: FC<TagProps> = ({ className, children, ...rest }) => (
         <span
-            className={clsx(
-                "jkl-tag",
-                {
-                    "jkl-tag--info": variant === "info",
-                    "jkl-tag--error": variant === "error",
-                    "jkl-tag--warning": variant === "warning",
-                    "jkl-tag--success": variant === "success",
-                },
-                className,
-            )}
             {...rest}
+            className={clsx("jkl-tag", className)}
+            data-color={variant}
         >
             {children}
         </span>
@@ -46,10 +38,7 @@ export const Tag = ({
     children,
     ...rest
 }: TagProps) => (
-    <span
-        className={clsx("jkl-tag", `jkl-tag--${variant}`, className)}
-        {...rest}
-    >
+    <span className={clsx("jkl-tag", className)} data-color={variant} {...rest}>
         {children}
     </span>
 );

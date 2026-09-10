@@ -100,42 +100,18 @@ $_dismiss-animation-duration: jkl.timing("lazy");
             transition: block jkl.timing("lazy") jkl.timing("lazy");
         }
 
-        &--info {
-            --background-color: var(--jkl-color-info-background-container);
-            --text-color: var(--jkl-color-info-text-default);
-            --icon-color: var(--jkl-color-info-background-contrast);
-        }
-
-        &--warning {
-            --background-color: var(--jkl-color-warning-background-container);
-            --text-color: var(--jkl-color-warning-text-default);
-            --icon-color: var(--jkl-color-warning-background-contrast);
-        }
-
-        &--error {
-            --background-color: var(--jkl-color-error-background-container);
-            --text-color: var(--jkl-color-error-text-default);
-            --icon-color: var(--jkl-color-error-background-contrast);
-        }
-
-        &--success {
-            --background-color: var(--jkl-color-success-background-container);
-            --text-color: var(--jkl-color-success-text-default);
-            --icon-color: var(--jkl-color-success-background-contrast);
-        }
-
         @include jkl.forced-colors-mode {
             border: 2px solid CanvasText;
 
-            &--info {
+            &[data-color="info"] {
                 border-style: dotted;
             }
 
-            &--warning {
+            &[data-color="warning"] {
                 border-style: dashed;
             }
 
-            &--error {
+            &[data-color="error"] {
                 border-style: double;
                 border-width: 4px;
             }
