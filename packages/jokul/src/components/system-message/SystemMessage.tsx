@@ -25,17 +25,14 @@ function systemFactory(
 
         return (
             <div
-                role={role}
                 {...rest}
+                role={role}
                 id={systemId}
-                className={clsx(
-                    "jkl-system-message",
-                    `jkl-system-message--${variant}`,
-                    className,
-                    {
-                        "jkl-system-message--dismissed": dismissed,
-                    },
-                )}
+                className={clsx("jkl-system-message", className, {
+                    "jkl-system-message--dismissed": dismissed,
+                })}
+                data-color={variant}
+                data-testid="jkl-system-message"
             >
                 <div
                     className="jkl-system-message__content"
@@ -82,17 +79,14 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
 
     return (
         <div
-            role={role}
             {...rest}
+            role={role}
             id={systemId}
-            className={clsx(
-                "jkl-system-message",
-                `jkl-system-message--${variant}`,
-                className,
-                {
-                    "jkl-system-message--dismissed": dismissed,
-                },
-            )}
+            className={clsx("jkl-system-message", className, {
+                "jkl-system-message--dismissed": dismissed,
+            })}
+            data-color={variant}
+            data-testid="jkl-system-message"
         >
             <div
                 className="jkl-system-message__content"
