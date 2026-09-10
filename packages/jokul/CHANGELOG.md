@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.0.0-next.4
+
+### Major Changes
+
+- 1e1a0e0: BREAKING CHANGE: Forenkler `Flex` til en ren flex-container som eksponerer flexbox-egenskapene direkte, i stedet for å generere et eget klassesystem med kolonneoppsett og breakpoints. API-et til `Flex` er endret. Se migrasjonsguiden for detaljer.
+
+### Patch Changes
+
+- 0a1f58e: Oppdaterer tilpassede farger for merkevaren `dnb`
+- 79419a8: Fikser en feil der distributørtema ikke overstyrte fonter på riktig måte
+
 ## 6.0.0-next.3
 
 ### Minor Changes

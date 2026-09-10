@@ -1,5 +1,18 @@
 # portal
 
+## 1.9.0-next.4
+
+### Patch Changes
+
+- c305add: Legger bildene i komponentoversikten lengst ned i kortene så de blir visuelt alignet.
+- 1995c1d: Fikser en feil der assets for noen stories ikke ble med i Docker-imaget til portalen, slik at bygget feilet.
+- 199316f: Legger til tracking av klikk på innholdsfortegnelsen på komponentsidene i portalen
+- c2a41b3: Fjerner warnings i konsollen ved å gi ikonknapper tilgjengelige navn og riktig ekspandert tilstand.
+- Updated dependencies [0a1f58e]
+- Updated dependencies [1e1a0e0]
+- Updated dependencies [79419a8]
+  - @fremtind/jokul@6.0.0-next.4
+
 ## 1.9.0-next.3
 
 ### Minor Changes
