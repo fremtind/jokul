@@ -13,24 +13,36 @@ describe("Tag", () => {
     it("skal rendre en info tag", () => {
         render(<InfoTag>Info Tag</InfoTag>);
         expect(screen.getByText("Info Tag")).toBeInTheDocument();
-        expect(screen.getByText("Info Tag")).toHaveClass("jkl-tag--info");
+        expect(screen.getByText("Info Tag")).toHaveAttribute(
+            "data-color",
+            "info",
+        );
     });
 
     it("skal rendre en error tag", () => {
         render(<ErrorTag>Error Tag</ErrorTag>);
         expect(screen.getByText("Error Tag")).toBeInTheDocument();
-        expect(screen.getByText("Error Tag")).toHaveClass("jkl-tag--error");
+        expect(screen.getByText("Error Tag")).toHaveAttribute(
+            "data-color",
+            "error",
+        );
     });
 
     it("skal rendre en warning tag", () => {
         render(<WarningTag>Warning Tag</WarningTag>);
         expect(screen.getByText("Warning Tag")).toBeInTheDocument();
-        expect(screen.getByText("Warning Tag")).toHaveClass("jkl-tag--warning");
+        expect(screen.getByText("Warning Tag")).toHaveAttribute(
+            "data-color",
+            "warning",
+        );
     });
 
     it("skal rendre en success tag", () => {
         render(<SuccessTag>Success Tag</SuccessTag>);
         expect(screen.getByText("Success Tag")).toBeInTheDocument();
-        expect(screen.getByText("Success Tag")).toHaveClass("jkl-tag--success");
+        expect(screen.getByText("Success Tag")).toHaveAttribute(
+            "data-color",
+            "success",
+        );
     });
 });
