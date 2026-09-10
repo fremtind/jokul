@@ -9,8 +9,15 @@ export interface DataTestAutoId {
 
 export const BRANDS = ["dnb"] as const;
 export type Brand = (typeof BRANDS)[number];
-export type Size = "small" | "medium" | "large";
-export type ColorScheme = "light" | "dark";
+
+export const SIZES = ["small", "medium", "large"] as const;
+export type Size = (typeof SIZES)[number];
+
+export const COLOR_SCHEMES = ["light", "dark"] as const;
+export type ColorScheme = (typeof COLOR_SCHEMES)[number];
+
+export const COLOR_MODES = ["error", "success", "warning", "info"] as const;
+export type ColorMode = (typeof COLOR_MODES)[number];
 
 /**
  * Eksplisitte typer for modusene som brukes i Jøkul, slik at de kan brukes aktivt i komponentene
@@ -21,6 +28,7 @@ export interface JokulModes {
     "data-brand"?: Brand;
     "data-size"?: Size;
     "data-theme"?: ColorScheme;
+    "data-color"?: ColorMode;
 }
 
 export type Easing = keyof typeof tokens.motion.easing;

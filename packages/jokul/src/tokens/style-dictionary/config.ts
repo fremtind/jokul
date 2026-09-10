@@ -21,6 +21,11 @@ export const jokulTokens: Config = {
                     format: "css/color-scheme",
                 },
                 {
+                    filter: "isColorSchemeValue",
+                    destination: "_color-mode.scss",
+                    format: "css/color-mode",
+                },
+                {
                     filter: "isSizeValue",
                     destination: "_size.scss",
                     format: "css/size",
