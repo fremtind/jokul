@@ -6,13 +6,13 @@
                 "page": {
                     "value": {
                         "light": "#F8F8F8",
-                        "dark": "#2C2C2E"
+                        "dark": "#000000"
                     }
                 },
                 "container": {
                     "value": {
                         "light": "#FFFFFF",
-                        "dark": "#000000"
+                        "dark": "#2C2C2E"
                     }
                 },
                 "container-accent": {
