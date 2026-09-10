@@ -33,7 +33,9 @@ test("uses the Jøkul focus outline when the accept button is focused", async ()
     await helper.open();
 
     await helper.clickElement('[data-testid="trigger-cookie-consent"]');
-    await helper.page.waitForSelector('[data-testid="jkl-cookie-consent-godta"]');
+    await helper.page.waitForSelector(
+        '[data-testid="jkl-cookie-consent-godta"]',
+    );
 
     await helper.focus('[data-testid="jkl-cookie-consent-godta"]');
     await helper.expectFocusOutline('[data-testid="jkl-cookie-consent-godta"]');

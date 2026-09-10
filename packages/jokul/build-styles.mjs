@@ -160,18 +160,18 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
                         mkdirSync(outDirName, { recursive: true });
 
                         const content = await readFile(sourcePath, "utf-8");
-                        const outputFilePath = path.join(
-                            outDirName,
-                            fileName);
+                        const outputFilePath = path.join(outDirName, fileName);
                         const modifiedContent = rewriteImportsForBuiltFile(
                             content,
-                            sourcePath);
+                            sourcePath,
+                        );
                         return await writeFile(
                             outputFilePath,
                             modifiedContent,
                             {
                                 encoding: "utf-8",
-                            });
+                            },
+                        );
                     }),
                 ),
         );

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import { SearchButton } from "../SearchButton.js";
 import { Search } from "../Search.js";
+import { SearchButton } from "../SearchButton.js";
 
 import "../styles/_index.scss";
 

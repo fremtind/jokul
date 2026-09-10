@@ -204,7 +204,7 @@ describe("DateInput", () => {
         const calendarId = screen.getByTestId("jkl-calendar").id;
 
         fireEvent.change(screen.getByTestId(`${calendarId}-month-select`), {
-            target: { value: "mars" }
+            target: { value: "mars" },
         });
 
         expect(

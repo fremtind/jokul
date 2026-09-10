@@ -59,7 +59,9 @@ test("renders correctly", async () => {
 test("uses the Jøkul focus outline when the confirm button is focused", async () => {
     await helper.open();
 
-    await helper.page.waitForSelector('[data-testid="open-modal"]:not([disabled])');
+    await helper.page.waitForSelector(
+        '[data-testid="open-modal"]:not([disabled])',
+    );
     await helper.clickElement('[data-testid="open-modal"]');
     await helper.page.waitForSelector('[data-testid="confirm-modal"]');
 

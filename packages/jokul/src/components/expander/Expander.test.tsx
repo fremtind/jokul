@@ -52,11 +52,7 @@ describe("Expander", () => {
             >
                 <ExpandablePanel.Header>Ytre panel</ExpandablePanel.Header>
                 <ExpandablePanel.Content>
-                    <Expander
-                        as="button"
-                        open={false}
-                        onClick={onInnerClick}
-                    >
+                    <Expander as="button" open={false} onClick={onInnerClick}>
                         Indre Expander
                     </Expander>
                 </ExpandablePanel.Content>

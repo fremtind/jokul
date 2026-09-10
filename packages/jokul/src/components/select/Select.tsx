@@ -2,8 +2,8 @@ import clsx from "clsx";
 import {
     type CSSProperties,
     type ComponentPropsWithoutRef,
-    type KeyboardEvent,
     type FocusEvent,
+    type KeyboardEvent,
     forwardRef,
     useId,
     useLayoutEffect,
@@ -12,6 +12,7 @@ import {
 } from "react";
 import { useListNavigation } from "../../hooks/index.js";
 import { mergeRefs } from "../../utilities/mergeRefs.js";
+import type { DataTestAutoId } from "../../utilities/types.js";
 import { type ValuePair, getValuePair } from "../../utilities/valuePair.js";
 import { Button } from "../button/Button.js";
 import { Flex } from "../flex/Flex.js";
@@ -23,7 +24,6 @@ import { Text } from "../typography/Text.js";
 import { Title } from "../typography/Title.js";
 import { Option } from "./Option.js";
 import { autofocus, getButtonText, getReactNodeText } from "./utils.js";
-import type { DataTestAutoId } from "../../utilities/types.js";
 
 export type SelectProps = Omit<InputGroupProps, "children" | "inline"> &
     DataTestAutoId &
@@ -96,7 +96,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 : items;
 
         const showPlaceholder =
-            selected.size === 0 || (selected.size === 1 && placeholder && selected.has(""));
+            selected.size === 0 ||
+            (selected.size === 1 && placeholder && selected.has(""));
         const placeholderText = placeholder || "Ingen valgt";
         const buttonText = getButtonText(selected, items, placeholderText);
 
