@@ -59,10 +59,10 @@ import "@fremtind/jokul/styles/components/date-input/date-input.min.css";
 
 #### `min`/`max` erstatter `disableBeforeDate`/`disableAfterDate`
 
-| Før | Etter              |
-|---|--------------------|
+| Før                                     | Etter              |
+| --------------------------------------- | ------------------ |
 | `disableBeforeDate={formatInput(date)}` | `min="2026-07-22"` |
-| `disableAfterDate={formatInput(date)}` | `max="2027-07-22"` |
+| `disableAfterDate={formatInput(date)}`  | `max="2027-07-22"` |
 
 #### `onChange`, `onFocus` og `onBlur` gir vanlige React-eventer
 
@@ -87,22 +87,22 @@ Feilkodene `WRONG_FORMAT`, `OUTSIDE_LOWER_BOUND` og `OUTSIDE_UPPER_BOUND` finnes
 
 #### Fjernede props og hjelpefunksjoner
 
-| Fjernet | Erstatning |
-|---|---|
-| `disableBeforeDate` (norsk format) | `min` (ISO-format) |
-| `disableAfterDate` (norsk format) | `max` (ISO-format) |
-| `defaultShow` / `initialShow` | – Kalenderen er en popover som åpnes med kalenderknappen |
-| `extended` | – Kalenderen har alltid måneds- og årsvelger |
-| `invalid` | `errorLabel` – setter både `aria-invalid` og feilstilen på feltet |
-| `yearsToShow` | – Årsvelgeren utledes fra `min`/`max`, med ±5 år som standard |
-| `months` | – Månedsnavn kommer fra `Intl` med `nb-NO` |
-| `days` | – Ukedagsnavn kommer fra `Intl` med `nb-NO`, uken starter mandag |
-| `monthLabel` / `yearLabel` | – Velgerne har faste, skjulte labels («Måned» og «År») |
-| `showCalendarLabel` / `hideCalendarLabel` | – Kalenderknappen har fast `aria-label` «Åpne kalender». Kalenderen lukkes med `Esc` eller klikk utenfor |
-| `action` | – Egne handlinger må plasseres utenfor feltet |
-| `textInputProps` | Send attributtene direkte på `<DateInput>` – ukjente props videresendes til `<input type="date">` |
-| Kompakt inntasting (`11112022`) og auto-punktum | Native inntasting i nettleseren |
-| `formatInput(date)` | `toValidInputValue(date)` |
+| Fjernet                                         | Erstatning                                                                                               |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `disableBeforeDate` (norsk format)              | `min` (ISO-format)                                                                                       |
+| `disableAfterDate` (norsk format)               | `max` (ISO-format)                                                                                       |
+| `defaultShow` / `initialShow`                   | – Kalenderen er en popover som åpnes med kalenderknappen                                                 |
+| `extended`                                      | – Kalenderen har alltid måneds- og årsvelger                                                             |
+| `invalid`                                       | `errorLabel` – setter både `aria-invalid` og feilstilen på feltet                                        |
+| `yearsToShow`                                   | – Årsvelgeren utledes fra `min`/`max`, med ±5 år som standard                                            |
+| `months`                                        | – Månedsnavn kommer fra `Intl` med `nb-NO`                                                               |
+| `days`                                          | – Ukedagsnavn kommer fra `Intl` med `nb-NO`, uken starter mandag                                         |
+| `monthLabel` / `yearLabel`                      | – Velgerne har faste, skjulte labels («Måned» og «År»)                                                   |
+| `showCalendarLabel` / `hideCalendarLabel`       | – Kalenderknappen har fast `aria-label` «Åpne kalender». Kalenderen lukkes med `Esc` eller klikk utenfor |
+| `action`                                        | – Egne handlinger må plasseres utenfor feltet                                                            |
+| `textInputProps`                                | Send attributtene direkte på `<DateInput>` – ukjente props videresendes til `<input type="date">`        |
+| Kompakt inntasting (`11112022`) og auto-punktum | Native inntasting i nettleseren                                                                          |
+| `formatInput(date)`                             | `toValidInputValue(date)`                                                                                |
 
 ### `Flex` er forenklet til en ren flex-container
 
@@ -170,30 +170,33 @@ Kolonnesystemet med 12 kolonner, uniforme oppsett (`"3"`) og asymmetriske oppset
 
 Samtidig er to feil rettet, som også kan endre utseendet:
 
-| Verdi | Før | Etter |
-|---|---|---|
-| `wrap={false}` | Ingen effekt, innholdet brøt likevel | `nowrap` |
-| `wrap="reverse"` | Ingen effekt | `wrap-reverse` |
+| Verdi            | Før                                  | Etter          |
+| ---------------- | ------------------------------------ | -------------- |
+| `wrap={false}`   | Ingen effekt, innholdet brøt likevel | `nowrap`       |
+| `wrap="reverse"` | Ingen effekt                         | `wrap-reverse` |
 
 #### De genererte hjelpeklassene finnes ikke lenger
 
 `Flex` rendrer nå kun klassen `jkl-flex`. Klassenavnene var globale og uprefiksede, så det er verdt å søke etter dem i egne stilark selv om du ikke har brukt dem bevisst.
 
-| Fjernet klasse | Erstatning |
-|---|---|
-| `align-items-*`, `align-content-*` | `alignItems` / `alignContent` |
-| `justify-content-*` | `justifyContent` |
-| `flex-direction-*`, `flex-wrap-*` | `direction` / `wrap` |
-| `screen-<breakpoint>-row-gap-*`, `screen-<breakpoint>-col-gap-*` | `gap`, eller eget stilark |
-| `screen-<breakpoint>-<layout>` | CSS Grid, se over |
-| `display-inline-flex` | Eget stilark |
+| Fjernet klasse                                                   | Erstatning                    |
+| ---------------------------------------------------------------- | ----------------------------- |
+| `align-items-*`, `align-content-*`                               | `alignItems` / `alignContent` |
+| `justify-content-*`                                              | `justifyContent`              |
+| `flex-direction-*`, `flex-wrap-*`                                | `direction` / `wrap`          |
+| `screen-<breakpoint>-row-gap-*`, `screen-<breakpoint>-col-gap-*` | `gap`, eller eget stilark     |
+| `screen-<breakpoint>-<layout>`                                   | CSS Grid, se over             |
+| `display-inline-flex`                                            | Eget stilark                  |
 
 #### Stilene settes inline
 
 Verdiene settes som custom properties i `style`-attributtet:
 
 ```html
-<div class="jkl-flex" style="--gap: var(--jkl-spacing-m); --flex-direction: column"></div>
+<div
+    class="jkl-flex"
+    style="--gap: var(--jkl-spacing-m); --flex-direction: column"
+/>
 ```
 
 Har du en streng `Content-Security-Policy`, må `style-src` tillate `unsafe-inline`, eller du må sende nonce/hash for inline-stiler. Overstyring gjøres ved å sette custom propertyene selv:
@@ -218,6 +221,61 @@ Har du en streng `Content-Security-Policy`, må `style-src` tillate `unsafe-inli
 
 Typen avledes nå direkte fra designtokenene, så den kan ikke lenger komme i utakt med skalaen.
 
+### `Select` er skrevet om fullstendig, og har mulighet for flervalg
+
+Vi har fjernet mye custom funksjonalitet og logikk, og lener oss mer på nettleserens innebygde APIer. `NativeSelect` og `BETA_Select` er fjernet – begge migreres til den nye `Select`.
+
+#### La brukeren velge flere alternativer med `multiple`
+
+Ved å sette `multiple` til `true` kan du la brukeren merke av flere av valgene. De blir da sendt inn som en liste med verdier når skjemaet sendes inn. Når ett alternativ er valgt vises verdien til alternativet i knappen, og hvis flere er valgt vises antall valgte alternativer.
+
+#### `defaultPrompt` er erstattet med `placeholder`
+
+| Før                    | Etter                |
+| ---------------------- | -------------------- |
+| `defaultPrompt="Velg"` | `placeholder="Velg"` |
+
+> [!IMPORTANT]
+> Som standard er det nå _ingen verdi_ for `placeholder`. Det betyr at **Hvis du ikke sender inn en verdi vil det første valget i listen være valgt som standard!** Hvis du ikke vil det _må du sende inn en verdi_. Dette gjelder ikke hvis `multiple` er `true`.
+
+#### `searchable` tar ikke lenger en funksjon
+
+> **Codemoden fikser det vanligste tilfellet automatisk.**
+
+`searchable` er nå kun `boolean`. Skal du filtrere med egen logikk, bruk den nye proppen `filterFunction` i stedet. Merk at parameterrekkefølgen er snudd sammenlignet med den gamle `searchable`-funksjonen:
+
+```tsx
+// Før
+<Select searchable={(searchValue, item) => item.label.includes(searchValue)} />
+
+// Etter
+<Select searchable filterFunction={(item, searchValue) => item.label.includes(searchValue)} />
+```
+
+Du kan også sende inn en funksjon `onSearch` som kalles når brukeren filtrerer i listen.
+
+#### Fjernede props
+
+| Fjernet           | Erstatning         |
+| ----------------- | ------------------ |
+| `maxShownOptions` | – Ingen erstatning |
+| `inline`          | – Ingen erstatning |
+| `invalid`         | `errorLabel`       |
+
+#### `onChange`, `onBlur` og `onFocus` gir vanlige React-eventer
+
+`Select` var tidligere bygget rundt en egendefinert event-mekanisme (`SelectChangeEventHandler`) som konstruerte et falskt event-objekt. Dette skapte kjente problemer med react-hook-form, og gjorde `name` til en påkrevd prop. Nå er `Select` bygget rundt et ekte `<select>`-element som dispatcher ekte `change`-eventer, så `onChange`, `onBlur` og `onFocus` er standard React-handlere.
+
+```tsx
+// Før
+onChange={(event: SelectChangeEvent) => setValue(event.target.value)}
+
+// Etter
+onChange={(event: React.ChangeEvent<HTMLSelectElement>) => setValue(event.target.value)}
+```
+
+En praktisk konsekvens er at `register()` og `Controller` fra react-hook-form nå fungerer uten workarounds, og `name` er valgfri i stedet for påkrevd.
+
 ## Jøkul 5.0
 
 Jøkul 5.0 rydder opp i token-strukturen, fontoppsettet og importstiene. De fleste endringene kan gjøres automatisk med codemoden:
@@ -233,15 +291,15 @@ Codemoden fikser importstier, CSS-tokens og Tailwind-klasser automatisk, og vars
 
 > **Codemoden fikser dette automatisk.**
 
-| Funksjon | Gammel import | Ny import |
-|---|---|---|
-| Grunnstiler | `@fremtind/jokul/styles/core` | `@fremtind/jokul/styles/base.scss` |
-| Stilark for ALLE komponenter | `@fremtind/jokul/styles` | `@fremtind/jokul/styles/components.scss` |
-| Sass-hjelpere | `@fremtind/jokul/styles/core/jkl` | `@fremtind/jokul/styles/jkl` |
-| Webfonts (SCSS) | `@fremtind/jokul/styles/fonts/webfonts` | `@fremtind/jokul/styles/theme/fonts` |
-| Webfonts (CSS) | `@fremtind/jokul/styles/fonts/webfonts.css` | _Fjern importen_ — fontene er nå inkludert i `base.css` |
-| Tailwind v3 preset | `@fremtind/jokul/tailwind` | `@fremtind/jokul/tailwind` _(uendret)_ |
-| Tailwind v4 theme | `@fremtind/jokul/tailwind/v4` | `@fremtind/jokul/styles/tailwind` |
+| Funksjon                     | Gammel import                               | Ny import                                               |
+| ---------------------------- | ------------------------------------------- | ------------------------------------------------------- |
+| Grunnstiler                  | `@fremtind/jokul/styles/core`               | `@fremtind/jokul/styles/base.scss`                      |
+| Stilark for ALLE komponenter | `@fremtind/jokul/styles`                    | `@fremtind/jokul/styles/components.scss`                |
+| Sass-hjelpere                | `@fremtind/jokul/styles/core/jkl`           | `@fremtind/jokul/styles/jkl`                            |
+| Webfonts (SCSS)              | `@fremtind/jokul/styles/fonts/webfonts`     | `@fremtind/jokul/styles/theme/fonts`                    |
+| Webfonts (CSS)               | `@fremtind/jokul/styles/fonts/webfonts.css` | _Fjern importen_ — fontene er nå inkludert i `base.css` |
+| Tailwind v3 preset           | `@fremtind/jokul/tailwind`                  | `@fremtind/jokul/tailwind` _(uendret)_                  |
+| Tailwind v4 theme            | `@fremtind/jokul/tailwind/v4`               | `@fremtind/jokul/styles/tailwind`                       |
 
 Stilene som tidligere lå i `styles/fonts/webfonts` er nå inkludert i `styles/base.scss`, så hvis du bruker grunnstilene trenger du ikke importere font-stilene separat.
 
@@ -251,11 +309,11 @@ Stilene som tidligere lå i `styles/fonts/webfonts` er nå inkludert i `styles/b
 
 Stilarkene for beta-komponentene var tidligere bakt sammen med sine ikke-Beta varianter. De er nå eksportert for seg.
 
-| Komponent | Gammel import | Ny import |
-|---|---|---|
+| Komponent        | Gammel import                                        | Ny import                                                      |
+| ---------------- | ---------------------------------------------------- | -------------------------------------------------------------- |
 | Description List | `@fremtind/jokul/styles/components/description-list` | `@fremtind/jokul/styles/components/beta/description-list.scss` |
-| Nav Link | `@fremtind/jokul/styles/components/nav-link` | `@fremtind/jokul/styles/components/beta/nav-link.scss` |
-| Select | `@fremtind/jokul/styles/components/select` | `@fremtind/jokul/styles/components/beta/select.scss` |
+| Nav Link         | `@fremtind/jokul/styles/components/nav-link`         | `@fremtind/jokul/styles/components/beta/nav-link.scss`         |
+| Select           | `@fremtind/jokul/styles/components/select`           | `@fremtind/jokul/styles/components/beta/select.scss`           |
 
 Beta-komponentene er flyttet fra `components-beta/` til `components/beta/` internt i pakken. Eksportstiene fra `@fremtind/jokul` til React-komponentene er uendret.
 
@@ -296,26 +354,26 @@ Fargesystemet er restrukturert som en del av v5-oppgraderingen. Tokens fra Jøku
 
 **Fikses automatisk av codemoden:**
 
-| Gammel token | Ny token |
-|---|---|
-| `--jkl-color-background-action` | `--jkl-color-background-contrast` |
-| `--jkl-color-text-on-action` | `--jkl-color-text-on-contrast` |
-| `--jkl-color-text-inverted` | `--jkl-color-text-on-contrast` |
-| `--jkl-color-background-container-high` | `--jkl-color-background-container` |
-| `--jkl-color-background-container-low` | `--jkl-color-background-container` |
-| `--jkl-color-background-container-inverted` | `--jkl-color-background-contrast` |
-| `--jkl-color-background-alert-info` | `--jkl-color-info-background-container` |
-| `--jkl-color-background-alert-warning` | `--jkl-color-warning-background-container` |
-| `--jkl-color-background-alert-error` | `--jkl-color-error-background-container` |
-| `--jkl-color-background-alert-success` | `--jkl-color-success-background-container` |
+| Gammel token                                | Ny token                                   |
+| ------------------------------------------- | ------------------------------------------ |
+| `--jkl-color-background-action`             | `--jkl-color-background-contrast`          |
+| `--jkl-color-text-on-action`                | `--jkl-color-text-on-contrast`             |
+| `--jkl-color-text-inverted`                 | `--jkl-color-text-on-contrast`             |
+| `--jkl-color-background-container-high`     | `--jkl-color-background-container`         |
+| `--jkl-color-background-container-low`      | `--jkl-color-background-container`         |
+| `--jkl-color-background-container-inverted` | `--jkl-color-background-contrast`          |
+| `--jkl-color-background-alert-info`         | `--jkl-color-info-background-container`    |
+| `--jkl-color-background-alert-warning`      | `--jkl-color-warning-background-container` |
+| `--jkl-color-background-alert-error`        | `--jkl-color-error-background-container`   |
+| `--jkl-color-background-alert-success`      | `--jkl-color-success-background-container` |
 
 **Krever manuell vurdering (codemoden varsler):**
 
-| Gammel token | Handling |
-|---|---|
-| `--jkl-color-text-on-alert-*` | Bruk `--jkl-color-<rolle>-text-default`, f.eks. `--jkl-color-info-text-default` |
-| `--jkl-color-background-interactive*` | Fjernet — skal ikke brukes lenger |
-| `--jkl-color-text-interactive*` | Fjernet — skal ikke brukes lenger |
+| Gammel token                          | Handling                                                                        |
+| ------------------------------------- | ------------------------------------------------------------------------------- |
+| `--jkl-color-text-on-alert-*`         | Bruk `--jkl-color-<rolle>-text-default`, f.eks. `--jkl-color-info-text-default` |
+| `--jkl-color-background-interactive*` | Fjernet — skal ikke brukes lenger                                               |
+| `--jkl-color-text-interactive*`       | Fjernet — skal ikke brukes lenger                                               |
 
 Border-tokens er samlet i semantiske roller. Bytt fra gamle input- og separator-tokens til `--jkl-color-border-default`, `--jkl-color-border-subdued` eller `--jkl-color-border-strong`.
 
@@ -325,18 +383,18 @@ Jøkul 5-temaet for Tailwind (`@fremtind/jokul/styles/tailwind`) definerer nye f
 
 **Fikses automatisk av codemoden** (alle vanlige Tailwind-prefikser: `bg-`, `text-`, `border-`, `ring-`, o.fl.):
 
-| Gammel klasse (fargenøkkel) | Ny klasse (fargenøkkel) |
-|---|---|
-| `bg-background-action` | `bg-background-contrast` |
-| `text-text-on-action` | `text-text-on-contrast` |
-| `text-text-inverted` | `text-text-on-contrast` |
-| `bg-background-container-high` | `bg-background-container` |
-| `bg-background-container-low` | `bg-background-container` |
-| `bg-background-container-inverted` | `bg-background-contrast` |
-| `bg-background-alert-info` | `bg-info-background-container` |
-| `bg-background-alert-warning` | `bg-warning-background-container` |
-| `bg-background-alert-error` | `bg-error-background-container` |
-| `bg-background-alert-success` | `bg-success-background-container` |
+| Gammel klasse (fargenøkkel)        | Ny klasse (fargenøkkel)           |
+| ---------------------------------- | --------------------------------- |
+| `bg-background-action`             | `bg-background-contrast`          |
+| `text-text-on-action`              | `text-text-on-contrast`           |
+| `text-text-inverted`               | `text-text-on-contrast`           |
+| `bg-background-container-high`     | `bg-background-container`         |
+| `bg-background-container-low`      | `bg-background-container`         |
+| `bg-background-container-inverted` | `bg-background-contrast`          |
+| `bg-background-alert-info`         | `bg-info-background-container`    |
+| `bg-background-alert-warning`      | `bg-warning-background-container` |
+| `bg-background-alert-error`        | `bg-error-background-container`   |
+| `bg-background-alert-success`      | `bg-success-background-container` |
 
 Codemoden håndterer Tailwind-modifikatorer (`hover:`, `dark:`, `md:` o.l.) korrekt.
 
@@ -344,6 +402,7 @@ Codemoden håndterer Tailwind-modifikatorer (`hover:`, `dark:`, `md:` o.l.) korr
 
 - `bg-background-interactive`, `text-text-interactive` o.l. — Fjernet. Ingen direkte erstatning.
 - `border-border-separator`, `border-border-action`, `border-border-input` o.l. — Fjernet. Bruk `border-border-default`, `border-border-subdued` eller `border-border-strong`.
+
 ### `Card`-komponenten har fått nytt API
 
 > **Codemoden varsler** om bruk av `variant="outlined|high|low"` og forklarer hva som skal gjøres.
