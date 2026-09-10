@@ -19,7 +19,9 @@ test.afterEach(async () => {
 test("renders correctly", async () => {
     await helper.open();
 
-    await helper.snapshots({ focusElement: '[data-testid="jkl-progress-bar"]' });
+    await helper.snapshots({
+        focusElement: '[data-testid="jkl-progress-bar"]',
+    });
 });
 
 test("axe", async ({ axe }) => {

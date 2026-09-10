@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server";
 import {
-    storybookIndexSchema,
     type StorybookEntry,
+    storybookIndexSchema,
 } from "@/storybook/storybookIndex";
+import { NextResponse } from "next/server";
 
 export async function GET() {
     const storiesResponse = await fetch(

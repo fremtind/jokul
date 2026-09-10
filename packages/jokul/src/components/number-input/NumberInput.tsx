@@ -1,10 +1,5 @@
 import clsx from "clsx";
-import React, {
-    type ComponentType,
-    forwardRef,
-    useRef,
-    useState,
-} from "react";
+import React, { type ComponentType, forwardRef, useRef, useState } from "react";
 import { mergeRefs } from "../../utilities/mergeRefs.js";
 import { MinusIcon, PlusIcon } from "../icon/index.js";
 import { InputGroup } from "../input-group/InputGroup.js";

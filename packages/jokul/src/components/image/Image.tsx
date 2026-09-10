@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 import { useElementDimensions } from "../../hooks/useElementDimensions/useElementDimensions.js";
-import { useImageLoadingStatus } from "./useImageLoadingStatus.js";
 import { mergeRefs } from "../../utilities/index.js";
 import type { ImageProps } from "./types.js";
+import { useImageLoadingStatus } from "./useImageLoadingStatus.js";
 
 export const Image = forwardRef<HTMLImageElement, ImageProps>(
     ({ className, placeholder, alt, ...imageProperties }, ref) => {

@@ -28,10 +28,12 @@ const clickHeaderAt = async (header: Locator, position: number) => {
 
 const expectInputAlignedWithLabel = async (panel: Locator) => {
     const alignment = await panel.evaluate((element) => {
-        const input =
-            element.querySelector<HTMLInputElement>(".jkl-checkbox__input");
-        const label =
-            element.querySelector<HTMLLabelElement>(".jkl-checkbox__label");
+        const input = element.querySelector<HTMLInputElement>(
+            ".jkl-checkbox__input",
+        );
+        const label = element.querySelector<HTMLLabelElement>(
+            ".jkl-checkbox__label",
+        );
 
         if (!input || !label) {
             throw new Error("Could not find checkbox input and label");
@@ -60,9 +62,9 @@ const expectInputAlignedWithLabel = async (panel: Locator) => {
     expect(Math.abs(alignment.inputWidth - alignment.labelHeight)).toBeLessThan(
         alignmentTolerance,
     );
-    expect(Math.abs(alignment.inputHeight - alignment.labelHeight)).toBeLessThan(
-        alignmentTolerance,
-    );
+    expect(
+        Math.abs(alignment.inputHeight - alignment.labelHeight),
+    ).toBeLessThan(alignmentTolerance);
 };
 
 test.beforeEach(async ({ page }, workerInfo) => {

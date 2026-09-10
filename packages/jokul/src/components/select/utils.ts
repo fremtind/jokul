@@ -2,7 +2,8 @@ import { type ReactNode, isValidElement } from "react";
 import type { ValuePair } from "../../utilities/valuePair.js";
 
 export function getReactNodeText(node: ReactNode): string {
-    if (typeof node === "string" || typeof node === "number") return String(node);
+    if (typeof node === "string" || typeof node === "number")
+        return String(node);
     if (Array.isArray(node)) return node.map(getReactNodeText).join("");
     if (isValidElement(node)) return getReactNodeText(node.props.children);
     return "";

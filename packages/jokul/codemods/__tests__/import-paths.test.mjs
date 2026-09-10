@@ -944,7 +944,8 @@ test("warns about BETA_Select usage", () => {
 });
 
 test("rewrites searchable inline function to filterFunction, swapping parameter order", () => {
-    const source = `<Select searchable={(searchValue, item) => item.label.includes(searchValue)} items={items} />;`;
+    const source =
+        "<Select searchable={(searchValue, item) => item.label.includes(searchValue)} items={items} />;";
     const result = transformImportPaths(source, "src/App.tsx");
 
     assert.equal(
@@ -960,7 +961,8 @@ test("rewrites searchable inline function to filterFunction, swapping parameter 
 });
 
 test("rewrites searchable function expression to filterFunction", () => {
-    const source = `<Select searchable={function (searchValue, item) { return item.label.includes(searchValue); }} items={items} />;`;
+    const source =
+        "<Select searchable={function (searchValue, item) { return item.label.includes(searchValue); }} items={items} />;";
     const result = transformImportPaths(source, "src/App.tsx");
 
     assert.equal(
@@ -972,7 +974,7 @@ test("rewrites searchable function expression to filterFunction", () => {
 });
 
 test("warns when searchable is a function reference that cannot be rewritten automatically", () => {
-    const source = `<Select searchable={myFilterFn} items={items} />;`;
+    const source = "<Select searchable={myFilterFn} items={items} />;";
     const result = transformImportPaths(source, "src/App.tsx");
 
     assert.equal(
@@ -983,7 +985,7 @@ test("warns when searchable is a function reference that cannot be rewritten aut
 });
 
 test("does not warn about searchable boolean on Select", () => {
-    const source = `<Select searchable items={items} />;`;
+    const source = "<Select searchable items={items} />;";
     const result = transformImportPaths(source, "src/App.tsx");
 
     assert.equal(
@@ -993,7 +995,8 @@ test("does not warn about searchable boolean on Select", () => {
 });
 
 test("warns about removed Select props", () => {
-    const source = `<Select invalid maxShownOptions={5} inline items={items} />;`;
+    const source =
+        "<Select invalid maxShownOptions={5} inline items={items} />;";
     const result = transformImportPaths(source, "src/App.tsx");
 
     for (const prop of ["invalid", "maxShownOptions", "inline"]) {

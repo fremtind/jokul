@@ -1,9 +1,9 @@
 import { OverviewCard } from "@/components/overview/card";
 import { OverviewGrid } from "@/components/overview/grid";
 import { OverviewHeader } from "@/components/overview/header";
+import { logger } from "@/logger";
 import { sanityFetch } from "@/sanity/lib/live";
 import { blogPostsQuery } from "@/sanity/queries/blog";
-import { logger } from "@/logger";
 
 export default async function BlogPage() {
     logger.info("Rendering blog overview page");
