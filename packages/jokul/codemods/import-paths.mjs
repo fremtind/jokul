@@ -16,6 +16,7 @@ import {
     reorderConfiguredFontImport,
 } from "./transforms/import-specifiers.mjs";
 import { applyRegisterWithMaskTransforms } from "./transforms/register-with-mask.mjs";
+import { applySelectTransforms } from "./transforms/select.mjs";
 import { collectManualMigrationWarnings } from "./transforms/warnings.mjs";
 
 const TEXT_EXTENSIONS = new Set([
@@ -75,7 +76,8 @@ export function transformImportPaths(text, filePath = "") {
     const tailwindColors = applyTailwindColorRenames(cssTokens.text);
     const expandablePanel = applyExpandablePanelTransforms(tailwindColors.text);
     const dateInput = applyDateInputTransforms(expandablePanel.text);
-    const masks = applyRegisterWithMaskTransforms(dateInput.text);
+    const select = applySelectTransforms(dateInput.text);
+    const masks = applyRegisterWithMaskTransforms(select.text);
     let next = masks.text;
     let reordered = false;
 
@@ -88,6 +90,7 @@ export function transformImportPaths(text, filePath = "") {
     const warnings = [
         ...beta.warnings,
         ...dateInput.warnings,
+        ...select.warnings,
         ...masks.warnings,
         ...collectManualMigrationWarnings(text),
     ];
@@ -113,6 +116,7 @@ export function transformImportPaths(text, filePath = "") {
             tailwindColors.count +
             expandablePanel.count +
             dateInput.count +
+            select.count +
             masks.count,
         warnings,
         reordered,

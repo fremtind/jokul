@@ -69,7 +69,9 @@ import "@fremtind/jokul/styles/components/select";
         result.text.includes("@fremtind/jokul/styles/components/beta/select"),
         true,
     );
-    assert.deepEqual(result.warnings, []);
+    assert.deepEqual(result.warnings, [
+        "Manuell vurdering: `BETA_Select`/`BETA_SelectProps` er fjernet. Migrer til den stabile `Select`.",
+    ]);
 });
 
 test("warns when beta style import is ambiguous (no beta identifier in file)", () => {
@@ -899,4 +901,105 @@ test("DateInput: håndterer piluttrykk i props ved omdøping", () => {
         true,
     );
     assert.equal(result.text.includes("<Other disableAfterDate={b} />"), true);
+});
+
+test("renames Select defaultPrompt to placeholder", () => {
+    const source = `<Select defaultPrompt="Velg land" items={items} />;`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(result.text.includes('placeholder="Velg land"'), true);
+    assert.equal(result.text.includes("defaultPrompt"), false);
+});
+
+test("Select: rører ikke like prop-navn på andre komponenter", () => {
+    const source = `<Other defaultPrompt="Velg" invalid maxShownOptions={5} />;`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(result.text.includes('defaultPrompt="Velg"'), true);
+    assert.equal(result.warnings.length, 0);
+});
+
+test("warns about NativeSelect usage", () => {
+    const source = `import { NativeSelect } from "@fremtind/jokul/select";
+<NativeSelect items={items} />;
+`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(
+        result.warnings.some((w) => w.includes("NativeSelect")),
+        true,
+    );
+});
+
+test("warns about BETA_Select usage", () => {
+    const source = `import { BETA_Select } from "@fremtind/jokul/select";
+<BETA_Select items={items} />;
+`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(
+        result.warnings.some((w) => w.includes("BETA_Select")),
+        true,
+    );
+});
+
+test("rewrites searchable inline function to filterFunction, swapping parameter order", () => {
+    const source = `<Select searchable={(searchValue, item) => item.label.includes(searchValue)} items={items} />;`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(
+        result.text.includes(
+            "searchable filterFunction={(item, searchValue) => item.label.includes(searchValue)}",
+        ),
+        true,
+    );
+    assert.equal(
+        result.warnings.some((w) => w.includes("filterFunction")),
+        false,
+    );
+});
+
+test("rewrites searchable function expression to filterFunction", () => {
+    const source = `<Select searchable={function (searchValue, item) { return item.label.includes(searchValue); }} items={items} />;`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(
+        result.text.includes(
+            "searchable filterFunction={function (item, searchValue) { return item.label.includes(searchValue); }}",
+        ),
+        true,
+    );
+});
+
+test("warns when searchable is a function reference that cannot be rewritten automatically", () => {
+    const source = `<Select searchable={myFilterFn} items={items} />;`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(
+        result.warnings.some((w) => w.includes("filterFunction")),
+        true,
+    );
+    assert.equal(result.text.includes("searchable={myFilterFn}"), true);
+});
+
+test("does not warn about searchable boolean on Select", () => {
+    const source = `<Select searchable items={items} />;`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(
+        result.warnings.some((w) => w.includes("filterFunction")),
+        false,
+    );
+});
+
+test("warns about removed Select props", () => {
+    const source = `<Select invalid maxShownOptions={5} inline items={items} />;`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    for (const prop of ["invalid", "maxShownOptions", "inline"]) {
+        assert.equal(
+            result.warnings.some((w) => w.includes(`\`${prop}\``)),
+            true,
+        );
+    }
 });
