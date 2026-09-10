@@ -16,6 +16,8 @@ export const HamburgerButton = ({ expanded, ...props }: Props) => {
         <Button
             {...props}
             aria-controls={menuId}
+            aria-expanded={expanded}
+            aria-label={expanded ? "Lukk meny" : "Åpne meny"}
             id={`${menuId}-button`}
             variant="ghost"
             icon={expanded ? <Icon>Close</Icon> : <Icon>Menu</Icon>}
