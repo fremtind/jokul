@@ -112,30 +112,6 @@ $_message-width--compact: jkl.rem(440px);
             max-width: 100%;
         }
 
-        &--info {
-            --background-color: var(--jkl-color-info-background-container);
-            --text-color: var(--jkl-color-info-text-default);
-            --icon-color: var(--jkl-color-info-background-contrast);
-        }
-
-        &--warning {
-            --background-color: var(--jkl-color-warning-background-container);
-            --text-color: var(--jkl-color-warning-text-default);
-            --icon-color: var(--jkl-color-warning-background-contrast);
-        }
-
-        &--error {
-            --background-color: var(--jkl-color-error-background-container);
-            --text-color: var(--jkl-color-error-text-default);
-            --icon-color: var(--jkl-color-error-background-contrast);
-        }
-
-        &--success {
-            --background-color: var(--jkl-color-success-background-container);
-            --text-color: var(--jkl-color-success-text-default);
-            --icon-color: var(--jkl-color-success-background-contrast);
-        }
-
         &--dismissed {
             animation: $_dismiss-animation-name $_dismiss-animation-duration ease-in-out forwards;
             transition: visibility 0ms $_dismiss-animation-duration;

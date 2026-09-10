@@ -50,15 +50,11 @@ function messageFactory(messageType: MessageProps["variant"]) {
                 {...rest}
                 id={id}
                 ref={ref}
-                className={clsx(
-                    "jkl-message",
-                    `jkl-message--${messageType}`,
-                    className,
-                    {
-                        "jkl-message--full": fullWidth,
-                        "jkl-message--dismissed": dismissed,
-                    },
-                )}
+                className={clsx("jkl-message", className, {
+                    "jkl-message--full": fullWidth,
+                    "jkl-message--dismissed": dismissed,
+                })}
+                data-color={messageType}
                 role={role}
             >
                 {getIcon(messageType)}
@@ -111,15 +107,11 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
                 {...rest}
                 id={id}
                 ref={ref}
-                className={clsx(
-                    "jkl-message",
-                    `jkl-message--${variant}`,
-                    className,
-                    {
-                        "jkl-message--full": fullWidth,
-                        "jkl-message--dismissed": dismissed,
-                    },
-                )}
+                className={clsx("jkl-message", className, {
+                    "jkl-message--full": fullWidth,
+                    "jkl-message--dismissed": dismissed,
+                })}
+                data-color={variant}
                 role={role}
             >
                 {getIcon(variant)}
