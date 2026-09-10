@@ -1,5 +1,14 @@
 # portal
 
+## 1.11.2
+
+### Patch Changes
+
+- ebdf647: Legger bildene i komponentoversikten lengst ned i kortene så de blir visuelt alignet.
+- e910ae9: Fjerner warnings i konsollen ved å gi ikonknapper tilgjengelige navn og riktig ekspandert tilstand.
+- Updated dependencies [559db6c]
+  - @fremtind/jokul@5.4.2
+
 ## 1.11.1
 
 ### Patch Changes
