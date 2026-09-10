@@ -29,6 +29,7 @@ export const ComponentHeaderLink = ({
                     rel="noopener noreferrer"
                     href={href}
                     icon={icon}
+                    aria-label={`${name} (åpnes i ny fane)`}
                 />
             </TooltipTrigger>
             <TooltipContent>{name}</TooltipContent>
