@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.4.2
+
+### Patch Changes
+
+- 559db6c: Oppdaterer tilpassede farger for merkevaren `dnb`
+
 ## 5.4.1
 
 ### Patch Changes
