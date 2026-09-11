@@ -2,7 +2,7 @@ import { ReferencedByView } from "@/sanity/components/ReferencedByView";
 import { dataset, projectId } from "@/sanity/env";
 import { schemaTypes } from "@/sanity/schemas";
 import { codeInput } from "@sanity/code-input";
-import { BookIcon, CogIcon, LinkIcon } from "@sanity/icons";
+import { CogIcon, LinkIcon } from "@sanity/icons";
 import { nbNOLocale } from "@sanity/locale-nb-no";
 import { table } from "@sanity/table";
 import { visionTool } from "@sanity/vision";
@@ -31,17 +31,6 @@ export default defineConfig({
                                     listItem.getId() || "",
                                 ),
                         ),
-                        S.divider(),
-                        S.listItem()
-                            .title("Stories")
-                            .icon(BookIcon)
-                            .child(
-                                S.documentList()
-                                    .apiVersion("2026-03-06")
-                                    .title("Stories")
-                                    .schemaType("jokul_story")
-                                    .filter('_type == "jokul_story"'),
-                            ),
                         S.divider(),
                         S.listItem()
                             .title("Nettstedsinformasjon")

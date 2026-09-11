@@ -1,4 +1,4 @@
-import { StorySelector } from "@/sanity/components/StorySelector";
+import { StorySelector } from "@/sanity/components/to-be-deleted/StorySelector";
 import { BookIcon } from "@sanity/icons";
 import React from "react";
 import { defineField, defineType } from "sanity";
@@ -8,6 +8,7 @@ export const story = defineType({
     title: "Story",
     type: "document",
     icon: BookIcon,
+    hidden: true,
     fields: [
         defineField({
             name: "name",

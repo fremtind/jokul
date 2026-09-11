@@ -1,6 +1,6 @@
 import { ComponentIcon } from "@sanity/icons";
 import { defineField, defineType } from "sanity";
-import { StorybookInput } from "../../components/StorybookStoryInput";
+import { StorybookInput } from "../../components/to-be-deleted/StorybookStoryInput";
 export const storybook = defineType({
     name: "jokul_storybook",
     title: "Eksempel fra Storybook",

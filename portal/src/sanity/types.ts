@@ -13,6 +13,21 @@
  */
 
 // Source: schema.json
+export type Jokul_storybookExample = {
+  _type: "jokul_storybookExample";
+  embed?: Jokul_storybookEmbed;
+  code?: Code;
+};
+
+export type Jokul_storybookEmbed = {
+  _type: "jokul_storybookEmbed";
+  storyId?: string;
+  storyName?: string;
+  version?: "latest" | "next" | "version-4";
+  height?: number;
+  interactive?: boolean;
+};
+
 export type Jokul_internal_link = {
   _type: "jokul_internal_link";
   article?: {
@@ -401,6 +416,17 @@ export type Jokul_linkCard = {
   url?: string;
 };
 
+export type Jokul_code = {
+  _type: "jokul_code";
+  title?: string;
+  code?: Code;
+};
+
+export type Jokul_storyId = {
+  _type: "jokul_storyId";
+  story?: string;
+};
+
 export type Jokul_examples = {
   _type: "jokul_examples";
   title?: string;
@@ -412,12 +438,6 @@ export type Jokul_examples = {
     [internalGroqTypeReferenceTo]?: "jokul_story";
   }>;
   layout?: "gallery" | "carousel" | "list";
-};
-
-export type Jokul_code = {
-  _type: "jokul_code";
-  title?: string;
-  code?: Code;
 };
 
 export type Jokul_componentKortFortalt = {
@@ -601,6 +621,10 @@ export type Jokul_blog_post = {
     _key: string;
   } & Jokul_storybook | {
     _key: string;
+  } & Jokul_storybookExample | {
+    _key: string;
+  } & Jokul_storyId | {
+    _key: string;
   } & Jokul_table | {
     _key: string;
   } & Jokul_qa | {
@@ -634,7 +658,9 @@ export type Jokul_component = {
       _weak?: boolean;
       [internalGroqTypeReferenceTo]?: "jokul_story";
     };
+    storybook?: Jokul_storybookEmbed;
   };
+  storybook?: Jokul_storybookEmbed;
   considerations?: Array<{
     title?: string;
     description?: string;
@@ -714,6 +740,10 @@ export type Jokul_component = {
   } & Jokul_examples | {
     _key: string;
   } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_storybookExample | {
+    _key: string;
+  } & Jokul_storyId | {
     _key: string;
   } & Jokul_table | {
     _key: string;
@@ -879,6 +909,10 @@ export type Jokul_fundamentals = {
     _key: string;
   } & Jokul_storybook | {
     _key: string;
+  } & Jokul_storybookExample | {
+    _key: string;
+  } & Jokul_storyId | {
+    _key: string;
   } & Jokul_table | {
     _key: string;
   } & Jokul_qa | {
@@ -975,6 +1009,10 @@ export type Jokul_release_notes = {
   } & Jokul_examples | {
     _key: string;
   } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_storybookExample | {
+    _key: string;
+  } & Jokul_storyId | {
     _key: string;
   } & Jokul_table | {
     _key: string;
@@ -1073,6 +1111,10 @@ export type Jokul_temaside = {
   } & Jokul_examples | {
     _key: string;
   } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_storybookExample | {
+    _key: string;
+  } & Jokul_storyId | {
     _key: string;
   } & Jokul_table | {
     _key: string;
@@ -1201,6 +1243,10 @@ export type Jokul_monster = {
   } & Jokul_examples | {
     _key: string;
   } & Jokul_storybook | {
+    _key: string;
+  } & Jokul_storybookExample | {
+    _key: string;
+  } & Jokul_storyId | {
     _key: string;
   } & Jokul_table | {
     _key: string;
@@ -1363,7 +1409,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes = Jokul_internal_link | Seo | ColorSchemeImages | Jokul_siteData | SanityImageCrop | SanityImageHotspot | Jokul_feedbackBlock | Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_doAndDont | Jokul_linkCard | Jokul_examples | Jokul_code | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | ComponentPageLink | Jokul_blog_post | Jokul_component | Jokul_fundamentals | Jokul_release_notes | Jokul_temaside | Jokul_monster | Table | Code | Slug | Jokul_story | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
+export type AllSanitySchemaTypes = Jokul_storybookExample | Jokul_storybookEmbed | Jokul_internal_link | Seo | ColorSchemeImages | Jokul_siteData | SanityImageCrop | SanityImageHotspot | Jokul_feedbackBlock | Jokul_qa | Jokul_messageBox | Jokul_table | Jokul_doAndDont | Jokul_linkCard | Jokul_code | Jokul_storyId | Jokul_examples | Jokul_componentKortFortalt | Jokul_storybookStory | Jokul_storybook | Jokul_codeBlock | Jokul_codeExample | Jokul_componentProps | ComponentPageLink | Jokul_blog_post | Jokul_component | Jokul_fundamentals | Jokul_release_notes | Jokul_temaside | Jokul_monster | Table | Code | Slug | Jokul_story | TableRow | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/queries/allPosts.ts
 // Variable: latestUpdatedArticlesQuery
@@ -2253,6 +2299,17 @@ export type BlogPostBySlugQueryResult = {
     markDefs: null;
   } | {
     _key: string;
+    _type: "jokul_storybookExample";
+    embed?: Jokul_storybookEmbed;
+    code?: Code;
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_storyId";
+    story?: string;
+    markDefs: null;
+  } | {
+    _key: string;
     _type: "jokul_table";
     caption?: string;
     table?: Table;
@@ -2309,7 +2366,7 @@ export type ComponentsQueryResult = Array<{
   categories: Array<string> | null;
 }>;
 // Variable: componentBySlugQuery
-// Query: *[_type == "jokul_component" && slug.current == $slug][0]{        ...,        "slug": slug.current,            "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    },        "example_card": {            ...example_card,            "story": example_card.story->        },        documentation_article[]{                ...,        markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    },    _type == "jokul_examples" => {        ...,        examples[]->{            name,            id,            description,            height,            inert,            code        }    },        _type == "jokul_linkCard" => {        ...,        "url": coalesce(            url,            select(                article->_type == "jokul_component"     => "/komponenter/"   + article->slug.current,                article->_type == "jokul_blog_post"     => "/blog/"          + article->slug.current,                article->_type == "jokul_fundamentals"  => "/fundamenter/"   + article->slug.current,                article->_type == "jokul_release_notes" => "/release-notes/" + article->slug.current,                article->_type == "jokul_monster"       => "/monster/"       + article->slug.current            )        ),        "images": {            "light": coalesce(article->cardImages.light, article->image),            "dark": coalesce(article->cardImages.dark, article->imageDark)        }    },    _type == "jokul_qa" => {        ...,        faq[]{            ...,            answer[]{                ...,                    markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    }            }        }    },    _type == "jokul_messageBox" => {        ...,        message[]{            ...,                markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    }        }    },            _type == "jokul_componentKortFortalt" => {                ...,                bruk[]{                    bruk_punkt[]{                        ...,                            markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    }                    }                },                ikke_bruk[]{                    ikke_bruk_punkt[]{                        ...,                            markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    }                    }                }            }        },        related_components {            components[]->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    },                related_components,                categories            }        },        "related_patterns": *[_type == "jokul_monster" && references(^._id)]{            name,            "slug": slug.current,            short_description,                "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }        } | order(name)    }
+// Query: *[_type == "jokul_component" && slug.current == $slug][0]{        ...,        "slug": slug.current,            "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    },        "example_card": {            "story": example_card.story->,            "storybook": example_card.storybook        },        documentation_article[]{                ...,        markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    },    _type == "jokul_examples" => {        ...,        examples[]->{            name,            id,            description,            height,            inert,            code        }    },        _type == "jokul_linkCard" => {        ...,        "url": coalesce(            url,            select(                article->_type == "jokul_component"     => "/komponenter/"   + article->slug.current,                article->_type == "jokul_blog_post"     => "/blog/"          + article->slug.current,                article->_type == "jokul_fundamentals"  => "/fundamenter/"   + article->slug.current,                article->_type == "jokul_release_notes" => "/release-notes/" + article->slug.current,                article->_type == "jokul_monster"       => "/monster/"       + article->slug.current            )        ),        "images": {            "light": coalesce(article->cardImages.light, article->image),            "dark": coalesce(article->cardImages.dark, article->imageDark)        }    },    _type == "jokul_qa" => {        ...,        faq[]{            ...,            answer[]{                ...,                    markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    }            }        }    },    _type == "jokul_messageBox" => {        ...,        message[]{            ...,                markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    }        }    },            _type == "jokul_componentKortFortalt" => {                ...,                bruk[]{                    bruk_punkt[]{                        ...,                            markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    }                    }                },                ikke_bruk[]{                    ikke_bruk_punkt[]{                        ...,                            markDefs[]{        ...,        _type == "jokul_internal_link" => {            ...,            article->{                _type,                "name": coalesce(name, tema, version),                short_description,                "slug": slug.current,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        },        _type == "componentPageLink" => {            ...,            component->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }            }        }    }                    }                }            }        },        related_components {            components[]->{                name,                short_description,                "slug": slug.current,                figma_image,                    "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    },                related_components,                categories            }        },        "related_patterns": *[_type == "jokul_monster" && references(^._id)]{            name,            "slug": slug.current,            short_description,                "images": {        "light": coalesce(cardImages.light, image),        "dark": coalesce(cardImages.dark, imageDark)    }        } | order(name)    }
 export type ComponentBySlugQueryResult = {
   _id: string;
   _type: "jokul_component";
@@ -2339,7 +2396,9 @@ export type ComponentBySlugQueryResult = {
       inert?: boolean;
       code?: Code;
     } | null;
+    storybook: Jokul_storybookEmbed | null;
   };
+  storybook?: Jokul_storybookEmbed;
   considerations?: Array<{
     title?: string;
     description?: string;
@@ -3045,6 +3104,17 @@ export type ComponentBySlugQueryResult = {
     story?: Jokul_storybookStory;
     code?: Jokul_codeBlock;
     height?: number;
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_storybookExample";
+    embed?: Jokul_storybookEmbed;
+    code?: Code;
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_storyId";
+    story?: string;
     markDefs: null;
   } | {
     _key: string;
@@ -3856,6 +3926,17 @@ export type FundamentalsBySlugQueryResult = {
     markDefs: null;
   } | {
     _key: string;
+    _type: "jokul_storybookExample";
+    embed?: Jokul_storybookEmbed;
+    code?: Code;
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_storyId";
+    story?: string;
+    markDefs: null;
+  } | {
+    _key: string;
     _type: "jokul_table";
     caption?: string;
     table?: Table;
@@ -4536,6 +4617,17 @@ export type MonsterBySlugQueryResult = {
     story?: Jokul_storybookStory;
     code?: Jokul_codeBlock;
     height?: number;
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_storybookExample";
+    embed?: Jokul_storybookEmbed;
+    code?: Code;
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_storyId";
+    story?: string;
     markDefs: null;
   } | {
     _key: string;
@@ -5246,6 +5338,17 @@ export type ReleaseNoteBySlugQueryResult = {
     markDefs: null;
   } | {
     _key: string;
+    _type: "jokul_storybookExample";
+    embed?: Jokul_storybookEmbed;
+    code?: Code;
+    markDefs: null;
+  } | {
+    _key: string;
+    _type: "jokul_storyId";
+    story?: string;
+    markDefs: null;
+  } | {
+    _key: string;
     _type: "jokul_table";
     caption?: string;
     table?: Table;
@@ -5349,7 +5452,7 @@ declare module "@sanity/client" {
     "*[_type == \"jokul_blog_post\"]{\n        name,\n        slug,\n        short_description,\n        \"date\": _createdAt\n    } | order(_createdAt desc)": BlogPostsQueryResult;
     "*[_type == \"jokul_blog_post\" && slug.current == $slug][0]{\n        ...,\n        article[]{\n            \n    ...,\n    \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n,\n    _type == \"jokul_examples\" => {\n        ...,\n        examples[]->{\n            name,\n            id,\n            description,\n            height,\n            inert,\n            code\n        }\n    },\n        _type == \"jokul_linkCard\" => {\n        ...,\n        \"url\": coalesce(\n            url,\n            select(\n                article->_type == \"jokul_component\"     => \"/komponenter/\"   + article->slug.current,\n                article->_type == \"jokul_blog_post\"     => \"/blog/\"          + article->slug.current,\n                article->_type == \"jokul_fundamentals\"  => \"/fundamenter/\"   + article->slug.current,\n                article->_type == \"jokul_release_notes\" => \"/release-notes/\" + article->slug.current,\n                article->_type == \"jokul_monster\"       => \"/monster/\"       + article->slug.current\n            )\n        ),\n        \"images\": {\n            \"light\": coalesce(article->cardImages.light, article->image),\n            \"dark\": coalesce(article->cardImages.dark, article->imageDark)\n        }\n    },\n    _type == \"jokul_qa\" => {\n        ...,\n        faq[]{\n            ...,\n            answer[]{\n                ...,\n                \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n            }\n        }\n    },\n    _type == \"jokul_messageBox\" => {\n        ...,\n        message[]{\n            ...,\n            \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n        }\n    }\n\n        }\n    }": BlogPostBySlugQueryResult;
     "*[_type == \"jokul_component\"]{\n    name,\n    short_description,\n    \"slug\": slug.current,\n    figma_image,\n    \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n,\n    related_components,\n    categories\n} | order(name)": ComponentsQueryResult;
-    "*[_type == \"jokul_component\" && slug.current == $slug][0]{\n        ...,\n        \"slug\": slug.current,\n        \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n,\n        \"example_card\": {\n            ...example_card,\n            \"story\": example_card.story->\n        },\n        documentation_article[]{\n            \n    ...,\n    \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n,\n    _type == \"jokul_examples\" => {\n        ...,\n        examples[]->{\n            name,\n            id,\n            description,\n            height,\n            inert,\n            code\n        }\n    },\n        _type == \"jokul_linkCard\" => {\n        ...,\n        \"url\": coalesce(\n            url,\n            select(\n                article->_type == \"jokul_component\"     => \"/komponenter/\"   + article->slug.current,\n                article->_type == \"jokul_blog_post\"     => \"/blog/\"          + article->slug.current,\n                article->_type == \"jokul_fundamentals\"  => \"/fundamenter/\"   + article->slug.current,\n                article->_type == \"jokul_release_notes\" => \"/release-notes/\" + article->slug.current,\n                article->_type == \"jokul_monster\"       => \"/monster/\"       + article->slug.current\n            )\n        ),\n        \"images\": {\n            \"light\": coalesce(article->cardImages.light, article->image),\n            \"dark\": coalesce(article->cardImages.dark, article->imageDark)\n        }\n    },\n    _type == \"jokul_qa\" => {\n        ...,\n        faq[]{\n            ...,\n            answer[]{\n                ...,\n                \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n            }\n        }\n    },\n    _type == \"jokul_messageBox\" => {\n        ...,\n        message[]{\n            ...,\n            \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n        }\n    }\n,\n            _type == \"jokul_componentKortFortalt\" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[]{\n                        ...,\n                        \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[]{\n                        ...,\n                        \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n                    }\n                }\n            }\n        },\n        related_components {\n            components[]->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n,\n                related_components,\n                categories\n            }\n        },\n        \"related_patterns\": *[_type == \"jokul_monster\" && references(^._id)]{\n            name,\n            \"slug\": slug.current,\n            short_description,\n            \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n        } | order(name)\n    }": ComponentBySlugQueryResult;
+    "*[_type == \"jokul_component\" && slug.current == $slug][0]{\n        ...,\n        \"slug\": slug.current,\n        \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n,\n        \"example_card\": {\n            \"story\": example_card.story->,\n            \"storybook\": example_card.storybook\n        },\n        documentation_article[]{\n            \n    ...,\n    \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n,\n    _type == \"jokul_examples\" => {\n        ...,\n        examples[]->{\n            name,\n            id,\n            description,\n            height,\n            inert,\n            code\n        }\n    },\n        _type == \"jokul_linkCard\" => {\n        ...,\n        \"url\": coalesce(\n            url,\n            select(\n                article->_type == \"jokul_component\"     => \"/komponenter/\"   + article->slug.current,\n                article->_type == \"jokul_blog_post\"     => \"/blog/\"          + article->slug.current,\n                article->_type == \"jokul_fundamentals\"  => \"/fundamenter/\"   + article->slug.current,\n                article->_type == \"jokul_release_notes\" => \"/release-notes/\" + article->slug.current,\n                article->_type == \"jokul_monster\"       => \"/monster/\"       + article->slug.current\n            )\n        ),\n        \"images\": {\n            \"light\": coalesce(article->cardImages.light, article->image),\n            \"dark\": coalesce(article->cardImages.dark, article->imageDark)\n        }\n    },\n    _type == \"jokul_qa\" => {\n        ...,\n        faq[]{\n            ...,\n            answer[]{\n                ...,\n                \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n            }\n        }\n    },\n    _type == \"jokul_messageBox\" => {\n        ...,\n        message[]{\n            ...,\n            \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n        }\n    }\n,\n            _type == \"jokul_componentKortFortalt\" => {\n                ...,\n                bruk[]{\n                    bruk_punkt[]{\n                        ...,\n                        \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n                    }\n                },\n                ikke_bruk[]{\n                    ikke_bruk_punkt[]{\n                        ...,\n                        \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n                    }\n                }\n            }\n        },\n        related_components {\n            components[]->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n,\n                related_components,\n                categories\n            }\n        },\n        \"related_patterns\": *[_type == \"jokul_monster\" && references(^._id)]{\n            name,\n            \"slug\": slug.current,\n            short_description,\n            \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n        } | order(name)\n    }": ComponentBySlugQueryResult;
     "*[_type == \"jokul_component\" && slug.current == $slug][0]{ name }": ComponentMetaBySlugQueryResult;
     "*[_type == \"jokul_fundamentals\"]{\n        name,\n        slug,\n        short_description,\n        \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n,\n        \"date\": _createdAt\n    } | order(_createdAt desc)": FundamentalsQueryResult;
     "*[_type == \"jokul_fundamentals\" && slug.current == $slug][0]{\n        ...,\n        \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n,\n        article[]{\n            \n    ...,\n    \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n,\n    _type == \"jokul_examples\" => {\n        ...,\n        examples[]->{\n            name,\n            id,\n            description,\n            height,\n            inert,\n            code\n        }\n    },\n        _type == \"jokul_linkCard\" => {\n        ...,\n        \"url\": coalesce(\n            url,\n            select(\n                article->_type == \"jokul_component\"     => \"/komponenter/\"   + article->slug.current,\n                article->_type == \"jokul_blog_post\"     => \"/blog/\"          + article->slug.current,\n                article->_type == \"jokul_fundamentals\"  => \"/fundamenter/\"   + article->slug.current,\n                article->_type == \"jokul_release_notes\" => \"/release-notes/\" + article->slug.current,\n                article->_type == \"jokul_monster\"       => \"/monster/\"       + article->slug.current\n            )\n        ),\n        \"images\": {\n            \"light\": coalesce(article->cardImages.light, article->image),\n            \"dark\": coalesce(article->cardImages.dark, article->imageDark)\n        }\n    },\n    _type == \"jokul_qa\" => {\n        ...,\n        faq[]{\n            ...,\n            answer[]{\n                ...,\n                \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n            }\n        }\n    },\n    _type == \"jokul_messageBox\" => {\n        ...,\n        message[]{\n            ...,\n            \n    markDefs[]{\n        ...,\n        _type == \"jokul_internal_link\" => {\n            ...,\n            article->{\n                _type,\n                \"name\": coalesce(name, tema, version),\n                short_description,\n                \"slug\": slug.current,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        },\n        _type == \"componentPageLink\" => {\n            ...,\n            component->{\n                name,\n                short_description,\n                \"slug\": slug.current,\n                figma_image,\n                \n    \"images\": {\n        \"light\": coalesce(cardImages.light, image),\n        \"dark\": coalesce(cardImages.dark, imageDark)\n    }\n\n            }\n        }\n    }\n\n        }\n    }\n\n        }\n    }": FundamentalsBySlugQueryResult;

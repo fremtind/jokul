@@ -96,17 +96,29 @@ export const component = defineType({
             name: "example_card",
             title: "Eksempel",
             type: "object",
+            hidden: true,
             fields: [
                 defineField({
                     name: "story",
                     title: "Velg story",
                     type: "reference",
                     to: [{ type: "jokul_story" }],
+                    hidden: true,
                     options: {
                         filter: '_type == "jokul_story"',
                     },
                 }),
+                defineField({
+                    name: "storybook",
+                    title: "Storybook",
+                    type: "jokul_storybookEmbed",
+                }),
             ],
+        }),
+        defineField({
+            name: "storybook",
+            title: "Eksempel",
+            type: "jokul_storybookEmbed",
         }),
         defineField({
             name: "considerations",

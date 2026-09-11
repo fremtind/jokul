@@ -18,15 +18,9 @@ SyntaxHighlighter.registerLanguage("scss", scss);
 SyntaxHighlighter.registerLanguage("tsx", tsx);
 SyntaxHighlighter.registerLanguage("html", html);
 
-export const NewCodeBlock: React.FC<
-    PortableTextTypeComponentProps<Jokul_code>
-> = ({ value }) => {
-    const { title, code } = value;
+type CodeBlockProps = Pick<Jokul_code, "title" | "code">;
 
-    if (!code || !code.language || !code.code) {
-        return null;
-    }
-
+export const CodeBlock: React.FC<CodeBlockProps> = ({ title, code }) => {
     const { prefersColorScheme } = useBrowserPreferences();
     const [style, setStyle] = useState(fremtindTheme);
     const [copied, setCopied] = useState<boolean>(false);
@@ -40,6 +34,10 @@ export const NewCodeBlock: React.FC<
             ),
         [prefersColorScheme],
     );
+
+    if (!code || !code.language || !code.code) {
+        return null;
+    }
 
     return (
         <div className={styles.codeBlock} data-language={code.language}>
@@ -83,3 +81,7 @@ export const NewCodeBlock: React.FC<
         </div>
     );
 };
+
+export const NewCodeBlock: React.FC<
+    PortableTextTypeComponentProps<Jokul_code>
+> = ({ value }) => <CodeBlock title={value.title} code={value.code} />;

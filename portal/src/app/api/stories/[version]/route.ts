@@ -2,8 +2,8 @@ import {
     type StorybookEntry,
     storybookIndexSchema,
 } from "@/storybook/storybookIndex";
+import { getStorybookBaseUrl, isSupportedVersion } from "@/storybook/versions";
 import { type NextRequest, NextResponse } from "next/server";
-import { isSupportedVersion } from "../versions";
 
 export async function GET(
     _req: NextRequest,
@@ -11,10 +11,7 @@ export async function GET(
 ) {
     const version = (await context.params).version;
     const storybookVersion = isSupportedVersion(version) ? version : "latest";
-    const storybookUrl =
-        storybookVersion === "local"
-            ? "http://localhost:6007"
-            : `https://fremtind.github.io/jokul/${storybookVersion}`;
+    const storybookUrl = getStorybookBaseUrl(storybookVersion);
 
     const storiesResponse = await fetch(`${storybookUrl}/index.json`);
 
