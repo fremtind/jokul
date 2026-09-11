@@ -24,7 +24,7 @@ Dokumentasjonen inneholder utstrakt bruk av kjørbare eksempler for komponentene
 
 ## Utviklingsmiljø
 
-For å kjøre opp prosjektet lokalt for utvikling må du kjøre opp både portalen (som inkluderer grensesnittet for CMSet) og Storybook dersom du vil se eksemplene i portalen. Husk å sette opp en `.env`-fil med verdier for variablene som er satt opp i [`.env.example`](./.env.example)
+Sett opp en `.env`-fil med verdier for variablene som er satt opp i [`.env.example`](./.env.example)
 
 1. kjør `pnpm dev` på rot i repoet for å starte Storybook og portalen
 
@@ -35,6 +35,8 @@ Alternativt:
 
 Portalen vil være tilgjengelig på [`localhost:3333`](http://localhost:3333), og du kommer til grensesnittet for CMSet på [`localhost:3333/studio`](http://localhost:3333/studio)
 Du kan også gå rett til Storybook på [`localhost:6007`](http://localhost:6007)
+
+`pnpm dev` og `pnpm dev:portal` setter Storybook-adressen til `http://localhost:6007` for lenker fra portalen.
 
 ## Kodestruktur
 
@@ -47,7 +49,13 @@ Mappestrukturen i prosjektet er i stor grad diktert av konvensjonene fra Next.js
 Uthenting av data fra CMSet og andre eksterne datakilder skjer i stor grad der dataene trengs, ved hjelp av Seact Server Components.
 Hvis du skal hente data fra Sanity må du først definere en spørring under [`src/sanity/queries`](.src/sanity/queries). Denne querien kan du sende inn til Sanity-klienten i komponenten der du trenger dataene. Spørringene dedupliseres automatisk dersom de brukes flere steder.
 
+## Kjøre et produksjonsbygg lokalt
+
+Kjør `pnpm start` på rot i repoet for å bygge pakkene og portalen, kopiere statiske filer og starte Next.js sin standalone-server på [`localhost:3333`](http://localhost:3333). Har du allerede gjort dette og bare vil starte serveren igjen, kan du kjøre `pnpm start:portal`.
+
+Dette starter ikke en lokal Storybook. Eksemplene hentes fra publisert Storybook på GitHub Pages.
+
 ## Test- og produksjonsmiljøer
 
-Portalen publiseres som et Docker-image som inneholder både portalen og Storybook, samt en liten Express-server som ruter trafikk mellom dem.
+Portalen publiseres som et Docker-image. Storybook publiseres separat på GitHub Pages.
 Bygg og publisering til både test- og produksjonsmiljø skjer automatisk i et eget repo ved merge til `main`-branchen.
