@@ -51,6 +51,7 @@ export default async function FundamentalPage({ params }: Props) {
                 title={fundamental.name || ""}
                 description={fundamental.short_description}
                 backLink={{ href: "/fundamenter", label: "Fundamenter" }}
+                date={{ updated: new Date(fundamental._updatedAt) }}
             />
             {fundamental.article ? (
                 <PortableText blocks={fundamental.article} />

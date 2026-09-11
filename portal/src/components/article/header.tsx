@@ -1,3 +1,4 @@
+import { getRelativeTime } from "@/utils/relativeTime";
 import { NavLink } from "@fremtind/jokul/nav-link";
 import styles from "./article.module.scss";
 
@@ -29,30 +30,33 @@ export const ArticleHeader = async (props: HeaderProps) => {
             {date?.published && (
                 <p className={styles.date}>
                     Publisert{" "}
-                    <time dateTime={new Date(date.published).toDateString()}>
-                        {new Date(date.published).toLocaleString(
-                            navigator.language,
+                    <time
+                        dateTime={new Date(date.published).toISOString()}
+                        title={new Date(date.published).toLocaleString(
+                            "no-NB",
                             {
                                 day: "2-digit",
                                 month: "2-digit",
                                 year: "numeric",
                             },
                         )}
+                    >
+                        {getRelativeTime(date.published)}
                     </time>
                 </p>
             )}
             {date?.updated && (
                 <p className={styles.date}>
                     Oppdatert{" "}
-                    <time dateTime={new Date(date.updated).toDateString()}>
-                        {new Date(date.updated).toLocaleString(
-                            navigator.language,
-                            {
-                                day: "2-digit",
-                                month: "2-digit",
-                                year: "numeric",
-                            },
-                        )}
+                    <time
+                        dateTime={new Date(date.updated).toISOString()}
+                        title={new Date(date.updated).toLocaleString("no-NB", {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric",
+                        })}
+                    >
+                        {getRelativeTime(date.updated)}
                     </time>
                 </p>
             )}
