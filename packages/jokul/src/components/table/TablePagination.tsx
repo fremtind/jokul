@@ -47,9 +47,7 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
             ...rest
         } = props;
 
-        const id = useId(idProp || "jkl-table-pagination", {
-            generateSuffix: !idProp,
-        });
+        const id = useId("jkl-table-pagination", idProp);
 
         const showAll = rowsPerPage <= 0;
         const numberOfPages = showAll

@@ -50,10 +50,8 @@ function BaseAutosuggest<T>({
     },
     noHits,
 }: BaseAutosuggestProps<T>): JSX.Element {
-    const uid = useId(inputId || "jkl-text-input", {
-        generateSuffix: !inputId,
-    });
-    const lid = useId(labelId || "jkl-label", { generateSuffix: !labelId });
+    const uid = useId("jkl-text-input", inputId);
+    const lid = useId("jkl-label", labelId);
 
     const customLabelProps = {
         inputId: uid,

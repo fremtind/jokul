@@ -19,9 +19,7 @@ function systemFactory(
         children,
         ...rest
     }) => {
-        const systemId = useId(id || "jkl-system-message", {
-            generateSuffix: !id,
-        });
+        const systemId = useId("jkl-system-message", id);
 
         return (
             <div
@@ -76,9 +74,7 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
     children,
     ...rest
 }) => {
-    const systemId = useId(id || "jkl-system-message", {
-        generateSuffix: !id,
-    });
+    const systemId = useId("jkl-system-message", id);
 
     return (
         <div

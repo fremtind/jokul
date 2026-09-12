@@ -1,6 +1,5 @@
 import { readFile, readdir, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
-
 import {
     applyCssTokenRenames,
     applyTailwindColorRenames,
@@ -14,6 +13,8 @@ import {
     removeRedundantWebfontsCssImport,
     reorderConfiguredFontImport,
 } from "./transforms/import-specifiers.mjs";
+import { applyRegisterWithMaskTransforms } from "./transforms/register-with-mask.mjs";
+import { applyUseIdTransforms } from "./transforms/use-id.mjs";
 import { collectManualMigrationWarnings } from "./transforms/warnings.mjs";
 
 const TEXT_EXTENSIONS = new Set([
@@ -72,7 +73,11 @@ export function transformImportPaths(text, filePath = "") {
     const cssTokens = applyCssTokenRenames(beta.text);
     const tailwindColors = applyTailwindColorRenames(cssTokens.text);
     const expandablePanel = applyExpandablePanelTransforms(tailwindColors.text);
-    let next = expandablePanel.text;
+    const registerWithMask = applyRegisterWithMaskTransforms(
+        expandablePanel.text,
+    );
+    const useId = applyUseIdTransforms(registerWithMask.text);
+    let next = useId.text;
     let reordered = false;
 
     if (/\.(sass|scss)$/i.test(filePath)) {
@@ -83,6 +88,8 @@ export function transformImportPaths(text, filePath = "") {
 
     const warnings = [
         ...beta.warnings,
+        ...registerWithMask.warnings,
+        ...useId.warnings,
         ...collectManualMigrationWarnings(text),
     ];
 
@@ -106,6 +113,7 @@ export function transformImportPaths(text, filePath = "") {
             cssTokens.count +
             tailwindColors.count +
             expandablePanel.count,
+            useId.count,
         warnings,
         reordered,
     };

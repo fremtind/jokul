@@ -57,7 +57,7 @@ export function useModal(props: UseModalOptions): UseModalReturn {
         ...rest
     } = props;
 
-    const id = useId(idProp || "jkl-modal", { generateSuffix: !idProp });
+    const id = useId("jkl-modal", idProp);
 
     const [instance, config] = useA11yDialog({
         id,

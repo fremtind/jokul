@@ -57,7 +57,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             ...rest
         } = props;
 
-        const listId = useId(id || "jkl-select", { generateSuffix: !id });
+        const listId = useId("jkl-select", id);
         const labelId = `${listId}_label`;
         const buttonId = `${listId}_button`;
         const searchInputId = `${listId}_search-input`;

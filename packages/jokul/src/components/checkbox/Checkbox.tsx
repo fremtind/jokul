@@ -24,7 +24,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             [],
         );
 
-        const inputId = useId(id || "jkl-checkbox", { generateSuffix: !id });
+        const inputId = useId("jkl-checkbox", id);
 
         useEffect(() => {
             if (
