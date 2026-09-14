@@ -4,12 +4,7 @@ import { cardImagesProjection, commonBlockBody } from "./fragments";
 export const monstreQuery = defineQuery(`*[_type == "jokul_monster"]{
     name,
     "slug": slug.current,
-    short_description,
-    ${cardImagesProjection},
-    related_components[]->{
-        name,
-        "slug": slug.current
-    }
+    short_description
 } | order(name)`);
 
 export const monsterBySlugQuery = defineQuery(

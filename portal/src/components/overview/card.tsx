@@ -1,3 +1,5 @@
+"use client";
+
 import type { SanityImageLike } from "@/sanity/lib/image";
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
