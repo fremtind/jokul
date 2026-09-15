@@ -48,43 +48,48 @@ Deretter kan du søke etter `eslint` og fjerne avkrysningen ved "Eslint: Enable"
 
 Repoet bruker Changesets på standard måte med `.changeset/config.json`, changeset-filer i `.changeset/` og `changesets/action` i GitHub Actions.
 
-Vi bruker to tydelige release-brancher:
+`main` er hovedbranchen for utvikling og publiserer normalt beta-versjoner med npm-taggen `next`. I tillegg finnes vedlikeholdte grener på formen `jokul-N.x` (f.eks. `jokul-5.x`) for eldre major-versjoner. Hvilke grener som vedlikeholdes, hvilket bump-nivå de kan motta, og hvilken av dem som er `latest`, er definert i [`.github/maintained-versions.json`](.github/maintained-versions.json).
 
-- `main` publiserer stabile versjoner.
-- `release/next` publiserer prereleases med npm-taggen `next`.
+Publisering skjer i én felles GitHub Actions-workflow (`release.yml`) som trigges ved push til `main` eller en `jokul-*`-branch. Workflowen finner riktig npm dist-tag automatisk:
 
-Dette er splittet i to egne GitHub Actions-workflows: én for stabile releases og én for prereleases.
+- På en `jokul-N.x`-branch: `latest` hvis branchen er markert med `"latest": true` i `maintained-versions.json`, ellers `version-N`.
+- På `main`: tag-en definert i `.changeset/pre.json` hvis den finnes (dvs. når `main` er i prerelease-modus), ellers `latest`.
 
-I tillegg synkes `release/next` automatisk med `main` ved hver push til `main`, slik at prerelease-branchen holder seg oppdatert med det som allerede er merged og publisert stabilt. Hvis synken treffer mergekonflikter gjenbrukes en fast sync-branch og én sync-PR inn mot `release/next` for manuell konfliktløsning. Når sync-PR-en ikke lenger trengs, ryddes sync-branchen opp automatisk så lenge den ikke inneholder egne commits som mangler i `release/next`.
+Denne logikken er samlet i [`scripts/find-release-tag.mjs`](scripts/find-release-tag.mjs), som også brukes av workflowen for Storybook branch-preview.
+
+### Backport til vedlikeholdte grener
+
+Endringer utvikles på `main` og backportes automatisk til de vedlikeholdte `jokul-N.x`-grenene ved hjelp av workflowen `backport.yml`:
+
+1. Når en PR mot `main` merges, leser workflowen changeset-filene som ble lagt til i PR-en og finner høyeste bump-nivå (patch/minor/major) blant dem.
+2. [`scripts/find-backport-targets.mjs`](scripts/find-backport-targets.mjs) filtrerer grenene i `maintained-versions.json` til dem som har konfigurert et `maxBump` som er høyt nok til å motta denne endringen.
+3. For hver aktuell gren opprettes en egen branch, PR-ens commits cherry-pickes over, og en PR åpnes automatisk mot grenen.
+4. Hvis cherry-picken gir konflikt, opprettes PR-en likevel med instruksjoner for manuell konfliktløsning.
+
+Backport kan også trigges manuelt for en gitt PR via `workflow_dispatch`.
 
 ### Relevante scripts
 
-- `pnpm changeset` oppretter en changeset.
-- `pnpm release:version` kjører `changeset version`.
-- `pnpm release:pre:enter` kjører `changeset pre enter next`.
-- `pnpm release:pre:exit` kjører `changeset pre exit`.
-- `pnpm release:publish` bygger og publiserer.
+- `pnpm changeset` oppretter et changeset.
+- `pnpm release:version` kjører versjonering med Changesets.
+- `pnpm release:pre:enter` går inn i prerelease-modus.
+- `pnpm release:pre:exit` går ut av prerelease-modus.
+- `pnpm release:publish` bygger og publiserer pakkene i repoet.
 
-### Anbefalt prerelease-flyt
+### Release av ny major
 
-`release/next` er den faste branchen for prereleases.
+Når vi skal utgi ny major-versjon av Jøkul følger vi følgende oppskrift
 
-1. Gå til `release/next`.
-2. Hvis vi starter en ny prerelease-runde og `.changeset/pre.json` ikke finnes, kjør `pnpm release:pre:enter`.
-3. Hvis `.changeset/pre.json` ble opprettet eller endret, commit filen til `release/next`.
-4. Lag en branch fra `release/next`.
-5. Gjør endringene dine på branchen.
-6. Hvis endringen skal publiseres, kjør `pnpm changeset`.
-7. Lag en PR inn mot `release/next`.
-8. Når PR-en merges til `release/next`, håndterer CI prerelease-versjonering og publisering med `next`.
-9. Når innholdet i `release/next` er ferdig testet og klart for stabil release, kjør `pnpm release:pre:exit`, deretter `pnpm release:version`, og commit resultatet på `release/next`.
-10. Merge `release/next` tilbake til `main`. Neste publisering fra `main` går da ut som en vanlig stabil versjon.
+1. Lag en ny branch ut fra `main`. I denne branchen
+    - Gå ut av prerelease-modus med `pnpm release:pre:exit`
+    - Oppdater versjoner av pakkene med `pnpm release:version`
+    - Lag en PR med disse endringene mot `main`
+2. Merge inn PRen du nettopp laget. **Ny major-versjon vil nå bli publisert**
+3. Lag en ny branch ut fra `main` for versjonen du nettopp publiserte, f.eks. `jokul-7.x` hvis du publiserte versjon `7.0.0`, og push den til GitHub
+4. Oppdater `.github/maintained-versions.json` med den nye major-versjonen, og lag en PR med endringen mot `main`. **Backport endringen til alle brancher som er støttet** (de som er listet opp i filen)
+5. Skru på igjen prerelease-modus i `main` med `pnpm release:pre:enter`
 
-Steg 2 og 3 er bare nødvendig når vi starter en ny prerelease-runde. Filen `.changeset/pre.json` forteller Changesets og CI at `release/next` er i prerelease-modus med taggen `next`.
-
-Kort sagt: `main` er for stabile releases, og `release/next` er for testing og publisering av prereleases.
-
-### Bruk av pakkene
+## Bruk av pakkene
 
 Vi har en egen guide som hjelper deg med å [komme i gang](https://github.com/fremtind/jokul/tree/main/packages/jokul#fremtindjokul) som ny bruker av Jøkul.
 
