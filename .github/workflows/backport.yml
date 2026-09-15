@@ -4,7 +4,7 @@ on:
     pull_request:
         types: [closed]
         branches:
-            - next
+            - main
     workflow_dispatch:
         inputs:
             pr_number:
@@ -104,10 +104,10 @@ jobs:
                     # (direkte merge, merge queue, rebase, osv.)
                     git fetch origin "refs/pull/${{ needs.find-targets.outputs.pr_number }}/head"
                     pr_head="$(git rev-parse FETCH_HEAD)"
-                    # Bruk next som base for merge-base, ikke target-branchen — PR-en ble
-                    # merget inn i next, og vi vil kun ha commits som er unike for PR-branchen
-                    git fetch origin next
-                    git cherry-pick "$(git merge-base origin/next "$pr_head")..${pr_head}"
+                    # Bruk main som base for merge-base, ikke target-branchen — PR-en ble
+                    # merget inn i main, og vi vil kun ha commits som er unike for PR-branchen
+                    git fetch origin main
+                    git cherry-pick "$(git merge-base origin/main "$pr_head")..${pr_head}"
 
             -   name: Håndter konflikt
                 id: conflict
