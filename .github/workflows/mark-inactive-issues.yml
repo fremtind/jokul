@@ -1,0 +1,44 @@
+name: Merk inaktive saker
+
+on:
+    schedule:
+        # Mandager kl. 08:17 UTC, utenom den travleste tiden ved hel time.
+        - cron: "17 8 * * 1"
+    workflow_dispatch:
+        inputs:
+            dry_run:
+                description: "Test uten å endre saker"
+                type: boolean
+                required: true
+                default: true
+
+permissions: {}
+
+concurrency:
+    group: ${{ github.workflow }}
+
+jobs:
+    mark-inactive-issues:
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+        permissions:
+            actions: write # Lar actionen huske hvilke saker den har sjekket.
+            issues: write
+        steps:
+            - name: Merk saker uten aktivitet på 14 dager
+              uses: actions/stale@4391f3da665fdf50b6810c1a66712fb9ba21aa93 # v11
+              with:
+
+                  stale-issue-label: "Inaktiv"
+                  exempt-issue-labels: "På vent"
+                  days-before-issue-stale: 14
+                  days-before-issue-close: -1
+                  stale-issue-message: ""
+
+                  days-before-pr-stale: -1
+                  days-before-pr-close: -1
+                  remove-pr-stale-when-updated: false
+                  operations-per-run: 200
+                  # Ved manuell start følger vi valget «Test uten å endre saker» over.
+                  # Ukentlig kjøring endrer etiketter.
+                  debug-only: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
