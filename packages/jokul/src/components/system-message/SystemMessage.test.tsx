@@ -38,13 +38,12 @@ describe("System messages", () => {
         for (const [name, E] of types) {
             it(`${name} should take css properties`, () => {
                 render(<E {...messageStyleProps}>content</E>);
-                expect(
-                    screen.getByTestId("system-message-content"),
-                ).toHaveStyle(`padding-left: ${messageStyleProps.paddingLeft}`);
-                expect(
-                    screen.getByTestId("system-message-content"),
-                ).toHaveStyle(
-                    `max-width: ${messageStyleProps.maxContentWidth}`,
+                const el = screen.getByTestId("system-message-content");
+                expect(el.style.paddingLeft).toBe(
+                    messageStyleProps.paddingLeft,
+                );
+                expect(el.style.maxWidth).toBe(
+                    messageStyleProps.maxContentWidth,
                 );
             });
         }

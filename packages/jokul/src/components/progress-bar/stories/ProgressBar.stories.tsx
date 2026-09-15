@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { useEffect, useState } from "react";
-import SelectStories from "../../beta/select/stories/select.stories.jsx";
 import { Button } from "../../button/index.js";
 import { Card } from "../../card/index.js";
 import { File } from "../../file/index.js";
 import FileStories from "../../file/stories/File.stories.js";
 import { Flex } from "../../flex/index.js";
-import { BETA_Select } from "../../select/index.js";
+import { Select } from "../../select/index.js";
+import SelectStories from "../../select/stories/select.stories.js";
 import { TextInput } from "../../text-input/index.js";
 import TextInputStories, {
     Datovelger,
@@ -165,9 +165,8 @@ export const Flow: Story = {
                     return <TextInput {...TextInputStories.args} />;
                 default:
                     return (
-                        <BETA_Select label={undefined} {...SelectStories.args}>
-                            {SelectStories.args?.children}
-                        </BETA_Select>
+                        // @ts-ignore
+                        <Select {...SelectStories.args} />
                     );
             }
         };

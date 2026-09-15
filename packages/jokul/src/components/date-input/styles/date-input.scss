@@ -1,0 +1,67 @@
+@use "../../../styles/jkl";
+@use "../../../shared/input/styles/shared-input-styles" as shared;
+
+@layer jokul.components {
+    .jkl-date-input {
+        anchor-scope: all;
+
+        &__wrapper {
+            @include shared.wrapper-styles;
+            display: grid;
+            grid-template-columns: 1fr max-content;
+            max-width: 18ch;
+            anchor-name: --calendar-trigger;
+        }
+
+        input[type="date"] {
+            @include shared.input-styles;
+            height: 100%;
+            width: 100%;
+            padding: var(--jkl-unit-15);
+            padding-inline-end: var(--jkl-unit-15);
+            box-sizing: border-box;
+
+            &::-webkit-calendar-picker-indicator,
+            &::-webkit-inner-spin-button {
+                display: none;
+                -webkit-appearance: none;
+            }
+
+            &[data-empty="true"] {
+                color: var(--jkl-color-text-subdued);
+            }
+        }
+
+        .jkl-calendar {
+            border: none;
+            padding: var(--jkl-unit-40);
+            display: none;
+            position: fixed;
+            width: 80svw;
+
+            &:popover-open {
+                display: block;
+            }
+
+            @media screen and (min-width: 600px) {
+                &__labels {
+                    display: none;
+                }
+
+                width: max-content;
+                margin-block: var(--jkl-unit-10);
+                margin-left: 0;
+                position-anchor: --calendar-trigger;
+                top: anchor(bottom);
+                left: anchor(left);
+                position-try-fallbacks: --fallback-calendar-position;
+            }
+        }
+    }
+}
+
+@position-try --fallback-calendar-position {
+    bottom: anchor(top);
+    top: unset;
+    margin-top: 10px;
+}

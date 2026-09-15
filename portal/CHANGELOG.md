@@ -58,12 +58,119 @@
 
 ### Minor Changes
 
+- 9917b4c: Legger til feedback block
+- 5323f3c: Storybook-stories hentes nå fra den publiserte Storybook-en på GitHub Pages i stedet for en lokal fil. I Sanity Studio kan redaktører velge hvilken versjon av Jøkul de vil hente stories fra – enten siste stabile versjon, prereleases, eldre vedlikeholdte versjoner, eller en lokal Storybook-instans under utvikling. Stories-visningen i portalen er oppdatert til å bruke samme versjonsstyrte API.
+
+  Siden portalen ikke lenger bundler Storybook i Docker-bygget, er Dockerfile forenklet betraktelig: Express-proxyen, prosessmanageren og tilhørende avhengigheter er fjernet, og Next standalone-serveren eksponeres direkte.
+
+- 0493a60: Legg til tracking av ulike interaksjoner i portalen.
+- 016aeb7: Sett opp redirects til Storybook, Figma og GitHub. Storybook og GitHub lenkene har også mulighet for å sende brukerne til en relevant versjon av Jøkul dersom de er på en eldre versjon. Figma lenken vil gå til bibliotek-mappa fordi det er litt annerledes distribusjonsmetode der.
+- 09f6c7d: Legger til egne kortbilder for lys og mørk modus i portalen.
+
+### Patch Changes
+
+- 9a07930: Lar mønsteroversikten følge samme oppsett som blogg og release notes, uten bilder, filter eller visningsmeny.
+- c305add: Legger bildene i komponentoversikten lengst ned i kortene så de blir visuelt alignet.
+- 1995c1d: Fikser en feil der assets for noen stories ikke ble med i Docker-imaget til portalen, slik at bygget feilet.
+- 199316f: Legger til tracking av klikk på innholdsfortegnelsen på komponentsidene i portalen
+- c2a41b3: Fjerner warnings i konsollen ved å gi ikonknapper tilgjengelige navn og riktig ekspandert tilstand.
+- 3af7985: Viser datoer for publisering og endring av artikler som relativt til nå, for eksempel "Oppdatert for 2 uker siden".
+- Updated dependencies [d913d30]
+- Updated dependencies [797512d]
+- Updated dependencies [495a6a0]
+- Updated dependencies [51aa54a]
+- Updated dependencies [a8f60aa]
+- Updated dependencies [797512d]
+- Updated dependencies [1defd0b]
+- Updated dependencies [01d51c4]
+- Updated dependencies [a4d5c7e]
+- Updated dependencies [797512d]
+- Updated dependencies [0a1f58e]
+- Updated dependencies [1e1a0e0]
+- Updated dependencies [fd1526e]
+- Updated dependencies [636b747]
+- Updated dependencies [79419a8]
+- Updated dependencies [d9d0a41]
+- Updated dependencies [797512d]
+- Updated dependencies [b8e524b]
+  - @fremtind/jokul@6.0.0
+
+## 1.9.0-next.5
+
+### Patch Changes
+
+- 9a07930: Lar mønsteroversikten følge samme oppsett som blogg og release notes, uten bilder, filter eller visningsmeny.
+- 3af7985: Viser datoer for publisering og endring av artikler som relativt til nå, for eksempel "Oppdatert for 2 uker siden".
+- Updated dependencies [a8f60aa]
+  - @fremtind/jokul@6.0.0-next.5
+
+## 1.9.0-next.4
+
+### Patch Changes
+
+- c305add: Legger bildene i komponentoversikten lengst ned i kortene så de blir visuelt alignet.
+- 1995c1d: Fikser en feil der assets for noen stories ikke ble med i Docker-imaget til portalen, slik at bygget feilet.
+- 199316f: Legger til tracking av klikk på innholdsfortegnelsen på komponentsidene i portalen
+- c2a41b3: Fjerner warnings i konsollen ved å gi ikonknapper tilgjengelige navn og riktig ekspandert tilstand.
+- Updated dependencies [0a1f58e]
+- Updated dependencies [1e1a0e0]
+- Updated dependencies [79419a8]
+  - @fremtind/jokul@6.0.0-next.4
+
+## 1.9.0-next.3
+
+### Minor Changes
+
+- 016aeb7: Sett opp redirects til Storybook, Figma og GitHub. Storybook og GitHub lenkene har også mulighet for å sende brukerne til en relevant versjon av Jøkul dersom de er på en eldre versjon. Figma lenken vil gå til bibliotek-mappa fordi det er litt annerledes distribusjonsmetode der.
+- 09f6c7d: Legger til egne kortbilder for lys og mørk modus i portalen.
+
+### Patch Changes
+
+- Updated dependencies [495a6a0]
+- Updated dependencies [51aa54a]
+- Updated dependencies [1defd0b]
+- Updated dependencies [a4d5c7e]
+  - @fremtind/jokul@6.0.0-next.3
+
+## 1.9.0-next.2
+
+### Minor Changes
+
+- 9917b4c: Legger til feedback block
+- 0493a60: Legg til tracking av ulike interaksjoner i portalen.
+
+### Patch Changes
+
+- Updated dependencies [01d51c4]
+  - @fremtind/jokul@6.0.0-next.2
+
+## 1.9.0-next.1
+
+### Minor Changes
+
+- 5323f3c: Storybook-stories hentes nå fra den publiserte Storybook-en på GitHub Pages i stedet for en lokal fil. I Sanity Studio kan redaktører velge hvilken versjon av Jøkul de vil hente stories fra – enten siste stabile versjon, prereleases, eldre vedlikeholdte versjoner, eller en lokal Storybook-instans under utvikling. Stories-visningen i portalen er oppdatert til å bruke samme versjonsstyrte API.
 - 81c4f97: Storybook-stories hentes nå fra den publiserte Storybook-en på GitHub Pages i stedet for en lokal fil. I Sanity Studio kan redaktører velge hvilken versjon av Jøkul de vil hente stories fra – enten siste stabile versjon, prereleases, eldre vedlikeholdte versjoner, eller en lokal Storybook-instans under utvikling. Stories-visningen i portalen er oppdatert til å bruke samme versjonsstyrte API.
 
   Siden portalen ikke lenger bundler Storybook i Docker-bygget, er Dockerfile forenklet betraktelig: Express-proxyen, prosessmanageren og tilhørende avhengigheter er fjernet, og Next standalone-serveren eksponeres direkte.
 
 ### Patch Changes
 
+- Updated dependencies [fd1526e]
+- Updated dependencies [d9d0a41]
+- Updated dependencies [b8e524b]
+  - @fremtind/jokul@6.0.0-next.1
+
+## 1.8.1-next.0
+
+### Patch Changes
+
+- Updated dependencies [d913d30]
+- Updated dependencies [797512d]
+- Updated dependencies [797512d]
+- Updated dependencies [797512d]
+- Updated dependencies [636b747]
+- Updated dependencies [797512d]
+  - @fremtind/jokul@6.0.0-next.0
 - Updated dependencies [f202127]
   - @fremtind/jokul@5.3.0
 

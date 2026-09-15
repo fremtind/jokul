@@ -163,13 +163,18 @@ export class TestHelper {
     }
 
     private async assertFocusOutline(selector: string) {
-        const outline = await this._page.locator(selector).first().evaluate(
-            (element) => {
+        const outline = await this._page
+            .locator(selector)
+            .first()
+            .evaluate((element) => {
                 const getOutline = (
                     target: Element,
                     pseudoElement?: string,
                 ) => {
-                    const styles = window.getComputedStyle(target, pseudoElement);
+                    const styles = window.getComputedStyle(
+                        target,
+                        pseudoElement,
+                    );
                     const outlineWidth = Number.parseFloat(styles.outlineWidth);
 
                     if (
@@ -186,8 +191,7 @@ export class TestHelper {
                     return null;
                 };
 
-                let current =
-                    element instanceof HTMLElement ? element : null;
+                let current = element instanceof HTMLElement ? element : null;
 
                 while (current && current !== document.body) {
                     const outline =
@@ -203,8 +207,7 @@ export class TestHelper {
                 }
 
                 return null;
-            },
-        );
+            });
 
         expect(outline).not.toBeNull();
         expect(outline?.outlineStyle).toBe("solid");

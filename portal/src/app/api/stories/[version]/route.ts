@@ -1,8 +1,8 @@
-import { type NextRequest, NextResponse } from "next/server";
 import {
-    storybookIndexSchema,
     type StorybookEntry,
+    storybookIndexSchema,
 } from "@/storybook/storybookIndex";
+import { type NextRequest, NextResponse } from "next/server";
 import { isSupportedVersion } from "../versions";
 
 export async function GET(

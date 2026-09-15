@@ -1,7 +1,7 @@
 {
     "name": "portal",
     "private": true,
-    "version": "1.11.3",
+    "version": "1.9.0",
     "description": "Dokumentasjonsportal for Jøkul designsystem",
     "license": "MIT",
     "type": "module",
@@ -17,6 +17,7 @@
         "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
         "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
         "start": "cross-env NODE_OPTIONS=--no-deprecation next start -p 3333",
+        "typecheck": "next typegen && tsc --noEmit",
         "typegen": "sanity schema extract --path=src/sanity/extract.json && sanity typegen generate"
     },
     "dependencies": {
@@ -69,6 +70,6 @@
         "vitest": "^4.1.10"
     },
     "engines": {
-        "node": ">=21.0.0"
+        "node": "^22.22.2 || ^24.15.0 || ^26.0.0"
     }
 }

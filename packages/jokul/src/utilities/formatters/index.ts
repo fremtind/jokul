@@ -5,13 +5,7 @@ export type {
     Formatter,
     RegisterWithMaskOptions,
 } from "./util/registerWithMask.js";
-export {
-    registerWithMasks,
-    registerWithFodselsnummerMask,
-    registerWithKontonummerMask,
-    registerWithKortnummerMask,
-    registerWithTelefonnummerMask,
-} from "./util/registerWithMask.js";
+export { registerWithMasks } from "./util/registerWithMask.js";
 
 export { formatAvstand } from "./avstand/formatAvstand.js";
 export { formatBytes } from "./bytes/formatBytes.js";

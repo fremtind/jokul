@@ -1,9 +1,9 @@
 import {
-    parseStorybookVersion,
     MAINTAINED_VERSIONS,
     type SupportedVersion,
+    parseStorybookVersion,
 } from "@/app/api/stories/versions";
-import { Select, Inline } from "@sanity/ui";
+import { Inline, Select } from "@sanity/ui";
 import React, { useEffect, useState, useCallback, useId } from "react";
 import { set, unset } from "sanity";
 import type { ObjectInputProps } from "sanity";

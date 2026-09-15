@@ -80,7 +80,7 @@ import "@fremtind/jokul/styles/components/button/_index.scss";
 
 ### Hooks
 \`\`\`tsx
-import { useAnimatedDetails, useLocalStorage } from "@fremtind/jokul/hooks";
+import { useLocalStorage } from "@fremtind/jokul/hooks";
 \`\`\`
 
 ### Utilities

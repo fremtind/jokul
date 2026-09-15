@@ -1,0 +1,72 @@
+# Jøkul MCP Server Docker Image
+#
+# Build from the monorepo root:
+#   docker build -f mcp-server.Dockerfile -t jokul-mcp-server .
+#
+# Multi-stage build using `pnpm deploy` to produce a lean production image.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Shared base image
+# ─────────────────────────────────────────────────────────────────────────────
+FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-images/node22-ubi9-minimal:latest AS base
+
+# Route package-manager downloads through the internal registry.
+ENV NPM_CONFIG_REGISTRY=https://nexus.intern.sparebank1.no/repository/npmgroup/
+ENV COREPACK_NPM_REGISTRY=https://nexus.intern.sparebank1.no/repository/npmgroup/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Stage 1: Build
+# ─────────────────────────────────────────────────────────────────────────────
+FROM base AS builder
+
+WORKDIR /app
+USER root
+
+# Enable the repository's pinned pnpm version via corepack.
+RUN npm install -g corepack
+RUN corepack enable
+
+# Copy the entire monorepo (respects mcp-server.Dockerfile.dockerignore).
+# Having all package.json files available lets pnpm resolve the workspace graph.
+COPY . .
+
+# Install dependencies.
+# --ignore-scripts prevents husky and other lifecycle scripts from running.
+RUN pnpm install --frozen-lockfile --ignore-scripts
+
+# Build the mcp-server package.
+RUN pnpm --filter @fremtind/jokul-mcp-server build
+
+# Produce a self-contained deployment directory with production deps only.
+# --legacy is required for pnpm v10 workspaces without inject-workspace-packages.
+# pnpm deploy does not include dist/ (it's in .gitignore) so we copy it manually.
+RUN pnpm deploy --filter @fremtind/jokul-mcp-server --prod --legacy /app/deploy && \
+    cp -r /app/packages/mcp-server/dist /app/deploy/dist
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Stage 2: Production
+# ─────────────────────────────────────────────────────────────────────────────
+FROM base AS production
+WORKDIR /app
+USER root
+
+# Copy the self-contained deploy directory from the builder stage.
+# This contains node_modules (prod only) and dist – nothing else from the monorepo.
+COPY --from=builder --chown=nobody:nobody /app/deploy ./
+
+# Run as the built-in nobody user (uid 65534) – no shell, no home directory.
+# This gives the same non-root security guarantee without requiring groupadd/useradd,
+# which fail in runners that lack the necessary /etc/group write permissions.
+USER nobody
+
+# Runtime environment
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV HOST=0.0.0.0
+
+EXPOSE 3000
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
+    CMD node -e "fetch('http://localhost:${PORT}/health').then(r => r.ok ? process.exit(0) : process.exit(1)).catch(() => process.exit(1))"
+
+CMD ["node", "dist/index.js", "--http"]

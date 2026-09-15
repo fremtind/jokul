@@ -145,15 +145,6 @@ const registerWithMask =
         return Object.assign(register, extra);
     };
 
-/** @deprecated Bruk `registerWithMasks` i stedet */
-export const registerWithFodselsnummerMask = registerWithMask("fodselsnummer");
-/** @deprecated Bruk `registerWithMasks` i stedet */
-export const registerWithKortnummerMask = registerWithMask("kortnummer");
-/** @deprecated Bruk `registerWithMasks` i stedet */
-export const registerWithKontonummerMask = registerWithMask("kontonummer");
-/** @deprecated Bruk `registerWithMasks` i stedet */
-export const registerWithTelefonnummerMask = registerWithMask("telefonnummer");
-
 /**
  * Hjelpefunksjon for React Hook Form som lar deg bruke formateringsfunksjonene i denne pakken som inputmasker.
  */

@@ -14,7 +14,7 @@ import {
     useModal,
 } from "../../modal/index.js";
 import { Popover } from "../../popover/index.js";
-import { BETA_Select } from "../../select/index.js";
+import { Select } from "../../select/index.js";
 import { Search } from "../Search.js";
 import { SearchButton } from "../SearchButton.js";
 import { SearchButtonStory } from "./search-button.stories.js";
@@ -129,6 +129,7 @@ export const BigSearch: Story = {
     },
     render: (args) => (
         <Flex
+            gap="m"
             as="form"
             direction="column"
             justifyContent="center"
@@ -272,14 +273,14 @@ export const SearchHeaderButton: Story = {
         return (
             <>
                 <Flex
+                    gap="m"
                     as="header"
                     alignItems="center"
                     justifyContent="space-between"
                     style={{
                         minInlineSize: "50cqi",
                         padding: "var(--jkl-spacing-s) var(--jkl-spacing-m)",
-                        background:
-                            "var(--jkl-color-background-container)",
+                        background: "var(--jkl-color-background-container)",
                     }}
                 >
                     <p className="jkl-heading-4">Jøkul</p>
@@ -355,8 +356,7 @@ export const SearchToolbar: Story = {
                             minInlineSize: "50cqi",
                             padding:
                                 "var(--jkl-spacing-m) var(--jkl-spacing-m)",
-                            background:
-                                "var(--jkl-color-background-container)",
+                            background: "var(--jkl-color-background-container)",
                         }}
                     >
                         <Flex gap="xs">
@@ -377,16 +377,8 @@ export const SearchToolbar: Story = {
                         </Flex>
 
                         <Flex gap="s">
-                            <BETA_Select label="Komponent" placeholder="">
-                                {components.map((word) => (
-                                    <option key={word}>{word}</option>
-                                ))}
-                            </BETA_Select>
-                            <BETA_Select label="Gruppe" placeholder="">
-                                {categories.map((category) => (
-                                    <option key={category}>{category}</option>
-                                ))}
-                            </BETA_Select>
+                            <Select label="Komponent" items={components} />
+                            <Select label="Gruppe" items={categories} />
                         </Flex>
                     </Flex>
                 </Card>

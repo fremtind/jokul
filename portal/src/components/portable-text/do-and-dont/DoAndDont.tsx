@@ -20,7 +20,7 @@ const DoCard: FC<{ value: Jokul_doAndDont["do"] }> = ({ value }) => {
     return (
         <Card padding="l" asChild aria-hidden="true">
             <Flex direction="column" gap="s">
-                <Flex justifyContent="space-between">
+                <Flex gap="m" justifyContent="space-between">
                     <Text bold>Riktig</Text>
                     <GreenCheckIcon />
                 </Flex>
@@ -45,7 +45,7 @@ const DontCard: FC<{ value: Jokul_doAndDont["dont"] }> = ({ value }) => {
     return (
         <Card padding="l" asChild aria-hidden="true">
             <Flex direction="column" gap="s">
-                <Flex justifyContent="space-between">
+                <Flex gap="m" justifyContent="space-between">
                     <Text bold>Feil</Text>
                     <RedCrossIcon />
                 </Flex>
@@ -72,10 +72,10 @@ export const DoAndDont: FC<PortableTextTypeComponentProps<Jokul_doAndDont>> = ({
             return <DoCard value={value.do} />;
         default:
             return (
-                <Flex gap="xs" wrap="wrap" fill>
+                <div className={styles.container}>
                     <DoCard value={value.do} />
                     <DontCard value={value.dont} />
-                </Flex>
+                </div>
             );
     }
 };

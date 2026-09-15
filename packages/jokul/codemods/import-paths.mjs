@@ -5,6 +5,7 @@ import {
     applyCssTokenRenames,
     applyTailwindColorRenames,
 } from "./transforms/color-tokens.mjs";
+import { applyDateInputTransforms } from "./transforms/date-input.mjs";
 import { applyExpandablePanelTransforms } from "./transforms/expandable-panel.mjs";
 import { applyFontFamilyReplacements } from "./transforms/font-family.mjs";
 import {
@@ -14,6 +15,8 @@ import {
     removeRedundantWebfontsCssImport,
     reorderConfiguredFontImport,
 } from "./transforms/import-specifiers.mjs";
+import { applyRegisterWithMaskTransforms } from "./transforms/register-with-mask.mjs";
+import { applySelectTransforms } from "./transforms/select.mjs";
 import { collectManualMigrationWarnings } from "./transforms/warnings.mjs";
 
 const TEXT_EXTENSIONS = new Set([
@@ -72,7 +75,10 @@ export function transformImportPaths(text, filePath = "") {
     const cssTokens = applyCssTokenRenames(beta.text);
     const tailwindColors = applyTailwindColorRenames(cssTokens.text);
     const expandablePanel = applyExpandablePanelTransforms(tailwindColors.text);
-    let next = expandablePanel.text;
+    const dateInput = applyDateInputTransforms(expandablePanel.text);
+    const select = applySelectTransforms(dateInput.text);
+    const masks = applyRegisterWithMaskTransforms(select.text);
+    let next = masks.text;
     let reordered = false;
 
     if (/\.(sass|scss)$/i.test(filePath)) {
@@ -83,6 +89,9 @@ export function transformImportPaths(text, filePath = "") {
 
     const warnings = [
         ...beta.warnings,
+        ...dateInput.warnings,
+        ...select.warnings,
+        ...masks.warnings,
         ...collectManualMigrationWarnings(text),
     ];
 
@@ -105,7 +114,10 @@ export function transformImportPaths(text, filePath = "") {
             fontFamily.count +
             cssTokens.count +
             tailwindColors.count +
-            expandablePanel.count,
+            expandablePanel.count +
+            dateInput.count +
+            select.count +
+            masks.count,
         warnings,
         reordered,
     };

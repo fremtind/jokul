@@ -7,6 +7,7 @@ import { type ReactNode, useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { useThemePreview } from "../_context/ThemePreviewContext";
 import { buildThemePreviewStyle } from "../_shared/previewStyle";
+import styles from "./theme-builder-layout.module.scss";
 
 type ThemeBuilderLayoutProps = {
     children: ReactNode;
@@ -19,7 +20,7 @@ type ThemeBuilderLayoutSlotProps = {
 type ThemeBuilderLayoutPreviewProps = ThemeBuilderLayoutSlotProps;
 
 const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
-    <Flex direction="column" gap="40">
+    <Flex className={styles.themeBuilder} direction="column" gap="40">
         <Flex as="header" direction="column" gap="8">
             <Title as="h1" size="xl">
                 Forsikring i din merkevare
@@ -28,9 +29,7 @@ const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
                 Gjør forsikring til en naturlig del av kundereisen
             </Text>
         </Flex>
-        <Flex gap="32" layout={{ small: "1", large: "4.8" }} wrap="wrap">
-            {children}
-        </Flex>
+        <div className={styles.panels}>{children}</div>
     </Flex>
 );
 

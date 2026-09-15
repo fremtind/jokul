@@ -77,7 +77,7 @@ export const GlobalSearch = () => {
                 <ModalOverlay {...overlay} onClick={handleCloseModal} />
                 <Modal {...modal} className={styles.modalContainer}>
                     <ModalBody>
-                        <Flex direction="column">
+                        <Flex gap="m" direction="column">
                             <Search
                                 ref={searchInputRef}
                                 label="Søk i Jøkul"

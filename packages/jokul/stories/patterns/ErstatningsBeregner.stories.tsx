@@ -11,7 +11,7 @@ import { Flex } from "../../src/components/flex/Flex.jsx";
 import { PlusIcon, TrashCanIcon } from "../../src/components/icon/index.js";
 import { RadioButton } from "../../src/components/radio-button/RadioButton.js";
 import { RadioButtonGroup } from "../../src/components/radio-button/RadioButtonGroup.js";
-import { BETA_Select } from "../../src/components/select/index.js";
+import { Select } from "../../src/components/select/index.js";
 import { ExpandableTableRow } from "../../src/components/table/ExpandableTableRow.js";
 import { ExpandableTableRowController } from "../../src/components/table/ExpandableTableRowController.js";
 import { Table } from "../../src/components/table/Table.js";
@@ -40,10 +40,8 @@ const Oppvaskmaskin = () => {
         <Card padding="l" asChild>
             <Flex as="section" gap="m" direction="column">
                 <h2 className="jkl-heading-3">Oppvaskmaskin</h2>
-                <Flex direction="row">
-                    <BETA_Select label="Antall" defaultValue={1}>
-                        <option value={1}>1</option>
-                    </BETA_Select>
+                <Flex gap="m" direction="row">
+                    <Select label="Antall" defaultValue={1} items={["1"]} />
                     <TextInput
                         label="Gjenstand"
                         defaultValue="Oppvaskmaskin (Hvitevare - Elektronikk)"
@@ -71,17 +69,19 @@ const Aldersfradrag = () => {
             <Flex as="section" gap="m" direction="column">
                 <h2 className="jkl-heading-3">Aldersfradrag</h2>
                 <Flex
+                    gap="m"
                     direction="column"
                     alignItems="start"
                     style={{ maxWidth: "fit-content" }}
                 >
-                    <BETA_Select label="Vurdert standard" defaultValue="Høy">
-                        <option value="Høy">Høy</option>
-                        <option value="Middels">Middels</option>
-                        <option value="Lav">Lav</option>
-                    </BETA_Select>
+                    <Select
+                        label="Vurdert standard"
+                        defaultValue="Høy"
+                        items={["Høy", "Middels", "Lav"]}
+                    />
                     <TextInput label="Antatt levetid" defaultValue="10" />
                     <Flex
+                        gap="m"
                         style={{
                             width: "100%",
                             justifyContent: "space-between", // Bug i flex-komponenten: justify-between -> justify-around
@@ -133,14 +133,14 @@ const prisUtenKortRabatt = [
 const ForklaringTilKunde = () => {
     return (
         <Card padding="l">
-            <Flex direction="column">
+            <Flex gap="m" direction="column">
                 <p className="jkl-heading-3">Forklaring til kunde</p>
                 <p className="jkl-paragraph-medium">
                     Vi har funnet Samsung 55” TU55CU7105KXXC på Power og vurdert
                     den til å være tilsvarende TV-en du hadde og har basert
                     verdivurderingen på dette.
                 </p>
-                <Flex direction="column">
+                <Flex gap="m" direction="column">
                     <DescriptionList alignment="justified" separators>
                         {pris.map((p) => (
                             <Fragment key={p.title}>
@@ -193,7 +193,7 @@ const tilsvarendegjenstand = {
 const TilsvarendeGjenstand = () => {
     return (
         <Card as="section" padding="l">
-            <Flex direction="column" alignItems="start">
+            <Flex gap="m" direction="column" alignItems="start">
                 <p className="jkl-heading-3">Tilsvarende gjenstand</p>
                 <Table
                     caption={
@@ -326,10 +326,10 @@ export const ErstatningsBeregner: Story = {
                             key={row[rowIndex]}
                             isOpen={rowIndex === 1}
                             expandedChildren={
-                                <Flex direction="column">
+                                <Flex gap="m" direction="column">
                                     <Oppvaskmaskin />
                                     <TilsvarendeGjenstand />
-                                    <Flex layout={"5.7"}>
+                                    <Flex gap="m">
                                         <Aldersfradrag />
                                         <ForklaringTilKunde />
                                     </Flex>

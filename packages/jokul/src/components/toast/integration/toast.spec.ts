@@ -31,7 +31,9 @@ test("axe", async ({ axe }) => {
 test("uses the Jøkul focus outline on the dismiss button", async () => {
     await helper.open();
 
-    await helper.page.getByRole("button", { name: "Vis toast i kontekst" }).click();
+    await helper.page
+        .getByRole("button", { name: "Vis toast i kontekst" })
+        .click();
     await helper.page.waitForSelector(".jkl-toast__dismiss-button");
 
     await helper.focus(".jkl-toast__dismiss-button");

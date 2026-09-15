@@ -1,9 +1,9 @@
 import { OverviewCard } from "@/components/overview/card";
 import { OverviewGrid } from "@/components/overview/grid";
 import { OverviewHeader } from "@/components/overview/header";
+import { logger } from "@/logger";
 import { sanityFetch } from "@/sanity/lib/live";
 import { releaseNotesQuery } from "@/sanity/queries/releaseNotes";
-import { logger } from "@/logger";
 
 export default async function ReleaseNotesPage() {
     logger.info("Rendering release notes overview page");

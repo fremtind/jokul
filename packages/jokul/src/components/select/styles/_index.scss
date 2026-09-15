@@ -1,4 +1,9 @@
 @forward "select";
+@forward "option";
+@use "../../button/styles" as button;
+@use "../../flex/styles" as flex;
 @use "../../icon/styles" as icon;
 @use "../../input-group/styles" as input-group;
+@use "../../search/styles" as search;
 @use "../../tooltip/styles" as tooltip;
+@use "../../typography/styles" as typography;

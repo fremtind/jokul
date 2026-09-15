@@ -1,5 +1,3 @@
-export { useAnimatedDetails } from "./useAnimatedDetails/useAnimatedDetails.js";
-
 export {
     useAnimatedHeight,
     useAnimatedHeightBetween,

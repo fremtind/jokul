@@ -78,7 +78,7 @@ export const SessionTimeout: Story = {
                 <Modal {...modal} role="document" style={{ minWidth: "400px" }}>
                     <ModalTitle {...title}>{heading}</ModalTitle>
                     <ModalBody>
-                        <Flex direction="column">
+                        <Flex gap="m" direction="column">
                             <p>
                                 Du blir logget ut om {sessionTimeout} sekund(er)
                             </p>

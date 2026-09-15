@@ -1,7 +1,7 @@
 "use client";
 
 import { Flex } from "@fremtind/jokul/flex";
-import { BETA_Select } from "@fremtind/jokul/select";
+import { Select } from "@fremtind/jokul/select";
 import { Title } from "@fremtind/jokul/typography";
 import { useState } from "react";
 import { ColorCombinationCard } from "../_components/ColorCombinationCard";
@@ -69,24 +69,19 @@ export function ColorCombinations({
 
             <Flex as="section" direction="column" gap="s" alignItems="start">
                 <Title as="h2">Alle kombinasjoner</Title>
-                <BETA_Select
+                <Select
                     className="jkl-spacing-m--bottom"
                     label="Bakgrunnsfarge"
                     name="bakgrunn"
                     value={shownBackground}
+                    items={Object.keys(CONTRAST_REQUIREMENTS)}
                     onChange={(event) =>
                         setShownBackground(
                             event.target
                                 .value as keyof typeof CONTRAST_REQUIREMENTS,
                         )
                     }
-                >
-                    {Object.keys(CONTRAST_REQUIREMENTS).map((background) => (
-                        <option key={background} value={background}>
-                            {background}
-                        </option>
-                    ))}
-                </BETA_Select>
+                />
                 <div
                     className={overviewStyles.grid}
                     style={{ gap: "var(--jkl-spacing-s)", width: "100%" }}

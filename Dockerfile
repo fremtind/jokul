@@ -2,21 +2,16 @@ FROM 607705927749.dkr.ecr.eu-north-1.amazonaws.com/base/cicd-container-base-imag
 
 WORKDIR /app
 USER root
-
+# Node bruker sin innebygde CA-store som standard. Utvid den med UBI trust store,
+# som inneholder organisasjonens CA brukt av byggemiljøets proxy.
+ENV NODE_EXTRA_CA_CERTS=/etc/pki/tls/certs/ca-bundle.crt
 ENV NPM_CONFIG_REGISTRY=https://nexus.intern.sparebank1.no/repository/npmgroup/
 RUN useradd -ms /bin/bash appuser
-
-# pnpm trengs bare under bygging. Versjonen hentes fra packageManager.
-# https://docs.docker.com/build/building/multi-stage/
-FROM base AS build-base
-
-COPY package.json .
-RUN npm install --global "$(node --print 'require("./package.json").packageManager')"
 
 # -----------------------------------------------------------------------------
 # builder: Installerer pnpm kun for installasjon og bygging av pakker
 # -----------------------------------------------------------------------------
-FROM build-base AS builder
+FROM base AS builder
 ARG NEXT_PUBLIC_SANITY_PROJECT_ID=rppnrdtw
 ARG NEXT_PUBLIC_SANITY_DATASET=test
 ARG NEXT_PUBLIC_MIXPANEL_PROJECT_TOKEN

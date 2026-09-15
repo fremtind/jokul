@@ -1,12 +1,15 @@
+import { glob } from "node:fs/promises";
 import nodePath, { resolve } from "node:path";
 import { NextResponse } from "next/server";
-import glob from "tiny-glob";
 
 export async function GET() {
     try {
-        const codeExamplePaths = await glob("**/documentation/*.tsx", {
+        const codeExamplePaths: string[] = [];
+        for await (const examplePath of glob("**/documentation/*.tsx", {
             cwd: resolve("..", "packages", "jokul", "src", "components"),
-        });
+        })) {
+            codeExamplePaths.push(examplePath);
+        }
 
         const optionGroups = Object.groupBy(
             codeExamplePaths.sort().map((examplePath) => ({

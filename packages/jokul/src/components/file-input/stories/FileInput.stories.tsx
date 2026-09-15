@@ -237,7 +237,7 @@ export const FileInputAndUploadButton: Story = {
         const [uploading, setUploading] = useState(false);
 
         return (
-            <Flex direction="column">
+            <Flex gap="m" direction="column">
                 <FileInput
                     {...args}
                     id="file-input-example"

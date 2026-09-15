@@ -2,7 +2,7 @@ name: Pull request
 
 on:
     pull_request:
-        branches: [ "main", "release/next", "jokul-*" ]
+        branches: [ "main", "next", "jokul-*" ]
     merge_group:
         types: [ checks_requested ]
 

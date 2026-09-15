@@ -30,6 +30,10 @@ export function getComboboxValuePair(
     return typeof item === "string" ? { value: item, label: item } : item;
 }
 
+/**
+ * @deprecated Bruk heller Select med `multiple` og `searchable` satt til
+ * `true`. Combobox vil bli fjernet ved en senere oppdatering.
+ */
 export const Combobox: FC<ComboboxProps> = (props) => {
     const {
         "data-size": dataSize,

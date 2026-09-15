@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useCallback, useRef } from "react";
 import { mergeRefs } from "../../utilities/mergeRefs.js";
 import { InputGroup } from "../input-group/index.js";
 import { SearchButton } from "./SearchButton.js";
@@ -21,7 +21,6 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
             spellCheck = false,
             icon = "search",
             children,
-            value,
             ...rest
         } = props;
 
@@ -38,7 +37,7 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
         const internalRef = useRef<HTMLInputElement>(null);
         const ref = mergeRefs(internalRef, forwardedRef);
 
-        const handleClick = () => {
+        const clearInput = useCallback(() => {
             if (internalRef.current) {
                 const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
                     window.HTMLInputElement.prototype,
@@ -49,7 +48,7 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                 internalRef.current.dispatchEvent(event);
                 internalRef.current.focus();
             }
-        };
+        }, []);
 
         return (
             <div className={clsx("jkl-search", className)}>
@@ -71,7 +70,7 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                             <button
                                 className="clear-button"
                                 type="button"
-                                onClick={handleClick}
+                                onClick={clearInput}
                             >
                                 <span className="jkl-sr-only">
                                     Tilbakestill søkefeltet

@@ -9,9 +9,7 @@ const meta = {
     component: AutosuggestComponent,
     args: {
         label: "Velg land",
-        allItems: landkoder.map(
-            (country) => `${country.navn} (${country.kode})`,
-        ),
+        allItems: landkoder.map((land) => `${land.navn} (${land.kode})`),
         value: "",
         placeholder: "Velg land",
         helpLabel: "Velg landet du har statsborgerskap i",
@@ -24,8 +22,8 @@ const meta = {
         noHits: {
             text: "Fant ikke landet du lette etter. Sjekk stavingen.",
             items: landkoder
-                .filter((country) => country.navn === "Norge")
-                .map((country) => country.navn),
+                .filter((land) => land.navn === "Norge")
+                .map((land) => land.navn),
         },
     },
 } satisfies Meta<typeof AutosuggestComponent>;

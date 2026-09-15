@@ -83,7 +83,7 @@ import "@fremtind/jokul/styles/components/button/button.min.css";
 ### Hooks
 
 ```tsx
-import { useAnimatedDetails, useLocalStorage, useScreen } from "@fremtind/jokul/hooks";
+import { useAnimatedHeight, useLocalStorage, useScreen } from "@fremtind/jokul/hooks";
 ```
 
 ### Utilities
@@ -225,8 +225,8 @@ import { Button } from "@fremtind/jokul/button";
 <Button variant="primary" icon={<ArrowIcon />} iconPosition="right">Next</Button>
 
 // Loading state
-<Button 
-    variant="primary" 
+<Button
+    variant="primary"
     loader={{ showLoader: isLoading, textDescription: "Saving..." }}
 >
     Save
@@ -242,14 +242,14 @@ import { Select } from "@fremtind/jokul/select";
 import { Checkbox } from "@fremtind/jokul/checkbox";
 import { RadioButtons } from "@fremtind/jokul/radio-button";
 
-<TextInput 
-    label="Full name" 
+<TextInput
+    label="Full name"
     helpLabel="As shown on your ID"
     errorLabel={errors.name}
 />
 
-<Select 
-    label="Country" 
+<Select
+    label="Country"
     items={[
         { label: "Norway", value: "NO" },
         { label: "Sweden", value: "SE" },

@@ -1,7 +1,6 @@
-import fs from "node:fs";
+import { glob } from "node:fs/promises";
 import path from "node:path";
 import { NextResponse } from "next/server";
-import glob from "tiny-glob";
 
 const packageRoot = path.resolve(
     process.cwd(),
@@ -14,12 +13,17 @@ const packageRoot = path.resolve(
 
 export async function GET() {
     try {
-        const paths = (await glob("*", { cwd: packageRoot })).filter(
-            (component) =>
-                fs.statSync(path.resolve(packageRoot, component)).isDirectory(),
-        );
+        const componentNames: string[] = [];
+        for await (const component of glob("*", {
+            cwd: packageRoot,
+            withFileTypes: true,
+        })) {
+            if (component.isDirectory()) {
+                componentNames.push(component.name);
+            }
+        }
 
-        const formattedOptions = paths.sort().map((component) => ({
+        const formattedOptions = componentNames.sort().map((component) => ({
             title: component,
             value: component,
         }));

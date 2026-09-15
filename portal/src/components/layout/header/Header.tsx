@@ -7,7 +7,7 @@ import styles from "../global-layout.module.scss";
 
 export const Header = async () => {
     return (
-        <Flex as="header" className={styles.header}>
+        <Flex gap="m" as="header" className={styles.header}>
             <Link href="/" className={styles.logo}>
                 <Logo />
             </Link>

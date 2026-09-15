@@ -2,7 +2,7 @@ name: Publiser Jøkul-pakker
 
 on:
     push:
-        branches: [ "main", "release/next", "jokul-*" ]
+        branches: [ "main", "next", "jokul-*" ]
 
 concurrency:
     group: release-${{ github.workflow }}-${{ github.ref }}

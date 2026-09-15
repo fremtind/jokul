@@ -5,7 +5,7 @@ import { Button } from "../../button/Button.js";
 import { Flex } from "../../flex/index.js";
 import { RadioButton } from "../../radio-button/RadioButton.js";
 import { RadioButtonGroup } from "../../radio-button/index.js";
-import { NativeSelect } from "../../select/NativeSelect.js";
+import { Select } from "../../select/index.js";
 import { TextArea } from "../../text-area/TextArea.js";
 import { TextInput } from "../../text-input/TextInput.js";
 import { NumberInput as NumberInputComponent } from "../NumberInput.js";
@@ -170,7 +170,7 @@ function AddThingExample(args: NumberInputProps) {
                         />
                     </Flex>
 
-                    <NativeSelect
+                    <Select
                         label="Hvordan fikk du tingen?"
                         labelProps={{ variant: "small" }}
                         items={[
@@ -198,7 +198,7 @@ function AddThingExample(args: NumberInputProps) {
                         </RadioButton>
                     </RadioButtonGroup>
 
-                    <NativeSelect
+                    <Select
                         label="Alder"
                         labelProps={{ variant: "small" }}
                         items={[

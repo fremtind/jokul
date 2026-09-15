@@ -43,7 +43,7 @@ const Header = () => (
 );
 const Sidebar = ({ name = "B", number = 84 }) => (
     <Card as="nav" padding="l" style={{ maxWidth: "25ch", minWidth: "25ch" }}>
-        <Flex direction="column">
+        <Flex gap="m" direction="column">
             <Flex direction="column" gap="none">
                 <p>{name}</p>
                 <p>{formatOrganisasjonsnummer(number.toString())}</p>
@@ -88,11 +88,11 @@ const Sidebar = ({ name = "B", number = 84 }) => (
                         width: "100%",
                     }}
                 />
-                <Flex wrap="wrap">
+                <Flex gap="m" wrap="wrap">
                     <Button>Logg ut</Button>
                     <Button>Bytt bedrift</Button>
                 </Flex>
-                <Flex direction="column">
+                <Flex gap="m" direction="column">
                     {["Gå til pensjon", "Meld skade"].map((link) => (
                         <Link href="#" key={link} target="_blank">
                             {link}
@@ -119,7 +119,7 @@ export const Hjem: Story = {
                 }}
             >
                 <Header />
-                <Flex gap="none" fill>
+                <Flex gap="none">
                     <Sidebar
                         name={args.forretningsnavn}
                         number={args.organisasjonsnummer}
@@ -130,7 +130,7 @@ export const Hjem: Story = {
                         style={{ padding: "4ex 2em", maxWidth: "1240px" }}
                         gap="m"
                     >
-                        <Flex as="header" direction="column">
+                        <Flex gap="m" as="header" direction="column">
                             <Breadcrumb>
                                 <BreadcrumbItem isLastElement>
                                     Hjem
@@ -250,7 +250,7 @@ export const Hjem: Story = {
                     </Flex>
                 </Flex>
                 <Card data-theme="dark" as="footer" padding="l">
-                    <Flex justifyContent="space-between">
+                    <Flex gap="m" justifyContent="space-between">
                         <Flex gap="m">
                             {[
                                 "Samtykke",
@@ -286,7 +286,7 @@ export const Forsikringsoversikt: Story = {
                 }}
             >
                 <Header />
-                <Flex gap="none" fill>
+                <Flex gap="none">
                     <Sidebar
                         name={args.forretningsnavn}
                         number={args.organisasjonsnummer}
@@ -297,16 +297,16 @@ export const Forsikringsoversikt: Story = {
                         style={{ padding: "4ex 2em", maxWidth: "1240px" }}
                         gap="m"
                     >
-                        <Flex as="header" direction="column">
+                        <Flex gap="m" as="header" direction="column">
                             <Breadcrumb>
                                 <BreadcrumbItem>Hjem</BreadcrumbItem>
                                 <BreadcrumbItem isLastElement>
                                     Forsikringer
                                 </BreadcrumbItem>
                             </Breadcrumb>
-                            <Flex justifyContent="space-between">
+                            <Flex gap="m" justifyContent="space-between">
                                 <h1 className="jkl-heading-1">Forsikringer</h1>
-                                <Flex alignItems="center">
+                                <Flex gap="m" alignItems="center">
                                     <Button variant="primary">
                                         Meld skade
                                     </Button>
@@ -345,7 +345,7 @@ export const Forsikringsoversikt: Story = {
                     </Flex>
                 </Flex>
                 <Card data-theme="dark" as="footer" padding="l">
-                    <Flex justifyContent="space-between">
+                    <Flex gap="m" justifyContent="space-between">
                         <Flex gap="m">
                             {[
                                 "Samtykke",

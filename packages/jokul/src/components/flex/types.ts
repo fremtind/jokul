@@ -1,81 +1,16 @@
-import React from "react";
-import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
-import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type React from "react";
+import * as tokens from "../../tokens.js";
+import type {
+    AsChildProps,
+    PolymorphicPropsWithRef,
+} from "../../utilities/index.js";
 
-export const SEMANTIC_SPACING = [
-    "none",
-    "2xs",
-    "xs",
-    "s",
-    "m",
-    "l",
-    "xl",
-    "2xl",
-] as const;
+const staticSpacingTokens = tokens.default.spacing;
 
-export const STATIC_SPACING = [
-    "0",
-    "2",
-    "4",
-    "8",
-    "12",
-    "16",
-    "20",
-    "24",
-    "28",
-    "32",
-    "40",
-    "48",
-    "56",
-    "64",
-    "72",
-    "80",
-    "104",
-    "168",
-] as const;
+type Spacing = keyof typeof staticSpacingTokens;
+type SpacingValue = `${Spacing}`;
 
-const BREAKPOINTS = ["small", "medium", "large", "xl"] as const;
-
-export type SemanticSpacing = (typeof SEMANTIC_SPACING)[number];
-export type StaticSpacing = (typeof STATIC_SPACING)[number];
-export type Breakpoint = (typeof BREAKPOINTS)[number];
-
-export type Responsive<T> = Partial<Record<Breakpoint, T>>;
-export function isResponsive<T>(value: unknown): value is Responsive<T> {
-    if (typeof value !== "object" || value === null || Array.isArray(value)) {
-        return false;
-    }
-    const keys = Object.keys(value);
-    return keys.length === 0 || BREAKPOINTS.includes(keys[0] as Breakpoint);
-}
-
-export const LAYOUTS = [
-    "auto",
-    "1",
-    "2",
-    "3",
-    "4",
-    "6",
-    "4.8",
-    "8.4",
-    "2.10",
-    "10.2",
-    "3.9",
-    "9.3",
-    "5.7",
-    "7.5",
-] as const;
-
-export type Layout = (typeof LAYOUTS)[number];
-export type Center = "m" | "l" | "xl" | "2xl" | boolean;
-
-export type DynamicGap =
-    | `${SemanticSpacing}`
-    | `${SemanticSpacing} ${SemanticSpacing}`;
-export type StaticGap =
-    | `${StaticSpacing}`
-    | `${StaticSpacing} ${StaticSpacing}`;
-export type Gap = DynamicGap | StaticGap;
+export type Gap = Spacing | SpacingValue | `${SpacingValue} ${SpacingValue}`;
 
 type FlexBaseProps = {
     alignItems?: "normal" | "start" | "center" | "end" | "baseline" | "stretch";
@@ -89,12 +24,8 @@ type FlexBaseProps = {
         | "space-between"
         | "space-around"
         | "space-evenly";
-    center?: Center;
-    direction?: "row" | "column" | "row-reverse" | "column-reverse";
-    fill?: boolean;
-    gap?: Gap | Responsive<Gap>;
-    inline?: boolean;
-    textAlign?: "left" | "right" | "center";
+    direction?: "row" | "row-reverse" | "column" | "column-reverse";
+    gap?: Gap;
     justifyContent?:
         | "normal"
         | "start"
@@ -103,13 +34,18 @@ type FlexBaseProps = {
         | "space-between"
         | "space-around"
         | "space-evenly";
-    layout?: Layout | Responsive<Layout>;
-    wrap?: "wrap" | "nowrap" | "reverse";
+    /**
+     * Om elementene skal brytes over flere linjer.
+     * `true`/`false` setter `wrap`/`nowrap`, `"reverse"` som kortform for
+     * `"wrap-reverse"`.
+     */
+    wrap?: boolean | "wrap" | "nowrap" | "reverse";
 };
 
 export type FlexProps<As extends React.ElementType = "div"> =
-    PolymorphicPropsWithRef<As, FlexBaseProps>;
+    PolymorphicPropsWithRef<As, FlexBaseProps> & AsChildProps;
 
+// Nødvendig for å fortelle TypeScript at dette ikke returnerer ReactNode, men JSX.Element
 export type FlexComponent = <ElementType extends React.ElementType = "div">(
-    props: FlexProps<ElementType> & AsChildProps,
+    props: FlexProps<ElementType>,
 ) => React.ReactElement | null;
