@@ -4,6 +4,11 @@ import BaseAutosuggest from "./BaseAutosuggest.js";
 import type { AutosuggestProps } from "./types.js";
 import { filter } from "./utils.js";
 
+/**
+ * @deprecated Denne komponenten er utdatert, og vil fjernes i en kommende oppdatering.
+ * Bruk heller Select, eller en kombinasjon av Select og TextInput. Se mer om hvordan
+ * du gjør dette i portalen: https://jokul.fremtind.no/monster/eget-alternativ
+ */
 export const Autosuggest = ({
     allItems,
     onChange = () => {
