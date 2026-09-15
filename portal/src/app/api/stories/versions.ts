@@ -1,5 +1,7 @@
-// Hvilke versjoner av Jøkul vi støtter i tillegg til latest og next
-export const MAINTAINED_VERSIONS = [4] as const;
+// Hvilke versjoner av Jøkul vi støtter i tillegg til latest.
+// Skal holdes i sync med grenene i .github/maintained-versions.json som ikke
+// er markert med "latest": true.
+export const MAINTAINED_VERSIONS = [4, 5] as const;
 export type MaintainedVersion = (typeof MAINTAINED_VERSIONS)[number];
 export type SupportedVersion =
     | "next"

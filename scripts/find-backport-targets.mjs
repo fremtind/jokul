@@ -3,7 +3,7 @@
  * find-backport-targets.mjs
  *
  * Leser changesetfiler fra en PR, finner høyeste semver-nivå blant dem,
- * og skriver ut hvilke grener fra .github/backport-targets.json som skal
+ * og skriver ut hvilke grener fra .github/maintained-versions.json som skal
  * motta en backport.
  *
  * Brukes av backport.yml til å bestemme hvilke grener som skal få en
@@ -128,11 +128,11 @@ console.log(`\nHøyeste bump-nivå: ${highestBump}`);
 let allTargets;
 try {
     allTargets = JSON.parse(
-        readFileSync(join(ROOT, ".github/backport-targets.json"), "utf8"),
+        readFileSync(join(ROOT, ".github/maintained-versions.json"), "utf8"),
     );
 } catch {
     console.error(
-        "Kunne ikke lese .github/backport-targets.json. Sjekk at filen finnes.",
+        "Kunne ikke lese .github/maintained-versions.json. Sjekk at filen finnes.",
     );
     process.exit(1);
 }

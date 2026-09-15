@@ -1,0 +1,18 @@
+[
+    {
+        "branch": "jokul-6.x",
+        "maxBump": "minor",
+        "latest": true,
+        "comment": "Stable release branch. Receives minor and patch changes from main."
+    },
+    {
+        "branch": "jokul-5.x",
+        "maxBump": "minor",
+        "comment": "Maintenance branch for v5. Receives patch changes and (some) features."
+    },
+    {
+        "branch": "jokul-4.x",
+        "maxBump": "patch",
+        "comment": "Maintenance branch for v4. Receives patch changes only."
+    }
+]
