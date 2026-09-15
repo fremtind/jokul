@@ -1,5 +1,12 @@
 # portal
 
+## 1.11.3
+
+### Patch Changes
+
+- 8497a59: Lar mønsteroversikten følge samme oppsett som blogg og release notes, uten bilder, filter eller visningsmeny.
+- 7141fc4: Viser datoer for publisering og endring av artikler som relativt til nå, for eksempel "Oppdatert for 2 uker siden".
+
 ## 1.11.2
 
 ### Patch Changes
