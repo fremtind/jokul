@@ -296,7 +296,7 @@ export const TableComplex: Story = {
                                             24,
                                             {
                                                 label: "Alle",
-                                                value: faktura.rows.length,
+                                                value: filteredRows.length,
                                             },
                                         ]}
                                         onChangeRowsPerPage={(e) => {

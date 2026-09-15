@@ -1,5 +1,87 @@
 # Change Log
 
+## 6.0.0
+
+### Major Changes
+
+- 797512d: Fjerner den utgåtte hooken `useAnimatedDetails`. Bruk `useAnimatedHeight` i stedet. Se MIGRATION.md for et eksempel.
+- a8f60aa: Markerer `Combobox` og `Autosuggest` som utdatert. Skriv deg vekk fra disse komponentene så fort som mulig, da de vil bli fjernet i en kommende oppdatering av Jøkul.
+- 797512d: Fjerner de utgåtte maskefunksjonene `registerWithFodselsnummerMask`, `registerWithKontonummerMask`, `registerWithKortnummerMask` og `registerWithTelefonnummerMask`.
+
+  Bruk metodene på `registerWithMasks(form)` i stedet:
+
+  ```diff
+  - import { registerWithFodselsnummerMask } from "@fremtind/jokul/utilities";
+  - <TextInput {...registerWithFodselsnummerMask(form, "fnr")} />
+  + import { registerWithMasks } from "@fremtind/jokul/utilities";
+  + <TextInput {...registerWithMasks(form).registerWithFodselsnummerMask("fnr")} />
+  ```
+
+  Codemoden `jokul codemod` migrerer kall og importer automatisk.
+
+- 797512d: Fjerner utgåtte skygge-stiler
+- 1e1a0e0: BREAKING CHANGE: Forenkler `Flex` til en ren flex-container som eksponerer flexbox-egenskapene direkte, i stedet for å generere et eget klassesystem med kolonneoppsett og breakpoints. API-et til `Flex` er endret. Se migrasjonsguiden for detaljer.
+- fd1526e: Dropper støtte for Node 20, som er end-of-life og ikke lenger får sikkerhetsoppdateringer. Støttede versjoner er nå `^22.22.2`, `^24.15.0` og `^26.0.0`. **Vi anbefaler på det sterkeste å bruke siste LTS-versjon**.
+- d9d0a41: Skriver om `DatePicker` til å bygge på det native `<input type="date">`-elementet og bytter navn til `DateInput`.
+
+  - `DateInput` bruker nå ISO-datoformat (`yyyy-mm-dd`) for `value`, `defaultValue`, `min` og `max`.
+
+  BREAKING CHANGE: API-et til `DateInput` er endret. Se migrasjonsguiden for detaljer.
+
+  - `disableBeforeDate`/`disableAfterDate` er erstattet av `min`/`max` (ISO-strenger).
+  - `onChange` gir nå et vanlig React change-event; les datoen fra `event.target.value` (ISO-streng) i stedet for `(event, date, { error, value })`.
+  - Datoformatet er endret fra `dd.mm.yyyy` til `yyyy-mm-dd`.
+  - Kompakt inntasting (`11112022`) og automatisk punktum-formatering er fjernet – inntasting håndteres nå av nettleseren.
+  - `defaultShow` og den interne hjelpefunksjonen `formatInput` er fjernet (bruk `toValidInputValue`).
+  - `extended`, `invalid`, `yearsToShow`, `days`, `months`, `monthLabel`, `yearLabel`, `action`, `showCalendarLabel`, `hideCalendarLabel` og `textInputProps` er fjernet. Kalenderen henter måneds- og ukedagsnavn fra `Intl` (`nb-NO`), årsvelgeren utledes fra `min`/`max`, feiltilstand settes med `errorLabel`, og øvrige attributter sendes direkte på komponenten.
+
+- 797512d: Fjerner isValidDogId da denne har vært deprecated siden 2021
+- b8e524b: **`Select` — komplett omskriving**
+
+  - Ny implementasjon basert på det native [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) i stedet for egendefinert listeboks
+  - Støtter nå `multiple` (multiselect) med checkboxer og bekreft-knapp
+  - `onChange` / `onBlur` / `onFocus` bruker nå standard DOM-events (`React.ChangeEvent<HTMLSelectElement>`) i stedet for egne typer
+  - `defaultPrompt` er omdøpt til `placeholder`; ny standardverdi er `"Ingen valgt"`
+  - `searchable` er forenklet til kun `boolean` — egendefinert søkefunksjon støttes ikke lenger
+  - `inline` og `maxShownOptions` er fjernet
+  - Bedre integrasjon med react-hook-form: `register()` fungerer nå uten workarounds
+
+  Se egen migrasjonsguide i Select-komponenten for informasjon om hvordan du tar denne i bruk.
+
+  **`NativeSelect` — fjernet**
+
+  - Komponenten er slettet; bruk den nye `Select` i stedet
+
+  **`BETA_Select` — fjernet**
+
+  - Erstattet av ny stabil `Select`
+
+  **`useListNavigation` — refaktorert**
+
+  - Bruker nå `useEffect` i stedet for `useLayoutEffect`; fått støtte for `disableTypeahead`
+
+  **`ValuePair` — bakoverkompatibel utvidelse**
+
+  - Nytt valgfritt felt `media?: ReactNode`
+
+### Minor Changes
+
+- d913d30: Legger til muligheten for å skjule forhåndsvisning i `File`-komponenten
+- 51aa54a: Legger til brand-farger for DNB til bruk med theming
+
+  Sett `data-brand="dnb"` på toppnivå i applikasjonen din (f.eks. `html`-elementet) for å velge temaet.
+
+### Patch Changes
+
+- 495a6a0: Oppdaterer Figma Code Connect-tilknytning for alle komponentene til å peke på riktig bibliotek i Figma, og oppdaterer endrede properties der det var nødvendig.
+- 1defd0b: Gjør innlasting av distributørtilpassede fonter mer robust ved å arve samme
+  variabel for plassering av fontfiler i prosjektet.
+- 01d51c4: Retter en feil som gjorde at innholdet i `Message` alltid ble vist med `data-theme="light"`.
+- a4d5c7e: Oppdaterer Figma Code Connect til nyeste versjon, blant annet med støtte for slots og nøstede komponenter. Klikk på en Jøkul-komponent i Dev Mode i Figma for å se React-koden du må skrive for å få samme resultat!
+- 0a1f58e: Oppdaterer tilpassede farger for merkevaren `dnb`
+- 636b747: Bytter ikonfonten fra Material Symbols Sharp til Rounded, slik at ikonene samsvarer med ikoner brukt i Figma.
+- 79419a8: Fikser en feil der distributørtema ikke overstyrte fonter på riktig måte
+
 ## 6.0.0-next.5
 
 ### Major Changes
