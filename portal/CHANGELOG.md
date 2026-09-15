@@ -1,5 +1,14 @@
 # portal
 
+## 1.9.0-next.5
+
+### Patch Changes
+
+- 9a07930: Lar mønsteroversikten følge samme oppsett som blogg og release notes, uten bilder, filter eller visningsmeny.
+- 3af7985: Viser datoer for publisering og endring av artikler som relativt til nå, for eksempel "Oppdatert for 2 uker siden".
+- Updated dependencies [a8f60aa]
+  - @fremtind/jokul@6.0.0-next.5
+
 ## 1.9.0-next.4
 
 ### Patch Changes

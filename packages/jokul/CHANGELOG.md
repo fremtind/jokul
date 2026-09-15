@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.0-next.5
+
+### Major Changes
+
+- a8f60aa: Markerer `Combobox` og `Autosuggest` som utdatert. Skriv deg vekk fra disse komponentene så fort som mulig, da de vil bli fjernet i en kommende oppdatering av Jøkul.
+
 ## 6.0.0-next.4
 
 ### Major Changes
