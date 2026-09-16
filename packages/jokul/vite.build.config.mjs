@@ -32,6 +32,7 @@ export default defineConfig({
                 "src/**/*.test.{ts,tsx}",
                 "src/**/*.spec.{ts,tsx}",
                 "src/**/*.stories.{ts,tsx}",
+                "src/**/stories/**",
                 "src/components/**/development/*",
                 "src/tokens/style-dictionary/**",
             ],
@@ -68,7 +69,9 @@ export default defineConfig({
         rollupOptions: {
             input: Object.fromEntries(
                 // https://rollupjs.org/configuration-options/#input
-                globSync("src/**/!(*.figma|*.test|*.spec|*.stories).{ts,tsx}")
+                globSync("src/**/!(*.figma|*.test|*.spec|*.stories).{ts,tsx}", {
+                    exclude: ["src/**/stories/**"],
+                })
                     .filter((file) => !file.includes("development/"))
                     .filter((file) => !file.includes("style-dictionary/"))
                     .map((file) => [
