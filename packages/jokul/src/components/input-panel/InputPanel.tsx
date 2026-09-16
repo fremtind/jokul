@@ -15,7 +15,7 @@ export const InputPanel = forwardRef(function BasePanel(
         name = "Panelvalg",
         children,
         extraLabel,
-        alwaysOpen = false,
+        alwaysOpen: _alwaysOpen,
         "data-size": dataSize,
         "data-theme": dataTheme,
         ...rest
@@ -25,7 +25,6 @@ export const InputPanel = forwardRef(function BasePanel(
     return (
         <div
             className={clsx("jkl-input-panel", `jkl-${type}-panel`, className)}
-            data-always-open={alwaysOpen}
             data-size={dataSize}
             data-theme={dataTheme}
         >
