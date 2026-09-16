@@ -15,7 +15,7 @@ export const InputPanel = forwardRef(function BasePanel(
         name = "Panelvalg",
         children,
         extraLabel,
-        alwaysOpen = false,
+        alwaysOpen: _alwaysOpen,
         ...rest
     }: InputPanelProps,
     ref: ForwardedRef<HTMLInputElement>,
@@ -24,7 +24,6 @@ export const InputPanel = forwardRef(function BasePanel(
         <div
             className={clsx("jkl-input-panel", `jkl-${type}-panel`, className)}
             ref={ref}
-            data-always-open={alwaysOpen}
         >
             <div className="jkl-input-panel__header">
                 {type === "checkbox" && (

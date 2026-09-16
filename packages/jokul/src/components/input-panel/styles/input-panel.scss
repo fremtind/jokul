@@ -56,30 +56,19 @@
         }
 
         &__description {
-            height: 0;
-            overflow: hidden;
             padding-inline: var(--padding-inline);
-            padding-block-end: var(--jkl-spacing-none);
+            padding-block-end: var(--jkl-unit-20);
             line-height: initial;
 
             @include jkl.text-style("paragraph-medium");
-            @include jkl.motion;
-            transition-property: height;
         }
 
         &:has(:focus-visible) {
             @include jkl.focus-outline;
         }
 
-        &:has(:checked),
-        &[data-always-open="true"],
-        &:not([data-always-open]) {
+        &:has(:checked) {
             --background-color: var(--jkl-color-background-container-high);
-
-            .jkl-input-panel__description {
-                height: auto;
-                padding-block-end: var(--jkl-unit-20);
-            }
         }
 
         &:has(input:hover) {
