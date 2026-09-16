@@ -73,7 +73,11 @@ jobs:
               id: changesets
               uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
               with:
-                  publish: "pnpm release:publish"
+                  # main lar Changesets velge tag; --tag er ikke tillatt i prerelease-modus.
+                  publish: >-
+                      ${{ startsWith(github.ref_name, 'jokul-')
+                          && format('pnpm release:publish --tag {0}', steps.release-tag.outputs.tag)
+                          || 'pnpm release:publish' }}
                   title: "Version Packages - ${{ github.ref_name }}"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
