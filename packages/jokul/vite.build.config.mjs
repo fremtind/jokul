@@ -33,7 +33,7 @@ export default defineConfig({
                 "src/**/*.spec.{ts,tsx}",
                 "src/**/*.stories.{ts,tsx}",
                 "src/**/stories/**",
-                "src/components/**/development/*",
+                "src/**/development/**",
                 "src/tokens/style-dictionary/**",
             ],
             entryRoot: "./src",
