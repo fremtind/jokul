@@ -16,6 +16,7 @@ export const NavLink = React.forwardRef(function NavLink<
         className,
         children,
         as = "a",
+        outlined = false,
         ...rest
     } = props;
     const Component = as;
@@ -28,6 +29,7 @@ export const NavLink = React.forwardRef(function NavLink<
             aria-labelledby={`${id}-title`}
             aria-describedby={`${id}-description`}
             className={clsx("jkl-navlink--beta", className)}
+            data-outlined={outlined}
         >
             <p className="title" id={`${id}-title`}>
                 {title}
