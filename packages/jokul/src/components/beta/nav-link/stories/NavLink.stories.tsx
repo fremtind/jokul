@@ -16,6 +16,7 @@ const meta: Meta = {
         title: "Vurderingen vår",
         href: "#",
         description: "",
+        outlined: false,
         to: "#",
     },
     argTypes: {
@@ -28,6 +29,12 @@ const meta: Meta = {
         description: {
             table: {
                 category: "Innhold",
+            },
+        },
+        outlined: {
+            control: "boolean",
+            table: {
+                category: "Utseende",
             },
         },
         as: {
