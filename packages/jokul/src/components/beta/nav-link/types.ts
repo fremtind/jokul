@@ -7,5 +7,10 @@ export type NavLinkProps<ElementType extends React.ElementType> =
         {
             title: string;
             description?: string;
+            /**
+             * Gir lenken transparent bakgrunn og en ramme.
+             * @default false
+             */
+            outlined?: boolean;
         }
     >;
