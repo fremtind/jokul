@@ -2,7 +2,7 @@ import {
     MAINTAINED_VERSIONS,
     type SupportedVersion,
     parseStorybookVersion,
-} from "@/app/api/stories/versions";
+} from "@/storybook/versions";
 import { Inline, Select } from "@sanity/ui";
 import React, { useEffect, useState, useCallback, useId } from "react";
 import { set, unset } from "sanity";

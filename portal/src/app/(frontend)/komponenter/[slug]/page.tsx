@@ -155,8 +155,15 @@ export default async function Page({ params }: Props) {
 
             {component.name && (
                 <div className="prose">
-                    {component?.example_card && (
-                        <ComponentExampleCard value={component.example_card} />
+                    {(component.storybook || component.example_card) && (
+                        <ComponentExampleCard
+                            value={{
+                                storybook:
+                                    component.storybook ??
+                                    component.example_card?.storybook,
+                                story: component.example_card?.story,
+                            }}
+                        />
                     )}
                     {component.considerations && (
                         <ComponentConsiderations

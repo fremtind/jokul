@@ -1,14 +1,20 @@
 "use client";
 
+import {
+    type SupportedVersion,
+    getStorybookBaseUrl,
+} from "@/storybook/versions";
 import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
-import { type CSSProperties, useEffect, useState } from "react";
+import { stegaClean } from "next-sanity";
+import { type CSSProperties, useCallback, useEffect, useState } from "react";
 
 import "./storybook-frame.scss";
 
 type StorybookFrameProps = {
     storyId?: string | null;
     storyUrl?: string | null;
+    version?: SupportedVersion;
     title: string;
     height?: number | null;
     globals?: string;
@@ -70,6 +76,33 @@ const getFrameStyle = (height?: number | null) =>
           } as CSSProperties)
         : undefined;
 
+export const getStorybookFrameUrl = ({
+    storyId,
+    storyUrl,
+    version = "latest",
+}: Pick<StorybookFrameProps, "storyId" | "storyUrl" | "version">) => {
+    const cleanStoryUrl = stegaClean(storyUrl);
+    const cleanStoryId = stegaClean(storyId);
+    const cleanVersion = stegaClean(version);
+
+    if (cleanStoryUrl) return cleanStoryUrl;
+    if (!cleanStoryId) return undefined;
+
+    return `${getStorybookBaseUrl(cleanVersion)}/iframe.html?viewMode=story&id=${cleanStoryId}`;
+};
+
+export const getStorybookUrl = ({
+    storyId,
+    version = "latest",
+}: Pick<StorybookFrameProps, "storyId" | "version">) => {
+    const cleanStoryId = stegaClean(storyId);
+    const cleanVersion = stegaClean(version);
+
+    if (!cleanStoryId) return undefined;
+
+    return `${getStorybookBaseUrl(cleanVersion)}/?path=/story/${cleanStoryId}`;
+};
+
 const getIssueUrl = (title: string, storyId?: string | null) => {
     const params = new URLSearchParams({
         template: "rapporter-en-bug.yaml",
@@ -93,43 +126,57 @@ const getIssueUrl = (title: string, storyId?: string | null) => {
 export const StorybookFrame = ({
     storyId,
     storyUrl,
+    version,
     title,
     height,
     globals = "backgrounds.value:page;backgrounds.grid:!false",
     inert,
 }: StorybookFrameProps) => {
-    const frameSrc =
-        storyUrl ??
-        (storyId
-            ? `https://fremtind.github.io/jokul/latest/iframe.html?viewMode=story&id=${storyId}`
-            : undefined);
+    const cleanStoryId = stegaClean(storyId);
+    const cleanTitle = stegaClean(title);
+    const cleanGlobals = stegaClean(globals);
+    const frameSrc = getStorybookFrameUrl({
+        storyId: cleanStoryId,
+        storyUrl,
+        version,
+    });
     const frameStyle = getFrameStyle(height);
+    const frameRef = useCallback(
+        (frame: HTMLIFrameElement | null) => {
+            if (frame) {
+                frame.inert = Boolean(inert);
+            }
+        },
+        [inert],
+    );
 
     const [status, setStatus] = useState<StoryStatus>("loading");
 
     useEffect(() => {
-        if (!storyId) {
+        if (!frameSrc) {
             setStatus("error");
             return;
         }
 
         setStatus("loading");
 
+        if (!cleanStoryId) return;
+
         const handler = (event: MessageEvent) => {
-            const status = parseStorybookEvent(event, storyId);
+            const status = parseStorybookEvent(event, cleanStoryId);
             if (status) setStatus(status);
         };
 
         window.addEventListener("message", handler);
         return () => window.removeEventListener("message", handler);
-    }, [storyId]);
+    }, [cleanStoryId, frameSrc]);
 
     if (!frameSrc || status === "error") {
-        const issueUrl = getIssueUrl(title, storyId);
+        const issueUrl = getIssueUrl(cleanTitle, cleanStoryId);
 
         return (
             <output
-                aria-label={`Eksempel: ${title}`}
+                aria-label={`Eksempel: ${cleanTitle}`}
                 className="storybook-frame"
                 style={frameStyle}
             >
@@ -163,14 +210,19 @@ export const StorybookFrame = ({
 
     return (
         <iframe
-            inert={inert}
-            title={title}
+            ref={frameRef}
+            title={cleanTitle}
             className="storybook-frame"
+            onLoad={() => {
+                setStatus((currentStatus) =>
+                    currentStatus === "error" ? "error" : "ready",
+                );
+            }}
             style={{
                 ...frameStyle,
                 visibility: status === "loading" ? "hidden" : "visible",
             }}
-            src={`${frameSrc}&globals=${globals}`}
+            src={`${frameSrc}&globals=${cleanGlobals}`}
         />
     );
 };
