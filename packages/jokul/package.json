@@ -95,7 +95,7 @@
     },
     "devDependencies": {
         "@babel/cli": "^8.0.4",
-        "@babel/core": "^8.0.1",
+        "@babel/core": "^8.0.5",
         "@babel/preset-react": "^8.0.1",
         "@rollup/plugin-terser": "^1.0.0",
         "@types/react": "18.3.1",
@@ -123,7 +123,7 @@
         "tsx": "^4.23.5",
         "vite": "^7.3.6",
         "vite-plugin-dts": "^5.0.3",
-        "vitest": "^4.1.10",
+        "vitest": "^5.0.1",
         "vitest-axe": "^0.1.0"
     },
     "peerDependencies": {
