@@ -96,18 +96,29 @@ jobs:
 
                     echo "name=$branch_name" >> "$GITHUB_OUTPUT"
 
+            -   name: Hent commits fra PR
+                env:
+                    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                run: |
+                    pr_number="${{ needs.find-targets.outputs.pr_number }}"
+
+                    # Commitene kan allerede ligge i main, så hent listen fra PR-en.
+                    gh api --paginate \
+                        "repos/${{ github.repository }}/pulls/${pr_number}/commits" \
+                        --jq '.[].sha' > "$RUNNER_TEMP/backport-commits.txt"
+
+                    if [ ! -s "$RUNNER_TEMP/backport-commits.txt" ]; then
+                        echo "Fant ingen commits for PR #${pr_number}" >&2
+                        exit 1
+                    fi
+
+                    # Hent commitene før de cherry-pickes.
+                    git fetch origin "refs/pull/${pr_number}/head"
+
             -   name: Cherry-pick commits fra PR
                 id: cherry_pick
                 continue-on-error: true
-                run: |
-                    # Hent PR-branchen direkte — fungerer uavhengig av merge-strategi
-                    # (direkte merge, merge queue, rebase, osv.)
-                    git fetch origin "refs/pull/${{ needs.find-targets.outputs.pr_number }}/head"
-                    pr_head="$(git rev-parse FETCH_HEAD)"
-                    # Bruk main som base for merge-base, ikke target-branchen — PR-en ble
-                    # merget inn i main, og vi vil kun ha commits som er unike for PR-branchen
-                    git fetch origin main
-                    git cherry-pick "$(git merge-base origin/main "$pr_head")..${pr_head}"
+                run: git cherry-pick --stdin < "$RUNNER_TEMP/backport-commits.txt"
 
             -   name: Håndter konflikt
                 id: conflict
@@ -136,8 +147,8 @@ jobs:
                             "Automatisk backport av [#${pr_number}](https://github.com/${{ github.repository }}/pull/${pr_number}) til \`${{ matrix.target }}\`." \
                             "> [!WARNING]" \
                             "> Cherry-pick ga konflikt og kunne ikke anvendes automatisk." \
-                            "> Sjekk ut branchen og løs konflikten manuelt før PR-en merges:" \
-                            "> \`git fetch origin refs/pull/${pr_number}/head && git checkout ${{ steps.branch.outputs.name }} && git cherry-pick \$(git merge-base origin/${{ matrix.target }} FETCH_HEAD)..FETCH_HEAD\`")"
+                            "> Sjekk ut branchen og cherry-pick PR-commitene fra GitHub API én etter én før PR-en merges:" \
+                            "> \`git fetch origin refs/pull/${pr_number}/head && git checkout ${{ steps.branch.outputs.name }} && gh api --paginate repos/${{ github.repository }}/pulls/${pr_number}/commits --jq '.[].sha' | while read -r sha; do git cherry-pick \"\$sha\" || break; done\`")"
                     else
                         title="backport(${{ matrix.target }}): $pr_title"
                         body="$(printf '%s\n\n%s' \
