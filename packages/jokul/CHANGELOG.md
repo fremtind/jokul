@@ -1,5 +1,15 @@
 # Change Log
 
+## 5.5.0
+
+### Minor Changes
+
+- b4e4d09: Retter bakgrunnsfargen på beta-versjonen av NavLink og legger til `outlined`-varianten med transparent bakgrunn og ramme.
+
+### Patch Changes
+
+- 7f46fcf: Beskrivelsen i `RadioPanel` og `CheckboxPanel` er nå alltid synlig, mens panelet kun fremheves når det er valgt. Den utfasede propen `alwaysOpen` har ikke lenger noen effekt.
+
 ## 5.4.2
 
 ### Patch Changes
