@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.1.0-next.0
+
+### Minor Changes
+
+- e2712d1: Retter bakgrunnsfargen på beta-versjonen av NavLink og legger til `outlined`-varianten med transparent bakgrunn og ramme.
+
+### Patch Changes
+
+- 311f622: Beskrivelsen i `RadioPanel` og `CheckboxPanel` er nå alltid synlig, mens panelet kun fremheves når det er valgt. Den utfasede propen `alwaysOpen` har ikke lenger noen effekt.
+
 ## 6.0.0
 
 ### Major Changes
@@ -8,61 +18,61 @@
 - a8f60aa: Markerer `Combobox` og `Autosuggest` som utdatert. Skriv deg vekk fra disse komponentene så fort som mulig, da de vil bli fjernet i en kommende oppdatering av Jøkul.
 - 797512d: Fjerner de utgåtte maskefunksjonene `registerWithFodselsnummerMask`, `registerWithKontonummerMask`, `registerWithKortnummerMask` og `registerWithTelefonnummerMask`.
 
-    Bruk metodene på `registerWithMasks(form)` i stedet:
+  Bruk metodene på `registerWithMasks(form)` i stedet:
 
-    ```diff
-    - import { registerWithFodselsnummerMask } from "@fremtind/jokul/utilities";
-    - <TextInput {...registerWithFodselsnummerMask(form, "fnr")} />
-    + import { registerWithMasks } from "@fremtind/jokul/utilities";
-    + <TextInput {...registerWithMasks(form).registerWithFodselsnummerMask("fnr")} />
-    ```
+  ```diff
+  - import { registerWithFodselsnummerMask } from "@fremtind/jokul/utilities";
+  - <TextInput {...registerWithFodselsnummerMask(form, "fnr")} />
+  + import { registerWithMasks } from "@fremtind/jokul/utilities";
+  + <TextInput {...registerWithMasks(form).registerWithFodselsnummerMask("fnr")} />
+  ```
 
-    Codemoden `jokul codemod` migrerer kall og importer automatisk.
+  Codemoden `jokul codemod` migrerer kall og importer automatisk.
 
 - 797512d: Fjerner utgåtte skygge-stiler
 - 1e1a0e0: BREAKING CHANGE: Forenkler `Flex` til en ren flex-container som eksponerer flexbox-egenskapene direkte, i stedet for å generere et eget klassesystem med kolonneoppsett og breakpoints. API-et til `Flex` er endret. Se migrasjonsguiden for detaljer.
 - fd1526e: Dropper støtte for Node 20, som er end-of-life og ikke lenger får sikkerhetsoppdateringer. Støttede versjoner er nå `^22.22.2`, `^24.15.0` og `^26.0.0`. **Vi anbefaler på det sterkeste å bruke siste LTS-versjon**.
 - d9d0a41: Skriver om `DatePicker` til å bygge på det native `<input type="date">`-elementet og bytter navn til `DateInput`.
 
-    - `DateInput` bruker nå ISO-datoformat (`yyyy-mm-dd`) for `value`, `defaultValue`, `min` og `max`.
+  - `DateInput` bruker nå ISO-datoformat (`yyyy-mm-dd`) for `value`, `defaultValue`, `min` og `max`.
 
-    BREAKING CHANGE: API-et til `DateInput` er endret. Se migrasjonsguiden for detaljer.
+  BREAKING CHANGE: API-et til `DateInput` er endret. Se migrasjonsguiden for detaljer.
 
-    - `disableBeforeDate`/`disableAfterDate` er erstattet av `min`/`max` (ISO-strenger).
-    - `onChange` gir nå et vanlig React change-event; les datoen fra `event.target.value` (ISO-streng) i stedet for `(event, date, { error, value })`.
-    - Datoformatet er endret fra `dd.mm.yyyy` til `yyyy-mm-dd`.
-    - Kompakt inntasting (`11112022`) og automatisk punktum-formatering er fjernet – inntasting håndteres nå av nettleseren.
-    - `defaultShow` og den interne hjelpefunksjonen `formatInput` er fjernet (bruk `toValidInputValue`).
-    - `extended`, `invalid`, `yearsToShow`, `days`, `months`, `monthLabel`, `yearLabel`, `action`, `showCalendarLabel`, `hideCalendarLabel` og `textInputProps` er fjernet. Kalenderen henter måneds- og ukedagsnavn fra `Intl` (`nb-NO`), årsvelgeren utledes fra `min`/`max`, feiltilstand settes med `errorLabel`, og øvrige attributter sendes direkte på komponenten.
+  - `disableBeforeDate`/`disableAfterDate` er erstattet av `min`/`max` (ISO-strenger).
+  - `onChange` gir nå et vanlig React change-event; les datoen fra `event.target.value` (ISO-streng) i stedet for `(event, date, { error, value })`.
+  - Datoformatet er endret fra `dd.mm.yyyy` til `yyyy-mm-dd`.
+  - Kompakt inntasting (`11112022`) og automatisk punktum-formatering er fjernet – inntasting håndteres nå av nettleseren.
+  - `defaultShow` og den interne hjelpefunksjonen `formatInput` er fjernet (bruk `toValidInputValue`).
+  - `extended`, `invalid`, `yearsToShow`, `days`, `months`, `monthLabel`, `yearLabel`, `action`, `showCalendarLabel`, `hideCalendarLabel` og `textInputProps` er fjernet. Kalenderen henter måneds- og ukedagsnavn fra `Intl` (`nb-NO`), årsvelgeren utledes fra `min`/`max`, feiltilstand settes med `errorLabel`, og øvrige attributter sendes direkte på komponenten.
 
 - 797512d: Fjerner isValidDogId da denne har vært deprecated siden 2021
 - b8e524b: **`Select` — komplett omskriving**
 
-    - Ny implementasjon basert på det native [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) i stedet for egendefinert listeboks
-    - Støtter nå `multiple` (multiselect) med checkboxer og bekreft-knapp
-    - `onChange` / `onBlur` / `onFocus` bruker nå standard DOM-events (`React.ChangeEvent<HTMLSelectElement>`) i stedet for egne typer
-    - `defaultPrompt` er omdøpt til `placeholder`; ny standardverdi er `"Ingen valgt"`
-    - `searchable` er forenklet til kun `boolean` — egendefinert søkefunksjon støttes ikke lenger
-    - `inline` og `maxShownOptions` er fjernet
-    - Bedre integrasjon med react-hook-form: `register()` fungerer nå uten workarounds
+  - Ny implementasjon basert på det native [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API) i stedet for egendefinert listeboks
+  - Støtter nå `multiple` (multiselect) med checkboxer og bekreft-knapp
+  - `onChange` / `onBlur` / `onFocus` bruker nå standard DOM-events (`React.ChangeEvent<HTMLSelectElement>`) i stedet for egne typer
+  - `defaultPrompt` er omdøpt til `placeholder`; ny standardverdi er `"Ingen valgt"`
+  - `searchable` er forenklet til kun `boolean` — egendefinert søkefunksjon støttes ikke lenger
+  - `inline` og `maxShownOptions` er fjernet
+  - Bedre integrasjon med react-hook-form: `register()` fungerer nå uten workarounds
 
-    Se egen migrasjonsguide i Select-komponenten for informasjon om hvordan du tar denne i bruk.
+  Se egen migrasjonsguide i Select-komponenten for informasjon om hvordan du tar denne i bruk.
 
-    **`NativeSelect` — fjernet**
+  **`NativeSelect` — fjernet**
 
-    - Komponenten er slettet; bruk den nye `Select` i stedet
+  - Komponenten er slettet; bruk den nye `Select` i stedet
 
-    **`BETA_Select` — fjernet**
+  **`BETA_Select` — fjernet**
 
-    - Erstattet av ny stabil `Select`
+  - Erstattet av ny stabil `Select`
 
-    **`useListNavigation` — refaktorert**
+  **`useListNavigation` — refaktorert**
 
-    - Bruker nå `useEffect` i stedet for `useLayoutEffect`; fått støtte for `disableTypeahead`
+  - Bruker nå `useEffect` i stedet for `useLayoutEffect`; fått støtte for `disableTypeahead`
 
-    **`ValuePair` — bakoverkompatibel utvidelse**
+  **`ValuePair` — bakoverkompatibel utvidelse**
 
-    - Nytt valgfritt felt `media?: ReactNode`
+  - Nytt valgfritt felt `media?: ReactNode`
 
 ### Minor Changes
 
@@ -87,7 +97,7 @@
 
 - af52ad7: Legger til brand-farger for DNB til bruk med theming
 
-    Sett `data-brand="dnb"` på toppnivå i applikasjonen din (f.eks. `html`-elementet) for å velge temaet.
+  Sett `data-brand="dnb"` på toppnivå i applikasjonen din (f.eks. `html`-elementet) for å velge temaet.
 
 ### Patch Changes
 
@@ -136,9 +146,9 @@
 
 - 3457a9f: Retter opp stiler for `Card` rendret som knapp
 
-    - Fjerner standard `border` og `outline` så de ikke krasjer med stilene til `Card`
-    - Setter automatisk `clickable`-stiler på `Card` rendret som knapper eller lenker
-    - Markerer `clickable` som deprecated, siden stilene settes automatisk
+  - Fjerner standard `border` og `outline` så de ikke krasjer med stilene til `Card`
+  - Setter automatisk `clickable`-stiler på `Card` rendret som knapper eller lenker
+  - Markerer `clickable` som deprecated, siden stilene settes automatisk
 
 - 419130a: Fikser en feil der nedtrekkslisten til `Combobox` ikke ble vist
 
@@ -221,7 +231,7 @@
 - 2e318ec: Added missing export line for Accordion in Expander > index.ts
 - 855181b: Legg til `data-testautoid` på Select-listboxen for enklere og mer stabil testautomatisering.
 - 421f967: - Fikser en feil der `Text`-komponenten ikke ble bold
-    - Fikser en feil der `Title`-komponenten ikke fikk riktig tekststørrelse
+  - Fikser en feil der `Title`-komponenten ikke fikk riktig tekststørrelse
 - 81f3f21: Fikser stiler som er feil definert i File, SystemMessage, Toast
 - b0a5de5: Sørger for at lenker vises riktig når de rendres som andre elementer
 
@@ -231,134 +241,135 @@
 
 - 1c9ed52: Endrer API-et til `Card`: `variant` er fjernet, og kort med border styres nå med den nye boolean-propen `outlined`.
 
-    Dette betyr at tidligere outlined-kort må oppdateres fra:
+  Dette betyr at tidligere outlined-kort må oppdateres fra:
 
-    ```tsx
-    <Card variant="outlined">Innhold</Card>
-    ```
+  ```tsx
+  <Card variant="outlined">Innhold</Card>
+  ```
 
-    til:
+  til:
 
-    ```tsx
-    <Card outlined>Innhold</Card>
-    ```
+  ```tsx
+  <Card outlined>Innhold</Card>
+  ```
 
-    `variant="high"` og `variant="low"` er også fjernet. Fjern prop-en for å bruke standard Card-flate:
+  `variant="high"` og `variant="low"` er også fjernet. Fjern prop-en for å bruke standard Card-flate:
 
-    ```tsx
-    <Card>Innhold</Card>
-    ```
+  ```tsx
+  <Card>Innhold</Card>
+  ```
 
 - e87c25a: Legg til outlined prop på `LinkList`, og erstatt `variant`-prop med `outlined`-prop i `ExpandablePanel`. Klassene i `ExpandablePanel` er også endret til å reflektere elementet bedre.
 - 0afce01: Oppdaterer fargetokens til Jøkul sitt v5-fargesystem.
 
-    `packages/jokul/src/tokens/color.tokens.json` er nå base-fargetemaet som brukes når ingen brand er valgt. Brand-spesifikke fargetemaer ligger i `packages/jokul/src/tokens/brands/color.*.tokens.json` og aktiveres med `data-brand`.
+  `packages/jokul/src/tokens/color.tokens.json` er nå base-fargetemaet som brukes når ingen brand er valgt. Brand-spesifikke fargetemaer ligger i `packages/jokul/src/tokens/brands/color.*.tokens.json` og aktiveres med `data-brand`.
 
-    Dette er en breaking change for kode som bruker gamle fargetokens direkte. Flere tokens fra dagens `main` er fjernet eller erstattet med nye semantiske roller:
+  Dette er en breaking change for kode som bruker gamle fargetokens direkte. Flere tokens fra dagens `main` er fjernet eller erstattet med nye semantiske roller:
 
-    - bruk `--jkl-color-background-contrast` i stedet for `--jkl-color-background-action`
-    - bruk `--jkl-color-text-on-contrast` i stedet for `--jkl-color-text-on-action` og `--jkl-color-text-inverted`
-    - bruk `--jkl-color-background-container` i stedet for `--jkl-color-background-container-high` og `--jkl-color-background-container-low`
-    - bruk contrast-tokens der `--jkl-color-background-container-inverted` tidligere ble brukt som invertert flate
-    - bruk feedback-tokens for `info`, `warning`, `error` og `success` i stedet for `--jkl-color-background-alert-*` og `--jkl-color-text-on-alert*`
-    - bruk semantiske border-roller som `default`, `subdued` og `strong` i stedet for gamle input- og separator-border tokens
+  - bruk `--jkl-color-background-contrast` i stedet for `--jkl-color-background-action`
+  - bruk `--jkl-color-text-on-contrast` i stedet for `--jkl-color-text-on-action` og `--jkl-color-text-inverted`
+  - bruk `--jkl-color-background-container` i stedet for `--jkl-color-background-container-high` og `--jkl-color-background-container-low`
+  - bruk contrast-tokens der `--jkl-color-background-container-inverted` tidligere ble brukt som invertert flate
+  - bruk feedback-tokens for `info`, `warning`, `error` og `success` i stedet for `--jkl-color-background-alert-*` og `--jkl-color-text-on-alert*`
+  - bruk semantiske border-roller som `default`, `subdued` og `strong` i stedet for gamle input- og separator-border tokens
 
-    `--jkl-color-background-interactive*` og `--jkl-color-text-interactive*` er fjernet. Der komponenter trenger hoverflater, bruker Jøkul nå lokale `color-mix()`-verdier som kode-alternativ til overlay/state layer i Figma.
+  `--jkl-color-background-interactive*` og `--jkl-color-text-interactive*` er fjernet. Der komponenter trenger hoverflater, bruker Jøkul nå lokale `color-mix()`-verdier som kode-alternativ til overlay/state layer i Figma.
 
 - f6c71ab: Vi har ryddet opp i strukturen til grunnverdiene i Jøkul, og stilarkene som genereres på bakgrunn av dem. Dette fører til noen endringer i importstier, særlig for de grunnleggende stilarkene. Til gjengjeld får vi mye bedre kontroll over alle tilgjengelige verdier for farger, avstander, typografi og lignende, siden alt blir generert fra én felles definisjon.
 
-    ## Nye semantiske tekststil-variabler
+  ## Nye semantiske tekststil-variabler
 
-    Tekststilene våre eksporteres nå også som CSS custom properties via `font`-shorthand. Du kan bruke dem direkte i CSS:
+  Tekststilene våre eksporteres nå også som CSS custom properties via `font`-shorthand. Du kan bruke dem direkte i CSS:
 
-    ```css
-    .min-tittel {
-        font: var(--jkl-text-style-heading-1);
-    }
-    ```
+  ```css
+  .min-tittel {
+    font: var(--jkl-text-style-heading-1);
+  }
+  ```
 
-    Du kan fortsatt bruke Sass-mixin for å sette tekststil i dine egne Sass-stilark dersom du foretrekker det:
+  Du kan fortsatt bruke Sass-mixin for å sette tekststil i dine egne Sass-stilark dersom du foretrekker det:
 
-    ```scss
-    .min-tittel {
-        @include jkl.text-style("heading-1");
-    }
-    ```
+  ```scss
+  .min-tittel {
+    @include jkl.text-style("heading-1");
+  }
+  ```
 
-    Tilgjengelige stiler: `title`, `title-small`, `heading-1`–`heading-5`, `paragraph-large`, `paragraph-medium`, `paragraph-small`, `text-large`, `text-medium`, `text-small`, `text-micro`.
+  Tilgjengelige stiler: `title`, `title-small`, `heading-1`–`heading-5`, `paragraph-large`, `paragraph-medium`, `paragraph-small`, `text-large`, `text-medium`, `text-small`, `text-micro`.
 
-    ## Alle gamle fargevariabler er fjernet
+  ## Alle gamle fargevariabler er fjernet
 
-    Det er ikke lenger mulig å hente ut fargevariabler som `granitt`, `varde` og tilsvarende, verken som Sass- eller CSS-variabler. Bruk heller [de semantiske fargevariablene](https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/farger).
+  Det er ikke lenger mulig å hente ut fargevariabler som `granitt`, `varde` og tilsvarende, verken som Sass- eller CSS-variabler. Bruk heller [de semantiske fargevariablene](https://jokul-portal.intern.app.prodaws.fremtind.no/fundamenter/farger).
 
-    ## Mixins for custom dark-/light-farger er fjernet
+  ## Mixins for custom dark-/light-farger er fjernet
 
-    Samtidig som vi faser ut de gamle fargene faser vi også ut mixins for å definere egne fargevariabler for mørk og lys modus. Bruk heller de semantiske fargevariablene linket til over.
+  Samtidig som vi faser ut de gamle fargene faser vi også ut mixins for å definere egne fargevariabler for mørk og lys modus. Bruk heller de semantiske fargevariablene linket til over.
 
-    ```diff
-    - @include jkl.light-mode-variables {
-    -     --min-farge: jkl.$color-granitt;
-    - }
-    - @include jkl.dark-mode-variables {
-    -     --min-farge: jkl.$color-snohvit;
-    - }
-    -
-    .min-klasse {
-    -     color: var(--min-farge);
-    +     color: var(--jkl-color-text-default);
-    }
-    ```
+  ```diff
+  - @include jkl.light-mode-variables {
+  -     --min-farge: jkl.$color-granitt;
+  - }
+  - @include jkl.dark-mode-variables {
+  -     --min-farge: jkl.$color-snohvit;
+  - }
+  -
+  .min-klasse {
+  -     color: var(--min-farge);
+  +     color: var(--jkl-color-text-default);
+  }
+  ```
 
-    ## Nye importstier for Tailwind
+  ## Nye importstier for Tailwind
 
-    Importstiene for Jøkul sitt Tailwind-oppsett er endret
+  Importstiene for Jøkul sitt Tailwind-oppsett er endret
 
-    - Preset og typografi-plugin for Tailwind versjon 3: `@fremtind/jokul/tailwind`
-    - Temafil for for Tailwind versjon 4: `@fremtind/jokul/styles/tailwind`.
+  - Preset og typografi-plugin for Tailwind versjon 3: `@fremtind/jokul/tailwind`
+  - Temafil for for Tailwind versjon 4: `@fremtind/jokul/styles/tailwind`.
 
-    ## Nye importstier for stilark og Sass-hjelpere
+  ## Nye importstier for stilark og Sass-hjelpere
 
-    På grunn av ny struktur internt i Jøkul er importstiene for noen av hovedstilarkene og Sass-hjelperne endret. Grunnstiler og komponentstilark er også tilgjengelige som kompilert CSS (med filendelse `.css`) og som minifisert CSS (med filendelse `.min.css`)
+  På grunn av ny struktur internt i Jøkul er importstiene for noen av hovedstilarkene og Sass-hjelperne endret. Grunnstiler og komponentstilark er også tilgjengelige som kompilert CSS (med filendelse `.css`) og som minifisert CSS (med filendelse `.min.css`)
 
-    | Funksjon                     | Gammel import                     | Ny import                                |
-    | ---------------------------- | --------------------------------- | ---------------------------------------- |
-    | Grunnstiler                  | `@fremtind/jokul/styles/core`     | `@fremtind/jokul/styles/base.scss`       |
-    | Stilark for ALLE komponenter | `@fremtind/jokul/styles`          | `@fremtind/jokul/styles/components.scss` |
-    | Sass-hjelpere                | `@fremtind/jokul/styles/core/jkl` | `@fremtind/jokul/styles/jkl`             |
-    | Stiler påkrevd for fonter    | `@fremtind/jokul/styles/fonts`    | Inkludert i `base.scss`                  |
+  | Funksjon                     | Gammel import                     | Ny import                                |
+  | ---------------------------- | --------------------------------- | ---------------------------------------- |
+  | Grunnstiler                  | `@fremtind/jokul/styles/core`     | `@fremtind/jokul/styles/base.scss`       |
+  | Stilark for ALLE komponenter | `@fremtind/jokul/styles`          | `@fremtind/jokul/styles/components.scss` |
+  | Sass-hjelpere                | `@fremtind/jokul/styles/core/jkl` | `@fremtind/jokul/styles/jkl`             |
+  | Stiler påkrevd for fonter    | `@fremtind/jokul/styles/fonts`    | Inkludert i `base.scss`                  |
 
-    Stilarkene for Beta-komponentene var tidligere bakt sammen med sine ikke-Beta varianter. De er nå eksportert for seg.
+  Stilarkene for Beta-komponentene var tidligere bakt sammen med sine ikke-Beta varianter. De er nå eksportert for seg.
 
-    | Komponent        | Gammel import                                        | Ny import                                                      |
-    | ---------------- | ---------------------------------------------------- | -------------------------------------------------------------- |
-    | Description List | `@fremtind/jokul/styles/components/description-list` | `@fremtind/jokul/styles/components/beta/description-list.scss` |
-    | Nav Link         | `@fremtind/jokul/styles/components/nav-link`         | `@fremtind/jokul/styles/components/beta/nav-link.scss`         |
-    | Select           | `@fremtind/jokul/styles/components/select`           | `@fremtind/jokul/styles/components/beta/select.scss`           |
+  | Komponent        | Gammel import                                        | Ny import                                                      |
+  | ---------------- | ---------------------------------------------------- | -------------------------------------------------------------- |
+  | Description List | `@fremtind/jokul/styles/components/description-list` | `@fremtind/jokul/styles/components/beta/description-list.scss` |
+  | Nav Link         | `@fremtind/jokul/styles/components/nav-link`         | `@fremtind/jokul/styles/components/beta/nav-link.scss`         |
+  | Select           | `@fremtind/jokul/styles/components/select`           | `@fremtind/jokul/styles/components/beta/select.scss`           |
 
-    ## Ny importsti for typer som tidligere ble eksportert fra `core`
+  ## Ny importsti for typer som tidligere ble eksportert fra `core`
 
-    Vi har fjernet `core` som konsept, så typer som tidligere bodde her kan nå importeres fra `utilities`:
+  Vi har fjernet `core` som konsept, så typer som tidligere bodde her kan nå importeres fra `utilities`:
 
-    ```diff
-    - import type { WithChildren, DataTestAutoId } from "@fremtind/jokul/core";
-    + import type { WithChildren, DataTestAutoId } from "@fremtind/jokul/utilities";
-    ```
+  ```diff
+  - import type { WithChildren, DataTestAutoId } from "@fremtind/jokul/core";
+  + import type { WithChildren, DataTestAutoId } from "@fremtind/jokul/utilities";
+  ```
 
-    ## Øvrige strukturelle endringer
-    - Beta-komponentene `DescriptionList`, `NavLink` og `Select` er flyttet fra `components-beta/` til `components/beta/` internt i pakken. Eksportstiene er uendret.
+  ## Øvrige strukturelle endringer
+
+  - Beta-komponentene `DescriptionList`, `NavLink` og `Select` er flyttet fra `components-beta/` til `components/beta/` internt i pakken. Eksportstiene er uendret.
 
 ### Minor Changes
 
 - 0f2d59c: Legg til Accordion, som brukes som wrapper på ExpandablePanels for å kontrollere stiler der som en helhetlig gruppe
 - e1f5100: Nye typografikomponenter `Text` og `Title` under `@fremtind/jokul/typography`. Disse vil gjøre det lettere for teamene å gjennomføre migrasjon til Jøkul 5.0 fordi de abstraherer typografistilene, på samme måte som hjelpeklassene i CSS allerede gjør.
 
-    `Text` er polymorf med `as` begrenset til typografisk relevante elementer (`p`, `span`, `label`, `legend`, `small`, `strong`, `em`, `code`, `kbd`, `samp`, `var`), `size` på t-shirt-skala (`xs`, `s`, `m`, `l`) med default `m`, og boolean-toggles `bold`, `short` og `srOnly`. `code`/`kbd`/`samp`/`var` får automatisk monospace font.
+  `Text` er polymorf med `as` begrenset til typografisk relevante elementer (`p`, `span`, `label`, `legend`, `small`, `strong`, `em`, `code`, `kbd`, `samp`, `var`), `size` på t-shirt-skala (`xs`, `s`, `m`, `l`) med default `m`, og boolean-toggles `bold`, `short` og `srOnly`. `code`/`kbd`/`samp`/`var` får automatisk monospace font.
 
-    `Title` er polymorf med `as` begrenset til `h1`–`h6` pluss skjema-elementene `label` og `legend`, `size` på `xs`, `s`, `m`, `l`, `xl` med default `l`, og `srOnly`-toggle. `as` og `size` er bevisst frakoblet — semantikk styres via `as`, visuell størrelse via `size`.
+  `Title` er polymorf med `as` begrenset til `h1`–`h6` pluss skjema-elementene `label` og `legend`, `size` på `xs`, `s`, `m`, `l`, `xl` med default `l`, og `srOnly`-toggle. `as` og `size` er bevisst frakoblet — semantikk styres via `as`, visuell størrelse via `size`.
 
-    Nye hjelpeklasser `.jkl-heading-xs` til `.jkl-heading-xl` fra `components/typography` er ekvivalenter til `<Title size="…">` brukt på et vilkårlig element.
+  Nye hjelpeklasser `.jkl-heading-xs` til `.jkl-heading-xl` fra `components/typography` er ekvivalenter til `<Title size="…">` brukt på et vilkårlig element.
 
-    Eksisterende `.jkl-title`-utility-klasse er scoped med `:not([data-text-size])` slik at den ikke overstyrer Title-komponenten, men fortsatt fungerer som standalone hjelpeklasse på elementer uten `data-text-size`-attributtet.
+  Eksisterende `.jkl-title`-utility-klasse er scoped med `:not([data-text-size])` slik at den ikke overstyrer Title-komponenten, men fortsatt fungerer som standalone hjelpeklasse på elementer uten `data-text-size`-attributtet.
 
 - cb902b8: Fremtind Grotesk er historie og byttet ut med Inter.
 
@@ -366,39 +377,39 @@
 
 - c25012b: `Brand` og `BRANDS` er tilgjengelig fra utilities. Bruk `Brand` for å type gyldige `data-brand`-verdier, og `BRANDS` når du trenger listen over støttede brand i kode.
 
-    ```ts
-    import { BRANDS, type Brand } from "@fremtind/jokul/utilities";
+  ```ts
+  import { BRANDS, type Brand } from "@fremtind/jokul/utilities";
 
-    const brand: Brand = "fremtind";
-    const brandOptions = BRANDS.map((brand) => ({
-        label: brand,
-        value: brand,
-    }));
-    ```
+  const brand: Brand = "fremtind";
+  const brandOptions = BRANDS.map((brand) => ({
+    label: brand,
+    value: brand,
+  }));
+  ```
 
 - 139f367: Bruk material symbols for punktene i dekningslister
 - 0618c96: Codemoden fjerner nå overflødige `@fremtind/jokul/styles/fonts/webfonts.css`- og `webfonts.min.css`-imports. I Jøkul 5 er `@font-face`-definisjonene flyttet inn i `styles/base.css`, og den frittstående webfonts-CSS-fila finnes ikke lenger i pakken – så uten denne opprydningen ville bygget feile etter migrering for konsumenter som bruker ren CSS.
 
-    Codemoden gir også en advarsel hvis import-fjerningen skjer i en fil som ikke har en `base.css`/`components.css`-import fra før, slik at man får beskjed om å legge til `base.css` for å beholde fontene.
+  Codemoden gir også en advarsel hvis import-fjerningen skjer i en fil som ikke har en `base.css`/`components.css`-import fra før, slik at man får beskjed om å legge til `base.css` for å beholde fontene.
 
-    Codemoden bytter også ut det gamle font-family-navnet `Fremtind Material Symbols` (og `Fremtind Material Symbols Fallback`) med `Jokul Icons` (og `Jokul Icons Fallback`), siden navnet ble omdøpt i Jøkul 5. Konsumenter som har skrevet font-family direkte i sin egen CSS/SCSS hadde ellers fått en stille brutt referanse.
+  Codemoden bytter også ut det gamle font-family-navnet `Fremtind Material Symbols` (og `Fremtind Material Symbols Fallback`) med `Jokul Icons` (og `Jokul Icons Fallback`), siden navnet ble omdøpt i Jøkul 5. Konsumenter som har skrevet font-family direkte i sin egen CSS/SCSS hadde ellers fått en stille brutt referanse.
 
-    I tillegg flagger codemoden tre vanlige 4 → 5-mønstre som ikke kan auto-erstattes, men som krever manuell migrering:
+  I tillegg flagger codemoden tre vanlige 4 → 5-mønstre som ikke kan auto-erstattes, men som krever manuell migrering:
 
-    - Bruk av fjernede Sass-fargevariabler (`jkl.$color-granitt`, `jkl.$color-varde` osv.) — bytt til semantiske CSS-variabler.
-    - `@include jkl.light-mode-variables { … }` og `jkl.dark-mode-variables` — disse mixinene er fjernet.
-    - `text-style("body")` / `text-style("small")` — foretrekk `Text`-komponenten fra `@fremtind/jokul/components/typography`. Hvis du må sette stiler direkte, bytt til `paragraph-*`- eller `text-*`-varianter.
+  - Bruk av fjernede Sass-fargevariabler (`jkl.$color-granitt`, `jkl.$color-varde` osv.) — bytt til semantiske CSS-variabler.
+  - `@include jkl.light-mode-variables { … }` og `jkl.dark-mode-variables` — disse mixinene er fjernet.
+  - `text-style("body")` / `text-style("small")` — foretrekk `Text`-komponenten fra `@fremtind/jokul/components/typography`. Hvis du må sette stiler direkte, bytt til `paragraph-*`- eller `text-*`-varianter.
 
 - 562fdc0: Fjernet link-endringene for nå
 - b26782d: La til støtte for brand-spesifikke fonter via tokens, slik at fontvalg kan styres med `data-brand` på samme måte som brand-farger.
 
-    Brand-fontstiler genereres nå fra tokens (inkludert `@font-face` og `--jkl-font-family-*`), og typografi-oppsettet bruker disse CSS-variablene slik at riktig brand-font faktisk slår inn i komponentene.
+  Brand-fontstiler genereres nå fra tokens (inkludert `@font-face` og `--jkl-font-family-*`), og typografi-oppsettet bruker disse CSS-variablene slik at riktig brand-font faktisk slår inn i komponentene.
 
 - 64c9e3a: Justerte oppsettet for fonter i branding:
 
-    - Inter-fontene ligger nå også i `src/fonts/` (ved siden av `src/fonts/brands/`) slik at de stemmer med URL-ene i `styles/theme/_fonts.scss`.
-    - "Brandet" Fremtind refereres nå til som `fremtind` overalt – både i mappestruktur (`src/fonts/brands/fremtind`, `src/styles/theme/brands/fremtind`), token-filer (`typography.fremtind.tokens.json`) og `data-brand`-selectorer (`[data-brand="fremtind"]`).
-    - Antallet `@font-face`-definisjoner per brand er ryddet opp så vi ikke har fler enn nødvendig. Den globale `_fonts.scss` er konsolidert tilsvarende.
+  - Inter-fontene ligger nå også i `src/fonts/` (ved siden av `src/fonts/brands/`) slik at de stemmer med URL-ene i `styles/theme/_fonts.scss`.
+  - "Brandet" Fremtind refereres nå til som `fremtind` overalt – både i mappestruktur (`src/fonts/brands/fremtind`, `src/styles/theme/brands/fremtind`), token-filer (`typography.fremtind.tokens.json`) og `data-brand`-selectorer (`[data-brand="fremtind"]`).
+  - Antallet `@font-face`-definisjoner per brand er ryddet opp så vi ikke har fler enn nødvendig. Den globale `_fonts.scss` er konsolidert tilsvarende.
 
 - a3724e9: Rett opp tom verdi for responsiv spacing (t.d. `--jkl-spacing-104-104-168`)
 - 4af3668: Fikser CSS-variabelnavn for tokens der bindestrek manglet mellom kategori og tall (f.eks. `jkl-spacing20` i stedet for `jkl-spacing-20`). Feilen skyldes at TypeScript-plattformen brukte `name/camel` i stedet for `name/kebab` som navnetransform.
@@ -406,7 +417,7 @@
 - 972f5e1: Fiks `useScreen` slik at hooken bruker konkrete breakpoint-verdier i media queries.
 - bfa1179: Legger til spesifikk eksportsti for Sass-hjelpefunksjoner
 
-    Det virker som noen byggverktøy sliter med wildcard-eksportstier for Sass-filer, og derfor ikke klarer å laste inn f.eks. `@fremtind/jokul/styles/jkl`. Vi legger til denne filen som en spesifikk eksportsti.
+  Det virker som noen byggverktøy sliter med wildcard-eksportstier for Sass-filer, og derfor ikke klarer å laste inn f.eks. `@fremtind/jokul/styles/jkl`. Vi legger til denne filen som en spesifikk eksportsti.
 
 - 73b1b84: Rett opp størrelse og spacing på valg i Autosuggest, Combobox og Select slik at nedtrekkslistene fremstår likt på tvers av størrelser.
 - 841287d: Legg til `jokul codemod` for å migrere gamle importstier til Jøkul 5 sin nye struktur for stiler og utilities.
@@ -423,7 +434,7 @@
 - 3adb63f: Fjerner iOS sin klikkindikator fra ExpandablePanel.
 - 6da4cf0: Fjerner synlig border rundt ExpandablePanel i normal visning, samtidig som panelet fortsatt får tydelig border i high-contrast modus.
 
-    ExpandablePanel har også fått samme border-radius som Card, slik at komponentene ser bedre ut sammen.
+  ExpandablePanel har også fått samme border-radius som Card, slik at komponentene ser bedre ut sammen.
 
 - 78c3295: Justerer minimumsbredde og sentrering av innhold i Button, slik at korte knapper med ikon ser riktige ut også når Button rendres som lenke.
 
@@ -433,7 +444,7 @@
 
 - 4fa11d8: Fiks: `Expander` plukket opp open-state fra et omkringliggende `ExpandablePanel`. Konsekvensen var at f.eks. ekspanderbare tabellrader inne i et åpent panel viste pil opp selv om raden var lukket.
 
-    Eksplisitt `open`-prop på `Expander` overstyrer nå alltid context-verdien. Context brukes bare når `open`-propen er utelatt. Lukker [#5565](https://github.com/fremtind/jokul/issues/5565).
+  Eksplisitt `open`-prop på `Expander` overstyrer nå alltid context-verdien. Context brukes bare når `open`-propen er utelatt. Lukker [#5565](https://github.com/fremtind/jokul/issues/5565).
 
 - a605ac6: Expander bruke alene vil ikke lenger ha padding, hover og full bredde by default
 - 306ae87: Select-menyen rendres nå i en portal via `Popover`-komponenten. Det fikser at hele listen ikke ble synlig når `Select` ble brukt inne i containere med `overflow: hidden|clip|auto` (f.eks. `Card` eller `ExpandablePanel`), og at lista i tillegg flippes over til toppen dersom det ikke er plass under triggeren. Bredden til lista matcher triggeren via CSS `anchor-size()`, og `Popover` har fått en ny `onPlacementChange`-callback som lar Select bytte hvilken side av lista og knappen som er flat når lista flippes opp.
@@ -445,13 +456,13 @@
 
 - 2f60736: Nye typografikomponenter `Text` og `Title` under `@fremtind/jokul/typography`. Disse vil gjøre det lettere for teamene å gjennomføre migrasjon til Jøkul 5.0 fordi de abstraherer typografistilene, på samme måte som hjelpeklassene i CSS allerede gjør.
 
-    `Text` er polymorf med `as` begrenset til typografisk relevante elementer (`p`, `span`, `label`, `legend`, `small`, `strong`, `em`, `code`, `kbd`, `samp`, `var`), `size` på t-shirt-skala (`xs`, `s`, `m`, `l`) med default `m`, og boolean-toggles `bold`, `short` og `srOnly`. `code`/`kbd`/`samp`/`var` får automatisk Fremtind Grotesk Mono.
+  `Text` er polymorf med `as` begrenset til typografisk relevante elementer (`p`, `span`, `label`, `legend`, `small`, `strong`, `em`, `code`, `kbd`, `samp`, `var`), `size` på t-shirt-skala (`xs`, `s`, `m`, `l`) med default `m`, og boolean-toggles `bold`, `short` og `srOnly`. `code`/`kbd`/`samp`/`var` får automatisk Fremtind Grotesk Mono.
 
-    `Title` er polymorf med `as` begrenset til `h1`–`h6` pluss skjema-elementene `label` og `legend`, `size` på `xs`, `s`, `m`, `l`, `xl` med default `l`, og `srOnly`-toggle. `as` og `size` er bevisst frakoblet — semantikk styres via `as`, visuell størrelse via `size`.
+  `Title` er polymorf med `as` begrenset til `h1`–`h6` pluss skjema-elementene `label` og `legend`, `size` på `xs`, `s`, `m`, `l`, `xl` med default `l`, og `srOnly`-toggle. `as` og `size` er bevisst frakoblet — semantikk styres via `as`, visuell størrelse via `size`.
 
-    Nye hjelpeklasser `.jkl-heading-xs` til `.jkl-heading-xl` fra `components/typography` er ekvivalenter til `<Title size="…">` brukt på et vilkårlig element.
+  Nye hjelpeklasser `.jkl-heading-xs` til `.jkl-heading-xl` fra `components/typography` er ekvivalenter til `<Title size="…">` brukt på et vilkårlig element.
 
-    Eksisterende `.jkl-title`-utility-klasse er scoped med `:not([data-text-size])` slik at den ikke overstyrer Title-komponenten, men fortsatt fungerer som standalone hjelpeklasse på elementer uten `data-text-size`-attributtet.
+  Eksisterende `.jkl-title`-utility-klasse er scoped med `:not([data-text-size])` slik at den ikke overstyrer Title-komponenten, men fortsatt fungerer som standalone hjelpeklasse på elementer uten `data-text-size`-attributtet.
 
 ### Patch Changes
 
@@ -471,7 +482,7 @@
 
 - c52b4eb: La til støtte for valgbare tellestrategier i telleren til `TextArea`.
 
-    `counter`-propen støtter nå `strategy: "characters" | "bytes"`, slik at integrasjoner med bytebaserte grenser kan telle UTF-8-bytes. Eksisterende tegnbasert oppførsel er fortsatt standard.
+  `counter`-propen støtter nå `strategy: "characters" | "bytes"`, slik at integrasjoner med bytebaserte grenser kan telle UTF-8-bytes. Eksisterende tegnbasert oppførsel er fortsatt standard.
 
 - c86e3dc: Legger til `NumberInput`, en ny skjemakomponent for numeriske verdier som
   bruker native `input type="number"` med Jøkul-styling, `InputGroup`-støtte og
@@ -496,16 +507,16 @@
 - 1e346cf: DatePicker støtter nå kompakt datoformat uten skilletegn, som `11112022`,
   og formatterer det automatisk til `11.11.2022`.
 
-    Dette utvider hvilke inputverdier som godtas, men endrer ikke API-et som
-    forbrukere mottar fra komponenten. `meta.value` er fortsatt lik
-    `event.target.value`, og kontrollert bruk med `setValue(e.target.value)`
-    oppfører seg som før.
+  Dette utvider hvilke inputverdier som godtas, men endrer ikke API-et som
+  forbrukere mottar fra komponenten. `meta.value` er fortsatt lik
+  `event.target.value`, og kontrollert bruk med `setValue(e.target.value)`
+  oppfører seg som før.
 
-    Eksempler:
+  Eksempler:
 
-    - Å skrive `11112022` viser `11.11.2022` i feltet og emitterer `11.11.2022`
-    - Å velge `11.11.2022` i kalenderen emitterer fortsatt `11.11.2022`
-    - Å skrive `11.11.2022` oppfører seg uendret
+  - Å skrive `11112022` viser `11.11.2022` i feltet og emitterer `11.11.2022`
+  - Å velge `11.11.2022` i kalenderen emitterer fortsatt `11.11.2022`
+  - Å skrive `11.11.2022` oppfører seg uendret
 
 ### Patch Changes
 
@@ -532,15 +543,15 @@
 ### Minor Changes
 
 - dc0b558: - Knappene i modalen brekker nå under hverandre avhengig av bredden til _modalen_, ikke bredden av _vinduet_.
-    - Du kan nå overstyre bredden til modalen ved å sette CSS-variabelen `--modal-width`. Modalen vil fortsatt respektere skjermbredde på smale skjermer.
+  - Du kan nå overstyre bredden til modalen ved å sette CSS-variabelen `--modal-width`. Modalen vil fortsatt respektere skjermbredde på smale skjermer.
 - 405ba5e: Modal har fått mulighet for flere plasseringer, full bredde og animasjon for mer fleksibel bruk.
 
 ### Patch Changes
 
 - 5984395: Retter feil i stilarkene for komponenter:
 
-    - Fikser ugyldig CSS-bruk av `var(transparent)` i beta-select ved å bruke en gyldig transparent verdi.
-    - Fikser datepicker-kalenderstilene ved å sikre gyldige custom properties og regelplassering, slik at bygging/parsing ikke feiler.
+  - Fikser ugyldig CSS-bruk av `var(transparent)` i beta-select ved å bruke en gyldig transparent verdi.
+  - Fikser datepicker-kalenderstilene ved å sikre gyldige custom properties og regelplassering, slik at bygging/parsing ikke feiler.
 
 - 21f66a1: Fikser en bug der padding ikke lenger kunne settes på Modal via prop.
 
@@ -550,12 +561,14 @@
 
 - 0fe94d0: ### Help
 
-    #### Deprecated
-    1. `ShowButtonText`-propen er markert som deprecated. Dersom du har bruk for å vise teksten knyttet til help bør du mest sannsynlig bruke Button, Expandable, eller noe lignende.
-    2. `IconPosition` er markert som deprecated siden den er relevant kun ved bruk av `ShowButtonText`.
+  #### Deprecated
 
-    ### Andre endringer
-    1. Knappen tar nå opp mindre plass i grensesnittet visuelt, men får en større klikkflate.
+  1. `ShowButtonText`-propen er markert som deprecated. Dersom du har bruk for å vise teksten knyttet til help bør du mest sannsynlig bruke Button, Expandable, eller noe lignende.
+  2. `IconPosition` er markert som deprecated siden den er relevant kun ved bruk av `ShowButtonText`.
+
+  ### Andre endringer
+
+  1. Knappen tar nå opp mindre plass i grensesnittet visuelt, men får en større klikkflate.
 
 ## 4.1.5
 
@@ -563,10 +576,10 @@
 
 - da47aa4: Justerer typografiskalaen for `title` og `title-small` slik at de matcher oppdatert heading-skala fra design (#5837).
 
-    - `title` bruker nå `--jkl-font-size-8` (tidligere `--jkl-font-size-10`), tilsvarende nivå som `heading-1`.
-    - `title-small` bruker nå `--jkl-font-size-7` (tidligere `--jkl-font-size-9`), tilsvarende nivå som `heading-2`.
+  - `title` bruker nå `--jkl-font-size-8` (tidligere `--jkl-font-size-10`), tilsvarende nivå som `heading-1`.
+  - `title-small` bruker nå `--jkl-font-size-7` (tidligere `--jkl-font-size-9`), tilsvarende nivå som `heading-2`.
 
-    Endrer input-group-description fra `text-medium` til `text-small` for å bedre matche designet. Dette påvirker beskrivelsen under input-felt i skjemakomponenter, og gjør teksten litt mindre for bedre visuell balanse.
+  Endrer input-group-description fra `text-medium` til `text-small` for å bedre matche designet. Dette påvirker beskrivelsen under input-felt i skjemakomponenter, og gjør teksten litt mindre for bedre visuell balanse.
 
 ## 4.1.4
 
@@ -574,9 +587,9 @@
 
 - 5828a7b: Retter noen problemer i `TextArea`.
 
-    - Høyden på feltet følger nå `rows` på en mer stabil måte.
-    - Fikser at tekst kunne havne oppå telleren når feltet vokser.
-    - I Storybook kan `rows` nå bare settes til verdier mellom 3 og 10.
+  - Høyden på feltet følger nå `rows` på en mer stabil måte.
+  - Fikser at tekst kunne havne oppå telleren når feltet vokser.
+  - I Storybook kan `rows` nå bare settes til verdier mellom 3 og 10.
 
 ## 4.1.3
 
@@ -607,22 +620,22 @@
 - ee6e635: Utvider Flex med støtte for både statiske og semantiske gap-verdier.
   Dette gjør det mulig å kombinere begge typer verdier, også responsivt på tvers av breakpoints.
 
-    ```tsx
-    // Statiske gap-verdier
-    <Flex gap="16 32" />
+  ```tsx
+  // Statiske gap-verdier
+  <Flex gap="16 32" />
 
-    // Semantiske gap-verdier
-    <Flex gap="s m" />
+  // Semantiske gap-verdier
+  <Flex gap="s m" />
 
-    // Blanding av statiske og semantiske verdier på tvers av breakpoints
-    <Flex
-      gap={{
-        small: "none s",
-        medium: "8 16",
-        large: "m xl",
-      }}
-    />
-    ```
+  // Blanding av statiske og semantiske verdier på tvers av breakpoints
+  <Flex
+    gap={{
+      small: "none s",
+      medium: "8 16",
+      large: "m xl",
+    }}
+  />
+  ```
 
 - ae7b61a: Bytter ut markøren i `RadioButton` med ikon fra Material Symbols, slik det er gjort i `Checkbox`.
 
@@ -633,16 +646,17 @@
 - 3618a43: Fikser en bug der man kunne få en manglende avhengighet til pakken `change-case` ved bruk av Jøkul sin typografi-plugin for Tailwind 3. Den relevante koden er nå pakket med i Jøkul.
 - a4fef79: 1. Utvider typografi for Tailwind‑preset og generering av CSS/SCSS‑variabler.
 
-    Nye tailwind‑klasser:
+  Nye tailwind‑klasser:
 
-    - `paragraph-large`
-    - `paragraph-medium`
-    - `paragraph-small`
-    - `text-large`
-    - `text-medium`
-    - `text-small`
-    - `text-micro`
-    2. (Title|Heading)‑\*‑verdiene er også oppdatert for å matche Figma v4.
+  - `paragraph-large`
+  - `paragraph-medium`
+  - `paragraph-small`
+  - `text-large`
+  - `text-medium`
+  - `text-small`
+  - `text-micro`
+
+  2. (Title|Heading)‑\*‑verdiene er også oppdatert for å matche Figma v4.
 
 ## 4.0.3
 
@@ -675,13 +689,13 @@
 
 - d094b4e: Dette er en stor oppdatering av Jøkul, og inneholder flere viktige endringer i hvordan designsystemet er bygget opp og brukes.
 
-    - `density`-modusen er fjernet til fordel for en ny `size`-modus **BREAKING!**
-    - Egenskapen `density` er fjernet fra alle komponenter som hadde den **BREAKING!**
-    - Ny typografisk skala med noen nye tekststiler **BREAKING!**
-    - En del beta-komponenter har blitt stabile
-        - `BETA_DescriptionList` er deprecated til fordel for den gamle varianten
+  - `density`-modusen er fjernet til fordel for en ny `size`-modus **BREAKING!**
+  - Egenskapen `density` er fjernet fra alle komponenter som hadde den **BREAKING!**
+  - Ny typografisk skala med noen nye tekststiler **BREAKING!**
+  - En del beta-komponenter har blitt stabile
+    - `BETA_DescriptionList` er deprecated til fordel for den gamle varianten
 
-    Du finner oversikt over endringer, og migrasjonsguide i portalen.
+  Du finner oversikt over endringer, og migrasjonsguide i portalen.
 
 ## 3.7.0
 
@@ -689,14 +703,14 @@
 
 - 9ee6989: **Støtte for Tailwind 4**
 
-    Denne oppdateringen legger til støtte for versjon 4 av Tailwind. For å ta i bruk Jøkul-verdier i ditt Tailwind 4-oppsett importerer du Jøkul-temaet rett etter importen av Tailwind i hovedstilarket ditt:
+  Denne oppdateringen legger til støtte for versjon 4 av Tailwind. For å ta i bruk Jøkul-verdier i ditt Tailwind 4-oppsett importerer du Jøkul-temaet rett etter importen av Tailwind i hovedstilarket ditt:
 
-    ```diff
-      @import "tailwindcss";
-    + @import "@fremtind/jokul/tailwind/v4";
-    ```
+  ```diff
+    @import "tailwindcss";
+  + @import "@fremtind/jokul/tailwind/v4";
+  ```
 
-    Versjon 3 er fortsatt støttet på samme måte som tidligere.
+  Versjon 3 er fortsatt støttet på samme måte som tidligere.
 
 ### Patch Changes
 
@@ -714,15 +728,15 @@
 
 - 7fe2a5f: Bytt ut `date-fns` med `dayjs` for behandling av datoer i kalenderen.
 
-    For å gjøre oss klare for å droppe CommonJS i biblioteket bytter vi vekk fra `date-fns` for å håndtere datoer i kalenderen i `DatePicker`. Pakken har en del feil i genereringen av typer, som gjør at man kan få feil ved import/bygg avhengig av om man bruker CJS eller ESM.
+  For å gjøre oss klare for å droppe CommonJS i biblioteket bytter vi vekk fra `date-fns` for å håndtere datoer i kalenderen i `DatePicker`. Pakken har en del feil i genereringen av typer, som gjør at man kan få feil ved import/bygg avhengig av om man bruker CJS eller ESM.
 
-    Siden `date-fns` var en relativt stor pakke var den behandlet som en _optional dependency_, slik at du selv måtte installere den for å bruke `DatePicker`. `dayjs` er en så liten pakke at vi har bygget inn relevant kode i kalenderen. Dermed får du én avhengighet mindre av å bruke Jøkul 🎉
+  Siden `date-fns` var en relativt stor pakke var den behandlet som en _optional dependency_, slik at du selv måtte installere den for å bruke `DatePicker`. `dayjs` er en så liten pakke at vi har bygget inn relevant kode i kalenderen. Dermed får du én avhengighet mindre av å bruke Jøkul 🎉
 
 ### Patch Changes
 
 - 7f19854: Skrur av uønsket fontskalering i MacOS
 
-    Begrens fontskalering for Apple-enheter til bare å gjelde enheter med touch som hovedinput (som iPhone) for å unngå uønskede effekter i Safari i MacOS.
+  Begrens fontskalering for Apple-enheter til bare å gjelde enheter med touch som hovedinput (som iPhone) for å unngå uønskede effekter i Safari i MacOS.
 
 ## 3.5.3
 
@@ -748,33 +762,33 @@
 
 - f055f7e: `System Message` tar nå inn variant, istedenfor å måtte bruke flere typer System Messages. Markert egendefinerte System Messages som deprecated.
 
-    ```typescript jsx
-    // Før
-    <ErrorSystemMessage>...</ErrorSystemMessage>
+  ```typescript jsx
+  // Før
+  <ErrorSystemMessage>...</ErrorSystemMessage>
 
-    // Etter
-    <SystemMessage variant="error">...</SystemMessage>
-    ```
+  // Etter
+  <SystemMessage variant="error">...</SystemMessage>
+  ```
 
 - 97c4200: Tag tar nå inn variant, istedenfor å måtte bruke flere typer tags. Markert egendefinerte tags som deprecated.
 
-    ```typescript jsx
-    // Før
-    <ErrorTag>...</ErrorTag>
+  ```typescript jsx
+  // Før
+  <ErrorTag>...</ErrorTag>
 
-    // Etter
-    <Tag variant="error">...</Tag>
-    ```
+  // Etter
+  <Tag variant="error">...</Tag>
+  ```
 
 - 29ff5ae: `Message` tar nå inn variant, istedenfor å måtte bruke flere typer meldinger. Markert egendefinerte messages som deprecated.
 
-    ```typescript jsx
-    // Før
-    <ErrorMessage>...</ErrorMessage>
+  ```typescript jsx
+  // Før
+  <ErrorMessage>...</ErrorMessage>
 
-    // Etter
-    <Message variant="error">...</Message>
-    ```
+  // Etter
+  <Message variant="error">...</Message>
+  ```
 
 ## 3.4.0
 
@@ -782,7 +796,7 @@
 
 - a3a203d: Tydeligere visuell indikasjon på hvilke kolonner som er sorterbare, samt nye sorteringsikoner.
 - b447808: - `RadioPanel` og `CheckboxPanel` setter nå `value` tilsvarende `label` by default.
-    - `RadioPanelGroup` er markert som deprecated. Bruk heller `FieldGroup`.
+  - `RadioPanelGroup` er markert som deprecated. Bruk heller `FieldGroup`.
 - 75839aa: Endrer alle steder vi har brukt gamle brand-farger direkte i komponentene til å bruke semantiske fargetokens. Dette angår stort sett utgående komponenter, og skal ikke ha betydning for utseende.
 
 ### Patch Changes
@@ -797,7 +811,7 @@
 
 - 9af9cc3: **Feilretting: Fjerner CSS som overskrev Fremtind Grotesk font**
 
-    Fjernet en `@supports`-regel som førte til at Fremtind Grotesk på Apple-enheter ble overskrevet.
+  Fjernet en `@supports`-regel som førte til at Fremtind Grotesk på Apple-enheter ble overskrevet.
 
 ## 3.3.0
 
@@ -805,68 +819,68 @@
 
 - b40db27: Legg til en `Search`-komponent. Før har man måttet bruke en kombinasjon av props på `TextInput` for å få den til å se ut som et søkefelt. Med denne komponenten slipper du det, og den blir semantisk riktigere.
 
-    I tillegg følger det med:
+  I tillegg følger det med:
 
-    - en `Search.Button`, som er en egen knapp tiltenkt kun søkefeltet.
-    - en knapp som enkelt tømmer søkefeltet.
+  - en `Search.Button`, som er en egen knapp tiltenkt kun søkefeltet.
+  - en knapp som enkelt tømmer søkefeltet.
 
-    Du kan bruke komponenten enten med eller uten et `form`-element, avhengig av behov. Husk at dersom du wrapper søkefeltet i et skjema kan du også sette `type="submit"` på `Search.Button` for å håndtere søking (uten et tredjepartsbibliotek).
+  Du kan bruke komponenten enten med eller uten et `form`-element, avhengig av behov. Husk at dersom du wrapper søkefeltet i et skjema kan du også sette `type="submit"` på `Search.Button` for å håndtere søking (uten et tredjepartsbibliotek).
 
-    **OBS**: `Search` bruker `InputGroup`, og støtter derfor alle props som også finnes i den. Vær oppmerksom på at `label` er skjult by default. Dette kan du endre med `labelProps`-propen.
+  **OBS**: `Search` bruker `InputGroup`, og støtter derfor alle props som også finnes i den. Vær oppmerksom på at `label` er skjult by default. Dette kan du endre med `labelProps`-propen.
 
 - a45a566: Legger til en utility-funksjon for å slå sammen flere React refs
 
-    ```tsx
-    import { mergeRefs } from "@fremtind/jokul/utilities";
+  ```tsx
+  import { mergeRefs } from "@fremtind/jokul/utilities";
 
-    const MyComponent = forwardRef<HTMLInputElement>((props, ref) => {
-        const internalRef = useRef<HTMLInputElement>(null);
-        const combinedRef = mergeRefs(ref, internalRef);
+  const MyComponent = forwardRef<HTMLInputElement>((props, ref) => {
+      const internalRef = useRef<HTMLInputElement>(null);
+      const combinedRef = mergeRefs(ref, internalRef);
 
-        return <input type="text" ref={combinedRef} {...props} />;
-    }
-    ```
+      return <input type="text" ref={combinedRef} {...props} />;
+  }
+  ```
 
-    Du kan sende inn så mange refs du vil: `mergeRefs(ref1, ref2, ref3, ref4)`.
-    Det finnes også en memoisert versjon `useMergeRefs` som oppdateres kun
-    når noen av `ref`-ene endrer seg
+  Du kan sende inn så mange refs du vil: `mergeRefs(ref1, ref2, ref3, ref4)`.
+  Det finnes også en memoisert versjon `useMergeRefs` som oppdateres kun
+  når noen av `ref`-ene endrer seg
 
 - 57c1d4f: LinkList får nytt visuelt uttrykk i beta-versjon. I forbindelse med dette er det gjort følgende endringer:
 
-    - Lagt til `TableOfContents`, som brukes likt som `LinkList` med `variant="ordered"` satt. Endringene under er gjeldende for både `LinkList` og `TableOfContents`.
-    - `LinkList` krever ikke lenger `LinkList.Item`.
-    - `LinkList` krever nå en [`label` som beskriver innholdet i lista](https://www.w3.org/WAI/WCAG21/Techniques/html/H97). Denne skjules automatisk med `hideLabel`-propen.
-    - `LinkList` er nå semantisk en `nav`-komponent fordi den skal brukes for samlinger av navigasjonslenker.
+  - Lagt til `TableOfContents`, som brukes likt som `LinkList` med `variant="ordered"` satt. Endringene under er gjeldende for både `LinkList` og `TableOfContents`.
+  - `LinkList` krever ikke lenger `LinkList.Item`.
+  - `LinkList` krever nå en [`label` som beskriver innholdet i lista](https://www.w3.org/WAI/WCAG21/Techniques/html/H97). Denne skjules automatisk med `hideLabel`-propen.
+  - `LinkList` er nå semantisk en `nav`-komponent fordi den skal brukes for samlinger av navigasjonslenker.
 
-    Før:
+  Før:
 
-    ```typescript jsx
-    <LinkList>
-      <LinkList.Item>
-        <LinkList.Link href="#">...</LinkList.Link>
-      </LinkList.Item>
-    </LinkList>
-    ```
-
-    Etter:
-
-    ```typescript jsx
-    <LinkList>
+  ```typescript jsx
+  <LinkList>
+    <LinkList.Item>
       <LinkList.Link href="#">...</LinkList.Link>
-    </LinkList>
-    ```
+    </LinkList.Item>
+  </LinkList>
+  ```
+
+  Etter:
+
+  ```typescript jsx
+  <LinkList>
+    <LinkList.Link href="#">...</LinkList.Link>
+  </LinkList>
+  ```
 
 - 9f18961: Legg til ny versjon av Description List som beta-komponent:
 
-    - `DescriptionList` bygges opp av en ny komponent `DescriptionListItem`.
-    - `DescriptionListItem` tar inn title og value, og har en valgfri `supportText`, som alltid ligger nederst i raden.
-    - `DescriptionList` får mulighet til å vise skillelinjer mellom hvert item.
-    - `DescriptionList` får en `alignment`-prop, med mulighet for å vise items `horizontal`, `vertical` og `justified`. I smale visninger vil den alltid brekke til vertikalt, som den gamle også gjorde.
+  - `DescriptionList` bygges opp av en ny komponent `DescriptionListItem`.
+  - `DescriptionListItem` tar inn title og value, og har en valgfri `supportText`, som alltid ligger nederst i raden.
+  - `DescriptionList` får mulighet til å vise skillelinjer mellom hvert item.
+  - `DescriptionList` får en `alignment`-prop, med mulighet for å vise items `horizontal`, `vertical` og `justified`. I smale visninger vil den alltid brekke til vertikalt, som den gamle også gjorde.
 
-    Legg til ny versjon av NavLink som beta-komponent:
+  Legg til ny versjon av NavLink som beta-komponent:
 
-    - NavLink får nytt utseende, basert på `LinkListLink` med en pil til høyre.
-    - NavLink tar inn `title`, og en valgfri `description`.
+  - NavLink får nytt utseende, basert på `LinkListLink` med en pil til høyre.
+  - NavLink tar inn `title`, og en valgfri `description`.
 
 ### Patch Changes
 
@@ -901,21 +915,21 @@
 
 - def9c2f: Oppdaterer `Flex`-komponenten med ny funksjonalitet for responsivitet og layout.
 
-    - De fleste flex-egenskaper er eksponert via props
-    - Mulighet for å styre hvordan komponenten vises ved hjelp av props
-    - Støtte for forskjellige verdier på forskjellige breakpoints
-    - Mulighet for å styre layout med kolonner
-    - Stilene til flex blir ikke lenger satt inline slik at de kan overstyres
+  - De fleste flex-egenskaper er eksponert via props
+  - Mulighet for å styre hvordan komponenten vises ved hjelp av props
+  - Støtte for forskjellige verdier på forskjellige breakpoints
+  - Mulighet for å styre layout med kolonner
+  - Stilene til flex blir ikke lenger satt inline slik at de kan overstyres
 
-    **BREAKING**
-    Avstander i `Flex` baserer seg nå på våre nye, semantiske spacing-tokens. Man må derfor oppdatere vardiene for `gap` og lignende props.
+  **BREAKING**
+  Avstander i `Flex` baserer seg nå på våre nye, semantiske spacing-tokens. Man må derfor oppdatere vardiene for `gap` og lignende props.
 
-    ```diff
-    - <Flex gap={16}>
-    + <Flex gap="s">
-    ```
+  ```diff
+  - <Flex gap={16}>
+  + <Flex gap="s">
+  ```
 
-    For mer informasjon om bruk av komponenten, og det nye APIet, se portalen og eksemplene i Storybook.
+  For mer informasjon om bruk av komponenten, og det nye APIet, se portalen og eksemplene i Storybook.
 
 ### Patch Changes
 
@@ -930,16 +944,16 @@
 - fcfa2c6: **BREAKING**: Cookie Consent krever nå en
   `aboutPage`-prop. Dette er en lenke til siden brukerne kan gå for å få informasjon om cookiene som settes i løsningen. Eksempelvis https://www.fremtind.no/informasjonskapsler.
 
-    Dersom du mangler en sånn side må den lages for løsnignen, **det er ikke tilstrekkelig å sende brukeren til
-    Fremtind.no-siden**.
+  Dersom du mangler en sånn side må den lages for løsnignen, **det er ikke tilstrekkelig å sende brukeren til
+  Fremtind.no-siden**.
 
-    **BREAKING**: Cookie Consent tar ikke lenger inn
-    `marketing` som en gyldig prop. Dette er fordi vi ikke bruker cookies til markedsføring. Den dagen vi begynner med det krever det et eget samtykke.
+  **BREAKING**: Cookie Consent tar ikke lenger inn
+  `marketing` som en gyldig prop. Dette er fordi vi ikke bruker cookies til markedsføring. Den dagen vi begynner med det krever det et eget samtykke.
 
-    **Minor changes**:
+  **Minor changes**:
 
-    - ModalenAction viser nå knappene i `row-reverse` istedenfor
-      `row` for å støtte under høyrestilling av knappene på en bedre måte.
+  - ModalenAction viser nå knappene i `row-reverse` istedenfor
+    `row` for å støtte under høyrestilling av knappene på en bedre måte.
 
 ## 1.6.0
 
@@ -953,7 +967,7 @@
 ### Patch Changes
 
 - 74e9d27: - Gjør `Image`-komponenten om til en `forwardRef` for å støtte `refs` fra `parent`-komponenter.
-    - Setter `img` i `Card` til `object-fit: cover` som standard, slik at bilder dekker kortet uten å forvrenge proporsjonene.
+  - Setter `img` i `Card` til `object-fit: cover` som standard, slik at bilder dekker kortet uten å forvrenge proporsjonene.
 - 1a60d17: Støtte for skalering av tekst på iOS-enheter
 - 68b580f: Retter opp i en visuell inkonsistens mellom Tooltip og Help komponentene, som hadde ulik oppførsel for bakgrunnsfarge i light og dark mode. Begge bruker nå `--jkl-color-background-container-inverted`.
 - 9eba724: La til css slik at tekstfargen på lenker i Help arver fargen til teksten og derfor følger tema.
@@ -964,34 +978,34 @@
 
 - 6c47b7a: Legger til [CSS layers](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer) for Jøkul sine grunnleggende stiler for å unngå konflikt både innad i Jøkul, og mellom dine egne stilark og stilene fra Jøkul.
 
-    Stilene til Jøkul ligger inne i laget `jokul`, som igjen har fem under-lag. Disse er, i rekkefølge fra minst til mest prioritert:
+  Stilene til Jøkul ligger inne i laget `jokul`, som igjen har fem under-lag. Disse er, i rekkefølge fra minst til mest prioritert:
 
-    1. `resets`: Normalisering og reset av nettleser-stiler. Disse ønsker vi på sikt å bli kvitt, eller få trimmet ned kraftig.
-    2. `theme`: Her ligger variablene som legger grunnlag for designsystemet; spacing, farger, typografi, etc.
-    3. `global`: Foreløpig er dette laget tomt, men her kan det komme overordnede stiler som gjelder uten å sette klasser, slik som automatiske stiler for typografi basert på HTML-element.
-    4. `components`: Her bor alle stilene til komponentene våre (vil bli lagt inn i fremtidig(e) pull request(s)).
-    5. `utility`: Dette laget inneholder nytteklassene våre. De er høyest prioritert slik at de får effekt selv om de styrer egenskaper som også er satt gjennom f.eks. komponent-stilark.
+  1. `resets`: Normalisering og reset av nettleser-stiler. Disse ønsker vi på sikt å bli kvitt, eller få trimmet ned kraftig.
+  2. `theme`: Her ligger variablene som legger grunnlag for designsystemet; spacing, farger, typografi, etc.
+  3. `global`: Foreløpig er dette laget tomt, men her kan det komme overordnede stiler som gjelder uten å sette klasser, slik som automatiske stiler for typografi basert på HTML-element.
+  4. `components`: Her bor alle stilene til komponentene våre (vil bli lagt inn i fremtidig(e) pull request(s)).
+  5. `utility`: Dette laget inneholder nytteklassene våre. De er høyest prioritert slik at de får effekt selv om de styrer egenskaper som også er satt gjennom f.eks. komponent-stilark.
 
-    Når du skriver dine egne stiler vil de som standard ha høyere prioritet enn _alle disse lagene_, slik at du kan være sikker på at stilarkene du skriver har effekt. Dersom du bruker dine egne lag i stilarkene dine kan du spesifisere at Jøkul sine stiler skal ha lavere prioritet:
+  Når du skriver dine egne stiler vil de som standard ha høyere prioritet enn _alle disse lagene_, slik at du kan være sikker på at stilarkene du skriver har effekt. Dersom du bruker dine egne lag i stilarkene dine kan du spesifisere at Jøkul sine stiler skal ha lavere prioritet:
 
-    ```css
-    @layer jokul, dine-komponenter, dine-nytteklasser;
-    ```
+  ```css
+  @layer jokul, dine-komponenter, dine-nytteklasser;
+  ```
 
 - d306833: - Introduserer et nytt sett med **semantiske spacing-variabler** for mer konsistent bruk av avstand i design og kode.
 
-    - Restrukturerer og forbedrer **byggesystemet for tokens** for å gjøre vedlikehold og utvidelser enklere.
+  - Restrukturerer og forbedrer **byggesystemet for tokens** for å gjøre vedlikehold og utvidelser enklere.
 
-    ### Nye spacing-variabler
+  ### Nye spacing-variabler
 
-    ```css
-    --jkl-spacing-xs
-    --jkl-spacing-s
-    --jkl-spacing-m
-    --jkl-spacing-l
-    --jkl-spacing-xl
-    --jkl-spacing-2xl
-    ```
+  ```css
+  --jkl-spacing-xs
+  --jkl-spacing-s
+  --jkl-spacing-m
+  --jkl-spacing-l
+  --jkl-spacing-xl
+  --jkl-spacing-2xl
+  ```
 
 - 656db36: Flytter knappene i modalen til høyre side på store skjermer. Oppdaterer også eksemplene for å vise at hovedhandlingen bør stå til høyre når vi følger dette mønstret.
 - 6852e3e: Core-stilarket `@fremtind/jokul/styles/core.css` er refaktorert for å sørge for at CSS-lagene alltid opptrer i riktig rekkefølge. For å opprettholde dette i din egen kodebase bør du importere `core`-stilarket _før_ du importerer komponentstilarkene du bruker.
@@ -1005,10 +1019,10 @@
 - 9f552db: Legger til en minimumsbredde for knapper med tekstinnhold, slik at det ikke ser rart ut når valgene er korte ord som "Ja" eller "Nei".
 - f084272: Sørg for at alle tokens og variabler bygges
 
-    Etter refaktoreringen av tokens-byggsteget falt en del variabler som
-    fortsatt ble brukt ut av de resulterende filene. Her sørger vi for at
-    alle tokens og variabler som trengs i systemet er tilgjengelige som før,
-    i tillegg til de nye verdiene vi vil ha ut.
+  Etter refaktoreringen av tokens-byggsteget falt en del variabler som
+  fortsatt ble brukt ut av de resulterende filene. Her sørger vi for at
+  alle tokens og variabler som trengs i systemet er tilgjengelige som før,
+  i tillegg til de nye verdiene vi vil ha ut.
 
 ## 1.4.1
 
@@ -1028,18 +1042,16 @@
 
 - eb9e319: Utvidet ExpandablePanel med Header-prop for et mer konsistent og intuitivt API. Nå kan du bruke <ExpandablePanel.Header> direkte for å definere headeren til panelet. Storybook-eksempler og relevante typer er oppdatert for å støtte endringen.
 
-    **Eksempel på bruk:**
+  **Eksempel på bruk:**
 
-    ```tsx
-    <ExpandablePanel>
-        <ExpandablePanel.Header>
-            Klikk for å åpne panelet
-        </ExpandablePanel.Header>
-        <ExpandablePanel.Content>
-            Her er innholdet i panelet.
-        </ExpandablePanel.Content>
-    </ExpandablePanel>
-    ```
+  ```tsx
+  <ExpandablePanel>
+    <ExpandablePanel.Header>Klikk for å åpne panelet</ExpandablePanel.Header>
+    <ExpandablePanel.Content>
+      Her er innholdet i panelet.
+    </ExpandablePanel.Content>
+  </ExpandablePanel>
+  ```
 
 ## 1.2.4
 
@@ -1059,14 +1071,14 @@
 
 - c4363f0: Legg til fallback-font for ikonene.
 
-    Ettersom ikonfonten er stor, og kan ta litt tid å laste inn, har vi lagt til en fallback-font for ikonene der størrelsen er satt til 0%. Uten dette kan man risikere at navnet på ikonet vises som ren tekst før ikonfonten er lastet. Vi anbefaler uansett at man legger inn en `<link rel="preload">` for ikonfonten i løsningen sin, slik at den lastes så raskt som mulig.
+  Ettersom ikonfonten er stor, og kan ta litt tid å laste inn, har vi lagt til en fallback-font for ikonene der størrelsen er satt til 0%. Uten dette kan man risikere at navnet på ikonet vises som ren tekst før ikonfonten er lastet. Vi anbefaler uansett at man legger inn en `<link rel="preload">` for ikonfonten i løsningen sin, slik at den lastes så raskt som mulig.
 
 ## 1.2.1
 
 ### Patch Changes
 
 - a726eca: - Eksporter Segmented Control riktig.
-    - Legger til Props på fieldset og ikke hver radio-knapp i Segmented Control.
+  - Legger til Props på fieldset og ikke hver radio-knapp i Segmented Control.
 - fd147a1: SystemMessage tar ikke lenger opp høyde etter å ha blitt dismissed
 
 ## 1.2.0
@@ -1110,37 +1122,37 @@
 
 - 3406c20: Import av komponenter fra roten av `@fremtind/jokul` er ikke lenger mulig.
 
-    For å fikse dette må alle importer oppdateres til å peke direkte på den spesifikke modulen:
+  For å fikse dette må alle importer oppdateres til å peke direkte på den spesifikke modulen:
 
-    **FØR:**
+  **FØR:**
 
-    ```typescript
-    import { Card } from "@fremtind/jokul";
-    ```
+  ```typescript
+  import { Card } from "@fremtind/jokul";
+  ```
 
-    **ETTER:**
+  **ETTER:**
 
-    ```typescript
-    import { Card } from "@fremtind/jokul/card";
-    ```
+  ```typescript
+  import { Card } from "@fremtind/jokul/card";
+  ```
 
-    `ScreenReaderOnly`-komponenten er også flyttet og må nå importeres fra `@fremtind/jokul/screen-reader-only`.
+  `ScreenReaderOnly`-komponenten er også flyttet og må nå importeres fra `@fremtind/jokul/screen-reader-only`.
 
 - 4ac8c73: BREAKING CHANGE: Fjerner flere komponenter so har vært merket som deprecated lenge, samt spacing-variabler basert på t-skjortestørrelser og tallbaserte typografivariabler.
 
-    - Fjerner komponentene `Accordion` og `AccordionItem`, som har vært merket som deprecated ganske lenge. I stedet for disse komponentene kan man bruke `ExpandablePanel`.
-    - Fjerner komponentene `NavCard`, `InfoCard` og `TaskCard`, som har vært merket som deprecated ganske lenge. I stedet for disse komponentene kan man bygge opp tilsvarende kort ved hjelp av den generelle `Card`-komponenten, `CardImage`-komponenten, og andre Jøkul-komponenter. Se eksemplene i portalen/Storybook for hvordan dette kan gjøres.
-    - Fjerner den utgåtte versjonen av `Expander`, samt `ExpandButton`-komponenten. Nye `Expander` kan brukes i stedet.
-    - Spacingvariabler og hjelpeklasser basert på t-skjortestørrelser (f.eks. `spacing-xl`) er fjernet. Bruk heller variablene på formen `spacing-40` eller den nye `unit`-skalaen.
-    - Gamle, nummererte typografivariabler for størrelse og linjehøyde. Disse bør ikke ha vært i direkte bruk ute i løsningene deres.
+  - Fjerner komponentene `Accordion` og `AccordionItem`, som har vært merket som deprecated ganske lenge. I stedet for disse komponentene kan man bruke `ExpandablePanel`.
+  - Fjerner komponentene `NavCard`, `InfoCard` og `TaskCard`, som har vært merket som deprecated ganske lenge. I stedet for disse komponentene kan man bygge opp tilsvarende kort ved hjelp av den generelle `Card`-komponenten, `CardImage`-komponenten, og andre Jøkul-komponenter. Se eksemplene i portalen/Storybook for hvordan dette kan gjøres.
+  - Fjerner den utgåtte versjonen av `Expander`, samt `ExpandButton`-komponenten. Nye `Expander` kan brukes i stedet.
+  - Spacingvariabler og hjelpeklasser basert på t-skjortestørrelser (f.eks. `spacing-xl`) er fjernet. Bruk heller variablene på formen `spacing-40` eller den nye `unit`-skalaen.
+  - Gamle, nummererte typografivariabler for størrelse og linjehøyde. Disse bør ikke ha vært i direkte bruk ute i løsningene deres.
 
 ### Patch Changes
 
 - e37cecd: Fikset en feil som forårsaket advarsler i React 19 og typefeil i React 18 relatert til inert-attributten.
 - 01e2b18: - fiks overlapp mellom chips og actions
-    - bedre aria-label på actions
-    - endre cursors for å vise intent bedre
-    - chips kan nå wrappe (for å unngå at comboboxen overflower)
+  - bedre aria-label på actions
+  - endre cursors for å vise intent bedre
+  - chips kan nå wrappe (for å unngå at comboboxen overflower)
 - c3bad0f: makes sure menu has a visible border in forced colors mode
 - e4967c9: La til sys-color-toksen som json. De er ikke generert med style dictionary enda, da vi skal vente med å publisere.
 - 0fc189c: Gjorde om system colors til å peke på ref-colors og ikke brand-colors. Flyttet også sys-colors til egen fil, slik at allerede eksisterende tokens fortsat kan bygges uten problem. Sys-colors er ikke blitt generert enda.
@@ -1148,9 +1160,9 @@
 - e6a6d55: Invert colors for selected filter-chip in forced colors mode
 - 2610a20: Rettet en feil med type-resolution for brukere av `pnpm` workspaces.
 
-    Brukere i `pnpm` workspaces, spesielt de som håndterer flere React-versjoner (f.eks. v18 og v19), opplevde at props for Jøkul-komponenter ble feilaktig resolvet til `any`.
+  Brukere i `pnpm` workspaces, spesielt de som håndterer flere React-versjoner (f.eks. v18 og v19), opplevde at props for Jøkul-komponenter ble feilaktig resolvet til `any`.
 
-    For å løse dette har vi lagt til `@types/react` i vår `peerDependencies`. Dette følger den offisielle anbefalingen fra [pnpm-dokumentasjonen](https://pnpm.io/typescript#workspace-usage).
+  For å løse dette har vi lagt til `@types/react` i vår `peerDependencies`. Dette følger den offisielle anbefalingen fra [pnpm-dokumentasjonen](https://pnpm.io/typescript#workspace-usage).
 
 - 73f2e61: Remove extra underline and add hover in forced colors mode
 
@@ -1183,19 +1195,21 @@
 
 - 60470d5: File har blitt redesigna for mer fleksibel bruk i løsningene utenfor FileInput.
 
-    ## Endringer
-    1. Navneendring: FileInputFile -> UploadedFile
-    2. Navneendring: FileInputFileValidation -> UploadedFileValidation
-    3. Navneendring i FileProps: SupportLabel -> ErrorLabel
-    4. Navneendring: validateFile -> validateFileInputFiles for å tydeliggjøre at valideringa skjer i input, ikke i File
-       selv
-    5. Typeendring: Alle typer knytta til File er flytta til en egen mappe (/file) istedenfor sammen med FileInput
-    6. Typeendring: State er forenkla til å kun ta imot "error", "loading" eller undefined
-    7. Fjernet: FileInputFileState hentes nå direkte fra FileProps
+  ## Endringer
 
-    ## Next steps
-    1. Dekomponenere FileInput enda mer, for å tilgjengeliggjøre Dropzone og en egen FileUpload knapp.
-    2. Vurdere flere varianter av filer, dersom det er behov for dette i for eksempel dialoger
+  1. Navneendring: FileInputFile -> UploadedFile
+  2. Navneendring: FileInputFileValidation -> UploadedFileValidation
+  3. Navneendring i FileProps: SupportLabel -> ErrorLabel
+  4. Navneendring: validateFile -> validateFileInputFiles for å tydeliggjøre at valideringa skjer i input, ikke i File
+     selv
+  5. Typeendring: Alle typer knytta til File er flytta til en egen mappe (/file) istedenfor sammen med FileInput
+  6. Typeendring: State er forenkla til å kun ta imot "error", "loading" eller undefined
+  7. Fjernet: FileInputFileState hentes nå direkte fra FileProps
+
+  ## Next steps
+
+  1. Dekomponenere FileInput enda mer, for å tilgjengeliggjøre Dropzone og en egen FileUpload knapp.
+  2. Vurdere flere varianter av filer, dersom det er behov for dette i for eksempel dialoger
 
 ## 0.69.2
 
@@ -1632,7 +1646,7 @@ Erstattet Vind-klasserefaranser med Jøkul spacing-klasser i utviklingseksempler
 
 ### BREAKING CHANGES
 
--   - The "blocking" prop now controls if the dialog is a modal or not
+- - The "blocking" prop now controls if the dialog is a modal or not
 - Interfaces "Consent" and "ConsentComponentBaseProps" and
   "CookieConsentProviderProps" are changed to types
 - Methods "openConsentModalWithSettings" and "openConsentModalWithDefaults"
