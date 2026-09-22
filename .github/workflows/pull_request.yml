@@ -239,6 +239,10 @@ jobs:
         name: Publiser forhåndsvisning
         needs: changes
         if: github.event_name != 'merge_group' && needs.changes.outputs.preview == 'true'
+        concurrency:
+            group: gh-pages
+            cancel-in-progress: false
+            queue: max
         runs-on: ubuntu-latest
         env:
             PREVIEW_PATH: preview/${{ github.event.pull_request.head.ref }}
