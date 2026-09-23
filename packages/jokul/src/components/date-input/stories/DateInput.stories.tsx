@@ -11,6 +11,10 @@ import "../../popover/styles/_index.scss";
 const meta = {
     title: "Komponenter/Date Input",
     component: DateInput,
+    argTypes: {
+        min: { control: "text" },
+        max: { control: "text" },
+    },
     args: {
         label: "Når skal du reise?",
         labelProps: {
