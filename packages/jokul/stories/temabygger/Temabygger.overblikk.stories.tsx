@@ -49,7 +49,7 @@ function ThemeBuilderOverview() {
             style={{
                 display: "grid",
                 gridTemplateColumns:
-                    "repeat(auto-fit, minmax(min(100%, 30rem), 1fr))",
+                    "repeat(auto-fit, minmax(min(100%, 20rem), 1fr))",
                 gap: "var(--jkl-spacing-16)",
             }}
         >
