@@ -1,5 +1,6 @@
 import React, { type FC } from "react";
 import type { ExampleComponentProps } from "utils/dev-example/index.js";
+import { Flex } from "../../flex/index.js";
 import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "../Tag.js";
 
 type TagType = "Info" | "Success" | "Warning" | "Error";
@@ -45,6 +46,16 @@ const ExampleTagWrapper: React.FC<
         </TagComponent>
     );
 };
+
+export const TagInFlexExample: FC<ExampleComponentProps> = () => (
+    <Flex
+        direction="column"
+        data-testid="tag-column-flex"
+        style={{ width: "320px" }}
+    >
+        <Tag data-testid="tag-column-flex-item">Emne i flex</Tag>
+    </Flex>
+);
 
 export const TagExample: FC<ExampleComponentProps> = () => {
     return (
