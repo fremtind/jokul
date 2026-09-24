@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.1.0-next.1
+
+### Patch Changes
+
+- a79e5ba: `Tag` strekkes ikke lenger til full bredde når den brukes i en flex-container.
+
 ## 6.1.0-next.0
 
 ### Minor Changes
