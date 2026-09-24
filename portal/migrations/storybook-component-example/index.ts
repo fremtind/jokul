@@ -13,6 +13,11 @@ const LEGACY_STORY_ID_OVERRIDES: Record<string, string> = {
     "b5445593-658e-4bf8-b597-d28aa4f7f174": "komponenter-accordion--accordion",
 };
 
+// `example_card.storybook` ble fjernet fra schemaet (til fordel for det nye
+// toppnivåfeltet `storybook`), men gamle dokumenter kan fortsatt ha data i det
+// feltet. Denne typen brukes kun for å lese ut det legacy-feltet trygt.
+type LegacyExampleCard = { storybook?: Jokul_storybookEmbed };
+
 function getHeight(height: number | undefined) {
     if (
         typeof height !== "number" ||
@@ -77,7 +82,8 @@ export default defineMigration({
             }
 
             const existingEmbed = getExistingEmbed(
-                component.example_card?.storybook,
+                (component.example_card as LegacyExampleCard | undefined)
+                    ?.storybook,
             );
 
             if (existingEmbed) {
