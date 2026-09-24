@@ -1,5 +1,16 @@
 # portal
 
+## 1.10.0-next.1
+
+### Minor Changes
+
+- a82bc00: Forenkler hvordan Storybook-eksempler opprettes og brukes i Sanity.
+
+### Patch Changes
+
+- Updated dependencies [a79e5ba]
+  - @fremtind/jokul@6.1.0-next.1
+
 ## 1.9.1-next.0
 
 ### Patch Changes
