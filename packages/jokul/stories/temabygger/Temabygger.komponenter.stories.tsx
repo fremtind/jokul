@@ -112,7 +112,7 @@ export const KomponentOversikt: Story = {
                         <Button variant="secondary">Secondary</Button>
                         <Button variant="ghost">Ghost</Button>
                     </Flex>
-                    <Flex>
+                    <Flex className="jkl-body">
                         <List>
                             <CheckListItem>Dekker</CheckListItem>
                             <CrossListItem>Dekker ikke</CrossListItem>
@@ -125,7 +125,7 @@ export const KomponentOversikt: Story = {
                         </ToggleSwitch>
                     </Flex>
 
-                    <Flex gap="m">
+                    <Flex wrap gap="xs">
                         <Tag variant="neutral">Neutral</Tag>
                         <Tag variant="success">Success</Tag>
                         <Tag variant="info">Info</Tag>
@@ -200,7 +200,7 @@ export const KomponentOversikt: Story = {
                         <Button variant="secondary">Secondary</Button>
                         <Button variant="ghost">Ghost</Button>
                     </Flex>
-                    <Flex>
+                    <Flex className="jkl-body">
                         <List>
                             <CheckListItem>Dekker</CheckListItem>
                             <CrossListItem>Dekker ikke</CrossListItem>
@@ -213,7 +213,7 @@ export const KomponentOversikt: Story = {
                         </ToggleSwitch>
                     </Flex>
 
-                    <Flex gap="m">
+                    <Flex wrap gap="xs">
                         <Tag variant="neutral">Neutral</Tag>
                         <Tag variant="success">Success</Tag>
                         <Tag variant="info">Info</Tag>
