@@ -1,0 +1,9 @@
+import{j as m,r as s}from"./iframe-DfQU3pFC.js";import{c}from"./contactChoices-BqDGeJnV.js";import{C as t}from"./Checkbox-B5qYW9vV.js";import{F as n}from"./FieldGroup-hciFdd_Z.js";import"./preload-helper-PPVm8Dsz.js";import"./clsx-B-dksMZM.js";import"./useId-IpoVIjEZ.js";import"./serializeTracking-CnAc4iKu.js";import"./Label-Y7nfBV5B.js";import"./SupportLabel-C1-u48DA.js";import"./SuccessIcon-DHc9mPOd.js";import"./Icon-UBvEbjd5.js";import"./WarningIcon-DUZD4RWo.js";const y={title:"Komponenter/Checkbox",component:t,args:{value:"kjekk",name:"checkbox",children:"Kjekk boks",indeterminate:!1}},e={name:"Checkbox"},o={render:a=>m.jsx(n,{legend:"Kontaktmetoder",children:c.map(r=>s.createElement(t,{...e.args,...a,key:r,value:r,name:"kontaktmetode"},r))})};e.parameters={...e.parameters,docs:{...e.parameters?.docs,source:{originalSource:`{
+  name: "Checkbox"
+}`,...e.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  render: args => <FieldGroup legend={"Kontaktmetoder"}>
+            {contactChoices.map(value => <Checkbox {...CheckboxStory.args} {...args} key={value} value={value} name="kontaktmetode">
+                    {value}
+                </Checkbox>)}
+        </FieldGroup>
+}`,...o.parameters?.docs?.source}}};const G=["CheckboxStory","CheckboxGroup"];export{o as CheckboxGroup,e as CheckboxStory,G as __namedExportsOrder,y as default};
