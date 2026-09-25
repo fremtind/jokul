@@ -130,4 +130,50 @@ describe("Toggle switch", () => {
             expect(results).toHaveNoViolations();
         });
     });
+
+    describe("tracking", () => {
+        // ToggleSwitch kaller ikke noen tracking-hook selv - den rendrer
+        // bare `data-jkl-*`-attributter som Mixpanels `autocapture` leser
+        // når en instans er initialisert. Derfor tester vi kun DOMen.
+        it("merker togglen som sporbar", () => {
+            render(<ToggleSwitch>GPS</ToggleSwitch>);
+
+            const button = screen.getByRole("button");
+            expect(button).toHaveAttribute("data-jkl-tracked", "ToggleSwitch");
+        });
+
+        it("setter data-jkl-checked kun når togglen er aktiv", () => {
+            const { rerender } = render(
+                <ToggleSwitch aria-pressed={false}>GPS</ToggleSwitch>,
+            );
+
+            expect(screen.getByRole("button")).not.toHaveAttribute(
+                "data-jkl-checked",
+            );
+
+            rerender(<ToggleSwitch aria-pressed={true}>GPS</ToggleSwitch>);
+
+            expect(screen.getByRole("button")).toHaveAttribute(
+                "data-jkl-checked",
+                "true",
+            );
+        });
+
+        it("setter data-jkl-tracking som JSON kun når tracking-propen er gitt", () => {
+            const { rerender } = render(<ToggleSwitch>GPS</ToggleSwitch>);
+
+            expect(screen.getByRole("button")).not.toHaveAttribute(
+                "data-jkl-tracking",
+            );
+
+            rerender(
+                <ToggleSwitch tracking={{ setting: "gps" }}>GPS</ToggleSwitch>,
+            );
+
+            expect(screen.getByRole("button")).toHaveAttribute(
+                "data-jkl-tracking",
+                JSON.stringify({ setting: "gps" }),
+            );
+        });
+    });
 });

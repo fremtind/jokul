@@ -204,6 +204,8 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                                     <IconButton
                                         className="jkl-table-pagination__previous"
                                         title={labels.previous}
+                                        data-jkl-tracked="TablePagination"
+                                        data-jkl-variant="previous"
                                         onClick={onPrevious}
                                     >
                                         <ChevronLeftIcon />
@@ -219,6 +221,8 @@ export const TablePagination = forwardRef<HTMLDivElement, TablePaginationProps>(
                                     <IconButton
                                         className="jkl-table-pagination__next"
                                         title={labels.next}
+                                        data-jkl-tracked="TablePagination"
+                                        data-jkl-variant="next"
                                         onClick={onNext}
                                     >
                                         <ChevronRightIcon />
@@ -250,6 +254,9 @@ const PaginationPages: FC<{
                                     activePage === i,
                             })}
                             type="button"
+                            data-jkl-tracked="TablePagination"
+                            data-jkl-variant="page"
+                            data-jkl-selected={activePage === i || undefined}
                             data-number={i}
                             onClick={onPageClick}
                         >
@@ -365,6 +372,9 @@ const PaginationPageButton: FC<{
             "jkl-table-pagination__page--active": isActive,
         })}
         type="button"
+        data-jkl-tracked="TablePagination"
+        data-jkl-variant="page"
+        data-jkl-selected={isActive || undefined}
         data-number={number}
         onClick={onClick}
         {...rest}

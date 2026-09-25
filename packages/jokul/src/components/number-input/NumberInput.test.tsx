@@ -216,6 +216,23 @@ describe("NumberInput", () => {
         ).toBeInTheDocument();
     });
 
+    it("marks stepper buttons as trackable with their direction as variant", () => {
+        render(<NumberInput label="testing" stepper />);
+
+        expect(
+            screen.getByRole("button", { name: "Senk verdien" }),
+        ).toHaveAttribute("data-jkl-tracked", "NumberInput");
+        expect(
+            screen.getByRole("button", { name: "Senk verdien" }),
+        ).toHaveAttribute("data-jkl-variant", "decrement");
+        expect(
+            screen.getByRole("button", { name: "Øk verdien" }),
+        ).toHaveAttribute("data-jkl-tracked", "NumberInput");
+        expect(
+            screen.getByRole("button", { name: "Øk verdien" }),
+        ).toHaveAttribute("data-jkl-variant", "increment");
+    });
+
     it("uses wrapper classes instead of part data attributes", () => {
         render(<NumberInput label="testing" stepper />);
 

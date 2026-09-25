@@ -19,16 +19,24 @@ export const MenuItem = forwardRef(function MenuItem<
         icon,
         expandable = false,
         external = false,
+        tracking,
         ...rest
     } = props;
     const Component = as;
     const type = Component === "button" ? "button" : undefined;
+    const hasIcon = Boolean(icon || expandable || external);
 
     return (
         <Component
             ref={ref}
             type={type}
             role="menuitem"
+            // Merker menypunktet som sporbart for Mixpanels
+            // `autocapture`. Attributtene er ellers helt inerte uten en
+            // initialisert Mixpanel-instans.
+            data-jkl-tracked="MenuItem"
+            data-jkl-has-icon={hasIcon || undefined}
+            data-jkl-tracking={tracking ? JSON.stringify(tracking) : undefined}
             className={clsx("jkl-menu-item", className)}
             {...rest}
         >
@@ -36,7 +44,7 @@ export const MenuItem = forwardRef(function MenuItem<
             <div className="jkl-menu-item__content">
                 {children}
                 {external && (
-                    <div className={"jkl-menu-item__arrow"}>
+                    <div className="jkl-menu-item__arrow">
                         <OpenInNewIcon />
                     </div>
                 )}

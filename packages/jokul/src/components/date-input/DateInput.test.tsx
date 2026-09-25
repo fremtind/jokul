@@ -13,6 +13,19 @@ describe("DateInput", () => {
         expect(screen.getByLabelText("Velg dato")).toBe(input);
     });
 
+    it("marks the typed input as trackable with the input variant", () => {
+        render(<DateInput label="Velg dato" />);
+
+        expect(screen.getByTestId("jkl-date-input__input")).toHaveAttribute(
+            "data-jkl-tracked",
+            "DateInput",
+        );
+        expect(screen.getByTestId("jkl-date-input__input")).toHaveAttribute(
+            "data-jkl-variant",
+            "input",
+        );
+    });
+
     it("forwards the ref to the native input", () => {
         const ref = React.createRef<HTMLInputElement>();
         render(<DateInput label="Dato" ref={ref} />);

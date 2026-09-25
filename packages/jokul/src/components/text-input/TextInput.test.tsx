@@ -146,6 +146,31 @@ describe("TextInput", () => {
         const label = screen.getByText("testing");
         expect(label).toHaveClass("jkl-label--sr-only");
     });
+
+    describe("Mixpanel-sporing", () => {
+        it("marks itself as tracked, with type as variant", () => {
+            render(<TextInput label="testing" type="email" />);
+
+            const component = screen.getByLabelText("testing");
+            expect(component).toHaveAttribute("data-jkl-tracked", "TextInput");
+            expect(component).toHaveAttribute("data-jkl-variant", "email");
+        });
+
+        it("defaults to type text as variant", () => {
+            render(<TextInput label="testing" />);
+
+            const component = screen.getByLabelText("testing");
+            expect(component).toHaveAttribute("data-jkl-variant", "text");
+        });
+
+        it("does not mark password fields as tracked", () => {
+            render(<TextInput label="testing" type="password" />);
+
+            const component = screen.getByLabelText("testing");
+            expect(component).not.toHaveAttribute("data-jkl-tracked");
+            expect(component).not.toHaveAttribute("data-jkl-variant");
+        });
+    });
 });
 
 describe("a11y", () => {

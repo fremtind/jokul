@@ -9,14 +9,26 @@ import type { TabProps } from "./types.js";
  */
 export const Tab = React.forwardRef<HTMLButtonElement, TabProps>(
     (props, ref) => {
-        const classes = clsx("jkl-tab", props.className);
+        const { className, tracking, ...rest } = props;
+        const classes = clsx("jkl-tab", className);
+        const isSelected =
+            props["aria-selected"] === true ||
+            props["aria-selected"] === "true";
 
         return (
             <button
                 role="tab"
                 type="button"
                 ref={ref}
-                {...props}
+                {...rest}
+                // Merker tab-knappen som sporbar for Mixpanels
+                // `autocapture`. Attributtene er ellers helt inerte uten en
+                // initialisert Mixpanel-instans.
+                data-jkl-tracked="Tab"
+                data-jkl-selected={isSelected || undefined}
+                data-jkl-tracking={
+                    tracking ? JSON.stringify(tracking) : undefined
+                }
                 className={classes}
             />
         );

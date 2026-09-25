@@ -24,6 +24,7 @@ export const Pagination = React.forwardRef(function Pagination<
         },
         as,
         className,
+        tracking,
         ...rest
     }: PaginationProps<ElementType>,
     ref?: PolymorphicRef<ElementType>,
@@ -56,6 +57,7 @@ export const Pagination = React.forwardRef(function Pagination<
                     onClick={() => onPageChange(currentPage - 1, currentPage)}
                     aria-disabled={currentPage === 1}
                     tabIndex={currentPage === 1 ? -1 : 0}
+                    tracking={tracking}
                 >
                     <ChevronLeftIcon />
                 </IconButton>
@@ -69,6 +71,7 @@ export const Pagination = React.forwardRef(function Pagination<
                                 number={page}
                                 total={numberOfPages}
                                 onClick={() => onPageChange(page, currentPage)}
+                                tracking={tracking}
                             />
                         );
                     })}
@@ -79,6 +82,7 @@ export const Pagination = React.forwardRef(function Pagination<
                     onClick={() => onPageChange(currentPage + 1, currentPage)}
                     aria-disabled={currentPage === numberOfPages}
                     tabIndex={currentPage === numberOfPages ? -1 : 0}
+                    tracking={tracking}
                 >
                     <ChevronRightIcon />
                 </IconButton>
@@ -115,6 +119,7 @@ export const Pagination = React.forwardRef(function Pagination<
                 onClick={() => onPageChange(currentPage - 1, currentPage)}
                 aria-disabled={currentPage === 1}
                 tabIndex={currentPage === 1 ? -1 : 0}
+                tracking={tracking}
             >
                 <ChevronLeftIcon />
             </IconButton>
@@ -124,6 +129,7 @@ export const Pagination = React.forwardRef(function Pagination<
                     number={1}
                     total={numberOfPages}
                     onClick={() => onPageChange(1, currentPage)}
+                    tracking={tracking}
                 />
                 {showStartEllipsis ? (
                     <span
@@ -138,6 +144,7 @@ export const Pagination = React.forwardRef(function Pagination<
                         number={startEllipsis}
                         total={numberOfPages}
                         onClick={() => onPageChange(startEllipsis, currentPage)}
+                        tracking={tracking}
                     />
                 )}
                 <PageButton
@@ -147,12 +154,14 @@ export const Pagination = React.forwardRef(function Pagination<
                     onClick={() =>
                         onPageChange(centerPageNumberStart, currentPage)
                     }
+                    tracking={tracking}
                 />
                 <PageButton
                     isActive={currentPage === centerPageNumber}
                     number={centerPageNumber}
                     total={numberOfPages}
                     onClick={() => onPageChange(centerPageNumber, currentPage)}
+                    tracking={tracking}
                 />
                 <PageButton
                     isActive={currentPage === centerPageNumberEnd}
@@ -161,6 +170,7 @@ export const Pagination = React.forwardRef(function Pagination<
                     onClick={() =>
                         onPageChange(centerPageNumberEnd, currentPage)
                     }
+                    tracking={tracking}
                 />
                 {showEndEllipsis ? (
                     <span
@@ -175,6 +185,7 @@ export const Pagination = React.forwardRef(function Pagination<
                         number={endEllipsis}
                         total={numberOfPages}
                         onClick={() => onPageChange(endEllipsis, currentPage)}
+                        tracking={tracking}
                     />
                 )}
                 <PageButton
@@ -182,6 +193,7 @@ export const Pagination = React.forwardRef(function Pagination<
                     number={numberOfPages}
                     total={numberOfPages}
                     onClick={() => onPageChange(numberOfPages, currentPage)}
+                    tracking={tracking}
                 />
             </ol>
             <IconButton
@@ -190,6 +202,7 @@ export const Pagination = React.forwardRef(function Pagination<
                 onClick={() => onPageChange(currentPage + 1, currentPage)}
                 aria-disabled={currentPage === numberOfPages}
                 tabIndex={currentPage === numberOfPages ? -1 : 0}
+                tracking={tracking}
             >
                 <ChevronRightIcon />
             </IconButton>

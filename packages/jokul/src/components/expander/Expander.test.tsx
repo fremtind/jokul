@@ -68,4 +68,63 @@ describe("Expander", () => {
         expect(onInnerClick).toHaveBeenCalledTimes(1);
         expect(onPanelOpenChange).not.toHaveBeenCalled();
     });
+
+    describe("tracking", () => {
+        it("merker expander-triggeren som sporbar og åpen når panelet er åpent", () => {
+            const { getByText } = render(
+                <ExpandablePanel defaultOpen>
+                    <ExpandablePanel.Header>
+                        Panel-tittel
+                    </ExpandablePanel.Header>
+                </ExpandablePanel>,
+            );
+
+            const header = getByText("Panel-tittel").closest(".jkl-expander");
+            expect(header).toHaveAttribute("data-jkl-tracked", "Expander");
+            expect(header).toHaveAttribute("data-jkl-selected", "true");
+        });
+
+        it("setter data-jkl-has-icon kun når triggeren har ikon", () => {
+            const { rerender, getByRole } = render(
+                <Expander as="button">Lukket Expander</Expander>,
+            );
+
+            expect(
+                getByRole("button", { name: "Lukket Expander" }),
+            ).not.toHaveAttribute("data-jkl-has-icon");
+
+            rerender(
+                <Expander as="button" icon={<span aria-hidden="true">+</span>}>
+                    Lukket Expander
+                </Expander>,
+            );
+
+            expect(
+                getByRole("button", { name: "Lukket Expander" }),
+            ).toHaveAttribute("data-jkl-has-icon", "true");
+        });
+
+        it("setter data-jkl-tracking som JSON kun når tracking-propen er gitt", () => {
+            const { rerender, getByRole } = render(
+                <Expander as="button">Lukket Expander</Expander>,
+            );
+
+            expect(
+                getByRole("button", { name: "Lukket Expander" }),
+            ).not.toHaveAttribute("data-jkl-tracking");
+
+            rerender(
+                <Expander as="button" tracking={{ section: "faq" }}>
+                    Lukket Expander
+                </Expander>,
+            );
+
+            expect(
+                getByRole("button", { name: "Lukket Expander" }),
+            ).toHaveAttribute(
+                "data-jkl-tracking",
+                JSON.stringify({ section: "faq" }),
+            );
+        });
+    });
 });

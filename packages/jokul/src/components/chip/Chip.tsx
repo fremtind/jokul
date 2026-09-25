@@ -5,13 +5,23 @@ import { CloseIcon } from "../icon/icons/CloseIcon.js";
 import type { ChipProps } from "./types.js";
 
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
-    { className, variant, onClick, children, selected, ...rest },
+    { className, variant, onClick, children, selected, tracking, ...rest },
     ref,
 ) {
+    const hasIcon = variant === "input" || (variant === "filter" && selected);
+
     return (
         <button
             type="button"
             ref={ref}
+            // Merker chipen for Mixpanels `autocapture` så klikk kan spores
+            // via `data-jkl-*` når en Mixpanel-instans er initialisert. Uten
+            // samtykke/token er attributtene helt inerte.
+            data-jkl-tracked="Chip"
+            data-jkl-variant={variant}
+            data-jkl-has-icon={hasIcon || undefined}
+            data-jkl-selected={selected || undefined}
+            data-jkl-tracking={tracking ? JSON.stringify(tracking) : undefined}
             className={clsx("jkl-chip", `jkl-chip--${variant}`, className)}
             onClick={onClick}
             aria-pressed={selected}

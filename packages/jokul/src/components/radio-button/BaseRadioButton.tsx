@@ -16,8 +16,10 @@ export const BaseRadioButton = forwardRef<
         inline,
         invalid,
         name,
+        tracking,
         value,
         onChange,
+        "data-jkl-tracked": trackedName = "RadioButton",
         ...rest
     } = props;
 
@@ -36,6 +38,14 @@ export const BaseRadioButton = forwardRef<
                 {...rest}
                 id={inputId}
                 className="jkl-radio-button__input"
+                // Merker radioknappen som sporbar for Mixpanels
+                // `autocapture`. Attributtene er ellers inerte når ingen
+                // Mixpanel-instans er initialisert.
+                data-jkl-tracked={trackedName}
+                data-jkl-checked={checked || undefined}
+                data-jkl-tracking={
+                    tracking ? JSON.stringify(tracking) : undefined
+                }
                 type="radio"
                 onChange={onChange}
                 value={value}

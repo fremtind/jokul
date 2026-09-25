@@ -13,6 +13,7 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
             className,
             id,
             onChange,
+            tracking,
             ...rest
         },
         ref,
@@ -63,6 +64,14 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
                 id={uid}
                 ref={ref}
                 aria-pressed={pressed}
+                // Merker togglen som sporbar for Mixpanels `autocapture`.
+                // Attributtene er ellers helt inerte når ingen
+                // Mixpanel-instans er initialisert.
+                data-jkl-tracked="ToggleSwitch"
+                data-jkl-checked={pressed || undefined}
+                data-jkl-tracking={
+                    tracking ? JSON.stringify(tracking) : undefined
+                }
                 {...buttonProps}
                 {...(buttonProps.disabled ? {} : gestureHandlers)}
             >

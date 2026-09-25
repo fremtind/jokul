@@ -51,6 +51,10 @@ export const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>(
                     })}
                     maxLength={maxLength}
                     type={type}
+                    data-jkl-tracked={
+                        type === "password" ? undefined : "TextInput"
+                    }
+                    data-jkl-variant={type === "password" ? undefined : type}
                     {...rest}
                 />
                 {unit && <span className="jkl-text-input__unit">{unit}</span>}

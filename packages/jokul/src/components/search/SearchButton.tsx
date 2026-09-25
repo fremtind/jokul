@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import type { SearchButtonProps } from "./types.js";
 
 export const SearchButton = (props: SearchButtonProps) => {
@@ -5,7 +6,11 @@ export const SearchButton = (props: SearchButtonProps) => {
 
     return (
         <button
-            className="jkl-button jkl-button--ghost jkl-search-submit"
+            className={clsx(
+                "jkl-button jkl-button--ghost jkl-search-submit",
+                className,
+            )}
+            data-jkl-tracked="SearchButton"
             type={type}
             {...rest}
         >

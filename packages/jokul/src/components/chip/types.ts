@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes } from "react";
+import type { WithTracking } from "../cookie-consent/types.js";
 
 export type ChipVariant =
     | {
@@ -10,4 +11,6 @@ export type ChipVariant =
           selected?: boolean;
       };
 
-export type ChipProps = ChipVariant & ButtonHTMLAttributes<HTMLButtonElement>;
+export type ChipProps = ChipVariant &
+    ButtonHTMLAttributes<HTMLButtonElement> &
+    WithTracking;

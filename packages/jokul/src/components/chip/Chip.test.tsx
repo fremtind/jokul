@@ -44,4 +44,76 @@ describe("Chip-komponenten", () => {
         fireEvent.click(screen.getByRole("button"));
         expect(handleClick).toHaveBeenCalledTimes(1);
     });
+
+    describe("tracking", () => {
+        it("merker chipen som sporbar med komponentnavn og variant", () => {
+            render(<Chip variant="filter">Filter Chip</Chip>);
+
+            expect(screen.getByRole("button")).toHaveAttribute(
+                "data-jkl-tracked",
+                "Chip",
+            );
+            expect(screen.getByRole("button")).toHaveAttribute(
+                "data-jkl-variant",
+                "filter",
+            );
+        });
+
+        it("setter data-jkl-selected og data-jkl-has-icon basert på propene", () => {
+            const { rerender } = render(
+                <Chip variant="filter">Filter Chip</Chip>,
+            );
+
+            expect(screen.getByRole("button")).not.toHaveAttribute(
+                "data-jkl-selected",
+            );
+            expect(screen.getByRole("button")).not.toHaveAttribute(
+                "data-jkl-has-icon",
+            );
+
+            rerender(
+                <Chip variant="filter" selected>
+                    Filter Chip
+                </Chip>,
+            );
+
+            expect(screen.getByRole("button")).toHaveAttribute(
+                "data-jkl-selected",
+                "true",
+            );
+            expect(screen.getByRole("button")).toHaveAttribute(
+                "data-jkl-has-icon",
+                "true",
+            );
+
+            rerender(<Chip variant="input">Input Chip</Chip>);
+
+            expect(screen.getByRole("button")).not.toHaveAttribute(
+                "data-jkl-selected",
+            );
+            expect(screen.getByRole("button")).toHaveAttribute(
+                "data-jkl-has-icon",
+                "true",
+            );
+        });
+
+        it("setter data-jkl-tracking som JSON kun når tracking-propen er gitt", () => {
+            const { rerender } = render(<Chip variant="filter">Filter</Chip>);
+
+            expect(screen.getByRole("button")).not.toHaveAttribute(
+                "data-jkl-tracking",
+            );
+
+            rerender(
+                <Chip variant="filter" tracking={{ chipId: "42" }}>
+                    Filter
+                </Chip>,
+            );
+
+            expect(screen.getByRole("button")).toHaveAttribute(
+                "data-jkl-tracking",
+                JSON.stringify({ chipId: "42" }),
+            );
+        });
+    });
 });

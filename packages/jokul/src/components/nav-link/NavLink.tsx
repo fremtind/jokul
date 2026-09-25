@@ -18,6 +18,7 @@ export const NavLink = React.forwardRef(function NavLink<
         className,
         children,
         as = "a",
+        tracking,
         ...rest
     } = props;
     const Component = as;
@@ -25,6 +26,14 @@ export const NavLink = React.forwardRef(function NavLink<
     return (
         <Component
             ref={ref}
+            // Merker navigasjonslenken for Mixpanels `autocapture` slik at
+            // klikk kan spores via `data-jkl-*` når Mixpanel er satt opp.
+            // Uten samtykke/token er attributtene helt inerte.
+            data-jkl-tracked="NavLink"
+            data-jkl-variant={back ? "back" : undefined}
+            data-jkl-has-icon={true}
+            data-jkl-selected={active || undefined}
+            data-jkl-tracking={tracking ? JSON.stringify(tracking) : undefined}
             className={clsx(
                 "jkl-nav-link",
                 {

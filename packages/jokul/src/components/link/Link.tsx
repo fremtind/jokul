@@ -15,6 +15,7 @@ export const Link = React.forwardRef(function Link<
         className = "",
         children,
         as = "a",
+        tracking,
         ...rest
     } = props;
     const Component = as;
@@ -24,6 +25,12 @@ export const Link = React.forwardRef(function Link<
     return (
         <Component
             ref={ref}
+            // Merker lenken for Mixpanels `autocapture` så lenkeklikk kan
+            // spores via `data-jkl-*` når Mixpanel er initialisert. Uten
+            // samtykke/token er attributtene helt inerte.
+            data-jkl-tracked="Link"
+            data-jkl-variant={external ? "external" : undefined}
+            data-jkl-tracking={tracking ? JSON.stringify(tracking) : undefined}
             className={clsx("jkl-link", className, {
                 "jkl-link--external": external,
             })}

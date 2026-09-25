@@ -35,6 +35,7 @@ export const Card = React.forwardRef(function Card<
             data-testid="jkl-card"
             data-clickable={clickable}
             data-padding={padding}
+            data-jkl-tracked={clickable ? "Card" : undefined}
             className={clsx(
                 "jkl-card",
                 outlined && "jkl-card--outlined",

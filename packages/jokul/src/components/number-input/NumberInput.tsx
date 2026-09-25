@@ -42,6 +42,8 @@ function StepperButton({ direction, disabled, onClick }: StepperButtonProps) {
             className="jkl-button jkl-button--ghost"
             aria-label={label}
             data-direction={direction}
+            data-jkl-tracked="NumberInput"
+            data-jkl-variant={direction}
             onPointerDown={(event) => event.preventDefault()}
             onClick={onClick}
             disabled={disabled}

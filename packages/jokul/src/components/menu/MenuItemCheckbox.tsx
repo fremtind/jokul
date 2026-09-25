@@ -27,6 +27,7 @@ export const MenuItemCheckbox = forwardRef<
         onPointerMove,
         onPointerUp,
         onKeyDown,
+        tracking,
         ...rest
     } = props;
 
@@ -71,6 +72,12 @@ export const MenuItemCheckbox = forwardRef<
             {...rest}
             role="menuitemcheckbox"
             aria-checked={checked}
+            // Merker checkbox-menypunktet som sporbart for Mixpanels
+            // `autocapture`. Attributtene er ellers helt inerte uten en
+            // initialisert Mixpanel-instans.
+            data-jkl-tracked="MenuItemCheckbox"
+            data-jkl-checked={checked || undefined}
+            data-jkl-tracking={tracking ? JSON.stringify(tracking) : undefined}
             className={clsx(
                 "jkl-menu-item",
                 "jkl-menu-item--checkbox",
