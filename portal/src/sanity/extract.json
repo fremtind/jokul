@@ -73,6 +73,10 @@
               },
               {
                 "type": "string",
+                "value": "local"
+              },
+              {
+                "type": "string",
                 "value": "version-4"
               },
               {

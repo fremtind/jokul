@@ -36,7 +36,7 @@ Alternativt:
 Portalen vil være tilgjengelig på [`localhost:3333`](http://localhost:3333), og du kommer til grensesnittet for CMSet på [`localhost:3333/studio`](http://localhost:3333/studio)
 Du kan også gå rett til Storybook på [`localhost:6007`](http://localhost:6007)
 
-`pnpm dev` og `pnpm dev:portal` setter Storybook-adressen til `http://localhost:6007` for lenker fra portalen.
+I Studio kan du velge «Lokal Storybook» under utvikling for å hente både story-listen og eksempelet fra `http://localhost:6007`. Andre versjonsvalg bruker alltid publisert Storybook på GitHub Pages. Lokale eksempler kan ikke publiseres; velg en publisert versjon før publisering.
 
 ## Kodestruktur
 
