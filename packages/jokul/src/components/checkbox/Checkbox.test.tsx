@@ -190,3 +190,70 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 });
+
+describe("tracking", () => {
+    // Checkbox trigger ikke noen tracking-hook selv - den rendrer bare
+    // `data-jkl-*`-attributter som Mixpanels `autocapture` kan lese når
+    // en instans er initialisert. Testene verifiserer derfor kun DOMen.
+    it("merker checkboxen som sporbar", () => {
+        render(
+            <Checkbox name="box" value="checkbox">
+                I am special
+            </Checkbox>,
+        );
+
+        const input = screen.getByTestId("jkl-checkbox-input");
+        expect(input).toHaveAttribute("data-jkl-tracked", "Checkbox");
+    });
+
+    it("setter data-jkl-checked kun når checkboxen er checked", () => {
+        const { rerender } = render(
+            <Checkbox
+                name="box"
+                value="checkbox"
+                checked={false}
+                onChange={() => {}}
+            >
+                I am special
+            </Checkbox>,
+        );
+
+        expect(screen.getByTestId("jkl-checkbox-input")).not.toHaveAttribute(
+            "data-jkl-checked",
+        );
+
+        rerender(
+            <Checkbox name="box" value="checkbox" checked onChange={() => {}}>
+                I am special
+            </Checkbox>,
+        );
+
+        expect(screen.getByTestId("jkl-checkbox-input")).toHaveAttribute(
+            "data-jkl-checked",
+            "true",
+        );
+    });
+
+    it("setter data-jkl-tracking som JSON kun når tracking-propen er gitt", () => {
+        const { rerender } = render(
+            <Checkbox name="box" value="checkbox">
+                I am special
+            </Checkbox>,
+        );
+
+        expect(screen.getByTestId("jkl-checkbox-input")).not.toHaveAttribute(
+            "data-jkl-tracking",
+        );
+
+        rerender(
+            <Checkbox name="box" value="checkbox" tracking={{ flow: "signup" }}>
+                I am special
+            </Checkbox>,
+        );
+
+        expect(screen.getByTestId("jkl-checkbox-input")).toHaveAttribute(
+            "data-jkl-tracking",
+            JSON.stringify({ flow: "signup" }),
+        );
+    });
+});

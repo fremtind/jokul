@@ -58,6 +58,8 @@ jobs:
                   title: "Version Packages - ${{ github.ref_name }}"
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  # Bakes inn i @fremtind/jokul ved bygg, se TRACKING.md.
+                  JOKUL_MIXPANEL_TOKEN: ${{ secrets.JOKUL_MIXPANEL_TOKEN }}
 
             - name: Bytt registry til GitHub Packages
               if: steps.changesets.outputs.published == 'true'

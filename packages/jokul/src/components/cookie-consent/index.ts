@@ -10,4 +10,5 @@ export type {
     ConsentState,
     CookieConsentProviderProps,
     CookieConsentProps,
+    WithTracking,
 } from "./types.js";

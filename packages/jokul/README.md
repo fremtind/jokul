@@ -8,6 +8,7 @@
 - [Hooks](#hooks)
 - [Utilities](#utilities)
 - [Tailwind](#tailwind)
+- [Sporing (Mixpanel)](#sporing-mixpanel)
 
 ## Migrering til `@fremtind/jokul`
 
@@ -250,3 +251,36 @@ I tillegg finnes verdier for fontvekt og -størrelse, og for linjehøyder fra sk
 ```html
 <p>Dette er <em class="font-bold">veldig</em> viktig</p>
 ```
+
+## Sporing (Mixpanel)
+
+Interaktive komponenter (`Button`, `Checkbox`, `Select`, `Search` m.fl. -
+se full liste i TRACKING.md) kan sende brukshendelser til Mixpanel - både
+ditt eget prosjekt og, som standard, en anonymisert versjon til
+Jøkul-teamet. Del av `CookieConsentProvider` - samtykke hentes automatisk
+fra cookien.
+
+```jsx
+import { CookieConsentProvider } from "@fremtind/jokul/cookie-consent";
+
+function App() {
+    return (
+        <CookieConsentProvider
+            statistics
+            mixpanelToken={process.env.MIXPANEL_TOKEN}
+            appName="mitt-produkt"
+        >
+            {/* Resten av appen din */}
+        </CookieConsentProvider>
+    );
+}
+```
+
+`statistics`-propen må være satt for at `CookieConsentProvider` skal be
+om statistikk-samtykke i det hele tatt - uten den forblir sporing en
+stille no-op selv om `mixpanelToken` er satt.
+
+Se [TRACKING.md](./TRACKING.md) for full dokumentasjon: oppsett, alle
+props, hvilke komponenter og hendelser som er instrumentert, hvordan
+Jøkul-teamets aggregerte statistikk fungerer, og hvordan du legger til
+sporing for flere komponenter.

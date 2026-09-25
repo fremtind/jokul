@@ -64,12 +64,16 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                                 name={name}
                                 placeholder={placeholder}
                                 spellCheck={spellCheck}
+                                data-jkl-tracked="Search"
+                                data-jkl-variant="input"
                                 {...inputProps}
                                 {...rest}
                             />
                             <button
                                 className="clear-button"
                                 type="button"
+                                data-jkl-tracked="Search"
+                                data-jkl-variant="clear"
                                 onClick={clearInput}
                             >
                                 <span className="jkl-sr-only">

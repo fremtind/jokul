@@ -84,6 +84,8 @@ export const Option = forwardRef<HTMLButtonElement, OptionProps>(
                 value={value}
                 data-multiple={multiple || undefined}
                 aria-selected={selected}
+                data-jkl-tracked="Select"
+                data-jkl-selected={selected || undefined}
                 {...rest}
                 onClick={(event) => {
                     rest.onClick?.(event);
