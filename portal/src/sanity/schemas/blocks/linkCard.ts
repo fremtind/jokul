@@ -52,13 +52,14 @@ export const linkCard = defineType({
             title: "title",
             description: "description",
             url: "url",
-            media: "article.image",
+            lightImage: "article.cardImages.light",
+            darkImage: "article.cardImages.dark",
         },
-        prepare({ title, description, url, media }) {
+        prepare({ title, description, url, lightImage, darkImage }) {
             return {
                 title,
                 subtitle: description || url,
-                media: media || LinkIcon,
+                media: lightImage || darkImage || LinkIcon,
             };
         },
     },
