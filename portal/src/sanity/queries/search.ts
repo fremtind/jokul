@@ -22,15 +22,11 @@ export const searchQuery = defineQuery(
         "image": select(
             _type == "jokul_component" => coalesce(
                 cardImages.light.asset->url,
-                cardImages.dark.asset->url,
-                image.asset->url,
-                imageDark.asset->url
+                cardImages.dark.asset->url
             ),
             _type == "jokul_monster" => coalesce(
                 cardImages.light.asset->url,
-                cardImages.dark.asset->url,
-                image.asset->url,
-                imageDark.asset->url
+                cardImages.dark.asset->url
             ),
             null
         ),

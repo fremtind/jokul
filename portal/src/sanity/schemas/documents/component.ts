@@ -219,31 +219,5 @@ export const component = defineType({
             type: "colorSchemeImages",
             group: "images",
         }),
-        defineField({
-            name: "image",
-            type: "image",
-            title: "Bilde til light mode",
-            group: "images",
-            hidden: ({ value }) => !value,
-            options: {
-                hotspot: true,
-            },
-            deprecated: {
-                reason: "Bruk feltet Kortbilder i stedet.",
-            },
-        }),
-        defineField({
-            name: "imageDark",
-            type: "image",
-            title: "Bilde til dark mode",
-            group: "images",
-            hidden: ({ value }) => !value,
-            options: {
-                hotspot: true,
-            },
-            deprecated: {
-                reason: "Bruk feltet Kortbilder i stedet.",
-            },
-        }),
     ],
 });

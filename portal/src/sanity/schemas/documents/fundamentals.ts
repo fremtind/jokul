@@ -43,30 +43,6 @@ export const fundamentals = defineType({
             type: "colorSchemeImages",
         }),
         defineField({
-            name: "image",
-            type: "image",
-            title: "Bilde til light mode",
-            hidden: ({ value }) => !value,
-            options: {
-                hotspot: true,
-            },
-            deprecated: {
-                reason: "Bruk feltet Kortbilder i stedet.",
-            },
-        }),
-        defineField({
-            name: "imageDark",
-            type: "image",
-            title: "Bilde til dark mode",
-            hidden: ({ value }) => !value,
-            options: {
-                hotspot: true,
-            },
-            deprecated: {
-                reason: "Bruk feltet Kortbilder i stedet.",
-            },
-        }),
-        defineField({
             name: "article",
             title: "Artikkel",
             type: "array",

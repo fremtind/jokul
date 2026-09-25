@@ -61,21 +61,6 @@ export const monster = defineType({
             group: "basics",
         }),
         defineField({
-            name: "image",
-            title: "Bilde",
-            group: "basics",
-            type: "image",
-            hidden: ({ value }) => !value,
-            description:
-                "Vises foreløpig kun som forhåndsvisning i oversikten.",
-            options: {
-                hotspot: true,
-            },
-            deprecated: {
-                reason: "Bruk feltet Kortbilder i stedet.",
-            },
-        }),
-        defineField({
             name: "article",
             title: "Artikkel",
             group: "basics",
@@ -142,17 +127,9 @@ export const monster = defineType({
             subtitle: "short_description",
             lightImage: "cardImages.light",
             darkImage: "cardImages.dark",
-            legacyLightImage: "image",
             components: "related_components",
         },
-        prepare({
-            title,
-            subtitle,
-            lightImage,
-            darkImage,
-            legacyLightImage,
-            components,
-        }) {
+        prepare({ title, subtitle, lightImage, darkImage, components }) {
             const count = Array.isArray(components) ? components.length : 0;
             return {
                 title: title || "Uten navn",
@@ -161,11 +138,7 @@ export const monster = defineType({
                     (count
                         ? `${count} relatert${count === 1 ? " komponent" : "e komponenter"}`
                         : undefined),
-                media:
-                    lightImage ||
-                    darkImage ||
-                    legacyLightImage ||
-                    BulbOutlineIcon,
+                media: lightImage || darkImage || BulbOutlineIcon,
             };
         },
     },

@@ -1,7 +1,7 @@
 export const cardImagesProjection = /* groq */ `
     "images": {
-        "light": coalesce(cardImages.light, image),
-        "dark": coalesce(cardImages.dark, imageDark)
+        "light": cardImages.light,
+        "dark": cardImages.dark
     }
 `;
 
@@ -58,8 +58,8 @@ export const commonBlockBody = /* groq */ `
             )
         ),
         "images": {
-            "light": coalesce(article->cardImages.light, article->image),
-            "dark": coalesce(article->cardImages.dark, article->imageDark)
+            "light": article->cardImages.light,
+            "dark": article->cardImages.dark
         }
     },
     _type == "jokul_qa" => {
