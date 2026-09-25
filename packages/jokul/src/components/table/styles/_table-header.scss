@@ -26,6 +26,24 @@
             font-weight: var(--jkl-font-weight-bold);
         }
 
+        &__button {
+            display: block;
+            width: 100%;
+            padding: 0;
+            background: transparent;
+            color: inherit;
+            border: 0;
+            cursor: pointer;
+            text-align: inherit;
+            font: inherit;
+
+            @include jkl.reset-outline;
+
+            &:focus-visible {
+                @include jkl.focus-outline;
+            }
+        }
+
         &__arrows {
             display: flex;
             gap: var(--jkl-spacing-4);

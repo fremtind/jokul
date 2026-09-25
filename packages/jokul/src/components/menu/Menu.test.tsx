@@ -8,6 +8,7 @@ import { DotsIcon } from "../icon/index.js";
 import { Menu } from "./Menu.js";
 import { MenuDivider } from "./MenuDivider.js";
 import { MenuItem } from "./MenuItem.js";
+import { MenuItemCheckbox } from "./MenuItemCheckbox.js";
 
 // https://github.com/testing-library/user-event/issues/1146
 // @ts-ignore typecheck liker ikke at default muligens ikke finnes
@@ -263,5 +264,89 @@ describe("Menu", () => {
         });
 
         expect(results).toHaveNoViolations();
+    });
+
+    describe("tracking", () => {
+        it("merker menypunktet som sporbar og viser om det har ikon", () => {
+            const { getByRole, rerender } = render(
+                <MenuItem>Menyvalg</MenuItem>,
+            );
+
+            expect(getByRole("menuitem", { name: "Menyvalg" })).toHaveAttribute(
+                "data-jkl-tracked",
+                "MenuItem",
+            );
+            expect(
+                getByRole("menuitem", { name: "Menyvalg" }),
+            ).not.toHaveAttribute("data-jkl-has-icon");
+            expect(
+                getByRole("menuitem", { name: "Menyvalg" }),
+            ).not.toHaveAttribute("data-jkl-tracking");
+
+            rerender(
+                <MenuItem
+                    icon={<span aria-hidden="true">!</span>}
+                    tracking={{ destination: "resources" }}
+                >
+                    Menyvalg
+                </MenuItem>,
+            );
+
+            expect(getByRole("menuitem", { name: "Menyvalg" })).toHaveAttribute(
+                "data-jkl-has-icon",
+                "true",
+            );
+            expect(getByRole("menuitem", { name: "Menyvalg" })).toHaveAttribute(
+                "data-jkl-tracking",
+                JSON.stringify({ destination: "resources" }),
+            );
+        });
+
+        it("setter data-jkl-checked på checkbox-menypunkt basert på aria-checked", () => {
+            const { getByRole, rerender } = render(
+                <MenuItemCheckbox aria-checked={false}>
+                    Vis kun aktive forsikringer
+                </MenuItemCheckbox>,
+            );
+
+            expect(
+                getByRole("menuitemcheckbox", {
+                    name: "Vis kun aktive forsikringer",
+                }),
+            ).toHaveAttribute("data-jkl-tracked", "MenuItemCheckbox");
+            expect(
+                getByRole("menuitemcheckbox", {
+                    name: "Vis kun aktive forsikringer",
+                }),
+            ).not.toHaveAttribute("data-jkl-checked");
+            expect(
+                getByRole("menuitemcheckbox", {
+                    name: "Vis kun aktive forsikringer",
+                }),
+            ).not.toHaveAttribute("data-jkl-tracking");
+
+            rerender(
+                <MenuItemCheckbox
+                    aria-checked={true}
+                    tracking={{ filter: "active-only" }}
+                >
+                    Vis kun aktive forsikringer
+                </MenuItemCheckbox>,
+            );
+
+            expect(
+                getByRole("menuitemcheckbox", {
+                    name: "Vis kun aktive forsikringer",
+                }),
+            ).toHaveAttribute("data-jkl-checked", "true");
+            expect(
+                getByRole("menuitemcheckbox", {
+                    name: "Vis kun aktive forsikringer",
+                }),
+            ).toHaveAttribute(
+                "data-jkl-tracking",
+                JSON.stringify({ filter: "active-only" }),
+            );
+        });
     });
 });

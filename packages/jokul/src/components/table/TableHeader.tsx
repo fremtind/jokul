@@ -44,12 +44,31 @@ const TableHeader = forwardRef<HTMLTableCellElement, TableHeaderProps>(
                 {...rest}
                 ref={ref}
             >
-                <div className="jkl-table-header__arrows" data-align={align}>
-                    {children}
-                    {sortable && (
-                        <SortableArrows direction={sortable.direction} />
-                    )}
-                </div>
+                {sortable ? (
+                    <button
+                        className="jkl-table-header__button"
+                        type="button"
+                        data-jkl-tracked="TableHeader"
+                        data-jkl-selected={
+                            sortable.direction !== "none" || undefined
+                        }
+                    >
+                        <div
+                            className="jkl-table-header__arrows"
+                            data-align={align}
+                        >
+                            {children}
+                            <SortableArrows direction={sortable.direction} />
+                        </div>
+                    </button>
+                ) : (
+                    <div
+                        className="jkl-table-header__arrows"
+                        data-align={align}
+                    >
+                        {children}
+                    </div>
+                )}
             </th>
         );
     },

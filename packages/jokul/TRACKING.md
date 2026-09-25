@@ -498,7 +498,7 @@ Jøkuls sentrale payload, siden `$el_attr__href` også er en del av
 
 ### Eksempel: faktisk payload for et tekstfelt (`Search`)
 
-Tekstfelt som `Search` gir en tilsvarende,
+Tekstfelt (`Search`, `TextInput`, `TextArea` osv.) gir en tilsvarende,
 men enda strammere payload - `$mp_input_change` i stedet for `$mp_click`,
 og **ingen** `.value`/innhold noe sted (se
 [Hvorfor er det trygt å spore tekstfelt uten å sende innholdet?](#hvorfor-er-det-trygt-å-spore-tekstfelt-uten-å-sende-innholdet)).
@@ -538,22 +538,90 @@ klikk-hendelser.
 Ingen ekstra props trengs for den automatiske sporingen - komponenten
 merker seg selv med `data-*`-attributter, og `autocapture` gjør resten.
 
-> Denne PR-en inneholder kun **fire eksempelkomponenter** - én for hvert
-> sporingsmønster som finnes i designsystemet i dag: enkelt klikk
-> (`Button`), av/på-tilstand (`Checkbox`), dropdown/valgt-tilstand
-> (`Select`) og tekstfelt (`Search`). Resten av komponentene (26 til
-> sammen, pluss tekstfeltfamilien `TextInput`/`TextArea`/`FileInput`) er
-> instrumentert på nøyaktig samme måte, men er trukket ut i en egen PR
-> (#6584) slik at denne PR-en er enklere å vurdere isolert - se
-> [Instrumentere flere komponenter](#instrumentere-flere-komponenter) for
-> mer om hvorfor og hvordan de to henger sammen.
+> Instrumenteringen av komponentene under `Button` ble lagt til i en egen,
+> isolert commit i PR-en som la til denne funksjonaliteten - se
+> [Fremtidig arbeid / instrumentering av flere komponenter](#instrumentere-flere-komponenter)
+> og PR-beskrivelsen for detaljer om hvorfor, og hva som skjer hvis den
+> commiten ikke tas med.
 
 | Komponent                | `data-jkl-tracked`          | Andre felter (begge prosjekt)                            | Kun eget prosjekt   |
 | ------------------------- | ---------------------------- | --------------------------------------------------------- | -------------------- |
 | `Button`                 | `"Button"`                   | `data-jkl-variant`, `data-jkl-has-icon`, `data-loading`   | `data-jkl-tracking`  |
+| `IconButton`              | `"IconButton"`               | `data-jkl-has-icon`                                        | `data-jkl-tracking`  |
 | `Checkbox`                | `"Checkbox"`                 | `data-jkl-checked`                                         | `data-jkl-tracking`  |
+| `RadioButton`             | `"RadioButton"`¹              | `data-jkl-checked`                                         | `data-jkl-tracking`  |
+| `ToggleSwitch`            | `"ToggleSwitch"`             | `data-jkl-checked`                                         | `data-jkl-tracking`  |
+| `Chip`                    | `"Chip"`                     | `data-jkl-variant`, `data-jkl-has-icon`, `data-jkl-selected` | `data-jkl-tracking` |
+| `Link`                    | `"Link"`                     | `data-jkl-variant` (`"external"` hvis eksternt)            | `data-jkl-tracking`  |
+| `NavLink`                 | `"NavLink"`                  | `data-jkl-variant` (`"back"`), `data-jkl-has-icon`, `data-jkl-selected` (aktiv side) | `data-jkl-tracking` |
+| `SegmentedControlButton`  | `"SegmentedControlButton"`¹  | `data-jkl-selected`                                        | `data-jkl-tracking`  |
+| `Tab`                     | `"Tab"`                      | `data-jkl-selected`                                        | `data-jkl-tracking`  |
+| `Expander`                | `"Expander"`                 | `data-jkl-has-icon`, `data-jkl-selected` (åpen/lukket)     | `data-jkl-tracking`  |
+| `PageButton`              | `"PageButton"`               | `data-jkl-selected` (aktiv side)                           | `data-jkl-tracking`  |
 | `Select`                  | `"Select"` (triggerknapp + dropdown-valg) | `data-jkl-selected` (trigger: åpen/lukket; dropdown-valg: valgt alternativ) | `data-jkl-tracking`  |
+| `MenuItem`                | `"MenuItem"`                 | `data-jkl-has-icon`                                        | `data-jkl-tracking`  |
+| `MenuItemCheckbox`        | `"MenuItemCheckbox"`         | `data-jkl-checked`                                         | `data-jkl-tracking`  |
+| `LinkListLink`            | `"LinkListLink"`             | -                                                           | `data-jkl-tracking`  |
+| `TableOfContentsLink`     | `"TableOfContentsLink"`      | `data-jkl-selected` (aktiv seksjon)                        | `data-jkl-tracking`  |
+| `Combobox`                | `"Combobox"`                 | `data-jkl-selected` (aktivt alternativ), `data-jkl-variant` (`"search-input"` på det interne søkefeltet) | -                    |
+| `Autosuggest`             | `"Autosuggest"`               | `data-jkl-selected` (uthevet forslag), `data-jkl-variant` (`"search-input"` på det interne søkefeltet) | -                    |
+| `NumberInput`             | `"NumberInput"`              | `data-jkl-variant` (`"increment"`/`"decrement"`)           | -                    |
+| `FileInput`               | `"FileInput"`                | `data-jkl-variant` (`"trigger"`/`"input"`)                 | -                    |
+| `TextInput`               | `"TextInput"`⁶                | `data-jkl-variant` (input-typen, f.eks. `"text"`/`"email"`/`"tel"`/`"search"`) | -                    |
+| `TextArea`                | `"TextArea"`                 | -                                                           | -                    |
 | `Search`                  | `"Search"`                   | `data-jkl-variant` (`"input"`/`"clear"`)                   | -                    |
+| `SearchButton`            | `"SearchButton"`             | -                                                           | -                    |
+| `DismissButton`²          | `"DismissButton"`            | -                                                           | -                    |
+| `Card`                    | `"Card"`³                    | -                                                           | -                    |
+| `TableHeader`             | `"TableHeader"`⁴              | `data-jkl-selected` (aktiv sorteringskolonne)               | -                    |
+| `TablePagination`         | `"TablePagination"`          | `data-jkl-variant` (`"previous"`/`"next"`/`"page"`), `data-jkl-selected` (aktiv side) | - |
+| `SmileyQuestion`          | `"SmileyQuestion"`⁵            | `data-jkl-checked`                                         | -                    |
+| `DateInput`               | `"DateInput"`⁵                | `data-jkl-variant` (`"input"`), `data-jkl-checked` (valgt dag i kalenderen) | -                    |
+
+¹ `SegmentedControlButton` bygger internt videre på `RadioButton` og
+overstyrer dens `data-jkl-tracked`-verdi (via en intern
+`data-jkl-tracked`-prop på `RadioButton`) for å spore seg selv med sitt
+eget komponentnavn i stedet for `"RadioButton"`. Nyttig mønster hvis du
+komponerer en instrumentert komponent inni en annen og trenger et eget
+komponentnavn i sporingsdataene.
+
+² `DismissButton` er en delt intern komponent brukt av både `Message` og
+`SystemMessage` - én instrumentering dekker dermed lukkeknappen i begge.
+
+³ `Card` får kun `data-jkl-tracked` når `clickable`-propen er satt til
+`true`. Et ikke-klikkbart kort er ikke et sporbart klikkmål.
+
+⁴ `TableHeader` får kun `data-jkl-tracked` når kolonnen faktisk er
+sorterbar (`sortable`-prop satt).
+
+⁵ `SmileyQuestion` og `DateInput` (kalenderdagene) bruker begge et
+visuelt skjult `<input type="radio">` parret med en synlig, klikkbar
+`<label>`. Attributtene er derfor satt på `<label>`-elementet, ikke på
+input-elementet, siden det er `<label>` som er det faktiske klikkmålet
+autocapture fanger opp.
+
+⁶ `TextInput` setter bevisst IKKE `data-jkl-tracked`/`data-jkl-variant`
+når `type="password"` - et ekstra forsvarslag utover det
+`mixpanel-browser` selv gjør for passordfelt (se
+[Hvorfor er det trygt å spore tekstfelt uten å sende innholdet?](#hvorfor-er-det-trygt-å-spore-tekstfelt-uten-å-sende-innholdet)).
+Alle andre `type`-verdier (`text`, `email`, `tel`, `search` osv.) sendes
+som `data-jkl-variant`, siden det er nyttig å vite hvilke input-typer
+`TextInput` faktisk brukes til i praksis.
+
+`Accordion`/`ExpandablePanel` har ikke egne rader i tabellen - de bruker
+`Expander` som sin klikkbare header internt (`ExpandablePanel.Header ===
+Expander`), så de er allerede dekket via `Expander`-raden.
+
+Flere andre komponenter har heller ikke egne rader fordi de rendrer en
+allerede sporet komponent som sitt faktiske klikkbare element, og arver
+dermed sporingen automatisk: `CheckboxPanel`/`RadioPanel` (via
+`InputPanel` → `Checkbox`/`RadioButton`), `File` (via `Link`/`Button`),
+`Modal` sin lukkeknapp (via `IconButton`), `Help` (via `Button`),
+`feedback/questions/RadioQuestion` (via `RadioButton`) og
+`feedback/followup/Followup` (via `Button`). Sjekk alltid om komponenten
+du legger til bruker en av de allerede sporede komponentene som sitt rot-
+/klikkelement før du legger til en ny `data-jkl-tracked`-verdi - da
+trenger du sannsynligvis ikke gjøre noe.
 
 
 ## Legge til egne felter med `tracking`-propen
@@ -605,18 +673,15 @@ som resten av autocapture-oppsettet:
 
 ## Instrumentere flere komponenter
 
-Se [Komponenter med sporing](#komponenter-med-sporing) for de fire
-eksempelkomponentene i denne PR-en - ett eksempel per sporingsmønster
-(klikk, av/på-tilstand, dropdown/valgt-tilstand og tekstfelt). Se
+Se [Komponenter med sporing](#komponenter-med-sporing) for komponentene som
+allerede er instrumentert - inkludert tekstfelt (`TextInput`, `TextArea`,
+`Search`, samt søkefeltene i `Combobox`/`Autosuggest`), se
 [Hvorfor er det trygt å spore tekstfelt uten å sende innholdet?](#hvorfor-er-det-trygt-å-spore-tekstfelt-uten-å-sende-innholdet)
-for begrunnelsen bak `Search`-eksemplet spesielt. Alle de resterende 24
-komponentene (samt tekstfeltfamilien `TextInput`/`TextArea`/`FileInput`)
-er instrumentert på nøyaktig samme måte i PR #6584 - se den PR-en for den
-fullstendige komponenttabellen. Nye komponenttyper som ikke finnes i noen
-av PR-ene ennå (f.eks. `Modal`, `Popover`, `Tooltip`) instrumenteres ved å
-sette riktige `data-*`-attributter på rot-DOM-elementet, uten å importere
-noe fra `cookie-consent` (bortsett fra `WithTracking`-typen hvis
-komponenten skal støtte `tracking`-propen):
+for begrunnelsen. Flere følger etter hvert (f.eks. `Modal`, `Popover`,
+`Menu`) - de instrumenteres ved å sette riktige
+`data-*`-attributter på rot-DOM-elementet, uten å importere noe fra
+`cookie-consent` (bortsett fra `WithTracking`-typen hvis komponenten skal
+støtte `tracking`-propen):
 
 ```tsx
 <div data-jkl-tracked="MinKomponent" data-jkl-egen-status={status}>
@@ -727,13 +792,11 @@ data-jkl-tracking={tracking ? JSON.stringify(tracking) : undefined}
 
 ### Hvorfor er det trygt å spore tekstfelt uten å sende innholdet?
 
-`Search` sitt tekstfelt er instrumentert med `data-jkl-tracked`, akkurat
-som klikkbare komponenter. Tekstfeltfamilien for øvrig (`TextInput`,
-`TextArea`, søkefeltene i `Combobox`/`Autosuggest`) er instrumentert på
-nøyaktig samme måte i PR #6584. Dette kan virke overraskende - sporer vi
-da hva folk skriver? **Nei.** Dette er verifisert direkte i
-`mixpanel-browser` sin kildekode (`autocapture/utils.js`), ikke bare
-antatt:
+`TextInput`, `TextArea`, `Search` og søkefeltene i `Combobox`/`Autosuggest`
+er alle instrumentert med `data-jkl-tracked`, akkurat som klikkbare
+komponenter. Dette kan virke overraskende - sporer vi da hva folk skriver?
+**Nei.** Dette er verifisert direkte i `mixpanel-browser` sin kildekode
+(`autocapture/utils.js`), ikke bare antatt:
 
 - `autocapture` sin `input`-undersporing leser **aldri** `.value` fra et
   `<input>`/`<textarea>`-element noe sted i koden - verken i
@@ -757,11 +820,12 @@ antatt:
 
 Konklusjonen er at å merke et tekstfelt med `data-jkl-tracked` kun gir et
 generisk "feltet ble endret"-signal (pluss våre egne, eksplisitt tillagte
-`data-jkl-*`-attributter) - aldri selve teksten. For passordfelt (som
-`TextInput` med `type="password"`) lar vi likevel bevisst være å sette
-`data-jkl-tracked`, som et ekstra forsvarslag utover det SDK-en selv gjør
-- ikke fordi det finnes en kjent kodesti som ville lekket noe, men fordi
-passordfelt er et naturlig sted å være ekstra defensiv.
+`data-jkl-*`-attributter) - aldri selve teksten. `TextInput` gjør likevel
+et unntak i praksis: `type="password"` merkes bevisst ikke som sporbart
+(se fotnote 6 i [komponenttabellen](#komponenter-med-sporing)), som et
+ekstra forsvarslag utover det SDK-en selv gjør - ikke fordi det finnes en
+kjent kodesti som ville lekket noe, men fordi passordfelt er et naturlig
+sted å være ekstra defensiv.
 
 ## Fordeler og ulemper med autocapture
 
@@ -811,8 +875,8 @@ passordfelt er et naturlig sted å være ekstra defensiv.
 - `submit` er skrudd på for fremtidige skjema-komponenter, men gir ingen
   verdi før slike komponenter faktisk merker seg med `data-jkl-tracked` -
   inntil da er den en inert konfigurasjon. `input` er derimot aktivt i
-  bruk allerede (`Search`, flere tekstfelt-komponenter følger i en
-  oppfølgende PR - se
+  bruk allerede (`TextInput`, `TextArea`, `Search`, `Combobox`,
+  `Autosuggest`, `DateInput`, `FileInput` - se
   [Hvorfor er det trygt å spore tekstfelt uten å sende innholdet?](#hvorfor-er-det-trygt-å-spore-tekstfelt-uten-å-sende-innholdet)).
 
 

@@ -3,6 +3,7 @@ import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import type { SwipeChangeHandler } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 import type { DataTestAutoId, WithChildren } from "../../utilities/types.js";
+import type { WithTracking } from "../cookie-consent/types.js";
 
 export interface MenuProps
     extends DataTestAutoId,
@@ -68,11 +69,13 @@ export type MenuItemProps<ElementType extends React.ElementType> =
                    */
                   expandable?: boolean;
               }
-        )
+        ) &
+            WithTracking
     >;
 
 export interface MenuItemCheckboxProps
-    extends Omit<HTMLAttributes<HTMLDivElement>, "aria-checked" | "onChange"> {
+    extends Omit<HTMLAttributes<HTMLDivElement>, "aria-checked" | "onChange">,
+        WithTracking {
     "aria-checked": boolean;
     /**
      * Et ikon som vises før innholdet i menypunktet

@@ -125,6 +125,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
                     ref={textAreaRef}
                     style={{ ...style, ...overflowStyle }}
                     placeholder={placeholder}
+                    data-jkl-tracked="TextArea"
                     {...textAreaValueProps}
                     {...rest}
                 />

@@ -1,5 +1,6 @@
 import type { ComponentProps, FC, HTMLAttributes, RefObject } from "react";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { WithTracking } from "../cookie-consent/types.js";
 
 export type ExpandablePanelContentComponent = FC<ComponentProps<"div"> & {}>;
 
@@ -33,7 +34,7 @@ export type ExpanderProps<ElementType extends React.ElementType> =
             icon?: React.ReactNode;
             open?: boolean;
             expandDirection?: "up" | "down";
-        }
+        } & WithTracking
     >;
 
 type Expander = <ElementType extends React.ElementType = "button">(

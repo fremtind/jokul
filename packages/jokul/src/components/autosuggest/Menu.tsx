@@ -58,6 +58,9 @@ function Menu<T>({
                                     "jkl-autosuggest__item--active":
                                         index === highlightedIndex,
                                 }),
+                                "data-jkl-tracked": "Autosuggest",
+                                "data-jkl-selected":
+                                    index === highlightedIndex || undefined,
                             })}
                             data-testid="autosuggest__item"
                             key={itemToString(item)}

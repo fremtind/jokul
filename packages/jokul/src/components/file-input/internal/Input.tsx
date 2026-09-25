@@ -34,6 +34,8 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                     className="jkl-button jkl-button--secondary"
                     htmlFor={elementId}
                     id={`${elementId}__add-btn`}
+                    data-jkl-tracked="FileInput"
+                    data-jkl-variant="trigger"
                 >
                     {label}
                 </label>
@@ -47,6 +49,8 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                     }
                     className="jkl-sr-only"
                     type="file"
+                    data-jkl-tracked="FileInput"
+                    data-jkl-variant="input"
                     multiple={multiple}
                     value=""
                     onChange={(e) => {

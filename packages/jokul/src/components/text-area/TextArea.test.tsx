@@ -144,6 +144,13 @@ describe("TextArea", () => {
         expect(screen.getByRole("textbox")).toHaveValue("default");
         expect(await screen.findByText(/7\s*\/\s*10/)).toBeInTheDocument();
     });
+
+    it("marks itself as tracked for Mixpanel-sporing", () => {
+        render(<TextArea label="testing" />);
+
+        const component = screen.getByRole("textbox");
+        expect(component).toHaveAttribute("data-jkl-tracked", "TextArea");
+    });
 });
 
 describe("a11y", () => {

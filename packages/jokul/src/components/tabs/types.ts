@@ -1,5 +1,6 @@
 import type { PolymorphicPropsWithRef } from "../../utilities/index.js";
 import type { WithChildren } from "../../utilities/types.js";
+import type { WithTracking } from "../cookie-consent/types.js";
 
 export type NavTabProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
@@ -24,7 +25,8 @@ export interface NavTabsProps extends WithChildren {
     id?: string;
 }
 
-export interface TabProps extends WithChildren {
+export interface TabProps extends WithChildren, WithTracking {
+    "aria-selected"?: React.AriaAttributes["aria-selected"];
     className?: string;
 }
 

@@ -58,4 +58,51 @@ describe("LinkList", () => {
         const results = await axe(container);
         expect(results).toHaveNoViolations();
     });
+
+    describe("tracking", () => {
+        it("merker lenken som sporbar med komponentnavn", () => {
+            const { getByText } = render(
+                <LinkList label="Distributører">
+                    <LinkList.Link href="#sparebank-1">
+                        SpareBank 1
+                    </LinkList.Link>
+                </LinkList>,
+            );
+
+            expect(getByText("SpareBank 1")).toHaveAttribute(
+                "data-jkl-tracked",
+                "LinkListLink",
+            );
+        });
+
+        it("setter data-jkl-tracking som JSON kun når tracking-propen er gitt", () => {
+            const { getByText, rerender } = render(
+                <LinkList label="Distributører">
+                    <LinkList.Link href="#sparebank-1">
+                        SpareBank 1
+                    </LinkList.Link>
+                </LinkList>,
+            );
+
+            expect(getByText("SpareBank 1")).not.toHaveAttribute(
+                "data-jkl-tracking",
+            );
+
+            rerender(
+                <LinkList label="Distributører">
+                    <LinkList.Link
+                        href="#sparebank-1"
+                        tracking={{ target: "insurance-overview" }}
+                    >
+                        SpareBank 1
+                    </LinkList.Link>
+                </LinkList>,
+            );
+
+            expect(getByText("SpareBank 1")).toHaveAttribute(
+                "data-jkl-tracking",
+                JSON.stringify({ target: "insurance-overview" }),
+            );
+        });
+    });
 });

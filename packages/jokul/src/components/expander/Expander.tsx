@@ -26,6 +26,7 @@ export const Expander = React.forwardRef(function Expander<
         className,
         onClick,
         expandDirection,
+        tracking,
         ...rest
     } = props;
     const El = as;
@@ -82,6 +83,13 @@ export const Expander = React.forwardRef(function Expander<
             // If the consumer uses the Expander as a button but does not
             // supply a type, then we set type to "button"
             {...(as === "button" ? { type: rest.type || "button" } : {})}
+            // Merker triggeren som sporbar for Mixpanels `autocapture`.
+            // Attributtene er ellers helt inerte når ingen
+            // Mixpanel-instans er initialisert.
+            data-jkl-tracked="Expander"
+            data-jkl-has-icon={Boolean(icon) || undefined}
+            data-jkl-selected={isOpen || undefined}
+            data-jkl-tracking={tracking ? JSON.stringify(tracking) : undefined}
             onClick={(e) => {
                 e.preventDefault();
                 if (!isControlled) {

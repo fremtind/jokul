@@ -31,10 +31,15 @@ export const CalendarDay = ({
     onChange,
 }: CalendarDayProps) => {
     const date = toValidInputValue(`${year}-${month + 1}-${day}`);
+    const checked = selectedDate === date;
 
     return (
         <td>
-            <label className="jkl-button--calendar">
+            <label
+                className="jkl-button--calendar"
+                data-jkl-tracked="DateInput"
+                data-jkl-checked={checked || undefined}
+            >
                 <input
                     className="day"
                     type="radio"
@@ -49,7 +54,7 @@ export const CalendarDay = ({
                     tabIndex={date === focusedDate ? 0 : -1}
                     disabled={isDateDisabled(date, min, max)}
                     value={date}
-                    checked={selectedDate === date}
+                    checked={checked}
                     onChange={(event) => onChange?.(event)}
                     onClick={(event) => {
                         const popover =

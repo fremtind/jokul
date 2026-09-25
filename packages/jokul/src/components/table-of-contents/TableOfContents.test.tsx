@@ -60,4 +60,59 @@ describe("TableOfContents", () => {
         const results = await axe(container);
         expect(results).toHaveNoViolations();
     });
+
+    describe("tracking", () => {
+        it("merker lenken som sporbar med komponentnavn", () => {
+            const { getByText } = render(
+                <TableOfContents label="Sideinnhold">
+                    <TableOfContents.Link href="#jobb-i-fremtind">
+                        Jobb i Fremtind
+                    </TableOfContents.Link>
+                </TableOfContents>,
+            );
+
+            expect(getByText("Jobb i Fremtind")).toHaveAttribute(
+                "data-jkl-tracked",
+                "TableOfContentsLink",
+            );
+        });
+
+        it("setter data-jkl-selected og data-jkl-tracking basert på propene", () => {
+            const { getByText, rerender } = render(
+                <TableOfContents label="Sideinnhold">
+                    <TableOfContents.Link href="#jobb-i-fremtind">
+                        Jobb i Fremtind
+                    </TableOfContents.Link>
+                </TableOfContents>,
+            );
+
+            expect(getByText("Jobb i Fremtind")).not.toHaveAttribute(
+                "data-jkl-selected",
+            );
+            expect(getByText("Jobb i Fremtind")).not.toHaveAttribute(
+                "data-jkl-tracking",
+            );
+
+            rerender(
+                <TableOfContents label="Sideinnhold">
+                    <TableOfContents.Link
+                        href="#jobb-i-fremtind"
+                        aria-current="location"
+                        tracking={{ section: "jobb-i-fremtind" }}
+                    >
+                        Jobb i Fremtind
+                    </TableOfContents.Link>
+                </TableOfContents>,
+            );
+
+            expect(getByText("Jobb i Fremtind")).toHaveAttribute(
+                "data-jkl-selected",
+                "true",
+            );
+            expect(getByText("Jobb i Fremtind")).toHaveAttribute(
+                "data-jkl-tracking",
+                JSON.stringify({ section: "jobb-i-fremtind" }),
+            );
+        });
+    });
 });

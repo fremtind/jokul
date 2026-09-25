@@ -121,4 +121,33 @@ describe("Autosuggest", () => {
         expect(getByText("No countries found")).toBeInTheDocument();
         expect(queryAllByTestId("autosuggest__item")).toHaveLength(0);
     });
+
+    it("marks menu items as trackable and the highlighted item as selected", () => {
+        const { getByTestId, queryAllByTestId } = renderMount();
+
+        const input = getByTestId("autosuggest__input");
+        fireEvent.keyDown(input, { key: "ArrowDown", keyCode: 40 });
+
+        const [highlightedItem, nextItem] =
+            queryAllByTestId("autosuggest__item");
+
+        fireEvent.mouseMove(highlightedItem);
+
+        expect(highlightedItem).toHaveAttribute(
+            "data-jkl-tracked",
+            "Autosuggest",
+        );
+        expect(highlightedItem).toHaveAttribute("data-jkl-selected", "true");
+        expect(nextItem).toHaveAttribute("data-jkl-tracked", "Autosuggest");
+        expect(nextItem).not.toHaveAttribute("data-jkl-selected");
+    });
+
+    it("marks its own search field as tracked with a distinct variant", () => {
+        const { getByTestId } = renderMount();
+
+        const input = getByTestId("autosuggest__input");
+
+        expect(input).toHaveAttribute("data-jkl-tracked", "Autosuggest");
+        expect(input).toHaveAttribute("data-jkl-variant", "search-input");
+    });
 });

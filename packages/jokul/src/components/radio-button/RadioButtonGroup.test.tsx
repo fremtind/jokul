@@ -179,3 +179,70 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 });
+
+describe("tracking", () => {
+    // RadioButton bruker ikke noen tracking-hook selv - den rendrer bare
+    // `data-jkl-*`-attributter som Mixpanels `autocapture` kan lese når
+    // en instans er initialisert. Derfor tester vi kun DOM-attributtene.
+    it("merker radioknappen som sporbar", () => {
+        render(
+            <RadioButton name="happy" value="y">
+                Ja
+            </RadioButton>,
+        );
+
+        const input = screen.getByLabelText("Ja");
+        expect(input).toHaveAttribute("data-jkl-tracked", "RadioButton");
+    });
+
+    it("setter data-jkl-checked kun når radioknappen er checked", () => {
+        const { rerender } = render(
+            <RadioButton
+                name="happy"
+                value="y"
+                checked={false}
+                onChange={() => {}}
+            >
+                Ja
+            </RadioButton>,
+        );
+
+        expect(screen.getByLabelText("Ja")).not.toHaveAttribute(
+            "data-jkl-checked",
+        );
+
+        rerender(
+            <RadioButton name="happy" value="y" checked onChange={() => {}}>
+                Ja
+            </RadioButton>,
+        );
+
+        expect(screen.getByLabelText("Ja")).toHaveAttribute(
+            "data-jkl-checked",
+            "true",
+        );
+    });
+
+    it("setter data-jkl-tracking som JSON kun når tracking-propen er gitt", () => {
+        const { rerender } = render(
+            <RadioButton name="happy" value="y">
+                Ja
+            </RadioButton>,
+        );
+
+        expect(screen.getByLabelText("Ja")).not.toHaveAttribute(
+            "data-jkl-tracking",
+        );
+
+        rerender(
+            <RadioButton name="happy" value="y" tracking={{ choiceId: "y" }}>
+                Ja
+            </RadioButton>,
+        );
+
+        expect(screen.getByLabelText("Ja")).toHaveAttribute(
+            "data-jkl-tracking",
+            JSON.stringify({ choiceId: "y" }),
+        );
+    });
+});

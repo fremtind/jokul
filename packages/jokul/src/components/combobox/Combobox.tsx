@@ -441,6 +441,8 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                             className="jkl-combobox__search-input"
                             onChange={onSearch}
                             data-testid="jkl-combobox__search-input"
+                            data-jkl-tracked="Combobox"
+                            data-jkl-variant="search-input"
                             onFocus={handleFocus}
                             onBlur={handleBlur}
                             onKeyDown={handleSearchOnKeyDown}
@@ -470,51 +472,59 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                         onBlur={handleBlur}
                         tabIndex={-1}
                     >
-                        {options.map((option, i) => (
-                            <button
-                                key={`${listId}-${option.value}`}
-                                type="button"
-                                id={`${listId}__${option.value}`}
-                                aria-selected={isSelected(option)}
-                                // biome-ignore lint/a11y/useSemanticElements: Dette er en reimplementering av en liste
-                                role="option"
-                                value={option.value}
-                                onBlur={handleBlur}
-                                className={`jkl-combobox__option ${
-                                    isSelected(option) &&
-                                    "jkl-combobox__option--selected"
-                                }`}
-                                data-testid="jkl-combobox__option"
-                                data-testautoid={`jkl-combobox__option-${i}`}
-                                onFocus={handleFocus}
-                                onKeyDown={handleOptionOnKeyDown}
-                                onClick={(e) => {
-                                    setActiveDescendant(
-                                        `${listId}__${option.value}`,
-                                    ); // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role#required_javascript_features
-                                    e.stopPropagation();
-                                    onItemClick(option.value);
-                                    setSearchValue("");
-                                }}
-                                onMouseOver={handleMouseOver}
-                            >
-                                {option.description ? (
-                                    <span>
-                                        {option.label}
-                                        <span className="jkl-combobox__option-description">
-                                            {option.description}
+                        {options.map((option, i) => {
+                            const isOptionSelected = isSelected(option);
+
+                            return (
+                                <button
+                                    key={`${listId}-${option.value}`}
+                                    type="button"
+                                    id={`${listId}__${option.value}`}
+                                    aria-selected={isOptionSelected}
+                                    data-jkl-tracked="Combobox"
+                                    data-jkl-selected={
+                                        isOptionSelected || undefined
+                                    }
+                                    // biome-ignore lint/a11y/useSemanticElements: Dette er en reimplementering av en liste
+                                    role="option"
+                                    value={option.value}
+                                    onBlur={handleBlur}
+                                    className={`jkl-combobox__option ${
+                                        isOptionSelected &&
+                                        "jkl-combobox__option--selected"
+                                    }`}
+                                    data-testid="jkl-combobox__option"
+                                    data-testautoid={`jkl-combobox__option-${i}`}
+                                    onFocus={handleFocus}
+                                    onKeyDown={handleOptionOnKeyDown}
+                                    onClick={(e) => {
+                                        setActiveDescendant(
+                                            `${listId}__${option.value}`,
+                                        ); // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/listbox_role#required_javascript_features
+                                        e.stopPropagation();
+                                        onItemClick(option.value);
+                                        setSearchValue("");
+                                    }}
+                                    onMouseOver={handleMouseOver}
+                                >
+                                    {option.description ? (
+                                        <span>
+                                            {option.label}
+                                            <span className="jkl-combobox__option-description">
+                                                {option.description}
+                                            </span>
                                         </span>
-                                    </span>
-                                ) : (
-                                    option.label
-                                )}
-                                {isSelected(option) ? (
-                                    <span>
-                                        <CheckIcon />{" "}
-                                    </span>
-                                ) : null}
-                            </button>
-                        ))}
+                                    ) : (
+                                        option.label
+                                    )}
+                                    {isOptionSelected ? (
+                                        <span>
+                                            <CheckIcon />{" "}
+                                        </span>
+                                    ) : null}
+                                </button>
+                            );
+                        })}
                         {noResults && (
                             <div className="jkl-combobox__no-option">
                                 {noMatchingOption}

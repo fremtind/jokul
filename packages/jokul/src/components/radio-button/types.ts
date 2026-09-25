@@ -1,4 +1,5 @@
 import type { ChangeEventHandler, InputHTMLAttributes, ReactNode } from "react";
+import type { WithTracking } from "../cookie-consent/types.js";
 import type {
     FieldGroupProps,
     SupportLabelProps,
@@ -11,7 +12,8 @@ export interface BaseRadioButtonProps extends RadioButtonProps {
 }
 
 export interface RadioButtonProps
-    extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
+    extends Omit<InputHTMLAttributes<HTMLInputElement>, "children">,
+        WithTracking {
     children?: ReactNode;
     value: string;
     /** Kan også settes på RadioButtonGroup, men settes på RadioButton f. eks. av react-hook-form */
@@ -21,6 +23,14 @@ export interface RadioButtonProps
     /** @deprecated Bruk children */
     label?: ReactNode;
     helpLabel?: ReactNode;
+    /**
+     * Overstyrer komponentnavnet Mixpanels `autocapture` bruker for denne
+     * radioknappen (standard er `"RadioButton"`). Brukes av komponenter som
+     * komponerer `RadioButton` internt (f.eks. `SegmentedControlButton`) for
+     * å spore seg selv under sitt eget navn i stedet for `RadioButton`. Se
+     * TRACKING.md.
+     */
+    "data-jkl-tracked"?: string;
     supportLabelProps?: Omit<
         SupportLabelProps,
         "id" | "errorLabel" | "helpLabel"

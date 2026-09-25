@@ -248,3 +248,56 @@ describe("a11y", () => {
         expect(results).toHaveNoViolations();
     });
 });
+
+describe("tracking", () => {
+    it("merker valg som sporbare og valgte når de er selected", async () => {
+        const screen = setup(
+            <Combobox
+                name="snoop"
+                label="Snoop"
+                items={[
+                    { label: "drop", value: "drop" },
+                    { label: "it", value: "it" },
+                ]}
+                value={[{ label: "it", value: "it" }]}
+                onChange={() => {
+                    return;
+                }}
+            />,
+        );
+
+        await act(async () => {
+            await userEvent.click(screen.getByTestId("jkl-combobox__button"));
+        });
+
+        const selectedOption = screen.getByRole("option", { name: "it" });
+        const unselectedOption = screen.getByRole("option", { name: "drop" });
+
+        expect(selectedOption).toHaveAttribute("data-jkl-tracked", "Combobox");
+        expect(selectedOption).toHaveAttribute("data-jkl-selected", "true");
+        expect(unselectedOption).toHaveAttribute(
+            "data-jkl-tracked",
+            "Combobox",
+        );
+        expect(unselectedOption).not.toHaveAttribute("data-jkl-selected");
+    });
+
+    it("merker sitt eget søkefelt som sporbart med egen variant", () => {
+        const screen = setup(
+            <Combobox
+                name="snoop"
+                label="Snoop"
+                items={[{ label: "drop", value: "drop" }]}
+                value={[]}
+                onChange={() => {
+                    return;
+                }}
+            />,
+        );
+
+        const searchInput = screen.getByTestId("jkl-combobox__search-input");
+
+        expect(searchInput).toHaveAttribute("data-jkl-tracked", "Combobox");
+        expect(searchInput).toHaveAttribute("data-jkl-variant", "search-input");
+    });
+});

@@ -65,6 +65,39 @@ describe("FileInput", () => {
         expect(getByText(/per fil/)).toBeInTheDocument();
     });
 
+    it("marks the trigger label and file input as trackable with variants", () => {
+        const onChange = vi.fn();
+        const { getByLabelText, getByText } = setup(
+            <FileInput legend="Vedlegg" onChange={onChange} value={files}>
+                {files.map((file) => (
+                    <File
+                        key={file.file.name}
+                        fileName={file.file.name}
+                        fileType={file.file.type}
+                        fileSize={file.file.size}
+                    />
+                ))}
+            </FileInput>,
+        );
+
+        expect(getByText("Legg til fil")).toHaveAttribute(
+            "data-jkl-tracked",
+            "FileInput",
+        );
+        expect(getByText("Legg til fil")).toHaveAttribute(
+            "data-jkl-variant",
+            "trigger",
+        );
+        expect(getByLabelText("Legg til fil")).toHaveAttribute(
+            "data-jkl-tracked",
+            "FileInput",
+        );
+        expect(getByLabelText("Legg til fil")).toHaveAttribute(
+            "data-jkl-variant",
+            "input",
+        );
+    });
+
     it("should pass jext-axe tests in default state", async () => {
         const onChange = vi.fn();
         const { container } = setup(

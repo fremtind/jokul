@@ -122,6 +122,8 @@ function BaseAutosuggest<T>({
                                                 }
                                             },
                                         })}
+                                        data-jkl-tracked="Autosuggest"
+                                        data-jkl-variant="search-input"
                                         data-testid="autosuggest__input"
                                     />
                                     {showDropdownControllerButton && (

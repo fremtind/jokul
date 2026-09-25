@@ -38,6 +38,15 @@ describe("Card", () => {
 
         const component = screen.getByTestId("jkl-card");
         expect(component).toHaveAttribute("data-clickable");
+        expect(component).toHaveAttribute("data-jkl-tracked", "Card");
+    });
+
+    it("merker bare klikkbare kort som sporbare", () => {
+        render(<Card>Hello, world</Card>);
+
+        expect(screen.getByTestId("jkl-card")).not.toHaveAttribute(
+            "data-jkl-tracked",
+        );
     });
 
     it("bruker innsendte klassenavn", () => {

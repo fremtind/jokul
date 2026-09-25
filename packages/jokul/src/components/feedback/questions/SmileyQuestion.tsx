@@ -60,26 +60,34 @@ export const SmileyQuestion: React.FC<QuestionProps> = ({
             helpLabel={helpLabel}
         >
             <div className="jkl-feedback-smileys">
-                {options.map((option) => (
-                    <Fragment key={option.value}>
-                        <input
-                            className="jkl-sr-only"
-                            id={`${id}-${name}-${option.value}`}
-                            name={`${id}-${name}`}
-                            type="radio"
-                            value={option.value}
-                            onChange={handleChange}
-                            checked={selectedValue === option.value}
-                        />
-                        <label
-                            className="jkl-feedback-smiley-option"
-                            htmlFor={`${id}-${name}-${option.value}`}
-                        >
-                            <span className="jkl-sr-only">{option.label}</span>
-                            {getSmiley(Number(option.value))}
-                        </label>
-                    </Fragment>
-                ))}
+                {options.map((option) => {
+                    const checked = selectedValue === option.value;
+
+                    return (
+                        <Fragment key={option.value}>
+                            <input
+                                className="jkl-sr-only"
+                                id={`${id}-${name}-${option.value}`}
+                                name={`${id}-${name}`}
+                                type="radio"
+                                value={option.value}
+                                onChange={handleChange}
+                                checked={checked}
+                            />
+                            <label
+                                className="jkl-feedback-smiley-option"
+                                htmlFor={`${id}-${name}-${option.value}`}
+                                data-jkl-tracked="SmileyQuestion"
+                                data-jkl-checked={checked || undefined}
+                            >
+                                <span className="jkl-sr-only">
+                                    {option.label}
+                                </span>
+                                {getSmiley(Number(option.value))}
+                            </label>
+                        </Fragment>
+                    );
+                })}
             </div>
         </FieldGroup>
     );
