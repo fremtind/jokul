@@ -93,6 +93,12 @@ Når vi skal utgi ny major-versjon av Jøkul følger vi følgende oppskrift
 
 Vi har en egen guide som hjelper deg med å [komme i gang](https://github.com/fremtind/jokul/tree/main/packages/jokul#fremtindjokul) som ny bruker av Jøkul.
 
+## Sporing (Mixpanel)
+
+Jøkul-komponenter kan sende brukshendelser til Mixpanel, både til ditt eget
+prosjekt og til Jøkul-teamets eget aggregerte prosjekt. Se [TRACKING.md](./packages/jokul/TRACKING.md)
+for oppsett, bruk og hvordan sporingen er satt opp internt.
+
 ## Dokumentasjon
 
 I [dokumentasjonen](https://jokul.fremtind.no/) finner du:

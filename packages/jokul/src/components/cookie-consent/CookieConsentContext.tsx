@@ -4,6 +4,7 @@ import {
     getConsentCookie,
     shouldShowConsentDialog,
 } from "./cookieConsentUtils.js";
+import { useMixpanelTracking } from "./tracking/trackingContext.js";
 import type {
     Consent,
     CookieConsentProviderProps,
@@ -22,6 +23,8 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     cookieName = DEFAULT_COOKIE_NAME,
     cookieDomain,
     cookiePath,
+    mixpanelToken,
+    appName,
 }) => {
     const [timestamp, setTimestamp] = useState(() => Date.now());
 
@@ -43,6 +46,24 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
 
     const [isOpen, setIsOpen] = useState(() => {
         return shouldShowConsentDialog(requirement, consentCookie);
+    });
+
+    // Sporing av Jøkul-komponenter (f.eks. Button) er en del av samtykket
+    // her - den aktiveres kun når brukeren har gitt statistikk-samtykke.
+    // Komponentene selv trenger ikke vite om sporing er aktiv - de merker
+    // seg bare med `data-jkl-tracked` osv., og Mixpanels `autocapture`
+    // fanger opp klikk når en instans er initialisert. Se TRACKING.md.
+    useMixpanelTracking({
+        mixpanelToken,
+        appName,
+        // Ikke bare basert på cookien - hvis appen selv ikke krever
+        // `statistics` (denne rendringen av provideren), skal sporing
+        // aldri initialiseres, selv om en cookie fra en TIDLIGERE
+        // rendring (med `statistics` slått på) fortsatt ligger igjen med
+        // "accepted". Uten dette kan en app som fjerner `statistics`-kravet
+        // likevel utilsiktet fortsette å spore basert på gammel cookie-data.
+        consentGranted:
+            !!requirement.statistics && consentCookie.statistics === "accepted",
     });
 
     return (

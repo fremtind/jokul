@@ -333,7 +333,7 @@ importers:
         version: 7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0)
       vite-plugin-dts:
         specifier: ^5.0.3
-        version: 5.0.3(@microsoft/api-extractor@7.55.0(@types/node@26.1.2))(esbuild@0.28.1)(rollup@4.62.4)(typescript@6.0.3)(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0))(webpack@5.104.1(@swc/core@1.15.47(@swc/helpers@0.5.17))(esbuild@0.28.1))
+        version: 5.0.3(@microsoft/api-extractor@7.55.0(@types/node@26.1.2))(esbuild@0.28.1)(rollup@4.62.4)(typescript@5.9.3)(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0))(webpack@5.104.1(@swc/core@1.15.47(@swc/helpers@0.5.17))(esbuild@0.28.1))
       vitest:
         specifier: ^4.1.10
         version: 4.1.10(@types/node@26.1.2)(jsdom@30.0.1(@noble/hashes@2.0.1))(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0))
@@ -350,6 +350,9 @@ importers:
       '@react-stately/toast':
         specifier: 3.0.0-beta.7
         version: 3.0.0-beta.7(react@18.3.1)
+      mixpanel-browser:
+        specifier: ^2.81.0
+        version: 2.81.0
       react-a11y-dialog:
         specifier: ^6.2.0
         version: 6.2.0(prop-types@15.8.1)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -7757,7 +7760,7 @@ packages:
   git-raw-commits@2.0.11:
     resolution: {integrity: sha512-VnctFhw+xfj8Va1xtfEqCUD2XDrbAPSJx+hSrE5K7fGdjZruW7XV+QOrN7LF/RJyvspRiD2I0asWsxFp0ya26A==}
     engines: {node: '>=10'}
-    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
+    deprecated: Deprecated and no longer maintained. Use @conventional-changelog/git-client instead.
     hasBin: true
 
   glob-parent@5.1.2:
@@ -11817,6 +11820,7 @@ packages:
   tsconfck@3.1.6:
     resolution: {integrity: sha512-ks6Vjr/jEw0P1gmOVwutM3B7fWxoWBL2KRDb1JfqGVawBmO5UsvmWOQFGHBPl5yxYz4eERr19E6L7NMv+Fej4w==}
     engines: {node: ^18 || >=20}
+    deprecated: unmaintained
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
@@ -20447,7 +20451,7 @@ snapshots:
       eslint: 9.39.5(jiti@2.6.1)
       eslint-import-resolver-node: 0.3.10
       eslint-import-resolver-typescript: 3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.5(jiti@2.6.1)))(eslint@9.39.5(jiti@2.6.1))
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.5(jiti@2.6.1)))(eslint@9.39.5(jiti@2.6.1)))(eslint@9.39.5(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.39.5(jiti@2.6.1))
       eslint-plugin-jsx-a11y: 6.10.2(eslint@9.39.5(jiti@2.6.1))
       eslint-plugin-react: 7.37.5(eslint@9.39.5(jiti@2.6.1))
       eslint-plugin-react-hooks: 7.1.0(eslint@9.39.5(jiti@2.6.1))
@@ -20480,7 +20484,7 @@ snapshots:
       tinyglobby: 0.2.16
       unrs-resolver: 1.11.1
     optionalDependencies:
-      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.5(jiti@2.6.1)))(eslint@9.39.5(jiti@2.6.1)))(eslint@9.39.5(jiti@2.6.1))
+      eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.39.5(jiti@2.6.1))
     transitivePeerDependencies:
       - supports-color
 
@@ -20495,7 +20499,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1(eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.5(jiti@2.6.1)))(eslint@9.39.5(jiti@2.6.1)))(eslint@9.39.5(jiti@2.6.1)):
+  eslint-plugin-import@2.32.0(@typescript-eslint/parser@8.58.2(eslint@9.39.5(jiti@2.6.1))(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.39.5(jiti@2.6.1)):
     dependencies:
       '@rtsao/scc': 1.1.0
       array-includes: 3.1.9
@@ -26562,7 +26566,7 @@ snapshots:
 
   unpipe@1.0.0: {}
 
-  unplugin-dts@1.0.3(@microsoft/api-extractor@7.55.0(@types/node@26.1.2))(esbuild@0.28.1)(rollup@4.62.4)(typescript@6.0.3)(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0))(webpack@5.104.1(@swc/core@1.15.47(@swc/helpers@0.5.17))(esbuild@0.28.1)):
+  unplugin-dts@1.0.3(@microsoft/api-extractor@7.55.0(@types/node@26.1.2))(esbuild@0.28.1)(rollup@4.62.4)(typescript@5.9.3)(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0))(webpack@5.104.1(@swc/core@1.15.47(@swc/helpers@0.5.17))(esbuild@0.28.1)):
     dependencies:
       '@rollup/pluginutils': 5.3.0(rollup@4.62.4)
       '@volar/typescript': 2.4.28
@@ -26571,7 +26575,7 @@ snapshots:
       kolorist: 1.8.0
       local-pkg: 1.1.2
       magic-string: 0.30.21
-      typescript: 6.0.3
+      typescript: 5.9.3
       unplugin: 2.3.11
     optionalDependencies:
       '@microsoft/api-extractor': 7.55.0(@types/node@26.1.2)
@@ -26727,9 +26731,9 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite-plugin-dts@5.0.3(@microsoft/api-extractor@7.55.0(@types/node@26.1.2))(esbuild@0.28.1)(rollup@4.62.4)(typescript@6.0.3)(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0))(webpack@5.104.1(@swc/core@1.15.47(@swc/helpers@0.5.17))(esbuild@0.28.1)):
+  vite-plugin-dts@5.0.3(@microsoft/api-extractor@7.55.0(@types/node@26.1.2))(esbuild@0.28.1)(rollup@4.62.4)(typescript@5.9.3)(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0))(webpack@5.104.1(@swc/core@1.15.47(@swc/helpers@0.5.17))(esbuild@0.28.1)):
     dependencies:
-      unplugin-dts: 1.0.3(@microsoft/api-extractor@7.55.0(@types/node@26.1.2))(esbuild@0.28.1)(rollup@4.62.4)(typescript@6.0.3)(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0))(webpack@5.104.1(@swc/core@1.15.47(@swc/helpers@0.5.17))(esbuild@0.28.1))
+      unplugin-dts: 1.0.3(@microsoft/api-extractor@7.55.0(@types/node@26.1.2))(esbuild@0.28.1)(rollup@4.62.4)(typescript@5.9.3)(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.0))(webpack@5.104.1(@swc/core@1.15.47(@swc/helpers@0.5.17))(esbuild@0.28.1))
     optionalDependencies:
       '@microsoft/api-extractor': 7.55.0(@types/node@26.1.2)
       rollup: 4.62.4

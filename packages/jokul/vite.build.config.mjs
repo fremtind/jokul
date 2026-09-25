@@ -9,6 +9,15 @@ import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
+    define: {
+        // Jøkuls egen Mixpanel-token, se TRACKING.md. Kun satt i CI ved
+        // publisering. Definert som en `globalThis`-property (ikke en
+        // bar identifikator) slik at ingen ambient typedeklarasjon trengs
+        // - koden leser den via en trygg `globalThis`-cast.
+        "globalThis.__JOKUL_MIXPANEL_TOKEN__": JSON.stringify(
+            process.env.JOKUL_MIXPANEL_TOKEN ?? "",
+        ),
+    },
     plugins: [
         nodeExternals({
             deps: true,
