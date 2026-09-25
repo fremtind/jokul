@@ -15,6 +15,8 @@ import { mergeRefs } from "../../utilities/mergeRefs.js";
 import type { DataTestAutoId } from "../../utilities/types.js";
 import { type ValuePair, getValuePair } from "../../utilities/valuePair.js";
 import { Button } from "../button/Button.js";
+import { serializeTracking } from "../cookie-consent/tracking/serializeTracking.js";
+import type { WithTracking } from "../cookie-consent/types.js";
 import { Flex } from "../flex/Flex.js";
 import { ArrowDownIcon, CloseIcon } from "../icon/index.js";
 import { InputGroup } from "../input-group/InputGroup.js";
@@ -27,6 +29,7 @@ import { autofocus, getButtonText, getReactNodeText } from "./utils.js";
 
 export type SelectProps = Omit<InputGroupProps, "children" | "inline"> &
     DataTestAutoId &
+    WithTracking &
     Omit<ComponentPropsWithoutRef<"select">, "size" | "children"> & {
         width?: string;
         items: (string | ValuePair)[];
@@ -65,6 +68,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             placeholder,
             width,
             value,
+            tracking,
             "data-testautoid": dataTestautoid,
             "data-size": size,
             ...elementProps
@@ -79,6 +83,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
         const popoverId = `${selectId}-popover`;
 
         const [filter, setFilter] = useState("");
+        const [isOpen, setIsOpen] = useState(false);
         const [selected, setSelected] = useState(() => new Set<string>());
 
         useListNavigation({ ref: popoverRef, disableTypeahead: searchable });
@@ -117,17 +122,18 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                 );
             };
 
-            const resetFilterOnClose = (event: ToggleEvent) => {
+            const handlePopoverToggle = (event: ToggleEvent) => {
+                setIsOpen(event.newState === "open");
                 if (event.newState === "closed") setFilter("");
             };
 
             syncSelected();
-            popover?.addEventListener("toggle", resetFilterOnClose);
+            popover?.addEventListener("toggle", handlePopoverToggle);
             select.addEventListener("change", syncSelected);
 
             return () => {
                 select.removeEventListener("change", syncSelected);
-                popover?.removeEventListener("toggle", resetFilterOnClose);
+                popover?.removeEventListener("toggle", handlePopoverToggle);
             };
         }, [multiple, rawItems]);
 
@@ -192,6 +198,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             aria-label={`${showPlaceholder ? placeholderText : buttonText}, ${getReactNodeText(label)}`}
                             className="jkl-select__button"
                             data-testid="jkl-select__button"
+                            // Merker triggerknappen som sporbar for Mixpanels
+                            // `autocapture`. Attributtene er ellers helt
+                            // inerte uten en initialisert Mixpanel-instans.
+                            data-jkl-tracked="Select"
+                            data-jkl-selected={isOpen || undefined}
+                            data-jkl-tracking={serializeTracking(tracking)}
                             disabled={elementProps.disabled}
                             type="button"
                             // @ts-ignore

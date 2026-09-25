@@ -588,6 +588,84 @@ describe("Searchable select", () => {
     });
 });
 
+describe("tracking", () => {
+    it("merker triggerknappen som sporbar og åpen når popoveren åpnes", () => {
+        const { container } = setup(
+            <Select name="items" label="List of items" items={defaultItems} />,
+        );
+
+        const triggerButton = getTriggerButton(container);
+        const popover = container.querySelector("[popover]");
+        if (!popover) throw new Error("popover not found");
+
+        expect(triggerButton).toHaveAttribute("data-jkl-tracked", "Select");
+        expect(triggerButton).not.toHaveAttribute("data-jkl-selected");
+
+        act(() => {
+            const event = new Event("toggle") as ToggleEvent;
+            Object.defineProperty(event, "newState", { value: "open" });
+            popover.dispatchEvent(event);
+        });
+
+        expect(triggerButton).toHaveAttribute("data-jkl-selected", "true");
+
+        act(() => {
+            const event = new Event("toggle") as ToggleEvent;
+            Object.defineProperty(event, "newState", { value: "closed" });
+            popover.dispatchEvent(event);
+        });
+
+        expect(triggerButton).not.toHaveAttribute("data-jkl-selected");
+    });
+
+    it("merker dropdown-valg som sporbare og valgte når de er selected", () => {
+        const { container } = setup(
+            <Select
+                name="items"
+                label="List of items"
+                items={defaultItems}
+                defaultValue="2"
+            />,
+        );
+
+        const [selectedOption] = getButtonOptions(container, "Item 2");
+        const [unselectedOption] = getButtonOptions(container, "Item 1");
+
+        if (!selectedOption || !unselectedOption) {
+            throw new Error("fant ikke forventede select-valg");
+        }
+
+        expect(selectedOption).toHaveAttribute("data-jkl-tracked", "Select");
+        expect(selectedOption).toHaveAttribute("data-jkl-selected", "true");
+        expect(unselectedOption).toHaveAttribute("data-jkl-tracked", "Select");
+        expect(unselectedOption).not.toHaveAttribute("data-jkl-selected");
+    });
+
+    it("setter data-jkl-tracking som JSON kun når tracking-propen er gitt", () => {
+        const { container, rerender } = setup(
+            <Select name="items" label="List of items" items={defaultItems} />,
+        );
+
+        expect(getTriggerButton(container)).not.toHaveAttribute(
+            "data-jkl-tracking",
+        );
+
+        rerender(
+            <Select
+                name="items"
+                label="List of items"
+                items={defaultItems}
+                tracking={{ flow: "checkout" }}
+            />,
+        );
+
+        expect(getTriggerButton(container)).toHaveAttribute(
+            "data-jkl-tracking",
+            JSON.stringify({ flow: "checkout" }),
+        );
+    });
+});
+
 describe("a11y", () => {
     it("select should be a11y compliant", async () => {
         const { container } = setup(

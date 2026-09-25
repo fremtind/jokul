@@ -204,4 +204,74 @@ describe("a11y", () => {
             });
         });
     });
+
+    describe("tracking", () => {
+        // Button kaller ikke lenger noen tracking-hook selv - den merker
+        // seg bare med `data-jkl-*`-attributter, som Mixpanels
+        // `autocapture` plukker opp når en instans er initialisert (se
+        // `useMixpanelTracking`/TRACKING.md). Disse testene verifiserer
+        // derfor kun at attributtene rendres riktig, ikke selve
+        // sporingen (som testes i `trackingContext.test.tsx`).
+        it("merker knappen som sporbar med komponentnavn og variant", () => {
+            render(
+                <Button variant="primary" onClick={() => {}}>
+                    Lagre
+                </Button>,
+            );
+
+            const button = screen.getByText("Lagre").closest("button");
+            expect(button).toHaveAttribute("data-jkl-tracked", "Button");
+            expect(button).toHaveAttribute("data-jkl-variant", "primary");
+        });
+
+        it("setter data-jkl-has-icon kun når knappen har et ikon", () => {
+            const { rerender } = render(
+                <Button variant="primary" onClick={() => {}}>
+                    Lagre
+                </Button>,
+            );
+            expect(
+                screen.getByText("Lagre").closest("button"),
+            ).not.toHaveAttribute("data-jkl-has-icon");
+
+            rerender(
+                <Button
+                    variant="primary"
+                    onClick={() => {}}
+                    icon={<Icon>check</Icon>}
+                >
+                    Lagre
+                </Button>,
+            );
+            expect(screen.getByText("Lagre").closest("button")).toHaveAttribute(
+                "data-jkl-has-icon",
+                "true",
+            );
+        });
+
+        it("setter data-jkl-tracking som JSON kun når tracking-propen er gitt", () => {
+            const { rerender } = render(
+                <Button variant="primary" onClick={() => {}}>
+                    Lagre
+                </Button>,
+            );
+            expect(
+                screen.getByText("Lagre").closest("button"),
+            ).not.toHaveAttribute("data-jkl-tracking");
+
+            rerender(
+                <Button
+                    variant="primary"
+                    onClick={() => {}}
+                    tracking={{ orderId: "42" }}
+                >
+                    Lagre
+                </Button>,
+            );
+            expect(screen.getByText("Lagre").closest("button")).toHaveAttribute(
+                "data-jkl-tracking",
+                JSON.stringify({ orderId: "42" }),
+            );
+        });
+    });
 });

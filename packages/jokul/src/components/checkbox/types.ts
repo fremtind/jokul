@@ -5,10 +5,12 @@ import type {
     ReactNode,
 } from "react";
 import type { DataTestAutoId } from "../../utilities/types.js";
+import type { WithTracking } from "../cookie-consent/types.js";
 
 export interface CheckboxProps
     extends DataTestAutoId,
-        InputHTMLAttributes<HTMLInputElement> {
+        InputHTMLAttributes<HTMLInputElement>,
+        WithTracking {
     children: ReactNode;
     name: string;
     value: string;
