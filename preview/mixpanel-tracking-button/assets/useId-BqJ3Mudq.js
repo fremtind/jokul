@@ -1,0 +1,1 @@
+import{R as n}from"./iframe-A5c2Wqvk.js";const r=n.useId,a={generateSuffix:!0},c=(e,u=a)=>{const t=r();let s=e;e&&u.generateSuffix&&(s=`${e}-${t}`);const[o]=n.useState(s||t);return o},f=c;export{f as u};
