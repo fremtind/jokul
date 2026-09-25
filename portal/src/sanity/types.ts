@@ -23,7 +23,7 @@ export type Jokul_storybookEmbed = {
   _type: "jokul_storybookEmbed";
   storyId?: string;
   storyName?: string;
-  version?: "latest" | "next" | "version-4" | "version-5";
+  version?: "latest" | "next" | "local" | "version-4" | "version-5";
   height?: number;
   interactive?: boolean;
 };
