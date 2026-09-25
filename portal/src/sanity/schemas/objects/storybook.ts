@@ -6,6 +6,7 @@ import { StorybookEmbedInput } from "../../components/StorybookEmbedInput";
 const versionOptions = [
     { title: "Latest", value: "latest" },
     { title: "Next", value: "next" },
+    { title: "Lokal Storybook", value: "local" },
     ...MAINTAINED_VERSIONS.map((version) => ({
         title: `v${version}`,
         value: `version-${version}`,
@@ -47,7 +48,12 @@ export const storybookEmbed = defineType({
             options: {
                 list: versionOptions,
             },
-            validation: (Rule) => Rule.required(),
+            validation: (Rule) =>
+                Rule.required().custom((version) =>
+                    version === "local"
+                        ? "Lokal Storybook kan ikke publiseres. Velg en publisert versjon."
+                        : true,
+                ),
         }),
         defineField({
             name: "height",

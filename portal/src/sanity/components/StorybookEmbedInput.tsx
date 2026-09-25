@@ -95,6 +95,10 @@ export function StorybookEmbedInput(props: ObjectInputProps) {
                 >
                     <option value="latest">Latest</option>
                     <option value="next">Next</option>
+                    {(process.env.NODE_ENV === "development" ||
+                        version === "local") && (
+                        <option value="local">Lokal Storybook</option>
+                    )}
                     {MAINTAINED_VERSIONS.map((maintainedVersion) => (
                         <option
                             key={maintainedVersion}

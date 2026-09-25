@@ -27,7 +27,7 @@
         "release:publish": "pnpm build && changeset publish",
         "release": "pnpm release:publish",
         "dev": "run-p dev:portal dev:storybook build:storybook",
-        "dev:portal": "pnpm --filter \"portal\" exec cross-env NEXT_PUBLIC_STORYBOOK_BASE_URL=http://localhost:6007 pnpm dev",
+        "dev:portal": "pnpm --filter \"portal\" dev",
         "dev:storybook": "storybook dev -p 6007 --no-open",
         "prestart": "pnpm build && pnpm build:portal && pnpm sync-standalone-assets",
         "start": "pnpm start:portal",

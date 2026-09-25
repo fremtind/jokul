@@ -1,5 +1,5 @@
 import { cleanup, fireEvent, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, describe, expect, it } from "vitest";
 import {
     StorybookFrame,
     getStorybookFrameUrl,
@@ -8,7 +8,6 @@ import {
 
 afterEach(() => {
     cleanup();
-    vi.unstubAllEnvs();
 });
 
 describe("StorybookFrame", () => {
@@ -59,19 +58,6 @@ describe("getStorybookFrameUrl", () => {
         );
     });
 
-    it("uses the configured Storybook URL locally", () => {
-        vi.stubEnv("NEXT_PUBLIC_STORYBOOK_BASE_URL", "http://localhost:6007/");
-
-        expect(
-            getStorybookFrameUrl({
-                storyId: "button--primary",
-                version: "next",
-            }),
-        ).toBe(
-            "http://localhost:6007/iframe.html?viewMode=story&id=button--primary",
-        );
-    });
-
     it("removes hidden Sanity preview data from the story ID", () => {
         const hiddenPreviewData = "\u200b\u200b\u200b\u200b";
 
@@ -116,16 +102,5 @@ describe("getStorybookUrl", () => {
 
     it("returns undefined without a story ID", () => {
         expect(getStorybookUrl({})).toBeUndefined();
-    });
-
-    it("uses the configured Storybook URL locally", () => {
-        vi.stubEnv("NEXT_PUBLIC_STORYBOOK_BASE_URL", "http://localhost:6007/");
-
-        expect(
-            getStorybookUrl({
-                storyId: "button--primary",
-                version: "next",
-            }),
-        ).toBe("http://localhost:6007/?path=/story/button--primary");
     });
 });

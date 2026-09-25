@@ -10,13 +10,6 @@ export type SupportedVersion =
     | "local";
 
 export function getStorybookBaseUrl(version: SupportedVersion = "latest") {
-    const configuredBaseUrl =
-        process.env.NEXT_PUBLIC_STORYBOOK_BASE_URL?.replace(/\/+$/, "");
-
-    if (configuredBaseUrl) {
-        return configuredBaseUrl;
-    }
-
     return version === "local"
         ? "http://localhost:6007"
         : `https://fremtind.github.io/jokul/${version}`;

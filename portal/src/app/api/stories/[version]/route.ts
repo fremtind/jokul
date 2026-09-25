@@ -10,6 +10,13 @@ export async function GET(
     context: RouteContext<"/api/stories/[version]">,
 ) {
     const version = (await context.params).version;
+    if (version === "local" && process.env.NODE_ENV !== "development") {
+        return NextResponse.json(
+            { error: "Local Storybook is only available during development" },
+            { status: 404 },
+        );
+    }
+
     const storybookVersion = isSupportedVersion(version) ? version : "latest";
     const storybookUrl = getStorybookBaseUrl(storybookVersion);
 
