@@ -6,6 +6,9 @@ packages:
 
 overrides:
     "@babel/plugin-transform-modules-systemjs": "^7.29.4"
+    # Vision feiler når CodeMirror lastes i flere versjoner.
+    # Nyeste Sanity krever React 19, så vi låser denne så lenge vi bruker React 18.
+    "@codemirror/state": "6.7.1"
     "@hono/node-server": "^1.19.13"
     "@types/react": "18.3.1"
     "@types/react-dom": "18.3.1"
