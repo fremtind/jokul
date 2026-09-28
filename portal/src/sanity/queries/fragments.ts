@@ -34,17 +34,7 @@ export const markDefsFragment = /* groq */ `
 export const commonBlockBody = /* groq */ `
     ...,
     ${markDefsFragment},
-    _type == "jokul_examples" => {
-        ...,
-        examples[]->{
-            name,
-            id,
-            description,
-            height,
-            inert,
-            code
-        }
-    },
+
         _type == "jokul_linkCard" => {
         ...,
         "url": coalesce(

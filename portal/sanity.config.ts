@@ -24,9 +24,6 @@ export default defineConfig({
                     .items([
                         ...S.documentTypeListItems().filter(
                             (listItem) =>
-                                !["jokul_story"].includes(
-                                    listItem.getId() || "",
-                                ) &&
                                 !["jokul_siteData"].includes(
                                     listItem.getId() || "",
                                 ),

@@ -20,10 +20,7 @@ export const componentBySlugQuery = defineQuery(
         ...,
         "slug": slug.current,
         ${cardImagesProjection},
-        "example_card": {
-            "story": example_card.story->,
-            "storybook": example_card.storybook
-        },
+
         documentation_article[]{
             ${commonBlockBody},
             _type == "jokul_componentKortFortalt" => {
