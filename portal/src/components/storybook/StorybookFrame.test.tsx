@@ -22,22 +22,6 @@ describe("StorybookFrame", () => {
 
         expect(frame.style.visibility).toBe("visible");
     });
-
-    it("shows a stored legacy URL without a story ID", () => {
-        const storyUrl =
-            "https://fremtind.github.io/jokul/next/iframe.html?viewMode=story&id=button--primary";
-
-        render(<StorybookFrame storyUrl={storyUrl} title="Primary" />);
-
-        const frame = screen.getByTitle("Primary");
-
-        fireEvent.load(frame);
-
-        expect(frame.style.visibility).toBe("visible");
-        expect(frame.getAttribute("src")).toBe(
-            `${storyUrl}&globals=backgrounds.value:page;backgrounds.grid:!false`,
-        );
-    });
 });
 
 describe("getStorybookFrameUrl", () => {
@@ -68,19 +52,6 @@ describe("getStorybookFrameUrl", () => {
         ).toBe(
             "https://fremtind.github.io/jokul/latest/iframe.html?viewMode=story&id=button--primary",
         );
-    });
-
-    it("uses the stored URL for legacy content", () => {
-        const storyUrl =
-            "https://fremtind.github.io/jokul/next/iframe.html?viewMode=story&id=button--primary";
-
-        expect(
-            getStorybookFrameUrl({
-                storyId: "button--primary",
-                storyUrl,
-                version: "version-4",
-            }),
-        ).toBe(storyUrl);
     });
 
     it("returns no URL when the story ID is missing", () => {

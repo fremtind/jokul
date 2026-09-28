@@ -13,7 +13,6 @@ import "./storybook-frame.scss";
 
 type StorybookFrameProps = {
     storyId?: string | null;
-    storyUrl?: string | null;
     version?: SupportedVersion;
     title: string;
     height?: number | null;
@@ -78,14 +77,10 @@ const getFrameStyle = (height?: number | null) =>
 
 export const getStorybookFrameUrl = ({
     storyId,
-    storyUrl,
     version = "latest",
-}: Pick<StorybookFrameProps, "storyId" | "storyUrl" | "version">) => {
-    const cleanStoryUrl = stegaClean(storyUrl);
+}: Pick<StorybookFrameProps, "storyId" | "version">) => {
     const cleanStoryId = stegaClean(storyId);
     const cleanVersion = stegaClean(version);
-
-    if (cleanStoryUrl) return cleanStoryUrl;
     if (!cleanStoryId) return undefined;
 
     return `${getStorybookBaseUrl(cleanVersion)}/iframe.html?viewMode=story&id=${cleanStoryId}`;
@@ -125,7 +120,6 @@ const getIssueUrl = (title: string, storyId?: string | null) => {
 
 export const StorybookFrame = ({
     storyId,
-    storyUrl,
     version,
     title,
     height,
@@ -137,7 +131,6 @@ export const StorybookFrame = ({
     const cleanGlobals = stegaClean(globals);
     const frameSrc = getStorybookFrameUrl({
         storyId: cleanStoryId,
-        storyUrl,
         version,
     });
     const frameStyle = getFrameStyle(height);

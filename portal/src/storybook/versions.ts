@@ -25,21 +25,3 @@ export function isSupportedVersion(
         "local",
     ].includes(maybeVersion);
 }
-
-export function parseStorybookVersion(url: string): SupportedVersion {
-    if (url.includes("localhost")) {
-        return "local";
-    }
-
-    const match = url.match(RegExp(/jokul\/(.*)\/iframe/));
-    if (!match) {
-        return "latest";
-    }
-
-    const possibleMatch = match[1];
-    if (isSupportedVersion(possibleMatch)) {
-        return possibleMatch;
-    }
-
-    return "latest";
-}
