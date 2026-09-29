@@ -3,10 +3,10 @@
 
 @layer jokul.components {
     .jkl-card {
-        --padding-s: var(--jkl-unit-05);
-        --padding-m: var(--jkl-unit-15);
-        --padding-l: var(--jkl-unit-20);
-        --padding-xl: var(--jkl-unit-30);
+        --padding-s: var(--jkl-unit-10);
+        --padding-m: var(--jkl-unit-20);
+        --padding-l: var(--jkl-unit-30);
+        --padding-xl: var(--jkl-unit-40);
         --border-radius: var(--jkl-border-radius-m);
         --border-color: transparent;
         --border-width: #{jkl.rem(1px)};
@@ -31,13 +31,6 @@
             border: var(--border-width) solid var(--border-color);
 
             @include jkl.motion("standard", "snappy", border-color, border-size);
-        }
-
-        @include jkl.from-medium-device {
-            --padding-s: var(--jkl-unit-10);
-            --padding-m: var(--jkl-unit-20);
-            --padding-l: var(--jkl-unit-30);
-            --padding-xl: var(--jkl-unit-40);
         }
 
         &[data-padding="s"] {
@@ -70,7 +63,7 @@
         }
 
         &[data-clickable="true"],
-        &:is(a, button:not(disabled)) {
+        &:is(a, button:not(:disabled)) {
             cursor: pointer;
 
             &:hover {
