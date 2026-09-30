@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.5.2
+
+### Patch Changes
+
+- ce13e33: Card bruker nå samme padding som i Figma (unit-10, unit-20, unit-30 og unit-40) også på små skjermer.
+
 ## 5.5.1
 
 ### Patch Changes
