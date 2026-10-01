@@ -1,5 +1,6 @@
-import type { TextareaHTMLAttributes } from "react";
+import type { ReactNode, TextareaHTMLAttributes } from "react";
 import type { InputGroupProps } from "../input-group/types.js";
+import type { Tracking } from "../types.js";
 
 export type CounterStrategy = "characters" | "bytes";
 
@@ -47,6 +48,9 @@ export interface BaseTextAreaProps
     startOpen?: boolean;
     /** Gjør så skjemafeltet ekspanderer seg til å vise alt innhold i stedet for å scrolle */
     autoExpand?: boolean;
+    tracking?: Tracking;
+    /** Brukes kun internt til å utlede data-track-label */
+    label: ReactNode;
 }
 
 export interface TextAreaProps

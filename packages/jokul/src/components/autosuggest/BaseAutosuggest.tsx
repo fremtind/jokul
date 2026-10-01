@@ -8,6 +8,8 @@ import {
 import React, { type ReactNode } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { InputGroup } from "../input-group/InputGroup.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import ControllerButton from "./ControllerButton.js";
 import Menu from "./Menu.js";
 import type { CommonProps } from "./types.js";
@@ -49,6 +51,7 @@ function BaseAutosuggest<T>({
         /* noop */
     },
     noHits,
+    tracking,
 }: BaseAutosuggestProps<T>): JSX.Element {
     const uid = useId(inputId || "jkl-text-input", {
         generateSuffix: !inputId,
@@ -123,6 +126,24 @@ function BaseAutosuggest<T>({
                                             },
                                         })}
                                         data-testid="autosuggest__input"
+                                        data-track-component-name={
+                                            COMPONENT_NAMES.Autosuggest
+                                        }
+                                        data-track-id={
+                                            tracking?.id ??
+                                            (label ? String(label) : undefined)
+                                        }
+                                        data-track-label={
+                                            label ? String(label) : undefined
+                                        }
+                                        data-track-variant={variant}
+                                        data-track-is-open={isOpen}
+                                        data-track-max-number-of-hits={
+                                            maxNumberOfHits
+                                        }
+                                        {...getExtraTrackingAttributes(
+                                            tracking?.extra,
+                                        )}
                                     />
                                     {showDropdownControllerButton && (
                                         <ControllerButton

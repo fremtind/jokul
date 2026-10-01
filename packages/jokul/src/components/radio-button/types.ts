@@ -3,6 +3,7 @@ import type {
     FieldGroupProps,
     SupportLabelProps,
 } from "../input-group/types.js";
+import type { Tracking } from "../types.js";
 
 export interface BaseRadioButtonProps extends RadioButtonProps {
     inline?: boolean;
@@ -25,6 +26,11 @@ export interface RadioButtonProps
         SupportLabelProps,
         "id" | "errorLabel" | "helpLabel"
     >;
+    tracking?: Tracking;
+    trackingComponentName?: string;
+    trackingLabel?: ReactNode;
+    trackingExtraProps?: Record<string, string | number | boolean | undefined>;
+    disableDefaultTrackingProps?: boolean;
 }
 
 export interface RadioButtonGroupProps

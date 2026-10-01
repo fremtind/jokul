@@ -1,6 +1,7 @@
 import type { InputHTMLAttributes } from "react";
 import type { DataTestAutoId } from "../../utilities/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
+import type { Tracking } from "../types.js";
 
 /**
  * Props for `DateInput`. Komponenten bygger på et native `<input type="date">`,
@@ -38,4 +39,5 @@ export type DateInputProps = Omit<InputGroupProps, "children" | "render"> &
          * react-hook-forms `register`, men ISO-streng anbefales.
          */
         max?: string | number;
+        tracking?: Tracking;
     };

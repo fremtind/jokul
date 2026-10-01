@@ -19,6 +19,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             supportLabelProps,
             tooltip,
             description,
+            tracking,
             ...rest
         } = props;
         const inputGroupProps = {
@@ -31,7 +32,13 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
             tooltip,
             description,
         };
-        const textAreaProps = { autoExpand, counter, startOpen };
+        const textAreaProps = {
+            autoExpand,
+            counter,
+            startOpen,
+            tracking,
+            label,
+        };
         return (
             <InputGroup
                 className={clsx("jkl-text-area", className, {

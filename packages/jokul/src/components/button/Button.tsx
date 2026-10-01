@@ -3,6 +3,8 @@ import React, { type ButtonHTMLAttributes } from "react";
 import { useAriaLiveRegion } from "../../hooks/useAriaLiveRegion/useAriaLiveRegion.js";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { Loader } from "../loader/Loader.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { ButtonComponent, ButtonProps } from "./types.js";
 
 export const Button = React.forwardRef(function Button<
@@ -20,6 +22,7 @@ export const Button = React.forwardRef(function Button<
         iconLeft,
         iconRight,
         variant = "secondary",
+        tracking,
         ...rest
     } = props;
 
@@ -43,6 +46,13 @@ export const Button = React.forwardRef(function Button<
     return (
         <Component
             {...ariaLive}
+            data-track-component-name={COMPONENT_NAMES.Button}
+            data-track-id={
+                tracking?.id ?? (children ? String(children) : undefined)
+            }
+            data-track-label={children ? String(children) : undefined}
+            data-track-variant={variant}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-loading={showLoader}
             className={cn("jkl-button", `jkl-button--${variant}`, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}
