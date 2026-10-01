@@ -131,7 +131,7 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
                 }
                 data-track-dismissed={dismissed}
                 data-track-full-width={fullWidth}
-                {...getExtraTrackingAttributes(tracking?.extra)}
+                {...getExtraTrackingAttributes(tracking?.extra, rest)}
             >
                 {getIcon(variant)}
                 <div className="jkl-message__content">

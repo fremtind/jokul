@@ -39,7 +39,7 @@ export const Loader = ({
             data-track-id={tracking?.id}
             data-track-label={textDescription}
             data-track-variant={variant}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             <span className="jkl-loader__dot jkl-loader__dot--left" />
             <span className="jkl-loader__dot jkl-loader__dot--middle" />

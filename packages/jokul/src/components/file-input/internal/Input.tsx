@@ -59,7 +59,7 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                     data-track-accept={accept}
                     data-track-multiple={multiple}
                     data-track-variant={variant}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    {...getExtraTrackingAttributes(tracking?.extra, rest)}
                     onChange={(e) => {
                         if (e.target.files) {
                             onChange(

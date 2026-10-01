@@ -34,7 +34,10 @@ export const BreadcrumbItem = ({
                             "data-track-id": tracking?.id ?? trackingLabel,
                             "data-track-label": trackingLabel,
                             "data-track-is-last-element": isLastElement,
-                            ...getExtraTrackingAttributes(tracking?.extra),
+                            ...getExtraTrackingAttributes(
+                                tracking?.extra,
+                                child.props,
+                            ),
                         },
                     });
                 }

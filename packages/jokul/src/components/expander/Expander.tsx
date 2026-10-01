@@ -100,7 +100,7 @@ export const Expander = React.forwardRef(function Expander<
             data-track-label={children ? String(children) : undefined}
             data-track-open={isOpen}
             data-track-expand-direction={expandDirection}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             {icon || null}
             <span className="jkl-expander__label">{children}</span>

@@ -306,7 +306,7 @@ const PopoverContent = React.forwardRef<
                     data-track-id={tracking?.id}
                     data-track-placement={placement}
                     data-track-open={open}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    {...getExtraTrackingAttributes(tracking?.extra, props)}
                 >
                     {props.children}
                 </div>

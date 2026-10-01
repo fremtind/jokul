@@ -36,7 +36,7 @@ export const Countdown: FC<CountdownProps> = ({
             data-track-id={tracking?.id}
             data-track-from={from}
             data-track-is-paused={isPaused}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             <span
                 className="jkl-countdown__tracker"

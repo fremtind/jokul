@@ -204,7 +204,10 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                 data-track-initial-placement={initialPlacement}
                                 data-track-open-on-hover={openOnHover}
                                 data-track-is-open={isOpen}
-                                {...getExtraTrackingAttributes(tracking?.extra)}
+                                {...getExtraTrackingAttributes(
+                                    tracking?.extra,
+                                    props,
+                                )}
                             >
                                 {React.Children.map(
                                     children,

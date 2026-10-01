@@ -52,11 +52,11 @@ export const Button = React.forwardRef(function Button<
             }
             data-track-label={children ? String(children) : undefined}
             data-track-variant={variant}
-            {...getExtraTrackingAttributes(tracking?.extra)}
             data-loading={showLoader}
             className={cn("jkl-button", `jkl-button--${variant}`, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
             ref={ref}
         >
             <div className="jkl-button__label">

@@ -74,7 +74,10 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                                 }
                                 data-track-id={tracking?.id ?? label}
                                 data-track-label={label}
-                                {...getExtraTrackingAttributes(tracking?.extra)}
+                                {...getExtraTrackingAttributes(
+                                    tracking?.extra,
+                                    rest,
+                                )}
                             />
                             <button
                                 className="clear-button"

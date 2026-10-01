@@ -73,7 +73,7 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
                     tracking?.id ?? (children ? String(children) : undefined)
                 }
                 data-track-label={children ? String(children) : undefined}
-                {...getExtraTrackingAttributes(tracking?.extra)}
+                {...getExtraTrackingAttributes(tracking?.extra, buttonProps)}
             >
                 {children}
                 <div aria-hidden className="jkl-toggle-switch-widget">

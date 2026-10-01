@@ -52,7 +52,7 @@ export const Card = React.forwardRef(function Card<
             data-track-padding={padding}
             data-track-outlined={outlined}
             data-track-clickable={clickable}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, componentProps)}
             ref={ref}
         >
             {children}

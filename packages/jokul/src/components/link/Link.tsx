@@ -38,7 +38,7 @@ export const Link = React.forwardRef(function Link<
             }
             data-track-label={children ? String(children) : undefined}
             data-track-external={external}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             <span className="jkl-link__content">{children}</span>
             {(external || rest.target === "_blank") && (

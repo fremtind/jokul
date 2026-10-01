@@ -206,7 +206,10 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                             data-track-stepper={stepper}
                             data-track-align={align}
                             data-track-width={width}
-                            {...getExtraTrackingAttributes(tracking?.extra)}
+                            {...getExtraTrackingAttributes(
+                                tracking?.extra,
+                                rest,
+                            )}
                         />
                         {stepper && (
                             <StepperButton

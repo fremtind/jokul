@@ -56,7 +56,7 @@ export const Pagination = React.forwardRef(function Pagination<
                 data-track-id={tracking?.id}
                 data-track-current-page={currentPage}
                 data-track-number-of-pages={numberOfPages}
-                {...getExtraTrackingAttributes(tracking?.extra)}
+                {...getExtraTrackingAttributes(tracking?.extra, rest)}
             >
                 <IconButton
                     className="jkl-pagination-button"
@@ -124,7 +124,7 @@ export const Pagination = React.forwardRef(function Pagination<
             data-track-id={tracking?.id}
             data-track-current-page={currentPage}
             data-track-number-of-pages={numberOfPages}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             <IconButton
                 className="jkl-pagination-button"

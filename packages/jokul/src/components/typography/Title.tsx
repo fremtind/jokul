@@ -37,7 +37,7 @@ export const Title: TitleComponent = forwardRef(function Title<
             data-track-id={tracking?.id ?? trackingLabel}
             data-track-label={trackingLabel}
             data-track-size={size}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         />
     );
 }) as TitleComponent;

@@ -464,7 +464,10 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                             }
                             data-track-label={label ? String(label) : undefined}
                             data-track-has-tag-hover={hasTagHover}
-                            {...getExtraTrackingAttributes(tracking?.extra)}
+                            {...getExtraTrackingAttributes(
+                                tracking?.extra,
+                                props,
+                            )}
                         />
                     </div>
 

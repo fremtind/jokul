@@ -103,7 +103,7 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
             }
             data-track-dismissed={dismissed}
             data-track-max-content-width={maxContentWidth}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             <div
                 className="jkl-system-message__content"

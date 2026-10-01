@@ -51,7 +51,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
             data-track-state={state}
             data-track-variant={variant}
             data-track-file-size={fileSize}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             <Flex
                 gap="8"

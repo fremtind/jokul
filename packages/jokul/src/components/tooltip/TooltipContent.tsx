@@ -134,7 +134,10 @@ export const TooltipContent = forwardRef<
                                 data-track-placement={placement}
                                 data-track-trigger-on={triggerOn}
                                 data-track-initial-open={initialOpen}
-                                {...getExtraTrackingAttributes(tracking?.extra)}
+                                {...getExtraTrackingAttributes(
+                                    tracking?.extra,
+                                    props,
+                                )}
                                 style={{
                                     ...floatingStyles,
                                     ...animationStyles,

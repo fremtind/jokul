@@ -63,7 +63,7 @@ export const BaseRadioButton = forwardRef<
                     disableDefaultTrackingProps ? undefined : checked
                 }
                 {...trackingExtraProps}
-                {...getExtraTrackingAttributes(tracking?.extra)}
+                {...getExtraTrackingAttributes(tracking?.extra, rest)}
             />
             <label
                 data-testid="jkl-radio-button__label-tag"

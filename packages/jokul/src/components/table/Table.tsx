@@ -40,7 +40,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
                         typeof caption === "string" ? caption : undefined
                     }
                     data-track-collapse-to-list={collapseToList}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    {...getExtraTrackingAttributes(tracking?.extra, rest)}
                 >
                     {caption}
                     {children}

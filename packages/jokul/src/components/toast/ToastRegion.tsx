@@ -40,7 +40,7 @@ function Region<T extends ToastContent>({
             data-track-id={tracking?.id}
             data-track-placement={placement}
             data-track-max-visible-toasts={maxVisibleToasts}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, props)}
         >
             <div
                 {...regionProps}

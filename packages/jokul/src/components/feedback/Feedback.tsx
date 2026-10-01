@@ -90,7 +90,7 @@ export const Feedback = ({
                     : undefined
             }
             data-track-type={mainQuestionProps.type}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, mainQuestionProps)}
         >
             <FeedbackContextProvider
                 value={{

@@ -44,7 +44,7 @@ export const NavLink = React.forwardRef(function NavLink<
             data-track-label={children ? String(children) : undefined}
             data-track-active={active}
             data-track-back={back}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             {back && (
                 <ArrowLeftIcon variant="small" className="jkl-nav-link__icon" />

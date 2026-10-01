@@ -35,7 +35,7 @@ export const Help = ({
                 data-track-icon-position={iconPosition}
                 data-track-show-button-text={showButtonText}
                 data-track-variant={undefined}
-                {...getExtraTrackingAttributes(tracking?.extra)}
+                {...getExtraTrackingAttributes(tracking?.extra, rest)}
                 // @ts-ignore
                 popovertarget={`${helpId}-popover`}
             >

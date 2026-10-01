@@ -209,7 +209,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             data-track-label={label}
                             data-track-multiple={multiple}
                             data-track-searchable={searchable}
-                            {...getExtraTrackingAttributes(tracking?.extra)}
+                            {...getExtraTrackingAttributes(
+                                tracking?.extra,
+                                elementProps,
+                            )}
                         >
                             {showPlaceholder ? placeholderText : buttonText}
                             <ArrowDownIcon />

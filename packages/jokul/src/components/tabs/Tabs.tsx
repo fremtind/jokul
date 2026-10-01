@@ -97,7 +97,7 @@ export const Tabs = ({
             data-track-component-name={COMPONENT_NAMES.Tabs}
             data-track-id={tracking?.id}
             data-track-default-tab={defaultTab}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, props)}
         >
             {renderTabList()}
             {renderTabPanels()}

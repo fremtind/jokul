@@ -45,7 +45,7 @@ export const Text: TextComponent = forwardRef(function Text<
             data-track-size={size}
             data-track-bold={bold}
             data-track-subdued={subdued}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         />
     );
 }) as TextComponent;

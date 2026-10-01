@@ -24,7 +24,7 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
             }
             data-track-label={children ? String(children) : undefined}
             data-track-variant={variant}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             {children}
             {variant === "filter" && selected && (

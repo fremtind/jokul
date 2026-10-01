@@ -110,7 +110,7 @@ export const ExpandablePanel = Object.assign(
                     data-track-component-name={COMPONENT_NAMES.Expander}
                     data-track-id={tracking?.id}
                     data-track-outlined={outlined}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    {...getExtraTrackingAttributes(tracking?.extra, rest)}
                 >
                     <ExpanderContext.Provider
                         value={{

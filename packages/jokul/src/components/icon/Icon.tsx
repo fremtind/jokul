@@ -36,7 +36,7 @@ export const Icon: IconComponent = React.forwardRef(function Icon<
         "data-track-component-name": COMPONENT_NAMES.Icon,
         "data-track-id": tracking?.id,
         "data-track-variant": variant,
-        ...getExtraTrackingAttributes(tracking?.extra),
+        ...getExtraTrackingAttributes(tracking?.extra, iconProps),
     };
 
     if (as === "div") {

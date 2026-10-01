@@ -59,7 +59,7 @@ export const Tag = ({
         }
         data-track-label={typeof children === "string" ? children : undefined}
         data-track-variant={variant}
-        {...getExtraTrackingAttributes(tracking?.extra)}
+        {...getExtraTrackingAttributes(tracking?.extra, rest)}
     >
         {children}
     </span>

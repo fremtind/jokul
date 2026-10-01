@@ -33,7 +33,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({
             data-track-label={title}
             data-track-value={value}
             data-track-max={max}
-            {...getExtraTrackingAttributes(tracking?.extra)}
+            {...getExtraTrackingAttributes(tracking?.extra, rest)}
         >
             <span
                 className="jkl-progress-bar__tracker"

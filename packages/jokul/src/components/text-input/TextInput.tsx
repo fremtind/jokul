@@ -53,7 +53,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                     data-track-label={label ? String(label) : undefined}
                     data-track-type={rest.type}
                     data-track-max-length={rest.maxLength}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    {...getExtraTrackingAttributes(tracking?.extra, rest)}
                 />
             </InputGroup>
         );

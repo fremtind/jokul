@@ -79,7 +79,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                 }
                 data-track-label={label ? String(label) : undefined}
                 data-track-inline={inline}
-                {...getExtraTrackingAttributes(tracking?.extra)}
+                {...getExtraTrackingAttributes(tracking?.extra, rest)}
             >
                 <Label
                     standAlone
