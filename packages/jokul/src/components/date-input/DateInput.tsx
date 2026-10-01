@@ -4,6 +4,8 @@ import { useMergeRefs } from "../../utilities/index.js";
 import { Button } from "../button/index.js";
 import { CalendarIcon } from "../icon/index.js";
 import { InputGroup } from "../input-group/index.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { Calendar } from "./calendar/Calendar.js";
 import type { DateInputProps } from "./types.js";
 import { toValidBoundary } from "./utils.js";
@@ -35,6 +37,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
             readOnly,
             autoComplete,
             inputMode,
+            tracking,
             ...rest
         } = props;
 
@@ -155,6 +158,17 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                             }}
                             {...inputAttributes}
                             {...inputProps}
+                            data-track-component-name={
+                                COMPONENT_NAMES.DateInput
+                            }
+                            data-track-id={
+                                tracking?.id ??
+                                (label ? String(label) : undefined)
+                            }
+                            data-track-label={label ? String(label) : undefined}
+                            data-track-min={minValue}
+                            data-track-max={maxValue}
+                            {...getExtraTrackingAttributes(tracking?.extra)}
                         />
                         <Button
                             type="button"

@@ -3,6 +3,8 @@ import React, { type MouseEventHandler, forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { useSwipeGesture } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { ToggleChangeHandler, ToggleSwitchProps } from "./types.js";
 
 export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
@@ -13,6 +15,7 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
             className,
             id,
             onChange,
+            tracking,
             ...rest
         },
         ref,
@@ -65,6 +68,12 @@ export const ToggleSwitch = forwardRef<HTMLButtonElement, ToggleSwitchProps>(
                 aria-pressed={pressed}
                 {...buttonProps}
                 {...(buttonProps.disabled ? {} : gestureHandlers)}
+                data-track-component-name={COMPONENT_NAMES.ToggleSwitch}
+                data-track-id={
+                    tracking?.id ?? (children ? String(children) : undefined)
+                }
+                data-track-label={children ? String(children) : undefined}
+                {...getExtraTrackingAttributes(tracking?.extra)}
             >
                 {children}
                 <div aria-hidden className="jkl-toggle-switch-widget">

@@ -1,5 +1,6 @@
 import type { InputHTMLAttributes, ReactNode } from "react";
 import type { JokulModes } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export type InputPanelProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
@@ -25,4 +26,5 @@ export type InputPanelProps = Omit<
          * @deprecated bruk {@link description} for tilsvarende funksjonalitet.
          */
         children?: ReactNode;
+        tracking?: Tracking;
     };

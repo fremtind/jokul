@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { BaseRadioButtonProps } from "./types.js";
 
 export const BaseRadioButton = forwardRef<
@@ -18,10 +20,16 @@ export const BaseRadioButton = forwardRef<
         name,
         value,
         onChange,
+        tracking,
+        trackingComponentName,
+        trackingLabel: trackingLabelProp,
+        trackingExtraProps,
+        disableDefaultTrackingProps = false,
         ...rest
     } = props;
 
     const inputId = useId(id || "jkl-radio-button", { generateSuffix: !id });
+    const trackingLabel = trackingLabelProp ?? label ?? children;
 
     return (
         <div
@@ -41,6 +49,21 @@ export const BaseRadioButton = forwardRef<
                 value={value}
                 checked={checked}
                 aria-invalid={invalid || rest["aria-invalid"]}
+                data-track-component-name={
+                    trackingComponentName ?? COMPONENT_NAMES.RadioButton
+                }
+                data-track-id={
+                    tracking?.id ??
+                    (trackingLabel ? String(trackingLabel) : undefined)
+                }
+                data-track-label={
+                    trackingLabel ? String(trackingLabel) : undefined
+                }
+                data-track-checked={
+                    disableDefaultTrackingProps ? undefined : checked
+                }
+                {...trackingExtraProps}
+                {...getExtraTrackingAttributes(tracking?.extra)}
             />
             <label
                 data-testid="jkl-radio-button__label-tag"
