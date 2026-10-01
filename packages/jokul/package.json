@@ -60,6 +60,26 @@
                 "default": "./build/cjs/utilities/index.cjs"
             }
         },
+        "./metadata": {
+            "import": {
+                "types": "./build/es/components/metadata.d.ts",
+                "default": "./build/es/components/metadata.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/metadata.d.cts",
+                "default": "./build/cjs/components/metadata.cjs"
+            }
+        },
+        "./types": {
+            "import": {
+                "types": "./build/es/components/types.d.ts",
+                "default": "./build/es/components/types.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/types.d.cts",
+                "default": "./build/cjs/components/types.cjs"
+            }
+        },
         "./*": {
             "import": {
                 "types": "./build/es/components/*/index.d.ts",

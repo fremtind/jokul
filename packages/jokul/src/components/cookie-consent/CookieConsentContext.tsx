@@ -1,4 +1,5 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
+import { JOKUL_VERSION } from "../../version.js";
 import {
     buildRequirementsObject,
     getConsentCookie,
@@ -22,6 +23,8 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     cookieName = DEFAULT_COOKIE_NAME,
     cookieDomain,
     cookiePath,
+    appName,
+    team,
 }) => {
     const [timestamp, setTimestamp] = useState(() => Date.now());
 
@@ -44,6 +47,46 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
     const [isOpen, setIsOpen] = useState(() => {
         return shouldShowConsentDialog(requirement, consentCookie);
     });
+
+    useEffect(() => {
+        if (
+            process.env.NODE_ENV !== "production" &&
+            statistics &&
+            (!appName || !team)
+        ) {
+            console.warn(
+                "CookieConsentProvider: når du ber om samtykke til statistikk bør du også sette appName og team, slik at Jøkul kan spore hvilken app/team som bruker designsystemet (data-track-app-name/data-track-team). Dette blir påkrevd fra Jøkul 7.",
+            );
+        }
+    }, [statistics, appName, team]);
+
+    useEffect(() => {
+        if (typeof document === "undefined") {
+            return;
+        }
+
+        const root = document.documentElement;
+
+        if (consentCookie.statistics === "accepted") {
+            root.setAttribute("data-track-jokul-version", JOKUL_VERSION);
+            if (appName) {
+                root.setAttribute("data-track-app-name", appName);
+            }
+            if (team) {
+                root.setAttribute("data-track-team", team);
+            }
+        } else {
+            root.removeAttribute("data-track-jokul-version");
+            root.removeAttribute("data-track-app-name");
+            root.removeAttribute("data-track-team");
+        }
+
+        return () => {
+            root.removeAttribute("data-track-jokul-version");
+            root.removeAttribute("data-track-app-name");
+            root.removeAttribute("data-track-team");
+        };
+    }, [consentCookie.statistics, appName, team]);
 
     return (
         <Context.Provider
