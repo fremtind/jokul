@@ -1,3 +1,5 @@
+import type { Tracking } from "../types.js";
+
 export type IconVariant = "inherit" | "small" | "medium";
 
 export interface IconProps {
@@ -17,4 +19,5 @@ export interface IconProps {
     filled?: boolean;
     className?: string;
     style?: React.CSSProperties;
+    tracking?: Tracking;
 }

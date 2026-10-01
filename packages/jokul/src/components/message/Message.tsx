@@ -5,6 +5,8 @@ import { ErrorIcon } from "../icon/icons/ErrorIcon.js";
 import { InfoIcon } from "../icon/icons/InfoIcon.js";
 import { SuccessIcon } from "../icon/icons/SuccessIcon.js";
 import { WarningIcon } from "../icon/icons/WarningIcon.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { DismissButton } from "./DismissButton.js";
 import type { MessageProps } from "./types.js";
 
@@ -95,6 +97,7 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
             children,
             variant = "info",
             role,
+            tracking,
             ...rest
         } = props;
 
@@ -121,6 +124,14 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
                     },
                 )}
                 role={role}
+                data-track-component-name={COMPONENT_NAMES.Message}
+                data-track-id={tracking?.id}
+                data-track-label={
+                    typeof children === "string" ? children : undefined
+                }
+                data-track-dismissed={dismissed}
+                data-track-full-width={fullWidth}
+                {...getExtraTrackingAttributes(tracking?.extra)}
             >
                 {getIcon(variant)}
                 <div className="jkl-message__content">

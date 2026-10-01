@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import type { Tracking } from "../types.js";
 
 export interface ProgressBarProps {
     id?: string;
@@ -18,4 +19,5 @@ export interface ProgressBarProps {
      */
     "aria-valuemax"?: number;
     style?: CSSProperties;
+    tracking?: Tracking;
 }

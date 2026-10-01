@@ -7,6 +7,8 @@ import { Flex } from "../flex/index.js";
 import { TrashCanIcon } from "../icon/index.js";
 import { SupportLabel } from "../input-group/index.js";
 import { Link } from "../link/index.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { Text } from "../typography/index.js";
 import type { FileProps } from "./types.js";
 
@@ -24,6 +26,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
         errorLabel = "Feil",
         onRemove,
         variant = "list",
+        tracking,
         ...rest
     } = props;
 
@@ -42,6 +45,13 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
             className={clsx(className, "jkl-file", `jkl-file--${variant}`)}
             data-state={state}
             {...rest}
+            data-track-component-name={COMPONENT_NAMES.File}
+            data-track-id={tracking?.id ?? fileName}
+            data-track-label={fileName}
+            data-track-state={state}
+            data-track-variant={variant}
+            data-track-file-size={fileSize}
+            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <Flex
                 gap="8"
