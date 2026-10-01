@@ -3,6 +3,8 @@ import React from "react";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ArrowRightIcon } from "../icon/icons/ArrowRightIcon.js";
 import { ArrowLeftIcon } from "../icon/index.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { NavLinkProps } from "./types.js";
 
 type LinkComponent = <ElementType extends React.ElementType = "a">(
@@ -18,6 +20,7 @@ export const NavLink = React.forwardRef(function NavLink<
         className,
         children,
         as = "a",
+        tracking,
         ...rest
     } = props;
     const Component = as;
@@ -34,6 +37,14 @@ export const NavLink = React.forwardRef(function NavLink<
                 className,
             )}
             {...rest}
+            data-track-component-name={COMPONENT_NAMES.NavLink}
+            data-track-id={
+                tracking?.id ?? (children ? String(children) : undefined)
+            }
+            data-track-label={children ? String(children) : undefined}
+            data-track-active={active}
+            data-track-back={back}
+            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             {back && (
                 <ArrowLeftIcon variant="small" className="jkl-nav-link__icon" />

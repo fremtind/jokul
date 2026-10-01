@@ -2,6 +2,8 @@ import clsx from "clsx";
 import { nanoid } from "nanoid";
 import React, { useCallback, useEffect, useState } from "react";
 import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { InjectedProps } from "./TabList.js";
 import type { TabListProps, TabPanelProps, TabsProps } from "./types.js";
 
@@ -11,7 +13,12 @@ import type { TabListProps, TabPanelProps, TabsProps } from "./types.js";
  *
  * Docs: https://jokul.fremtind.no/komponenter/tabs
  */
-export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
+export const Tabs = ({
+    onChange,
+    defaultTab,
+    tracking,
+    ...props
+}: TabsProps) => {
     const [activeIndex, setActiveIndex] = useState(defaultTab ?? 0);
 
     const previousTabIndex = usePreviousValue(activeIndex);
@@ -84,7 +91,14 @@ export const Tabs = ({ onChange, defaultTab, ...props }: TabsProps) => {
     }, [resolveIDs]);
 
     return (
-        <div {...props} className={clsx("jkl-tabs", props.className)}>
+        <div
+            {...props}
+            className={clsx("jkl-tabs", props.className)}
+            data-track-component-name={COMPONENT_NAMES.Tabs}
+            data-track-id={tracking?.id}
+            data-track-default-tab={defaultTab}
+            {...getExtraTrackingAttributes(tracking?.extra)}
+        >
             {renderTabList()}
             {renderTabPanels()}
         </div>

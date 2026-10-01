@@ -3,6 +3,8 @@ import React, { forwardRef } from "react";
 import { IconButton } from "../icon-button/IconButton.js";
 import type { IconButtonProps } from "../icon-button/types.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type {
     BaseModalProps,
     ModalConfig,
@@ -15,7 +17,18 @@ import type {
  * Ment å brukes med `useModal`.
  */
 export const ModalContainer = forwardRef<HTMLDivElement, ModalContainerProps>(
-    ({ className, placement = "center", slideIn, ...rest }, ref) => {
+    (
+        {
+            className,
+            placement = "center",
+            slideIn,
+            tracking,
+            "data-track-component-name": trackComponentName,
+            "data-track-id": trackId,
+            ...rest
+        },
+        ref,
+    ) => {
         // TODO: 'data-portal' fjernes når modalen tar i bruk Popover komponenten. Issue: https://github.com/fremtind/jokul/issues/4356
         return (
             <div
@@ -27,6 +40,13 @@ export const ModalContainer = forwardRef<HTMLDivElement, ModalContainerProps>(
                 )}
                 {...rest}
                 ref={ref}
+                data-track-component-name={
+                    trackComponentName ?? COMPONENT_NAMES.Modal
+                }
+                data-track-id={trackId ?? tracking?.id}
+                data-track-placement={placement}
+                data-track-slide-in={slideIn}
+                {...getExtraTrackingAttributes(tracking?.extra)}
                 data-portal
             />
         );
