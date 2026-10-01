@@ -28,12 +28,12 @@ export const ProgressBar: FC<ProgressBarProps> = ({
             aria-valuemax={max}
             data-testid="jkl-progress-bar"
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.ProgressBar}
             data-track-id={tracking?.id}
             data-track-label={title}
             data-track-value={value}
             data-track-max={max}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <span
                 className="jkl-progress-bar__tracker"

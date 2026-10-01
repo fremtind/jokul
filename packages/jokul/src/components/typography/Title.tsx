@@ -33,11 +33,11 @@ export const Title: TitleComponent = forwardRef(function Title<
             data-center={center || undefined}
             ref={ref}
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Typography}
             data-track-id={tracking?.id ?? trackingLabel}
             data-track-label={trackingLabel}
             data-track-size={size}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         />
     );
 }) as TitleComponent;

@@ -131,6 +131,7 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
                     placeholder={placeholder}
                     {...textAreaValueProps}
                     {...rest}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
                     data-track-component-name={COMPONENT_NAMES.TextArea}
                     data-track-id={
                         tracking?.id ?? (label ? String(label) : undefined)
@@ -138,7 +139,6 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
                     data-track-label={label ? String(label) : undefined}
                     data-track-rows={rows}
                     data-track-auto-expand={autoExpand}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
                 />
                 {counter && (
                     <div className="jkl-text-area__counter" aria-hidden="true">

@@ -158,6 +158,7 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                             }}
                             {...inputAttributes}
                             {...inputProps}
+                            {...getExtraTrackingAttributes(tracking?.extra)}
                             data-track-component-name={
                                 COMPONENT_NAMES.DateInput
                             }
@@ -168,7 +169,6 @@ export const DateInput = forwardRef<HTMLInputElement, DateInputProps>(
                             data-track-label={label ? String(label) : undefined}
                             data-track-min={minValue}
                             data-track-max={maxValue}
-                            {...getExtraTrackingAttributes(tracking?.extra)}
                         />
                         <Button
                             type="button"

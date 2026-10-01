@@ -302,11 +302,11 @@ const PopoverContent = React.forwardRef<
                         } as React.CSSProperties
                     }
                     {...getFloatingProps(props)}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
                     data-track-component-name={COMPONENT_NAMES.Popover}
                     data-track-id={tracking?.id}
                     data-track-placement={placement}
                     data-track-open={open}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
                 >
                     {props.children}
                 </div>

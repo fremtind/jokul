@@ -28,6 +28,7 @@ export const Help = ({
                 className={"jkl-help-trigger"}
                 icon={<Icon aria-hidden="true">help</Icon>}
                 data-testid="jkl-help-trigger"
+                {...getExtraTrackingAttributes(tracking?.extra)}
                 data-track-component-name={COMPONENT_NAMES.Help}
                 data-track-id={tracking?.id ?? buttonText}
                 data-track-label={buttonText}
@@ -35,7 +36,6 @@ export const Help = ({
                 data-track-icon-position={iconPosition}
                 data-track-show-button-text={showButtonText}
                 data-track-variant={undefined}
-                {...getExtraTrackingAttributes(tracking?.extra)}
                 // @ts-ignore
                 popovertarget={`${helpId}-popover`}
             >

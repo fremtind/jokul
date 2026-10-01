@@ -199,12 +199,12 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                 aria-live="assertive"
                                 aria-hidden={!isOpen}
                                 ref={refs.setFloating}
+                                {...getExtraTrackingAttributes(tracking?.extra)}
                                 data-track-component-name={COMPONENT_NAMES.Menu}
                                 data-track-id={tracking?.id}
                                 data-track-initial-placement={initialPlacement}
                                 data-track-open-on-hover={openOnHover}
                                 data-track-is-open={isOpen}
-                                {...getExtraTrackingAttributes(tracking?.extra)}
                             >
                                 {React.Children.map(
                                     children,

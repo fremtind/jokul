@@ -35,11 +35,11 @@ export const Loader = ({
             data-testid="jkl-loader"
             title={textDescription}
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Loader}
             data-track-id={tracking?.id}
             data-track-label={textDescription}
             data-track-variant={variant}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <span className="jkl-loader__dot jkl-loader__dot--left" />
             <span className="jkl-loader__dot jkl-loader__dot--middle" />

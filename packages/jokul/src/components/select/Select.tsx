@@ -204,12 +204,12 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             onFocus={syncFocus}
                             onBlur={syncFocus}
                             {...inputProps}
+                            {...getExtraTrackingAttributes(tracking?.extra)}
                             data-track-component-name={COMPONENT_NAMES.Select}
                             data-track-id={tracking?.id ?? label}
                             data-track-label={label}
                             data-track-multiple={multiple}
                             data-track-searchable={searchable}
-                            {...getExtraTrackingAttributes(tracking?.extra)}
                         >
                             {showPlaceholder ? placeholderText : buttonText}
                             <ArrowDownIcon />

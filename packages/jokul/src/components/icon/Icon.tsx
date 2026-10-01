@@ -33,10 +33,10 @@ export const Icon: IconComponent = React.forwardRef(function Icon<
         "jkl-icon--bold": bold,
     });
     const trackingProps = {
+        ...getExtraTrackingAttributes(tracking?.extra),
         "data-track-component-name": COMPONENT_NAMES.Icon,
         "data-track-id": tracking?.id,
         "data-track-variant": variant,
-        ...getExtraTrackingAttributes(tracking?.extra),
     };
 
     if (as === "div") {

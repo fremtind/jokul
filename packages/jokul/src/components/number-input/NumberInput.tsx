@@ -195,6 +195,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                                 inputClassName,
                             )}
                             data-testautoid={testAutoId}
+                            {...getExtraTrackingAttributes(tracking?.extra)}
                             data-track-component-name={
                                 COMPONENT_NAMES.NumberInput
                             }
@@ -206,7 +207,6 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                             data-track-stepper={stepper}
                             data-track-align={align}
                             data-track-width={width}
-                            {...getExtraTrackingAttributes(tracking?.extra)}
                         />
                         {stepper && (
                             <StepperButton

@@ -105,10 +105,10 @@ export const CookieConsent = ({
             {...modalConfig.container}
             {...rest}
             data-cookie-consent-open={isOpen}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.CookieConsent}
             data-track-id={tracking?.id}
             data-track-blocking={blocking}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <ModalOverlay {...modalConfig.overlay} />
             <Modal {...modalConfig.modal}>

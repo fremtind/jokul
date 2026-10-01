@@ -34,13 +34,13 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                     tabIndex={hasStickyHead ? 0 : tabIndex}
                     ref={ref}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
                     data-track-component-name={COMPONENT_NAMES.Table}
                     data-track-id={tracking?.id}
                     data-track-label={
                         typeof caption === "string" ? caption : undefined
                     }
                     data-track-collapse-to-list={collapseToList}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
                 >
                     {caption}
                     {children}

@@ -52,6 +52,7 @@ export const Tag = ({
     <span
         className={clsx("jkl-tag", `jkl-tag--${variant}`, className)}
         {...rest}
+        {...getExtraTrackingAttributes(tracking?.extra)}
         data-track-component-name={COMPONENT_NAMES.Tag}
         data-track-id={
             tracking?.id ??
@@ -59,7 +60,6 @@ export const Tag = ({
         }
         data-track-label={typeof children === "string" ? children : undefined}
         data-track-variant={variant}
-        {...getExtraTrackingAttributes(tracking?.extra)}
     >
         {children}
     </span>

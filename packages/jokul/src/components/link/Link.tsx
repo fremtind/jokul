@@ -32,13 +32,13 @@ export const Link = React.forwardRef(function Link<
             })}
             aria-describedby={external ? srId : undefined}
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Link}
             data-track-id={
                 tracking?.id ?? (children ? String(children) : undefined)
             }
             data-track-label={children ? String(children) : undefined}
             data-track-external={external}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <span className="jkl-link__content">{children}</span>
             {(external || rest.target === "_blank") && (

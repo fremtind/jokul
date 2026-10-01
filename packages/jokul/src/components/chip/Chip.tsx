@@ -18,13 +18,13 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
             onClick={onClick}
             aria-pressed={selected}
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Chip}
             data-track-id={
                 tracking?.id ?? (children ? String(children) : undefined)
             }
             data-track-label={children ? String(children) : undefined}
             data-track-variant={variant}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             {children}
             {variant === "filter" && selected && (

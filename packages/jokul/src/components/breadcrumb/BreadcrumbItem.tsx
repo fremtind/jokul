@@ -29,12 +29,12 @@ export const BreadcrumbItem = ({
                         "aria-current": isLastElement ? "page" : undefined,
                         className: clsx("jkl-link", child.props.className),
                         ...{
+                            ...getExtraTrackingAttributes(tracking?.extra),
                             "data-track-component-name":
                                 COMPONENT_NAMES.Breadcrumb,
                             "data-track-id": tracking?.id ?? trackingLabel,
                             "data-track-label": trackingLabel,
                             "data-track-is-last-element": isLastElement,
-                            ...getExtraTrackingAttributes(tracking?.extra),
                         },
                     });
                 }

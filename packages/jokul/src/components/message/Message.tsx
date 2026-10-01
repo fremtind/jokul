@@ -124,6 +124,7 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
                     },
                 )}
                 role={role}
+                {...getExtraTrackingAttributes(tracking?.extra)}
                 data-track-component-name={COMPONENT_NAMES.Message}
                 data-track-id={tracking?.id}
                 data-track-label={
@@ -131,7 +132,6 @@ export const Message = forwardRef<HTMLDivElement, MessageProps>(
                 }
                 data-track-dismissed={dismissed}
                 data-track-full-width={fullWidth}
-                {...getExtraTrackingAttributes(tracking?.extra)}
             >
                 {getIcon(variant)}
                 <div className="jkl-message__content">

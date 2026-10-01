@@ -77,6 +77,7 @@ export const Feedback = ({
         <div
             className={`jkl-feedback ${className || ""}`}
             data-testid="feedback"
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Feedback}
             data-track-id={
                 tracking?.id ??
@@ -90,7 +91,6 @@ export const Feedback = ({
                     : undefined
             }
             data-track-type={mainQuestionProps.type}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <FeedbackContextProvider
                 value={{

@@ -457,6 +457,7 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                                 selectedValue.length > 0 ? "" : placeholder
                             }
                             autoComplete="off"
+                            {...getExtraTrackingAttributes(tracking?.extra)}
                             data-track-component-name={COMPONENT_NAMES.Combobox}
                             data-track-id={
                                 tracking?.id ??
@@ -464,7 +465,6 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                             }
                             data-track-label={label ? String(label) : undefined}
                             data-track-has-tag-hover={hasTagHover}
-                            {...getExtraTrackingAttributes(tracking?.extra)}
                         />
                     </div>
 

@@ -94,10 +94,10 @@ export const Tabs = ({
         <div
             {...props}
             className={clsx("jkl-tabs", props.className)}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Tabs}
             data-track-id={tracking?.id}
             data-track-default-tab={defaultTab}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             {renderTabList()}
             {renderTabPanels()}

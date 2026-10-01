@@ -49,6 +49,7 @@ export const BaseRadioButton = forwardRef<
                 value={value}
                 checked={checked}
                 aria-invalid={invalid || rest["aria-invalid"]}
+                {...getExtraTrackingAttributes(tracking?.extra)}
                 data-track-component-name={
                     trackingComponentName ?? COMPONENT_NAMES.RadioButton
                 }
@@ -63,7 +64,6 @@ export const BaseRadioButton = forwardRef<
                     disableDefaultTrackingProps ? undefined : checked
                 }
                 {...trackingExtraProps}
-                {...getExtraTrackingAttributes(tracking?.extra)}
             />
             <label
                 data-testid="jkl-radio-button__label-tag"

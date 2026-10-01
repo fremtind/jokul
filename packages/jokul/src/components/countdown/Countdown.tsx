@@ -32,11 +32,11 @@ export const Countdown: FC<CountdownProps> = ({
             role="timer"
             data-testid="jkl-countdown"
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Countdown}
             data-track-id={tracking?.id}
             data-track-from={from}
             data-track-is-paused={isPaused}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <span
                 className="jkl-countdown__tracker"

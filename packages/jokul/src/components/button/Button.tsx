@@ -46,13 +46,13 @@ export const Button = React.forwardRef(function Button<
     return (
         <Component
             {...ariaLive}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Button}
             data-track-id={
                 tracking?.id ?? (children ? String(children) : undefined)
             }
             data-track-label={children ? String(children) : undefined}
             data-track-variant={variant}
-            {...getExtraTrackingAttributes(tracking?.extra)}
             data-loading={showLoader}
             className={cn("jkl-button", `jkl-button--${variant}`, className)}
             disabled={as === "button" ? loader?.showLoader : undefined}

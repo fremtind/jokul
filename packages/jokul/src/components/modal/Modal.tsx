@@ -40,13 +40,13 @@ export const ModalContainer = forwardRef<HTMLDivElement, ModalContainerProps>(
                 )}
                 {...rest}
                 ref={ref}
+                {...getExtraTrackingAttributes(tracking?.extra)}
                 data-track-component-name={
                     trackComponentName ?? COMPONENT_NAMES.Modal
                 }
                 data-track-id={trackId ?? tracking?.id}
                 data-track-placement={placement}
                 data-track-slide-in={slideIn}
-                {...getExtraTrackingAttributes(tracking?.extra)}
                 data-portal
             />
         );

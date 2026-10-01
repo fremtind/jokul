@@ -127,6 +127,7 @@ export const TooltipContent = forwardRef<
                                     ...props,
                                     id: contentId,
                                 })}
+                                {...getExtraTrackingAttributes(tracking?.extra)}
                                 data-track-component-name={
                                     COMPONENT_NAMES.Tooltip
                                 }
@@ -134,7 +135,6 @@ export const TooltipContent = forwardRef<
                                 data-track-placement={placement}
                                 data-track-trigger-on={triggerOn}
                                 data-track-initial-open={initialOpen}
-                                {...getExtraTrackingAttributes(tracking?.extra)}
                                 style={{
                                     ...floatingStyles,
                                     ...animationStyles,

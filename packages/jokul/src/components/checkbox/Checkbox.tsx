@@ -66,6 +66,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                     {...rest}
                     type="checkbox"
                     checked={checked}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
                     data-track-component-name={
                         trackingComponentName ?? COMPONENT_NAMES.Checkbox
                     }
@@ -86,7 +87,6 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                         disableDefaultTrackingProps ? undefined : inline
                     }
                     {...trackingExtraProps}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
                 />
                 <label htmlFor={inputId} className="jkl-checkbox__label">
                     {children}

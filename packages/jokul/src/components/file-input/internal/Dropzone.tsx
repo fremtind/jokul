@@ -34,12 +34,12 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(
                 {...rest}
                 ref={ref}
                 className={clsx("jkl-file-input__dropzone", onDragClassName)}
+                {...getExtraTrackingAttributes(tracking?.extra)}
                 data-track-component-name={COMPONENT_NAMES.FileInput}
                 data-track-id={tracking?.id}
                 data-track-accept={accept}
                 data-track-multiple={multiple}
                 data-track-variant={variant}
-                {...getExtraTrackingAttributes(tracking?.extra)}
                 onDragEnter={(e) => {
                     setOnDragClassName("jkl-file-input__dropzone--enter");
                     e.preventDefault();

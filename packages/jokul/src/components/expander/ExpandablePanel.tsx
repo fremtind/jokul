@@ -107,10 +107,10 @@ export const ExpandablePanel = Object.assign(
                     /* this attribute is used for styling purposes */
                     data-visible-content={isOpen || contentIsVisible}
                     {...rest}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
                     data-track-component-name={COMPONENT_NAMES.Expander}
                     data-track-id={tracking?.id}
                     data-track-outlined={outlined}
-                    {...getExtraTrackingAttributes(tracking?.extra)}
                 >
                     <ExpanderContext.Provider
                         value={{

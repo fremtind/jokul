@@ -73,13 +73,13 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                     "jkl-input-group--inline": inline,
                 })}
                 {...rest}
+                {...getExtraTrackingAttributes(tracking?.extra)}
                 data-track-component-name={COMPONENT_NAMES.InputGroup}
                 data-track-id={
                     tracking?.id ?? (label ? String(label) : undefined)
                 }
                 data-track-label={label ? String(label) : undefined}
                 data-track-inline={inline}
-                {...getExtraTrackingAttributes(tracking?.extra)}
             >
                 <Label
                     standAlone

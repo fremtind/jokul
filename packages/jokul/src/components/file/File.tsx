@@ -45,13 +45,13 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
             className={clsx(className, "jkl-file", `jkl-file--${variant}`)}
             data-state={state}
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.File}
             data-track-id={tracking?.id ?? fileName}
             data-track-label={fileName}
             data-track-state={state}
             data-track-variant={variant}
             data-track-file-size={fileSize}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <Flex
                 gap="8"

@@ -36,11 +36,11 @@ function Region<T extends ToastContent>({
             className={clsx("jkl", "jkl-toast-region", {
                 "jkl-toast-region--left": placement === "left",
             })}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Toast}
             data-track-id={tracking?.id}
             data-track-placement={placement}
             data-track-max-visible-toasts={maxVisibleToasts}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <div
                 {...regionProps}

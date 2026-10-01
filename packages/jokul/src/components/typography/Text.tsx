@@ -39,13 +39,13 @@ export const Text: TextComponent = forwardRef(function Text<
             data-subdued={subdued || undefined}
             ref={ref}
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Typography}
             data-track-id={tracking?.id ?? trackingLabel}
             data-track-label={trackingLabel}
             data-track-size={size}
             data-track-bold={bold}
             data-track-subdued={subdued}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         />
     );
 }) as TextComponent;

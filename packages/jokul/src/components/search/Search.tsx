@@ -69,12 +69,12 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                                 spellCheck={spellCheck}
                                 {...inputProps}
                                 {...rest}
+                                {...getExtraTrackingAttributes(tracking?.extra)}
                                 data-track-component-name={
                                     COMPONENT_NAMES.Search
                                 }
                                 data-track-id={tracking?.id ?? label}
                                 data-track-label={label}
-                                {...getExtraTrackingAttributes(tracking?.extra)}
                             />
                             <button
                                 className="clear-button"

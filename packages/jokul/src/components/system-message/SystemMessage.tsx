@@ -96,6 +96,7 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
                     "jkl-system-message--dismissed": dismissed,
                 },
             )}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.SystemMessage}
             data-track-id={tracking?.id}
             data-track-label={
@@ -103,7 +104,6 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
             }
             data-track-dismissed={dismissed}
             data-track-max-content-width={maxContentWidth}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <div
                 className="jkl-system-message__content"

@@ -46,13 +46,13 @@ export const Card = React.forwardRef(function Card<
                 className,
             )}
             {...componentProps}
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Card}
             data-track-id={tracking?.id ?? trackingLabel}
             data-track-label={trackingLabel}
             data-track-padding={padding}
             data-track-outlined={outlined}
             data-track-clickable={clickable}
-            {...getExtraTrackingAttributes(tracking?.extra)}
             ref={ref}
         >
             {children}

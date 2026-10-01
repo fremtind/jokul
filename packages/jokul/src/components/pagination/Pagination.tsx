@@ -52,11 +52,11 @@ export const Pagination = React.forwardRef(function Pagination<
                 ref={ref}
                 {...rest}
                 className={clsx("jkl-pagination", className)}
+                {...getExtraTrackingAttributes(tracking?.extra)}
                 data-track-component-name={COMPONENT_NAMES.Pagination}
                 data-track-id={tracking?.id}
                 data-track-current-page={currentPage}
                 data-track-number-of-pages={numberOfPages}
-                {...getExtraTrackingAttributes(tracking?.extra)}
             >
                 <IconButton
                     className="jkl-pagination-button"
@@ -120,11 +120,11 @@ export const Pagination = React.forwardRef(function Pagination<
             ref={ref}
             {...rest}
             className="jkl-pagination"
+            {...getExtraTrackingAttributes(tracking?.extra)}
             data-track-component-name={COMPONENT_NAMES.Pagination}
             data-track-id={tracking?.id}
             data-track-current-page={currentPage}
             data-track-number-of-pages={numberOfPages}
-            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <IconButton
                 className="jkl-pagination-button"
