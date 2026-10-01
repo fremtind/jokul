@@ -2,6 +2,8 @@ import clsx from "clsx";
 import React from "react";
 import { useId } from "../../hooks/useId/useId.js";
 import { DismissButton } from "../message/DismissButton.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { MessageIcon } from "./common/MessageIcon.js";
 import type { SystemMessageProps } from "./types.js";
 
@@ -74,6 +76,7 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
     variant = "info",
     dismissAction,
     children,
+    tracking,
     ...rest
 }) => {
     const systemId = useId(id || "jkl-system-message", {
@@ -93,6 +96,14 @@ export const SystemMessage: React.FC<SystemMessageProps> = ({
                     "jkl-system-message--dismissed": dismissed,
                 },
             )}
+            data-track-component-name={COMPONENT_NAMES.SystemMessage}
+            data-track-id={tracking?.id}
+            data-track-label={
+                typeof children === "string" ? children : undefined
+            }
+            data-track-dismissed={dismissed}
+            data-track-max-content-width={maxContentWidth}
+            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             <div
                 className="jkl-system-message__content"

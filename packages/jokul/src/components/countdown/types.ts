@@ -1,4 +1,5 @@
 import type { CSSProperties } from "react";
+import type { Tracking } from "../types.js";
 
 export interface CountdownProps
     extends Pick<
@@ -13,4 +14,5 @@ export interface CountdownProps
     from: number;
     isPaused?: boolean;
     style?: CSSProperties;
+    tracking?: Tracking;
 }

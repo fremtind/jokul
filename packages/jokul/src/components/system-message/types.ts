@@ -1,5 +1,6 @@
 import type { AriaRole } from "react";
 import type { WithChildren } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export interface SystemMessageProps extends WithChildren {
     id?: string;
@@ -23,4 +24,5 @@ export interface SystemMessageProps extends WithChildren {
      * @default "info"
      */
     variant?: "info" | "success" | "warning" | "error";
+    tracking?: Tracking;
 }
