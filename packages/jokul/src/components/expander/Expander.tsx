@@ -8,6 +8,8 @@ import React, {
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
 import { ChevronDownIcon } from "../icon/icons/ChevronDownIcon.js";
 import { ChevronUpIcon } from "../icon/index.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { ExpanderContext } from "./context.js";
 import type {
     ExpandableContext,
@@ -26,6 +28,7 @@ export const Expander = React.forwardRef(function Expander<
         className,
         onClick,
         expandDirection,
+        tracking,
         ...rest
     } = props;
     const El = as;
@@ -90,6 +93,14 @@ export const Expander = React.forwardRef(function Expander<
                 onClick?.(e);
             }}
             {...rest}
+            data-track-component-name={COMPONENT_NAMES.Expander}
+            data-track-id={
+                tracking?.id ?? (children ? String(children) : undefined)
+            }
+            data-track-label={children ? String(children) : undefined}
+            data-track-open={isOpen}
+            data-track-expand-direction={expandDirection}
+            {...getExtraTrackingAttributes(tracking?.extra)}
         >
             {icon || null}
             <span className="jkl-expander__label">{children}</span>

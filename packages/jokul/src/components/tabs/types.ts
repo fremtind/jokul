@@ -1,5 +1,6 @@
 import type { PolymorphicPropsWithRef } from "../../utilities/index.js";
 import type { WithChildren } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export type NavTabProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
@@ -41,4 +42,5 @@ export interface TabsProps extends WithChildren {
     className?: string;
     onChange?: (tabIndex: number) => void;
     defaultTab?: number;
+    tracking?: Tracking;
 }

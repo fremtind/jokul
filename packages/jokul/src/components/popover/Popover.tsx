@@ -20,6 +20,9 @@ import {
 import clsx from "clsx";
 import * as React from "react";
 import { getThemeAndSize } from "../../utilities/getThemeAndSize.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
+import type { Tracking } from "../types.js";
 import type { PopoverOptions } from "./types.js";
 
 const usePopover = ({
@@ -213,6 +216,7 @@ interface PopoverContentProps {
      * @see https://floating-ui.com/docs/FloatingFocusManager#returnfocus
      */
     returnFocus?: boolean;
+    tracking?: Tracking;
 }
 
 // Er popover-elementet posisjonert i forhold til et annet element enn triggeren?
@@ -234,6 +238,7 @@ const PopoverContent = React.forwardRef<
         padding = 0,
         initialFocus = 0,
         returnFocus = true,
+        tracking,
         ...props
     },
     propRef,
@@ -243,6 +248,7 @@ const PopoverContent = React.forwardRef<
         modal,
         refs,
         open,
+        placement,
         floatingStyles,
         getFloatingProps,
         isPositioned,
@@ -296,6 +302,11 @@ const PopoverContent = React.forwardRef<
                         } as React.CSSProperties
                     }
                     {...getFloatingProps(props)}
+                    data-track-component-name={COMPONENT_NAMES.Popover}
+                    data-track-id={tracking?.id}
+                    data-track-placement={placement}
+                    data-track-open={open}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
                 >
                     {props.children}
                 </div>

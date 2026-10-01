@@ -4,6 +4,8 @@ import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.j
 import { IconButton } from "../icon-button/IconButton.js";
 import { ChevronLeftIcon } from "../icon/icons/ChevronLeftIcon.js";
 import { ChevronRightIcon } from "../icon/icons/ChevronRightIcon.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { PageButton } from "./PageButton.js";
 import type { PaginationProps } from "./types.js";
 
@@ -24,6 +26,7 @@ export const Pagination = React.forwardRef(function Pagination<
         },
         as,
         className,
+        tracking,
         ...rest
     }: PaginationProps<ElementType>,
     ref?: PolymorphicRef<ElementType>,
@@ -49,6 +52,11 @@ export const Pagination = React.forwardRef(function Pagination<
                 ref={ref}
                 {...rest}
                 className={clsx("jkl-pagination", className)}
+                data-track-component-name={COMPONENT_NAMES.Pagination}
+                data-track-id={tracking?.id}
+                data-track-current-page={currentPage}
+                data-track-number-of-pages={numberOfPages}
+                {...getExtraTrackingAttributes(tracking?.extra)}
             >
                 <IconButton
                     className="jkl-pagination-button"
@@ -108,7 +116,16 @@ export const Pagination = React.forwardRef(function Pagination<
     const endEllipsis = Math.min(centerPageNumberStart + 3, numberOfPages - 1);
 
     return (
-        <Component ref={ref} {...rest} className="jkl-pagination">
+        <Component
+            ref={ref}
+            {...rest}
+            className="jkl-pagination"
+            data-track-component-name={COMPONENT_NAMES.Pagination}
+            data-track-id={tracking?.id}
+            data-track-current-page={currentPage}
+            data-track-number-of-pages={numberOfPages}
+            {...getExtraTrackingAttributes(tracking?.extra)}
+        >
             <IconButton
                 className="jkl-pagination-button"
                 title={labels.previous}
