@@ -5,6 +5,7 @@ import cssBrandFontsFormat from "./formats/css-brand-fonts.js";
 import cssColorMode from "./formats/css-color-mode.js";
 import cssColorSchemeBrand from "./formats/css-color-scheme-brand.js";
 import cssColorScheme from "./formats/css-color-scheme.js";
+import cssDataTheme from "./formats/css-data-theme.js";
 import cssSizeFormat from "./formats/css-size.js";
 import cssTailwind4Format from "./formats/css-tailwind4.js";
 import cssThemeVariablesFormat from "./formats/css-theme-variables.js";
@@ -13,6 +14,7 @@ import scssBrandIndexFormat from "./formats/scss-brand-index.js";
 import {
     isBrandFontValue,
     isColorSchemeValue,
+    isDataThemeValue,
     isSizeValue,
     isStaticToken,
 } from "./filters.js";
@@ -27,6 +29,7 @@ StyleDictionary.registerFormat(cssColorSchemeBrand);
 StyleDictionary.registerFormat(cssBrandFontsFormat);
 StyleDictionary.registerFormat(cssSizeFormat);
 StyleDictionary.registerFormat(cssTailwind4Format);
+StyleDictionary.registerFormat(cssDataTheme);
 StyleDictionary.registerFormat(scssBrandIndexFormat);
 
 // Transforms
@@ -67,6 +70,7 @@ StyleDictionary.registerTransform({
 // Filters
 StyleDictionary.registerFilter(isColorSchemeValue);
 StyleDictionary.registerFilter(isSizeValue);
+StyleDictionary.registerFilter(isDataThemeValue);
 StyleDictionary.registerFilter(isStaticToken);
 StyleDictionary.registerFilter(isBrandFontValue);
 

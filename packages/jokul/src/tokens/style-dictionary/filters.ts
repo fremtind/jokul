@@ -8,13 +8,25 @@ import type { Filter, TransformedToken } from "style-dictionary";
  * @param token - Token som skal sjekkes
  * @returns true hvis tokenet har både "light" og "dark" verdier
  */
-export function isColorSchemeToken(token: TransformedToken): boolean {
+function hasLightDarkValue(token: TransformedToken): boolean {
     return (
         token.value !== null &&
         typeof token.value === "object" &&
         "light" in token.value &&
         "dark" in token.value
     );
+}
+
+export function isColorSchemeToken(token: TransformedToken): boolean {
+    return hasLightDarkValue(token) && token.path[0] === "color";
+}
+
+/**
+ * Sjekker om en token har lys/mørk-verdier, men ikke er en farge (f.eks. opacity).
+ * Slike verdier kan ikke bruke light-dark().
+ */
+export function isDataThemeToken(token: TransformedToken): boolean {
+    return hasLightDarkValue(token) && token.path[0] !== "color";
 }
 
 /**
@@ -74,7 +86,16 @@ export const isSizeValue: Filter = {
  */
 export const isStaticToken: Filter = {
     name: "isStaticToken",
-    filter: (token) => !isColorSchemeToken(token) && !isSizeToken(token),
+    filter: (token) => !hasLightDarkValue(token) && !isSizeToken(token),
+};
+
+/**
+ * Filter for lys/mørk-tokens som ikke er farger.
+ * Eksporteres med selektorer for både brukerpreferanse og [data-theme].
+ */
+export const isDataThemeValue: Filter = {
+    name: "isDataThemeValue",
+    filter: isDataThemeToken,
 };
 
 /**
