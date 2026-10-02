@@ -27,7 +27,7 @@
 
 
         &:is(:hover, :focus-visible):not(:disabled):not([aria-disabled="true"]) {
-            background-color: var(--jkl-color-background-container-accent);
+            @include jkl.hover-bg;
         }
 
         @include jkl.disabled-selectors {
