@@ -1,4 +1,4 @@
-@use "../../../../styles/jkl/index";
+@use "../../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-calendar {
@@ -39,11 +39,9 @@
                     cursor: pointer;
                 }
 
-                &:has(.day:not(:checked)):hover {
+                &:has(.day:not(:disabled)):hover {
                     &::after {
-                        background-color: color-mix(in srgb,
-                        currentColor 15%,
-                        transparent);
+                        @include jkl.hover-bg;
                     }
                 }
             }
@@ -60,6 +58,8 @@
                 color: var(--jkl-color-text-on-contrast);
 
                 &::after {
+                    --hover-accent-color: var(--jkl-color-text-on-contrast);
+                    --background-color: var(--jkl-color-background-contrast);
                     background-color: var(--jkl-color-background-contrast);
                 }
             }
