@@ -28,20 +28,11 @@
     padding: 0 var(--padding-inline);
     min-height: var(--height);
 
+    @include jkl.motion("standard", "productive", background-color);
+
     @include jkl.forced-colors-mode {
         border: 2px none CanvasText;
         border-bottom-style: dotted;
-    }
-
-    &::after {
-        content: "";
-        opacity: 0;
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        background-color: var(--text-color);
-
-        @include jkl.motion("standard", "productive", opacity);
     }
 
     &:focus-visible {
@@ -49,15 +40,14 @@
     }
 
     &:hover {
-        &::after {
-            opacity: 0.15;
-        }
+        @include jkl.hover-bg;
     }
 
     &--filter {
         &[aria-pressed="true"] {
             --background-color: var(--jkl-color-background-contrast);
             --text-color: var(--jkl-color-text-on-contrast);
+            --hover-accent-color: var(--jkl-color-text-on-contrast);
             --border-color: var(--jkl-color-border-strong);
 
             @include jkl.forced-colors-mode {
