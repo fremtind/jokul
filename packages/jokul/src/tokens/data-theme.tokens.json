@@ -1,0 +1,10 @@
+{
+    "opacity": {
+        "hover": {
+            "value": {
+                "light": "10%",
+                "dark": "15%"
+            }
+        }
+    }
+}
