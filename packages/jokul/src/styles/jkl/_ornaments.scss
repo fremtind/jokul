@@ -26,3 +26,11 @@
     outline: $thickness solid var(--jkl-color-border-strong);
     outline-offset: $offset;
 }
+
+@mixin hover-bg {
+    background-color: color-mix(
+        in srgb,
+        var(--background-color, transparent),
+        var(--hover-accent-color, var(--jkl-color-background-contrast)) var(--jkl-opacity-hover, 10%)
+    )
+}
