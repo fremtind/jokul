@@ -33,6 +33,7 @@
     .jkl-toast {
         --background-color: var(--jkl-color-background-container);
         --text-color: var(--jkl-color-text-default);
+        --icon-color: var(--jkl-color-background-contrast);
         --border-color: var(--jkl-color-border-subdued);
         --jkl-toast-padding: var(--jkl-unit-20);
 
@@ -62,6 +63,7 @@
 
         &__icon {
             @include jkl.forced-colors-svg-fallback($stroke: CanvasText);
+            color: var(--icon-color);
 
             .jkl-toast:not(:has(.jkl-toast__title)) & {
                 margin-block-start: jkl.rem(1px);
