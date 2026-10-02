@@ -31,6 +31,11 @@ export const jokulTokens: Config = {
                     format: "css/size",
                 },
                 {
+                    filter: "isDataThemeValue",
+                    destination: "_data-theme.scss",
+                    format: "css/data-theme",
+                },
+                {
                     filter: "isStaticToken",
                     destination: "_tokens.scss",
                     format: "css/theme-variables",
