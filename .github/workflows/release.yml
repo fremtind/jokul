@@ -48,7 +48,7 @@ jobs:
 
             - name: Versjonering eller publisering med Changesets
               id: changesets
-              uses: changesets/action@746c25e23caa47dceb6a48ee85b4cbc5a9f5f293
+              uses: changesets/action@ae32849d5ba541f9ae29e40e22a623bc13562f51
               with:
                   # main lar Changesets velge tag; --tag er ikke tillatt i prerelease-modus.
                   publish: >-
