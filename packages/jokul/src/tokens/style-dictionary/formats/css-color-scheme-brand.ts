@@ -1,7 +1,11 @@
 import type { Dictionary, File, Format } from "style-dictionary/types";
 import { fileHeader } from "style-dictionary/utils";
 import { isColorSchemeToken } from "../filters.js";
-import { formatColorTokenDeclarations } from "./css-color-scheme-helpers.js";
+import {
+    LIGHT_DARK_UNSUPPORTED,
+    formatColorTokenDeclarations,
+    formatColorTokenFallbackDeclarations,
+} from "./css-color-scheme-helpers.js";
 
 type BrandColorSchemeOptions = {
     selector?: string;
@@ -39,11 +43,21 @@ const cssColorSchemeBrand: Format = {
             colorSchemeTokens,
             indentation,
         );
+        const fallbackDeclarations = formatColorTokenFallbackDeclarations(
+            colorSchemeTokens,
+            "            ",
+        );
 
         return `${await fileHeader({ file })}
 @layer jokul.theme {
     ${selector} {
 ${colorTokenDeclarations}
+    }
+
+    ${LIGHT_DARK_UNSUPPORTED} {
+        ${selector} {
+${fallbackDeclarations}
+        }
     }
 }
 `;
