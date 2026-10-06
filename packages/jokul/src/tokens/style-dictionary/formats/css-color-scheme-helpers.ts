@@ -12,27 +12,8 @@ function getColorTokenVariableName(token: TransformedToken): string {
 }
 
 /**
- * Skriver én fargetoken som to CSS-deklarasjoner:
- * først en vanlig fallback-verdi, deretter samme variabel med `light-dark()`.
- *
- * Det gir lesbar output og sørger for at eldre nettlesere fortsatt får en verdi.
- */
-function formatColorTokenDeclaration(
-    token: TransformedToken,
-    indentation: string,
-): string {
-    const variableName = getColorTokenVariableName(token);
-    const lightValue = token.value.light;
-    const darkValue = token.value.dark;
-
-    const fallbackDeclaration = `${indentation}${variableName}: ${lightValue};`;
-    const lightDarkDeclaration = `${indentation}${variableName}: light-dark(${lightValue}, ${darkValue});`;
-
-    return `${fallbackDeclaration}\n${lightDarkDeclaration}`;
-}
-
-/**
- * Formaterer hele settet av fargetokens til CSS custom properties.
+ * Formaterer hele settet av fargetokens til CSS custom properties med
+ * `light-dark()`.
  *
  * Denne brukes av både `css/color-scheme` og `css/color-scheme-brand`, slik at
  * basefilen og brand-overrides får identisk syntaks for tokenverdiene.
@@ -41,9 +22,32 @@ export function formatColorTokenDeclarations(
     colorTokens: TransformedToken[],
     indentation: string,
 ): string {
-    const declarations = colorTokens
-        .map((token) => formatColorTokenDeclaration(token, indentation))
+    return colorTokens
+        .map(
+            (token) =>
+                `${indentation}${getColorTokenVariableName(token)}: light-dark(${token.value.light}, ${token.value.dark});`,
+        )
         .join("\n");
-
-    return `${indentation}/* stylelint-disable declaration-block-no-duplicate-custom-properties -- fallback and light-dark() declarations are intentionally paired. */\n${declarations}\n${indentation}/* stylelint-enable declaration-block-no-duplicate-custom-properties */`;
 }
+
+/**
+ * Formaterer fargetokens med bare lys verdi, til bruk som fallback i
+ * nettlesere uten støtte for `light-dark()`.
+ */
+export function formatColorTokenFallbackDeclarations(
+    colorTokens: TransformedToken[],
+    indentation: string,
+): string {
+    return colorTokens
+        .map(
+            (token) =>
+                `${indentation}${getColorTokenVariableName(token)}: ${token.value.light};`,
+        )
+        .join("\n");
+}
+
+/**
+ * Betingelsen for fallback-blokken. Verdiene i testen må være gyldige farger.
+ */
+export const LIGHT_DARK_UNSUPPORTED =
+    "@supports not (color: light-dark(#000, #fff))";
