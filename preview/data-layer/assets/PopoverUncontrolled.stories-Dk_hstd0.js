@@ -1,0 +1,10 @@
+import{j as e,r as s}from"./iframe-CbDy8VtV.js";import{P as r}from"./Popover-Da8NqL9T.js";/* empty css               *//* empty css               */import"./preload-helper-PPVm8Dsz.js";import"./floating-ui.react-CGVWMFgJ.js";import"./index-CH5wy4rG.js";import"./index-DUL7th9_.js";import"./clsx-B-dksMZM.js";import"./getThemeAndSize-CZAj3IXt.js";import"./types-YjSsgwWY.js";const C={title:"Komponenter/Popover/PopoverUncontrolled",component:r},a=n=>{const[t,p]=s.useState(!1);return e.jsxs(r,{...n,open:t,onOpenChange:p,children:[e.jsx(r.Trigger,{onClick:()=>p(!t),"aria-expanded":t,asChild:!0,children:"Åpne popover"}),e.jsx(r.Content,{padding:24,children:"Dette er innholdet i Popover"})]})},o={args:{open:!1,onOpenChange:()=>{},roleOptions:{role:"menu"}},render:n=>e.jsx(a,{...n})};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    open: false,
+    onOpenChange: () => {},
+    roleOptions: {
+      role: "menu"
+    }
+  },
+  render: args => <PopoverUncontrolledComponent {...args} />
+}`,...o.parameters?.docs?.source}}};const O=["PopoverUncontrolled"];export{o as PopoverUncontrolled,O as __namedExportsOrder,C as default};
