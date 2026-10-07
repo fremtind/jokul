@@ -1,3 +1,5 @@
+import type { ColorMode } from "../../utilities/types.js";
+
 export interface MessageProps extends React.ComponentPropsWithoutRef<"div"> {
     fullWidth?: boolean;
     dismissed?: boolean;
@@ -5,7 +7,10 @@ export interface MessageProps extends React.ComponentPropsWithoutRef<"div"> {
         handleDismiss: () => void;
         buttonTitle?: string;
     };
-    variant?: "info" | "error" | "success" | "warning";
+    /**
+     * @default "info"
+     */
+    variant?: ColorMode;
 }
 
 export interface FormErrorMessageProps {
