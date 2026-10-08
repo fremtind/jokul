@@ -25,20 +25,27 @@ hvordan du drar nytte av det.
 
 Disse `data-track-*`-attributtene dukker opp i DOM-en på alle komponenter:
 
-| Attributt | Beskrivelse | Kan overstyres? |
-|---|---|---|
-| `data-track-component-name` | Navnet på komponenten, f.eks. `"Button"` eller `"Checkbox"`. | Nei |
-| `data-track-label` | Menneskelig lesbar. Hentet fra knappetekst, label, eller lignende. | Nei |
-| `data-track-id` | Samme som label, men kan overskrives for å kunne differansiere knappene i tilfeller hvor det er mange med samme label. | Ja |
+| Attributt | Beskrivelse |
+|---|---|
+| `data-track-component-name` | Navnet på komponenten, f.eks. `"Button"` eller `"Checkbox"`. |
+| `data-track-label` | Menneskelig lesbar. Hentet fra knappetekst, label, eller lignende. |
+| `data-track-id` | Samme som label, men kan overskrives for å kunne differansiere knappene i tilfeller hvor det er mange med samme label. |
 
-Attributtene har fornuftige defaults, men du kan overstyre dem med
-`tracking`-propen:
+### Overstyre defaultene
+
+Alle `data-track-*`-attributtene har fornuftige defaults, og alle kan
+overstyres. Du har to likeverdige måter å gjøre det på.
+
+Sett attributtet rett i JSX-en, slik du ville gjort på en komponent
+utenfor Jøkul:
 
 ```tsx
-<Button tracking={{ id: "hovedknapp-kjop" }} variant="primary">
+<Button data-track-id="hovedknapp-kjop" variant="primary">
     Kjøp
 </Button>
 ```
+
+Eller bruk `tracking`-propen, som er en snarvei for de samme attributtene:
 
 ```tsx
 <Checkbox tracking={{ id: "godta-vilkar" }} name="vilkar" value="godtatt">
@@ -50,12 +57,22 @@ Attributtene har fornuftige defaults, men du kan overstyre dem med
 <TextInput tracking={{ id: "epost-felt" }} label="E-post" name="email" />
 ```
 
+**Et attributt satt direkte vinner alltid** – over både defaulten vår og
+`tracking`-propen. Det gjelder uansett hvilken komponent det er, så du kan
+holde deg til én konvensjon på tvers av egne og Jøkuls komponenter.
+
+> `data-track-component-name` kan også overstyres, men vi anbefaler å la
+> den være: den identifiserer komponenten på tvers av hele Fremtind, og
+> overstyrer du den forsvinner komponenten fra felles dashbord. Vi bruker
+> den selv når en komponent bygger på en annen – `Help` rendrer en
+> `Button`, men rapporterer `Help`.
+
 ### Hvilke komponenter spores, og hva spores?
 
 Tabellen under viser komponentene som har `tracking`-prop i dag: hvor
 `data-track-label`/`data-track-id` henter default-verdien sin fra, og
 hvilke ekstra attributter som følger med. `data-track-component-name` er
-alltid med, og den kan du ikke overstyre uansett hva du gjør.
+alltid med.
 
 Ikke alle komponenter har en naturlig tekstkilde å hente label/id fra. Der det mangler står det bare en strek (–).
 
@@ -113,6 +130,11 @@ er rent presentasjonsmessige):
 `TableOfContents`, `SegmentedControl`, `ToggleSlider`, `DescriptionList`,
 `Flex`, `Autosuggest`-forslagslisten (`Suggestion`), `Breadcrumb`
 (containeren. `BreadcrumbItem` har tracking).
+
+> **Unntak: `Autosuggest`.** Den videresender ikke egne DOM-attributter
+> til inndata-elementet, så der virker verken `tracking.extra` eller
+> `data-track-*` satt direkte – bare `tracking.id`. Komponenten er
+> utdatert og skal erstattes av `Select`, så vi fikser den ikke.
 
 > **Icon dukker opp overalt.** `Icon` brukes dekorativt i mange andre
 > komponenter (f.eks. som `aria-hidden`-ikon i `Button`), så det er helt
@@ -332,14 +354,14 @@ Som nevnt over ligger attributtene alltid på rot-elementet. Bruker du
 "matches CSS selector" i triggeren (se under), trenger du ingen
 `closest()`-oppslag eller andre fallbacks.
 
-I tillegg trenger du tre **Custom JavaScript**-variabler for app-, team-
-og versjonsinfo. De ligger på `<html>` og er ikke knyttet til et klikk,
+I tillegg trenger du to **Custom JavaScript**-variabler for app- og
+teaminfo. De ligger på `<html>` og er ikke knyttet til et klikk,
 så en vanlig Auto-Event Variable funker ikke der:
 
 ```js
-// DT - jokul-version (tilsvarende for app-name og team)
+// DT - app-name (tilsvarende for team)
 function () {
-    return document.documentElement.getAttribute("data-track-jokul-version");
+    return document.documentElement.getAttribute("data-track-app-name");
 }
 ```
 
@@ -360,7 +382,6 @@ dataLayer.push({
     component_name: "{{DT - component-name}}",
     component_label: "{{DT - label}}",
     component_id: "{{DT - id}}",
-    jokul_version: "{{DT - jokul-version}}",
     app_name: "{{DT - app-name}}",
     team: "{{DT - team}}",
 });
@@ -381,10 +402,10 @@ som klikkes eller endres, og legger dem i event-properties med
 nøkkelformatet `$el_attr__<attributt-navn>`. Ingen kode per komponent
 nødvendig.
 
-### 1. Slå på autocapture, og registrer app/team/versjon
+### 1. Slå på autocapture, og registrer app/team
 
 Super-properties henger seg automatisk på alle events. Attributtene for
-app, team og Jøkul-versjon ligger på `<html>` og fanges ikke av
+app og team ligger på `<html>` og fanges ikke av
 autocapture, så de må registreres her i stedet:
 
 ```ts
@@ -394,7 +415,6 @@ mixpanel.init("DITT_PROSJEKT_TOKEN", { autocapture: true });
 
 const root = document.documentElement;
 mixpanel.register({
-    jokul_version: root.getAttribute("data-track-jokul-version"),
     app_name: root.getAttribute("data-track-app-name"),
     team: root.getAttribute("data-track-team"),
 });
@@ -422,7 +442,6 @@ gir et `[Auto] Element Click`-event med blant annet:
     "$el_attr__data-track-component-name": "Button",
     "$el_attr__data-track-label": "Kjøp",
     "$el_attr__data-track-id": "hovedknapp-kjop",
-    "jokul_version": "6.4.0",
     "app_name": "mine-sider",
     "team": "Mitt Team"
 }
@@ -479,7 +498,6 @@ function Analytics() {
 
         const root = document.documentElement;
         mixpanel.register({
-            jokul_version: root.getAttribute("data-track-jokul-version"),
             app_name: root.getAttribute("data-track-app-name"),
             team: root.getAttribute("data-track-team"),
         });
@@ -662,7 +680,7 @@ Bruk **Preview**-modus (Forhåndsvis-knappen i GTM):
 |---|---|
 | Variablene er `undefined` | Attributtnavnet i Auto-Event Variable er feilstavet |
 | Tag'en fyrer ikke | CSS-selectoren i triggeren matcher ikke `[data-track-component-name]` |
-| `DT - jokul-version` er tom | `statistics`-samtykke mangler, eller Custom JavaScript-variabelen leser feil attributt |
+| `DT - app-name` er tom | `statistics`-samtykke mangler, eller Custom JavaScript-variabelen leser feil attributt |
 | Ingenting skjer i det hele tatt | Consent Mode blokkerer. Sjekk `analytics_storage` under **Consent**-fanen |
 
 ### Mixpanel
@@ -681,12 +699,12 @@ disse:
 |---|---|
 | Ingen `[Auto]`-events | `autocapture: true` mangler i `init` |
 | Events uten `$el_attr__data-track-*` | Du klikket på et barn-element uten attributtene. Sjekk at komponenten faktisk setter dem |
-| `jokul_version` mangler | `mixpanel.register` kjørte før samtykke, da `<html>`-attributtene ennå ikke var satt |
+| `app_name` mangler | `mixpanel.register` kjørte før samtykke, da `<html>`-attributtene ennå ikke var satt |
 
 Sjekk de registrerte super-propertiene direkte:
 
 ```js
-mixpanel.get_property("jokul_version");
+mixpanel.get_property("app_name");
 ```
 
 ### Samtykke
