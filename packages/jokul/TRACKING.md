@@ -332,14 +332,14 @@ Som nevnt over ligger attributtene alltid på rot-elementet. Bruker du
 "matches CSS selector" i triggeren (se under), trenger du ingen
 `closest()`-oppslag eller andre fallbacks.
 
-I tillegg trenger du tre **Custom JavaScript**-variabler for app-, team-
-og versjonsinfo. De ligger på `<html>` og er ikke knyttet til et klikk,
+I tillegg trenger du to **Custom JavaScript**-variabler for app- og
+teaminfo. De ligger på `<html>` og er ikke knyttet til et klikk,
 så en vanlig Auto-Event Variable funker ikke der:
 
 ```js
-// DT - jokul-version (tilsvarende for app-name og team)
+// DT - app-name (tilsvarende for team)
 function () {
-    return document.documentElement.getAttribute("data-track-jokul-version");
+    return document.documentElement.getAttribute("data-track-app-name");
 }
 ```
 
@@ -360,7 +360,6 @@ dataLayer.push({
     component_name: "{{DT - component-name}}",
     component_label: "{{DT - label}}",
     component_id: "{{DT - id}}",
-    jokul_version: "{{DT - jokul-version}}",
     app_name: "{{DT - app-name}}",
     team: "{{DT - team}}",
 });
@@ -381,10 +380,10 @@ som klikkes eller endres, og legger dem i event-properties med
 nøkkelformatet `$el_attr__<attributt-navn>`. Ingen kode per komponent
 nødvendig.
 
-### 1. Slå på autocapture, og registrer app/team/versjon
+### 1. Slå på autocapture, og registrer app/team
 
 Super-properties henger seg automatisk på alle events. Attributtene for
-app, team og Jøkul-versjon ligger på `<html>` og fanges ikke av
+app og team ligger på `<html>` og fanges ikke av
 autocapture, så de må registreres her i stedet:
 
 ```ts
@@ -394,7 +393,6 @@ mixpanel.init("DITT_PROSJEKT_TOKEN", { autocapture: true });
 
 const root = document.documentElement;
 mixpanel.register({
-    jokul_version: root.getAttribute("data-track-jokul-version"),
     app_name: root.getAttribute("data-track-app-name"),
     team: root.getAttribute("data-track-team"),
 });
@@ -422,7 +420,6 @@ gir et `[Auto] Element Click`-event med blant annet:
     "$el_attr__data-track-component-name": "Button",
     "$el_attr__data-track-label": "Kjøp",
     "$el_attr__data-track-id": "hovedknapp-kjop",
-    "jokul_version": "6.4.0",
     "app_name": "mine-sider",
     "team": "Mitt Team"
 }
@@ -479,7 +476,6 @@ function Analytics() {
 
         const root = document.documentElement;
         mixpanel.register({
-            jokul_version: root.getAttribute("data-track-jokul-version"),
             app_name: root.getAttribute("data-track-app-name"),
             team: root.getAttribute("data-track-team"),
         });
@@ -662,7 +658,7 @@ Bruk **Preview**-modus (Forhåndsvis-knappen i GTM):
 |---|---|
 | Variablene er `undefined` | Attributtnavnet i Auto-Event Variable er feilstavet |
 | Tag'en fyrer ikke | CSS-selectoren i triggeren matcher ikke `[data-track-component-name]` |
-| `DT - jokul-version` er tom | `statistics`-samtykke mangler, eller Custom JavaScript-variabelen leser feil attributt |
+| `DT - app-name` er tom | `statistics`-samtykke mangler, eller Custom JavaScript-variabelen leser feil attributt |
 | Ingenting skjer i det hele tatt | Consent Mode blokkerer. Sjekk `analytics_storage` under **Consent**-fanen |
 
 ### Mixpanel
@@ -681,12 +677,12 @@ disse:
 |---|---|
 | Ingen `[Auto]`-events | `autocapture: true` mangler i `init` |
 | Events uten `$el_attr__data-track-*` | Du klikket på et barn-element uten attributtene. Sjekk at komponenten faktisk setter dem |
-| `jokul_version` mangler | `mixpanel.register` kjørte før samtykke, da `<html>`-attributtene ennå ikke var satt |
+| `app_name` mangler | `mixpanel.register` kjørte før samtykke, da `<html>`-attributtene ennå ikke var satt |
 
 Sjekk de registrerte super-propertiene direkte:
 
 ```js
-mixpanel.get_property("jokul_version");
+mixpanel.get_property("app_name");
 ```
 
 ### Samtykke
