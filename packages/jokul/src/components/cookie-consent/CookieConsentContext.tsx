@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { JOKUL_VERSION } from "../../version.js";
 import {
     buildRequirementsObject,
     getConsentCookie,
@@ -68,7 +67,6 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
         const root = document.documentElement;
 
         if (consentCookie.statistics === "accepted") {
-            root.setAttribute("data-track-jokul-version", JOKUL_VERSION);
             if (appName) {
                 root.setAttribute("data-track-app-name", appName);
             }
@@ -76,13 +74,11 @@ export const CookieConsentProvider: React.FC<CookieConsentProviderProps> = ({
                 root.setAttribute("data-track-team", team);
             }
         } else {
-            root.removeAttribute("data-track-jokul-version");
             root.removeAttribute("data-track-app-name");
             root.removeAttribute("data-track-team");
         }
 
         return () => {
-            root.removeAttribute("data-track-jokul-version");
             root.removeAttribute("data-track-app-name");
             root.removeAttribute("data-track-team");
         };

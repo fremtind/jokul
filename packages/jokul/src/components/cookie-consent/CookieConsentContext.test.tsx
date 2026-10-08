@@ -2,7 +2,6 @@ import { renderHook } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it, vi } from "vitest";
 import type { WithChildren } from "../../utilities/types.js";
-import { JOKUL_VERSION } from "../../version.js";
 import {
     CookieConsentProvider,
     useInternalState,
@@ -138,8 +137,8 @@ describe("cookie-consent-react/CookieConsentContext", () => {
         expect(result.current.isOpen).toEqual(false);
     });
 
-    describe("sporing av versjon, app-navn og team", () => {
-        it("setter data-track-jokul-version, data-track-app-name og data-track-team på <html> når statistikk er godtatt", () => {
+    describe("sporing av app-navn og team", () => {
+        it("setter data-track-app-name og data-track-team på <html> når statistikk er godtatt", () => {
             setDocumentCookieState([
                 [
                     "fremtind-cookie-consent",
@@ -162,11 +161,6 @@ describe("cookie-consent-react/CookieConsentContext", () => {
             renderHook(() => useInternalState(), { wrapper });
 
             expect(
-                document.documentElement.getAttribute(
-                    "data-track-jokul-version",
-                ),
-            ).not.toBeNull();
-            expect(
                 document.documentElement.getAttribute("data-track-app-name"),
             ).toEqual("mine-sider");
             expect(
@@ -174,37 +168,7 @@ describe("cookie-consent-react/CookieConsentContext", () => {
             ).toEqual("Mitt Team");
         });
 
-        it("setter data-track-jokul-version selv om appName/team ikke er satt, uten å sette de andre attributtene", () => {
-            setDocumentCookieState([
-                [
-                    "fremtind-cookie-consent",
-                    JSON.stringify({
-                        ...generateConsent("accepted", "accepted"),
-                    }),
-                ],
-            ]);
-            const wrapper: React.FC<WithChildren> = ({ children }) => (
-                <CookieConsentProvider functional statistics>
-                    {children}
-                </CookieConsentProvider>
-            );
-
-            renderHook(() => useInternalState(), { wrapper });
-
-            expect(
-                document.documentElement.getAttribute(
-                    "data-track-jokul-version",
-                ),
-            ).not.toBeNull();
-            expect(
-                document.documentElement.getAttribute("data-track-app-name"),
-            ).toBeNull();
-            expect(
-                document.documentElement.getAttribute("data-track-team"),
-            ).toBeNull();
-        });
-
-        it("fjerner alle tre attributtene når statistikk ikke er godtatt", () => {
+        it("fjerner begge attributtene når statistikk ikke er godtatt", () => {
             setDocumentCookieState([
                 [
                     "fremtind-cookie-consent",
@@ -227,40 +191,11 @@ describe("cookie-consent-react/CookieConsentContext", () => {
             renderHook(() => useInternalState(), { wrapper });
 
             expect(
-                document.documentElement.getAttribute(
-                    "data-track-jokul-version",
-                ),
-            ).toBeNull();
-            expect(
                 document.documentElement.getAttribute("data-track-app-name"),
             ).toBeNull();
             expect(
                 document.documentElement.getAttribute("data-track-team"),
             ).toBeNull();
-        });
-
-        it("data-track-jokul-version kommer alltid fra JOKUL_VERSION - det finnes ingen prop som kan overstyre den", () => {
-            setDocumentCookieState([
-                [
-                    "fremtind-cookie-consent",
-                    JSON.stringify({
-                        ...generateConsent("accepted", "accepted"),
-                    }),
-                ],
-            ]);
-            const wrapper: React.FC<WithChildren> = ({ children }) => (
-                <CookieConsentProvider functional statistics>
-                    {children}
-                </CookieConsentProvider>
-            );
-
-            renderHook(() => useInternalState(), { wrapper });
-
-            expect(
-                document.documentElement.getAttribute(
-                    "data-track-jokul-version",
-                ),
-            ).toEqual(JOKUL_VERSION);
         });
     });
 });

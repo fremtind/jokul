@@ -7,12 +7,8 @@ import nodeExternals from "rollup-plugin-node-externals";
 import { visualizer } from "rollup-plugin-visualizer";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
-import pkg from "./package.json" with { type: "json" };
 
 export default defineConfig({
-    define: {
-        __JOKUL_VERSION__: JSON.stringify(pkg.version),
-    },
     plugins: [
         nodeExternals({
             deps: true,
