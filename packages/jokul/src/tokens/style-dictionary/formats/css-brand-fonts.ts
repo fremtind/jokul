@@ -38,6 +38,14 @@ function isFontFamilyToken(token: TransformedToken): boolean {
     );
 }
 
+function isFontWeightToken(token: TransformedToken): boolean {
+    return (
+        token.path.length === 3 &&
+        token.path[0] === "font" &&
+        token.path[1] === "weight"
+    );
+}
+
 const cssBrandFontsFormat: Format = {
     name: "css/brand-fonts",
     format: async ({
@@ -67,6 +75,7 @@ const cssBrandFontsFormat: Format = {
 
         const fontFaceTokens = dictionary.allTokens.filter(isFontFaceToken);
         const fontFamilyTokens = dictionary.allTokens.filter(isFontFamilyToken);
+        const fontWeightTokens = dictionary.allTokens.filter(isFontWeightToken);
 
         const faceDeclarations = fontFaceTokens
             .map((token) => {
@@ -82,7 +91,7 @@ const cssBrandFontsFormat: Format = {
             })
             .join("\n\n");
 
-        const familyDeclarations = fontFamilyTokens
+        const fontDeclarations = [...fontFamilyTokens, ...fontWeightTokens]
             .map((token) => {
                 const variableName = token.path.join("-");
                 const value = token.original?.value ?? token.value;
@@ -101,7 +110,7 @@ $${webfontsVarName}: "#{jokul-fonts.$webfonts-dir}/${webfontsSubdir}" !default;
 ${faceDeclarations}
 
     ${selector} {
-${familyDeclarations}
+${fontDeclarations}
     }
 }
 `;

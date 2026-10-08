@@ -3,16 +3,16 @@ export const FONT_OPTIONS = {
         label: "Inter Variable",
         family: "'Jokul', 'Adjusted Arial Fallback', arial, sans-serif",
         weight: {
-            normal: "380",
-            bold: "530",
+            normal: "400",
+            bold: "600",
         },
     },
     "inter-variable-display": {
         label: "Inter Variable Display",
         family: "'Jokul Display', 'Adjusted Arial Display Fallback', arial, sans-serif",
         weight: {
-            normal: "380",
-            bold: "530",
+            normal: "400",
+            bold: "600",
         },
     },
     sparebank1: {
