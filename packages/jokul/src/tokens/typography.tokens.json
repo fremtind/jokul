@@ -75,8 +75,8 @@
         },
         "weight": {
             "type": "number",
-            "normal": { "value": "380" },
-            "bold": { "value": "530" }
+            "normal": { "value": "400" },
+            "bold": { "value": "600" }
         },
         "family": {
             "type": "fontFamily",
