@@ -4,6 +4,8 @@ import type {
     PolymorphicPropsWithRef,
     PolymorphicRef,
 } from "../../utilities/polymorphism/polymorphism.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { IconProps } from "./types.js";
 
 type IconComponentProps<ElementType extends "span" | "div"> =
@@ -23,12 +25,19 @@ export const Icon: IconComponent = React.forwardRef(function Icon<
         className,
         filled,
         variant,
+        tracking,
         ...iconProps
     } = props;
     const iconClassName = clsx("jkl-icon", className, {
         "jkl-icon--filled": filled,
         "jkl-icon--bold": bold,
     });
+    const trackingProps = {
+        ...getExtraTrackingAttributes(tracking?.extra),
+        "data-track-component-name": COMPONENT_NAMES.Icon,
+        "data-track-id": tracking?.id,
+        "data-track-variant": variant,
+    };
 
     if (as === "div") {
         return (
@@ -37,6 +46,7 @@ export const Icon: IconComponent = React.forwardRef(function Icon<
                 ref={ref as PolymorphicRef<"div">}
                 className={iconClassName}
                 {...(iconProps as React.HTMLAttributes<HTMLDivElement>)}
+                {...trackingProps}
             >
                 {children}
             </div>
@@ -49,6 +59,7 @@ export const Icon: IconComponent = React.forwardRef(function Icon<
             ref={ref as PolymorphicRef<"span">}
             className={iconClassName}
             {...(iconProps as React.HTMLAttributes<HTMLSpanElement>)}
+            {...trackingProps}
         >
             {children}
         </span>

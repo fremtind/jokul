@@ -19,6 +19,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
             maxSizeBytes,
             onChange,
             variant,
+            tracking,
             ...rest
         } = props;
 
@@ -42,12 +43,18 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                         )}
                         {...rest}
                     >
-                        <Dropzone>
+                        <Dropzone
+                            tracking={tracking}
+                            multiple={multiple}
+                            variant={variant}
+                        >
                             <div className="jkl-file-input__call-to-action">
                                 <Input
                                     id={id}
                                     label="Legg til fil"
                                     multiple={multiple}
+                                    tracking={tracking}
+                                    variant={variant}
                                     ref={ref}
                                     aria-describedby={maxSizeDescriptionId}
                                 />
@@ -74,7 +81,11 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                     })}
                     {...rest}
                 >
-                    <Dropzone>
+                    <Dropzone
+                        tracking={tracking}
+                        multiple={multiple}
+                        variant={variant}
+                    >
                         {value.length > 0 && (
                             <ul className="jkl-file-input__files">
                                 {children}
@@ -89,6 +100,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                         : "Legg til fil"
                                 }
                                 multiple={multiple}
+                                tracking={tracking}
+                                variant={variant}
                                 ref={ref}
                                 aria-describedby={maxSizeDescriptionId}
                             />

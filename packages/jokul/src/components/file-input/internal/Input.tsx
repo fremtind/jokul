@@ -1,4 +1,7 @@
 import React, { forwardRef, useId } from "react";
+import { COMPONENT_NAMES } from "../../metadata.js";
+import { getExtraTrackingAttributes } from "../../types.js";
+import type { Tracking } from "../../types.js";
 import type { UploadedFile } from "../types.js";
 import { useFileInputContext } from "./fileInputContext.js";
 import { validateFileInputFiles } from "./validateFileInputFiles.js";
@@ -7,11 +10,13 @@ interface FileInputProps {
     id?: string;
     label: string;
     multiple: boolean;
+    tracking?: Tracking;
+    variant?: "flexible" | "small";
 }
 
 export const Input = forwardRef<HTMLInputElement, FileInputProps>(
     (props, ref) => {
-        const { multiple, id, label, ...rest } = props;
+        const { multiple, id, label, tracking, variant, ...rest } = props;
 
         const defaultId = useId();
 
@@ -49,6 +54,12 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                     type="file"
                     multiple={multiple}
                     value=""
+                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    data-track-component-name={COMPONENT_NAMES.FileInput}
+                    data-track-id={tracking?.id}
+                    data-track-accept={accept}
+                    data-track-multiple={multiple}
+                    data-track-variant={variant}
                     onChange={(e) => {
                         if (e.target.files) {
                             onChange(

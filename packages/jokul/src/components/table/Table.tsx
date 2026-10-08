@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import React, { forwardRef, useState } from "react";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { TableContextProvider } from "./tableContext.js";
 import type { TableProps } from "./types.js";
 
@@ -12,6 +14,7 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
             collapseToList = false,
             fullWidth = false,
             tabIndex,
+            tracking,
             ...rest
         },
         ref,
@@ -31,6 +34,13 @@ const Table = forwardRef<HTMLTableElement, TableProps>(
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                     tabIndex={hasStickyHead ? 0 : tabIndex}
                     ref={ref}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    data-track-component-name={COMPONENT_NAMES.Table}
+                    data-track-id={tracking?.id}
+                    data-track-label={
+                        typeof caption === "string" ? caption : undefined
+                    }
+                    data-track-collapse-to-list={collapseToList}
                 >
                     {caption}
                     {children}

@@ -1,4 +1,5 @@
 import type { PolymorphicPropsWithRef } from "../../utilities/index.js";
+import type { Tracking } from "../types.js";
 
 export type TextElement =
     | "p"
@@ -63,6 +64,7 @@ type TextOwnProps = {
      * @default false
      */
     subdued?: boolean;
+    tracking?: Tracking;
 };
 
 type TitleOwnProps = {
@@ -84,6 +86,7 @@ type TitleOwnProps = {
      * @default false
      */
     center?: boolean;
+    tracking?: Tracking;
 };
 
 export type TextProps<As extends TextElement = "p"> = PolymorphicPropsWithRef<

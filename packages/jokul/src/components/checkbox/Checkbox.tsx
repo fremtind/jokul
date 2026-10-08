@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { CheckboxProps } from "./types.js";
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
@@ -14,6 +16,11 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
             "data-testautoid": testAutoId,
             checked,
             indeterminate,
+            tracking,
+            trackingComponentName,
+            trackingLabel: trackingLabelProp,
+            trackingExtraProps,
+            disableDefaultTrackingProps = false,
             ...rest
         } = props;
 
@@ -25,6 +32,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
         );
 
         const inputId = useId(id || "jkl-checkbox", { generateSuffix: !id });
+        const trackingLabel = trackingLabelProp ?? children;
 
         useEffect(() => {
             if (
@@ -54,10 +62,31 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
                     className="jkl-checkbox__input"
                     data-testid="jkl-checkbox-input"
                     aria-invalid={invalid}
-                    type="checkbox"
                     data-testautoid={testAutoId}
-                    checked={checked}
                     {...rest}
+                    type="checkbox"
+                    checked={checked}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    data-track-component-name={
+                        trackingComponentName ?? COMPONENT_NAMES.Checkbox
+                    }
+                    data-track-id={
+                        tracking?.id ??
+                        (trackingLabel ? String(trackingLabel) : undefined)
+                    }
+                    data-track-label={
+                        trackingLabel ? String(trackingLabel) : undefined
+                    }
+                    data-track-selected={
+                        disableDefaultTrackingProps ? undefined : checked
+                    }
+                    data-track-indeterminate={
+                        disableDefaultTrackingProps ? undefined : indeterminate
+                    }
+                    data-track-inline={
+                        disableDefaultTrackingProps ? undefined : inline
+                    }
+                    {...trackingExtraProps}
                 />
                 <label htmlFor={inputId} className="jkl-checkbox__label">
                     {children}

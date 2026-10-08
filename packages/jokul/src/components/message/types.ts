@@ -1,3 +1,5 @@
+import type { Tracking } from "../types.js";
+
 export interface MessageProps extends React.ComponentPropsWithoutRef<"div"> {
     fullWidth?: boolean;
     dismissed?: boolean;
@@ -6,6 +8,7 @@ export interface MessageProps extends React.ComponentPropsWithoutRef<"div"> {
         buttonTitle?: string;
     };
     variant?: "info" | "error" | "success" | "warning";
+    tracking?: Tracking;
 }
 
 export interface FormErrorMessageProps {

@@ -1,4 +1,5 @@
 import type { AriaRole, HTMLProps, ReactNode } from "react";
+import type { Tracking } from "../types.js";
 export type LoaderVariant = "small" | "medium" | "large";
 
 export interface LoaderProps {
@@ -13,6 +14,7 @@ export interface LoaderProps {
      * @default 0
      */
     delay?: number;
+    tracking?: Tracking;
 }
 
 export interface SkeletonAnimationProps

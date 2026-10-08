@@ -1,6 +1,7 @@
 import type { ChangeEvent } from "react";
 import type { ValuePair } from "../../utilities/valuePair.js";
 import type { InputGroupProps, LabelProps } from "../input-group/types.js";
+import type { Tracking } from "../types.js";
 
 export type ComboboxValuePair = ValuePair & {
     tagLabel?: string;
@@ -39,4 +40,5 @@ export interface ComboboxProps extends InputGroupProps {
     onChange: ComboboxChangeEventHandler;
     onBlur?: ComboboxChangeEventHandler;
     onFocus?: ComboboxChangeEventHandler;
+    tracking?: Tracking;
 }

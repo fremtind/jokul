@@ -3,6 +3,7 @@ import type { ButtonHTMLAttributes, HTMLAttributes, ReactNode } from "react";
 import type { SwipeChangeHandler } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
 import type { DataTestAutoId, WithChildren } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export interface MenuProps
     extends DataTestAutoId,
@@ -41,6 +42,7 @@ export interface MenuProps
      * Callback som kalles når menyen åpnes eller lukkes.
      */
     onToggle?: (isOpen: boolean) => void;
+    tracking?: Tracking;
 }
 
 export type MenuItemProps<ElementType extends React.ElementType> =

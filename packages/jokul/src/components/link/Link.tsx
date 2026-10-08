@@ -1,6 +1,8 @@
 import { clsx } from "clsx";
 import React, { useId } from "react";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { LinkProps } from "./types.js";
 
 type LinkComponent = <ElementType extends React.ElementType = "a">(
@@ -15,6 +17,7 @@ export const Link = React.forwardRef(function Link<
         className = "",
         children,
         as = "a",
+        tracking,
         ...rest
     } = props;
     const Component = as;
@@ -29,6 +32,13 @@ export const Link = React.forwardRef(function Link<
             })}
             aria-describedby={external ? srId : undefined}
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
+            data-track-component-name={COMPONENT_NAMES.Link}
+            data-track-id={
+                tracking?.id ?? (children ? String(children) : undefined)
+            }
+            data-track-label={children ? String(children) : undefined}
+            data-track-external={external}
         >
             <span className="jkl-link__content">{children}</span>
             {(external || rest.target === "_blank") && (

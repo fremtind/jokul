@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { useId } from "../../hooks/useId/useId.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { Label } from "./Label.js";
 import { SupportLabel } from "./SupportLabel.js";
 import type { InputGroupProps, InputProps } from "./types.js";
@@ -20,6 +22,7 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
             description,
             tooltip,
             id,
+            tracking,
             ...rest
         } = props;
 
@@ -70,6 +73,13 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                     "jkl-input-group--inline": inline,
                 })}
                 {...rest}
+                {...getExtraTrackingAttributes(tracking?.extra)}
+                data-track-component-name={COMPONENT_NAMES.InputGroup}
+                data-track-id={
+                    tracking?.id ?? (label ? String(label) : undefined)
+                }
+                data-track-label={label ? String(label) : undefined}
+                data-track-inline={inline}
             >
                 <Label
                     standAlone

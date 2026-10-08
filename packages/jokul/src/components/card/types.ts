@@ -1,4 +1,5 @@
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { Tracking } from "../types.js";
 
 export const CARD_PADDINGS = ["s", "m", "l", "xl"] as const;
 export type CardPadding = (typeof CARD_PADDINGS)[number];
@@ -24,6 +25,7 @@ type Props = {
      * skal lese alt innholdet i kortet.
      */
     clickable?: boolean;
+    tracking?: Tracking;
 };
 
 export type CardProps<ElementType extends React.ElementType> =

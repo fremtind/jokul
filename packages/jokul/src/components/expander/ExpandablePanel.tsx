@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import React, { useEffect, useImperativeHandle, useRef, useState } from "react";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { ExpandablePanelContent } from "./ExpandablePanelContent.js";
 import { Expander } from "./Expander.jsx";
 import { ExpanderContext } from "./context.js";
@@ -24,6 +26,7 @@ export const ExpandablePanel = Object.assign(
             defaultOpen,
             onOpenChange,
             className,
+            tracking,
             ...rest
         } = props;
 
@@ -104,6 +107,10 @@ export const ExpandablePanel = Object.assign(
                     /* this attribute is used for styling purposes */
                     data-visible-content={isOpen || contentIsVisible}
                     {...rest}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    data-track-component-name={COMPONENT_NAMES.Expander}
+                    data-track-id={tracking?.id}
+                    data-track-outlined={outlined}
                 >
                     <ExpanderContext.Provider
                         value={{

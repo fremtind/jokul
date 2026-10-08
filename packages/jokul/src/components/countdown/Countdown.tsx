@@ -1,10 +1,13 @@
 import React, { useState, type CSSProperties, type FC, useEffect } from "react";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { CountdownProps } from "./types.js";
 
 export const Countdown: FC<CountdownProps> = ({
     className,
     from,
     isPaused,
+    tracking,
     ...rest
 }) => {
     const [remainingSeconds, setRemainingSeconds] = useState(
@@ -29,6 +32,11 @@ export const Countdown: FC<CountdownProps> = ({
             role="timer"
             data-testid="jkl-countdown"
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
+            data-track-component-name={COMPONENT_NAMES.Countdown}
+            data-track-id={tracking?.id}
+            data-track-from={from}
+            data-track-is-paused={isPaused}
         >
             <span
                 className="jkl-countdown__tracker"
