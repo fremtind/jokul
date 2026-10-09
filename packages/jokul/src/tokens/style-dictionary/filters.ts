@@ -36,13 +36,13 @@ export function isSizeToken(token: TransformedToken): boolean {
 
 /**
  * Sjekker om en token er en brand font-token.
- * Disse ligger under path `font.face.*` eller `font.family.*`.
+ * Disse ligger under path `font.face.*`, `font.family.*` eller `font.weight.*`.
  */
 export function isBrandFontToken(token: TransformedToken): boolean {
     return (
         token.path.length >= 2 &&
         token.path[0] === "font" &&
-        ["face", "family"].includes(token.path[1])
+        ["face", "family", "weight"].includes(token.path[1])
     );
 }
 
@@ -79,7 +79,7 @@ export const isStaticToken: Filter = {
 
 /**
  * Filter for distributørspesifikke fonttokens.
- * Brukes for å generere @font-face og --jkl-font-family-* i brands/_fonts.scss.
+ * Brukes for å generere @font-face, --jkl-font-family-* og --jkl-font-weight-* i brands/_fonts.scss.
  */
 export const isBrandFontValue: Filter = {
     name: "isBrandFontValue",
