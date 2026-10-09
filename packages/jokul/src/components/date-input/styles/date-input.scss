@@ -43,25 +43,36 @@
                 display: block;
             }
 
-            @media screen and (min-width: 600px) {
+            @media screen and (width >= 600px) {
                 &__labels {
                     display: none;
                 }
 
                 width: max-content;
+                box-sizing: border-box;
+                overflow-y: auto;
                 margin-block: var(--jkl-unit-10);
                 margin-left: 0;
                 position-anchor: --calendar-trigger;
                 top: anchor(bottom);
                 left: anchor(left);
-                position-try-fallbacks: --fallback-calendar-position;
+                position-try-fallbacks: --fallback-calendar-top, --fallback-calendar-center;
             }
         }
     }
 }
 
-@position-try --fallback-calendar-position {
+@position-try --fallback-calendar-top {
     bottom: anchor(top);
     top: unset;
     margin-top: 10px;
+}
+
+@position-try --fallback-calendar-center {
+    inset: 0;
+    margin: auto;
+    // I et lavt vindu kan kalenderen bli for høy selv om den er midtstilt.
+    // Begrens høyden, så innholdet kan scrolle i stedet for å bli klippet bort.
+    height: fit-content;
+    max-height: calc(100dvh - 2 * var(--jkl-unit-20));
 }
