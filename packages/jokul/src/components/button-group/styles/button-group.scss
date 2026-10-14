@@ -1,0 +1,14 @@
+@layer jokul.components {
+    .jkl-button-group {
+        --button-min-width: 15ch;
+
+        container: --jkl-button-group / inline-size;
+        width: 100%;
+    }
+
+    @container --jkl-button-group (width < 35ch) {
+        .jkl-button-group > .jkl-button {
+            align-self: stretch;
+        }
+    }
+}
