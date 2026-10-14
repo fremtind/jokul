@@ -47,11 +47,7 @@
             }
 
             &:has(.day:disabled) {
-                opacity: 0.5;
-
-                &, * {
-                    cursor: not-allowed;
-                }
+                @include jkl.disabled-control;
             }
 
             &:has(.day:checked) {
