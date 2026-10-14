@@ -45,8 +45,17 @@ export const Rows: Story = {
     },
 };
 
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+        defaultValue: "Bilen ble påkjørt bakfra i et veikryss.",
+    },
+};
+
 export const ReadOnly: Story = {
     args: {
+        readOnly: true,
+        defaultValue: "Bilen ble påkjørt bakfra i et veikryss.",
         counter: {
             maxLength: 400,
             hideProgress: false,

@@ -1,4 +1,4 @@
-@use "../../../../styles/jkl/index";
+@use "../../../../styles/jkl";
 
 @layer jokul.components {
     .jkl-calendar {
@@ -49,11 +49,7 @@
             }
 
             &:has(.day:disabled) {
-                opacity: 0.5;
-
-                &, * {
-                    cursor: not-allowed;
-                }
+                @include jkl.disabled-control;
             }
 
             &:has(.day:checked) {
