@@ -26,9 +26,12 @@
         }
 
 
-        &:hover,
-        &:focus-visible {
+        &:is(:hover, :focus-visible):not(:disabled):not([aria-disabled="true"]) {
             background-color: var(--jkl-color-background-container-accent);
+        }
+
+        @include jkl.disabled-selectors {
+            @include jkl.disabled-control;
         }
 
         &[aria-selected="true"]::before {

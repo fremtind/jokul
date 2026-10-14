@@ -97,5 +97,12 @@
             --outer-border-thickness: #{jkl.rem(2px)};
             cursor: pointer;
         }
+
+        &:has(.jkl-input-panel__header input:disabled) {
+            --outer-border-color: var(--jkl-color-border-default);
+            --outer-border-thickness: #{jkl.rem(1px)};
+
+            @include jkl.disabled-control;
+        }
     }
 }

@@ -44,6 +44,50 @@ export const Basic: Story = {
     ),
 };
 
+export const Disabled: Story = {
+    args: {
+        legend: "Hele kontrollen er disabled",
+    },
+    render: (args) => (
+        <SegmentedControl {...args}>
+            <SegmentedControlButton
+                value="Vi"
+                name="disabled"
+                defaultChecked
+                disabled
+            >
+                Vi
+            </SegmentedControlButton>
+            <SegmentedControlButton value="Står" name="disabled" disabled>
+                Står
+            </SegmentedControlButton>
+            <SegmentedControlButton value="Sammen" name="disabled" disabled>
+                Sammen
+            </SegmentedControlButton>
+        </SegmentedControl>
+    ),
+};
+
+export const EnkeltValgDisabled: Story = {
+    name: "Enkelt valg disabled",
+    args: {
+        legend: "Ett av valgene er utilgjengelig",
+    },
+    render: (args) => (
+        <SegmentedControl {...args}>
+            <SegmentedControlButton value="Vi" name="partial" defaultChecked>
+                Vi
+            </SegmentedControlButton>
+            <SegmentedControlButton value="Står" name="partial" disabled>
+                Står
+            </SegmentedControlButton>
+            <SegmentedControlButton value="Sammen" name="partial">
+                Sammen
+            </SegmentedControlButton>
+        </SegmentedControl>
+    ),
+};
+
 /**
  * Viser hvordan du bruker `useState` til å holde valgt knapp og dekningslisten
  * i takt når brukeren bytter mellom «Dekkes» og «Dekkes ikke».

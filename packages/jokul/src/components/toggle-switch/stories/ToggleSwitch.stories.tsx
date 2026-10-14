@@ -31,6 +31,19 @@ export const ToggleSwitch: Story = {
     },
 };
 
+export const Disabled: Story = {
+    render: () => (
+        <Flex direction="column" gap="m" alignItems="start">
+            <ToggleSwitchComponent disabled aria-pressed={false}>
+                Av
+            </ToggleSwitchComponent>
+            <ToggleSwitchComponent disabled aria-pressed={true}>
+                På
+            </ToggleSwitchComponent>
+        </Flex>
+    ),
+};
+
 export const ByttTemaForInnhold: Story = {
     render: () => {
         const [{ theme }, updateGlobals] = useGlobals();
