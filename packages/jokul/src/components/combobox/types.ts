@@ -36,6 +36,8 @@ export interface ComboboxProps extends InputGroupProps {
     className?: string;
     invalid?: boolean;
     hasTagHover?: boolean;
+    disabled?: boolean;
+    readOnly?: boolean;
     onChange: ComboboxChangeEventHandler;
     onBlur?: ComboboxChangeEventHandler;
     onFocus?: ComboboxChangeEventHandler;
