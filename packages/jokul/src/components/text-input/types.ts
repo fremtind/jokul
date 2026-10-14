@@ -52,7 +52,7 @@ export interface TextInputProps
 }
 
 interface ActionBaseProps
-    extends Exclude<HTMLProps<HTMLButtonElement>, "disabled"> {
+    extends Omit<HTMLProps<HTMLButtonElement>, "disabled"> {
     icon: React.ReactElement<IconProps>;
     label: string;
     buttonRef?: React.Ref<HTMLButtonElement>;
