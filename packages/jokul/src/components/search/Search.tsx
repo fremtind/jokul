@@ -21,6 +21,8 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
             spellCheck = false,
             icon = "search",
             children,
+            disabled,
+            readOnly,
             ...rest
         } = props;
 
@@ -66,11 +68,14 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                                 spellCheck={spellCheck}
                                 {...inputProps}
                                 {...rest}
+                                disabled={disabled}
+                                readOnly={readOnly}
                             />
                             <button
                                 className="clear-button"
                                 type="button"
                                 onClick={clearInput}
+                                disabled={disabled || readOnly}
                             >
                                 <span className="jkl-sr-only">
                                     Tilbakestill søkefeltet
