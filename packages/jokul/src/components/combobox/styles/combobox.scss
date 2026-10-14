@@ -58,6 +58,17 @@
             &:hover ~ .jkl-combobox__arrow {
                 transform: translateY(calc(-50% + #{jkl.rem(3px)}));
             }
+
+            // Søkefeltet ligger inne i __chips, så barnekombinatoren i `wrapper-styles`
+            // treffer ikke. Combobox må derfor koble på tilstandene selv.
+            &:has(.jkl-combobox__search-input:disabled) {
+                @include jkl.disabled-control;
+            }
+
+            // En disabled input er også `:read-only`, så den må ekskluderes eksplisitt.
+            &:has(.jkl-combobox__search-input:read-only:not(:disabled)) {
+                @include jkl.read-only-control;
+            }
         }
 
         &__search-input {
