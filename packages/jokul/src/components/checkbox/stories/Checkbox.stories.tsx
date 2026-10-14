@@ -22,6 +22,20 @@ export const CheckboxStory: Story = {
     name: "Checkbox",
 };
 
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+    },
+};
+
+export const DisabledAvkrysset: Story = {
+    name: "Disabled og avkrysset",
+    args: {
+        disabled: true,
+        defaultChecked: true,
+    },
+};
+
 export const CheckboxGroup: Story = {
     render: (args) => (
         <FieldGroup legend={"Kontaktmetoder"}>
