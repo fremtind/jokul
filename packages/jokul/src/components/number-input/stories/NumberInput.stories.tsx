@@ -79,6 +79,27 @@ export const Stepper: Story = {
     },
 };
 
+export const Disabled: Story = {
+    args: {
+        label: "Antall personer",
+        max: 8,
+        defaultValue: 2,
+        stepper: true,
+        disabled: true,
+    },
+};
+
+export const ReadOnly: Story = {
+    name: "Read only",
+    args: {
+        label: "Antall personer",
+        max: 8,
+        defaultValue: 2,
+        stepper: true,
+        readOnly: true,
+    },
+};
+
 export const Reiseforsikring: Story = {
     name: "Reiseforsikring med stepper",
     args: {

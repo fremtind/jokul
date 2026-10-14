@@ -44,6 +44,12 @@
                 z-index: 1;
             }
 
+            &:has(> input:disabled) {
+                border-color: var(--jkl-color-border-subdued);
+
+                @include jkl.disabled-control;
+            }
+
             // Kontrollerer border og margin på separerte items + border-radius til neste sibling
             &:has(input[data-separated="true"]) {
                 border-radius: var(--jkl-segmented-controls-border-radius);
