@@ -9,6 +9,7 @@
 @forward "screens";
 @forward "shadows";
 @forward "spacing" hide $spacing, $combinations, $positions;
+@forward "states";
 @forward "tokens";
 @forward "typography" hide $text-styles;
 @forward "underline";

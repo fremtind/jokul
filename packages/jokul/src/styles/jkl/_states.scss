@@ -1,0 +1,45 @@
+@use "forced-colors";
+
+/// Demper en kontroll som er `disabled`.
+///
+/// Ligger kontrollen inne i en annen dempet kontroll – en checkbox i et InputPanel, en radio i en
+/// SegmentedControl – skal bare den ytterste dempes, ellers multipliseres opasitetene til 25 %.
+/// Mixinen setter derfor `--jkl-nested-disabled-opacity: 1` på etterkommerne sine, men aldri på
+/// seg selv: leser elementet sin egen deklarasjon blir ingenting dempet.
+/// @param {Number} $opacity [0.5] - Opasitet når kontrollen er den ytterste dempede.
+@mixin disabled-control($opacity: 0.5) {
+    opacity: var(--jkl-nested-disabled-opacity, #{$opacity});
+    cursor: not-allowed;
+
+    & * {
+        --jkl-nested-disabled-opacity: 1;
+        // Barn som setter egen cursor (label, input, knapp) arver ikke wrapperens
+        cursor: not-allowed;
+    }
+
+    @include forced-colors.forced-colors-mode {
+        opacity: 1;
+        color: GrayText;
+        border-color: GrayText;
+    }
+}
+
+/// Treffer begge måtene en kontroll kan være utilgjengelig.
+///
+/// `aria-disabled` brukes der elementet må beholde fokus og bli annonsert av skjermlesere –
+/// pagination-piler og menyvalg – siden native `disabled` tar det ut av tab-rekkefølgen.
+@mixin disabled-selectors {
+    &:disabled,
+    &[aria-disabled="true"] {
+        @content;
+    }
+}
+
+/// Avhenger av at elementet leser `--border-color` og `--background-color`,
+/// slik `wrapper-styles` i shared-input-styles gjør.
+@mixin read-only-control {
+    --border-color: var(--jkl-color-border-subdued);
+    --background-color: transparent;
+
+    cursor: default;
+}
