@@ -23,6 +23,20 @@ export const RadioButtonStory: Story = {
     name: "Radio Button",
 };
 
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+    },
+};
+
+export const DisabledValgt: Story = {
+    name: "Disabled og valgt",
+    args: {
+        disabled: true,
+        defaultChecked: true,
+    },
+};
+
 export const RadioButtonGroup: Story = {
     render: (args) => (
         <FieldGroup legend={"Kontaktmetoder"}>

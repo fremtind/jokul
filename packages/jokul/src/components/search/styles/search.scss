@@ -5,7 +5,10 @@
     --icon-size: var(--jkl-text-input-height);
     --border-radius: var(--jkl-border-radius-s);
     --border-width: 1px;
-    --border: var(--border-width) solid var(--jkl-color-border-default);
+    // `read-only-control` styrer feltet gjennom --border-color og --background-color
+    --border-color: var(--jkl-color-border-default);
+    --background-color: transparent;
+    --border: var(--border-width) solid var(--border-color);
 
     width: 100%;
 
@@ -40,6 +43,7 @@
         gap: 0.25em;
         border: var(--border);
         border-radius: var(--border-radius);
+        background-color: var(--background-color);
         padding-inline-end: 0;
         padding: calc(var(--jkl-unit-15) - var(--border-width));
 
@@ -59,8 +63,18 @@
         }
 
         &:has(input:focus-visible) {
+            --background-color: var(--jkl-color-background-container);
+
             @include jkl.focus-outline;
-            background-color: var(--jkl-color-background-container);
+        }
+
+        &:has(> input:disabled) {
+            @include jkl.disabled-control;
+        }
+
+        // En disabled input er også `:read-only`, så den må ekskluderes eksplisitt.
+        &:has(> input:read-only:not(:disabled)) {
+            @include jkl.read-only-control;
         }
     }
 

@@ -113,5 +113,11 @@
                 margin-bottom: var(--jkl-unit-20);
             }
         }
+
+        // Rotelementet er et fieldset, så `disabled` slår av filvelgeren nativt. Dropsonen er
+        // selve kontrollflaten og skal dempes – legend og støttetekster beholder full kontrast.
+        &:disabled &__dropzone {
+            @include jkl.disabled-control;
+        }
     }
 }

@@ -45,17 +45,7 @@
     }
 
     &[disabled] {
-        cursor: revert;
-
-        --text-color: var(--jkl-color-text-subdued);
-        --switch-border-color: var(--jkl-color-border-subdued);
-        --knob-border-color: var(--jkl-color-border-subdued);
-
-        &[aria-pressed="true"],
-        [aria-checked="true"] > & {
-            --indicator-color: var(--jkl-color-border-subdued);
-            --switch-border-color: var(--indicator-color);
-        }
+        @include jkl.disabled-control;
     }
 }
 

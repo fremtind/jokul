@@ -91,8 +91,7 @@
             }
 
             &:disabled {
-                opacity: 0.4;
-                cursor: not-allowed;
+                @include jkl.disabled-control(0.4);
             }
         }
 
