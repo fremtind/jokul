@@ -68,6 +68,17 @@ export const FileInputStory: Story = {
     },
 };
 
+/**
+ * Rotelementet er et `fieldset`, så `disabled` slår av filvelgeren nativt. Dropsonen dempes
+ * fordi den er selve kontrollflaten, mens legend og støttetekster beholder full kontrast.
+ */
+export const Disabled: Story = {
+    name: "Disabled",
+    args: {
+        disabled: true,
+    },
+};
+
 export const FileInputWithFile: Story = {
     name: "File Input med valgte filer",
     render: (args) => {
