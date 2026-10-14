@@ -43,6 +43,23 @@ type Story = StoryObj<typeof meta>;
 
 export const TextInput: Story = {};
 
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+        defaultValue: "ola.nordmann@eksempel.no",
+        helpLabel: "Label og hjelpetekst beholder full kontrast.",
+    },
+};
+
+export const ReadOnly: Story = {
+    name: "Read only",
+    args: {
+        readOnly: true,
+        defaultValue: "ola.nordmann@eksempel.no",
+        helpLabel: "Verdien kan leses og kopieres, men ikke endres.",
+    },
+};
+
 export const UgyldigEpost: Story = {
     name: "Ugyldig e-post",
     args: {
