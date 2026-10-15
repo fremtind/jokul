@@ -83,7 +83,10 @@ export const InputGroup = forwardRef<HTMLDivElement, InputGroupProps>(
                 >
                     {hasTooltip ? (
                         <>
-                            <span style={{ whiteSpace: "normal" }}>
+                            <span
+                                className="jkl-label__text"
+                                style={{ whiteSpace: "normal" }}
+                            >
                                 {label}
                             </span>
                             {"\u00A0"}
