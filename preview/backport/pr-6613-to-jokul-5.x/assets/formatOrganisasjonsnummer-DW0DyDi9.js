@@ -1,0 +1,1 @@
+import{N as s}from"./unicode-DWvs0Pen.js";const a={full:/^(\d{3})(\d{3})(\d{3})$/,partial:/^(\d{3})(\d{1,3})?(\d{1,5})?$/};function i(r,n){const o=r.replace(/[\s-.]/g,""),e=n?.partial?a.partial:a.full,t=o.match(e);return t?t.slice(1).filter(Boolean).join(s):r}export{i as f};
