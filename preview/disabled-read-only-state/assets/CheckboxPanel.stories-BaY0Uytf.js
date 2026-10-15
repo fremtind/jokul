@@ -1,0 +1,44 @@
+import{r as k,j as e}from"./iframe-Cc0lsbEP.js";import{C as r}from"./CheckboxPanel-DVj51Xgl.js";import{F as d}from"./Flex-BcrmyNfa.js";import{F as g}from"./FieldGroup-C3vgeZbo.js";import{B as u}from"./Button-qZbBNQgb.js";import"./preload-helper-PPVm8Dsz.js";import"./InputPanel-VPNiShX8.js";import"./clsx-B-dksMZM.js";import"./Checkbox-VJMAcHiI.js";import"./useId-BEqUuJdd.js";import"./RadioButton-C_pE1xJB.js";import"./SupportLabel-D8Vv-TW6.js";import"./SuccessIcon-CM5mryur.js";import"./Icon-BPBN9EvZ.js";import"./WarningIcon-C3tmYzoj.js";import"./BaseRadioButton-DZ53ihvM.js";import"./SlotComponent-CrToIbEs.js";import"./mergeRefs--gaMb34L.js";import"./Label-8650UV_r.js";import"./usePreviousValue-CRmLqYMP.js";import"./Loader-BMORs4ha.js";import"./useDelayedRender-AVQE6CwH.js";const O={title:"Komponenter/CheckboxPanel",component:r,args:{label:"Livsforsikring",description:"Gir dine etterlatte en engangsutbetaling hvis du dør. Pengene kan de for eksempel bruke til å nedbetale lån og tilpasse seg en ny livssituasjon.",amount:"xxx kr/mnd",value:"Livsforsikring",name:"Dekning",alwaysOpen:!0,"aria-invalid":!1},decorators:[n=>e.jsx("form",{name:"test",children:e.jsx(n,{})})]},s={},i={args:{disabled:!0}},t={name:"Disabled og avkrysset",args:{disabled:!0,defaultChecked:!0}},a={name:"Velg dekning for reiseforsikring",render:n=>e.jsxs(d,{gap:"xs",direction:"column",as:g,legend:"Velg dekninger",children:[e.jsx(r,{...n,name:"dekning",label:"Reisegods",value:"Reisegods"}),e.jsx(r,{...n,name:"dekning",label:"Avbestilling",value:"Avbestilling",description:`Gir erstatning for reiseutgifter hvis du må avbestille
+                    reisen på grunn av akutt sykdom eller andre uforutsette
+                    hendelser.`}),e.jsx(r,{...n,name:"dekning",label:"Ulykkesdekning",value:"Ulykke",description:`Gir en engangsutbetaling ved varig medisinsk invaliditet
+                    eller død som følge av en ulykke på reisen.`})]})},o={name:"Controlled",render:n=>{const[l,m]=k.useState(!0);return e.jsxs(d,{gap:"xs",direction:"column",as:g,legend:"Velg dekninger",children:[e.jsx(r,{...n,name:"dekning",label:"Reisegods",amount:"35 kr/mnd",value:"Reisegods",checked:l,description:`Gir erstatning for reiseutgifter hvis du må avbestille
+                    reisen på grunn av akutt sykdom eller andre uforutsette
+                    hendelser.`}),e.jsx(r,{...n,name:"dekning",label:"Ulykkesdekning",amount:"40 kr/mnd",value:"Ulykke",checked:l,description:`Gir en engangsutbetaling ved varig medisinsk invaliditet
+                    eller død som følge av en ulykke på reisen.`}),e.jsx(u,{variant:"ghost",onClick:()=>m(!l),type:"button",children:"Check"})]})}};s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:"{}",...s.parameters?.docs?.source}}};i.parameters={...i.parameters,docs:{...i.parameters?.docs,source:{originalSource:`{
+  args: {
+    disabled: true
+  }
+}`,...i.parameters?.docs?.source}}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  name: "Disabled og avkrysset",
+  args: {
+    disabled: true,
+    defaultChecked: true
+  }
+}`,...t.parameters?.docs?.source}}};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  name: "Velg dekning for reiseforsikring",
+  render: args => {
+    return <Flex gap="xs" direction="column" as={FieldGroup} legend="Velg dekninger">
+                <CheckboxPanelComponent {...args} name="dekning" label="Reisegods" value="Reisegods" />
+                <CheckboxPanelComponent {...args} name="dekning" label="Avbestilling" value="Avbestilling" description="Gir erstatning for reiseutgifter hvis du må avbestille
+                    reisen på grunn av akutt sykdom eller andre uforutsette
+                    hendelser." />
+                <CheckboxPanelComponent {...args} name="dekning" label="Ulykkesdekning" value="Ulykke" description="Gir en engangsutbetaling ved varig medisinsk invaliditet
+                    eller død som følge av en ulykke på reisen." />
+            </Flex>;
+  }
+}`,...a.parameters?.docs?.source}}};o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  name: "Controlled",
+  render: args => {
+    const [checked, setChecked] = useState(true);
+    return <Flex gap="xs" direction="column" as={FieldGroup} legend="Velg dekninger">
+                <CheckboxPanelComponent {...args} name="dekning" label="Reisegods" amount="35 kr/mnd" value="Reisegods" checked={checked} description="Gir erstatning for reiseutgifter hvis du må avbestille
+                    reisen på grunn av akutt sykdom eller andre uforutsette
+                    hendelser." />
+                <CheckboxPanelComponent {...args} name="dekning" label="Ulykkesdekning" amount="40 kr/mnd" value="Ulykke" checked={checked} description="Gir en engangsutbetaling ved varig medisinsk invaliditet
+                    eller død som følge av en ulykke på reisen." />
+                <Button variant="ghost" onClick={() => setChecked(!checked)} type="button">
+                    Check
+                </Button>
+            </Flex>;
+  }
+}`,...o.parameters?.docs?.source}}};const _=["CheckboxPanelStory","Disabled","DisabledAvkrysset","VelgDekningForReiseforsikring","ControlledCheckboxPanel"];export{s as CheckboxPanelStory,o as ControlledCheckboxPanel,i as Disabled,t as DisabledAvkrysset,a as VelgDekningForReiseforsikring,_ as __namedExportsOrder,O as default};
