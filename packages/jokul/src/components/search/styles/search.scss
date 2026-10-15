@@ -1,134 +1,115 @@
 @use "../../../styles/jkl/index" as jkl;
+@use "../../../shared/input/styles/shared-input-styles" as shared;
 @use "../../../components/icon/styles/base-styles" as icon;
 
-.jkl-search {
-    --icon-size: var(--jkl-text-input-height);
-    --border-radius: var(--jkl-border-radius-s);
-    --border-width: 1px;
-    // `read-only-control` styrer feltet gjennom --border-color og --background-color
-    --border-color: var(--jkl-color-border-default);
-    --background-color: transparent;
-    --border: var(--border-width) solid var(--border-color);
+@layer jokul.components {
+    .jkl-search {
+        width: 100%;
 
-    width: 100%;
+        .jkl-input-group {
+            display: contents;
+        }
 
-    @include jkl.text-style("text-medium");
+        &__wrapper {
+            @include shared.wrapper-styles;
 
-    .jkl-input-group {
-        display: contents;
-    }
+            gap: 0.25em;
+            padding-inline: var(--jkl-text-input-horizontal-padding);
 
-    input[type="search"] {
-        appearance: none;
-        padding: 0;
-        background-color: transparent;
-        color: var(--jkl-color-text-default);
-        grid-column: 2 / 3;
+            // Submit-knappen ligger inntil rammen, så den skal ikke ha padding utenfor seg
+            &:has(.jkl-search-submit) {
+                padding-inline-end: 0;
+            }
 
-        @include jkl.reset-outline;
-        @include jkl.text-style("text-medium");
+            &::before {
+                content: attr(data-icon) / "";
+                flex: none;
+                inline-size: 1.3em;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
 
-        &::-webkit-search-cancel-button,
-        &::-webkit-calendar-picker-indicator,
-        &::-webkit-search-results-button {
+                @include jkl.use-font-family("Jokul Icons");
+            }
+
+            // Fokus-hookene i `wrapper-styles` peker på TextInput og TextArea, så søkefeltet
+            // må koble seg på selv. Avgrenset til selve inputen, ellers får wrapperen en ring
+            // i tillegg til ringen på knappene inni den.
+            @include jkl.keyboard-navigation {
+                &:has(> input[type="search"]:focus-visible) {
+                    @include jkl.focus-outline;
+                }
+            }
+        }
+
+        input[type="search"] {
+            @include shared.input-styles;
+
+            flex: 1 1 0;
+            min-width: 0;
+            padding-block: var(--jkl-text-input-vertical-padding);
+
+            &::-webkit-search-cancel-button,
+            &::-webkit-calendar-picker-indicator,
+            &::-webkit-search-results-button {
+                appearance: none;
+                display: none !important;
+            }
+        }
+
+        // Nettlesere har ulik støtte for begge disse metodene, så begge må være med per 12. november 2025
+        &:has(input:not(:valid), input:placeholder-shown) {
+            .jkl-search__clear-button {
+                display: none;
+            }
+        }
+
+        &__clear-button {
+            position: relative;
+            display: grid;
+            flex: none;
+            align-self: stretch;
             appearance: none;
-            display: none !important;
-        }
-    }
+            background-color: transparent;
+            border: 0;
+            padding: 0;
+            color: var(--text-color);
+            border-radius: 100%;
 
-    .input-wrapper {
-        box-sizing: border-box;
-        display: grid;
-        grid-template-columns: 1.3em 1fr;
-        gap: 0.25em;
-        border: var(--border);
-        border-radius: var(--border-radius);
-        background-color: var(--background-color);
-        padding-inline-end: 0;
-        padding: calc(var(--jkl-unit-15) - var(--border-width));
+            &::before {
+                content: "close" / "";
+                display: inline-grid;
+                align-items: center;
+                justify-content: center;
+                place-self: center;
+                align-self: center;
+                grid-row: 1;
+                grid-column: 1;
+                z-index: 1;
 
-        &::before {
-            content: attr(data-icon) / "";
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            grid-column: 1;
+                @include icon.base-styles;
+            }
 
-            @include jkl.use-font-family("Jokul Icons");
-        }
+            &::after {
+                --tap-size: 1.25lh;
+                content: "";
+                position: absolute;
+                inset: calc((var(--tap-size) - 100%) / 2 * -1);
+                background-color: var(--text-color);
+                opacity: 0;
+                border-radius: inherit;
 
-        &:has(.clear-button) {
-            grid-template-columns: 1.3em 1fr 1.3em;
-        }
+                @include jkl.motion;
+                transition-property: opacity;
+            }
 
-        &:has(input:focus-visible) {
-            --background-color: var(--jkl-color-background-container);
+            &:hover::after {
+                opacity: 0.15;
+            }
 
-            @include jkl.focus-outline;
-        }
-
-        &:has(> input:disabled) {
-            @include jkl.disabled-control;
-        }
-
-        // En disabled input er også `:read-only`, så den må ekskluderes eksplisitt.
-        &:has(> input:read-only:not(:disabled)) {
-            @include jkl.read-only-control;
-        }
-    }
-
-    // Nettlesere har ulik støtte for begge disse metodene, så begge må være med per 12. november 2025
-    &:has(input:not(:valid), input:placeholder-shown) {
-        .clear-button {
-            display: none;
-        }
-    }
-
-    .clear-button {
-        position: relative;
-        display: grid;
-        appearance: none;
-        background-color: transparent;
-        border: 0;
-        height: 100%;
-        padding: 0;
-        color: var(--jkl-color-text-default);
-        border-radius: 100%;
-
-        &::before {
-            content: "close" / "";
-            display: inline-grid;
-            align-items: center;
-            justify-content: center;
-            place-self: center;
-            align-self: center;
-            grid-row: 1;
-            grid-column: 1;
-            z-index: 1;
-
-            @include icon.base-styles;
-        }
-
-        &::after {
-            --tap-size: 1.25lh;
-            content: "";
-            position: absolute;
-            inset: calc((var(--tap-size) - 100%) / 2 * -1);
-            background-color: var(--jkl-color-text-default);
-            opacity: 0;
-            border-radius: inherit;
-
-            @include jkl.motion;
-            transition-property: opacity;
-        }
-
-        &:hover::after {
-            opacity: 0.15;
-        }
-
-        &:focus-visible {
-            @include jkl.focus-outline;
+            &:focus-visible {
+                @include jkl.focus-outline;
+            }
         }
     }
 }
