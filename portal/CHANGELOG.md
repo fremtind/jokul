@@ -1,5 +1,13 @@
 # portal
 
+## 1.10.0-next.3
+
+### Patch Changes
+
+- Updated dependencies [1edace8]
+- Updated dependencies [232de1b]
+  - @fremtind/jokul@6.1.0-next.3
+
 ## 1.10.0-next.2
 
 ### Patch Changes
