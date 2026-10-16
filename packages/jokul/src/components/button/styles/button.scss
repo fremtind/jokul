@@ -116,9 +116,7 @@
         }
 
         &:hover {
-            background-color: color-mix(in srgb,
-                    var(--background-color),
-                    var(--text-color) 15%);
+            @include jkl.hover-bg;
 
             @media (forced-colors: active) {
                 @include jkl.focus-outline;
@@ -134,6 +132,7 @@
         &--primary {
             --background-color: var(--jkl-color-background-contrast);
             --text-color: var(--jkl-color-text-on-contrast);
+            --hover-accent-color: var(--jkl-color-text-on-contrast);
 
             @media (forced-colors: active) {
                 border: calc(var(--border-width) * 2) solid Highlight;
