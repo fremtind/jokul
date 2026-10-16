@@ -1,5 +1,9 @@
 import type { InputHTMLAttributes } from "react";
-import type { DataTestAutoId } from "../../utilities/types.js";
+import type {
+    DataTestAutoId,
+    WithDisabled,
+    WithReadOnly,
+} from "../../utilities/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
 
 /**
@@ -13,9 +17,18 @@ import type { InputGroupProps } from "../input-group/types.js";
 export type DateInputProps = Omit<InputGroupProps, "children" | "render"> &
     Omit<
         InputHTMLAttributes<HTMLInputElement>,
-        "type" | "value" | "defaultValue" | "min" | "max" | "children"
+        | "type"
+        | "value"
+        | "defaultValue"
+        | "min"
+        | "max"
+        | "children"
+        | "disabled"
+        | "readOnly"
     > &
-    DataTestAutoId & {
+    DataTestAutoId &
+    WithDisabled &
+    WithReadOnly & {
         /**
          * Kontrollert verdi som ISO-datostreng (`YYYY-MM-DD`), f.eks. `"2026-08-13"`.
          * Oppgis sammen med `onChange`. La stå udefinert for ukontrollert bruk.
