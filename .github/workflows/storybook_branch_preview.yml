@@ -14,6 +14,10 @@ concurrency:
 jobs:
     preview:
         name: Publiser branch preview
+        concurrency:
+            group: gh-pages
+            cancel-in-progress: false
+            queue: max
         runs-on: ubuntu-latest
         permissions:
             contents: read

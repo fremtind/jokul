@@ -8,6 +8,10 @@ run-name: Fjern preview-branch for "${{ github.event.pull_request.title }}"
 
 jobs:
     remove-preview:
+        concurrency:
+            group: gh-pages
+            cancel-in-progress: false
+            queue: max
         runs-on: ubuntu-latest
         permissions:
             actions: write
