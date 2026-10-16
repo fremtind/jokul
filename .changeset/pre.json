@@ -10,9 +10,11 @@
         "portal": "1.9.0"
     },
     "changesets": [
+        "brave-fonts-weigh",
         "calm-panels-rest",
         "calm-ravens-glow",
         "fuzzy-cards-pad",
+        "gentle-foxes-navigate",
         "puny-places-swim",
         "quiet-otters-drift"
     ]

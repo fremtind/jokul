@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.1.0-next.3
+
+### Patch Changes
+
+- 1edace8: Font-vektene for Inter er justert til samme verdier som i Figma: regular er nå `400` (før `380`) og bold er `600` (før `530`).
+- 232de1b: Datokalenderen sentreres når den ikke får plass over eller under datofeltet.
+
 ## 6.1.0-next.2
 
 ### Patch Changes
