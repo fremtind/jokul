@@ -1,4 +1,5 @@
 import type { ChangeEventHandler, InputHTMLAttributes, ReactNode } from "react";
+import type { WithDisabled } from "../../utilities/types.js";
 import type {
     FieldGroupProps,
     SupportLabelProps,
@@ -11,7 +12,11 @@ export interface BaseRadioButtonProps extends RadioButtonProps {
 }
 
 export interface RadioButtonProps
-    extends Omit<InputHTMLAttributes<HTMLInputElement>, "children"> {
+    extends Omit<
+            InputHTMLAttributes<HTMLInputElement>,
+            "children" | "disabled"
+        >,
+        WithDisabled {
     children?: ReactNode;
     value: string;
     /** Kan også settes på RadioButtonGroup, men settes på RadioButton f. eks. av react-hook-form */
