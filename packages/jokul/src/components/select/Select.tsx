@@ -12,7 +12,7 @@ import {
 } from "react";
 import { useListNavigation } from "../../hooks/index.js";
 import { mergeRefs } from "../../utilities/mergeRefs.js";
-import type { DataTestAutoId } from "../../utilities/types.js";
+import type { DataTestAutoId, WithDisabled } from "../../utilities/types.js";
 import { type ValuePair, getValuePair } from "../../utilities/valuePair.js";
 import { Button } from "../button/Button.js";
 import { Flex } from "../flex/Flex.js";
@@ -27,7 +27,8 @@ import { autofocus, getButtonText, getReactNodeText } from "./utils.js";
 
 export type SelectProps = Omit<InputGroupProps, "children" | "inline"> &
     DataTestAutoId &
-    Omit<ComponentPropsWithoutRef<"select">, "size" | "children"> & {
+    Omit<ComponentPropsWithoutRef<"select">, "size" | "children" | "disabled"> &
+    WithDisabled & {
         width?: string;
         items: (string | ValuePair)[];
         placeholder?: string;
