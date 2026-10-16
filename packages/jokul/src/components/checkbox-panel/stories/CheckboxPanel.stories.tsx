@@ -32,6 +32,20 @@ type Story = StoryObj<typeof meta>;
 
 export const CheckboxPanelStory: Story = {};
 
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+    },
+};
+
+export const DisabledAvkrysset: Story = {
+    name: "Disabled og avkrysset",
+    args: {
+        disabled: true,
+        defaultChecked: true,
+    },
+};
+
 export const VelgDekningForReiseforsikring: Story = {
     name: "Velg dekning for reiseforsikring",
     render: (args) => {

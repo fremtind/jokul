@@ -363,4 +363,23 @@ describe("DateInput", () => {
         );
         expect([...formData.keys()]).toEqual(["dato"]);
     });
+
+    it("regnes ikke som disabled selv om kalenderen har utilgjengelige dager", () => {
+        const { container } = render(
+            <DateInput
+                label="Dato"
+                defaultValue="2026-08-13"
+                min="2026-08-10"
+                max="2026-08-20"
+            />,
+        );
+
+        const wrapper = container.querySelector(".jkl-date-input__wrapper");
+        expect(
+            wrapper?.querySelectorAll("input:disabled").length,
+        ).toBeGreaterThan(0);
+        expect(wrapper?.matches(":has(> :is(input, textarea):disabled)")).toBe(
+            false,
+        );
+    });
 });

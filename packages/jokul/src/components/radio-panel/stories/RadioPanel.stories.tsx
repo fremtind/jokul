@@ -37,6 +37,20 @@ type Story = StoryObj<typeof meta>;
 
 export const RadioPanel: Story = {};
 
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+    },
+};
+
+export const DisabledValgt: Story = {
+    name: "Disabled og valgt",
+    args: {
+        disabled: true,
+        defaultChecked: true,
+    },
+};
+
 export const VelgForsikring: Story = {
     render: (args) => {
         return (
