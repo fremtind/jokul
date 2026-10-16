@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.5.3
+
+### Patch Changes
+
+- 60408f8: Font-vektene for Inter er justert til samme verdier som i Figma: regular er nå `400` (før `380`) og bold er `600` (før `530`).
+
 ## 5.5.2
 
 ### Patch Changes
