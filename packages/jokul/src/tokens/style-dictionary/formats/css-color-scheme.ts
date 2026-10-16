@@ -1,7 +1,11 @@
 import type { Dictionary, File, Format } from "style-dictionary/types";
 import { fileHeader } from "style-dictionary/utils";
 import { isColorSchemeToken } from "../filters.js";
-import { formatColorTokenDeclarations } from "./css-color-scheme-helpers.js";
+import {
+    LIGHT_DARK_UNSUPPORTED,
+    formatColorTokenDeclarations,
+    formatColorTokenFallbackDeclarations,
+} from "./css-color-scheme-helpers.js";
 
 /**
  * Format for fargevariabler som støtter lys og mørk modus.
@@ -12,15 +16,17 @@ import { formatColorTokenDeclarations } from "./css-color-scheme-helpers.js";
  *
  * Outputfilen inkluderer:
  * - `color-scheme: light dark` på `:root` for å aktivere automatisk temabytte
- * - Fallback-verdier for nettlesere uten `light-dark()`-støtte
+ * - Fallback med lyse verdier i `@supports not`, for nettlesere uten `light-dark()`-støtte
  * - Selektorer for manuell overstyring via `data-theme`-attributtet
  *
  * @example
  * // Generert CSS:
  * // :root {
  * //     color-scheme: light dark;
- * //     --jkl-color-background: #ffffff;
  * //     --jkl-color-background: light-dark(#ffffff, #1a1a1a);
+ * // }
+ * // @supports not (color: light-dark(#000, #fff)) {
+ * //     :root { --jkl-color-background: #ffffff; }
  * // }
  */
 const cssColorScheme: Format = {
@@ -39,6 +45,10 @@ const cssColorScheme: Format = {
             colorSchemeTokens,
             indentation,
         );
+        const fallbackDeclarations = formatColorTokenFallbackDeclarations(
+            colorSchemeTokens,
+            "            ",
+        );
 
         return `${await fileHeader({ file })}
 @layer jokul.theme {
@@ -54,6 +64,12 @@ ${colorTokenDeclarations}
 
     [data-theme="dark"] {
         color-scheme: dark;
+    }
+
+    ${LIGHT_DARK_UNSUPPORTED} {
+        :root {
+${fallbackDeclarations}
+        }
     }
 }
 `;
