@@ -1,6 +1,7 @@
 import type { ButtonHTMLAttributes } from "react";
 import type { SwipeChangeHandler } from "../../hooks/useSwipeGesture/useSwipeGesture.js";
 import type { WithChildren } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export interface ToggleSliderProps extends WithChildren {
     labels: [string, string];
@@ -27,4 +28,5 @@ export type ToggleSwitchProps = Omit<
      * ```
      */
     onChange?: ToggleChangeHandler<HTMLButtonElement>;
+    tracking?: Tracking;
 };

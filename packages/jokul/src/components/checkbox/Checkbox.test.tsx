@@ -134,6 +134,7 @@ describe("checkbox", () => {
         const testAutoId = input.getAttribute("data-testautoid");
         expect(testAutoId).toEqual("jkl-checkbox__testautoid");
     });
+
 });
 
 describe("a11y", () => {

@@ -3,6 +3,8 @@ import React from "react";
 import { SlotComponent } from "../../utilities/polymorphism/SlotComponent.js";
 import type { AsChildProps } from "../../utilities/polymorphism/as-child.js";
 import type { PolymorphicRef } from "../../utilities/polymorphism/polymorphism.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { CardProps } from "./types.js";
 
 type CardComponent = <ElementType extends React.ElementType = "div">(
@@ -25,10 +27,13 @@ export const Card = React.forwardRef(function Card<
         outlined = false,
         asChild,
         as = "div",
+        children,
+        tracking,
         ...componentProps
     } = props;
 
     const Component = asChild ? SlotComponent : as;
+    const trackingLabel = children ? String(children) : undefined;
 
     return (
         <Component
@@ -41,7 +46,16 @@ export const Card = React.forwardRef(function Card<
                 className,
             )}
             {...componentProps}
+            {...getExtraTrackingAttributes(tracking?.extra)}
+            data-track-component-name={COMPONENT_NAMES.Card}
+            data-track-id={tracking?.id ?? trackingLabel}
+            data-track-label={trackingLabel}
+            data-track-padding={padding}
+            data-track-outlined={outlined}
+            data-track-clickable={clickable}
             ref={ref}
-        />
+        >
+            {children}
+        </Component>
     );
 }) as CardComponent;

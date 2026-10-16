@@ -5,6 +5,7 @@ import type {
     WithChildren,
     WithOptionalChildren,
 } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export interface FieldGroupProps
     extends DataTestAutoId,
@@ -53,6 +54,7 @@ export type InputGroupProps = WithOptionalChildren &
         tooltip?: ReactNode;
         style?: CSSProperties;
         render?: (props: InputProps) => JSX.Element;
+        tracking?: Tracking;
     };
 
 export type LabelVariant = "small" | "medium" | "large";

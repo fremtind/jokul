@@ -21,6 +21,7 @@ export const ToastProvider: FC<ToastContextProviderProps> = ({
     children,
     maxVisibleToasts = 5,
     placement = "center",
+    tracking,
 }) => {
     const [queue] = useState(
         new ToastQueue<ToastContent>({
@@ -53,7 +54,12 @@ export const ToastProvider: FC<ToastContextProviderProps> = ({
             }}
         >
             {children}
-            <ToastRegion queue={queue} placement={placement} />
+            <ToastRegion
+                queue={queue}
+                placement={placement}
+                maxVisibleToasts={maxVisibleToasts}
+                tracking={tracking}
+            />
         </context.Provider>
     );
 };

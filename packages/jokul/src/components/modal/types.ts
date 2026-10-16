@@ -1,5 +1,6 @@
 import type { A11yDialogConfig, A11yDialogProps } from "react-a11y-dialog";
 import type { WithOptionalChildren } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export type ModalPlacement = "center" | "left" | "bottom" | "right";
 
@@ -44,6 +45,8 @@ export type BaseModalProps = Omit<ModalProps, "padding" | "component">;
 
 export type ModalContainerProps = ModalConfig["container"] &
     BaseModalProps & {
+        "data-track-component-name"?: string;
+        "data-track-id"?: string;
         /**
          * Plassering og animasjon styres av containeren, siden det er den som
          * håndterer viewport-layout og `aria-hidden`-tilstand.
@@ -57,6 +60,7 @@ export type ModalContainerProps = ModalConfig["container"] &
          * @default false
          */
         slideIn?: boolean;
+        tracking?: Tracking;
     };
 
 export type ModalOverlayProps = ModalConfig["overlay"] &

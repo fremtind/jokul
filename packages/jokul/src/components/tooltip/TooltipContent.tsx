@@ -11,6 +11,8 @@ import React, { type HTMLProps, forwardRef } from "react";
 import { useBrowserPreferences } from "../../hooks/useBrowserPreferences/useBrowserPreferences.js";
 import { useId } from "../../hooks/useId/useId.js";
 import { getThemeAndSize } from "../../utilities/getThemeAndSize.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { useTooltipContext } from "./Tooltip.js";
 
 function getTranslation(side: Side, value = 0) {
@@ -44,6 +46,8 @@ export const TooltipContent = forwardRef<
         floatingStyles,
         refs,
         context,
+        initialOpen,
+        tracking,
     } = useTooltipContext();
     const ref = useMergeRefs([forwardedRef, refs.setFloating]);
     const contentId = useId("jkl-tooltip-content");
@@ -123,6 +127,14 @@ export const TooltipContent = forwardRef<
                                     ...props,
                                     id: contentId,
                                 })}
+                                {...getExtraTrackingAttributes(tracking?.extra)}
+                                data-track-component-name={
+                                    COMPONENT_NAMES.Tooltip
+                                }
+                                data-track-id={tracking?.id}
+                                data-track-placement={placement}
+                                data-track-trigger-on={triggerOn}
+                                data-track-initial-open={initialOpen}
                                 style={{
                                     ...floatingStyles,
                                     ...animationStyles,

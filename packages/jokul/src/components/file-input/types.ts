@@ -1,6 +1,7 @@
 import React from "react";
 import type { FileProps } from "../file/types.js";
 import type { FieldGroupProps } from "../input-group/index.js";
+import type { Tracking } from "../types.js";
 
 export interface UploadedFileValidation {
     type: "TOO_LARGE" | "WRONG_TYPE";
@@ -38,4 +39,5 @@ export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
             | React.DragEvent<HTMLDivElement>,
         files: UploadedFile[],
     ) => void;
+    tracking?: Tracking;
 }

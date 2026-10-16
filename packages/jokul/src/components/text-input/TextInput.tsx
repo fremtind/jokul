@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { InputGroup } from "../input-group/InputGroup.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { BaseTextInput } from "./BaseTextInput.js";
 import type { TextInputProps } from "./types.js";
 
@@ -18,6 +20,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             supportLabelProps,
             tooltip,
             description,
+            tracking,
             ...rest
         } = props;
         const inputGroupProps = {
@@ -39,7 +42,19 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
                 data-size={dataSize}
                 data-testid="jkl-text-input"
             >
-                <BaseTextInput ref={ref} {...rest} className={inputClassName} />
+                <BaseTextInput
+                    ref={ref}
+                    {...rest}
+                    className={inputClassName}
+                    {...getExtraTrackingAttributes(tracking?.extra)}
+                    data-track-component-name={COMPONENT_NAMES.TextInput}
+                    data-track-id={
+                        tracking?.id ?? (label ? String(label) : undefined)
+                    }
+                    data-track-label={label ? String(label) : undefined}
+                    data-track-type={rest.type}
+                    data-track-max-length={rest.maxLength}
+                />
             </InputGroup>
         );
     },

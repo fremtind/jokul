@@ -2,10 +2,12 @@ import clsx from "clsx";
 import React, { forwardRef } from "react";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
 import { CloseIcon } from "../icon/icons/CloseIcon.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { ChipProps } from "./types.js";
 
 export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
-    { className, variant, onClick, children, selected, ...rest },
+    { className, variant, onClick, children, selected, tracking, ...rest },
     ref,
 ) {
     return (
@@ -16,6 +18,13 @@ export const Chip = forwardRef<HTMLButtonElement, ChipProps>(function Chip(
             onClick={onClick}
             aria-pressed={selected}
             {...rest}
+            {...getExtraTrackingAttributes(tracking?.extra)}
+            data-track-component-name={COMPONENT_NAMES.Chip}
+            data-track-id={
+                tracking?.id ?? (children ? String(children) : undefined)
+            }
+            data-track-label={children ? String(children) : undefined}
+            data-track-variant={variant}
         >
             {children}
             {variant === "filter" && selected && (
