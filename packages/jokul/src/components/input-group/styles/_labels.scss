@@ -111,6 +111,29 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
         margin-block-end: var(--jkl-spacing-4);
     }
 
+    h1.jkl-label-heading {
+        @include jkl.text-style("heading-3");
+        margin-block: 0;
+
+        > .jkl-label {
+            margin: 0;
+        }
+    }
+
+    .jkl-input-group > h1.jkl-label-heading,
+    .jkl-field-group__legend:has(.jkl-label-heading) {
+        margin-block-end: var(--jkl-spacing-32);
+
+        &:has(+ .jkl-input-group-description) {
+            margin-block-end: var(--jkl-spacing-4);
+        }
+
+        + .jkl-input-group-description {
+            @include jkl.text-style("paragraph-medium");
+            margin-block-end: var(--jkl-spacing-32);
+        }
+    }
+
     @keyframes #{$_support-icon-entrance-animation-name} {
         0% {
             margin-right: 0;
