@@ -61,6 +61,8 @@
         scroll-snap-align: start;
         text-decoration: none;
         white-space: nowrap;
+        display: inline-flex;
+        gap: var(--jkl-unit-10);
 
         @include jkl.reset-outline;
 
