@@ -32,6 +32,7 @@ const usePopover = ({
     positionReference,
     onPlacementChange,
     matchReferenceWidth = false,
+    fitAvailableHeight = false,
     hoverOptions,
     focusOptions,
     clickOptions,
@@ -50,8 +51,18 @@ const usePopover = ({
         strategy,
         middleware: [
             offset(_offset),
-            flip({ padding: 5, fallbackPlacements: ["bottom", "top"] }),
-            shift({ padding: 12 }),
+            flip({
+                padding: fitAvailableHeight ? 12 : 5,
+                fallbackPlacements: ["bottom", "top"],
+            }),
+            shift({ padding: 12, crossAxis: fitAvailableHeight }),
+            fitAvailableHeight &&
+                size({
+                    padding: 12,
+                    apply({ availableHeight, elements }) {
+                        elements.floating.style.maxHeight = `${Math.max(0, availableHeight)}px`;
+                    },
+                }),
             ...(matchReferenceWidth
                 ? [
                       size({
@@ -99,10 +110,11 @@ const usePopover = ({
             open,
             onOpenChange,
             modal,
+            fitAvailableHeight,
             ...interactions,
             ...data,
         }),
-        [open, onOpenChange, modal, interactions, data],
+        [open, onOpenChange, modal, fitAvailableHeight, interactions, data],
     );
 };
 
@@ -246,6 +258,7 @@ const PopoverContent = React.forwardRef<
         floatingStyles,
         getFloatingProps,
         isPositioned,
+        fitAvailableHeight,
     } = usePopoverContext();
     const ref = useMergeRefs([refs.setFloating, propRef]);
 
@@ -278,7 +291,9 @@ const PopoverContent = React.forwardRef<
                 <div
                     data-theme={theme}
                     data-size={size}
-                    className={clsx("jkl jkl-popover", className)}
+                    className={clsx("jkl jkl-popover", className, {
+                        "jkl-popover--fit-available-height": fitAvailableHeight,
+                    })}
                     ref={ref}
                     style={
                         {

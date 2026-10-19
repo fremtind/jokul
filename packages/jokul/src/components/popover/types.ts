@@ -87,6 +87,19 @@ export interface PopoverOptions {
      */
     matchReferenceWidth?: boolean;
     /**
+     * Tilpasser popoverens plassering og høyde til det synlige området.
+     * Innholdet kan scrolles hvis det ikke får plass.
+     *
+     * Popoveren kan overlappe elementet den er festet til.
+     * Bruk en fast verdi mens popoveren er åpen: Høydebegrensningen fjernes
+     * ikke hvis du endrer verdien fra `true` til `false`.
+     *
+     * @see https://floating-ui.com/docs/shift#crossaxis
+     * @see https://floating-ui.com/docs/size
+     * @default false
+     */
+    fitAvailableHeight?: boolean;
+    /**
      * Options for hover-interaksjoner.
      *
      * @see https://floating-ui.com/docs/usehover
