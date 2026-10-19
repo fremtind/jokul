@@ -1,0 +1,1 @@
+import{r as f}from"./iframe-P2uUjS8i.js";function n(...o){return function(r){for(const e of o)e&&(typeof e=="function"?e(r):e&&(e.current=r))}}function i(...o){return f.useMemo(()=>n(...o),[o])}export{n as m,i as u};
