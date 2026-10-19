@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.5.3
+
+### Patch Changes
+
+- 60408f8: Font-vektene for Inter er justert til samme verdier som i Figma: regular er nå `400` (før `380`) og bold er `600` (før `530`).
+- 3c45df8: Fikser at datokalenderen kan havne utenfor skjermen når det ikke er plass over eller under datofeltet. Kalenderen flyttes nå inn i det synlige området og kan overlappe feltet ved behov. Hvis kalenderen er høyere enn det tilgjengelige området, kan innholdet scrolles.
+
 ## 5.5.2
 
 ### Patch Changes
