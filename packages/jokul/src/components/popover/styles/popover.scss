@@ -13,6 +13,11 @@
         background-color: var(--jkl-color-background-container);
         border-radius: var(--jkl-border-radius-s);
 
+        &--fit-available-height {
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
         &:focus-visible {
             @include jkl.focus-outline;
         }

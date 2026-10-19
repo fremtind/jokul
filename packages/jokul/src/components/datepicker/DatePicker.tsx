@@ -364,6 +364,7 @@ export const DatePicker = forwardRef<HTMLInputElement, DatePickerProps>(
                                     setShowCalendar(!showCalendar)
                                 }
                                 offset={8}
+                                fitAvailableHeight
                             >
                                 <Popover.Trigger
                                     {...action}
