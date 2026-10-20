@@ -2,12 +2,16 @@ import { OverviewCardWithPreferences } from "@/components/overview/OverviewCardW
 import type { NewsPageQueryResult } from "@/sanity/types";
 import { getRelativeTime } from "@/utils/relativeTime";
 import { Text } from "@fremtind/jokul/typography";
+import { type StegaBranded, stegaClean } from "next-sanity";
 
-export default function NewsPost({
-    article,
-}: { article: NewsPageQueryResult["articles"][number] }) {
-    const { name, short_description, updated, created, type, href, images } =
-        article;
+type Article = StegaBranded<NewsPageQueryResult>["articles"][number];
+
+export default function NewsPost({ article }: { article: Article }) {
+    const { name, short_description, type, images } = article;
+
+    const href = stegaClean(article.href);
+    const created = stegaClean(article.created);
+    const updated = stegaClean(article.updated);
 
     if (!href) return null;
 

@@ -1,5 +1,5 @@
 import { documents } from "@/sanity/schemas/documents";
-import { LinkIcon } from "@sanity/icons";
+import { LinkIcon } from "@sanity/icons/Link";
 import { defineType } from "sanity";
 
 export const linkCard = defineType({

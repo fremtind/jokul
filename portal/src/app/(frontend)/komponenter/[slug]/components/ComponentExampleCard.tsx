@@ -9,10 +9,11 @@ import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { Link } from "@fremtind/jokul/link";
 import { Text } from "@fremtind/jokul/typography";
+import { type StegaBranded, stegaClean } from "next-sanity";
 import NextLink from "next/link";
 
 type Props = {
-    storybook?: Jokul_storybookEmbed | null;
+    storybook?: StegaBranded<Jokul_storybookEmbed> | null;
 };
 
 export const ComponentExampleCard = ({ storybook }: Props) => {
@@ -20,19 +21,19 @@ export const ComponentExampleCard = ({ storybook }: Props) => {
         return null;
     }
 
-    const storyName = storybook?.storyName ?? storybook?.storyId ?? "";
-    const storybookUrl = getStorybookUrl({
-        storyId: storybook?.storyId,
-        version: storybook?.version,
-    });
+    const storyId = stegaClean(storybook.storyId);
+    const version = stegaClean(storybook.version);
+
+    const storyName = storybook.storyName ?? storyId;
+    const storybookUrl = getStorybookUrl({ storyId, version });
 
     return (
         <Flex direction="column" gap="s">
             <Card padding="m" outlined>
                 <Flex direction="column" gap="s">
                     <StorybookFrame
-                        storyId={storybook.storyId}
-                        version={storybook.version}
+                        storyId={storyId}
+                        version={version}
                         title={storyName}
                         height={storybook.height}
                         inert={storybook.interactive === false}

@@ -6,7 +6,7 @@ import { OverviewHeader } from "@/components/overview/header";
 import { logger } from "@/logger";
 import { sanityFetch } from "@/sanity/lib/live";
 import { newsPageQuery } from "@/sanity/queries/allPosts";
-import { type DocumentType, documents } from "@/sanity/schemas/documents";
+import type { DocumentType } from "@/sanity/schemas/documents";
 import { parseUserPreferences } from "@/utils/user-preferences";
 import { Flex } from "@fremtind/jokul/flex";
 import { getCookie } from "cookies-next";
@@ -53,6 +53,15 @@ const ARTICLE_TYPES: readonly ArticleType[] = [
         label: "Mønster",
     },
 ] as const;
+
+const DOCUMENT_TYPES: readonly DocumentType[] = [
+    "jokul_blog_post",
+    "jokul_component",
+    "jokul_fundamentals",
+    "jokul_release_notes",
+    "jokul_temaside",
+    "jokul_monster",
+];
 
 export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
@@ -110,7 +119,7 @@ export default async function NyheterPage({
             end: start + PAGE_SIZE,
         },
         requestTag: "news-page",
-        tags: documents.map((doc) => doc.name),
+        tags: [...DOCUMENT_TYPES],
     });
 
     const articles = data?.articles ?? [];

@@ -1,4 +1,4 @@
-import { TerminalIcon } from "@sanity/icons";
+import { TerminalIcon } from "@sanity/icons/Terminal";
 import { defineField, defineType } from "sanity";
 
 export const code = defineType({

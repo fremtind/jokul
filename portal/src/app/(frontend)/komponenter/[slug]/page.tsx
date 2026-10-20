@@ -32,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { data: component } = await sanityFetch({
         query: componentMetaBySlugQuery,
         params: { slug },
+        stega: false,
         requestTag: "component-page",
         tags: [`jokul_component:${slug}`],
     });

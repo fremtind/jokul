@@ -1,5 +1,5 @@
 import { MAINTAINED_VERSIONS } from "@/storybook/versions";
-import { ComponentIcon } from "@sanity/icons";
+import { ComponentIcon } from "@sanity/icons/Component";
 import { defineField, defineType } from "sanity";
 import { StorybookEmbedInput } from "../../components/StorybookEmbedInput";
 

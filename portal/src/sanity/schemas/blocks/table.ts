@@ -1,4 +1,4 @@
-import { DocumentSheetIcon } from "@sanity/icons";
+import { DocumentSheetIcon } from "@sanity/icons/DocumentSheet";
 import { defineType } from "sanity";
 
 export const table = defineType({

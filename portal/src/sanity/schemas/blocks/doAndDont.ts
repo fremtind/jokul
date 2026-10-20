@@ -1,4 +1,4 @@
-import { InlineIcon } from "@sanity/icons";
+import { InlineIcon } from "@sanity/icons/Inline";
 import { defineType } from "sanity";
 
 export const doAndDont = defineType({
