@@ -7,6 +7,12 @@
     max-width: var(--max-width);
     margin-inline: auto;
 
+    main :is(h2, h3, h4, h5, h6)[id] {
+        scroll-margin-block-start: calc(
+            var(--portal-header-height) + var(--jkl-spacing-24)
+        );
+    }
+
     @media (width >=940px) {
         --portal-header-height: #{jkl.rem(90px)};
 
