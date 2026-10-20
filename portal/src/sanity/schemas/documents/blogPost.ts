@@ -1,5 +1,5 @@
 import { commonBlock } from "@/sanity/schemas/blocks/commonBlock";
-import { ComposeIcon } from "@sanity/icons";
+import { ComposeIcon } from "@sanity/icons/Compose";
 import { defineField, defineType } from "sanity";
 
 const MAX_LENGTH = 70;

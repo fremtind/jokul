@@ -1,5 +1,83 @@
 [
   {
+    "type": "type",
+    "name": "sanity.imageAsset.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "sanity.imageAsset"
+    }
+  },
+  {
+    "type": "type",
+    "name": "ogImage",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "asset": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imageAsset.reference"
+          },
+          "optional": true
+        },
+        "media": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "ogImage.media"
+          },
+          "optional": true
+        },
+        "hotspot": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imageHotspot"
+          },
+          "optional": true
+        },
+        "crop": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "inline",
+            "name": "sanity.imageCrop"
+          },
+          "optional": true
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "image"
+          }
+        }
+      }
+    }
+  },
+  {
     "name": "jokul_storybookExample",
     "type": "type",
     "value": {
@@ -105,6 +183,186 @@
     }
   },
   {
+    "type": "type",
+    "name": "jokul_component.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "jokul_component"
+    }
+  },
+  {
+    "type": "type",
+    "name": "jokul_blog_post.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "jokul_blog_post"
+    }
+  },
+  {
+    "type": "type",
+    "name": "jokul_fundamentals.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "jokul_fundamentals"
+    }
+  },
+  {
+    "type": "type",
+    "name": "jokul_release_notes.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "jokul_release_notes"
+    }
+  },
+  {
+    "type": "type",
+    "name": "jokul_temaside.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "jokul_temaside"
+    }
+  },
+  {
+    "type": "type",
+    "name": "jokul_monster.reference",
+    "value": {
+      "type": "object",
+      "attributes": {
+        "_ref": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          }
+        },
+        "_type": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string",
+            "value": "reference"
+          }
+        },
+        "_weak": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
+        }
+      },
+      "dereferencesTo": "jokul_monster"
+    }
+  },
+  {
     "name": "jokul_internal_link",
     "type": "type",
     "value": {
@@ -123,160 +381,28 @@
             "type": "union",
             "of": [
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_component"
+                "type": "inline",
+                "name": "jokul_component.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_blog_post"
+                "type": "inline",
+                "name": "jokul_blog_post.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_fundamentals"
+                "type": "inline",
+                "name": "jokul_fundamentals.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_release_notes"
+                "type": "inline",
+                "name": "jokul_release_notes.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_temaside"
+                "type": "inline",
+                "name": "jokul_temaside.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_monster"
+                "type": "inline",
+                "name": "jokul_monster.reference"
               }
             ]
           },
@@ -301,69 +427,8 @@
         "ogImage": {
           "type": "objectAttribute",
           "value": {
-            "type": "object",
-            "attributes": {
-              "asset": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "object",
-                  "attributes": {
-                    "_ref": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "reference"
-                      }
-                    },
-                    "_weak": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "boolean"
-                      },
-                      "optional": true
-                    }
-                  },
-                  "dereferencesTo": "sanity.imageAsset"
-                },
-                "optional": true
-              },
-              "media": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "unknown"
-                },
-                "optional": true
-              },
-              "hotspot": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "inline",
-                  "name": "sanity.imageHotspot"
-                },
-                "optional": true
-              },
-              "crop": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "inline",
-                  "name": "sanity.imageCrop"
-                },
-                "optional": true
-              },
-              "_type": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string",
-                  "value": "image"
-                }
-              }
-            }
+            "type": "inline",
+            "name": "ogImage"
           },
           "optional": true
         },
@@ -398,30 +463,8 @@
               "asset": {
                 "type": "objectAttribute",
                 "value": {
-                  "type": "object",
-                  "attributes": {
-                    "_ref": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "reference"
-                      }
-                    },
-                    "_weak": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "boolean"
-                      },
-                      "optional": true
-                    }
-                  },
-                  "dereferencesTo": "sanity.imageAsset"
+                  "type": "inline",
+                  "name": "sanity.imageAsset.reference"
                 },
                 "optional": true
               },
@@ -467,30 +510,8 @@
               "asset": {
                 "type": "objectAttribute",
                 "value": {
-                  "type": "object",
-                  "attributes": {
-                    "_ref": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "reference"
-                      }
-                    },
-                    "_weak": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "boolean"
-                      },
-                      "optional": true
-                    }
-                  },
-                  "dereferencesTo": "sanity.imageAsset"
+                  "type": "inline",
+                  "name": "sanity.imageAsset.reference"
                 },
                 "optional": true
               },
@@ -588,30 +609,8 @@
             "asset": {
               "type": "objectAttribute",
               "value": {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "sanity.imageAsset"
+                "type": "inline",
+                "name": "sanity.imageAsset.reference"
               },
               "optional": true
             },
@@ -657,69 +656,8 @@
             "ogImage": {
               "type": "objectAttribute",
               "value": {
-                "type": "object",
-                "attributes": {
-                  "asset": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "object",
-                      "attributes": {
-                        "_ref": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string"
-                          }
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "reference"
-                          }
-                        },
-                        "_weak": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "boolean"
-                          },
-                          "optional": true
-                        }
-                      },
-                      "dereferencesTo": "sanity.imageAsset"
-                    },
-                    "optional": true
-                  },
-                  "media": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "unknown"
-                    },
-                    "optional": true
-                  },
-                  "hotspot": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "inline",
-                      "name": "sanity.imageHotspot"
-                    },
-                    "optional": true
-                  },
-                  "crop": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "inline",
-                      "name": "sanity.imageCrop"
-                    },
-                    "optional": true
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "image"
-                    }
-                  }
-                }
+                "type": "inline",
+                "name": "ogImage"
               },
               "optional": true
             },
@@ -783,134 +721,24 @@
                                             "type": "union",
                                             "of": [
                                               {
-                                                "type": "object",
-                                                "attributes": {
-                                                  "_ref": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "_type": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string",
-                                                      "value": "reference"
-                                                    }
-                                                  },
-                                                  "_weak": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "boolean"
-                                                    },
-                                                    "optional": true
-                                                  }
-                                                },
-                                                "dereferencesTo": "jokul_component"
+                                                "type": "inline",
+                                                "name": "jokul_component.reference"
                                               },
                                               {
-                                                "type": "object",
-                                                "attributes": {
-                                                  "_ref": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "_type": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string",
-                                                      "value": "reference"
-                                                    }
-                                                  },
-                                                  "_weak": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "boolean"
-                                                    },
-                                                    "optional": true
-                                                  }
-                                                },
-                                                "dereferencesTo": "jokul_fundamentals"
+                                                "type": "inline",
+                                                "name": "jokul_fundamentals.reference"
                                               },
                                               {
-                                                "type": "object",
-                                                "attributes": {
-                                                  "_ref": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "_type": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string",
-                                                      "value": "reference"
-                                                    }
-                                                  },
-                                                  "_weak": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "boolean"
-                                                    },
-                                                    "optional": true
-                                                  }
-                                                },
-                                                "dereferencesTo": "jokul_blog_post"
+                                                "type": "inline",
+                                                "name": "jokul_blog_post.reference"
                                               },
                                               {
-                                                "type": "object",
-                                                "attributes": {
-                                                  "_ref": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "_type": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string",
-                                                      "value": "reference"
-                                                    }
-                                                  },
-                                                  "_weak": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "boolean"
-                                                    },
-                                                    "optional": true
-                                                  }
-                                                },
-                                                "dereferencesTo": "jokul_release_notes"
+                                                "type": "inline",
+                                                "name": "jokul_release_notes.reference"
                                               },
                                               {
-                                                "type": "object",
-                                                "attributes": {
-                                                  "_ref": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string"
-                                                    }
-                                                  },
-                                                  "_type": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "string",
-                                                      "value": "reference"
-                                                    }
-                                                  },
-                                                  "_weak": {
-                                                    "type": "objectAttribute",
-                                                    "value": {
-                                                      "type": "boolean"
-                                                    },
-                                                    "optional": true
-                                                  }
-                                                },
-                                                "dereferencesTo": "jokul_monster"
+                                                "type": "inline",
+                                                "name": "jokul_monster.reference"
                                               }
                                             ]
                                           },
@@ -1404,160 +1232,28 @@
                                         "type": "union",
                                         "of": [
                                           {
-                                            "type": "object",
-                                            "attributes": {
-                                              "_ref": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string"
-                                                }
-                                              },
-                                              "_type": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string",
-                                                  "value": "reference"
-                                                }
-                                              },
-                                              "_weak": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "boolean"
-                                                },
-                                                "optional": true
-                                              }
-                                            },
-                                            "dereferencesTo": "jokul_component"
+                                            "type": "inline",
+                                            "name": "jokul_component.reference"
                                           },
                                           {
-                                            "type": "object",
-                                            "attributes": {
-                                              "_ref": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string"
-                                                }
-                                              },
-                                              "_type": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string",
-                                                  "value": "reference"
-                                                }
-                                              },
-                                              "_weak": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "boolean"
-                                                },
-                                                "optional": true
-                                              }
-                                            },
-                                            "dereferencesTo": "jokul_blog_post"
+                                            "type": "inline",
+                                            "name": "jokul_blog_post.reference"
                                           },
                                           {
-                                            "type": "object",
-                                            "attributes": {
-                                              "_ref": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string"
-                                                }
-                                              },
-                                              "_type": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string",
-                                                  "value": "reference"
-                                                }
-                                              },
-                                              "_weak": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "boolean"
-                                                },
-                                                "optional": true
-                                              }
-                                            },
-                                            "dereferencesTo": "jokul_fundamentals"
+                                            "type": "inline",
+                                            "name": "jokul_fundamentals.reference"
                                           },
                                           {
-                                            "type": "object",
-                                            "attributes": {
-                                              "_ref": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string"
-                                                }
-                                              },
-                                              "_type": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string",
-                                                  "value": "reference"
-                                                }
-                                              },
-                                              "_weak": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "boolean"
-                                                },
-                                                "optional": true
-                                              }
-                                            },
-                                            "dereferencesTo": "jokul_release_notes"
+                                            "type": "inline",
+                                            "name": "jokul_release_notes.reference"
                                           },
                                           {
-                                            "type": "object",
-                                            "attributes": {
-                                              "_ref": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string"
-                                                }
-                                              },
-                                              "_type": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string",
-                                                  "value": "reference"
-                                                }
-                                              },
-                                              "_weak": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "boolean"
-                                                },
-                                                "optional": true
-                                              }
-                                            },
-                                            "dereferencesTo": "jokul_temaside"
+                                            "type": "inline",
+                                            "name": "jokul_temaside.reference"
                                           },
                                           {
-                                            "type": "object",
-                                            "attributes": {
-                                              "_ref": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string"
-                                                }
-                                              },
-                                              "_type": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "string",
-                                                  "value": "reference"
-                                                }
-                                              },
-                                              "_weak": {
-                                                "type": "objectAttribute",
-                                                "value": {
-                                                  "type": "boolean"
-                                                },
-                                                "optional": true
-                                              }
-                                            },
-                                            "dereferencesTo": "jokul_monster"
+                                            "type": "inline",
+                                            "name": "jokul_monster.reference"
                                           }
                                         ]
                                       },
@@ -1862,160 +1558,28 @@
                                 "type": "union",
                                 "of": [
                                   {
-                                    "type": "object",
-                                    "attributes": {
-                                      "_ref": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "_type": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string",
-                                          "value": "reference"
-                                        }
-                                      },
-                                      "_weak": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "boolean"
-                                        },
-                                        "optional": true
-                                      }
-                                    },
-                                    "dereferencesTo": "jokul_component"
+                                    "type": "inline",
+                                    "name": "jokul_component.reference"
                                   },
                                   {
-                                    "type": "object",
-                                    "attributes": {
-                                      "_ref": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "_type": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string",
-                                          "value": "reference"
-                                        }
-                                      },
-                                      "_weak": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "boolean"
-                                        },
-                                        "optional": true
-                                      }
-                                    },
-                                    "dereferencesTo": "jokul_blog_post"
+                                    "type": "inline",
+                                    "name": "jokul_blog_post.reference"
                                   },
                                   {
-                                    "type": "object",
-                                    "attributes": {
-                                      "_ref": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "_type": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string",
-                                          "value": "reference"
-                                        }
-                                      },
-                                      "_weak": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "boolean"
-                                        },
-                                        "optional": true
-                                      }
-                                    },
-                                    "dereferencesTo": "jokul_fundamentals"
+                                    "type": "inline",
+                                    "name": "jokul_fundamentals.reference"
                                   },
                                   {
-                                    "type": "object",
-                                    "attributes": {
-                                      "_ref": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "_type": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string",
-                                          "value": "reference"
-                                        }
-                                      },
-                                      "_weak": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "boolean"
-                                        },
-                                        "optional": true
-                                      }
-                                    },
-                                    "dereferencesTo": "jokul_release_notes"
+                                    "type": "inline",
+                                    "name": "jokul_release_notes.reference"
                                   },
                                   {
-                                    "type": "object",
-                                    "attributes": {
-                                      "_ref": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "_type": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string",
-                                          "value": "reference"
-                                        }
-                                      },
-                                      "_weak": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "boolean"
-                                        },
-                                        "optional": true
-                                      }
-                                    },
-                                    "dereferencesTo": "jokul_temaside"
+                                    "type": "inline",
+                                    "name": "jokul_temaside.reference"
                                   },
                                   {
-                                    "type": "object",
-                                    "attributes": {
-                                      "_ref": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "_type": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string",
-                                          "value": "reference"
-                                        }
-                                      },
-                                      "_weak": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "boolean"
-                                        },
-                                        "optional": true
-                                      }
-                                    },
-                                    "dereferencesTo": "jokul_monster"
+                                    "type": "inline",
+                                    "name": "jokul_monster.reference"
                                   }
                                 ]
                               },
@@ -2152,30 +1716,8 @@
               "asset": {
                 "type": "objectAttribute",
                 "value": {
-                  "type": "object",
-                  "attributes": {
-                    "_ref": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "reference"
-                      }
-                    },
-                    "_weak": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "boolean"
-                      },
-                      "optional": true
-                    }
-                  },
-                  "dereferencesTo": "sanity.imageAsset"
+                  "type": "inline",
+                  "name": "sanity.imageAsset.reference"
                 },
                 "optional": true
               },
@@ -2228,30 +1770,8 @@
               "asset": {
                 "type": "objectAttribute",
                 "value": {
-                  "type": "object",
-                  "attributes": {
-                    "_ref": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string"
-                      }
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "reference"
-                      }
-                    },
-                    "_weak": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "boolean"
-                      },
-                      "optional": true
-                    }
-                  },
-                  "dereferencesTo": "sanity.imageAsset"
+                  "type": "inline",
+                  "name": "sanity.imageAsset.reference"
                 },
                 "optional": true
               },
@@ -2332,160 +1852,28 @@
             "type": "union",
             "of": [
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_blog_post"
+                "type": "inline",
+                "name": "jokul_blog_post.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_component"
+                "type": "inline",
+                "name": "jokul_component.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_fundamentals"
+                "type": "inline",
+                "name": "jokul_fundamentals.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_release_notes"
+                "type": "inline",
+                "name": "jokul_release_notes.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_temaside"
+                "type": "inline",
+                "name": "jokul_temaside.reference"
               },
               {
-                "type": "object",
-                "attributes": {
-                  "_ref": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string"
-                    }
-                  },
-                  "_type": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "string",
-                      "value": "reference"
-                    }
-                  },
-                  "_weak": {
-                    "type": "objectAttribute",
-                    "value": {
-                      "type": "boolean"
-                    },
-                    "optional": true
-                  }
-                },
-                "dereferencesTo": "jokul_monster"
+                "type": "inline",
+                "name": "jokul_monster.reference"
               }
             ]
           },
@@ -2637,30 +2025,8 @@
                                 "component": {
                                   "type": "objectAttribute",
                                   "value": {
-                                    "type": "object",
-                                    "attributes": {
-                                      "_ref": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "_type": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string",
-                                          "value": "reference"
-                                        }
-                                      },
-                                      "_weak": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "boolean"
-                                        },
-                                        "optional": true
-                                      }
-                                    },
-                                    "dereferencesTo": "jokul_component"
+                                    "type": "inline",
+                                    "name": "jokul_component.reference"
                                   },
                                   "optional": true
                                 },
@@ -2825,30 +2191,8 @@
                                 "component": {
                                   "type": "objectAttribute",
                                   "value": {
-                                    "type": "object",
-                                    "attributes": {
-                                      "_ref": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string"
-                                        }
-                                      },
-                                      "_type": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "string",
-                                          "value": "reference"
-                                        }
-                                      },
-                                      "_weak": {
-                                        "type": "objectAttribute",
-                                        "value": {
-                                          "type": "boolean"
-                                        },
-                                        "optional": true
-                                      }
-                                    },
-                                    "dereferencesTo": "jokul_component"
+                                    "type": "inline",
+                                    "name": "jokul_component.reference"
                                   },
                                   "optional": true
                                 },
@@ -3023,30 +2367,8 @@
         "component": {
           "type": "objectAttribute",
           "value": {
-            "type": "object",
-            "attributes": {
-              "_ref": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string"
-                }
-              },
-              "_type": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string",
-                  "value": "reference"
-                }
-              },
-              "_weak": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "boolean"
-                },
-                "optional": true
-              }
-            },
-            "dereferencesTo": "jokul_component"
+            "type": "inline",
+            "name": "jokul_component.reference"
           },
           "optional": true
         }
@@ -3311,160 +2633,28 @@
                                   "type": "union",
                                   "of": [
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_component"
+                                      "type": "inline",
+                                      "name": "jokul_component.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_blog_post"
+                                      "type": "inline",
+                                      "name": "jokul_blog_post.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_fundamentals"
+                                      "type": "inline",
+                                      "name": "jokul_fundamentals.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_release_notes"
+                                      "type": "inline",
+                                      "name": "jokul_release_notes.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_temaside"
+                                      "type": "inline",
+                                      "name": "jokul_temaside.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_monster"
+                                      "type": "inline",
+                                      "name": "jokul_monster.reference"
                                     }
                                   ]
                                 },
@@ -3528,30 +2718,8 @@
                   "asset": {
                     "type": "objectAttribute",
                     "value": {
-                      "type": "object",
-                      "attributes": {
-                        "_ref": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string"
-                          }
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "reference"
-                          }
-                        },
-                        "_weak": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "boolean"
-                          },
-                          "optional": true
-                        }
-                      },
-                      "dereferencesTo": "sanity.imageAsset"
+                      "type": "inline",
+                      "name": "sanity.imageAsset.reference"
                     },
                     "optional": true
                   },
@@ -4063,160 +3231,28 @@
                                   "type": "union",
                                   "of": [
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_component"
+                                      "type": "inline",
+                                      "name": "jokul_component.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_blog_post"
+                                      "type": "inline",
+                                      "name": "jokul_blog_post.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_fundamentals"
+                                      "type": "inline",
+                                      "name": "jokul_fundamentals.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_release_notes"
+                                      "type": "inline",
+                                      "name": "jokul_release_notes.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_temaside"
+                                      "type": "inline",
+                                      "name": "jokul_temaside.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_monster"
+                                      "type": "inline",
+                                      "name": "jokul_monster.reference"
                                     }
                                   ]
                                 },
@@ -4280,30 +3316,8 @@
                   "asset": {
                     "type": "objectAttribute",
                     "value": {
-                      "type": "object",
-                      "attributes": {
-                        "_ref": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string"
-                          }
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "reference"
-                          }
-                        },
-                        "_weak": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "boolean"
-                          },
-                          "optional": true
-                        }
-                      },
-                      "dereferencesTo": "sanity.imageAsset"
+                      "type": "inline",
+                      "name": "sanity.imageAsset.reference"
                     },
                     "optional": true
                   },
@@ -4532,38 +3546,16 @@
                 "of": {
                   "type": "object",
                   "attributes": {
-                    "_ref": {
+                    "_key": {
                       "type": "objectAttribute",
                       "value": {
                         "type": "string"
                       }
-                    },
-                    "_type": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "string",
-                        "value": "reference"
-                      }
-                    },
-                    "_weak": {
-                      "type": "objectAttribute",
-                      "value": {
-                        "type": "boolean"
-                      },
-                      "optional": true
                     }
                   },
-                  "dereferencesTo": "jokul_component",
                   "rest": {
-                    "type": "object",
-                    "attributes": {
-                      "_key": {
-                        "type": "objectAttribute",
-                        "value": {
-                          "type": "string"
-                        }
-                      }
-                    }
+                    "type": "inline",
+                    "name": "jokul_component.reference"
                   }
                 }
               },
@@ -4854,160 +3846,28 @@
                                   "type": "union",
                                   "of": [
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_component"
+                                      "type": "inline",
+                                      "name": "jokul_component.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_blog_post"
+                                      "type": "inline",
+                                      "name": "jokul_blog_post.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_fundamentals"
+                                      "type": "inline",
+                                      "name": "jokul_fundamentals.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_release_notes"
+                                      "type": "inline",
+                                      "name": "jokul_release_notes.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_temaside"
+                                      "type": "inline",
+                                      "name": "jokul_temaside.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_monster"
+                                      "type": "inline",
+                                      "name": "jokul_monster.reference"
                                     }
                                   ]
                                 },
@@ -5071,30 +3931,8 @@
                   "asset": {
                     "type": "objectAttribute",
                     "value": {
-                      "type": "object",
-                      "attributes": {
-                        "_ref": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string"
-                          }
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "reference"
-                          }
-                        },
-                        "_weak": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "boolean"
-                          },
-                          "optional": true
-                        }
-                      },
-                      "dereferencesTo": "sanity.imageAsset"
+                      "type": "inline",
+                      "name": "sanity.imageAsset.reference"
                     },
                     "optional": true
                   },
@@ -5523,160 +4361,28 @@
                                   "type": "union",
                                   "of": [
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_component"
+                                      "type": "inline",
+                                      "name": "jokul_component.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_blog_post"
+                                      "type": "inline",
+                                      "name": "jokul_blog_post.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_fundamentals"
+                                      "type": "inline",
+                                      "name": "jokul_fundamentals.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_release_notes"
+                                      "type": "inline",
+                                      "name": "jokul_release_notes.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_temaside"
+                                      "type": "inline",
+                                      "name": "jokul_temaside.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_monster"
+                                      "type": "inline",
+                                      "name": "jokul_monster.reference"
                                     }
                                   ]
                                 },
@@ -5740,30 +4446,8 @@
                   "asset": {
                     "type": "objectAttribute",
                     "value": {
-                      "type": "object",
-                      "attributes": {
-                        "_ref": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string"
-                          }
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "reference"
-                          }
-                        },
-                        "_weak": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "boolean"
-                          },
-                          "optional": true
-                        }
-                      },
-                      "dereferencesTo": "sanity.imageAsset"
+                      "type": "inline",
+                      "name": "sanity.imageAsset.reference"
                     },
                     "optional": true
                   },
@@ -6199,160 +4883,28 @@
                                   "type": "union",
                                   "of": [
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_component"
+                                      "type": "inline",
+                                      "name": "jokul_component.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_blog_post"
+                                      "type": "inline",
+                                      "name": "jokul_blog_post.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_fundamentals"
+                                      "type": "inline",
+                                      "name": "jokul_fundamentals.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_release_notes"
+                                      "type": "inline",
+                                      "name": "jokul_release_notes.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_temaside"
+                                      "type": "inline",
+                                      "name": "jokul_temaside.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_monster"
+                                      "type": "inline",
+                                      "name": "jokul_monster.reference"
                                     }
                                   ]
                                 },
@@ -6416,30 +4968,8 @@
                   "asset": {
                     "type": "objectAttribute",
                     "value": {
-                      "type": "object",
-                      "attributes": {
-                        "_ref": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string"
-                          }
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "reference"
-                          }
-                        },
-                        "_weak": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "boolean"
-                          },
-                          "optional": true
-                        }
-                      },
-                      "dereferencesTo": "sanity.imageAsset"
+                      "type": "inline",
+                      "name": "sanity.imageAsset.reference"
                     },
                     "optional": true
                   },
@@ -6618,38 +5148,16 @@
           "of": {
             "type": "object",
             "attributes": {
-              "_ref": {
+              "_key": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "string"
                 }
-              },
-              "_type": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string",
-                  "value": "reference"
-                }
-              },
-              "_weak": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "boolean"
-                },
-                "optional": true
               }
             },
-            "dereferencesTo": "jokul_component",
             "rest": {
-              "type": "object",
-              "attributes": {
-                "_key": {
-                  "type": "objectAttribute",
-                  "value": {
-                    "type": "string"
-                  }
-                }
-              }
+              "type": "inline",
+              "name": "jokul_component.reference"
             }
           }
         },
@@ -6662,38 +5170,16 @@
           "of": {
             "type": "object",
             "attributes": {
-              "_ref": {
+              "_key": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "string"
                 }
-              },
-              "_type": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string",
-                  "value": "reference"
-                }
-              },
-              "_weak": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "boolean"
-                },
-                "optional": true
               }
             },
-            "dereferencesTo": "jokul_temaside",
             "rest": {
-              "type": "object",
-              "attributes": {
-                "_key": {
-                  "type": "objectAttribute",
-                  "value": {
-                    "type": "string"
-                  }
-                }
-              }
+              "type": "inline",
+              "name": "jokul_temaside.reference"
             }
           }
         },
@@ -6996,160 +5482,28 @@
                                   "type": "union",
                                   "of": [
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_component"
+                                      "type": "inline",
+                                      "name": "jokul_component.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_blog_post"
+                                      "type": "inline",
+                                      "name": "jokul_blog_post.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_fundamentals"
+                                      "type": "inline",
+                                      "name": "jokul_fundamentals.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_release_notes"
+                                      "type": "inline",
+                                      "name": "jokul_release_notes.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_temaside"
+                                      "type": "inline",
+                                      "name": "jokul_temaside.reference"
                                     },
                                     {
-                                      "type": "object",
-                                      "attributes": {
-                                        "_ref": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string"
-                                          }
-                                        },
-                                        "_type": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "string",
-                                            "value": "reference"
-                                          }
-                                        },
-                                        "_weak": {
-                                          "type": "objectAttribute",
-                                          "value": {
-                                            "type": "boolean"
-                                          },
-                                          "optional": true
-                                        }
-                                      },
-                                      "dereferencesTo": "jokul_monster"
+                                      "type": "inline",
+                                      "name": "jokul_monster.reference"
                                     }
                                   ]
                                 },
@@ -7213,30 +5567,8 @@
                   "asset": {
                     "type": "objectAttribute",
                     "value": {
-                      "type": "object",
-                      "attributes": {
-                        "_ref": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string"
-                          }
-                        },
-                        "_type": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "string",
-                            "value": "reference"
-                          }
-                        },
-                        "_weak": {
-                          "type": "objectAttribute",
-                          "value": {
-                            "type": "boolean"
-                          },
-                          "optional": true
-                        }
-                      },
-                      "dereferencesTo": "sanity.imageAsset"
+                      "type": "inline",
+                      "name": "sanity.imageAsset.reference"
                     },
                     "optional": true
                   },
@@ -7415,38 +5747,16 @@
           "of": {
             "type": "object",
             "attributes": {
-              "_ref": {
+              "_key": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "string"
                 }
-              },
-              "_type": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string",
-                  "value": "reference"
-                }
-              },
-              "_weak": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "boolean"
-                },
-                "optional": true
               }
             },
-            "dereferencesTo": "jokul_component",
             "rest": {
-              "type": "object",
-              "attributes": {
-                "_key": {
-                  "type": "objectAttribute",
-                  "value": {
-                    "type": "string"
-                  }
-                }
-              }
+              "type": "inline",
+              "name": "jokul_component.reference"
             }
           }
         },
@@ -7459,38 +5769,16 @@
           "of": {
             "type": "object",
             "attributes": {
-              "_ref": {
+              "_key": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "string"
                 }
-              },
-              "_type": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "string",
-                  "value": "reference"
-                }
-              },
-              "_weak": {
-                "type": "objectAttribute",
-                "value": {
-                  "type": "boolean"
-                },
-                "optional": true
               }
             },
-            "dereferencesTo": "jokul_monster",
             "rest": {
-              "type": "object",
-              "attributes": {
-                "_key": {
-                  "type": "objectAttribute",
-                  "value": {
-                    "type": "string"
-                  }
-                }
-              }
+              "type": "inline",
+              "name": "jokul_monster.reference"
             }
           }
         },
@@ -7837,6 +6125,13 @@
           "optional": true
         },
         "blurHash": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "string"
+          },
+          "optional": true
+        },
+        "thumbHash": {
           "type": "objectAttribute",
           "value": {
             "type": "string"

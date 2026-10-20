@@ -1,6 +1,6 @@
 import { commonBlock } from "@/sanity/schemas/blocks/commonBlock";
 import { COMPONENT_CATEGORIES } from "@/utils/user-preferences";
-import { ComponentIcon } from "@sanity/icons";
+import { ComponentIcon } from "@sanity/icons/Component";
 import { defineField, defineType } from "sanity";
 
 import "../lists/usageList.scss";

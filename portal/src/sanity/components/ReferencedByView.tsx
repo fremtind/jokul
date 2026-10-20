@@ -70,7 +70,7 @@ function ReferenceCard({ document }: { document: ReferencingDocument }) {
                 params={{ id: document._id, type: document._type }}
                 style={{ textDecoration: "none", color: "inherit" }}
             >
-                <Stack space={2}>
+                <Stack gap={2}>
                     <Text weight="semibold">
                         {document.title || "Uten navn"}
                     </Text>
@@ -117,10 +117,10 @@ export function ReferencedByView({ documentId }: { documentId: string }) {
 
     return (
         <Box padding={4}>
-            <Stack space={5}>
+            <Stack gap={5}>
                 {Object.entries(groupedByType).map(
                     ([type, documentsOfType]) => (
-                        <Stack space={3} key={type}>
+                        <Stack gap={3} key={type}>
                             <Text size={1} weight="semibold" muted>
                                 {titleForType(type)}
                             </Text>

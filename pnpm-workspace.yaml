@@ -7,7 +7,6 @@ packages:
 overrides:
     "@babel/plugin-transform-modules-systemjs": "^7.29.4"
     # Vision feiler når CodeMirror lastes i flere versjoner.
-    # Nyeste Sanity krever React 19, så vi låser denne så lenge vi bruker React 18.
     "@codemirror/state": "6.7.1"
     "@hono/node-server": "^1.19.13"
     "@types/react": "18.3.1"
@@ -49,6 +48,14 @@ overrides:
     "react": "18.3.1"
     "react-dom": "18.3.1"
     "react-is": "18.3.1"
+    # Portalen bruker React 19 (kreves av Sanity 5 og nyere), mens resten av
+    # monorepoet fortsatt er låst til React 18 via overstyringene over.
+    # Typene for React er bevisst fortsatt 18.3.1 i portalen, slik at de matcher
+    # typene i @fremtind/jokul. Fjern dette når biblioteket går over til React 19.
+    "portal>react": "19.3.1"
+    "portal>react-dom": "19.3.1"
+    "sanity>react-is": "19.3.1"
+    "@sanity/ui>react-is": "19.3.1"
     "resolve-url-loader>loader-utils": "^1.4.2"
     "rollup": "^4.59.0"
     "shell-quote": "^1.9.0"

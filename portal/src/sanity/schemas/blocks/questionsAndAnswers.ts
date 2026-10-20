@@ -1,5 +1,5 @@
 import { richText } from "@/sanity/schemas/blocks/richText";
-import { HelpCircleIcon } from "@sanity/icons";
+import { HelpCircleIcon } from "@sanity/icons/HelpCircle";
 import { defineType } from "sanity";
 
 export const questionsAndAnswers = defineType({

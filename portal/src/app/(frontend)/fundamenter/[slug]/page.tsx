@@ -17,6 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { data: fundamental } = await sanityFetch({
         query: fundamentalsBySlugQuery,
         params: { slug },
+        stega: false,
         requestTag: "fundamental-post",
         tags: [`jokul_fundamental_post:${slug}`],
     });

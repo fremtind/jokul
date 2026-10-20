@@ -1,4 +1,4 @@
-import { ComponentIcon } from "@sanity/icons";
+import { ComponentIcon } from "@sanity/icons/Component";
 import { defineField } from "sanity";
 
 export const componentPageLink = defineField({
