@@ -1,4 +1,4 @@
-import { FeedbackIcon } from "@sanity/icons";
+import { FeedbackIcon } from "@sanity/icons/Feedback";
 import { defineType } from "sanity";
 
 export const feedbackBlock = defineType({

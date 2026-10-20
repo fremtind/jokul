@@ -1,5 +1,5 @@
 import { commonBlock } from "@/sanity/schemas/blocks/commonBlock";
-import { RocketIcon } from "@sanity/icons";
+import { RocketIcon } from "@sanity/icons/Rocket";
 import { defineField, defineType } from "sanity";
 
 export const releaseNotes = defineType({

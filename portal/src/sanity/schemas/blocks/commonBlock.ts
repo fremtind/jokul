@@ -1,5 +1,5 @@
 import { richText } from "@/sanity/schemas/blocks/richText";
-import { ImageIcon } from "@sanity/icons";
+import { ImageIcon } from "@sanity/icons/Image";
 
 export const commonBlock = [
     richText,

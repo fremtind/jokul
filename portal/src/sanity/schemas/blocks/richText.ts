@@ -1,9 +1,7 @@
 import { internalLink } from "@/sanity/schemas/links/internalLink";
-import {
-    CheckmarkCircleIcon,
-    CloseCircleIcon,
-    EarthGlobeIcon,
-} from "@sanity/icons";
+import { EarthGlobeIcon } from "@sanity/icons/EarthGlobe";
+import { CloseCircleIcon } from "@sanity/icons/CloseCircle";
+import { CheckmarkCircleIcon } from "@sanity/icons/CheckmarkCircle";
 import { defineField } from "sanity";
 
 export const richText = defineField({

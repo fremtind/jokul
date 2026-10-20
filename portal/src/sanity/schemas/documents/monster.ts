@@ -1,5 +1,5 @@
 import { commonBlock } from "@/sanity/schemas/blocks/commonBlock";
-import { BulbOutlineIcon } from "@sanity/icons";
+import { BulbOutlineIcon } from "@sanity/icons/BulbOutline";
 import { defineField, defineType } from "sanity";
 
 const MAX_LENGTH = 70;

@@ -22,6 +22,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { data: monster } = await sanityFetch({
         query: monsterBySlugQuery,
         params: { slug },
+        stega: false,
         requestTag: "monster",
         tags: [`jokul_monster:${slug}`],
     });

@@ -1,4 +1,6 @@
-import { CheckmarkCircleIcon, CloseCircleIcon, ListIcon } from "@sanity/icons";
+import { ListIcon } from "@sanity/icons/List";
+import { CheckmarkCircleIcon } from "@sanity/icons/CheckmarkCircle";
+import { CloseCircleIcon } from "@sanity/icons/CloseCircle";
 import { defineField, defineType } from "sanity";
 import { componentPageLink } from "./componentPageLink";
 
