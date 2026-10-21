@@ -76,7 +76,7 @@
 
                 @media (hover: hover) {
                     &:hover {
-                        background-color: var(--jkl-color-background-container-accent);
+                        @include jkl.hover-bg;
                     }
                 }
             }
