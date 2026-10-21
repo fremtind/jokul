@@ -2,6 +2,7 @@ import StyleDictionary from "style-dictionary";
 import type { TransformedToken } from "style-dictionary/types";
 
 import cssBrandFontsFormat from "./formats/css-brand-fonts.js";
+import cssColorMode from "./formats/css-color-mode.js";
 import cssColorSchemeBrand from "./formats/css-color-scheme-brand.js";
 import cssColorScheme from "./formats/css-color-scheme.js";
 import cssSizeFormat from "./formats/css-size.js";
@@ -21,6 +22,7 @@ import { PREFIX } from "./config.js";
 // Formats
 StyleDictionary.registerFormat(cssThemeVariablesFormat);
 StyleDictionary.registerFormat(cssColorScheme);
+StyleDictionary.registerFormat(cssColorMode);
 StyleDictionary.registerFormat(cssColorSchemeBrand);
 StyleDictionary.registerFormat(cssBrandFontsFormat);
 StyleDictionary.registerFormat(cssSizeFormat);

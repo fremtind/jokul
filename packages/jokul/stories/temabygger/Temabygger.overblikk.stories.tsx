@@ -266,7 +266,8 @@ function ChangeInsuranceCard() {
 function StaticSuccessToast() {
     return (
         <output
-            className="jkl-toast jkl-toast--success"
+            className="jkl-toast"
+            data-color="success"
             style={{
                 maxWidth: "100%",
                 width: "100%",
