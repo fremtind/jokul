@@ -21,6 +21,28 @@ describe("InputGroup", () => {
         expect(screen.getByLabelText("Test av InputGroup")).toBeVisible();
     });
 
+    it("should render the label as a page heading when pageHeading is set", () => {
+        render(
+            <InputGroup
+                label="Hva heter du?"
+                labelProps={{ pageHeading: true }}
+            >
+                <input type="text" />
+            </InputGroup>,
+        );
+
+        const heading = screen.getByRole("heading", { level: 1 });
+        expect(heading).toHaveTextContent("Hva heter du?");
+
+        expect(heading.querySelector("label")).toHaveAttribute(
+            "for",
+            screen.getByRole("textbox").id,
+        );
+        expect(
+            screen.getByRole("textbox", { name: "Hva heter du?" }),
+        ).toBeInTheDocument();
+    });
+
     it("should render popup-tip when passed as a prop", async () => {
         render(
             <InputGroup
