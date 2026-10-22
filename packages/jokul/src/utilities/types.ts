@@ -59,3 +59,34 @@ export interface WithChildren {
 export interface WithOptionalChildren {
     children?: ReactNode | ReactNode[];
 }
+
+/**
+ * @see WithReadOnly
+ */
+export interface WithDisabled {
+    /**
+     * Deaktiverer kontrollen.
+     *
+     * Bruk den bare i interne verktøy, aldri i kundeflyter. En deaktivert kontroll
+     * forklarer ikke hvorfor den er låst eller hva som må til for å låse den opp,
+     * og den dempede kontrasten gjør den vanskelig å lese. Skal et valg ikke være
+     * tilgjengelig for kunden, la det heller være ute av skjemaet, eller forklar
+     * kravet med `description` eller `errorLabel`.
+     */
+    disabled?: boolean;
+}
+
+/**
+ * @see WithDisabled
+ */
+export interface WithReadOnly {
+    /**
+     * Gjør kontrollen uredigerbar. Verdien beholder full tekstkontrast, og feltet
+     * kan fortsatt fokuseres og kopieres fra.
+     *
+     * Bruk den bare i interne verktøy, aldri i kundeflyter. Kunden får ikke vite
+     * hvorfor feltet er låst eller hva som må til for å endre det. Skal en verdi
+     * bare vises i en kundeflyt, vis den som tekst framfor som et låst skjemafelt.
+     */
+    readOnly?: boolean;
+}

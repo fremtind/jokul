@@ -46,6 +46,13 @@
                 --border-color: var(--jkl-color-error-border-default);
                 --box-shadow: 0 0 0 #{jkl.rem(1px)} var(--border-color);
             }
+
+            &:disabled {
+                --border-color: var(--jkl-color-border-default);
+                --box-shadow: 0 0 0 #{jkl.rem(1px)} transparent;
+
+                @include jkl.disabled-control;
+            }
         }
 
         &__popover {

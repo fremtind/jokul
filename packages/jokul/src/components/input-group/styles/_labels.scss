@@ -1,5 +1,6 @@
 @use "sass:string";
 @use "../../../styles/jkl";
+@use "../../icon/styles/base-styles" as icon;
 
 $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.unique-id(
 
@@ -109,6 +110,34 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
 
     .jkl-label:has(+ .jkl-input-group-description) {
         margin-block-end: var(--jkl-spacing-4);
+    }
+
+    // `:read-only` matcher alt som ikke er redigerbart – radioene i kalenderen til
+    // DateInput, <button>, <select> og filfelt – så kontrollene må listes eksplisitt.
+    // En etterkommer-selektor ville gitt lås på nesten alle felt. Nye felt med
+    // readOnly må legges til her.
+    // En disabled kontroll er også `:read-only`, så den må ekskluderes eksplisitt.
+    .jkl-input-group:has(
+            :is(
+                    .jkl-text-input__input,
+                    .jkl-text-area__text-area,
+                    .jkl-number-input__input,
+                    .jkl-date-input__input,
+                    .jkl-combobox__search-input,
+                    input[type="search"]
+                ):read-only:not(:disabled)
+        ) {
+        // Teksten pakkes i `.jkl-label__text` bare når det finnes en tooltip. Uten
+        // tooltip må låsen henge på labelen selv. Bare én av selektorene kan treffe.
+        > .jkl-label > .jkl-label__text::before,
+        > .jkl-label:not(:has(> .jkl-label__text))::before {
+            @include icon.base-styles;
+
+            content: "lock" / "";
+            vertical-align: text-bottom;
+            margin-inline-end: var(--jkl-spacing-4);
+            color: var(--jkl-color-text-subdued);
+        }
     }
 
     @keyframes #{$_support-icon-entrance-animation-name} {
