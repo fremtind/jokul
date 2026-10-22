@@ -26,6 +26,8 @@ import type { TooltipProps } from "./types.js";
 type UseTooltipReturn = {
     triggerOn: NonNullable<TooltipProps["triggerOn"]>;
     isOpen: boolean;
+    initialOpen: boolean;
+    tracking: TooltipProps["tracking"];
     setOpen: React.Dispatch<React.SetStateAction<boolean>>;
     arrowElement: React.RefObject<SVGSVGElement>;
     refs: {
@@ -41,6 +43,7 @@ const useTooltip = ({
     delay = 250,
     triggerOn = "hover",
     onOpenChange,
+    tracking,
 }: TooltipProps): UseTooltipReturn => {
     const [isOpen, setOpen] = useState(initialOpen);
     const arrowElement = useRef<SVGSVGElement>(null);
@@ -83,6 +86,8 @@ const useTooltip = ({
     return {
         triggerOn,
         isOpen,
+        initialOpen,
+        tracking,
         setOpen,
         arrowElement,
         ...data,

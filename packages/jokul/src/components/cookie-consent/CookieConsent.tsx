@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { Button } from "../button/Button.js";
 import { Flex } from "../flex/index.js";
 import { Link } from "../link/index.js";
+import { COMPONENT_NAMES } from "../metadata.js";
 import {
     Modal,
     ModalActions,
@@ -13,6 +14,7 @@ import {
     ModalTitle,
 } from "../modal/Modal.js";
 import { useModal } from "../modal/useModal.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { useInternalState } from "./CookieConsentContext.js";
 import { setConsentCookie } from "./cookieConsentUtils.js";
 import type { Consent, ConsentState, CookieConsentProps } from "./types.js";
@@ -22,6 +24,7 @@ export const CookieConsent = ({
     onAccept,
     aboutPage = "https://www.fremtind.no/informasjonskapsler",
     aboutPageLinkText = "Les mer om hvilke informasjons­kapsler vi lagrer her",
+    tracking,
     ...rest
 }: CookieConsentProps): JSX.Element | null => {
     const {
@@ -102,6 +105,10 @@ export const CookieConsent = ({
             {...modalConfig.container}
             {...rest}
             data-cookie-consent-open={isOpen}
+            {...getExtraTrackingAttributes(tracking?.extra)}
+            data-track-component-name={COMPONENT_NAMES.CookieConsent}
+            data-track-id={tracking?.id}
+            data-track-blocking={blocking}
         >
             <ModalOverlay {...modalConfig.overlay} />
             <Modal {...modalConfig.modal}>

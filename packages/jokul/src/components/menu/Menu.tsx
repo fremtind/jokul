@@ -27,6 +27,8 @@ import React, { forwardRef, useEffect, useRef, useState, useId } from "react";
 import { useBrowserPreferences } from "../../hooks/index.js";
 import { getThemeAndSize } from "../../utilities/getThemeAndSize.js";
 import { SlotComponent } from "../../utilities/index.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { MenuProps } from "./types.js";
 import { useMenuWideEvents } from "./useMenuWideEvents.js";
 
@@ -57,6 +59,7 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
             triggerElement,
             isOpen: isOpenOverride,
             onToggle,
+            tracking,
             ...triggerProps
         } = props;
 
@@ -184,11 +187,6 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                 className={clsx("jkl jkl-menu", className)}
                                 data-theme={theme}
                                 data-size={size}
-                                role="menu"
-                                data-placement={placement}
-                                aria-live="assertive"
-                                aria-hidden={!isOpen}
-                                ref={refs.setFloating}
                                 {...getFloatingProps({
                                     id: MenuId,
                                     style: {
@@ -196,6 +194,17 @@ const MenuComponent = forwardRef<HTMLButtonElement, MenuProps>(
                                         ...animationStyles,
                                     },
                                 })}
+                                role="menu"
+                                data-placement={placement}
+                                aria-live="assertive"
+                                aria-hidden={!isOpen}
+                                ref={refs.setFloating}
+                                {...getExtraTrackingAttributes(tracking?.extra)}
+                                data-track-component-name={COMPONENT_NAMES.Menu}
+                                data-track-id={tracking?.id}
+                                data-track-initial-placement={initialPlacement}
+                                data-track-open-on-hover={openOnHover}
+                                data-track-is-open={isOpen}
                             >
                                 {React.Children.map(
                                     children,

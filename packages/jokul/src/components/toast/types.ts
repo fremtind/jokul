@@ -1,6 +1,7 @@
 import type { ToastOptions as StatelyToastOptions } from "@react-stately/toast";
 import type { ReactNode } from "react";
 import type { WithChildren } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export type ToastContent =
     | {
@@ -31,4 +32,5 @@ export type ToastContextProviderProps = WithChildren & {
      * @default "center"
      */
     placement?: "center" | "left";
+    tracking?: Tracking;
 };

@@ -2,6 +2,8 @@ import clsx from "clsx";
 import React, { forwardRef, useCallback, useRef } from "react";
 import { mergeRefs } from "../../utilities/mergeRefs.js";
 import { InputGroup } from "../input-group/index.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { SearchButton } from "./SearchButton.js";
 import type { SearchInputProps } from "./types.js";
 
@@ -21,6 +23,7 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
             spellCheck = false,
             icon = "search",
             children,
+            tracking,
             ...rest
         } = props;
 
@@ -66,6 +69,12 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                                 spellCheck={spellCheck}
                                 {...inputProps}
                                 {...rest}
+                                {...getExtraTrackingAttributes(tracking?.extra)}
+                                data-track-component-name={
+                                    COMPONENT_NAMES.Search
+                                }
+                                data-track-id={tracking?.id ?? label}
+                                data-track-label={label}
                             />
                             <button
                                 className="clear-button"

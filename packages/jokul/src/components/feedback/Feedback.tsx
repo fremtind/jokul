@@ -1,5 +1,8 @@
 import React, { type ReactElement, type ReactNode, useState } from "react";
+import { COMPONENT_NAMES } from "../metadata.js";
 import type { BaseTextAreaProps } from "../text-area/types.js";
+import { getExtraTrackingAttributes } from "../types.js";
+import type { Tracking } from "../types.js";
 import { FeedbackContextProvider } from "./feedbackContext.js";
 import { Followup } from "./followup/Followup.js";
 import { MainQuestion } from "./main-question/MainQuestion.js";
@@ -53,6 +56,7 @@ export type FeedbackProps = {
      * for brukeren.
      */
     landmarkLabel?: string;
+    tracking?: Tracking;
 } & Pick<BaseTextAreaProps, "counter">;
 
 export const Feedback = ({
@@ -61,6 +65,7 @@ export const Feedback = ({
     contactQuestion,
     counter,
     landmarkLabel,
+    tracking,
     ...mainQuestionProps
 }: FeedbackProps): ReactElement => {
     const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
@@ -72,6 +77,20 @@ export const Feedback = ({
         <div
             className={`jkl-feedback ${className || ""}`}
             data-testid="feedback"
+            {...getExtraTrackingAttributes(tracking?.extra)}
+            data-track-component-name={COMPONENT_NAMES.Feedback}
+            data-track-id={
+                tracking?.id ??
+                (mainQuestionProps.label
+                    ? String(mainQuestionProps.label)
+                    : undefined)
+            }
+            data-track-label={
+                mainQuestionProps.label
+                    ? String(mainQuestionProps.label)
+                    : undefined
+            }
+            data-track-type={mainQuestionProps.type}
         >
             <FeedbackContextProvider
                 value={{

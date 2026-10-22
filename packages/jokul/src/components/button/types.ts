@@ -1,4 +1,5 @@
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { GlobalJokulAttributes } from "../types.js";
 
 export const buttonVariants = [
     "primary",
@@ -47,7 +48,8 @@ type Props = {
      * @deprecated Bruk `icon` i kombinasjon med `iconPosition="right"`
      */
     iconRight?: React.ReactNode;
-} & IconOptions;
+} & IconOptions &
+    GlobalJokulAttributes;
 
 export type ButtonProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<ElementType, Props> & Props;

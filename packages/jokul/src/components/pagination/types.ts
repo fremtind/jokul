@@ -1,4 +1,5 @@
 import type { PolymorphicPropsWithRef } from "../../utilities/polymorphism/polymorphism.js";
+import type { Tracking } from "../types.js";
 
 export type PaginationProps<ElementType extends React.ElementType> =
     PolymorphicPropsWithRef<
@@ -16,5 +17,6 @@ export type PaginationProps<ElementType extends React.ElementType> =
                 previous: string;
                 next: string;
             };
+            tracking?: Tracking;
         }
     >;

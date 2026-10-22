@@ -2,6 +2,7 @@ import type { StateChangeOptions } from "downshift";
 import type { ReactNode } from "react";
 import type { LabelProps } from "../input-group/types.js";
 import type { SupportLabelProps } from "../input-group/types.js";
+import type { Tracking } from "../types.js";
 
 export type CommonProps = (
     | {
@@ -36,6 +37,7 @@ export type CommonProps = (
     showDropdownControllerButton?: boolean;
     onInputValueChange?: (inputValue: string) => void;
     noHits?: { items: string[]; text: ReactNode };
+    tracking?: Tracking;
 };
 
 export interface AutosuggestStringItemProps {
