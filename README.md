@@ -41,7 +41,7 @@ Deretter kan du søke etter `eslint` og fjerne avkrysningen ved "Eslint: Enable"
 
 ### Tips under utvikling
 
-- Kjør `pnpm reboot` om du kommer tilbake til Jøkul-prosjektet etter en stund, eller noe ikke fungerer som du forventer.
+- Ikke bruk `pnpm reboot` som et generelt feilsøkingstiltak. Den kjører `pnpm clean` (`git clean -xfd -e '*.env*'`), som kan slette ikke-versjonerte og ignorerte filer (med unntak for `*.env*`) før avhengighetene installeres og prosjektet bygges på nytt. Hvis du bevisst vil gjøre dette, sjekk først hva som vil bli slettet med `git clean -ndx -e '*.env*'` fra repo-roten.
 - Om du opplever feil fra `nx`, prøv `pnpm dlx nx reset` og kjør kommandoen på nytt.
 
 ## Releases
