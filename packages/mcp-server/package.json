@@ -46,5 +46,5 @@
     "engines": {
         "node": "^22.22.2 || ^24.15.0 || ^26.0.0"
     },
-    "files": ["dist", "README.md"]
+    "files": ["dist", "README.md", "best-practices"]
 }
