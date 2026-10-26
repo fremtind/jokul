@@ -10,6 +10,7 @@ export async function readDocumentationFile(
     filename: string,
 ): Promise<string | null> {
     const possiblePaths = [
+        path.resolve(__dirname, "../..", filename),
         path.resolve(__dirname, "../../../../", filename),
         path.resolve(__dirname, "../../../..", filename),
         path.join(JOKUL_PACKAGE_PATH, filename),

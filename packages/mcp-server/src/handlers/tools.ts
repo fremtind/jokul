@@ -256,7 +256,7 @@ export function registerTools(server: McpServer): void {
         },
         async () => {
             const guide = await readDocumentationFile(
-                ".github/copilot-instructions.md",
+                "best-practices/usage-guide.md",
             );
 
             return {

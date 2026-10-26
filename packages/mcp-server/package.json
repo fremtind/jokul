@@ -46,5 +46,5 @@
     "engines": {
         "node": ">=20"
     },
-    "files": ["dist", "README.md"]
+    "files": ["dist", "README.md", "best-practices"]
 }
