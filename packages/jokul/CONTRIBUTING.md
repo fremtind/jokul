@@ -40,24 +40,9 @@ Følg mappe- og filstruktur fra de andre komponentene.
 | --- [navn].scss
 ```
 
-Du må også legge til komponenten to steder til
+Eksporter komponenten fra `src/components/[navn]/index.ts`. Eksportmønsteret `"./*"` i [package.json](./package.json) dekker komponentene, så du trenger ikke legge til en egen oppføring der.
 
-I [package.json](./package.json):
-
-```json
-        "./components/[navn]": {
-            "import": {
-                "types": "./build/es/components/[navn]/index.d.ts"
-                "default": "./build/es/components/[navn]/index.js",
-            },
-            "require": {
-                "types": "./build/cjs/components/[navn]/index.d.cts"
-                "default": "./build/cjs/components/[navn]/index.cjs",
-            }
-        },
-```
-
-I [styles.scss](./src/styles/styles.scss)
+Legg til komponentens stiler i [components.scss](./src/styles/components.scss):
 
 ```scss
 @use "../components/[navn]/styles" as [navn];
