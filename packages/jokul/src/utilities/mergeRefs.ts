@@ -1,9 +1,4 @@
-import {
-    type ForwardedRef,
-    type MutableRefObject,
-    type RefCallback,
-    useMemo,
-} from "react";
+import type { ForwardedRef, MutableRefObject, RefCallback } from "react";
 
 /**
  * Slår sammen flere refs til én, for eksempel hvis du har både en
@@ -31,17 +26,4 @@ export function mergeRefs<T>(
             }
         }
     };
-}
-
-/**
- * Gjør det samme som {@link mergeRefs}, men wrappet i en `useMemo`, hvis du
- * vil unngå å lage en ny funksjon ved hver render. Som regel ikke nødvendig.
- * @param refs Liste over refs du vil slå sammen
- * @returns En `RefCallback` du kan sende videre til en komponent/element
- * @example const combinedRef = useMergeRefs(ref, forwardedRef, anotherRef);
- */
-export function useMergeRefs<T>(
-    ...refs: (ForwardedRef<T> | MutableRefObject<T> | undefined)[]
-): RefCallback<T> {
-    return useMemo(() => mergeRefs(...refs), [refs]);
 }
