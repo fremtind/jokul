@@ -11,6 +11,8 @@ on:
             - "packages/jokul/src/**/*.spec.ts"
             - "packages/jokul/src/**/*.scss"
             - "packages/jokul/src/**/*.tsx"
+            - "packages/jokul/src/tokens/**"
+            - "packages/jokul/src/fonts/**"
             - "pnpm-lock.yaml"
 
 run-name: Kjør visuelle regresjonstester for ${{ github.event.pull_request.title }}
