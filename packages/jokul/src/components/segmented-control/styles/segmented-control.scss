@@ -11,7 +11,7 @@
             margin-block-end: 0.25lh;
         }
 
-        .jkl-segmented-control-item {
+        .jkl-segmented-control-item.jkl-radio-button {
             --jkl-segmented-control-border-width: 1px;
             --jkl-segmented-controls-border-radius: 2lh;
 
@@ -23,7 +23,7 @@
             border: var(--jkl-segmented-control-border-width) solid var(--jkl-color-border-subdued);
             border-radius: 0; // Gjør det enklere å behandle separering senere
             margin-inline-end: calc(var(--jkl-segmented-control-border-width) * -1);
-            margin-block-end: 0.5lh;
+            margin-block: 0;
 
             @include jkl.motion("easeInBounceOut", "expressive", border background);
 
