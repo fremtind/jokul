@@ -8,6 +8,7 @@ import {
 
 const brandTitles: Record<Brand, string> = {
     dnb: "DNB",
+    eika: "Eika",
 };
 
 export const brands = BRANDS.map((brand) => ({
