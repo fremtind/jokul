@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React, { forwardRef, useId, useRef, useState } from "react";
-import { useMergeRefs } from "../../utilities/index.js";
+import { useMergeRefs } from "../../hooks/useMergeRefs/useMergeRefs.js";
 import { Button } from "../button/index.js";
 import { CalendarIcon } from "../icon/index.js";
 import { InputGroup } from "../input-group/index.js";

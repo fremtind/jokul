@@ -48,6 +48,8 @@ export { useKeyListener } from "./useKeyListener/useKeyListener.js";
 
 export { useListNavigation } from "./useListNavigation/useListNavigation.js";
 
+export { useMergeRefs } from "./useMergeRefs/useMergeRefs.js";
+
 export {
     useSwipeGesture,
     type SwipeChangeHandler,
