@@ -1,0 +1,79 @@
+{
+    "color": {
+        "type": "colorScheme",
+        "@": {
+            "background": {
+                "page": {
+                    "value": {
+                        "light": "#FFFFFF",
+                        "dark": "#FFFFFF"
+                    }
+                },
+                "container": {
+                    "value": {
+                        "light": "#F8F6F6",
+                        "dark": "#F8F6F6"
+                    }
+                },
+                "container-accent": {
+                    "value": {
+                        "light": "#F4FAE6",
+                        "dark": "#F4FAE6"
+                    }
+                },
+                "contrast": {
+                    "value": {
+                        "light": "#00383D",
+                        "dark": "#00383D"
+                    }
+                }
+            },
+            "text": {
+                "default": {
+                    "value": {
+                        "light": "#00383D",
+                        "dark": "#00383D"
+                    }
+                },
+                "subdued": {
+                    "value": {
+                        "light": "#4D7477",
+                        "dark": "#4D7477"
+                    }
+                },
+                "accent": {
+                    "value": {
+                        "light": "#00383D",
+                        "dark": "#00383D"
+                    }
+                },
+                "on-contrast": {
+                    "value": {
+                        "light": "#ffffff",
+                        "dark": "#ffffff"
+                    }
+                }
+            },
+            "border": {
+                "default": {
+                    "value": {
+                        "light": "#00383D",
+                        "dark": "#00383D"
+                    }
+                },
+                "subdued": {
+                    "value": {
+                        "light": "#ECE5E0",
+                        "dark": "#ECE5E0"
+                    }
+                },
+                "strong": {
+                    "value": {
+                        "light": "#4D7477",
+                        "dark": "#4D7477"
+                    }
+                }
+            }
+        }
+    }
+}
