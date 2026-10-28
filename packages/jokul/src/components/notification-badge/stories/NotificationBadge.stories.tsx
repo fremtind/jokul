@@ -1,9 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
-import React, {
-    type HTMLAttributes,
-    type ReactElement,
-    useState,
-} from "react";
+import React, { type HTMLAttributes, type ReactElement, useState } from "react";
 import { Button } from "../../button/index.js";
 import { Card } from "../../card/index.js";
 import { Chip } from "../../chip/index.js";
@@ -42,7 +38,7 @@ export const Oversikt: Story = {
         },
     },
     render: (args) => (
-        <Flex gap="xl" alignItems="center" wrap>
+        <Flex gap="xl" alignItems="center" wrap="wrap">
             <NotificationBadge {...args} label={varsler(args.count)}>
                 <Button variant="secondary">Ankret</Button>
             </NotificationBadge>
@@ -77,7 +73,7 @@ export const AnkretOgInline: Story = {
         },
     },
     render: (args) => (
-        <Flex gap="xl" alignItems="center" wrap>
+        <Flex gap="xl" alignItems="center" wrap="wrap">
             <NotificationBadge {...args} label={varsler(args.count)}>
                 <Button>Ankret på knappen</Button>
             </NotificationBadge>
@@ -104,7 +100,7 @@ export const BarePrikk: Story = {
         },
     },
     render: (args) => (
-        <Flex gap="xl" alignItems="center" wrap>
+        <Flex gap="xl" alignItems="center" wrap="wrap">
             <NotificationBadge {...args} label={varsler(args.count)}>
                 <Button>En lengre knappetekst</Button>
             </NotificationBadge>
@@ -129,7 +125,7 @@ export const Viktig: Story = {
         },
     },
     render: (args) => (
-        <Flex gap="xl" alignItems="center" wrap>
+        <Flex gap="xl" alignItems="center" wrap="wrap">
             <NotificationBadge {...args} urgent label="1 forfalt faktura">
                 <Button variant="secondary">Forfalt faktura</Button>
             </NotificationBadge>
@@ -158,7 +154,7 @@ export const AntallMaxOgLabel: Story = {
         },
     },
     render: (args) => (
-        <Flex gap="xl" alignItems="center" wrap>
+        <Flex gap="xl" alignItems="center" wrap="wrap">
             <NotificationBadge
                 {...args}
                 count={120}
@@ -190,7 +186,7 @@ export const NaarVarseletForsvinner: Story = {
         },
     },
     render: (args) => (
-        <Flex gap="xl" alignItems="center" wrap>
+        <Flex gap="xl" alignItems="center" wrap="wrap">
             <NotificationBadge {...args} count={3} label="3 varsler">
                 <Button variant="secondary">count=3</Button>
             </NotificationBadge>
@@ -270,7 +266,7 @@ export const Begrensninger: Story = {
         <Flex direction="column" gap="xl">
             <Flex direction="column" gap="m">
                 <Text bold>Flere elementer som children ankrer ikke</Text>
-                <Flex gap="xl" alignItems="center" wrap>
+                <Flex gap="xl" alignItems="center" wrap="wrap">
                     <NotificationBadge {...args} label={varsler(args.count)}>
                         {flereElementer}
                     </NotificationBadge>
@@ -279,7 +275,7 @@ export const Begrensninger: Story = {
 
             <Flex direction="column" gap="m">
                 <Text bold>Rundt et Card virker, inni blir klippet</Text>
-                <Flex gap="xl" alignItems="start" wrap>
+                <Flex gap="xl" alignItems="start" wrap="wrap">
                     <NotificationBadge {...args} label="3 skadesaker">
                         <Card as="button" padding="m">
                             Rundt kortet
@@ -383,19 +379,13 @@ export const Handlekurv: Story = {
         },
     },
     render: (args) => (
-        <Flex gap="xl" alignItems="center" wrap>
-            <NotificationBadge
-                {...args}
-                label={`${args.count} varer i kurven`}
-            >
+        <Flex gap="xl" alignItems="center" wrap="wrap">
+            <NotificationBadge {...args} label={`${args.count} varer i kurven`}>
                 <IconButton aria-label="Handlekurv">
                     <Icon>shopping_bag</Icon>
                 </IconButton>
             </NotificationBadge>
-            <NotificationBadge
-                {...args}
-                label={`${args.count} varer i kurven`}
-            >
+            <NotificationBadge {...args} label={`${args.count} varer i kurven`}>
                 <Button variant="primary">Til kassen</Button>
             </NotificationBadge>
         </Flex>
@@ -447,7 +437,7 @@ export const DynamiskAntall: Story = {
 
         return (
             <Flex direction="column" gap="xl" alignItems="start">
-                <Flex gap="m" wrap>
+                <Flex gap="m" wrap="wrap">
                     <Button
                         variant="secondary"
                         onClick={() => setCount((value) => value + 1)}
@@ -460,12 +450,10 @@ export const DynamiskAntall: Story = {
                     >
                         25 nye
                     </Button>
-                    <Button onClick={() => setCount(0)}>
-                        Marker som lest
-                    </Button>
+                    <Button onClick={() => setCount(0)}>Marker som lest</Button>
                 </Flex>
 
-                <Flex gap="xl" alignItems="center" wrap>
+                <Flex gap="xl" alignItems="center" wrap="wrap">
                     <NotificationBadge
                         {...args}
                         count={count}

@@ -9,7 +9,7 @@ import { Tag } from "../../tag/index.js";
 import { NotificationBadge } from "../NotificationBadge.js";
 
 export const NotificationBadgeExample: FC<ExampleComponentProps> = () => (
-    <Flex gap="xl" alignItems="center" wrap>
+    <Flex gap="xl" alignItems="center" wrap="wrap">
         {[1, 9, 99, 100].map((count) => (
             <NotificationBadge key={count} count={count}>
                 <Button variant="secondary">{`count=${count}`}</Button>
@@ -24,7 +24,7 @@ export const NotificationBadgeExample: FC<ExampleComponentProps> = () => (
 export const NotificationBadgeVariantExample: FC<
     ExampleComponentProps
 > = () => (
-    <Flex gap="xl" alignItems="center" wrap>
+    <Flex gap="xl" alignItems="center" wrap="wrap">
         <NotificationBadge count={3} hideCounter>
             <Button variant="secondary">Prikk</Button>
         </NotificationBadge>
@@ -38,7 +38,7 @@ export const NotificationBadgeVariantExample: FC<
 );
 
 export const NotificationBadgeAnchorExample: FC<ExampleComponentProps> = () => (
-    <Flex gap="xl" alignItems="center" wrap>
+    <Flex gap="xl" alignItems="center" wrap="wrap">
         <NotificationBadge count={3}>
             <Button variant="secondary">En lengre knappetekst</Button>
         </NotificationBadge>
