@@ -3,12 +3,14 @@ import type {
     DataTestAutoId,
     Size,
     WithChildren,
+    WithDisabled,
     WithOptionalChildren,
 } from "../../utilities/types.js";
 
 export interface FieldGroupProps
     extends DataTestAutoId,
-        FieldsetHTMLAttributes<HTMLFieldSetElement> {
+        Omit<FieldsetHTMLAttributes<HTMLFieldSetElement>, "disabled">,
+        WithDisabled {
     legend: string;
     labelProps?: Omit<LabelProps, "children">;
     supportLabelProps?: Omit<

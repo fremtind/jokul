@@ -1,31 +1,16 @@
-@use "../../../styles/jkl/index" as jkl;
 @use "../../../shared/input/styles/shared-input-styles" as shared;
 
-.jkl-search:has(button.jkl-search-submit) {
-    display: grid;
-    grid-template-columns: 1fr max-content;
-    align-items: end;
+@layer jokul.components {
+    // Knappen ligger inne i wrapperen, så den delte rammen omslutter både feltet og
+    // knappen. Skillelinjen mellom dem tegnes av `input-separator`.
+    .jkl-search button.jkl-search-submit {
+        --border-radius: 0;
 
-    .jkl-input-group-description,
-    .jkl-label,
-    .input-wrapper {
-        grid-column: 1 / 2;
-    }
-
-    .input-wrapper {
-        border-inline-end: 0;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-
-    button.jkl-search-submit {
-        height: 100%;
-        border: var(--border);
-        border-inline-start: 0;
-        border-radius: var(--jkl-border-radius-s);
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
+        flex: none;
+        align-self: stretch;
         min-width: unset;
+        border-start-end-radius: var(--jkl-border-radius-s);
+        border-end-end-radius: var(--jkl-border-radius-s);
 
         @include shared.input-separator;
     }
