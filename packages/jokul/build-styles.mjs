@@ -103,7 +103,7 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
 
         await Promise.all(
             sources
-                .flatMap((source) => {
+                .flatMap(async (source) => {
                     const fileName = path.basename(source);
                     const sourcePath = fileURLToPath(
                         new URL(source, import.meta.url),
@@ -112,7 +112,7 @@ const rewriteImportsForBuiltFile = (content, sourceFilePath) =>
                         mapSourcePathToPublishedPath(sourcePath),
                     );
 
-                    const content = sass.compile(sourcePath);
+                    const content = await sass.compileAsync(sourcePath);
                     mkdirSync(outDirName, { recursive: true });
 
                     const cssFilePath = path.join(
