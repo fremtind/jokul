@@ -19,7 +19,7 @@
     "dependencies": {
         "@actions/core": "^3.0.1",
         "micromatch": "^4.0.8",
-        "simple-git": "^3.32.3"
+        "simple-git": "^4.0.1"
     },
     "devDependencies": {
         "@jest/globals": "^29.7.0",
