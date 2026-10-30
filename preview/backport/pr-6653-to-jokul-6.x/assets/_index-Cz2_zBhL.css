@@ -1,0 +1,1 @@
+@layer jokul.components{.jkl-flex{--wrap: initial;--gap: initial;--align-items: initial;--align-content: initial;--justify-content: initial;--flex-direction: initial;box-sizing:border-box;display:flex;flex-direction:var(--flex-direction);flex-wrap:var(--wrap);gap:var(--gap);align-items:var(--align-items);align-content:var(--align-content);justify-content:var(--justify-content)}}
