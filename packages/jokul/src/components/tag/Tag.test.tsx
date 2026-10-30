@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import React from "react";
 import { describe, expect, it } from "vitest";
-import { ErrorTag, InfoTag, SuccessTag, Tag, WarningTag } from "./Tag.js";
+import { COLOR_MODES } from "../../utilities/types.js";
+import { Tag } from "./Tag.js";
 
 describe("Tag", () => {
     it("skal rendre en standard tag", () => {
@@ -10,27 +11,17 @@ describe("Tag", () => {
         expect(screen.getByText("Standard Tag")).toHaveClass("jkl-tag");
     });
 
-    it("skal rendre en info tag", () => {
-        render(<InfoTag>Info Tag</InfoTag>);
-        expect(screen.getByText("Info Tag")).toBeInTheDocument();
-        expect(screen.getByText("Info Tag")).toHaveClass("jkl-tag--info");
-    });
+    COLOR_MODES.map((variant) => {
+        // "variant" => "Variant Tag"
+        const label = `${variant.charAt(0).toUpperCase()}${variant.substring(1)} Tag`;
 
-    it("skal rendre en error tag", () => {
-        render(<ErrorTag>Error Tag</ErrorTag>);
-        expect(screen.getByText("Error Tag")).toBeInTheDocument();
-        expect(screen.getByText("Error Tag")).toHaveClass("jkl-tag--error");
-    });
-
-    it("skal rendre en warning tag", () => {
-        render(<WarningTag>Warning Tag</WarningTag>);
-        expect(screen.getByText("Warning Tag")).toBeInTheDocument();
-        expect(screen.getByText("Warning Tag")).toHaveClass("jkl-tag--warning");
-    });
-
-    it("skal rendre en success tag", () => {
-        render(<SuccessTag>Success Tag</SuccessTag>);
-        expect(screen.getByText("Success Tag")).toBeInTheDocument();
-        expect(screen.getByText("Success Tag")).toHaveClass("jkl-tag--success");
+        it(`skal rendre en ${variant} tag`, () => {
+            render(<Tag variant={variant}>{label}</Tag>);
+            expect(screen.getByText(label)).toBeInTheDocument();
+            expect(screen.getByText(label)).toHaveAttribute(
+                "data-color",
+                variant,
+            );
+        });
     });
 });

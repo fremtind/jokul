@@ -80,16 +80,8 @@ export function Toast<T extends ToastContent>({
         <div
             {...toastProps}
             ref={ref}
-            className={clsx(
-                "jkl-toast",
-                {
-                    "jkl-toast--info": props.toast.variant === "info",
-                    "jkl-toast--error": props.toast.variant === "error",
-                    "jkl-toast--warning": props.toast.variant === "warning",
-                    "jkl-toast--success": props.toast.variant === "success",
-                },
-                className,
-            )}
+            className={clsx("jkl-toast", className)}
+            data-color={props.toast.variant}
             data-animation={props.toast.animation}
             onAnimationEnd={() => {
                 // Remove the toast when the exiting animation completes.

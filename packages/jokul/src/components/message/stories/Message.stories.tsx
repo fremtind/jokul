@@ -1,12 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import { Message } from "../Message.js";
 import "../styles/_index.scss";
+import { Link } from "../../link/Link.jsx";
 
 const meta = {
     title: "Komponenter/Message",
     component: Message,
     args: {
-        children: "Hei, jeg er en melding av typen info",
+        children: (
+            <>
+                Hei, jeg er en melding av typen info med en <Link>lenke</Link> i
+                seg
+            </>
+        ),
         title: "Info",
         dismissAction: { handleDismiss() {} },
         variant: "info",
