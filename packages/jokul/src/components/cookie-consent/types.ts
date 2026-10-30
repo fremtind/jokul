@@ -1,4 +1,5 @@
 import type { WithChildren } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export type ConsentState = null | "denied" | "accepted";
 
@@ -21,6 +22,7 @@ export interface CookieConsentProps {
      * Tekst for lenken til informasjonssiden.
      */
     aboutPageLinkText?: string;
+    tracking?: Tracking;
 }
 
 export type AcceptConsentCallback = (consent: Consent) => void;
@@ -47,4 +49,21 @@ export type CookieConsentProviderProps = Partial<ConsentRequirement> &
         cookieName?: string;
         cookieDomain?: string;
         cookiePath?: string;
+        /**
+         * Navnet på appen/løsningen som bruker Jøkul. Settes som
+         * `data-track-app-name` på `<html>` når brukeren har samtykket til
+         * statistikk.
+         *
+         * Valgfri i denne versjonen, men blir **påkrevd fra Jøkul 7** når
+         * `statistics` er satt — se `TRACKING.md`.
+         */
+        appName?: string;
+        /**
+         * Teamet som eier/drifter appen. Settes som `data-track-team` på
+         * `<html>` når brukeren har samtykket til statistikk.
+         *
+         * Valgfri i denne versjonen, men blir **påkrevd fra Jøkul 7** når
+         * `statistics` er satt — se `TRACKING.md`.
+         */
+        team?: string;
     };

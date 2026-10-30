@@ -9,6 +9,7 @@ import React, {
     type ThHTMLAttributes,
 } from "react";
 import type { WithChildren } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 import type { TableSortProps } from "./utils.js";
 
 export interface DataTableProps extends TableHTMLAttributes<HTMLTableElement> {
@@ -32,6 +33,7 @@ export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
     collapseToList?: boolean;
     /** Setter width: 100% */
     fullWidth?: boolean;
+    tracking?: Tracking;
 }
 
 export interface TableBodyProps

@@ -1,4 +1,5 @@
 import type { MouseEvent, ReactNode } from "react";
+import type { Tracking } from "../types.js";
 
 export type FileProps = {
     fileName: string;
@@ -27,4 +28,5 @@ export type FileProps = {
      * @deprecated Blir ikke brukt, vil fjernes i neste major-release
      */
     children?: ReactNode;
+    tracking?: Tracking;
 };

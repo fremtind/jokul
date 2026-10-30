@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes } from "react";
+import type { Tracking } from "../types.js";
 
 export type ChipVariant =
     | {
@@ -10,4 +11,7 @@ export type ChipVariant =
           selected?: boolean;
       };
 
-export type ChipProps = ChipVariant & ButtonHTMLAttributes<HTMLButtonElement>;
+export type ChipProps = ChipVariant &
+    ButtonHTMLAttributes<HTMLButtonElement> & {
+        tracking?: Tracking;
+    };

@@ -1,5 +1,6 @@
 import type { Placement } from "@floating-ui/react";
 import type { HTMLProps, ReactNode } from "react";
+import type { Tracking } from "../types.js";
 
 export interface PopupTipProps
     extends Omit<TooltipProps, "triggerOn" | "children"> {
@@ -45,4 +46,5 @@ export interface TooltipProps {
      * @default "hover"
      */
     triggerOn?: "click" | "hover";
+    tracking?: Tracking;
 }
