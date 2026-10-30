@@ -1,5 +1,12 @@
 # Change Log
 
+## 5.5.4
+
+### Patch Changes
+
+- e1e7a0d: Fjernet ekstra vertikal margin mellom valgene i `SegmentedControl` som ble arvet fra `RadioButton`.
+- 0170aad: `useMergeRefs` eksporteres nå fra `hooks` og gjenbruker callbacken når referansene er uendret. Eksporten fra `utilities` beholdes inntil videre for eksisterende brukere.
+
 ## 5.5.3
 
 ### Patch Changes
