@@ -28,7 +28,7 @@
 
         &:hover,
         &:focus-visible {
-            background-color: var(--jkl-color-background-container-accent);
+            @include jkl.hover-bg;
         }
 
         &[aria-selected="true"]::before {

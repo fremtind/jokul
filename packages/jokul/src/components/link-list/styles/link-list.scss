@@ -51,7 +51,7 @@
                 }
 
                 &:is(:hover, :focus-visible) {
-                    background-color: var(--jkl-color-background-container-accent);
+                    @include jkl.hover-bg;
 
                     &::after {
                         translate: 4px 0;
