@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.7.5
+
+### Patch Changes
+
+- 39d5a9e: Fjernet ekstra vertikal margin mellom valgene i `SegmentedControl` som ble arvet fra `RadioButton`.
+- 9b70c6b: Beskrivelsen i `RadioPanel` og `CheckboxPanel` er nå alltid synlig, mens panelet kun fremheves når det er valgt. Den utfasede propen `alwaysOpen` har ikke lenger noen effekt.
+- 58c192d: Card bruker nå samme padding som i Figma (unit-10, unit-20, unit-30 og unit-40) også på små skjermer.
+- 6e37daf: `Tag` strekkes ikke lenger til full bredde når den brukes i en flex-container.
+- 61371f0: `useMergeRefs` eksporteres nå fra `hooks` og gjenbruker callbacken når referansene er uendret. Eksporten fra `utilities` beholdes inntil videre for eksisterende brukere.
+
 ## 4.7.4
 
 ### Patch Changes
