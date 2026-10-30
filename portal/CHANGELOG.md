@@ -1,5 +1,21 @@
 # portal
 
+## 1.10.0-next.4
+
+### Minor Changes
+
+- a2f295a: Oppdaterer Sanity-stacken til nyeste versjon
+
+  Dette lar oss integrere studioet for portalen bedre inn i Sanity sitt dashboard, og låser opp flere muligheter for tilgangsstyring.
+
+### Patch Changes
+
+- Updated dependencies [a1fbef4]
+- Updated dependencies [de98073]
+- Updated dependencies [0d72086]
+- Updated dependencies [243375d]
+  - @fremtind/jokul@6.1.0-next.4
+
 ## 1.10.0-next.3
 
 ### Patch Changes

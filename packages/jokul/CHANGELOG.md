@@ -1,5 +1,19 @@
 # Change Log
 
+## 6.1.0-next.4
+
+### Minor Changes
+
+- a1fbef4: `Label` har fått propen `pageHeading`, som lar deg bruke labelen eller legenden som sidens hovedoverskrift (`<h1>`). Du aktiverer den via `labelProps={{ pageHeading: true }}` på skjemakomponenten, for eksempel når skjemaet viser ett spørsmål om gangen.
+- 0d72086: Ny komponent: Button Group
+
+  `ButtonGroup`-komponenten legger til rette for å enkelt vise hovedhandlinger i en flyt eller dialogrute på en konsekvent måte. Gruppen inneholder alltid en hovedhandling, og kan i tillegg ha en sekundærhandling. Knappene vises over hverandre, og bytter til full bredde når siden eller beholderen de er inne i blir smal nok.
+
+### Patch Changes
+
+- de98073: Fjernet ekstra vertikal margin mellom valgene i `SegmentedControl` som ble arvet fra `RadioButton`.
+- 243375d: `useMergeRefs` eksporteres nå fra `hooks` og gjenbruker callbacken når referansene er uendret. Eksporten fra `utilities` beholdes inntil videre for eksisterende brukere.
+
 ## 6.1.0-next.3
 
 ### Patch Changes

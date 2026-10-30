@@ -11,11 +11,16 @@
     },
     "changesets": [
         "brave-fonts-weigh",
+        "brave-heads-rise",
+        "bright-lemurs-pause",
         "calm-panels-rest",
         "calm-ravens-glow",
+        "cyan-spoons-cut",
         "fuzzy-cards-pad",
         "gentle-foxes-navigate",
+        "major-pigs-begin",
         "puny-places-swim",
-        "quiet-otters-drift"
+        "quiet-otters-drift",
+        "sleepy-foxes-wander"
     ]
 }
