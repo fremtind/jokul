@@ -26,7 +26,7 @@
         "@portabletext/react": "^5.0.0",
         "@portabletext/types": "^3.0.1",
         "@sanity/client": "^8.10.0",
-        "@sanity/code-input": "^7.3.13",
+        "@sanity/code-input": "^7.3.14",
         "@sanity/icons": "^5.2.3",
         "@sanity/image-url": "^2.1.1",
         "@sanity/locale-nb-no": "^1.1.39",
