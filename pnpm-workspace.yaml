@@ -58,7 +58,7 @@ overrides:
     "@sanity/ui>react-is": "19.3.1"
     "resolve-url-loader>loader-utils": "^1.4.2"
     "rollup": "^4.59.0"
-    "shell-quote": "^1.9.0"
+    "shell-quote": "^1.11.0"
     "terser-webpack-plugin": "^5.5.0"
     "tmp": "^0.2.6"
     "undici@5": "^5.29.0"
