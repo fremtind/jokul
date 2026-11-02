@@ -20,6 +20,7 @@ overrides:
   brace-expansion@2: ^2.1.4
   brace-expansion@5: ^5.0.9
   chokidar: ^3.5.3
+  dompurify: ^3.4.17
   express-rate-limit: ^8.2.2
   fast-uri: ^3.1.5
   flatted: ^3.4.2
@@ -465,9 +466,6 @@ importers:
       cross-env:
         specifier: ^10.1.0
         version: 10.1.0
-      dompurify:
-        specifier: ^3.4.13
-        version: 3.4.13
       graphql:
         specifier: ^16.14.2
         version: 16.14.2
@@ -7826,9 +7824,6 @@ packages:
   domhandler@5.0.3:
     resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
     engines: {node: '>= 4'}
-
-  dompurify@3.4.13:
-    resolution: {integrity: sha512-2vmYIoqjze2d+kakP8S/nS5shfsl587kzwEjcGlTdiksUVgFHnFCsLYDVj/JNqJVOQZGSYBTmuycv0PodwmnMQ==}
 
   dompurify@3.4.17:
     resolution: {integrity: sha512-B/pSlYVHQ58kqISD/yDjuJ1yfzI34m1gF4lAod2bwSRhiN4K5Cl3H8Af7hqB2PmTL911tdEudnnXn5FnhRoz0w==}
@@ -22008,10 +22003,6 @@ snapshots:
     dependencies:
       domelementtype: 2.3.0
 
-  dompurify@3.4.13:
-    optionalDependencies:
-      '@types/trusted-types': 2.0.7
-
   dompurify@3.4.17:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
@@ -24155,7 +24146,7 @@ snapshots:
 
   isomorphic-dompurify@2.36.0(@noble/hashes@2.0.1):
     dependencies:
-      dompurify: 3.4.13
+      dompurify: 3.4.17
       jsdom: 28.1.0(@noble/hashes@2.0.1)
     transitivePeerDependencies:
       - '@noble/hashes'
