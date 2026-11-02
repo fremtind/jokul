@@ -38,7 +38,6 @@
         "colorjs.io": "0.6.1",
         "cookies-next": "^6.0.0",
         "cross-env": "^10.1.0",
-        "dompurify": "^3.4.13",
         "graphql": "^16.14.2",
         "hsluv": "^1.0.2",
         "mixpanel-browser": "^2.81.0",
