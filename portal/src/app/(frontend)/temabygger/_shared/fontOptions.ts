@@ -74,18 +74,23 @@ export const REGULAR_FONT_SELECT_OPTIONS = [
 export type FontOptionId = keyof typeof FONT_OPTIONS;
 export type FontOption = (typeof FONT_OPTIONS)[FontOptionId];
 
+/**
+ * Verdien et fontslot får når brukeren har lastet opp en egen fontfil. Selve
+ * fila ligger i `customFonts` på utkastet, under samme slot.
+ */
+export const CUSTOM_FONT_SELECTION = "custom";
+
+export type FontSelectionId = FontOptionId | typeof CUSTOM_FONT_SELECTION;
+
+export function isFontSelectionId(value: unknown): value is FontSelectionId {
+    return value === CUSTOM_FONT_SELECTION || isFontOptionId(value);
+}
+
 export const DEFAULT_REGULAR_FONT_OPTION_ID =
     "inter-variable" satisfies FontOptionId;
 
 export const DEFAULT_DISPLAY_FONT_OPTION_ID =
     "inter-variable-display" satisfies FontOptionId;
-
-export const FONT_SELECT_OPTIONS = Object.entries(FONT_OPTIONS).map(
-    ([id, option]) => ({
-        label: option.label,
-        value: id as FontOptionId,
-    }),
-);
 
 export const DISPLAY_FONT_SELECT_OPTIONS = Object.entries(FONT_OPTIONS).map(
     ([id, option]) => ({

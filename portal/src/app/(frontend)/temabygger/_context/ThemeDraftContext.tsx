@@ -1,5 +1,6 @@
 "use client";
 
+import { ToastProvider } from "@fremtind/jokul/toast";
 import {
     createContext,
     useContext,
@@ -8,13 +9,15 @@ import {
     useReducer,
     useState,
 } from "react";
+import { CustomFontFaces } from "../_components/CustomFontFaces";
+import { useUndoRedoShortcuts } from "../_hooks/useUndoRedoShortcuts";
 import { getStoredThemeDraft } from "../_storage/themeDraftStorage";
 import { useThrottledStorageSync } from "../_storage/useThrottledStorageSync";
 import {
-    INITIAL_STATE,
-    type ThemeDraftAction,
-    themeDraftReducer,
-} from "./themeDraftReducer";
+    initializeHistory,
+    themeDraftHistoryReducer,
+} from "./themeDraftHistory";
+import { INITIAL_STATE, type ThemeDraftAction } from "./themeDraftReducer";
 import type {
     ThemeDraft,
     ThemeDraftContextState,
@@ -28,19 +31,29 @@ const DRAFT_SAVE_DELAY_MS = 250;
 const ThemeDraftContext = createContext<ThemeDraftContextState | null>(null);
 
 function initializeDraft(initialDraft?: ThemeDraft) {
-    return initialDraft ?? INITIAL_STATE;
+    return initializeHistory(initialDraft ?? INITIAL_STATE);
 }
 
-export function ThemeDraftProvider({
+export function ThemeDraftProvider(props: ThemeDraftProviderProps) {
+    return (
+        <ToastProvider placement="right">
+            <ThemeDraftProviderContent {...props} />
+        </ToastProvider>
+    );
+}
+
+function ThemeDraftProviderContent({
     children,
     initialDraft,
 }: ThemeDraftProviderProps) {
-    const [draft, dispatch] = useReducer(
-        themeDraftReducer,
+    const [history, dispatch] = useReducer(
+        themeDraftHistoryReducer,
         initialDraft,
         initializeDraft,
     );
     const [storageLoaded, setStorageLoaded] = useState(false);
+
+    const draft = history.present;
 
     // Last inn lagret utkast fra localStorage ved mount når route ikke har et eksplisitt draft
     useEffect(() => {
@@ -56,6 +69,8 @@ export function ThemeDraftProvider({
         setStorageLoaded(true);
     }, [initialDraft]);
 
+    useUndoRedoShortcuts(history, dispatch);
+
     useThrottledStorageSync(
         draft,
         storageLoaded && initialDraft === undefined,
@@ -69,6 +84,7 @@ export function ThemeDraftProvider({
 
     return (
         <ThemeDraftContext.Provider value={value}>
+            <CustomFontFaces />
             {children}
         </ThemeDraftContext.Provider>
     );
