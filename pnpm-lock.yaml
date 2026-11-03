@@ -457,9 +457,6 @@ importers:
       graphql:
         specifier: ^16.14.2
         version: 16.14.2
-      hsluv:
-        specifier: ^1.0.2
-        version: 1.0.2
       mixpanel-browser:
         specifier: ^2.81.0
         version: 2.81.0
