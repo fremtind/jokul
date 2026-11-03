@@ -1,0 +1,551 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generatePalette > genererer samme OKLCh-palett for #000000 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#232323",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#363636",
+      "light": "#e0e0e0",
+    },
+    "contrast": {
+      "dark": "#ababab",
+      "light": "#000000",
+    },
+    "page": {
+      "dark": "#0d0d0d",
+      "light": "#f1f1f1",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c6c5c6",
+      "light": "#616161",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "subdued": {
+      "dark": "#616161",
+      "light": "#c5c6c6",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "on-contrast": {
+      "dark": "#000000",
+      "light": "#ffffff",
+    },
+    "subdued": {
+      "dark": "#c6c5c6",
+      "light": "#616161",
+    },
+  },
+}
+`;
+
+exports[`generatePalette > genererer samme OKLCh-palett for #006F4E 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#202423",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#313836",
+      "light": "#dae2de",
+    },
+    "contrast": {
+      "dark": "#4f9c85",
+      "light": "#006F4E",
+    },
+    "page": {
+      "dark": "#0c0e0d",
+      "light": "#eef2f0",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c3c7c5",
+      "light": "#5f6260",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0c0e0d",
+    },
+    "subdued": {
+      "dark": "#5f6261",
+      "light": "#c3c6c5",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0c0e0d",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0c0e0d",
+    },
+    "on-contrast": {
+      "dark": "#000000",
+      "light": "#ffffff",
+    },
+    "subdued": {
+      "dark": "#c3c7c5",
+      "light": "#5f6260",
+    },
+  },
+}
+`;
+
+exports[`generatePalette > genererer samme OKLCh-palett for #1e90ff 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#212326",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#32373c",
+      "light": "#dbe1e7",
+    },
+    "contrast": {
+      "dark": "#1461ac",
+      "light": "#1e90ff",
+    },
+    "page": {
+      "dark": "#0c0d0e",
+      "light": "#eef1f4",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c4c6c8",
+      "light": "#5f6163",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0c0d0e",
+    },
+    "subdued": {
+      "dark": "#5f6163",
+      "light": "#c4c6c8",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0c0d0e",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0c0d0e",
+    },
+    "on-contrast": {
+      "dark": "#ffffff",
+      "light": "#000000",
+    },
+    "subdued": {
+      "dark": "#c4c6c8",
+      "light": "#5f6163",
+    },
+  },
+}
+`;
+
+exports[`generatePalette > genererer samme OKLCh-palett for #f5c400 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#242320",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#383630",
+      "light": "#e3e0d8",
+    },
+    "contrast": {
+      "dark": "#725c00",
+      "light": "#f5c400",
+    },
+    "page": {
+      "dark": "#0e0d0c",
+      "light": "#f2f1ed",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c6c6c3",
+      "light": "#62615f",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0e0d0c",
+    },
+    "subdued": {
+      "dark": "#62615f",
+      "light": "#c7c6c3",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0e0d0c",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0e0d0c",
+    },
+    "on-contrast": {
+      "dark": "#ffffff",
+      "light": "#000000",
+    },
+    "subdued": {
+      "dark": "#c6c6c3",
+      "light": "#62615f",
+    },
+  },
+}
+`;
+
+exports[`generatePalette > genererer samme OKLCh-palett for #ffffff 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#232323",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#363636",
+      "light": "#e0e0e0",
+    },
+    "contrast": {
+      "dark": "#5e5e5e",
+      "light": "#ffffff",
+    },
+    "page": {
+      "dark": "#0d0d0d",
+      "light": "#f1f1f1",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c5c5c6",
+      "light": "#616161",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "subdued": {
+      "dark": "#616161",
+      "light": "#c6c5c6",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "on-contrast": {
+      "dark": "#ffffff",
+      "light": "#000000",
+    },
+    "subdued": {
+      "dark": "#c5c5c6",
+      "light": "#616161",
+    },
+  },
+}
+`;
+
+exports[`generatePalette > genererer samme WCAG-palett for #000000 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#232323",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#363636",
+      "light": "#e0e0e0",
+    },
+    "contrast": {
+      "dark": "#ababab",
+      "light": "#000000",
+    },
+    "page": {
+      "dark": "#0d0d0d",
+      "light": "#f0f0f0",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c5c5c5",
+      "light": "#616161",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "subdued": {
+      "dark": "#616161",
+      "light": "#c5c5c5",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "on-contrast": {
+      "dark": "#000000",
+      "light": "#ffffff",
+    },
+    "subdued": {
+      "dark": "#c5c5c5",
+      "light": "#616161",
+    },
+  },
+}
+`;
+
+exports[`generatePalette > genererer samme WCAG-palett for #006F4E 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#1f2321",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#2f3634",
+      "light": "#d8e1de",
+    },
+    "contrast": {
+      "dark": "#4f9c85",
+      "light": "#006F4E",
+    },
+    "page": {
+      "dark": "#0c0d0d",
+      "light": "#edf1f0",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c1c5c4",
+      "light": "#5c5e5d",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0b0d0c",
+    },
+    "subdued": {
+      "dark": "#5c5f5e",
+      "light": "#c1c5c4",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0b0d0c",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0b0d0c",
+    },
+    "on-contrast": {
+      "dark": "#000000",
+      "light": "#ffffff",
+    },
+    "subdued": {
+      "dark": "#c1c5c4",
+      "light": "#5c5e5d",
+    },
+  },
+}
+`;
+
+exports[`generatePalette > genererer samme WCAG-palett for #1e90ff 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#212326",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#32373c",
+      "light": "#dae0e6",
+    },
+    "contrast": {
+      "dark": "#1461ac",
+      "light": "#1e90ff",
+    },
+    "page": {
+      "dark": "#0c0d0e",
+      "light": "#eef1f4",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c3c6c8",
+      "light": "#606163",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0c0d0e",
+    },
+    "subdued": {
+      "dark": "#606163",
+      "light": "#c3c5c8",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0c0d0e",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0c0d0e",
+    },
+    "on-contrast": {
+      "dark": "#ffffff",
+      "light": "#000000",
+    },
+    "subdued": {
+      "dark": "#c3c6c8",
+      "light": "#606163",
+    },
+  },
+}
+`;
+
+exports[`generatePalette > genererer samme WCAG-palett for #f5c400 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#24231f",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#38362f",
+      "light": "#e2e0d8",
+    },
+    "contrast": {
+      "dark": "#725c00",
+      "light": "#f5c400",
+    },
+    "page": {
+      "dark": "#0d0d0c",
+      "light": "#f1f0ed",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c6c6c2",
+      "light": "#62615e",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0d0d0c",
+    },
+    "subdued": {
+      "dark": "#62615f",
+      "light": "#c7c6c3",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0d0d0c",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0d0d0c",
+    },
+    "on-contrast": {
+      "dark": "#ffffff",
+      "light": "#000000",
+    },
+    "subdued": {
+      "dark": "#c6c6c2",
+      "light": "#62615e",
+    },
+  },
+}
+`;
+
+exports[`generatePalette > genererer samme WCAG-palett for #ffffff 1`] = `
+{
+  "background": {
+    "container": {
+      "dark": "#232323",
+      "light": "#ffffff",
+    },
+    "container-accent": {
+      "dark": "#363636",
+      "light": "#e0e0e0",
+    },
+    "contrast": {
+      "dark": "#5e5e5e",
+      "light": "#ffffff",
+    },
+    "page": {
+      "dark": "#0d0d0d",
+      "light": "#f0f0f0",
+    },
+  },
+  "border": {
+    "default": {
+      "dark": "#c5c5c5",
+      "light": "#616161",
+    },
+    "strong": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "subdued": {
+      "dark": "#616161",
+      "light": "#c5c5c5",
+    },
+  },
+  "text": {
+    "accent": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "default": {
+      "dark": "#ffffff",
+      "light": "#0d0d0d",
+    },
+    "on-contrast": {
+      "dark": "#ffffff",
+      "light": "#000000",
+    },
+    "subdued": {
+      "dark": "#c5c5c5",
+      "light": "#616161",
+    },
+  },
+}
+`;

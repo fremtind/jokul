@@ -46,7 +46,7 @@ repo and into jokul.
 | `--css` compiles the generated `_index.scss` with `sass` into `<out>/<name>/theme.css` | CSS is the primary format. See the note on `sass` below the table |
 | Fonts by convention: if a `fonts/` folder sits next to the theme file, copy its `*.woff2` to `<out>/<name>/fonts/` | No per-theme `--fonts` flag needed when building many themes |
 | `--index` also writes `<out>/all.css`, `<out>/_index.scss` (forwards every theme) and `<out>/manifest.json` | jokul generates the single import |
-| `--types` writes `<out>/brands.d.ts` containing `declare module "@fremtind/jokul" { interface JokulBrands { "<name>": true; … } }` | Only jokul knows the name of its augmentable interface (see below) |
+| `--types` writes `<out>/brands.d.ts` containing `declare module "@fremtind/jokul/utilities" { interface JokulBrands { "<name>": true; … } }` | Only jokul knows the name of its augmentable interface (see below) |
 | `jokul theme validate <file...>` parses each file with `parseThemeFile` and exits non-zero with readable errors | Used by CI and by `theme:add` |
 
 **`sass` and `style-dictionary` are optional peer dependencies of jokul**, not regular
@@ -87,6 +87,14 @@ export type Brand = keyof JokulBrands;
 - Re-export `JokulBrands` from `@fremtind/jokul` so that the augmentation resolves.
 - In the portal's `brandTitles`, use `Partial<Record<Brand, string>>`. The existing
   `?? brand` fallback handles names that have no entry.
+
+> **Done in `THEME-GENERATION-PLAN.md` step 1.** `@fremtind/jokul` has no root (`"."`)
+> export, so the augmentable module is `@fremtind/jokul/utilities` (it re-exports
+> `types.ts`). `--types` must therefore emit
+> `declare module "@fremtind/jokul/utilities" { interface JokulBrands { … } }`, and the
+> `brands.d.ts` file needs a top-level `import "@fremtind/jokul/utilities";` so the block
+> is an augmentation rather than an ambient module declaration. `brandTitles` lives in
+> `.storybook/globals/brand.tsx`, not the portal.
 
 **Theme file contract amendment** (`THEME-GENERATION-PLAN.md` step 2).
 `JokulThemeFile.fonts` currently holds only `{ family, weight }`, which isn't enough to emit

@@ -99,7 +99,7 @@ Cascade layer order is declared once, in `packages/jokul/src/styles/_layers.scss
 
 ## Tokens
 
-Source of truth is DTCG JSON in `packages/jokul/src/tokens/` (`color`, `dimension`, `motion`, `typography`, brand overrides in `brands/`, light/dark/saturated metadata in `metadata/`). Style Dictionary (`src/tokens/style-dictionary/build.ts`, custom formats in `formats/`) emits CSS, SCSS, TypeScript and Tailwind output via `pnpm generate:tokens`, which `build` always runs first. Generated files carry a "Do not edit directly" header — `src/styles/theme/brands/_index.scss` is one of them. Token changes need a rebuild before they show up.
+Source of truth is DTCG JSON in `packages/jokul/src/tokens/` (`color`, `dimension`, `motion`, `typography`, brand overrides in `brands/`, light/dark metadata in `metadata/`). Style Dictionary (`src/tokens/style-dictionary/build.ts`, custom formats in `formats/`) emits CSS, SCSS, TypeScript and Tailwind output via `pnpm generate:tokens`, which `build` always runs first. Generated files carry a "Do not edit directly" header — `src/styles/theme/brands/_index.scss` is one of them. Token changes need a rebuild before they show up.
 
 
 ## Testing rules

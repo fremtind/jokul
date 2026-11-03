@@ -79,6 +79,17 @@ the theme module re-use that one rather than declaring a second identical type.
 
 The unused "saturated" metadata sets are not used and can be removed, along with any logic connected to them.
 
+> **Done.** Deviations from the above:
+>
+> - The JSON imports keep `with { type: "json" }` (`module: NodeNext` requires it, and
+>   forbids named imports from JSON). They live in a fourth file,
+>   `src/theme/colors/metadata.ts`, which exports `colorMetadataLight`/`colorMetadataDark`.
+>   `types.ts` derives its types from that module, so the emitted `.d.ts` files inline the
+>   metadata shape instead of pointing at a JSON path that does not exist under `build/`.
+> - The `JokulBrands` augmentation from `DISTRIBUTOR-THEMES-REPO-PLAN.md` Part A was done
+>   in this step as well.
+> - The portal copy of the generator is still in place; it is removed in step 8.
+
 ## Step 2 — Theme file format (browser-safe)
 
 The theme builder's interchange format lives in
