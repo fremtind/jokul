@@ -53,10 +53,7 @@ export type ThemeDraftAction =
     | { type: "SET_DRAFT"; draft: ThemeDraft }
     | { type: "RESET_DRAFT"; scope?: ThemeDraftResetScope };
 
-/**
- * Stegene som har noe å nullstille. `lever-over` er utelatt: det steget
- * endrer ingenting i utkastet.
- */
+/** Stegene i temabyggeren, som hver har sin del av utkastet å nullstille. */
 export type ThemeDraftResetScope =
     | "identitet"
     | "grunnfarge"

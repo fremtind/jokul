@@ -19,10 +19,14 @@ const STEPS = [
     { segment: "farger", forwardLabel: "Tilpass fargene" },
     { segment: "mork-modus", forwardLabel: "Tilpass mørk modus" },
     { segment: "hjorner", forwardLabel: "Velg hjørner" },
-    { segment: "lever-over", forwardLabel: "Lever over til Jøkul" },
+    { segment: "forhandsvisning", forwardLabel: "Se forhåndsvisning" },
 ] as const;
 
-export type ThemeBuilderStepSegment = (typeof STEPS)[number]["segment"];
+// Forhåndsvisningen er målet for siste steg, ikke et steg i temabyggeren.
+export type ThemeBuilderStepSegment = Exclude<
+    (typeof STEPS)[number]["segment"],
+    "forhandsvisning"
+>;
 
 type StepNavigationProps = {
     segment: ThemeBuilderStepSegment;
@@ -31,24 +35,15 @@ type StepNavigationProps = {
      * i stedet for å navigere, slik at steget selv kan forklare hvorfor.
      */
     onBlocked?: () => void;
-    /**
-     * Erstatter knappen videre. Siste steget går ingen steder, det leverer over,
-     * men handlingen skal se ut som veien framover på de andre stegene.
-     */
-    action?: { label: string; onClick: () => void };
 };
 
-export function StepNavigation({
-    segment,
-    onBlocked,
-    action,
-}: StepNavigationProps) {
+export function StepNavigation({ segment, onBlocked }: StepNavigationProps) {
     const { next } = useNeighbourSteps(segment);
     // Hovedhandlingen fyller bredden som er igjen. Nullstilling står alene til
     // høyre, bare som ikon, slik at den ikke konkurrerer om oppmerksomheten.
     // Handlingen og «ikke klar ennå» er knapper; ellers er veien videre en lenke.
-    const onClick = action?.onClick ?? onBlocked;
-    const label = action?.label ?? next?.forwardLabel;
+    const onClick = onBlocked;
+    const label = next?.forwardLabel;
 
     return (
         <Flex gap="16" alignItems="center">
@@ -72,10 +67,7 @@ export function StepNavigation({
                         {label}
                     </Button>
                 ))}
-            <ResetThemeModal
-                className={styles.reset}
-                scope={segment === "lever-over" ? undefined : segment}
-            />
+            <ResetThemeModal className={styles.reset} scope={segment} />
         </Flex>
     );
 }

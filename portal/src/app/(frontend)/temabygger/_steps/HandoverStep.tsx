@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@fremtind/jokul/button";
 import { Flex } from "@fremtind/jokul/flex";
 import { RadioButton, RadioButtonGroup } from "@fremtind/jokul/radio-button";
 import { Title } from "@fremtind/jokul/typography";
@@ -11,7 +12,6 @@ import {
 } from "../_shared/themeHandover";
 import { FontAttachments } from "./FontAttachments";
 import { HandoverResult } from "./HandoverResult";
-import { StepCard } from "./StepCard";
 
 /**
  * Overleveringen er en melding brukeren sender selv, i kanalen de allerede
@@ -24,38 +24,35 @@ export function HandoverStep() {
         useHandover();
 
     return (
-        <StepCard
-            segment="lever-over"
-            navigation={{
-                action: { label: selectedChannel.actionLabel, onClick: open },
-            }}
-        >
-            <Title as="h3" size="m">
+        <Flex direction="column" gap="24">
+            <Title as="h2" size="xs">
                 {draft.themeName
                     ? `Lever over ${draft.themeName}`
                     : "Lever over temaet"}
             </Title>
 
-            <Flex direction="column" gap="24">
-                <RadioButtonGroup
-                    legend="Hvor vil du sende meldingen?"
-                    name="handoverChannel"
-                    value={channel}
-                    onChange={(event) =>
-                        setChannel(event.target.value as HandoverChannelId)
-                    }
-                >
-                    {HANDOVER_CHANNELS.map((option) => (
-                        <RadioButton key={option.id} value={option.id}>
-                            {option.label}
-                        </RadioButton>
-                    ))}
-                </RadioButtonGroup>
+            <RadioButtonGroup
+                legend="Hvor vil du sende meldingen?"
+                name="handoverChannel"
+                value={channel}
+                onChange={(event) =>
+                    setChannel(event.target.value as HandoverChannelId)
+                }
+            >
+                {HANDOVER_CHANNELS.map((option) => (
+                    <RadioButton key={option.id} value={option.id}>
+                        {option.label}
+                    </RadioButton>
+                ))}
+            </RadioButtonGroup>
 
-                <FontAttachments />
+            <FontAttachments />
 
-                {opened && <HandoverResult opened={opened} />}
-            </Flex>
-        </StepCard>
+            <Button type="button" variant="primary" onClick={open}>
+                {selectedChannel.actionLabel}
+            </Button>
+
+            {opened && <HandoverResult opened={opened} />}
+        </Flex>
     );
 }

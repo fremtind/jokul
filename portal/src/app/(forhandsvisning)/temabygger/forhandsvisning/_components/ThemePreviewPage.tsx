@@ -7,6 +7,7 @@ import { ThemePreviewWorkspace } from "@/app/(frontend)/temabygger/_preview/Them
 import { BORDER_RADIUS_SCALES } from "@/app/(frontend)/temabygger/_shared/borderRadius";
 import type { FontSlot } from "@/app/(frontend)/temabygger/_shared/customFont";
 import { getFontOption } from "@/app/(frontend)/temabygger/_shared/fontOptions";
+import { HandoverStep } from "@/app/(frontend)/temabygger/_steps/HandoverStep";
 import { getEditableColorTokenGroups } from "@/app/(frontend)/temabygger/_steps/colorTokenMetadata";
 import {
     COLOR_SCHEMES,
@@ -47,12 +48,9 @@ function PreviewPageAside() {
                         ? `Forhåndsvisning av tema for ${themeName}`
                         : "Forhåndsvisning av tema"}
                 </Title>
-                <Text>
-                    Dette er en visning av hvordan merkevaren deres vil
-                    representeres i Fremtinds designsystem, Jøkul.
-                </Text>
                 <ThemeSettingsSummary />
                 <ColorTokenSummary />
+                <HandoverStep />
             </Flex>
         </Card>
     );
