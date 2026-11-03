@@ -6,7 +6,7 @@ import type { CustomFont, FontSlot } from "../_shared/customFont";
 import {
     CUSTOM_FONT_SELECTION,
     DEFAULT_REGULAR_FONT_OPTION_ID,
-    type FontOptionId,
+    type FontSelectionId,
 } from "../_shared/fontOptions";
 import { isHex, normalizeHex } from "../_shared/utils";
 import { generatePalette } from "../generator/generate";
@@ -39,12 +39,9 @@ export type ThemeDraftAction =
     | { type: "SET_INCLUDE_DARK_MODE"; includeDarkMode: boolean }
     | { type: "SET_BOLD_TITLES"; boldTitles: boolean }
     | { type: "SET_BORDER_RADIUS"; borderRadius: BorderRadiusScaleId }
-    | { type: "SET_REGULAR_FONT"; font: FontOptionId }
-    | { type: "SET_DISPLAY_FONT"; font: FontOptionId }
-    | { type: "SELECT_CUSTOM_FONT"; slot: FontSlot }
+    | { type: "SET_FONT"; slot: FontSlot; font: FontSelectionId }
     | { type: "SET_CUSTOM_FONT"; slot: FontSlot; font: CustomFont }
     | { type: "REMOVE_CUSTOM_FONT"; slot: FontSlot }
-    | { type: "SET_COLOR_TOKENS"; tokens: EditableLightDarkPalette }
     | { type: "APPLY_BASE_COLOR"; value: string }
     | {
           type: "UPDATE_COLOR_TOKEN";
@@ -88,22 +85,6 @@ export function themeDraftReducer(
         case "SET_BORDER_RADIUS":
             return { ...state, borderRadius: action.borderRadius };
 
-        case "SET_REGULAR_FONT":
-            return {
-                ...state,
-                regularFont: action.font,
-                displayFont: state.hasCustomDisplayFont
-                    ? state.displayFont
-                    : action.font,
-            };
-
-        case "SET_DISPLAY_FONT":
-            return {
-                ...state,
-                displayFont: action.font,
-                hasCustomDisplayFont: true,
-            };
-
         /**
          * «Annet» velges før fila finnes, og er det som gjør opplastingsfeltet
          * synlig. Fram til en fil ligger der, faller slotet tilbake til en
@@ -113,14 +94,22 @@ export function themeDraftReducer(
          * valg som smittet over på det andre ville pekt på en fil som ikke er
          * lastet opp.
          */
-        case "SELECT_CUSTOM_FONT":
+        case "SET_FONT":
             if (action.slot === "regular") {
-                return { ...state, regularFont: CUSTOM_FONT_SELECTION };
+                return {
+                    ...state,
+                    regularFont: action.font,
+                    displayFont:
+                        state.hasCustomDisplayFont ||
+                        action.font === CUSTOM_FONT_SELECTION
+                            ? state.displayFont
+                            : action.font,
+                };
             }
 
             return {
                 ...state,
-                displayFont: CUSTOM_FONT_SELECTION,
+                displayFont: action.font,
                 hasCustomDisplayFont: true,
             };
 
@@ -159,9 +148,6 @@ export function themeDraftReducer(
 
             return { ...state, customFonts };
         }
-
-        case "SET_COLOR_TOKENS":
-            return { ...state, colorTokens: action.tokens };
 
         case "APPLY_BASE_COLOR": {
             const normalized = normalizeHex(action.value);

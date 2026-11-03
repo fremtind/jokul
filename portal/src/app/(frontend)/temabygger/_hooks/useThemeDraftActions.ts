@@ -3,10 +3,7 @@ import { useThemeDraft } from "../_context/ThemeDraftContext";
 import type { ThemeDraftResetScope } from "../_context/themeDraftReducer";
 import type { BorderRadiusScaleId } from "../_shared/borderRadius";
 import type { CustomFont, FontSlot } from "../_shared/customFont";
-import {
-    CUSTOM_FONT_SELECTION,
-    type FontOptionId,
-} from "../_shared/fontOptions";
+import type { FontSelectionId } from "../_shared/fontOptions";
 import type { ColorScheme } from "../generator/types";
 
 /**
@@ -26,19 +23,8 @@ export function useThemeDraftActions() {
                 dispatch({ type: "SET_BOLD_TITLES", boldTitles }),
             setBorderRadius: (borderRadius: BorderRadiusScaleId) =>
                 dispatch({ type: "SET_BORDER_RADIUS", borderRadius }),
-            selectFont: (slot: FontSlot, value: string) => {
-                if (value === CUSTOM_FONT_SELECTION) {
-                    dispatch({ type: "SELECT_CUSTOM_FONT", slot });
-                    return;
-                }
-
-                const font = value as FontOptionId;
-                dispatch(
-                    slot === "regular"
-                        ? { type: "SET_REGULAR_FONT", font }
-                        : { type: "SET_DISPLAY_FONT", font },
-                );
-            },
+            selectFont: (slot: FontSlot, font: FontSelectionId) =>
+                dispatch({ type: "SET_FONT", slot, font }),
             setCustomFont: (slot: FontSlot, font: CustomFont) =>
                 dispatch({ type: "SET_CUSTOM_FONT", slot, font }),
             removeCustomFont: (slot: FontSlot) =>

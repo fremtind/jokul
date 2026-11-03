@@ -62,18 +62,21 @@ describe("themeDraftReducer", () => {
 
     it("følger vanlig font til display-fonten helt til den er valgt eksplisitt", () => {
         const withRegular = themeDraftReducer(INITIAL_STATE, {
-            type: "SET_REGULAR_FONT",
+            type: "SET_FONT",
+            slot: "regular",
             font: "open-sans",
         });
 
         expect(withRegular.displayFont).toBe("open-sans");
 
         const withDisplay = themeDraftReducer(withRegular, {
-            type: "SET_DISPLAY_FONT",
+            type: "SET_FONT",
+            slot: "display",
             font: "dnb-sans",
         });
         const withNewRegular = themeDraftReducer(withDisplay, {
-            type: "SET_REGULAR_FONT",
+            type: "SET_FONT",
+            slot: "regular",
             font: "sparebank1",
         });
 
@@ -115,8 +118,9 @@ describe("themeDraftReducer", () => {
      */
     it("åpner bare sitt eget slot for opplasting", () => {
         const next = themeDraftReducer(INITIAL_STATE, {
-            type: "SELECT_CUSTOM_FONT",
+            type: "SET_FONT",
             slot: "regular",
+            font: "custom",
         });
 
         expect(next.regularFont).toBe("custom");

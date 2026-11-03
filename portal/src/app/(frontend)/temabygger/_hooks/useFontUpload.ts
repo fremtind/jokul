@@ -3,6 +3,7 @@ import { useMemo, useState } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { getFontSelection } from "../_context/themeDraftSelectors";
 import { type FontSlot, readCustomFont } from "../_shared/customFont";
+import { isFontSelectionId } from "../_shared/fontOptions";
 import { useThemeDraftActions } from "./useThemeDraftActions";
 
 /** Tilstand og handlinger for ett fontslot med opplasting. */
@@ -80,7 +81,11 @@ export function useFontUpload(slot: FontSlot) {
         shown,
         shownSize: rejected ? rejected.file.size : (customFont?.size ?? 0),
         errorLabel: rejected?.validation?.message,
-        select: (value: string) => selectFont(slot, value),
+        select: (value: string) => {
+            if (isFontSelectionId(value)) {
+                selectFont(slot, value);
+            }
+        },
         upload,
         remove,
     };
