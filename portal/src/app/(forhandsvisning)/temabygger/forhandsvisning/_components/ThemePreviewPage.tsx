@@ -19,10 +19,13 @@ import {
     DescriptionList,
     DescriptionTerm,
 } from "@fremtind/jokul/description-list";
+import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
+import { NavLink } from "@fremtind/jokul/nav-link";
 import { ToggleSwitch } from "@fremtind/jokul/toggle-switch";
 import { Text, Title } from "@fremtind/jokul/typography";
-import { Fragment, useState } from "react";
+import Link from "next/link";
+import { Fragment, type ReactNode, useState } from "react";
 import styles from "./theme-preview-page.module.scss";
 
 export function ThemePreviewPage() {
@@ -43,21 +46,58 @@ function PreviewPageAside() {
     return (
         <Card as="aside" className={styles.aside} padding="l">
             <Flex direction="column" gap="24">
+                <Flex>
+                    <NavLink as={Link} back href="/temabygger/hjorner">
+                        Tilbake til redigering
+                    </NavLink>
+                </Flex>
                 <Title as="h1" size="m">
                     {themeName
                         ? `Forhåndsvisning av tema for ${themeName}`
                         : "Forhåndsvisning av tema"}
                 </Title>
-                <ThemeSettingsSummary />
-                <ColorTokenSummary />
+                <ThemeSummary />
                 <HandoverStep />
             </Flex>
         </Card>
     );
 }
 
-function ThemeSettingsSummary() {
+function SummaryList({ items }: { items: [string, ReactNode][] }) {
+    return (
+        <DescriptionList separators alignment="vertical">
+            {items.map(([term, detail]) => (
+                <Fragment key={term}>
+                    <DescriptionTerm>{term}</DescriptionTerm>
+                    <DescriptionDetail>{detail}</DescriptionDetail>
+                </Fragment>
+            ))}
+        </DescriptionList>
+    );
+}
+
+function SummaryPanel({
+    title,
+    children,
+}: { title: string; children: ReactNode }) {
+    return (
+        <ExpandablePanel>
+            <ExpandablePanel.Header>{title}</ExpandablePanel.Header>
+            <ExpandablePanel.Content>{children}</ExpandablePanel.Content>
+        </ExpandablePanel>
+    );
+}
+
+/**
+ * Mottakeren skal kunne lese ut de ferdige valgene uten å gå gjennom stegene i
+ * temabyggeren. De mørke fargene vises bare når temaet har mørk modus: ellers
+ * står de urørt på Jøkuls standard, og hører ikke til temaet.
+ */
+function ThemeSummary() {
     const { draft } = useThemeDraft();
+    const schemes: readonly ColorScheme[] = draft.includeDarkMode
+        ? COLOR_SCHEMES
+        : ["light"];
 
     const fontLabel = (slot: FontSlot) => {
         const selection = getFontSelection(draft, slot);
@@ -66,69 +106,67 @@ function ThemeSettingsSummary() {
             : getFontOption(selection).label;
     };
 
-    const settings: [string, string][] = [
-        ["Vanlig font", fontLabel("regular")],
-        ["Display-font", fontLabel("display")],
-        ["Titler", draft.boldTitles ? "Fete" : "Normale"],
-        ["Hjørner", BORDER_RADIUS_SCALES[draft.borderRadius].label],
-        ["Mørk modus", draft.includeDarkMode ? "Ja" : "Nei"],
-    ];
-
     return (
-        <Flex direction="column" gap="16">
-            <Title as="h2" size="xs">
-                Valg
-            </Title>
-            <DescriptionList separators alignment="vertical">
-                {settings.map(([term, detail]) => (
-                    <Fragment key={term}>
-                        <DescriptionTerm>{term}</DescriptionTerm>
-                        <DescriptionDetail>{detail}</DescriptionDetail>
-                    </Fragment>
-                ))}
-            </DescriptionList>
-        </Flex>
-    );
-}
-
-/**
- * Mottakeren skal kunne lese ut de ferdige verdiene uten å gå gjennom stegene i
- * temabyggeren. De mørke verdiene vises bare når temaet har mørk modus: ellers
- * står de urørt på Jøkuls standard, og hører ikke til temaet.
- */
-function ColorTokenSummary() {
-    const { draft } = useThemeDraft();
-    const schemes: readonly ColorScheme[] = draft.includeDarkMode
-        ? COLOR_SCHEMES
-        : ["light"];
-
-    return (
-        <Flex direction="column" gap="16">
-            <Title as="h2" size="xs">
-                Fargetokens
-            </Title>
-            <DescriptionList separators alignment="vertical">
-                {getEditableColorTokenGroups(draft.colorTokens).flatMap(
-                    (group) =>
-                        group.tokens.map((token) => (
-                            <Fragment key={token.colorRole}>
-                                <DescriptionTerm>{token.label}</DescriptionTerm>
-                                <DescriptionDetail>
-                                    <Flex direction="column" gap="8">
-                                        {schemes.map((scheme) => (
-                                            <ColorTokenValue
-                                                key={scheme}
-                                                scheme={scheme}
-                                                value={token.token[scheme]}
-                                            />
-                                        ))}
-                                    </Flex>
-                                </DescriptionDetail>
-                            </Fragment>
-                        )),
-                )}
-            </DescriptionList>
-        </Flex>
+        <Accordion outlined>
+            <SummaryPanel title="Farger">
+                <Flex direction="column" gap="24">
+                    <SummaryList
+                        items={[
+                            [
+                                "Mørk modus",
+                                draft.includeDarkMode ? "Ja" : "Nei",
+                            ],
+                        ]}
+                    />
+                    {getEditableColorTokenGroups(draft.colorTokens).map(
+                        (group) => (
+                            <Flex key={group.id} direction="column" gap="8">
+                                <Title as="h3" size="xs">
+                                    {group.title}
+                                </Title>
+                                <SummaryList
+                                    items={group.tokens.map((token) => [
+                                        token.label,
+                                        <Flex
+                                            key={token.colorRole}
+                                            direction="column"
+                                            gap="8"
+                                        >
+                                            {schemes.map((scheme) => (
+                                                <ColorTokenValue
+                                                    key={scheme}
+                                                    scheme={scheme}
+                                                    value={token.token[scheme]}
+                                                />
+                                            ))}
+                                        </Flex>,
+                                    ])}
+                                />
+                            </Flex>
+                        ),
+                    )}
+                </Flex>
+            </SummaryPanel>
+            <SummaryPanel title="Font">
+                <SummaryList
+                    items={[
+                        ["Vanlig font", fontLabel("regular")],
+                        ["Display-font", fontLabel("display")],
+                        ["Titler", draft.boldTitles ? "Fete" : "Normale"],
+                    ]}
+                />
+            </SummaryPanel>
+            <SummaryPanel title="Hjørner">
+                <SummaryList
+                    items={[
+                        [
+                            "Skala",
+                            BORDER_RADIUS_SCALES[draft.borderRadius].label,
+                        ],
+                    ]}
+                />
+            </SummaryPanel>
+        </Accordion>
     );
 }
 
