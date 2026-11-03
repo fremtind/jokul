@@ -25,10 +25,8 @@
             content: "check" / "";
         }
 
-
-        &:hover,
-        &:focus-visible {
-            background-color: var(--jkl-color-background-container-accent);
+        &:is(:hover, :focus-visible):not(:disabled):not([aria-disabled="true"]) {
+            @include jkl.hover-bg;
         }
 
         &[aria-selected="true"]::before {
