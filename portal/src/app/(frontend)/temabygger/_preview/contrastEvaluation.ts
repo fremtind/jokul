@@ -110,3 +110,36 @@ export function getFailingContrasts(
 
     return failingCombinations;
 }
+
+type ContrastErrorLabelsByRole = Partial<Record<ColorRole, string>>;
+
+/** Feilmelding per rolle, med den første kombinasjonen som feiler. */
+export function getContrastErrorLabels(
+    failingContrasts: FailingContrastCombination[],
+): ContrastErrorLabelsByRole {
+    const labels: ContrastErrorLabelsByRole = {};
+
+    for (const combination of failingContrasts) {
+        labels[combination.foregroundRole] ??= getContrastErrorLabel(
+            combination.backgroundRole,
+            combination,
+        );
+        labels[combination.backgroundRole] ??= getContrastErrorLabel(
+            combination.foregroundRole,
+            combination,
+        );
+    }
+
+    return labels;
+}
+
+function getContrastErrorLabel(
+    comparedRole: ColorRole,
+    combination: FailingContrastCombination,
+) {
+    return (
+        `Kontrasten mot ${comparedRole.replace(".", " ")} er ` +
+        `${combination.actualContrast}:1. Den må være minst ` +
+        `${combination.expectedContrast}:1.`
+    );
+}
