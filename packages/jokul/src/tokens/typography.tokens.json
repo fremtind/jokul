@@ -123,7 +123,7 @@
                 "fontSize": "{font.size.7}",
                 "lineHeight": "{lineHeight.tight}",
                 "fontWeight": "{font.weight.normal}",
-                "fontFamily": "{font.family.regular}"
+                "fontFamily": "{font.family.display}"
             }
         },
         "heading-2": {
@@ -131,7 +131,7 @@
                 "fontSize": "{font.size.6}",
                 "lineHeight": "{lineHeight.tight}",
                 "fontWeight": "{font.weight.normal}",
-                "fontFamily": "{font.family.regular}"
+                "fontFamily": "{font.family.display}"
             }
         },
         "heading-3": {
