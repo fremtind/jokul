@@ -18,3 +18,15 @@ export {
     getLightnessFromHex,
     getLuminanceFromLightness,
 } from "./colors/utils.js";
+export {
+    isHex,
+    isThemeName,
+    type JokulThemeFile,
+    type JokulThemeFont,
+    type JokulThemeFonts,
+    normalizeHex,
+    parseThemeFile,
+    THEME_FILE_VERSION,
+    type ThemeFileValidationResult,
+    validateThemeFile,
+} from "./file/themeFile.js";
