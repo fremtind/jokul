@@ -1,4 +1,6 @@
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 import type { Config } from "style-dictionary/types";
 import type { Brand } from "../../utilities/types.js";
 
@@ -84,42 +86,73 @@ export const jokulTokens: Config = {
     },
 };
 
-/**
- * Lager en separat CSS-config per brand for å bygge en egen SCSS-fil med et
- * komplett, brand-spesifikt fargesett basert på base tokens og brand tokens.
- */
-export function createBrandConfig(brand: Brand): Config {
-    const brandSources = [
-        `src/tokens/brands/color.${brand}.tokens.json`,
-        `src/tokens/brands/typography.${brand}.tokens.json`,
-    ].filter((source) => existsSync(source));
+function findPackageRoot(): string {
+    let dir = dirname(fileURLToPath(import.meta.url));
 
+    while (dirname(dir) !== dir) {
+        const packageJson = join(dir, "package.json");
+        if (
+            existsSync(packageJson) &&
+            JSON.parse(readFileSync(packageJson, "utf8")).name ===
+                "@fremtind/jokul"
+        ) {
+            return dir;
+        }
+        dir = dirname(dir);
+    }
+
+    throw new Error("Fant ikke rotmappen til @fremtind/jokul.");
+}
+
+export type ThemeConfigOptions = {
+    /** Navnet på temaet, brukes i `data-brand` og i Sass-variabelnavn. */
+    name: string;
+    /** Temaets token-filer, typisk `color.<name>.tokens.json` og `typography.<name>.tokens.json`. */
+    tokenFiles: string[];
+    outDir: string;
+    /** Standard er `[data-brand="<name>"]`. */
+    selector?: string;
+    /** Mappen med base-tokens som temaet overstyrer. Standard er `src/tokens` i den installerte pakken. */
+    baseTokensDir?: string;
+    /** Sass-modulen med `$webfonts-dir`, relativt til `outDir`. */
+    baseFontsModule?: string;
+};
+
+/**
+ * Lager en CSS-config som bygger et komplett, temaspesifikt fargesett og
+ * fontoppsett basert på base tokens og temaets egne tokens.
+ */
+export function createThemeConfig({
+    name,
+    tokenFiles,
+    outDir,
+    selector = `[data-brand="${name}"]`,
+    baseTokensDir = join(findPackageRoot(), "src", "tokens"),
+    baseFontsModule = "../../fonts",
+}: ThemeConfigOptions): Config {
     return {
         ...jokulTokens,
-        source: [...(jokulTokens.source ?? []), ...brandSources],
+        source: [join(baseTokensDir, "*.json"), ...tokenFiles],
         platforms: {
             css: {
                 ...jokulTokens.platforms?.css,
-                buildPath: `./src/styles/theme/brands/${brand}/`,
+                buildPath: outDir.endsWith("/") ? outDir : `${outDir}/`,
                 files: [
                     {
                         filter: "isColorSchemeValue",
                         destination: "_color-scheme.scss",
                         format: "css/color-scheme-brand",
-                        options: {
-                            selector: `[data-brand="${brand}"]`,
-                        },
+                        options: { selector },
                     },
                     {
                         filter: "isBrandFontValue",
                         destination: "_fonts.scss",
                         format: "css/brand-fonts",
                         options: {
-                            selector: `[data-brand="${brand}"]`,
-                            // Relativt fra buildPath ovenfor til src/styles/theme/_fonts.scss
-                            baseFontsModule: "../../fonts",
-                            webfontsSubdir: `brands/${brand}`,
-                            webfontsVarName: `webfonts-dir-${brand}`,
+                            selector,
+                            baseFontsModule,
+                            webfontsSubdir: `brands/${name}`,
+                            webfontsVarName: `webfonts-dir-${name}`,
                         },
                     },
                     {
@@ -130,4 +163,22 @@ export function createBrandConfig(brand: Brand): Config {
             },
         },
     };
+}
+
+/**
+ * Lager en separat CSS-config per brand for å bygge en egen SCSS-fil med et
+ * komplett, brand-spesifikt fargesett basert på base tokens og brand tokens.
+ */
+export function createBrandConfig(brand: Brand): Config {
+    const tokenFiles = [
+        `src/tokens/brands/color.${brand}.tokens.json`,
+        `src/tokens/brands/typography.${brand}.tokens.json`,
+    ].filter((source) => existsSync(source));
+
+    return createThemeConfig({
+        name: brand,
+        tokenFiles,
+        outDir: `./src/styles/theme/brands/${brand}/`,
+        baseTokensDir: "src/tokens",
+    });
 }
