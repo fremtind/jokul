@@ -44,14 +44,26 @@ export async function runJokulCli(argv = process.argv.slice(2)) {
 
 Bruk:
   jokul codemod [import-paths] [--dry-run] [--verbose] [sti ...]
+  jokul theme generate <hex> [--name <navn>] [--title <tittel>] [--out <fil>] [--method wcag|oklch] [--no-dark]
+  jokul theme build <temafil ...> [--out <mappe>] [--selector <selektor>] [--css] [--index] [--types]
+  jokul theme validate <temafil ...>
 
 Eksempler:
   jokul codemod
   jokul codemod --dry-run
   jokul codemod src app
   jokul codemod import-paths src app README.md --dry-run
+  jokul theme generate "#006F4E" --name mitt-tema --out theme.json
+  jokul theme build theme.json --out themes --css
+
+Kjør \`jokul theme --help\` for mer om temaer.
 `);
         return 0;
+    }
+
+    if (command === "theme") {
+        const { runThemeCommand } = await import("./theme.mjs");
+        return runThemeCommand(rest);
     }
 
     if (command !== "codemod") {

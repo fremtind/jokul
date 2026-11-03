@@ -6,7 +6,7 @@ import {
     type Brand,
 } from "../../packages/jokul/src/utilities/types.js";
 
-const brandTitles: Record<Brand, string> = {
+const brandTitles: Partial<Record<Brand, string>> = {
     dnb: "DNB",
     eika: "Eika",
 };

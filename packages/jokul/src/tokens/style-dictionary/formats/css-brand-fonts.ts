@@ -9,9 +9,11 @@ import { PREFIX } from "../config.js";
 
 type BrandFontsOptions = {
     selector?: string;
+    /** Sass-modulen med `$webfonts-dir`. Uten denne brukes `webfontsDir` direkte. */
     baseFontsModule?: string;
     webfontsSubdir?: string;
     webfontsVarName?: string;
+    webfontsDir?: string;
 };
 
 type FontFaceValue = {
@@ -61,15 +63,17 @@ const cssBrandFontsFormat: Format = {
         const baseFontsModule = options?.baseFontsModule;
         const webfontsSubdir = options?.webfontsSubdir;
         const webfontsVarName = options?.webfontsVarName;
+        const webfontsDir = options?.webfontsDir ?? "./fonts";
 
-        if (
-            !selector ||
-            !baseFontsModule ||
-            !webfontsSubdir ||
-            !webfontsVarName
-        ) {
+        if (!selector || !webfontsVarName) {
             throw new Error(
-                'The "css/brand-fonts" format requires selector, baseFontsModule, webfontsSubdir and webfontsVarName options.',
+                'The "css/brand-fonts" format requires selector and webfontsVarName options.',
+            );
+        }
+
+        if (baseFontsModule && !webfontsSubdir) {
+            throw new Error(
+                'The "css/brand-fonts" format requires webfontsSubdir when baseFontsModule is set.',
             );
         }
 
@@ -99,12 +103,16 @@ const cssBrandFontsFormat: Format = {
             })
             .join("\n");
 
-        return `${await fileHeader({ file })}
-@use "${baseFontsModule}" as jokul-fonts;
+        const webfontsDirDeclaration = baseFontsModule
+            ? `@use "${baseFontsModule}" as jokul-fonts;
 
 // Arver $webfonts-dir slik at konsumenter som flytter fontmappa bare trenger å
 // konfigurere den ene variabelen. Kan fortsatt overstyres alene ved behov.
-$${webfontsVarName}: "#{jokul-fonts.$webfonts-dir}/${webfontsSubdir}" !default;
+$${webfontsVarName}: "#{jokul-fonts.$webfonts-dir}/${webfontsSubdir}" !default;`
+            : `$${webfontsVarName}: "${webfontsDir}" !default;`;
+
+        return `${await fileHeader({ file })}
+${webfontsDirDeclaration}
 
 @layer jokul.theme {
 ${faceDeclarations}

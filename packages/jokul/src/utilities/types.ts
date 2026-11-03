@@ -8,7 +8,17 @@ export interface DataTestAutoId {
 }
 
 export const BRANDS = ["dnb", "eika", "sparebank1"] as const;
-export type Brand = (typeof BRANDS)[number];
+/**
+ * Gyldige verdier for `data-brand`. Kan utvides av konsumenter via module augmentation.
+ * @example
+ * declare module "@fremtind/jokul/utilities" {
+ *     interface JokulBrands {
+ *         "mitt-tema": true;
+ *     }
+ * }
+ */
+export interface JokulBrands extends Record<(typeof BRANDS)[number], true> {}
+export type Brand = keyof JokulBrands;
 
 export const SIZES = ["small", "medium", "large"] as const;
 export type Size = (typeof SIZES)[number];

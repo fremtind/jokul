@@ -86,7 +86,7 @@ export const jokulTokens: Config = {
     },
 };
 
-function findPackageRoot(): string {
+export function findPackageRoot(): string {
     let dir = dirname(fileURLToPath(import.meta.url));
 
     while (dirname(dir) !== dir) {
@@ -114,7 +114,10 @@ export type ThemeConfigOptions = {
     selector?: string;
     /** Mappen med base-tokens som temaet overstyrer. Standard er `src/tokens` i den installerte pakken. */
     baseTokensDir?: string;
-    /** Sass-modulen med `$webfonts-dir`, relativt til `outDir`. */
+    /**
+     * Sass-modulen med `$webfonts-dir`, relativt til `outDir`. Brukes for temaer
+     * som bygges inn i Jøkul. Uten denne hentes fontene fra `./fonts`.
+     */
     baseFontsModule?: string;
 };
 
@@ -128,7 +131,7 @@ export function createThemeConfig({
     outDir,
     selector = `[data-brand="${name}"]`,
     baseTokensDir = join(findPackageRoot(), "src", "tokens"),
-    baseFontsModule = "../../fonts",
+    baseFontsModule,
 }: ThemeConfigOptions): Config {
     return {
         ...jokulTokens,
@@ -180,5 +183,6 @@ export function createBrandConfig(brand: Brand): Config {
         tokenFiles,
         outDir: `./src/styles/theme/brands/${brand}/`,
         baseTokensDir: "src/tokens",
+        baseFontsModule: "../../fonts",
     });
 }

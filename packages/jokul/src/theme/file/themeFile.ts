@@ -18,9 +18,22 @@ export type JokulThemeFont = {
     };
 };
 
+/**
+ * En fontfil som skal få en `@font-face`-regel. `fileName` er relativt til
+ * `fonts/`-mappen ved siden av temafilen.
+ */
+export type JokulThemeFontFace = {
+    family: string;
+    weight: number;
+    style: "normal" | "italic";
+    fileName: string;
+};
+
 export type JokulThemeFonts = {
     regular: JokulThemeFont;
     display: JokulThemeFont;
+    mono?: Pick<JokulThemeFont, "family">;
+    faces?: JokulThemeFontFace[];
 };
 
 /**
@@ -32,6 +45,8 @@ export type JokulThemeFonts = {
 export type JokulThemeFile = {
     version: typeof THEME_FILE_VERSION;
     name: string;
+    /** Visningsnavn for temaet. Standard er `name`. */
+    title?: string;
     colorTokens: EditableLightDarkPalette;
     includeDarkMode: boolean;
     fonts?: JokulThemeFonts;
@@ -71,8 +86,13 @@ function validateColorTokens(value: unknown, errors: string[]) {
             const groupValue = value[group];
             const token = isRecord(groupValue) ? groupValue[role] : undefined;
 
+            if (!isRecord(token)) {
+                errors.push(`\`colorTokens.${group}.${role}\` mangler.`);
+                continue;
+            }
+
             for (const scheme of COLOR_SCHEMES) {
-                const color = isRecord(token) ? token[scheme] : undefined;
+                const color = token[scheme];
                 if (typeof color !== "string" || !isHex(color)) {
                     errors.push(
                         `\`colorTokens.${group}.${role}.${scheme}\` må være en farge på formen #RRGGBB.`,
@@ -83,15 +103,23 @@ function validateColorTokens(value: unknown, errors: string[]) {
     }
 }
 
+function validateFontFamily(
+    value: Record<string, unknown>,
+    path: string,
+    errors: string[],
+) {
+    if (typeof value.family !== "string" || value.family.trim() === "") {
+        errors.push(`\`${path}.family\` må være en ikke-tom streng.`);
+    }
+}
+
 function validateFont(value: unknown, path: string, errors: string[]) {
     if (!isRecord(value)) {
         errors.push(`\`${path}\` må være et objekt.`);
         return;
     }
 
-    if (typeof value.family !== "string" || value.family.trim() === "") {
-        errors.push(`\`${path}.family\` må være en ikke-tom streng.`);
-    }
+    validateFontFamily(value, path, errors);
 
     const weight = value.weight;
     for (const key of ["normal", "bold"] as const) {
@@ -113,6 +141,52 @@ function validateFonts(value: unknown, errors: string[]) {
 
     validateFont(value.regular, "fonts.regular", errors);
     validateFont(value.display, "fonts.display", errors);
+
+    if (value.mono !== undefined) {
+        if (isRecord(value.mono)) {
+            validateFontFamily(value.mono, "fonts.mono", errors);
+        } else {
+            errors.push("`fonts.mono` må være et objekt.");
+        }
+    }
+
+    validateFontFaces(value.faces, errors);
+}
+
+function validateFontFaces(value: unknown, errors: string[]) {
+    if (value === undefined) {
+        return;
+    }
+
+    if (!Array.isArray(value)) {
+        errors.push("`fonts.faces` må være en liste.");
+        return;
+    }
+
+    value.forEach((face: unknown, index) => {
+        const path = `fonts.faces[${index}]`;
+        if (!isRecord(face)) {
+            errors.push(`\`${path}\` må være et objekt.`);
+            return;
+        }
+
+        validateFontFamily(face, path, errors);
+
+        if (typeof face.weight !== "number") {
+            errors.push(`\`${path}.weight\` må være et tall.`);
+        }
+        if (face.style !== "normal" && face.style !== "italic") {
+            errors.push(`\`${path}.style\` må være "normal" eller "italic".`);
+        }
+        if (
+            typeof face.fileName !== "string" ||
+            !/^[^/\\]+\.woff2$/.test(face.fileName)
+        ) {
+            errors.push(
+                `\`${path}.fileName\` må være navnet på en .woff2-fil i fonts-mappen.`,
+            );
+        }
+    });
 }
 
 /**
@@ -139,6 +213,10 @@ export function validateThemeFile(value: unknown): ThemeFileValidationResult {
         errors.push(
             "`name` må være på kebab-case og starte med en bokstav, f.eks. `mitt-tema`.",
         );
+    }
+
+    if (value.title !== undefined && typeof value.title !== "string") {
+        errors.push("`title` må være en streng.");
     }
 
     if (typeof value.includeDarkMode !== "boolean") {
