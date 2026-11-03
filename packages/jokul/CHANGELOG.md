@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.7.6
+
+### Patch Changes
+
+- 359985c: Oppdater `shell-quote` til en versjon som retter en sårbarhet for kommandoinjeksjon. Se [Dependabot-varsel 594](https://github.com/fremtind/jokul/security/dependabot/594).
+- 3a5fea7: Oppdater Storybook til 10.6.2 for å rette en sikkerhetssårbarhet i utviklingsserveren. Se [Dependabot-varsel 617](https://github.com/fremtind/jokul/security/dependabot/617).
+
 ## 4.7.5
 
 ### Patch Changes
