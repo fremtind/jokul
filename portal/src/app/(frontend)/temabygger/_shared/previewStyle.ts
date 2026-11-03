@@ -1,5 +1,5 @@
+import type { EditableLightDarkPalette } from "@fremtind/jokul/theme";
 import type { CSSProperties } from "react";
-import type { EditableLightDarkPalette } from "../generator/types";
 import { type FontOptionId, getFontOption } from "./fontOptions";
 
 type ThemePreviewStyleOptions = {

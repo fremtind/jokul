@@ -1,4 +1,4 @@
-import type { HexColor } from "../generator/types";
+import type { HexColor } from "@fremtind/jokul/theme";
 
 const HEX_COLOR_PATTERN = /^#[0-9a-fA-F]{6}$/;
 

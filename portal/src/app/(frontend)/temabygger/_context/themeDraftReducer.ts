@@ -1,10 +1,13 @@
 import {
+    type ColorScheme,
+    type EditableLightDarkPalette,
+    generatePalette,
+} from "@fremtind/jokul/theme";
+import {
     DEFAULT_REGULAR_FONT_OPTION_ID,
     type FontOptionId,
 } from "../_shared/fontOptions";
 import { isHex, normalizeHex } from "../_shared/utils";
-import { generatePalette } from "../generator/generate";
-import type { ColorScheme, EditableLightDarkPalette } from "../generator/types";
 import { INITIAL_COLOR_TOKENS } from "./initialColorTokens";
 import type { ThemeDraft } from "./types";
 

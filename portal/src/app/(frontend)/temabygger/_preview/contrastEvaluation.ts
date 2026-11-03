@@ -1,12 +1,12 @@
-import chroma from "chroma-js";
-import type { ThemeDraftColorTokenValue } from "../_context/types";
-import { isHex } from "../_shared/utils";
 import type {
     ColorRole,
     ColorScheme,
     EditableLightDarkPalette,
     Palette,
-} from "../generator/types";
+} from "@fremtind/jokul/theme";
+import chroma from "chroma-js";
+import type { ThemeDraftColorTokenValue } from "../_context/types";
+import { isHex } from "../_shared/utils";
 
 export const WCAG_TEXT_CONTRAST_AAA = 7;
 export const WCAG_TEXT_CONTRAST_AA = 4.5;

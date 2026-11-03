@@ -88,7 +88,7 @@ The unused "saturated" metadata sets are not used and can be removed, along with
 >   metadata shape instead of pointing at a JSON path that does not exist under `build/`.
 > - The `JokulBrands` augmentation from `DISTRIBUTOR-THEMES-REPO-PLAN.md` Part A was done
 >   in this step as well.
-> - The portal copy of the generator is still in place; it is removed in step 8.
+> - The portal copy of the generator was removed in the first part of step 8.
 
 ## Step 2 — Theme file format (browser-safe)
 
@@ -211,6 +211,17 @@ it can, add `"./theme/node": null` to block it explicitly. Add `chroma-js` and
 is needed: `vite.build.config.mjs` globs `src/**` automatically, so `src/theme/**` is picked
 up once the style-dictionary exclusion is narrowed.
 
+> **Partly done** (together with the first part of step 8):
+>
+> - The `"./theme"` export is in place, directly above `"./*"`. The `dependencies` and
+>   `devDependencies` changes were already made in step 1.
+> - `vite.build.config.mjs` already picks up `src/theme/**` without changes. The
+>   style-dictionary exclusion only needs narrowing in step 5.
+> - `"./theme/node": null` is **not needed**. The `"./*"` wildcard maps only to
+>   `./build/{es,cjs}/components/*/index.*`, so `@fremtind/jokul/theme/node` resolves to
+>   the non-existent `build/es/components/theme/node/index.js` and can never reach
+>   `build/es/theme/node/`. Re-check this in step 5 by importing it from outside the repo.
+
 ## Step 7 — CLI
 
 `bin/run-jokul-cli.mjs` currently only dispatches `codemod`. Add a `theme` command that
@@ -262,6 +273,28 @@ exists yet — locate it (or add it) before wiring this up.
 
 Leave `chroma-js`/`hsluv` in `portal/package.json` only if something outside the temabygger
 still uses them (`colorjs.io` is also a portal dependency and may overlap).
+
+> **Part 1 done** (export + import switch, without depending on steps 2–7):
+>
+> - `temabygger/generator/` is deleted. These 14 files now import from
+>   `@fremtind/jokul/theme` (paths relative to `portal/src/app/(frontend)/temabygger/`):
+>   - `_components/`: `ColorCombinationCard.tsx`, `ColorTokenField.tsx`
+>   - `_context/`: `ThemePreviewContext.tsx`, `initialColorTokens.ts`,
+>     `themeDraftReducer.ts` (its two generator imports are merged into one), `types.ts`
+>   - `_preview/`: `ColorCombinations.tsx`, `ThemePreview.tsx`, `contrastEvaluation.ts`
+>   - `_shared/`: `previewStyle.ts`, `themeTokenMail.ts`, `utils.ts`
+>   - `_steps/`: `AdjustColorsStep.tsx`, `colorTokenMetadata.ts`
+> - `hsluv` is removed from `portal/package.json`. `chroma-js` stays, because
+>   `_preview/contrastEvaluation.ts` uses it directly.
+> - The built `@fremtind/jokul/theme` (ESM and CJS, resolved from `portal/`) gives the
+>   same palettes as the deleted portal copy for 20 sample colours. Portal `tsc --noEmit`
+>   passes. A manual check of `/temabygger` in the browser is still outstanding.
+> - `packages/jokul/README.md` has a short "Temagenerering" section for the new entry
+>   (a first piece of step 9).
+>
+> **Still open (needs step 2):** `isHex`/`normalizeHex` from the package instead of
+> `_shared/utils.ts`, `_shared/themeDraftPayload.ts` wrapping `parseThemeFile`, and the
+> export/download step emitting a `JokulThemeFile`.
 
 ## Step 9 — "Instruksjoner for å bygge tema"
 

@@ -7,6 +7,7 @@
 - [Fonter](#fonter)
 - [Hooks](#hooks)
 - [Utilities](#utilities)
+- [Temagenerering](#temagenerering)
 - [Tailwind](#tailwind)
 - [Sporing](#sporing)
 
@@ -186,6 +187,20 @@ import { tabListener, unicode } from "@fremtind/jokul/utilities";
 ```
 
 For en full liste over utilities kan du kikke i [utilities-mappa](src/utilities/)
+
+## Temagenerering
+
+Fargegeneratoren som temabyggeren i Jøkul-portalen bruker, importeres via `/theme`-stien. Den lager en komplett palett for lyst og mørkt tema fra én merkevarefarge.
+
+```ts
+import { generatePalette } from "@fremtind/jokul/theme";
+
+const palette = generatePalette("#006F4E");
+palette.background.page.light; // lys bakgrunnsfarge
+palette.background.page.dark; // mørk bakgrunnsfarge
+```
+
+For en full liste over funksjoner og typer kan du kikke i [theme-mappa](src/theme/)
 
 ## Tailwind
 

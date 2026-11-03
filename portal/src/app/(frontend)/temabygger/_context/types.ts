@@ -1,6 +1,9 @@
+import type {
+    ColorScheme,
+    EditableLightDarkPalette,
+} from "@fremtind/jokul/theme";
 import type { Dispatch, ReactNode } from "react";
 import type { FontOptionId } from "../_shared/fontOptions";
-import type { ColorScheme, EditableLightDarkPalette } from "../generator/types";
 import type { ThemeDraftAction } from "./themeDraftReducer";
 
 export type ThemeDraft = {
