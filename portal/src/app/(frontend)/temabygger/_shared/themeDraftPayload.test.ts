@@ -5,6 +5,7 @@ import {
     THEME_DRAFT_QUERY_PARAM,
     THEME_DRAFT_VERSION,
     createThemePreviewHref,
+    parseThemeDraftParam,
     parseThemeDraftPayload,
 } from "./themeDraftPayload";
 
@@ -26,7 +27,9 @@ function parseHref(href: string) {
     const params = new URL(href, "https://jokul.fremtind.no").searchParams;
     const payload = params.get(THEME_DRAFT_QUERY_PARAM);
 
-    return parseThemeDraftPayload(JSON.parse(payload ?? "null"));
+    const draft = payload ? parseThemeDraftParam(payload) : undefined;
+
+    return draft && { draft };
 }
 
 describe("createThemePreviewHref", () => {

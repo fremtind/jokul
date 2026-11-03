@@ -109,43 +109,29 @@ function ThemeSummary() {
     return (
         <Accordion outlined>
             <SummaryPanel title="Farger">
-                <Flex direction="column" gap="24">
-                    <SummaryList
-                        items={[
-                            [
-                                "Mørk modus",
-                                draft.includeDarkMode ? "Ja" : "Nei",
-                            ],
-                        ]}
-                    />
-                    {getEditableColorTokenGroups(draft.colorTokens).map(
-                        (group) => (
-                            <Flex key={group.id} direction="column" gap="8">
-                                <Title as="h3" size="xs">
-                                    {group.title}
-                                </Title>
-                                <SummaryList
-                                    items={group.tokens.map((token) => [
-                                        token.label,
-                                        <Flex
-                                            key={token.colorRole}
-                                            direction="column"
-                                            gap="8"
-                                        >
-                                            {schemes.map((scheme) => (
-                                                <ColorTokenValue
-                                                    key={scheme}
-                                                    scheme={scheme}
-                                                    value={token.token[scheme]}
-                                                />
-                                            ))}
-                                        </Flex>,
-                                    ])}
-                                />
-                            </Flex>
-                        ),
-                    )}
-                </Flex>
+                <SummaryList
+                    items={[
+                        ["Mørk modus", draft.includeDarkMode ? "Ja" : "Nei"],
+                        ...getEditableColorTokenGroups(draft.colorTokens)
+                            .flatMap((group) => group.tokens)
+                            .map((token): [string, ReactNode] => [
+                                token.label,
+                                <Flex
+                                    key={token.colorRole}
+                                    direction="column"
+                                    gap="8"
+                                >
+                                    {schemes.map((scheme) => (
+                                        <ColorTokenValue
+                                            key={scheme}
+                                            scheme={scheme}
+                                            value={token.token[scheme]}
+                                        />
+                                    ))}
+                                </Flex>,
+                            ]),
+                    ]}
+                />
             </SummaryPanel>
             <SummaryPanel title="Font">
                 <SummaryList

@@ -45,9 +45,47 @@ export function createThemePreviewHref(draft: ThemeDraft): string {
         },
     } satisfies ThemeDraftPayload;
 
-    params.set(THEME_DRAFT_QUERY_PARAM, JSON.stringify(payload));
+    params.set(THEME_DRAFT_QUERY_PARAM, encodeParam(JSON.stringify(payload)));
 
     return `/temabygger/forhandsvisning?${params.toString()}`;
+}
+
+/**
+ * Lenka puttes inn som parameter i en e-post- eller chatlenke og kodes dermed
+ * to ganger. Rå JSON blir nesten tre ganger så lang av prosentkodingen, mens
+ * base64url bare består av tegn som ikke må kodes, så lenka holder seg under
+ * grensene Outlook og Teams har for dyplenker.
+ */
+function encodeParam(json: string): string {
+    const bytes = new TextEncoder().encode(json);
+    let binary = "";
+    for (const byte of bytes) {
+        binary += String.fromCharCode(byte);
+    }
+    return btoa(binary)
+        .replaceAll("+", "-")
+        .replaceAll("/", "_")
+        .replaceAll("=", "");
+}
+
+function decodeParam(value: string): string {
+    const base64 = value.replaceAll("-", "+").replaceAll("_", "/");
+    const binary = atob(base64);
+    return new TextDecoder().decode(
+        Uint8Array.from(binary, (char) => char.charCodeAt(0)),
+    );
+}
+
+/** Leser parameteren fra en forhåndsvisningslenke, også eldre lenker med rå JSON. */
+export function parseThemeDraftParam(value: string): ThemeDraft | undefined {
+    try {
+        const json = value.trimStart().startsWith("{")
+            ? value
+            : decodeParam(value);
+        return parseThemeDraftPayload(JSON.parse(json))?.draft;
+    } catch {
+        return undefined;
+    }
 }
 
 function withoutCustomFont(
