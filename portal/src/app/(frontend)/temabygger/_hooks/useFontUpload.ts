@@ -1,16 +1,13 @@
 import type { UploadedFile } from "@fremtind/jokul/file-input";
 import { useMemo, useState } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import { getFontSelection } from "../_context/themeDraftSelectors";
 import { type FontSlot, readCustomFont } from "../_shared/customFont";
-import { isFontSelectionId } from "../_shared/fontOptions";
 import { useThemeDraftActions } from "./useThemeDraftActions";
 
 /** Tilstand og handlinger for ett fontslot med opplasting. */
 export function useFontUpload(slot: FontSlot) {
     const { draft } = useThemeDraft();
-    const { selectFont, setCustomFont, removeCustomFont } =
-        useThemeDraftActions();
+    const { setCustomFont, removeCustomFont } = useThemeDraftActions();
     const [rejected, setRejected] = useState<UploadedFile | null>(null);
 
     const customFont = draft.customFonts[slot];
@@ -77,15 +74,9 @@ export function useFontUpload(slot: FontSlot) {
     };
 
     return {
-        selection: getFontSelection(draft, slot),
         shown,
         shownSize: rejected ? rejected.file.size : (customFont?.size ?? 0),
         errorLabel: rejected?.validation?.message,
-        select: (value: string) => {
-            if (isFontSelectionId(value)) {
-                selectFont(slot, value);
-            }
-        },
         upload,
         remove,
     };

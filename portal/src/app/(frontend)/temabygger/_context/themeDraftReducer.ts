@@ -6,7 +6,6 @@ import type { CustomFont, FontSlot } from "../_shared/customFont";
 import {
     CUSTOM_FONT_SELECTION,
     DEFAULT_REGULAR_FONT_OPTION_ID,
-    type FontSelectionId,
 } from "../_shared/fontOptions";
 import { isHex, normalizeHex } from "../_shared/utils";
 import { generatePalette } from "../generator/generate";
@@ -38,7 +37,6 @@ export type ThemeDraftAction =
     | { type: "SET_THEME_NAME"; themeName: string }
     | { type: "SET_INCLUDE_DARK_MODE"; includeDarkMode: boolean }
     | { type: "SET_BOLD_TITLES"; boldTitles: boolean }
-    | { type: "SET_FONT"; slot: FontSlot; font: FontSelectionId }
     | { type: "SET_CUSTOM_FONT"; slot: FontSlot; font: CustomFont }
     | { type: "REMOVE_CUSTOM_FONT"; slot: FontSlot }
     | { type: "APPLY_BASE_COLOR"; value: string }
@@ -77,34 +75,6 @@ export function themeDraftReducer(
         case "SET_BOLD_TITLES":
             return { ...state, boldTitles: action.boldTitles };
 
-        /**
-         * «Annet» velges før fila finnes, og er det som gjør opplastingsfeltet
-         * synlig. Fram til en fil ligger der, faller slotet tilbake til en
-         * standardfont i forhåndsvisningen.
-         *
-         * Valget treffer bare sitt eget slot. Slotene har hver sin fil, så et
-         * valg som smittet over på det andre ville pekt på en fil som ikke er
-         * lastet opp.
-         */
-        case "SET_FONT":
-            if (action.slot === "regular") {
-                return {
-                    ...state,
-                    regularFont: action.font,
-                    displayFont:
-                        state.hasCustomDisplayFont ||
-                        action.font === CUSTOM_FONT_SELECTION
-                            ? state.displayFont
-                            : action.font,
-                };
-            }
-
-            return {
-                ...state,
-                displayFont: action.font,
-                hasCustomDisplayFont: true,
-            };
-
         case "SET_CUSTOM_FONT": {
             const customFonts = {
                 ...state.customFonts,
@@ -127,9 +97,8 @@ export function themeDraftReducer(
             };
         }
 
-        // Valget står igjen på «Annet», slik at feltet blir stående åpent for en
-        // ny fil. Å hoppe tilbake til en standardfont ville skjult feltet under
-        // brukeren idet de byttet ut fila.
+        // Uten fil går slotet tilbake til en standardfont. Display følger vanlig
+        // font igjen, siden den ikke lenger er valgt eksplisitt.
         case "REMOVE_CUSTOM_FONT": {
             const { [action.slot]: removed, ...customFonts } =
                 state.customFonts;
@@ -138,7 +107,23 @@ export function themeDraftReducer(
                 return state;
             }
 
-            return { ...state, customFonts };
+            if (action.slot === "regular") {
+                return {
+                    ...state,
+                    customFonts,
+                    regularFont: DEFAULT_REGULAR_FONT_OPTION_ID,
+                    displayFont: state.hasCustomDisplayFont
+                        ? state.displayFont
+                        : DEFAULT_REGULAR_FONT_OPTION_ID,
+                };
+            }
+
+            return {
+                ...state,
+                customFonts,
+                displayFont: state.regularFont,
+                hasCustomDisplayFont: false,
+            };
         }
 
         case "APPLY_BASE_COLOR": {

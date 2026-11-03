@@ -49,28 +49,6 @@ export const FONT_OPTIONS = {
     },
 } as const;
 
-export const REGULAR_FONT_SELECT_OPTIONS = [
-    {
-        label: FONT_OPTIONS["inter-variable"].label,
-        value: "inter-variable",
-    },
-    {
-        label: FONT_OPTIONS.sparebank1.label,
-        value: "sparebank1",
-    },
-    {
-        label: FONT_OPTIONS["dnb-sans"].label,
-        value: "dnb-sans",
-    },
-    {
-        label: FONT_OPTIONS["open-sans"].label,
-        value: "open-sans",
-    },
-] satisfies Array<{
-    label: string;
-    value: FontOptionId;
-}>;
-
 export type FontOptionId = keyof typeof FONT_OPTIONS;
 export type FontOption = (typeof FONT_OPTIONS)[FontOptionId];
 
@@ -91,13 +69,6 @@ export const DEFAULT_REGULAR_FONT_OPTION_ID =
 
 export const DEFAULT_DISPLAY_FONT_OPTION_ID =
     "inter-variable-display" satisfies FontOptionId;
-
-export const DISPLAY_FONT_SELECT_OPTIONS = Object.entries(FONT_OPTIONS).map(
-    ([id, option]) => ({
-        label: option.label,
-        value: id as FontOptionId,
-    }),
-);
 
 export function getFontOption(id: FontOptionId): FontOption {
     return FONT_OPTIONS[id];

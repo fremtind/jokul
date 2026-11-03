@@ -60,29 +60,6 @@ describe("themeDraftReducer", () => {
         expect(next.colorTokens.background.contrast.light).toBe("#1A1");
     });
 
-    it("følger vanlig font til display-fonten helt til den er valgt eksplisitt", () => {
-        const withRegular = themeDraftReducer(INITIAL_STATE, {
-            type: "SET_FONT",
-            slot: "regular",
-            font: "open-sans",
-        });
-
-        expect(withRegular.displayFont).toBe("open-sans");
-
-        const withDisplay = themeDraftReducer(withRegular, {
-            type: "SET_FONT",
-            slot: "display",
-            font: "dnb-sans",
-        });
-        const withNewRegular = themeDraftReducer(withDisplay, {
-            type: "SET_FONT",
-            slot: "regular",
-            font: "sparebank1",
-        });
-
-        expect(withNewRegular.displayFont).toBe("dnb-sans");
-    });
-
     /**
      * Slotene har hver sin fil. Smittet en opplastet vanlig font over på
      * display, ville display pekt på en fil som ikke er lastet opp.
@@ -111,28 +88,7 @@ describe("themeDraftReducer", () => {
         expect(next.hasCustomDisplayFont).toBe(true);
     });
 
-    /**
-     * «Annen font» er det som gjør opplastingsfeltet synlig, og velges før fila
-     * finnes. Smittet valget over på det andre slotet, ville det slotet åpnet et
-     * felt brukeren ikke ba om.
-     */
-    it("åpner bare sitt eget slot for opplasting", () => {
-        const next = themeDraftReducer(INITIAL_STATE, {
-            type: "SET_FONT",
-            slot: "regular",
-            font: "custom",
-        });
-
-        expect(next.regularFont).toBe("custom");
-        expect(next.customFonts.regular).toBeUndefined();
-        expect(next.displayFont).toBe(INITIAL_STATE.displayFont);
-    });
-
-    /**
-     * Fila byttes ut ved å fjerne den gamle først. Hoppet valget tilbake til en
-     * standardfont, ville feltet lukket seg under brukeren midt i byttet.
-     */
-    it("lar valget stå på «annen font» når fila fjernes", () => {
+    it("går tilbake til standardfonten når fila fjernes", () => {
         const uploaded = themeDraftReducer(INITIAL_STATE, {
             type: "SET_CUSTOM_FONT",
             slot: "regular",
@@ -145,7 +101,8 @@ describe("themeDraftReducer", () => {
         });
 
         expect(removed.customFonts.regular).toBeUndefined();
-        expect(removed.regularFont).toBe("custom");
+        expect(removed.regularFont).toBe(INITIAL_STATE.regularFont);
+        expect(removed.displayFont).toBe(INITIAL_STATE.displayFont);
     });
 
     it("beholder den andre fontfila når bare én fjernes", () => {
@@ -166,6 +123,7 @@ describe("themeDraftReducer", () => {
         expect(removed.customFonts.regular).toEqual(customFont);
         expect(removed.customFonts.display).toBeUndefined();
         expect(removed.regularFont).toBe("custom");
+        expect(removed.displayFont).toBe("custom");
     });
 
     describe("RESET_DRAFT", () => {

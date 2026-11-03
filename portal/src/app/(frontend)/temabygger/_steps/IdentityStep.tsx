@@ -6,10 +6,6 @@ import { TextInput } from "@fremtind/jokul/text-input";
 import { Title } from "@fremtind/jokul/typography";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { useThemeDraftActions } from "../_hooks/useThemeDraftActions";
-import {
-    DISPLAY_FONT_SELECT_OPTIONS,
-    REGULAR_FONT_SELECT_OPTIONS,
-} from "../_shared/fontOptions";
 import { FontSlotField } from "./FontSlotField";
 import { StepCard } from "./StepCard";
 
@@ -33,14 +29,13 @@ export function IdentityStep() {
                 />
                 <FontSlotField
                     slot="regular"
-                    label="Velg font"
-                    items={REGULAR_FONT_SELECT_OPTIONS}
+                    label="Last opp font"
+                    description="Uten egen fil brukes Inter"
                 />
                 <FontSlotField
                     slot="display"
-                    label="Velg display font"
-                    description="Brukes til store overskrifter"
-                    items={DISPLAY_FONT_SELECT_OPTIONS}
+                    label="Last opp display-font"
+                    description="Brukes til store overskrifter. Uten egen fil følger den vanlig font"
                 />
                 <Checkbox
                     name="boldTitles"
