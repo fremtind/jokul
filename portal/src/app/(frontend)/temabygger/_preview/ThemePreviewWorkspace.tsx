@@ -5,7 +5,7 @@ import { useThemeDraft } from "../_context/ThemeDraftContext";
 import type { ColorScheme } from "../generator/types";
 import { ColorCombinations } from "./ColorCombinations";
 import { ThemePreviewSurface } from "./ThemePreviewSurface";
-import { renderThemePreviewStory } from "./previewStories";
+import { ThemePreviewComponents, ThemePreviewOverview } from "./previewStories";
 import styles from "./theme-preview.module.scss";
 
 type ThemePreviewWorkspaceProps = {
@@ -36,12 +36,12 @@ export function ThemePreviewWorkspace({
             </TabList>
             <TabPanel className={styles.workspacePanel}>
                 <ThemePreviewSurface colorScheme={colorScheme}>
-                    {renderThemePreviewStory("overview")}
+                    <ThemePreviewOverview />
                 </ThemePreviewSurface>
             </TabPanel>
             <TabPanel className={styles.workspacePanel}>
                 <ThemePreviewSurface colorScheme={colorScheme}>
-                    {renderThemePreviewStory("components")}
+                    <ThemePreviewComponents />
                 </ThemePreviewSurface>
             </TabPanel>
             <TabPanel className={styles.workspacePanel}>

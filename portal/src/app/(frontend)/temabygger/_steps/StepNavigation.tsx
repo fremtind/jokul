@@ -46,39 +46,32 @@ export function StepNavigation({
     const { next } = useNeighbourSteps(segment);
     // Hovedhandlingen fyller bredden som er igjen. Nullstilling står alene til
     // høyre, bare som ikon, slik at den ikke konkurrerer om oppmerksomheten.
+    // Handlingen og «ikke klar ennå» er knapper; ellers er veien videre en lenke.
+    const onClick = action?.onClick ?? onBlocked;
+    const label = action?.label ?? next?.forwardLabel;
+
     return (
         <Flex gap="16" alignItems="center">
-            {action ? (
-                <Button
-                    className={styles.forward}
-                    type="button"
-                    variant="primary"
-                    onClick={action.onClick}
-                >
-                    {action.label}
-                </Button>
-            ) : (
-                next &&
-                (onBlocked ? (
+            {label &&
+                (onClick ? (
                     <Button
                         className={styles.forward}
                         type="button"
                         variant="primary"
-                        onClick={onBlocked}
+                        onClick={onClick}
                     >
-                        {next.forwardLabel}
+                        {label}
                     </Button>
                 ) : (
                     <Button
                         className={styles.forward}
                         as={Link}
-                        href={`/temabygger/${next.segment}`}
+                        href={`/temabygger/${next?.segment}`}
                         variant="primary"
                     >
-                        {next.forwardLabel}
+                        {label}
                     </Button>
-                ))
-            )}
+                ))}
             <ResetThemeModal
                 className={styles.reset}
                 scope={segment === "lever-over" ? undefined : segment}

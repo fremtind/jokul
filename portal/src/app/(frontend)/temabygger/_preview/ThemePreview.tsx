@@ -6,7 +6,7 @@ import { ContrastExample } from "./ContrastExample";
 import { ThemePreviewSurface } from "./ThemePreviewSurface";
 import { ThemePreviewWorkspace } from "./ThemePreviewWorkspace";
 import { TypographyView } from "./TypographyView";
-import { renderThemePreviewStory } from "./previewStories";
+import { ThemePreviewComponents, ThemePreviewOverview } from "./previewStories";
 import styles from "./theme-preview.module.scss";
 
 type ThemePreviewProps = {
@@ -18,35 +18,25 @@ type ThemePreviewProps = {
  * justeres hver for seg, så forhåndsvisningen trenger ingen egen velger.
  */
 export function ThemePreview({ segment }: ThemePreviewProps) {
-    if (segment === "farger") {
-        return <ThemePreviewWorkspace colorScheme="light" />;
-    }
-
-    if (segment === "mork-modus") {
-        return <ThemePreviewWorkspace colorScheme="dark" />;
-    }
-
-    if (segment === "grunnfarge") {
+    if (segment === "farger" || segment === "mork-modus") {
         return (
-            <ThemePreviewSurface colorScheme="light">
-                <BaseColorPreview />
-            </ThemePreviewSurface>
-        );
-    }
-
-    if (segment === "identitet") {
-        return (
-            <ThemePreviewSurface colorScheme="light">
-                <TypographyView />
-            </ThemePreviewSurface>
+            <ThemePreviewWorkspace
+                colorScheme={segment === "farger" ? "light" : "dark"}
+            />
         );
     }
 
     return (
         <ThemePreviewSurface colorScheme="light">
-            <div className={styles.stepPreviewContent}>
-                {renderThemePreviewStory("overview")}
-            </div>
+            {segment === "grunnfarge" ? (
+                <BaseColorPreview />
+            ) : segment === "identitet" ? (
+                <TypographyView />
+            ) : (
+                <div className={styles.stepPreviewContent}>
+                    <ThemePreviewOverview />
+                </div>
+            )}
         </ThemePreviewSurface>
     );
 }
