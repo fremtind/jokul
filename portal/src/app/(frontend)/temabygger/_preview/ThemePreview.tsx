@@ -7,12 +7,12 @@ import {
     SegmentedControl,
     SegmentedControlButton,
 } from "@fremtind/jokul/segmented-control";
+import type { ColorScheme } from "@fremtind/jokul/theme";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import {
     type ThemePreviewTab,
     useThemePreview,
 } from "../_context/ThemePreviewContext";
-import type { ColorScheme } from "../generator/types";
 import { ColorCombinations } from "./ColorCombinations";
 import { EmptyView } from "./EmptyView";
 import { ExampleView } from "./ExampleView";

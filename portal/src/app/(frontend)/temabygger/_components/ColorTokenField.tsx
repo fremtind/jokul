@@ -1,9 +1,9 @@
 "use client";
 
 import { TextInput } from "@fremtind/jokul/text-input";
+import type { ColorScheme } from "@fremtind/jokul/theme";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { hexErrorLabel } from "../_shared/utils";
-import type { ColorScheme } from "../generator/types";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
 
 type ColorTokenFieldProps = {

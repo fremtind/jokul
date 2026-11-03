@@ -5,6 +5,11 @@ import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
 import { Message } from "@fremtind/jokul/message";
+import {
+    COLOR_SCHEMES,
+    type ColorRole,
+    type ColorScheme,
+} from "@fremtind/jokul/theme";
 import { Title } from "@fremtind/jokul/typography";
 import { useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
@@ -15,14 +20,10 @@ import {
 } from "../_preview/contrastEvaluation";
 import { createThemePreviewHref } from "../_shared/themeDraftPayload";
 import {
-    createThemeTokenMailHref,
-    createThemeTokenMailPayload,
-} from "../_shared/themeTokenMail";
-import {
-    COLOR_SCHEMES,
-    type ColorRole,
-    type ColorScheme,
-} from "../generator/types";
+    createThemeFile,
+    createThemeFileDownloadHref,
+} from "../_shared/themeFile";
+import { createThemeTokenMailHref } from "../_shared/themeTokenMail";
 import { SharePreviewModal } from "./SharePreviewModal";
 import { StepCard } from "./StepCard";
 import {
@@ -43,14 +44,10 @@ export function AdjustColorsStep() {
         colorTokens,
         includeDarkMode ? COLOR_SCHEMES : ["light"],
     );
-    const hasContrastErrors = contrastErrors.length > 0;
+    const themeFile = createThemeFile(draft);
+    const canExport = contrastErrors.length === 0 && themeFile !== undefined;
 
     const previewHref = createThemePreviewHref(draft);
-    const submitMailPayload = createThemeTokenMailPayload(draft);
-    const submitMailHref = createThemeTokenMailHref({
-        themeName,
-        payload: submitMailPayload,
-    });
 
     return (
         <StepCard>
@@ -84,10 +81,20 @@ export function AdjustColorsStep() {
                         />
                     )}
                 </Flex>
-                {hasTriedToSubmit && hasContrastErrors && (
-                    <Message variant="error" title="Kontrastfeil" role="alert">
-                        Noen fargekombinasjoner har for lav kontrast. Juster de
-                        markerte feltene før du bruker temaet.
+                {hasTriedToSubmit && !canExport && (
+                    <Message
+                        variant="error"
+                        title={
+                            contrastErrors.length > 0
+                                ? "Kontrastfeil"
+                                : "Ugyldige farger"
+                        }
+                        role="alert"
+                    >
+                        {contrastErrors.length > 0
+                            ? "Noen fargekombinasjoner har for lav kontrast."
+                            : "Noen farger har ugyldig format."}{" "}
+                        Juster de markerte feltene før du bruker temaet.
                     </Message>
                 )}
                 <Flex
@@ -96,19 +103,46 @@ export function AdjustColorsStep() {
                     alignItems="center"
                     wrap="wrap"
                 >
-                    {hasContrastErrors ? (
-                        <Button
-                            type="button"
-                            variant="primary"
-                            onClick={() => setHasTriedToSubmit(true)}
-                        >
-                            Send til Jøkul
-                        </Button>
-                    ) : (
-                        <Button as="a" href={submitMailHref} variant="primary">
-                            Send til Jøkul
-                        </Button>
-                    )}
+                    <Flex gap="m" wrap="wrap">
+                        {canExport ? (
+                            <>
+                                <Button
+                                    as="a"
+                                    href={createThemeTokenMailHref(themeFile)}
+                                    variant="primary"
+                                >
+                                    Send til Jøkul
+                                </Button>
+                                <Button
+                                    as="a"
+                                    href={createThemeFileDownloadHref(
+                                        themeFile,
+                                    )}
+                                    download={`${themeFile.name}.theme.json`}
+                                    variant="secondary"
+                                >
+                                    Last ned temafil
+                                </Button>
+                            </>
+                        ) : (
+                            <>
+                                <Button
+                                    type="button"
+                                    variant="primary"
+                                    onClick={() => setHasTriedToSubmit(true)}
+                                >
+                                    Send til Jøkul
+                                </Button>
+                                <Button
+                                    type="button"
+                                    variant="secondary"
+                                    onClick={() => setHasTriedToSubmit(true)}
+                                >
+                                    Last ned temafil
+                                </Button>
+                            </>
+                        )}
+                    </Flex>
                     <SharePreviewModal previewHref={previewHref} />
                 </Flex>
             </Flex>
