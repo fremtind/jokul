@@ -81,6 +81,17 @@
                 "default": "./build/cjs/components/types.cjs"
             }
         },
+        "./theme": {
+            "import": {
+                "types": "./build/es/theme/index.d.ts",
+                "default": "./build/es/theme/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/theme/index.d.cts",
+                "default": "./build/cjs/theme/index.cjs"
+            }
+        },
+        "./theme/node": null,
         "./*": {
             "import": {
                 "types": "./build/es/components/*/index.d.ts",
