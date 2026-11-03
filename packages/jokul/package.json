@@ -104,7 +104,9 @@
         "figma:publish": "figma connect publish"
     },
     "dependencies": {
+        "chroma-js": "^3.2.0",
         "downshift": "^9.4.0",
+        "hsluv": "^1.0.2",
         "match-sorter": "^8.3.0"
     },
     "optionalDependencies": {
@@ -119,6 +121,7 @@
         "@babel/core": "^8.0.1",
         "@babel/preset-react": "^8.0.1",
         "@rollup/plugin-terser": "^1.0.0",
+        "@types/chroma-js": "^3.1.2",
         "@types/react": "18.3.1",
         "@vitejs/plugin-react": "^4.7.0",
         "@vitejs/plugin-react-swc": "^4.3.3",
