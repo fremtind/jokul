@@ -2,6 +2,8 @@
 
 import { TextInput } from "@fremtind/jokul/text-input";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
+import { getColorTokenValue } from "../_context/themeDraftSelectors";
+import { useThemeDraftActions } from "../_hooks/useThemeDraftActions";
 import { hexErrorLabel } from "../_shared/utils";
 import type { ColorScheme } from "../generator/types";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
@@ -25,26 +27,15 @@ export function ColorTokenField({
     contrastErrorLabel,
     onValueChange,
 }: ColorTokenFieldProps) {
-    const { draft, dispatch } = useThemeDraft();
-    const value =
-        (
-            draft.colorTokens as Record<
-                string,
-                Record<string, Record<string, string>>
-            >
-        )[group]?.[tokenRole]?.[colorScheme] ?? "";
+    const { draft } = useThemeDraft();
+    const { updateColorToken } = useThemeDraftActions();
+    const value = getColorTokenValue(draft, group, tokenRole, colorScheme);
     const id = `${group}.${tokenRole}`;
     const accessibleLabel = `${label} ${colorScheme}`;
     const handleValueChange =
         onValueChange ??
         ((nextValue: string) =>
-            dispatch({
-                type: "UPDATE_COLOR_TOKEN",
-                group,
-                role: tokenRole,
-                colorScheme,
-                value: nextValue,
-            }));
+            updateColorToken(group, tokenRole, colorScheme, nextValue));
 
     return (
         <TextInput

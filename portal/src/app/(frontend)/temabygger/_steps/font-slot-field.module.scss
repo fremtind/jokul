@@ -1,0 +1,10 @@
+// `small`-varianten krymper slippsonen til innholdet sitt. Her står den under
+// en select i full bredde, og skal følge den samme kanten. Bredden settes
+// hardkodet i Jøkul, ikke med en egenskap vi kan overstyre med et token, så
+// klassen må treffes direkte. `:global` hører til CSS Modules og er ukjent for
+// stylelint, og regelen kan ikke skrus av i den delte konfigen, som er en
+// publisert pakke for Jøkul-SCSS.
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
+.fontUpload :global(.jkl-file-input__dropzone) {
+    max-width: none;
+}
