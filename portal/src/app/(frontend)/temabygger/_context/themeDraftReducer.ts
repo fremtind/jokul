@@ -38,7 +38,6 @@ export type ThemeDraftAction =
     | { type: "SET_THEME_NAME"; themeName: string }
     | { type: "SET_INCLUDE_DARK_MODE"; includeDarkMode: boolean }
     | { type: "SET_BOLD_TITLES"; boldTitles: boolean }
-    | { type: "SET_BORDER_RADIUS"; borderRadius: BorderRadiusScaleId }
     | { type: "SET_FONT"; slot: FontSlot; font: FontSelectionId }
     | { type: "SET_CUSTOM_FONT"; slot: FontSlot; font: CustomFont }
     | { type: "REMOVE_CUSTOM_FONT"; slot: FontSlot }
@@ -58,8 +57,7 @@ export type ThemeDraftResetScope =
     | "identitet"
     | "grunnfarge"
     | "farger"
-    | "mork-modus"
-    | "hjorner";
+    | "mork-modus";
 
 // ---------------------------------------------------------------------------
 // Reducer
@@ -78,9 +76,6 @@ export function themeDraftReducer(
 
         case "SET_BOLD_TITLES":
             return { ...state, boldTitles: action.boldTitles };
-
-        case "SET_BORDER_RADIUS":
-            return { ...state, borderRadius: action.borderRadius };
 
         /**
          * «Annet» velges før fila finnes, og er det som gjør opplastingsfeltet
@@ -249,9 +244,6 @@ function resetScope(
                 ...state,
                 colorTokens: resetColorScheme(state.colorTokens, "dark"),
             };
-
-        case "hjorner":
-            return { ...state, borderRadius: INITIAL_STATE.borderRadius };
 
         default:
             scope satisfies never;

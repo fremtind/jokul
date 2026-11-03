@@ -4,7 +4,6 @@ import { useThemeDraft } from "@/app/(frontend)/temabygger/_context/ThemeDraftCo
 import { getFontSelection } from "@/app/(frontend)/temabygger/_context/themeDraftSelectors";
 import { COLOR_SCHEME_LABELS } from "@/app/(frontend)/temabygger/_preview/ColorSchemeComparison";
 import { ThemePreviewWorkspace } from "@/app/(frontend)/temabygger/_preview/ThemePreviewWorkspace";
-import { BORDER_RADIUS_SCALES } from "@/app/(frontend)/temabygger/_shared/borderRadius";
 import type { FontSlot } from "@/app/(frontend)/temabygger/_shared/customFont";
 import { getFontOption } from "@/app/(frontend)/temabygger/_shared/fontOptions";
 import { HandoverStep } from "@/app/(frontend)/temabygger/_steps/HandoverStep";
@@ -47,7 +46,11 @@ function PreviewPageAside() {
         <Card as="aside" className={styles.aside} padding="l">
             <Flex direction="column" gap="24">
                 <Flex>
-                    <NavLink as={Link} back href="/temabygger/hjorner">
+                    <NavLink
+                        as={Link}
+                        back
+                        href={`/temabygger/${draft.includeDarkMode ? "mork-modus" : "farger"}`}
+                    >
                         Tilbake til redigering
                     </NavLink>
                 </Flex>
@@ -139,16 +142,6 @@ function ThemeSummary() {
                         ["Vanlig font", fontLabel("regular")],
                         ["Display-font", fontLabel("display")],
                         ["Titler", draft.boldTitles ? "Fete" : "Normale"],
-                    ]}
-                />
-            </SummaryPanel>
-            <SummaryPanel title="Hjørner">
-                <SummaryList
-                    items={[
-                        [
-                            "Skala",
-                            BORDER_RADIUS_SCALES[draft.borderRadius].label,
-                        ],
                     ]}
                 />
             </SummaryPanel>

@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import type { ThemeDraftResetScope } from "../_context/themeDraftReducer";
-import type { BorderRadiusScaleId } from "../_shared/borderRadius";
 import type { CustomFont, FontSlot } from "../_shared/customFont";
 import type { FontSelectionId } from "../_shared/fontOptions";
 import type { ColorScheme } from "../generator/types";
@@ -21,8 +20,6 @@ export function useThemeDraftActions() {
                 dispatch({ type: "SET_INCLUDE_DARK_MODE", includeDarkMode }),
             setBoldTitles: (boldTitles: boolean) =>
                 dispatch({ type: "SET_BOLD_TITLES", boldTitles }),
-            setBorderRadius: (borderRadius: BorderRadiusScaleId) =>
-                dispatch({ type: "SET_BORDER_RADIUS", borderRadius }),
             selectFont: (slot: FontSlot, font: FontSelectionId) =>
                 dispatch({ type: "SET_FONT", slot, font }),
             setCustomFont: (slot: FontSlot, font: CustomFont) =>

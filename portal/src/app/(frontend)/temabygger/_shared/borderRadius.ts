@@ -38,13 +38,3 @@ export function isBorderRadiusScaleId(
 ): value is BorderRadiusScaleId {
     return typeof value === "string" && value in BORDER_RADIUS_SCALES;
 }
-
-export const BORDER_RADIUS_SCALE_OPTIONS = Object.entries(
-    BORDER_RADIUS_SCALES,
-).map(([id, scale]) => ({
-    id: id as BorderRadiusScaleId,
-    label: scale.label,
-    // Navnet alene sier ingenting om hvor rundt «Runde» er, så trinnene står ved
-    // siden av valget.
-    helpLabel: `${BORDER_RADIUS_STEPS.map((step) => scale.values[step]).join(" · ")} px`,
-}));

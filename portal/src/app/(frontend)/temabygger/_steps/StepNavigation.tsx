@@ -18,7 +18,6 @@ const STEPS = [
     { segment: "grunnfarge", forwardLabel: "Velg kontrastfarge" },
     { segment: "farger", forwardLabel: "Tilpass fargene" },
     { segment: "mork-modus", forwardLabel: "Tilpass mørk modus" },
-    { segment: "hjorner", forwardLabel: "Velg hjørner" },
     { segment: "forhandsvisning", forwardLabel: "Se forhåndsvisning" },
 ] as const;
 
