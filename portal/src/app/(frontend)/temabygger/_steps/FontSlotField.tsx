@@ -9,6 +9,7 @@ import {
     CUSTOM_FONT_MAX_SIZE_BYTES,
     type FontSlot,
 } from "../_shared/customFont";
+import { FontAxesEditor } from "./FontAxesEditor";
 import styles from "./font-slot-field.module.scss";
 
 type FontSlotFieldProps = {
@@ -22,7 +23,7 @@ export function FontSlotField({
     label,
     description,
 }: FontSlotFieldProps) {
-    const { shown, shownSize, errorLabel, upload, remove } =
+    const { shown, shownSize, errorLabel, axes, setAxes, upload, remove } =
         useFontUpload(slot);
 
     return (
@@ -49,6 +50,16 @@ export function FontSlotField({
                     />
                 )}
             </FileInput>
+            {shown && !errorLabel && (
+                <details>
+                    <summary>Akser i variabel font</summary>
+                    <FontAxesEditor
+                        key={shown.file.name}
+                        axes={axes}
+                        onChange={setAxes}
+                    />
+                </details>
+            )}
         </Flex>
     );
 }

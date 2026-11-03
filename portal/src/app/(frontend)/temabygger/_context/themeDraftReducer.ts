@@ -2,7 +2,7 @@ import {
     type BorderRadiusScaleId,
     DEFAULT_BORDER_RADIUS_SCALE_ID,
 } from "../_shared/borderRadius";
-import type { CustomFont, FontSlot } from "../_shared/customFont";
+import type { CustomFont, FontAxes, FontSlot } from "../_shared/customFont";
 import {
     CUSTOM_FONT_SELECTION,
     DEFAULT_REGULAR_FONT_OPTION_ID,
@@ -38,6 +38,7 @@ export type ThemeDraftAction =
     | { type: "SET_INCLUDE_DARK_MODE"; includeDarkMode: boolean }
     | { type: "SET_BOLD_TITLES"; boldTitles: boolean }
     | { type: "SET_CUSTOM_FONT"; slot: FontSlot; font: CustomFont }
+    | { type: "SET_FONT_AXES"; slot: FontSlot; axes: FontAxes }
     | { type: "REMOVE_CUSTOM_FONT"; slot: FontSlot }
     | { type: "APPLY_BASE_COLOR"; value: string }
     | {
@@ -94,6 +95,22 @@ export function themeDraftReducer(
                 customFonts,
                 displayFont: CUSTOM_FONT_SELECTION,
                 hasCustomDisplayFont: true,
+            };
+        }
+
+        case "SET_FONT_AXES": {
+            const font = state.customFonts[action.slot];
+
+            if (!font) {
+                return state;
+            }
+
+            return {
+                ...state,
+                customFonts: {
+                    ...state.customFonts,
+                    [action.slot]: { ...font, axes: action.axes },
+                },
             };
         }
 

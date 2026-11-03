@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import type { ThemeDraftResetScope } from "../_context/themeDraftReducer";
-import type { CustomFont, FontSlot } from "../_shared/customFont";
+import type { CustomFont, FontAxes, FontSlot } from "../_shared/customFont";
 import type { ColorScheme } from "../generator/types";
 
 /**
@@ -21,6 +21,8 @@ export function useThemeDraftActions() {
                 dispatch({ type: "SET_BOLD_TITLES", boldTitles }),
             setCustomFont: (slot: FontSlot, font: CustomFont) =>
                 dispatch({ type: "SET_CUSTOM_FONT", slot, font }),
+            setFontAxes: (slot: FontSlot, axes: FontAxes) =>
+                dispatch({ type: "SET_FONT_AXES", slot, axes }),
             removeCustomFont: (slot: FontSlot) =>
                 dispatch({ type: "REMOVE_CUSTOM_FONT", slot }),
             applyBaseColor: (value: string) =>

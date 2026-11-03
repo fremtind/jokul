@@ -51,4 +51,21 @@ describe("buildCustomFontFaceCss", () => {
         expect(css).toContain('font-family: "jkl-custom-display"');
         expect(css).toContain(validFont.dataUrl);
     });
+
+    it("legger aksene inn som font-variation-settings", () => {
+        const css = buildCustomFontFaceCss({
+            regular: { ...validFont, axes: { wdth: 110, slnt: -5 } },
+        });
+
+        expect(css).toContain(
+            'font-variation-settings: "wdth" 110, "slnt" -5;',
+        );
+    });
+
+    it("avviser akser som kan bryte ut av deklarasjonen", () => {
+        expect(isCustomFont({ ...validFont, axes: { 'w";}': 1 } })).toBe(false);
+        expect(isCustomFont({ ...validFont, axes: { wdth: Number.NaN } })).toBe(
+            false,
+        );
+    });
 });

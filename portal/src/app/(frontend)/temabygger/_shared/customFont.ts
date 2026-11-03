@@ -6,7 +6,31 @@ export type CustomFont = {
     name: string;
     size: number;
     dataUrl: string;
+    /** Verdier for aksene i en variabel font, for eksempel `{ wdth: 110 }`. */
+    axes?: FontAxes;
 };
+
+export type FontAxes = Record<string, number>;
+
+/** Aksenavn er alltid fire tegn, og går rett inn i en CSS-deklarasjon. */
+const FONT_AXIS_TAG_PATTERN = /^[A-Za-z0-9]{4}$/;
+
+export function isFontAxisTag(value: string): boolean {
+    return FONT_AXIS_TAG_PATTERN.test(value);
+}
+
+export function isFontAxes(value: unknown): value is FontAxes {
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+        return false;
+    }
+
+    return Object.entries(value).every(
+        ([tag, axisValue]) =>
+            isFontAxisTag(tag) &&
+            typeof axisValue === "number" &&
+            Number.isFinite(axisValue),
+    );
+}
 
 export type CustomFonts = Partial<Record<FontSlot, CustomFont>>;
 
@@ -14,11 +38,11 @@ export const CUSTOM_FONT_ACCEPT = ".woff2,.woff,.ttf,.otf";
 
 /**
  * Utkastet lagres som JSON i localStorage, der base64 tar en tredjedel mer
- * plass enn fila. Med to fontslots holder grensa summen godt innenfor kvoten
- * på rundt 5 MB, og en nettfont som er større enn dette har ingenting å gjøre
- * i et tema uansett.
+ * plass enn fila. Variable fonter er store, så grensa er satt høyt. Får ikke
+ * utkastet plass i localStorage, lagres det ikke, men det virker fortsatt i
+ * økta.
  */
-export const CUSTOM_FONT_MAX_SIZE_BYTES = 1_000_000;
+export const CUSTOM_FONT_MAX_SIZE_BYTES = 3_000_000;
 
 const CUSTOM_FONT_FAMILY_NAMES = {
     regular: "jkl-custom-regular",
@@ -61,6 +85,7 @@ export function isCustomFont(value: unknown): value is CustomFont {
         typeof font.name === "string" &&
         typeof font.size === "number" &&
         typeof font.dataUrl === "string" &&
+        (font.axes === undefined || isFontAxes(font.axes)) &&
         FONT_DATA_URL_PATTERN.test(font.dataUrl)
     );
 }
@@ -110,12 +135,21 @@ export function buildCustomFontFaceCss(fonts: CustomFonts): string {
             return [];
         }
 
+        const axes = Object.entries(font.axes ?? {});
+
         return [
             [
                 "@font-face {",
                 `font-family: "${CUSTOM_FONT_FAMILY_NAMES[slot]}";`,
                 "font-display: swap;",
                 `font-weight: ${CUSTOM_FONT_WEIGHT_RANGE};`,
+                ...(axes.length > 0
+                    ? [
+                          `font-variation-settings: ${axes
+                              .map(([tag, value]) => `"${tag}" ${value}`)
+                              .join(", ")};`,
+                      ]
+                    : []),
                 `src: url("${font.dataUrl}");`,
                 "}",
             ].join(" "),
