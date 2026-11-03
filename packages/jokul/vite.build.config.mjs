@@ -34,7 +34,8 @@ export default defineConfig({
                 "src/**/*.stories.{ts,tsx}",
                 "src/**/stories/**",
                 "src/**/development/**",
-                "src/tokens/style-dictionary/**",
+                "src/tokens/style-dictionary/build.ts",
+                "src/theme/node/**",
             ],
             entryRoot: "./src",
             outDirs: [
@@ -70,10 +71,12 @@ export default defineConfig({
             input: Object.fromEntries(
                 // https://rollupjs.org/configuration-options/#input
                 globSync("src/**/!(*.figma|*.test|*.spec|*.stories).{ts,tsx}", {
-                    exclude: ["src/**/stories/**"],
+                    exclude: [
+                        "src/**/stories/**",
+                        "src/tokens/style-dictionary/build.ts",
+                    ],
                 })
                     .filter((file) => !file.includes("development/"))
-                    .filter((file) => !file.includes("style-dictionary/"))
                     .map((file) => [
                         relative(
                             "src",
