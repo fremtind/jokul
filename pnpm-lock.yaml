@@ -316,6 +316,9 @@ importers:
       rollup-plugin-visualizer:
         specifier: ^7.0.1
         version: 7.0.1(rolldown@1.2.14)(rollup@4.66.0)
+      sass:
+        specifier: ^1.102.0
+        version: 1.102.0
       sass-embedded:
         specifier: ^1.100.0
         version: 1.100.0

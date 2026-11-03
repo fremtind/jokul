@@ -1,5 +1,9 @@
 import type { ColorScheme, LightDarkPalette } from "../colors/types.js";
-import type { JokulThemeFile, JokulThemeFonts } from "./themeFile.js";
+import type {
+    JokulThemeFile,
+    JokulThemeFontFace,
+    JokulThemeFonts,
+} from "./themeFile.js";
 
 type TokenValue<T> = { value: T };
 
@@ -15,10 +19,17 @@ export type ColorTokensJson = {
 
 export type TypographyTokensJson = {
     font: {
-        family: Record<
-            "regular" | "display",
-            TokenValue<string> & { type: "fontFamily" }
+        face?: Record<
+            string,
+            TokenValue<JokulThemeFontFace> & { type: "brandFontFace" }
         >;
+        family: Partial<
+            Record<"mono", TokenValue<string> & { type: "fontFamily" }>
+        > &
+            Record<
+                "regular" | "display",
+                TokenValue<string> & { type: "fontFamily" }
+            >;
         weight: Record<
             "normal" | "bold",
             TokenValue<string> & { type: "fontWeight" }
@@ -73,9 +84,20 @@ export function fontsToTypographyTokens(
 ): TypographyTokensJson {
     return {
         font: {
+            ...(fonts.faces?.length && {
+                face: Object.fromEntries(
+                    fonts.faces.map((face, index) => [
+                        String(index),
+                        { type: "brandFontFace", value: face },
+                    ]),
+                ),
+            }),
             family: {
                 regular: { type: "fontFamily", value: fonts.regular.family },
                 display: { type: "fontFamily", value: fonts.display.family },
+                ...(fonts.mono && {
+                    mono: { type: "fontFamily", value: fonts.mono.family },
+                }),
             },
             weight: {
                 normal: {

@@ -71,6 +71,55 @@ describe("validateThemeFile", () => {
     });
 });
 
+describe("validateThemeFile med fonter", () => {
+    const face = {
+        family: "Mitt Tema",
+        weight: 400,
+        style: "normal",
+        fileName: "MittTema-Regular.woff2",
+    };
+
+    it("godtar tittel, mono og fontfiler", () => {
+        const theme = {
+            ...validTheme,
+            title: "Mitt tema",
+            fonts: {
+                ...validTheme.fonts,
+                mono: { family: "monospace" },
+                faces: [face],
+            },
+        };
+
+        expect(parseThemeFile(theme)).toEqual(theme);
+    });
+
+    it("avviser fontfiler med ugyldige verdier", () => {
+        const result = validateThemeFile({
+            ...validTheme,
+            fonts: {
+                ...validTheme.fonts,
+                faces: [
+                    {
+                        ...face,
+                        weight: "400",
+                        style: "oblique",
+                        fileName: "../MittTema.ttf",
+                    },
+                ],
+            },
+        });
+
+        expect(result).toEqual({
+            valid: false,
+            errors: [
+                "`fonts.faces[0].weight` må være et tall.",
+                '`fonts.faces[0].style` må være "normal" eller "italic".',
+                "`fonts.faces[0].fileName` må være navnet på en .woff2-fil i fonts-mappen.",
+            ],
+        });
+    });
+});
+
 describe("isThemeName", () => {
     it.each(["dnb", "mitt-tema", "tema2"])("godtar %s", (name) => {
         expect(isThemeName(name)).toBe(true);

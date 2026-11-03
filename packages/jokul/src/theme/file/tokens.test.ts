@@ -78,6 +78,28 @@ describe("fontsToTypographyTokens", () => {
             weight,
         });
     });
+
+    it("tar med mono og fontfiler", () => {
+        const { face, family } = dnbTypographyTokens.font;
+        const font = {
+            family: family.regular.value,
+            weight: { normal: "400", bold: "500" },
+        };
+        const tokens = fontsToTypographyTokens({
+            regular: font,
+            display: font,
+            mono: { family: family.mono.value },
+            faces: [face.regular.value, face.bold.value] as Array<
+                typeof face.regular.value & { style: "normal" }
+            >,
+        });
+
+        expect(tokens.font.family.mono).toEqual(family.mono);
+        expect(Object.values(tokens.font.face ?? {})).toEqual([
+            face.regular,
+            face.bold,
+        ]);
+    });
 });
 
 describe("themeToTokenFiles", () => {
