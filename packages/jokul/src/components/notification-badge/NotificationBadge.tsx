@@ -54,6 +54,7 @@ export const NotificationBadge = ({
                         className,
                     )}
                     data-urgent={urgent}
+                    data-color={urgent ? "error" : undefined}
                     data-count={count}
                     data-hide-counter={hideCounter}
                     {...rest}
