@@ -19,6 +19,7 @@ overrides:
   brace-expansion@2: ^2.1.4
   brace-expansion@5: ^5.0.9
   chokidar: ^3.5.3
+  dompurify: ^3.4.17
   express-rate-limit: ^8.2.2
   fast-uri: ^3.1.5
   flatted: ^3.4.2
@@ -456,13 +457,10 @@ importers:
         version: 0.6.1
       cookies-next:
         specifier: ^6.0.0
-        version: 6.1.1(next@16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react@18.3.1)
+        version: 6.1.1(next@16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react@18.3.1)
       cross-env:
         specifier: ^10.1.0
         version: 10.1.0
-      dompurify:
-        specifier: ^3.4.13
-        version: 3.4.13
       graphql:
         specifier: ^16.14.2
         version: 16.14.2
@@ -474,10 +472,10 @@ importers:
         version: 2.81.0
       next:
         specifier: ^16.3.0
-        version: 16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0)
+        version: 16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0)
       next-sanity:
         specifier: ^11.6.13
-        version: 11.6.13(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.26.0)(@sanity/icons@3.8.0(react@18.3.1))(@sanity/types@4.22.0(@types/react@18.3.1))(next@16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react-router@6.30.3(react@18.3.1))(react@18.3.1)(sanity@4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0))(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.9.3)
+        version: 11.6.13(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.26.0)(@sanity/icons@3.8.0(react@18.3.1))(@sanity/types@4.22.0(@types/react@18.3.1))(next@16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react-router@6.30.3(react@18.3.1))(react@18.3.1)(sanity@4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0))(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.9.3)
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -7835,8 +7833,8 @@ packages:
     resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
     engines: {node: '>= 4'}
 
-  dompurify@3.4.13:
-    resolution: {integrity: sha512-2vmYIoqjze2d+kakP8S/nS5shfsl587kzwEjcGlTdiksUVgFHnFCsLYDVj/JNqJVOQZGSYBTmuycv0PodwmnMQ==}
+  dompurify@3.4.17:
+    resolution: {integrity: sha512-B/pSlYVHQ58kqISD/yDjuJ1yfzI34m1gF4lAod2bwSRhiN4K5Cl3H8Af7hqB2PmTL911tdEudnnXn5FnhRoz0w==}
 
   domutils@2.8.0:
     resolution: {integrity: sha512-w96Cjofp72M5IIhpjgobBimYEfoPjx1Vx0BSX9P30WBdZW2WIKU0T1Bd0kz2eNZ9ikjKgHbEyKx8BB6H1L3h3A==}
@@ -19263,7 +19261,7 @@ snapshots:
     optionalDependencies:
       '@sanity/types': 4.22.0(@types/react@18.3.1)
 
-  '@sanity/visual-editing@4.0.3(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.26.0)(@sanity/types@4.22.0(@types/react@18.3.1))(next@16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react-router@6.30.3(react@18.3.1))(react@18.3.1)(sanity@4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0))(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.9.3)':
+  '@sanity/visual-editing@4.0.3(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.26.0)(@sanity/types@4.22.0(@types/react@18.3.1))(next@16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react-router@6.30.3(react@18.3.1))(react@18.3.1)(sanity@4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0))(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.9.3)':
     dependencies:
       '@sanity/comlink': 4.0.1
       '@sanity/icons': 3.8.0(react@18.3.1)
@@ -19285,7 +19283,7 @@ snapshots:
       xstate: 5.25.0
     optionalDependencies:
       '@sanity/client': 7.26.0
-      next: 16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0)
+      next: 16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0)
       react-router: 6.30.3(react@18.3.1)
     transitivePeerDependencies:
       - '@emotion/is-prop-valid'
@@ -21519,10 +21517,10 @@ snapshots:
 
   cookie@1.0.2: {}
 
-  cookies-next@6.1.1(next@16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react@18.3.1):
+  cookies-next@6.1.1(next@16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react@18.3.1):
     dependencies:
       cookie: 1.0.2
-      next: 16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0)
+      next: 16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0)
       react: 18.3.1
 
   core-js-compat@3.48.0:
@@ -22022,7 +22020,7 @@ snapshots:
     dependencies:
       domelementtype: 2.3.0
 
-  dompurify@3.4.13:
+  dompurify@3.4.17:
     optionalDependencies:
       '@types/trusted-types': 2.0.7
 
@@ -24166,7 +24164,7 @@ snapshots:
 
   isomorphic-dompurify@2.26.0:
     dependencies:
-      dompurify: 3.4.13
+      dompurify: 3.4.17
       jsdom: 26.1.0
     transitivePeerDependencies:
       - bufferutil
@@ -25438,18 +25436,18 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  next-sanity@11.6.13(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.26.0)(@sanity/icons@3.8.0(react@18.3.1))(@sanity/types@4.22.0(@types/react@18.3.1))(next@16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react-router@6.30.3(react@18.3.1))(react@18.3.1)(sanity@4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0))(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.9.3):
+  next-sanity@11.6.13(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.26.0)(@sanity/icons@3.8.0(react@18.3.1))(@sanity/types@4.22.0(@types/react@18.3.1))(next@16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react-router@6.30.3(react@18.3.1))(react@18.3.1)(sanity@4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0))(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.9.3):
     dependencies:
       '@portabletext/react': 6.0.0(react@18.3.1)
       '@sanity/client': 7.26.0
       '@sanity/comlink': 4.0.1
       '@sanity/presentation-comlink': 2.0.1(@sanity/client@7.26.0)(@sanity/types@4.22.0(@types/react@18.3.1))
       '@sanity/preview-url-secret': 3.0.0(@sanity/client@7.26.0)(@sanity/icons@3.8.0(react@18.3.1))(sanity@4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0))
-      '@sanity/visual-editing': 4.0.3(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.26.0)(@sanity/types@4.22.0(@types/react@18.3.1))(next@16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react-router@6.30.3(react@18.3.1))(react@18.3.1)(sanity@4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0))(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.9.3)
+      '@sanity/visual-editing': 4.0.3(@emotion/is-prop-valid@1.4.0)(@sanity/client@7.26.0)(@sanity/types@4.22.0(@types/react@18.3.1))(next@16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0))(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react-router@6.30.3(react@18.3.1))(react@18.3.1)(sanity@4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0))(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(typescript@5.9.3)
       dequal: 2.0.3
       groq: 4.22.0
       history: 5.3.0
-      next: 16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0)
+      next: 16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
       sanity: 4.22.0(@emotion/is-prop-valid@1.4.0)(@portabletext/sanity-bridge@1.2.14(@types/react@18.3.1))(@types/node@24.13.3)(@types/react-dom@18.3.1)(@types/react@18.3.1)(immer@10.2.0)(jiti@2.6.1)(lightningcss@1.33.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass-embedded@1.100.0)(sass@1.102.0)(styled-components@6.4.4(css-to-react-native@3.2.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0)
@@ -25468,7 +25466,7 @@ snapshots:
       - svelte
       - typescript
 
-  next@16.3.0(@babel/core@7.29.0)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0):
+  next@16.3.0(@babel/core@8.0.1)(@playwright/test@1.62.1)(@types/node@24.13.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.102.0):
     dependencies:
       '@next/env': 16.3.0
       '@swc/helpers': 0.5.15
@@ -25477,7 +25475,7 @@ snapshots:
       postcss: 8.5.25
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-      styled-jsx: 5.1.6(@babel/core@7.29.0)(react@18.3.1)
+      styled-jsx: 5.1.6(@babel/core@8.0.1)(react@18.3.1)
     optionalDependencies:
       '@next/swc-darwin-arm64': 16.3.0
       '@next/swc-darwin-x64': 16.3.0
@@ -28058,13 +28056,6 @@ snapshots:
     optionalDependencies:
       css-to-react-native: 3.2.0
       react-dom: 18.3.1(react@18.3.1)
-
-  styled-jsx@5.1.6(@babel/core@7.29.0)(react@18.3.1):
-    dependencies:
-      client-only: 0.0.1
-      react: 18.3.1
-    optionalDependencies:
-      '@babel/core': 7.29.0
 
   styled-jsx@5.1.6(@babel/core@8.0.1)(react@18.3.1):
     dependencies:
