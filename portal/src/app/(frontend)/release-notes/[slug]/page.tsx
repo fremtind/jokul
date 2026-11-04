@@ -6,6 +6,7 @@ import { releaseNoteBySlugQuery } from "@/sanity/queries/releaseNotes";
 import { ArticleHeader } from "@/components/article/header";
 import { logger } from "@/logger";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -39,7 +40,7 @@ export default async function ReleaseNotePage({ params }: Props) {
 
     if (!note) {
         logger.warn("Release note not found", { slug });
-        return null;
+        notFound();
     }
 
     logger.info("Fetched release note", {

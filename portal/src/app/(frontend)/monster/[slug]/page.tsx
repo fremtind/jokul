@@ -11,6 +11,7 @@ import { parseUserPreferences } from "@/utils/user-preferences";
 import { getCookie } from "cookies-next";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import { notFound } from "next/navigation";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -53,7 +54,7 @@ export default async function MonsterPage({ params }: Props) {
 
     if (!monster) {
         logger.warn("Mønster not found", { slug });
-        return null;
+        notFound();
     }
 
     const userPreferences = parseUserPreferences(

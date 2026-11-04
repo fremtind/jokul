@@ -6,6 +6,7 @@ import { fundamentalsBySlugQuery } from "@/sanity/queries/fundamentals";
 
 import { ArticleHeader } from "@/components/article/header";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -37,7 +38,7 @@ export default async function FundamentalPage({ params }: Props) {
 
     if (!fundamental) {
         logger.warn("Post not found", { slug });
-        return null;
+        notFound();
     }
 
     logger.info("Fetched fundamental post", {

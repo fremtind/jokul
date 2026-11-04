@@ -6,6 +6,7 @@ import { blogPostBySlugQuery } from "@/sanity/queries/blog";
 import { ArticleHeader } from "@/components/article/header";
 import { logger } from "@/logger";
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type Props = {
     params: Promise<{ slug: string }>;
@@ -37,7 +38,7 @@ export default async function BlogPostPage({ params }: Props) {
 
     if (!blogPost) {
         logger.warn("Blog post not found", { slug });
-        return null;
+        notFound();
     }
 
     logger.info("Fetched blog post", {
