@@ -23193,14 +23193,14 @@ function o(n) {
   return t.get(n) ?? [];
 }
 
-// ../../node_modules/.pnpm/simple-git@4.0.1/node_modules/simple-git/dist/index.mjs
+// ../../node_modules/.pnpm/simple-git@4.0.2/node_modules/simple-git/dist/index.mjs
 var import_file_exists = __toESM(require_dist(), 1);
 var import_node_child_process = require("node:child_process");
 var import_debug = __toESM(require_src(), 1);
 var import_promise_deferred = __toESM(require_dist2(), 1);
 var import_node_path = require("node:path");
 
-// ../../node_modules/.pnpm/@simple-git+argv-parser@2.0.0/node_modules/@simple-git/argv-parser/dist/index.mjs
+// ../../node_modules/.pnpm/@simple-git+argv-parser@2.0.1/node_modules/@simple-git/argv-parser/dist/index.mjs
 function* x(e, n) {
   const t2 = n === "global";
   for (const o2 of e)
@@ -23662,7 +23662,8 @@ var y = {
   git_ssh_command: "allowUnsafeSshCommand",
   pager: "allowUnsafePager",
   prefix: "allowUnsafeConfigPaths",
-  ssh_askpass: "allowUnsafeAskPass"
+  ssh_askpass: "allowUnsafeAskPass",
+  visual: "allowUnsafeEditor"
 };
 function* Q(e) {
   const n = parseInt(e.git_config_count ?? "0", 10);
@@ -23709,7 +23710,7 @@ function oe(e, n) {
   return [...Y(...e).vulnerabilities, ...ne(n).vulnerabilities];
 }
 
-// ../../node_modules/.pnpm/simple-git@4.0.1/node_modules/simple-git/dist/index.mjs
+// ../../node_modules/.pnpm/simple-git@4.0.2/node_modules/simple-git/dist/index.mjs
 var import_node_events = require("node:events");
 var O2 = class extends Error {
   constructor(e, n) {
