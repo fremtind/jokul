@@ -9,8 +9,11 @@ type WebhookPayload = {
 export async function POST(req: NextRequest) {
     try {
         if (!process.env.SANITY_REVALIDATE_SECRET) {
-            return new Response(
+            console.error(
                 "Missing environment variable SANITY_REVALIDATE_SECRET",
+            );
+            return NextResponse.json(
+                { error: "Revalidation is not configured" },
                 { status: 500 },
             );
         }
@@ -22,20 +25,14 @@ export async function POST(req: NextRequest) {
         );
 
         if (!isValidSignature) {
-            const message = "Invalid signature";
-            return new Response(
-                JSON.stringify({ message, isValidSignature, body }),
-                {
-                    status: 401,
-                },
+            return NextResponse.json(
+                { error: "Invalid signature" },
+                { status: 401 },
             );
         }
 
         if (!Array.isArray(body?.tags) || !body.tags.length) {
-            const message = "Bad Request";
-            return new Response(JSON.stringify({ message, body }), {
-                status: 400,
-            });
+            return NextResponse.json({ error: "Bad Request" }, { status: 400 });
         }
 
         for (const tag of body.tags) {
@@ -44,7 +41,10 @@ export async function POST(req: NextRequest) {
 
         return NextResponse.json({ body });
     } catch (err) {
-        console.error(err);
-        return new Response((err as Error).message, { status: 500 });
+        console.error("Error revalidating tags", err);
+        return NextResponse.json(
+            { error: "Failed to revalidate tags" },
+            { status: 500 },
+        );
     }
 }
