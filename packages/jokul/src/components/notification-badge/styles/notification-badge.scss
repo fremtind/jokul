@@ -1,9 +1,7 @@
 @layer jokul.components {
     .jkl-notification-badge {
-        --jkl-notification-badge-color: var(--jkl-color-background-contrast);
-
         position-anchor: var(--jkl-notification-badge-anchor-name);
-        background: var(--jkl-notification-badge-color);
+        background: var(--jkl-color-background-contrast);
         color: var(--jkl-color-text-on-contrast);
         text-box-trim: trim-both;
         overflow: hidden;
@@ -22,12 +20,6 @@
             inline-size: 1ch;
             padding: 0;
             aspect-ratio: 1;
-        }
-
-        &[data-urgent="true"] {
-            --jkl-notification-badge-color: var(
-                --jkl-color-error-background-contrast
-            );
         }
     }
 
