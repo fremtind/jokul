@@ -1,5 +1,29 @@
 # portal
 
+## 1.10.0-next.5
+
+### Patch Changes
+
+- Updated dependencies [744246c]
+- Updated dependencies [c2f6686]
+- Updated dependencies [864d1ae]
+- Updated dependencies [ac6a4cd]
+- Updated dependencies [f71a726]
+- Updated dependencies [e266ece]
+- Updated dependencies [4b6bac6]
+- Updated dependencies [5fdaf7b]
+- Updated dependencies [a5a491b]
+- Updated dependencies [2b4c0e1]
+- Updated dependencies [875fcdf]
+- Updated dependencies [2692dd4]
+- Updated dependencies [14dbf4c]
+- Updated dependencies [38833ae]
+- Updated dependencies [443d17e]
+- Updated dependencies [6a8cdfd]
+- Updated dependencies [e9a1f0d]
+- Updated dependencies [71dfa3a]
+  - @fremtind/jokul@6.1.0-next.5
+
 ## 1.10.0-next.4
 
 ### Minor Changes

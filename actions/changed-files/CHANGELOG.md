@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.19-next.0
+
+### Patch Changes
+
+- fefa551: Oppdater `simple-git` til 4.0.1. Se [Dependabot-varsel 591](https://github.com/fremtind/jokul/security/dependabot/591).
+
 ## 1.0.18
 
 ### Patch Changes
