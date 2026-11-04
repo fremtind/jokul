@@ -52,6 +52,7 @@
             "react-is": "18.3.1",
             "axe-core": "^4.6.3",
             "chokidar": "^3.5.3",
+            "dompurify": "^3.4.17",
             "glob-stream>glob-parent": "^5.1.2",
             "resolve-url-loader>loader-utils": "^1.4.2",
             "sharp": "0.34.5",
