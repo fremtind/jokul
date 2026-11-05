@@ -2,7 +2,6 @@
     "mode": "pre",
     "tag": "next",
     "initialVersions": {
-        "changed-files": "1.0.18",
         "paths-filter": "1.0.10",
         "@fremtind/jokul": "6.0.0",
         "@fremtind/jokul-mcp-server": "1.1.2",
@@ -17,7 +16,6 @@
         "bright-pets-grin",
         "calm-panels-rest",
         "calm-ravens-glow",
-        "curious-otters-sing",
         "cyan-spoons-cut",
         "fruity-bananas-greet",
         "fuzzy-cards-pad",
