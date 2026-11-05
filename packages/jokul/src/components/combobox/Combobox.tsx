@@ -19,9 +19,11 @@ import { IconButton } from "../icon-button/IconButton.js";
 import { CheckIcon } from "../icon/icons/CheckIcon.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup } from "../input-group/InputGroup.js";
+import { COMPONENT_NAMES } from "../metadata.js";
 import { Tooltip } from "../tooltip/Tooltip.js";
 import { TooltipContent } from "../tooltip/TooltipContent.js";
 import { TooltipTrigger } from "../tooltip/TooltipTrigger.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { ComboboxProps, ComboboxValuePair } from "./types.js";
 
 export function getComboboxValuePair(
@@ -56,6 +58,9 @@ export const Combobox: FC<ComboboxProps> = (props) => {
         description,
         hasTagHover,
         tooltip,
+        disabled,
+        readOnly,
+        trackingProps,
     } = props;
     const listId = useId(id || "jkl-combobox", { generateSuffix: !id });
     const labelId = `${listId}_label`;
@@ -454,6 +459,19 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                                 selectedValue.length > 0 ? "" : placeholder
                             }
                             autoComplete="off"
+                            disabled={disabled}
+                            readOnly={readOnly}
+                            data-track-component-name={COMPONENT_NAMES.Combobox}
+                            data-track-id={
+                                trackingProps?.id ??
+                                (label ? String(label) : undefined)
+                            }
+                            data-track-label={label ? String(label) : undefined}
+                            data-track-has-tag-hover={hasTagHover}
+                            {...getExtraTrackingAttributes(
+                                trackingProps?.extra,
+                                props,
+                            )}
                         />
                     </div>
 
