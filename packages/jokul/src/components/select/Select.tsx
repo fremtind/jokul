@@ -17,8 +17,10 @@ import { usePreviousValue } from "../../hooks/usePreviousValue/usePreviousValue.
 import { type ValuePair, getValuePair } from "../../utilities/valuePair.js";
 import { ArrowVerticalAnimated } from "../icon/icons/animated/ArrowVerticalAnimated.js";
 import { InputGroup } from "../input-group/InputGroup.js";
+import { COMPONENT_NAMES } from "../metadata.js";
 import Popover from "../popover/Popover.js";
 import type { PopupTipProps } from "../tooltip/types.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { focusSelected, toLower } from "./select-utils.js";
 import type { SelectProps } from "./types.js";
 
@@ -54,6 +56,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             style,
             tooltip,
             "data-testautoid": dataTestAutoId,
+            trackingProps,
             ...rest
         } = props;
 
@@ -597,6 +600,20 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                                 onClick={(e) => {
                                                     e.stopPropagation();
                                                 }}
+                                                data-track-component-name={
+                                                    COMPONENT_NAMES.Select
+                                                }
+                                                data-track-id={
+                                                    trackingProps?.id ?? label
+                                                }
+                                                data-track-label={label}
+                                                data-track-searchable={
+                                                    searchable
+                                                }
+                                                {...getExtraTrackingAttributes(
+                                                    trackingProps?.extra,
+                                                    rest,
+                                                )}
                                             />
                                         )}
                                         {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props */}

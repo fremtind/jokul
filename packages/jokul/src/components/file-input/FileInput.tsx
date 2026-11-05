@@ -19,6 +19,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
             maxSizeBytes,
             onChange,
             variant,
+            trackingProps,
             ...rest
         } = props;
 
@@ -42,12 +43,18 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                         )}
                         {...rest}
                     >
-                        <Dropzone>
+                        <Dropzone
+                            trackingProps={trackingProps}
+                            multiple={multiple}
+                            variant={variant}
+                        >
                             <div className="jkl-file-input__call-to-action">
                                 <Input
                                     id={id}
                                     label="Legg til fil"
                                     multiple={multiple}
+                                    trackingProps={trackingProps}
+                                    variant={variant}
                                     ref={ref}
                                     aria-describedby={maxSizeDescriptionId}
                                 />
@@ -74,7 +81,11 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                     })}
                     {...rest}
                 >
-                    <Dropzone>
+                    <Dropzone
+                        trackingProps={trackingProps}
+                        multiple={multiple}
+                        variant={variant}
+                    >
                         {value.length > 0 && (
                             <ul className="jkl-file-input__files">
                                 {children}
@@ -89,6 +100,8 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                         : "Legg til fil"
                                 }
                                 multiple={multiple}
+                                trackingProps={trackingProps}
+                                variant={variant}
                                 ref={ref}
                                 aria-describedby={maxSizeDescriptionId}
                             />
