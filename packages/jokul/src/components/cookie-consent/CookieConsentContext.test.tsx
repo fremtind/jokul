@@ -136,4 +136,66 @@ describe("cookie-consent-react/CookieConsentContext", () => {
 
         expect(result.current.isOpen).toEqual(false);
     });
+
+    describe("sporing av app-navn og team", () => {
+        it("setter data-track-app-name og data-track-team på <html> når statistikk er godtatt", () => {
+            setDocumentCookieState([
+                [
+                    "fremtind-cookie-consent",
+                    JSON.stringify({
+                        ...generateConsent("accepted", "accepted"),
+                    }),
+                ],
+            ]);
+            const wrapper: React.FC<WithChildren> = ({ children }) => (
+                <CookieConsentProvider
+                    functional
+                    statistics
+                    appName="mine-sider"
+                    team="Mitt Team"
+                >
+                    {children}
+                </CookieConsentProvider>
+            );
+
+            renderHook(() => useInternalState(), { wrapper });
+
+            expect(
+                document.documentElement.getAttribute("data-track-app-name"),
+            ).toEqual("mine-sider");
+            expect(
+                document.documentElement.getAttribute("data-track-team"),
+            ).toEqual("Mitt Team");
+        });
+
+        it("fjerner begge attributtene når statistikk ikke er godtatt", () => {
+            setDocumentCookieState([
+                [
+                    "fremtind-cookie-consent",
+                    JSON.stringify({
+                        ...generateConsent("accepted", "denied"),
+                    }),
+                ],
+            ]);
+            const wrapper: React.FC<WithChildren> = ({ children }) => (
+                <CookieConsentProvider
+                    functional
+                    statistics
+                    appName="mine-sider"
+                    team="Mitt Team"
+                >
+                    {children}
+                </CookieConsentProvider>
+            );
+
+            renderHook(() => useInternalState(), { wrapper });
+
+            expect(
+                document.documentElement.getAttribute("data-track-app-name"),
+            ).toBeNull();
+            expect(
+                document.documentElement.getAttribute("data-track-team"),
+            ).toBeNull();
+        });
+    });
 });
