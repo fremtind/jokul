@@ -16,6 +16,7 @@ import { NavLink } from "@fremtind/jokul/nav-link";
 import { getCookie } from "cookies-next";
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
+import { notFound } from "next/navigation";
 import styles from "./component.module.scss";
 import { ComponentEmptyState } from "./components/ComponentEmptyState";
 import { ComponentHeader } from "./components/ComponentHeader";
@@ -53,7 +54,7 @@ export default async function Page({ params }: Props) {
 
     if (!component) {
         logger.warn("Component not found", { slug });
-        return null;
+        notFound();
     }
 
     logger.info("Fetched component", {
