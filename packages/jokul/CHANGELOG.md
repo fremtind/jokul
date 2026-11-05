@@ -1,5 +1,29 @@
 # Change Log
 
+## 5.6.0
+
+### Minor Changes
+
+- a9b7ee2: Legger til styring av fargespor for varslingsfarger via data-attributt, for å forenkle stilsetting av komponenter med varslings-varianter (som `Message` og `Toast`).
+- ae1d48c: Legger til hjelpefunksjon for å sette bakgrunnsfarge på et element ved hover, basert på `contrast`-fargen som standard, og med mulighet for å overstyre til en annen farge.
+
+  Funksjonen fungerer ved å blande en fokusfarge med bakgrunnsfargen. Som standard ser den etter variablene `--background-color` og `--hover-accent-color`. Hvis noen av disse ikke er satt faller den tilbake til henholdsvis `transparent` og `--jkl-color-backgorund-contrast`.
+
+- 588e89a: Ny komponent: NotificationBadge, som kan brukes for å vise varslinger
+- 83b22ee: Legg til støtte for tokens som styres etter color-scheme men ikke er farger.
+
+  For farger bruker vi `light-dark()`, som kun støtter fargeverdier. For andre verdier, som prosenter, må vi fortsatt bruke den "gamle" varianten med `prefers-color-scheme` og `data-theme`. Denne endringen legger til støtte for det i Style Dictionary.
+
+### Patch Changes
+
+- 885c3e3: Legg til token for hover-opacity
+- 6e0f6fb: Bruker riktige fargeroller for teksten i `NotificationBadge` så det ikke blir for dårlig kontrast i distributørtema.
+- b49ffd8: Bugfix: Lar ikonet i `Toast` få riktig kontrastfarge, lik som i `Message` og `SystemMessage`.
+- 8590628: Oppdater `shell-quote` til en versjon som retter en sårbarhet for kommandoinjeksjon. Se [Dependabot-varsel 594](https://github.com/fremtind/jokul/security/dependabot/594).
+- 797b1a7: Skjuler fallback-farger for moderne nettlesere ved å legge dem i en `@supports not`-blokk.
+- a3a9f5d: Oppdater Storybook til 10.6.2 for å rette en sikkerhetssårbarhet i utviklingsserveren. Se [Dependabot-varsel 617](https://github.com/fremtind/jokul/security/dependabot/617).
+- ea61d93: Oppdaterer Heading-1 og Heading-2 tekststiler til å bruke displayfont. Title-komponenten sin størrelse xl og l vil nå reflektere displayfont hvis distributor har det.
+
 ## 5.5.4
 
 ### Patch Changes
