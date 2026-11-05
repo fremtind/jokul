@@ -30,5 +30,5 @@ export type ToastContextProviderProps = WithChildren & {
     /**
      * @default "center"
      */
-    placement?: "center" | "left";
+    placement?: "center" | "left" | "right";
 };

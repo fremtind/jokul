@@ -13,7 +13,7 @@ export const toastExampleKnobs: ExampleKnobsProps = {
     choiceProps: [
         {
             name: "Plassering",
-            values: ["Sentrert", "Venstre"],
+            values: ["Sentrert", "Venstre", "Høyre"],
             defaultValue: 0,
         },
     ],
@@ -86,8 +86,9 @@ function ToastUsageExample() {
 }
 
 export const ToastExample: FC<ExampleComponentProps> = ({ choiceValues }) => {
+    const choice = choiceValues?.["Plassering"];
     const placement =
-        choiceValues?.["Plassering"] === "Venstre" ? "left" : "center";
+        choice === "Venstre" ? "left" : choice === "Høyre" ? "right" : "center";
     return (
         <ToastProvider placement={placement}>
             <ToastUsageExample />

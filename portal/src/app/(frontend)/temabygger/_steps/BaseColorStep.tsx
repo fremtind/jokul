@@ -1,20 +1,20 @@
 "use client";
 
-import { Button } from "@fremtind/jokul/button";
 import { Checkbox } from "@fremtind/jokul/checkbox";
 import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
-import Link from "next/link";
 import { ColorTokenField } from "../_components/ColorTokenField";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
+import { useThemeDraftActions } from "../_hooks/useThemeDraftActions";
 import { StepCard } from "./StepCard";
 
 export function BaseColorStep() {
-    const { draft, dispatch } = useThemeDraft();
+    const { draft } = useThemeDraft();
+    const { applyBaseColor, setIncludeDarkMode } = useThemeDraftActions();
     const { themeName } = draft;
 
     return (
-        <StepCard>
+        <StepCard segment="grunnfarge">
             <Flex direction="column" gap="8">
                 <Title as="h3" size="m">
                     {themeName
@@ -31,26 +31,16 @@ export function BaseColorStep() {
                 tokenRole="contrast"
                 colorScheme="light"
                 label="Kontrastfarge"
-                onValueChange={(value) =>
-                    dispatch({ type: "APPLY_BASE_COLOR", value })
-                }
+                onValueChange={applyBaseColor}
             />
             <Checkbox
                 name="includeDarkMode"
                 value="includeDarkMode"
                 checked={draft.includeDarkMode}
-                onChange={(event) =>
-                    dispatch({
-                        type: "SET_INCLUDE_DARK_MODE",
-                        includeDarkMode: event.target.checked,
-                    })
-                }
+                onChange={(event) => setIncludeDarkMode(event.target.checked)}
             >
                 Lag tema for mørk modus, også
             </Checkbox>
-            <Button as={Link} href="/temabygger/farger" variant="primary">
-                Lag tema
-            </Button>
         </StepCard>
     );
 }

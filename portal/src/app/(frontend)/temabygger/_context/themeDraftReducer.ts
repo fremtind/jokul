@@ -1,6 +1,11 @@
 import {
+    type BorderRadiusScaleId,
+    DEFAULT_BORDER_RADIUS_SCALE_ID,
+} from "../_shared/borderRadius";
+import type { CustomFont, FontAxes, FontSlot } from "../_shared/customFont";
+import {
+    CUSTOM_FONT_SELECTION,
     DEFAULT_REGULAR_FONT_OPTION_ID,
-    type FontOptionId,
 } from "../_shared/fontOptions";
 import { isHex, normalizeHex } from "../_shared/utils";
 import { generatePalette } from "../generator/generate";
@@ -17,8 +22,11 @@ export const INITIAL_STATE = {
     regularFont: DEFAULT_REGULAR_FONT_OPTION_ID,
     displayFont: DEFAULT_REGULAR_FONT_OPTION_ID,
     hasCustomDisplayFont: false,
+    customFonts: {},
     themeName: "",
-    includeDarkMode: true,
+    includeDarkMode: false,
+    boldTitles: false,
+    borderRadius: DEFAULT_BORDER_RADIUS_SCALE_ID,
 } as const satisfies ThemeDraft;
 
 // ---------------------------------------------------------------------------
@@ -28,9 +36,10 @@ export const INITIAL_STATE = {
 export type ThemeDraftAction =
     | { type: "SET_THEME_NAME"; themeName: string }
     | { type: "SET_INCLUDE_DARK_MODE"; includeDarkMode: boolean }
-    | { type: "SET_REGULAR_FONT"; font: FontOptionId }
-    | { type: "SET_DISPLAY_FONT"; font: FontOptionId }
-    | { type: "SET_COLOR_TOKENS"; tokens: EditableLightDarkPalette }
+    | { type: "SET_BOLD_TITLES"; boldTitles: boolean }
+    | { type: "SET_CUSTOM_FONT"; slot: FontSlot; font: CustomFont }
+    | { type: "SET_FONT_AXES"; slot: FontSlot; axes: FontAxes }
+    | { type: "REMOVE_CUSTOM_FONT"; slot: FontSlot }
     | { type: "APPLY_BASE_COLOR"; value: string }
     | {
           type: "UPDATE_COLOR_TOKEN";
@@ -39,7 +48,15 @@ export type ThemeDraftAction =
           colorScheme: ColorScheme;
           value: string;
       }
-    | { type: "SET_DRAFT"; draft: ThemeDraft };
+    | { type: "SET_DRAFT"; draft: ThemeDraft }
+    | { type: "RESET_DRAFT"; scope?: ThemeDraftResetScope };
+
+/** Stegene i temabyggeren, som hver har sin del av utkastet å nullstille. */
+export type ThemeDraftResetScope =
+    | "identitet"
+    | "grunnfarge"
+    | "farger"
+    | "mork-modus";
 
 // ---------------------------------------------------------------------------
 // Reducer
@@ -56,24 +73,75 @@ export function themeDraftReducer(
         case "SET_INCLUDE_DARK_MODE":
             return { ...state, includeDarkMode: action.includeDarkMode };
 
-        case "SET_REGULAR_FONT":
-            return {
-                ...state,
-                regularFont: action.font,
-                displayFont: state.hasCustomDisplayFont
-                    ? state.displayFont
-                    : action.font,
+        case "SET_BOLD_TITLES":
+            return { ...state, boldTitles: action.boldTitles };
+
+        case "SET_CUSTOM_FONT": {
+            const customFonts = {
+                ...state.customFonts,
+                [action.slot]: action.font,
             };
 
-        case "SET_DISPLAY_FONT":
+            if (action.slot === "regular") {
+                return {
+                    ...state,
+                    customFonts,
+                    regularFont: CUSTOM_FONT_SELECTION,
+                };
+            }
+
             return {
                 ...state,
-                displayFont: action.font,
+                customFonts,
+                displayFont: CUSTOM_FONT_SELECTION,
                 hasCustomDisplayFont: true,
             };
+        }
 
-        case "SET_COLOR_TOKENS":
-            return { ...state, colorTokens: action.tokens };
+        case "SET_FONT_AXES": {
+            const font = state.customFonts[action.slot];
+
+            if (!font) {
+                return state;
+            }
+
+            return {
+                ...state,
+                customFonts: {
+                    ...state.customFonts,
+                    [action.slot]: { ...font, axes: action.axes },
+                },
+            };
+        }
+
+        // Uten fil går slotet tilbake til en standardfont. Display følger vanlig
+        // font igjen, siden den ikke lenger er valgt eksplisitt.
+        case "REMOVE_CUSTOM_FONT": {
+            const { [action.slot]: removed, ...customFonts } =
+                state.customFonts;
+
+            if (!removed) {
+                return state;
+            }
+
+            if (action.slot === "regular") {
+                return {
+                    ...state,
+                    customFonts,
+                    regularFont: DEFAULT_REGULAR_FONT_OPTION_ID,
+                    displayFont: state.hasCustomDisplayFont
+                        ? state.displayFont
+                        : DEFAULT_REGULAR_FONT_OPTION_ID,
+                };
+            }
+
+            return {
+                ...state,
+                customFonts,
+                displayFont: state.regularFont,
+                hasCustomDisplayFont: false,
+            };
+        }
 
         case "APPLY_BASE_COLOR": {
             const normalized = normalizeHex(action.value);
@@ -134,8 +202,77 @@ export function themeDraftReducer(
                 themeName: action.draft.themeName.trim(),
             };
 
+        // Egen action, ikke `SET_DRAFT` med utgangspunktet: nullstilling er en
+        // endring brukeren har gjort, og skal kunne angres som alt annet.
+        case "RESET_DRAFT":
+            return action.scope
+                ? resetScope(state, action.scope)
+                : INITIAL_STATE;
+
         default:
             action satisfies never;
             return state;
     }
+}
+
+/** Nullstiller bare det ett steg har ansvar for, og lar resten stå. */
+function resetScope(
+    state: ThemeDraft,
+    scope: ThemeDraftResetScope,
+): ThemeDraft {
+    switch (scope) {
+        case "identitet":
+            return {
+                ...state,
+                themeName: INITIAL_STATE.themeName,
+                regularFont: INITIAL_STATE.regularFont,
+                displayFont: INITIAL_STATE.displayFont,
+                hasCustomDisplayFont: INITIAL_STATE.hasCustomDisplayFont,
+                customFonts: INITIAL_STATE.customFonts,
+                boldTitles: INITIAL_STATE.boldTitles,
+            };
+
+        case "grunnfarge":
+            return { ...state, colorTokens: INITIAL_STATE.colorTokens };
+
+        case "farger":
+            return {
+                ...state,
+                colorTokens: resetColorScheme(state.colorTokens, "light"),
+            };
+
+        case "mork-modus":
+            return {
+                ...state,
+                colorTokens: resetColorScheme(state.colorTokens, "dark"),
+            };
+
+        default:
+            scope satisfies never;
+            return state;
+    }
+}
+
+function resetColorScheme(
+    tokens: EditableLightDarkPalette,
+    colorScheme: ColorScheme,
+): EditableLightDarkPalette {
+    type Tokens = Record<string, Record<string, Record<ColorScheme, string>>>;
+    const current = tokens as Tokens;
+    const initial = INITIAL_COLOR_TOKENS as Tokens;
+
+    return Object.fromEntries(
+        Object.entries(current).map(([group, roles]) => [
+            group,
+            Object.fromEntries(
+                Object.entries(roles).map(([role, token]) => [
+                    role,
+                    {
+                        ...token,
+                        [colorScheme]: initial[group]?.[role]?.[colorScheme],
+                    },
+                ]),
+            ),
+        ]),
+    ) as EditableLightDarkPalette;
 }

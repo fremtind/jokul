@@ -12,7 +12,7 @@ import type { ToastContent } from "./types.js";
 
 interface ToastRegionProps<T extends ToastContent = ToastContent>
     extends AriaToastRegionProps {
-    placement: "center" | "left";
+    placement: "center" | "left" | "right";
     state: ToastState<T>;
 }
 
@@ -28,6 +28,7 @@ function Region<T extends ToastContent>({
         <div
             className={clsx("jkl", "jkl-toast-region", {
                 "jkl-toast-region--left": placement === "left",
+                "jkl-toast-region--right": placement === "right",
             })}
         >
             <div
@@ -48,7 +49,7 @@ export function ToastRegion({
     placement,
 }: {
     queue: ToastQueue<ToastContent>;
-    placement: "center" | "left";
+    placement: "center" | "left" | "right";
 }) {
     const state = useToastQueue<ToastContent>(queue);
     return state.visibleToasts.length > 0

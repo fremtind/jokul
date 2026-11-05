@@ -1,16 +1,30 @@
 "use client";
 
 import { useThemeDraft } from "@/app/(frontend)/temabygger/_context/ThemeDraftContext";
+import { getFontSelection } from "@/app/(frontend)/temabygger/_context/themeDraftSelectors";
+import { COLOR_SCHEME_LABELS } from "@/app/(frontend)/temabygger/_preview/ColorSchemeComparison";
+import { ThemePreviewWorkspace } from "@/app/(frontend)/temabygger/_preview/ThemePreviewWorkspace";
+import type { FontSlot } from "@/app/(frontend)/temabygger/_shared/customFont";
+import { getFontOption } from "@/app/(frontend)/temabygger/_shared/fontOptions";
+import { HandoverStep } from "@/app/(frontend)/temabygger/_steps/HandoverStep";
+import { getEditableColorTokenGroups } from "@/app/(frontend)/temabygger/_steps/colorTokenMetadata";
 import {
-    ThemePreviewProvider,
-    useThemePreview,
-} from "@/app/(frontend)/temabygger/_context/ThemePreviewContext";
-import { ThemePreview } from "@/app/(frontend)/temabygger/_preview/ThemePreview";
-import { buildThemePreviewStyle } from "@/app/(frontend)/temabygger/_shared/previewStyle";
+    COLOR_SCHEMES,
+    type ColorScheme,
+} from "@/app/(frontend)/temabygger/generator/types";
 import { Card } from "@fremtind/jokul/card";
+import {
+    DescriptionDetail,
+    DescriptionList,
+    DescriptionTerm,
+} from "@fremtind/jokul/description-list";
+import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
+import { NavLink } from "@fremtind/jokul/nav-link";
+import { ToggleSwitch } from "@fremtind/jokul/toggle-switch";
 import { Text, Title } from "@fremtind/jokul/typography";
-import { useMemo } from "react";
+import Link from "next/link";
+import { Fragment, type ReactNode, useState } from "react";
 import styles from "./theme-preview-page.module.scss";
 
 export function ThemePreviewPage() {
@@ -18,9 +32,7 @@ export function ThemePreviewPage() {
         <div className={styles.page}>
             <Flex as="main" className={styles.main} wrap alignItems="start">
                 <PreviewPageAside />
-                <ThemePreviewProvider>
-                    <PreviewPageContent />
-                </ThemePreviewProvider>
+                <PreviewPageContent />
             </Flex>
         </div>
     );
@@ -31,60 +43,150 @@ function PreviewPageAside() {
     const { themeName } = draft;
 
     return (
-        <Card as="aside" padding="l">
+        <Card as="aside" className={styles.aside} padding="l">
             <Flex direction="column" gap="24">
+                <Flex>
+                    <NavLink
+                        as={Link}
+                        back
+                        href={`/temabygger/${draft.includeDarkMode ? "mork-modus" : "farger"}`}
+                    >
+                        Tilbake til redigering
+                    </NavLink>
+                </Flex>
                 <Title as="h1" size="m">
                     {themeName
                         ? `Forhåndsvisning av tema for ${themeName}`
                         : "Forhåndsvisning av tema"}
                 </Title>
-                <Text>
-                    Dette er en visning av hvordan merkevaren deres vil
-                    representeres i Fremtinds designsystem, Jøkul.
-                </Text>
+                <ThemeSummary />
+                <HandoverStep />
             </Flex>
         </Card>
     );
 }
 
-function PreviewPageContent() {
+function SummaryList({ items }: { items: [string, ReactNode][] }) {
+    return (
+        <DescriptionList separators alignment="vertical">
+            {items.map(([term, detail]) => (
+                <Fragment key={term}>
+                    <DescriptionTerm>{term}</DescriptionTerm>
+                    <DescriptionDetail>{detail}</DescriptionDetail>
+                </Fragment>
+            ))}
+        </DescriptionList>
+    );
+}
+
+function SummaryPanel({
+    title,
+    children,
+}: { title: string; children: ReactNode }) {
+    return (
+        <ExpandablePanel>
+            <ExpandablePanel.Header>{title}</ExpandablePanel.Header>
+            <ExpandablePanel.Content>{children}</ExpandablePanel.Content>
+        </ExpandablePanel>
+    );
+}
+
+/**
+ * Mottakeren skal kunne lese ut de ferdige valgene uten å gå gjennom stegene i
+ * temabyggeren. De mørke fargene vises bare når temaet har mørk modus: ellers
+ * står de urørt på Jøkuls standard, og hører ikke til temaet.
+ */
+function ThemeSummary() {
     const { draft } = useThemeDraft();
-    const { activeColorScheme } = useThemePreview();
-    const previewStyle = useMemo(() => {
-        return buildThemePreviewStyle({
-            tokens: draft.colorTokens,
-            includeDarkMode: draft.includeDarkMode,
-            regularFont: draft.regularFont,
-            displayFont: draft.displayFont,
-        });
-    }, [
-        draft.colorTokens,
-        draft.includeDarkMode,
-        draft.displayFont,
-        draft.regularFont,
-    ]);
+    const schemes: readonly ColorScheme[] = draft.includeDarkMode
+        ? COLOR_SCHEMES
+        : ["light"];
+
+    const fontLabel = (slot: FontSlot) => {
+        const selection = getFontSelection(draft, slot);
+        return selection === "custom"
+            ? (draft.customFonts[slot]?.name ?? "Egen font")
+            : getFontOption(selection).label;
+    };
 
     return (
-        <Card
-            as="section"
-            padding="l"
-            outlined
-            aria-labelledby="theme-builder-preview-page-title"
-            data-theme={activeColorScheme}
-            style={{
-                ...previewStyle,
-                backgroundColor: "var(--jkl-color-background-page)",
-            }}
-        >
-            <Title
-                as="h2"
-                size="s"
-                id="theme-builder-preview-page-title"
-                srOnly
-            >
-                Forhåndsvisning
-            </Title>
-            <ThemePreview />
-        </Card>
+        <Accordion outlined>
+            <SummaryPanel title="Farger">
+                <SummaryList
+                    items={[
+                        ["Mørk modus", draft.includeDarkMode ? "Ja" : "Nei"],
+                        ...getEditableColorTokenGroups(draft.colorTokens)
+                            .flatMap((group) => group.tokens)
+                            .map((token): [string, ReactNode] => [
+                                token.label,
+                                <Flex
+                                    key={token.colorRole}
+                                    direction="column"
+                                    gap="8"
+                                >
+                                    {schemes.map((scheme) => (
+                                        <ColorTokenValue
+                                            key={scheme}
+                                            scheme={scheme}
+                                            value={token.token[scheme]}
+                                        />
+                                    ))}
+                                </Flex>,
+                            ]),
+                    ]}
+                />
+            </SummaryPanel>
+            <SummaryPanel title="Font">
+                <SummaryList
+                    items={[
+                        ["Vanlig font", fontLabel("regular")],
+                        ["Display-font", fontLabel("display")],
+                        ["Titler", draft.boldTitles ? "Fete" : "Normale"],
+                    ]}
+                />
+            </SummaryPanel>
+        </Accordion>
+    );
+}
+
+function ColorTokenValue({
+    scheme,
+    value,
+}: { scheme: ColorScheme; value: string }) {
+    return (
+        <Flex gap="8" alignItems="center">
+            <span
+                className={styles.swatch}
+                style={{ backgroundColor: value }}
+            />
+            <Text as="span" size="s" short>
+                {COLOR_SCHEME_LABELS[scheme]} {value}
+            </Text>
+        </Flex>
+    );
+}
+
+/**
+ * Her finnes ingen steg som kan bestemme fargemodus, så mottakeren velger den
+ * selv. Bryteren ligger utenfor temaflaten og beholder derfor Jøkuls farger.
+ */
+function PreviewPageContent() {
+    const { draft } = useThemeDraft();
+    const [darkMode, setDarkMode] = useState(false);
+
+    return (
+        <div className={styles.content}>
+            {draft.includeDarkMode && (
+                <div className={styles.colorSchemeToggle}>
+                    <ToggleSwitch
+                        aria-pressed={darkMode}
+                        onChange={(_event, pressed) => setDarkMode(pressed)}
+                    >
+                        {COLOR_SCHEME_LABELS.dark}
+                    </ToggleSwitch>
+                </div>
+            )}
+            <ThemePreviewWorkspace colorScheme={darkMode ? "dark" : "light"} />
+        </div>
     );
 }

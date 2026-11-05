@@ -1,15 +1,20 @@
 import type { Dispatch, ReactNode } from "react";
-import type { FontOptionId } from "../_shared/fontOptions";
+import type { BorderRadiusScaleId } from "../_shared/borderRadius";
+import type { CustomFonts } from "../_shared/customFont";
+import type { FontSelectionId } from "../_shared/fontOptions";
 import type { ColorScheme, EditableLightDarkPalette } from "../generator/types";
 import type { ThemeDraftAction } from "./themeDraftReducer";
 
 export type ThemeDraft = {
     colorTokens: EditableLightDarkPalette;
-    regularFont: FontOptionId;
-    displayFont: FontOptionId;
+    regularFont: FontSelectionId;
+    displayFont: FontSelectionId;
     hasCustomDisplayFont: boolean;
+    customFonts: CustomFonts;
     themeName: string;
     includeDarkMode: boolean;
+    boldTitles: boolean;
+    borderRadius: BorderRadiusScaleId;
 };
 
 export type ThemeDraftColorTokenValue = Record<ColorScheme, string>;

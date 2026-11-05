@@ -20,6 +20,15 @@ $_size-styles: (
         }
     }
 
+    // Display-fonten hører til de to øverste nivåene i dokumentet, uansett
+    // hvilken størrelse de er satt i. I standardtemaet peker den på samme
+    // fontfil som den vanlige fonten, så dette slår bare ut for merkevarer som
+    // har en egen display-font. `label` og `legend` holdes utenfor: de beskriver
+    // et skjemafelt, de åpner ikke en side.
+    :is(h1, h2)[data-text-size] {
+        @include jkl.use-font-family("Jokul Display");
+    }
+
     // Skjema-elementer skal ikke arve heading sine fete font-weight og
     // tight line-height. De er tekst som beskriver et skjemafelt eller en
     // gruppe, ikke strukturelle overskrifter.

@@ -28,6 +28,16 @@
             justify-content: flex-start;
             left: var(--jkl-unit-30);
         }
+
+        &--right {
+            justify-content: flex-end;
+            left: auto;
+            right: var(--jkl-unit-30);
+
+            .jkl-toast-region__toasts {
+                align-items: flex-end;
+            }
+        }
     }
 
     .jkl-toast {
