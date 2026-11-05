@@ -1,5 +1,16 @@
 # Change Log
 
+## 6.1.0-next.7
+
+### Minor Changes
+
+- b5938f7: `data-track-*`-attributter satt direkte i JSX-en vinner nå over komponentens egne defaults. Tidligere ble de overskrevet – og i komponenter uten tekstkilde for label fjernet helt – fordi attributtene ble satt etter at props ble spredt ut. Det gjør at samme konvensjon gjelder enten komponenten kommer fra Jøkul eller ikke. Feltene i `trackingProps.extra` vinner nå på samme måte.
+- 577c3e2: Legger til `data-track-*`-attributter på alle komponenter, som metadata team kan bruke til å støtte sporing av brukerne. Hver komponent får et `name`- og `label`-attributt som ikke kan endres, og en `trackingProps`-prop med `id` (overskrivbar) og `extra` (helt åpen, for prosjektspesifikke detaljer).
+
+  `CookieConsent` får to nye valgfrie props, `appName` og `team`, for å skille sporingsdata mellom apper og team. Disse blir påkrevd fra Jøkul 7 når `statistics`-samtykke er satt.
+
+  Alt er valgfritt og bakoverkompatibelt. Ingenting er påkrevd i denne versjonen. Se `TRACKING.md` for hvordan du setter opp sporing mot GTM eller Mixpanel, eller leser attributtene med egen kode.
+
 ## 6.1.0-next.6
 
 ### Patch Changes
