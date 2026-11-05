@@ -57,6 +57,5 @@ portal/src
 portal/migrations
 portal/public
 actions/*
-!actions/changed-files/package.json
 !actions/paths-filter/package.json
 utils
