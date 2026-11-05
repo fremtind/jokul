@@ -8,6 +8,7 @@
 - [Hooks](#hooks)
 - [Utilities](#utilities)
 - [Tailwind](#tailwind)
+- [Sporing](#sporing)
 
 ## Migrering til `@fremtind/jokul`
 
@@ -250,3 +251,9 @@ I tillegg finnes verdier for fontvekt og -størrelse, og for linjehøyder fra sk
 ```html
 <p>Dette er <em class="font-bold">veldig</em> viktig</p>
 ```
+
+## Sporing
+
+Jøkul-komponenter kommer med `data-track-*`-attributter ferdig satt på i
+markup, klare til å kobles på GTM eller Mixpanel autocapture. Se
+[TRACKING.md](./TRACKING.md) for full veiledning.
