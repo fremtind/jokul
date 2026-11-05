@@ -47,7 +47,7 @@
         "react-dom": "19.3.1",
         "react-live": "^4.1.8",
         "sanity": "^6.20.0",
-        "sharp": "^0.35.0",
+        "sharp": "^0.35.5",
         "slugify": "^1.6.9",
         "styled-components": "^6.4.4",
         "winston": "^3.19.0",
