@@ -1,5 +1,11 @@
 # @fremtind/jokul-mcp-server
 
+## 1.1.3-next.0
+
+### Patch Changes
+
+- 509e84a: Oppdaterer `proxy-addr` til 2.0.8 for å rette sårbarheten for IP-spoofing via IPv4-mappede IPv6-adresser. Fjerner samtidig den ubrukte Express 4-avhengigheten. Se [Dependabot-varsel 585](https://github.com/fremtind/jokul/security/dependabot/585).
+
 ## 1.1.2
 
 ### Patch Changes
