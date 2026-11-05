@@ -1,12 +1,13 @@
 import { useToast } from "@fremtind/jokul/toast";
 import { type Dispatch, useEffect, useRef } from "react";
-import type {
-    ThemeDraftHistory,
-    ThemeDraftHistoryAction,
+import {
+    type ThemeDraftHistory,
+    type ThemeDraftHistoryAction,
+    isInScope,
 } from "../_context/themeDraftHistory";
 
 /**
- * Angring gjelder hele utkastet, ikke feltet som har fokus. Feltene er
+ * Angring gjelder steget brukeren står i, ikke feltet som har fokus. Feltene er
  * kontrollert av utkastet, så nettleserens egen angring ville blitt skrevet
  * over ved neste render uansett. `textarea` og redigerbare elementer holdes
  * utenfor: det er fritekst som ikke ligger i utkastet, og den skal fortsatt
@@ -15,13 +16,16 @@ import type {
 export function useUndoRedoShortcuts(
     historyState: ThemeDraftHistory,
     dispatch: Dispatch<ThemeDraftHistoryAction>,
+    activeStep: string | undefined,
 ) {
     const toastApi = useToast();
 
-    // Effekten settes bare opp én gang, så den leser historikken og
+    // Effekten settes bare opp én gang, så den leser historikken, steget og
     // toast-køen via refs.
     const historyRef = useRef(historyState);
     historyRef.current = historyState;
+    const activeStepRef = useRef(activeStep);
+    activeStepRef.current = activeStep;
     const toastRef = useRef(toastApi);
     toastRef.current = toastApi;
 
@@ -52,7 +56,10 @@ export function useUndoRedoShortcuts(
             // toast.
             const redo = key === "y" || event.shiftKey;
             const { past, future } = historyRef.current;
-            const hasStep = (redo ? future : past).length > 0;
+            const hasStep = isInScope(
+                redo ? future[0] : past.at(-1),
+                activeStepRef.current,
+            );
 
             dispatch({ type: redo ? "REDO" : "UNDO" });
 

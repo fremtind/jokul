@@ -5,24 +5,16 @@ import { INITIAL_STATE } from "../_context/themeDraftReducer";
 import type { ThemeDraft } from "../_context/types";
 import { HandoverStep } from "./HandoverStep";
 
-// Modalen og toasten bruker hooks som ikke deler React-instans med portalen i testmiljøet.
-vi.mock("./ResetThemeModal", () => ({ ResetThemeModal: () => null }));
+// Toasten bruker hooks som ikke deler React-instans med portalen i testmiljøet.
 vi.mock("@fremtind/jokul/toast", () => ({
     ToastProvider: ({ children }: { children: unknown }) => children,
     useToast: () => ({ add: () => "", close: () => {} }),
 }));
 
-const originalLocation = window.location;
-
 afterEach(() => {
     cleanup();
     vi.unstubAllGlobals();
-    Object.defineProperty(window, "location", {
-        configurable: true,
-        writable: true,
-        value: originalLocation,
-    });
-    Reflect.deleteProperty(navigator, "clipboard");
+    vi.restoreAllMocks();
 });
 
 function renderStep(draft: ThemeDraft = INITIAL_STATE) {
@@ -34,40 +26,32 @@ function renderStep(draft: ThemeDraft = INITIAL_STATE) {
 }
 
 /**
- * Meldingen skal åpnes i brukerens egen klient. `mailto:` og `slack:`
- * håndteres av maskinen, så de skrives til `location`, mens web-klientene
- * åpnes i en ny fane.
+ * Nedlastinga skjer ved å klikke en lenke vi lager selv. jsdom har verken
+ * objekt-URL-er eller navigasjon, så begge stubbes, og klikket fanges opp.
  */
-function stubNavigation() {
-    const location = { href: "", origin: "https://jokul.fremtind.no" };
-    Object.defineProperty(window, "location", {
-        configurable: true,
-        writable: true,
-        value: location,
-    });
+function stubDownload() {
+    const blobs: Blob[] = [];
 
-    const open = vi.fn();
-    vi.stubGlobal("open", open);
+    class UrlStub extends URL {
+        static createObjectURL = (blob: Blob) => {
+            blobs.push(blob);
+            return "blob:tema";
+        };
+        static revokeObjectURL = () => {};
+    }
 
-    return { location, open };
-}
+    vi.stubGlobal("URL", UrlStub);
 
-function stubClipboard(result: () => Promise<void>) {
-    const spy = vi.fn<(text: string) => Promise<void>>(result);
-    Object.defineProperty(navigator, "clipboard", {
-        configurable: true,
-        value: { writeText: spy },
-    });
+    const click = vi
+        .spyOn(HTMLAnchorElement.prototype, "click")
+        .mockImplementation(() => {});
 
-    return spy;
-}
-
-function chooseChannel(name: RegExp) {
-    fireEvent.click(screen.getByRole("radio", { name }));
+    return { blobs, click };
 }
 
 const withUploadedFont: ThemeDraft = {
     ...INITIAL_STATE,
+    themeName: "Merkevare",
     regularFont: "custom",
     customFonts: {
         regular: {
@@ -79,100 +63,46 @@ const withUploadedFont: ThemeDraft = {
 };
 
 describe("HandoverStep", () => {
-    it("sier ingenting om vedlegg når temaet bruker en standardfont", () => {
-        renderStep();
+    /**
+     * Fontfila ligger bare i nettleseren, og en e-post kan ikke få et vedlegg
+     * fra en URL. Arkivet er derfor eneste vei fra utkastet til noe brukeren
+     * kan sende.
+     */
+    it("laster ned temaet og fonten som et arkiv oppkalt etter temaet", () => {
+        const { blobs, click } = stubDownload();
 
-        expect(screen.queryByText(/Fontfila må du legge ved selv/)).toBe(null);
+        renderStep(withUploadedFont);
+        fireEvent.click(screen.getByRole("button", { name: "Last ned tema" }));
+
+        const link = click.mock.instances[0] as HTMLAnchorElement;
+        expect(link.download).toBe("tema-merkevare.zip");
+        expect(link.getAttribute("href")).toBe("blob:tema");
+        expect(blobs[0].type).toBe("application/zip");
     });
 
     /**
-     * Ingen av kanalene kan legge ved en fil via en URL, så nedlastinga er
-     * eneste vei fra utkastet til et vedlegg brukeren kan sende.
+     * Lenka skal limes inn i en melding, så den må vises hel og absolutt — også
+     * om kopieringen feiler.
      */
-    it("lar brukeren hente ut fontfila de må legge ved", () => {
+    it("viser hele lenka til forhåndsvisningen i delingsdialogen", () => {
         renderStep(withUploadedFont);
+        fireEvent.click(
+            screen.getByRole("button", { name: "Del forhåndsvisning" }),
+        );
 
-        const link = screen.getByRole("link", {
-            name: /Last ned Merkevare\.woff2/,
-        });
-
-        expect(link.getAttribute("download")).toBe("Merkevare.woff2");
-        expect(link.getAttribute("href")).toBe(
-            withUploadedFont.customFonts.regular?.dataUrl,
+        const shown = screen.getByTitle(/temabygger\/forhandsvisning\?draft=/);
+        expect(shown.textContent).toContain(
+            `${window.location.origin}/temabygger/forhandsvisning?draft=`,
         );
     });
 
-    it("fyller ut en e-post til designsystem-teamet med hele temaet i lenken", async () => {
-        const { location } = stubNavigation();
-
+    it("viser hvor temaet skal sendes", () => {
         renderStep();
-        fireEvent.click(screen.getByRole("button", { name: "Åpne e-post" }));
 
-        expect(await screen.findByText("Meldingen er åpnet")).toBeTruthy();
-
-        const href = decodeURIComponent(location.href);
         expect(
-            href.startsWith("mailto:fremtind.designsystem@fremtind.no"),
-        ).toBe(true);
-        // Lenken må være absolutt for å kunne åpnes fra en e-postklient
-        expect(href).toContain(
-            "https://jokul.fremtind.no/temabygger/forhandsvisning?draft=",
-        );
-    });
-
-    it("åpner Teams i en ny fane", async () => {
-        const { open } = stubNavigation();
-
-        renderStep();
-        chooseChannel(/Teams/);
-        fireEvent.click(screen.getByRole("button", { name: "Åpne Teams" }));
-
-        expect(await screen.findByText("Meldingen er åpnet")).toBeTruthy();
-
-        const [url, target] = open.mock.calls[0];
-        expect(url.startsWith("https://teams.microsoft.com/")).toBe(true);
-        expect(decodeURIComponent(url)).toContain(
-            "/temabygger/forhandsvisning?draft=",
-        );
-        expect(target).toBe("_blank");
-    });
-
-    it("kopierer meldingen når Slack er valgt, siden Slack ikke kan fylles ut", async () => {
-        const { open } = stubNavigation();
-        const writeText = stubClipboard(() => Promise.resolve());
-
-        renderStep();
-        chooseChannel(/Slack/);
-        fireEvent.click(
-            screen.getByRole("button", {
-                name: "Kopier melding og åpne Slack",
-            }),
-        );
-
-        expect(await screen.findByText("Meldingen er kopiert")).toBeTruthy();
-        expect(writeText.mock.calls[0][0]).toContain(
-            "https://jokul.fremtind.no/temabygger/forhandsvisning?draft=",
-        );
-        expect(open).not.toHaveBeenCalled();
-    });
-
-    it("viser meldingen hvis utklippstavla ikke kan brukes, slik at ingenting går tapt", async () => {
-        stubNavigation();
-        stubClipboard(() => Promise.reject(new Error("Avslått")));
-
-        renderStep();
-        chooseChannel(/Slack/);
-        fireEvent.click(
-            screen.getByRole("button", {
-                name: "Kopier melding og åpne Slack",
-            }),
-        );
-
-        const message = await screen.findByLabelText(
-            /Melding til designsystem-teamet/,
-        );
-        expect((message as HTMLTextAreaElement).value).toContain(
-            "/temabygger/forhandsvisning?draft=",
-        );
+            screen
+                .getByRole("link", { name: /fremtind.designsystem/ })
+                .getAttribute("href"),
+        ).toBe("mailto:fremtind.designsystem@fremtind.no");
     });
 });

@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import type { ThemeDraftResetScope } from "../_context/themeDraftReducer";
-import type { CustomFont, FontAxes, FontSlot } from "../_shared/customFont";
+import type { CustomFont, FontSlot } from "../_shared/customFont";
 import type { ColorScheme } from "../generator/types";
 
 /**
@@ -15,14 +14,14 @@ export function useThemeDraftActions() {
         () => ({
             setThemeName: (themeName: string) =>
                 dispatch({ type: "SET_THEME_NAME", themeName }),
+            setAuthorName: (authorName: string) =>
+                dispatch({ type: "SET_AUTHOR_NAME", authorName }),
+            setAuthorEmail: (authorEmail: string) =>
+                dispatch({ type: "SET_AUTHOR_EMAIL", authorEmail }),
             setIncludeDarkMode: (includeDarkMode: boolean) =>
                 dispatch({ type: "SET_INCLUDE_DARK_MODE", includeDarkMode }),
-            setBoldTitles: (boldTitles: boolean) =>
-                dispatch({ type: "SET_BOLD_TITLES", boldTitles }),
             setCustomFont: (slot: FontSlot, font: CustomFont) =>
                 dispatch({ type: "SET_CUSTOM_FONT", slot, font }),
-            setFontAxes: (slot: FontSlot, axes: FontAxes) =>
-                dispatch({ type: "SET_FONT_AXES", slot, axes }),
             removeCustomFont: (slot: FontSlot) =>
                 dispatch({ type: "REMOVE_CUSTOM_FONT", slot }),
             applyBaseColor: (value: string) =>
@@ -40,8 +39,6 @@ export function useThemeDraftActions() {
                     colorScheme,
                     value,
                 }),
-            reset: (scope?: ThemeDraftResetScope) =>
-                dispatch({ type: "RESET_DRAFT", scope }),
         }),
         [dispatch],
     );

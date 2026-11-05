@@ -6,8 +6,12 @@
         grid-template-columns: minmax(0, 1fr);
         gap: var(--jkl-spacing-40);
 
+        // Skjemaet og forhåndsvisningen deler bredden. Er skjemaet skjult står
+        // forhåndsvisningen alene igjen, og skal da ha hele.
         @container (min-width: 60rem) {
-            grid-template-columns: minmax(0, 25rem) minmax(0, 1fr);
+            &:has(> :nth-child(2)) {
+                grid-template-columns: minmax(0, 25rem) minmax(0, 1fr);
+            }
         }
     }
 }

@@ -1,10 +1,12 @@
 "use client";
 
+import { NotificationBadge } from "@fremtind/jokul/notification-badge";
 import { Tab, TabList, TabPanel, Tabs } from "@fremtind/jokul/tabs";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import type { ColorScheme } from "../generator/types";
 import { ColorCombinations } from "./ColorCombinations";
 import { ThemePreviewSurface } from "./ThemePreviewSurface";
+import { getFailingContrasts } from "./contrastEvaluation";
 import { ThemePreviewComponents, ThemePreviewOverview } from "./previewStories";
 import styles from "./theme-preview.module.scss";
 
@@ -32,7 +34,10 @@ export function ThemePreviewWorkspace({
             <TabList aria-label="Forhåndsvisning">
                 <Tab>Overblikk</Tab>
                 <Tab>Komponenter</Tab>
-                <Tab>Fargekombinasjoner</Tab>
+                <Tab>
+                    Fargekombinasjoner
+                    <ContrastErrorBadge colorScheme={colorScheme} />
+                </Tab>
             </TabList>
             <TabPanel className={styles.workspacePanel}>
                 <ThemePreviewSurface colorScheme={colorScheme}>
@@ -50,6 +55,23 @@ export function ThemePreviewWorkspace({
                 </ThemePreviewSurface>
             </TabPanel>
         </Tabs>
+    );
+}
+
+/**
+ * Varselet står uten anker, så det flyter inn som et flex-element i fanen ved
+ * siden av teksten. `NotificationBadge` rendrer ingenting når antallet er null.
+ */
+function ContrastErrorBadge({ colorScheme }: ThemePreviewWorkspaceProps) {
+    const { draft } = useThemeDraft();
+    const count = getFailingContrasts(draft.colorTokens, [colorScheme]).length;
+
+    return (
+        <NotificationBadge
+            count={count}
+            label={`${count} kombinasjoner med for lav kontrast`}
+            urgent
+        />
     );
 }
 

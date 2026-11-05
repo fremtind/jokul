@@ -1,0 +1,8 @@
+// Lenka bærer hele utkastet og er flere hundre tegn lang, så den må kuttes for
+// å ikke dytte kopieringsknappen ut av kortet.
+.href {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

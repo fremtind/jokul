@@ -8,15 +8,25 @@ import type { ThemeDraft } from "./types";
  */
 const MAX_HISTORY = 50;
 
-export type ThemeDraftHistoryAction =
+export type ThemeDraftHistoryAction = (
     | ThemeDraftAction
     | { type: "UNDO" }
-    | { type: "REDO" };
+    | { type: "REDO" }
+) & {
+    /** Steget handlingen hører til. Settes av `ThemeDraftProvider`. */
+    scope?: string;
+};
+
+/** Et utkast slik det var, og steget endringen som forlot det ble gjort i. */
+export type ThemeDraftHistoryStep = {
+    draft: ThemeDraft;
+    scope?: string;
+};
 
 export type ThemeDraftHistory = {
-    past: ThemeDraft[];
+    past: ThemeDraftHistoryStep[];
     present: ThemeDraft;
-    future: ThemeDraft[];
+    future: ThemeDraftHistoryStep[];
     /**
      * Nøkkelen til endringen som ga `present`. Neste endring med samme nøkkel
      * skrives inn i det samme steget i stedet for å legge til et nytt.
@@ -29,6 +39,18 @@ export function initializeHistory(draft: ThemeDraft): ThemeDraftHistory {
 }
 
 /**
+ * Cmd+Z skal bare kunne endre siden brukeren ser. Et steg fra et annet sted i
+ * løypa blir derfor liggende, og angringen gjør ingenting — i stedet for å
+ * flytte på farger eller fonter brukeren ikke har framfor seg.
+ */
+export function isInScope(
+    step: ThemeDraftHistoryStep | undefined,
+    scope: string | undefined,
+): step is ThemeDraftHistoryStep {
+    return step !== undefined && step.scope === scope;
+}
+
+/**
  * Et tekstfelt sender én action per tastetrykk, og fargevelgeren én per
  * bildeoppdatering mens den dras. Uten sammenslåing ville ett Cmd+Z tatt ett
  * tegn. Derfor blir endringer i samme felt på rad ett angresteg, mens resten
@@ -38,6 +60,12 @@ function getCoalesceKey(action: ThemeDraftAction): string | null {
     switch (action.type) {
         case "SET_THEME_NAME":
             return "themeName";
+
+        case "SET_AUTHOR_NAME":
+            return "authorName";
+
+        case "SET_AUTHOR_EMAIL":
+            return "authorEmail";
 
         case "APPLY_BASE_COLOR":
             return "baseColor";
@@ -60,14 +88,17 @@ export function themeDraftHistoryReducer(
         case "UNDO": {
             const previous = state.past.at(-1);
 
-            if (!previous) {
+            if (!isInScope(previous, action.scope)) {
                 return state;
             }
 
             return {
                 past: state.past.slice(0, -1),
-                present: previous,
-                future: [state.present, ...state.future],
+                present: previous.draft,
+                future: [
+                    { draft: state.present, scope: previous.scope },
+                    ...state.future,
+                ],
                 lastKey: null,
             };
         }
@@ -75,13 +106,16 @@ export function themeDraftHistoryReducer(
         case "REDO": {
             const [next, ...future] = state.future;
 
-            if (!next) {
+            if (!isInScope(next, action.scope)) {
                 return state;
             }
 
             return {
-                past: [...state.past, state.present],
-                present: next,
+                past: [
+                    ...state.past,
+                    { draft: state.present, scope: next.scope },
+                ],
+                present: next.draft,
                 future,
                 lastKey: null,
             };
@@ -110,7 +144,10 @@ export function themeDraftHistoryReducer(
             }
 
             return {
-                past: [...state.past, state.present].slice(-MAX_HISTORY),
+                past: [
+                    ...state.past,
+                    { draft: state.present, scope: action.scope },
+                ].slice(-MAX_HISTORY),
                 present,
                 future: [],
                 lastKey: key,

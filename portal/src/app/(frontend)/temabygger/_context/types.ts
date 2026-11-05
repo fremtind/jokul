@@ -12,8 +12,10 @@ export type ThemeDraft = {
     hasCustomDisplayFont: boolean;
     customFonts: CustomFonts;
     themeName: string;
+    /** Den som har laget temaet, slik vi vet hvem vi svarer når det kommer inn. */
+    authorName: string;
+    authorEmail: string;
     includeDarkMode: boolean;
-    boldTitles: boolean;
     borderRadius: BorderRadiusScaleId;
 };
 

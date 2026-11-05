@@ -1,8 +1,8 @@
 "use client";
 
+import { ThemeBuilder } from "@/app/(frontend)/temabygger/ThemeBuilder";
 import { useThemeDraft } from "@/app/(frontend)/temabygger/_context/ThemeDraftContext";
 import { getFontSelection } from "@/app/(frontend)/temabygger/_context/themeDraftSelectors";
-import { COLOR_SCHEME_LABELS } from "@/app/(frontend)/temabygger/_preview/ColorSchemeComparison";
 import { ThemePreviewWorkspace } from "@/app/(frontend)/temabygger/_preview/ThemePreviewWorkspace";
 import type { FontSlot } from "@/app/(frontend)/temabygger/_shared/customFont";
 import { getFontOption } from "@/app/(frontend)/temabygger/_shared/fontOptions";
@@ -12,6 +12,7 @@ import {
     COLOR_SCHEMES,
     type ColorScheme,
 } from "@/app/(frontend)/temabygger/generator/types";
+import { Button } from "@fremtind/jokul/button";
 import { Card } from "@fremtind/jokul/card";
 import {
     DescriptionDetail,
@@ -20,46 +21,69 @@ import {
 } from "@fremtind/jokul/description-list";
 import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
+import { Icon } from "@fremtind/jokul/icon";
 import { NavLink } from "@fremtind/jokul/nav-link";
-import { ToggleSwitch } from "@fremtind/jokul/toggle-switch";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipTrigger,
+} from "@fremtind/jokul/tooltip";
 import { Text, Title } from "@fremtind/jokul/typography";
 import Link from "next/link";
 import { Fragment, type ReactNode, useState } from "react";
 import styles from "./theme-preview-page.module.scss";
 
+const COLOR_SCHEME_LABELS: Record<ColorScheme, string> = {
+    light: "Lyst modus",
+    dark: "Mørk modus",
+};
+
+/**
+ * Siden står utenfor temabyggerens ruter, men er siste side i den samme løypa.
+ * Den låner derfor rammen fra stegene — samme topp, samme skjemabredde — og
+ * bytter bare ut forhåndsvisningen, siden det ikke er noe steg her som kan
+ * bestemme fargemodusen.
+ */
 export function ThemePreviewPage() {
+    const [expanded, setExpanded] = useState(false);
+
     return (
-        <div className={styles.page}>
-            <Flex as="main" className={styles.main} wrap alignItems="start">
-                <PreviewPageAside />
-                <PreviewPageContent />
-            </Flex>
-        </div>
+        <main className={styles.page}>
+            <ThemeBuilder
+                preview={
+                    <PreviewPanel
+                        expanded={expanded}
+                        onToggleExpanded={() => setExpanded((shown) => !shown)}
+                    />
+                }
+            >
+                {!expanded && <PreviewPageCard />}
+            </ThemeBuilder>
+        </main>
     );
 }
 
-function PreviewPageAside() {
+function PreviewPageCard() {
     const { draft } = useThemeDraft();
-    const { themeName } = draft;
 
     return (
-        <Card as="aside" className={styles.aside} padding="l">
-            <Flex direction="column" gap="24">
-                <Flex>
-                    <NavLink
-                        as={Link}
-                        back
-                        href={`/temabygger/${draft.includeDarkMode ? "mork-modus" : "farger"}`}
-                    >
-                        Tilbake til redigering
-                    </NavLink>
+        <Card padding="l">
+            <Flex direction="column" gap="32">
+                <Flex direction="column" gap="24">
+                    <Flex>
+                        <NavLink
+                            as={Link}
+                            back
+                            href={`/temabygger/${draft.includeDarkMode ? "mork-modus" : "farger"}`}
+                        >
+                            Tilbake til redigering
+                        </NavLink>
+                    </Flex>
+                    <Title as="h3" size="m">
+                        Send tema til Jøkul
+                    </Title>
+                    <ThemeSummary />
                 </Flex>
-                <Title as="h1" size="m">
-                    {themeName
-                        ? `Forhåndsvisning av tema for ${themeName}`
-                        : "Forhåndsvisning av tema"}
-                </Title>
-                <ThemeSummary />
                 <HandoverStep />
             </Flex>
         </Card>
@@ -141,7 +165,6 @@ function ThemeSummary() {
                     items={[
                         ["Vanlig font", fontLabel("regular")],
                         ["Display-font", fontLabel("display")],
-                        ["Titler", draft.boldTitles ? "Fete" : "Normale"],
                     ]}
                 />
             </SummaryPanel>
@@ -166,27 +189,70 @@ function ColorTokenValue({
     );
 }
 
+type PreviewPanelProps = {
+    expanded: boolean;
+    onToggleExpanded: () => void;
+};
+
 /**
- * Her finnes ingen steg som kan bestemme fargemodus, så mottakeren velger den
- * selv. Bryteren ligger utenfor temaflaten og beholder derfor Jøkuls farger.
+ * Mottakeren velger fargemodus selv. Knappene ligger utenfor temaflaten og
+ * beholder derfor Jøkuls farger.
  */
-function PreviewPageContent() {
+function PreviewPanel({ expanded, onToggleExpanded }: PreviewPanelProps) {
     const { draft } = useThemeDraft();
     const [darkMode, setDarkMode] = useState(false);
 
     return (
-        <div className={styles.content}>
-            {draft.includeDarkMode && (
-                <div className={styles.colorSchemeToggle}>
-                    <ToggleSwitch
-                        aria-pressed={darkMode}
-                        onChange={(_event, pressed) => setDarkMode(pressed)}
-                    >
-                        {COLOR_SCHEME_LABELS.dark}
-                    </ToggleSwitch>
-                </div>
-            )}
+        <div className={styles.preview}>
+            <Flex className={styles.previewActions} gap="8">
+                {draft.includeDarkMode && (
+                    <PreviewAction
+                        label={
+                            darkMode ? "Vis i lyst modus" : "Vis i mørk modus"
+                        }
+                        icon={darkMode ? "light_mode" : "dark_mode"}
+                        onClick={() => setDarkMode((shown) => !shown)}
+                    />
+                )}
+                <PreviewAction
+                    label={
+                        expanded
+                            ? "Vis sammendraget"
+                            : "Utvid forhåndsvisningen"
+                    }
+                    icon={expanded ? "close_fullscreen" : "open_in_full"}
+                    onClick={onToggleExpanded}
+                />
+            </Flex>
             <ThemePreviewWorkspace colorScheme={darkMode ? "dark" : "light"} />
         </div>
+    );
+}
+
+type PreviewActionProps = {
+    label: string;
+    /** Navnet på ikonet i ikonfonten, som `Icon` slår opp som ligatur. */
+    icon: string;
+    onClick: () => void;
+};
+
+/**
+ * Knappene viser bare ikonet for å ta minst mulig plass fra forhåndsvisningen,
+ * så teksten må komme fram både i tooltipen og for skjermlesere.
+ */
+function PreviewAction({ label, icon, onClick }: PreviewActionProps) {
+    return (
+        <Tooltip>
+            <TooltipTrigger>
+                <Button
+                    type="button"
+                    variant="secondary"
+                    icon={<Icon>{icon}</Icon>}
+                    aria-label={label}
+                    onClick={onClick}
+                />
+            </TooltipTrigger>
+            <TooltipContent>{label}</TooltipContent>
+        </Tooltip>
     );
 }

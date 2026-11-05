@@ -2,7 +2,6 @@
 
 import { Card } from "@fremtind/jokul/card";
 import { Title } from "@fremtind/jokul/typography";
-import clsx from "clsx";
 import { type ReactNode, useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { buildThemePreviewStyle } from "../_shared/previewStyle";
@@ -52,10 +51,7 @@ export function ThemePreviewSurface({
     return (
         <Card
             as="section"
-            className={clsx(
-                styles.surface,
-                draft.boldTitles && styles.boldTitles,
-            )}
+            className={styles.surface}
             padding="l"
             outlined
             aria-labelledby={TITLE_ID}

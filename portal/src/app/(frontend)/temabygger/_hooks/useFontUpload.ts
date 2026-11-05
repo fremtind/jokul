@@ -1,18 +1,13 @@
 import type { UploadedFile } from "@fremtind/jokul/file-input";
 import { useMemo, useState } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import {
-    type FontAxes,
-    type FontSlot,
-    readCustomFont,
-} from "../_shared/customFont";
+import { type FontSlot, readCustomFont } from "../_shared/customFont";
 import { useThemeDraftActions } from "./useThemeDraftActions";
 
 /** Tilstand og handlinger for ett fontslot med opplasting. */
 export function useFontUpload(slot: FontSlot) {
     const { draft } = useThemeDraft();
-    const { setCustomFont, setFontAxes, removeCustomFont } =
-        useThemeDraftActions();
+    const { setCustomFont, removeCustomFont } = useThemeDraftActions();
     const [rejected, setRejected] = useState<UploadedFile | null>(null);
 
     const customFont = draft.customFonts[slot];
@@ -82,8 +77,6 @@ export function useFontUpload(slot: FontSlot) {
         shown,
         shownSize: rejected ? rejected.file.size : (customFont?.size ?? 0),
         errorLabel: rejected?.validation?.message,
-        axes: customFont?.axes ?? {},
-        setAxes: (axes: FontAxes) => setFontAxes(slot, axes),
         upload,
         remove,
     };

@@ -1,3 +1,3 @@
 export { Header } from "./header/Header";
-export { HeaderSlot } from "./header/HeaderSlot";
+export { PortalChromeSlot } from "./PortalChromeSlot";
 export { Footer } from "./footer/Footer";

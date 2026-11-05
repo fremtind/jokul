@@ -6,31 +6,7 @@ export type CustomFont = {
     name: string;
     size: number;
     dataUrl: string;
-    /** Verdier for aksene i en variabel font, for eksempel `{ wdth: 110 }`. */
-    axes?: FontAxes;
 };
-
-export type FontAxes = Record<string, number>;
-
-/** Aksenavn er alltid fire tegn, og går rett inn i en CSS-deklarasjon. */
-const FONT_AXIS_TAG_PATTERN = /^[A-Za-z0-9]{4}$/;
-
-export function isFontAxisTag(value: string): boolean {
-    return FONT_AXIS_TAG_PATTERN.test(value);
-}
-
-export function isFontAxes(value: unknown): value is FontAxes {
-    if (typeof value !== "object" || value === null || Array.isArray(value)) {
-        return false;
-    }
-
-    return Object.entries(value).every(
-        ([tag, axisValue]) =>
-            isFontAxisTag(tag) &&
-            typeof axisValue === "number" &&
-            Number.isFinite(axisValue),
-    );
-}
 
 export type CustomFonts = Partial<Record<FontSlot, CustomFont>>;
 
@@ -85,7 +61,6 @@ export function isCustomFont(value: unknown): value is CustomFont {
         typeof font.name === "string" &&
         typeof font.size === "number" &&
         typeof font.dataUrl === "string" &&
-        (font.axes === undefined || isFontAxes(font.axes)) &&
         FONT_DATA_URL_PATTERN.test(font.dataUrl)
     );
 }
@@ -135,21 +110,12 @@ export function buildCustomFontFaceCss(fonts: CustomFonts): string {
             return [];
         }
 
-        const axes = Object.entries(font.axes ?? {});
-
         return [
             [
                 "@font-face {",
                 `font-family: "${CUSTOM_FONT_FAMILY_NAMES[slot]}";`,
                 "font-display: swap;",
                 `font-weight: ${CUSTOM_FONT_WEIGHT_RANGE};`,
-                ...(axes.length > 0
-                    ? [
-                          `font-variation-settings: ${axes
-                              .map(([tag, value]) => `"${tag}" ${value}`)
-                              .join(", ")};`,
-                      ]
-                    : []),
                 `src: url("${font.dataUrl}");`,
                 "}",
             ].join(" "),

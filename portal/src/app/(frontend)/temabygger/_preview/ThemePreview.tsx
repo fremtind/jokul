@@ -1,7 +1,5 @@
 "use client";
 
-import { useThemeDraft } from "../_context/ThemeDraftContext";
-import { ColorSchemeComparison } from "./ColorSchemeComparison";
 import { ContrastExample } from "./ContrastExample";
 import { ThemePreviewSurface } from "./ThemePreviewSurface";
 import { ThemePreviewWorkspace } from "./ThemePreviewWorkspace";
@@ -29,8 +27,10 @@ export function ThemePreview({ segment }: ThemePreviewProps) {
     return (
         <ThemePreviewSurface colorScheme="light">
             {segment === "grunnfarge" ? (
-                <BaseColorPreview />
-            ) : segment === "identitet" ? (
+                <div className={styles.stepPreviewContent}>
+                    <ContrastExample />
+                </div>
+            ) : segment === "font" ? (
                 <TypographyView />
             ) : (
                 <div className={styles.stepPreviewContent}>
@@ -38,15 +38,5 @@ export function ThemePreview({ segment }: ThemePreviewProps) {
                 </div>
             )}
         </ThemePreviewSurface>
-    );
-}
-
-function BaseColorPreview() {
-    const { draft } = useThemeDraft();
-
-    return (
-        <ColorSchemeComparison includeDarkMode={draft.includeDarkMode}>
-            <ContrastExample />
-        </ColorSchemeComparison>
     );
 }

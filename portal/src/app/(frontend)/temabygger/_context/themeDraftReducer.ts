@@ -2,7 +2,7 @@ import {
     type BorderRadiusScaleId,
     DEFAULT_BORDER_RADIUS_SCALE_ID,
 } from "../_shared/borderRadius";
-import type { CustomFont, FontAxes, FontSlot } from "../_shared/customFont";
+import type { CustomFont, FontSlot } from "../_shared/customFont";
 import {
     CUSTOM_FONT_SELECTION,
     DEFAULT_REGULAR_FONT_OPTION_ID,
@@ -24,8 +24,9 @@ export const INITIAL_STATE = {
     hasCustomDisplayFont: false,
     customFonts: {},
     themeName: "",
+    authorName: "",
+    authorEmail: "",
     includeDarkMode: false,
-    boldTitles: false,
     borderRadius: DEFAULT_BORDER_RADIUS_SCALE_ID,
 } as const satisfies ThemeDraft;
 
@@ -35,10 +36,10 @@ export const INITIAL_STATE = {
 
 export type ThemeDraftAction =
     | { type: "SET_THEME_NAME"; themeName: string }
+    | { type: "SET_AUTHOR_NAME"; authorName: string }
+    | { type: "SET_AUTHOR_EMAIL"; authorEmail: string }
     | { type: "SET_INCLUDE_DARK_MODE"; includeDarkMode: boolean }
-    | { type: "SET_BOLD_TITLES"; boldTitles: boolean }
     | { type: "SET_CUSTOM_FONT"; slot: FontSlot; font: CustomFont }
-    | { type: "SET_FONT_AXES"; slot: FontSlot; axes: FontAxes }
     | { type: "REMOVE_CUSTOM_FONT"; slot: FontSlot }
     | { type: "APPLY_BASE_COLOR"; value: string }
     | {
@@ -48,15 +49,7 @@ export type ThemeDraftAction =
           colorScheme: ColorScheme;
           value: string;
       }
-    | { type: "SET_DRAFT"; draft: ThemeDraft }
-    | { type: "RESET_DRAFT"; scope?: ThemeDraftResetScope };
-
-/** Stegene i temabyggeren, som hver har sin del av utkastet å nullstille. */
-export type ThemeDraftResetScope =
-    | "identitet"
-    | "grunnfarge"
-    | "farger"
-    | "mork-modus";
+    | { type: "SET_DRAFT"; draft: ThemeDraft };
 
 // ---------------------------------------------------------------------------
 // Reducer
@@ -67,14 +60,20 @@ export function themeDraftReducer(
     action: ThemeDraftAction,
 ): ThemeDraft {
     switch (action.type) {
+        // Tekstfeltene skriver én action per tastetrykk, så bare mellomrom
+        // foran navnet kan fjernes: en `trim()` ville spist mellomrommet i
+        // «Merkevare AS» i samme øyeblikk som det ble skrevet.
         case "SET_THEME_NAME":
-            return { ...state, themeName: action.themeName.trim() };
+            return { ...state, themeName: action.themeName.trimStart() };
+
+        case "SET_AUTHOR_NAME":
+            return { ...state, authorName: action.authorName.trimStart() };
+
+        case "SET_AUTHOR_EMAIL":
+            return { ...state, authorEmail: action.authorEmail.trim() };
 
         case "SET_INCLUDE_DARK_MODE":
             return { ...state, includeDarkMode: action.includeDarkMode };
-
-        case "SET_BOLD_TITLES":
-            return { ...state, boldTitles: action.boldTitles };
 
         case "SET_CUSTOM_FONT": {
             const customFonts = {
@@ -95,22 +94,6 @@ export function themeDraftReducer(
                 customFonts,
                 displayFont: CUSTOM_FONT_SELECTION,
                 hasCustomDisplayFont: true,
-            };
-        }
-
-        case "SET_FONT_AXES": {
-            const font = state.customFonts[action.slot];
-
-            if (!font) {
-                return state;
-            }
-
-            return {
-                ...state,
-                customFonts: {
-                    ...state.customFonts,
-                    [action.slot]: { ...font, axes: action.axes },
-                },
             };
         }
 
@@ -202,77 +185,8 @@ export function themeDraftReducer(
                 themeName: action.draft.themeName.trim(),
             };
 
-        // Egen action, ikke `SET_DRAFT` med utgangspunktet: nullstilling er en
-        // endring brukeren har gjort, og skal kunne angres som alt annet.
-        case "RESET_DRAFT":
-            return action.scope
-                ? resetScope(state, action.scope)
-                : INITIAL_STATE;
-
         default:
             action satisfies never;
             return state;
     }
-}
-
-/** Nullstiller bare det ett steg har ansvar for, og lar resten stå. */
-function resetScope(
-    state: ThemeDraft,
-    scope: ThemeDraftResetScope,
-): ThemeDraft {
-    switch (scope) {
-        case "identitet":
-            return {
-                ...state,
-                themeName: INITIAL_STATE.themeName,
-                regularFont: INITIAL_STATE.regularFont,
-                displayFont: INITIAL_STATE.displayFont,
-                hasCustomDisplayFont: INITIAL_STATE.hasCustomDisplayFont,
-                customFonts: INITIAL_STATE.customFonts,
-                boldTitles: INITIAL_STATE.boldTitles,
-            };
-
-        case "grunnfarge":
-            return { ...state, colorTokens: INITIAL_STATE.colorTokens };
-
-        case "farger":
-            return {
-                ...state,
-                colorTokens: resetColorScheme(state.colorTokens, "light"),
-            };
-
-        case "mork-modus":
-            return {
-                ...state,
-                colorTokens: resetColorScheme(state.colorTokens, "dark"),
-            };
-
-        default:
-            scope satisfies never;
-            return state;
-    }
-}
-
-function resetColorScheme(
-    tokens: EditableLightDarkPalette,
-    colorScheme: ColorScheme,
-): EditableLightDarkPalette {
-    type Tokens = Record<string, Record<string, Record<ColorScheme, string>>>;
-    const current = tokens as Tokens;
-    const initial = INITIAL_COLOR_TOKENS as Tokens;
-
-    return Object.fromEntries(
-        Object.entries(current).map(([group, roles]) => [
-            group,
-            Object.fromEntries(
-                Object.entries(roles).map(([role, token]) => [
-                    role,
-                    {
-                        ...token,
-                        [colorScheme]: initial[group]?.[role]?.[colorScheme],
-                    },
-                ]),
-            ),
-        ]),
-    ) as EditableLightDarkPalette;
 }

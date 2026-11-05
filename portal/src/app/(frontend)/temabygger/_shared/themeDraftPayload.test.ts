@@ -82,17 +82,15 @@ describe("parseThemeDraftPayload", () => {
         expect(payload?.draft.customFonts).toEqual({});
     });
 
-    // Hjørner og tittelvekt kom til etter at lenker begynte å gå rundt.
+    // Hjørner kom til etter at lenker begynte å gå rundt.
     it("fyller inn standardvalg for utkast lagret uten de nyere feltene", () => {
-        const { boldTitles, borderRadius, ...draftWithoutLaterFields } =
-            INITIAL_STATE;
+        const { borderRadius, ...draftWithoutLaterFields } = INITIAL_STATE;
 
         const payload = parseThemeDraftPayload({
             version: THEME_DRAFT_VERSION,
             draft: draftWithoutLaterFields,
         });
 
-        expect(payload?.draft.boldTitles).toBe(false);
         expect(payload?.draft.borderRadius).toBe("standard");
     });
 

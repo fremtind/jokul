@@ -1,55 +1,46 @@
+// Siden har ikke portalens ramme rundt seg, så lufta og sidefargen må settes
+// her — resten av layouten kommer fra temabyggerens egen mal.
 .page {
     min-height: 100dvh;
+    padding: var(--jkl-spacing-24);
     background-color: var(--jkl-color-background-page);
 
-    .main {
-        gap: var(--jkl-spacing-24);
-        padding: var(--jkl-spacing-24);
+    @media (width >= 940px) {
+        padding: var(--jkl-spacing-64);
+    }
+}
 
-        > .aside {
-            flex: 1 35ch;
+.preview {
+    display: grid;
+    gap: var(--jkl-spacing-16);
+
+    // Fanelista er et barn av `Tabs` og kan ikke få knappene som søsken, så de
+    // to legges i samme rutenettcelle i stedet. Fra denne bredden er fanene
+    // aldri så brede at de havner under knappene. Samme blokkinnrykk som en
+    // fane har gir samme høyde, slik at knappene står på linje med dem.
+    @container (min-width: 60rem) {
+        gap: 0;
+
+        > * {
+            grid-area: 1 / 1;
         }
 
-        > .content {
-            flex: 3 105ch;
-            display: grid;
-            gap: var(--jkl-spacing-16);
-        }
-
-        @media (width >= 940px) {
-            gap: var(--jkl-spacing-32);
-            padding: var(--jkl-spacing-64);
-
-            // Fanelista er et barn av `Tabs` og kan ikke få bryteren som søsken,
-            // så de to legges i samme rutenettcelle i stedet. Fra denne bredden
-            // er fanene aldri så brede at de havner under bryteren. Samme
-            // blokkinnrykk som en fane har gir samme høyde, slik at bryteren
-            // står på linje med dem.
-            > .content {
-                gap: 0;
-
-                > * {
-                    grid-area: 1 / 1;
-                }
-
-                // `Tabs` fyller hele cella, og ville ellers ligget over
-                // bryteren og tatt klikkene som var ment for den.
-                > .colorSchemeToggle {
-                    z-index: 1;
-                    place-self: start end;
-                    padding-block: var(--jkl-unit-10);
-                }
-            }
+        // `Tabs` fyller hele cella, og ville ellers ligget over knappene og
+        // tatt klikkene som var ment for dem.
+        > .previewActions {
+            z-index: 1;
+            place-self: start end;
+            padding-block: var(--jkl-unit-10);
         }
     }
+}
 
-    // Ruta viser fargen fra utkastet, ikke en farge fra Jøkul, så omrisset må
-    // til for at hvitt og nesten-svart skal skille seg fra kortet bak.
-    .swatch {
-        flex: none;
-        width: var(--jkl-spacing-16);
-        height: var(--jkl-spacing-16);
-        border: 1px solid var(--jkl-color-border-subdued);
-        border-radius: var(--jkl-border-radius-xs);
-    }
+// Ruta viser fargen fra utkastet, ikke en farge fra Jøkul, så omrisset må til
+// for at hvitt og nesten-svart skal skille seg fra kortet bak.
+.swatch {
+    flex: none;
+    width: var(--jkl-spacing-16);
+    height: var(--jkl-spacing-16);
+    border: 1px solid var(--jkl-color-border-subdued);
+    border-radius: var(--jkl-border-radius-xs);
 }

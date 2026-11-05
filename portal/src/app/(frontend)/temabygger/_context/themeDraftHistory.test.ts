@@ -105,16 +105,6 @@ describe("themeDraftHistoryReducer", () => {
         expect(history.present.themeName).toBe("");
     });
 
-    it("lar en nullstilling angres", () => {
-        const history = run([
-            { type: "SET_THEME_NAME", themeName: "Tema" },
-            { type: "RESET_DRAFT" },
-            { type: "UNDO" },
-        ]);
-
-        expect(history.present.themeName).toBe("Tema");
-    });
-
     it("lar ikke et gjenopprettet utkast angres", () => {
         const history = run([
             {
@@ -132,5 +122,55 @@ describe("themeDraftHistoryReducer", () => {
         const history = run([{ type: "REMOVE_CUSTOM_FONT", slot: "regular" }]);
 
         expect(history.past).toHaveLength(0);
+    });
+
+    describe("steg", () => {
+        it("angrer en endring som ble gjort i samme steg", () => {
+            const history = run([
+                {
+                    type: "SET_THEME_NAME",
+                    themeName: "Tema",
+                    scope: "hvem-er-du",
+                },
+                { type: "UNDO", scope: "hvem-er-du" },
+            ]);
+
+            expect(history.present.themeName).toBe("");
+        });
+
+        it("angrer ikke en endring fra et annet steg", () => {
+            const edited = run([
+                {
+                    type: "SET_THEME_NAME",
+                    themeName: "Tema",
+                    scope: "hvem-er-du",
+                },
+            ]);
+
+            expect(
+                themeDraftHistoryReducer(edited, {
+                    type: "UNDO",
+                    scope: "farger",
+                }),
+            ).toBe(edited);
+        });
+
+        it("gjør ikke om en angret endring fra et annet steg", () => {
+            const undone = run([
+                {
+                    type: "SET_THEME_NAME",
+                    themeName: "Tema",
+                    scope: "hvem-er-du",
+                },
+                { type: "UNDO", scope: "hvem-er-du" },
+            ]);
+
+            expect(
+                themeDraftHistoryReducer(undone, {
+                    type: "REDO",
+                    scope: "farger",
+                }),
+            ).toBe(undone);
+        });
     });
 });

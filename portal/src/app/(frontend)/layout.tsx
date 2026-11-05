@@ -1,7 +1,7 @@
 import { DisableDraftMode } from "@/components/DisableDraftMode";
 import { MixpanelProvider } from "@/components/MixpanelProvider";
 import { TabListener } from "@/components/TabListener";
-import { Footer, Header, HeaderSlot } from "@/components/layout";
+import { Footer, Header, PortalChromeSlot } from "@/components/layout";
 import { SanityLive } from "@/sanity/lib/live";
 import { CookiesNextProvider } from "cookies-next";
 import type { Metadata } from "next";
@@ -38,11 +38,13 @@ export default async function PortalLayout({ children }: Props) {
                 <CookiesNextProvider>
                     <MixpanelProvider disabled={(await draftMode()).isEnabled}>
                         <div className="jkl-portal-layout">
-                            <HeaderSlot>
+                            <PortalChromeSlot>
                                 <Header />
-                            </HeaderSlot>
+                            </PortalChromeSlot>
                             <main>{children}</main>
-                            <Footer />
+                            <PortalChromeSlot>
+                                <Footer />
+                            </PortalChromeSlot>
                         </div>
                     </MixpanelProvider>
                 </CookiesNextProvider>

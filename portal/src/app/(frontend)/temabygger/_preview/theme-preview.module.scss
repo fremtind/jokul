@@ -5,10 +5,6 @@
     text-align: center;
 }
 
-/* Overskriftene i Jøkul står i normalvekt til og med `heading-3`, og vekten
-   ligger i `font`-stenografien tekststilen setter — ikke i et token temaet kan
-   overstyre. Regelen her står utenfor `@layer jokul`, og vinner derfor over
-   den uansett rekkefølge. `h4` og `h5` er fete fra før og trenger ingenting. */
 /* Tekststilene er custom properties som er ferdig utregnet på rotelementet, så
    fontvalget i forhåndsvisningen når dem ikke. Portalens egne `h1`–`h4`-regler
    står dessuten utenfor `@layer jokul` og vinner over Jøkuls. Fontfamilien
@@ -20,10 +16,6 @@
 
 .surface :is(h1, h2) {
     font-family: var(--jkl-font-family-display);
-}
-
-.boldTitles :is(h1, h2, h3) {
-    font-weight: var(--jkl-font-weight-bold);
 }
 
 /* `jkl-tabs` legger fanelista og panelet rett etter hverandre.
@@ -40,70 +32,4 @@
 /* Lar temaflaten fylle panelet, slik kortet gjorde før fanene kom. */
 .workspacePanel {
     display: grid;
-}
-
-.comparison {
-    --comparison-pane-height: 13rem;
-    --comparison-pane-height-single: 28rem;
-    --comparison-rise: calc(
-        (
-                var(--comparison-pane-height-single) -
-                    var(--comparison-pane-height)
-            ) / 2
-    );
-
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: var(--jkl-spacing-16);
-
-    /* Ingenting her inne skal kunne utvide rulleområdet. Bevegelsene under er
-       transformer, som ikke påvirker layout, men som fortsatt regnes som
-       overflow — og et rullefelt som kommer og går er nettopp blinkingen vi
-       vil unngå. */
-    overflow: clip;
-}
-
-.comparisonPane {
-    min-height: var(--comparison-pane-height);
-    padding: var(--jkl-spacing-24);
-    border-radius: var(--jkl-border-radius-m);
-    background-color: var(--jkl-color-background-page);
-    color: var(--jkl-color-text-default);
-    text-align: center;
-
-    /* Alene fyller den lyse halvdelen panelet, som de andre stegene gjør. */
-    &[data-single] {
-        min-height: var(--comparison-pane-height-single);
-    }
-}
-
-/* Sluttlayouten settes med én gang, så sidehøyden endres bare én gang og aldri
-   til noe høyere enn den ender på. Bevegelsen gjøres derfor med transform: den
-   lyse halvdelen starter der den sto og glir opp på plass.
-   Jøkul nullstiller animasjoner ved `prefers-reduced-motion`. */
-.rising {
-    animation: rise var(--jkl-motion-timing-polite)
-        var(--jkl-motion-easing-standard);
-}
-
-/* Den mørke halvdelen kommer til etter at den lyse har lagt seg, slik at den
-   ikke ligger synlig bak innholdet som fortsatt er på vei opp. */
-.entering {
-    animation-name: fade-in;
-    animation-duration: var(--jkl-motion-timing-polite);
-    animation-delay: var(--jkl-motion-timing-polite);
-    animation-timing-function: var(--jkl-motion-easing-entrance);
-    animation-fill-mode: backwards;
-}
-
-@keyframes rise {
-    from {
-        transform: translateY(var(--comparison-rise));
-    }
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
 }

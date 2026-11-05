@@ -3,17 +3,21 @@
 import { ToastProvider } from "@fremtind/jokul/toast";
 import {
     createContext,
+    useCallback,
     useContext,
     useEffect,
     useMemo,
     useReducer,
+    useRef,
     useState,
 } from "react";
 import { CustomFontFaces } from "../_components/CustomFontFaces";
+import { useActiveStep } from "../_hooks/useActiveStep";
 import { useUndoRedoShortcuts } from "../_hooks/useUndoRedoShortcuts";
 import { getStoredThemeDraft } from "../_storage/themeDraftStorage";
 import { useThrottledStorageSync } from "../_storage/useThrottledStorageSync";
 import {
+    type ThemeDraftHistoryAction,
     initializeHistory,
     themeDraftHistoryReducer,
 } from "./themeDraftHistory";
@@ -46,7 +50,7 @@ function ThemeDraftProviderContent({
     children,
     initialDraft,
 }: ThemeDraftProviderProps) {
-    const [history, dispatch] = useReducer(
+    const [history, dispatchToHistory] = useReducer(
         themeDraftHistoryReducer,
         initialDraft,
         initializeDraft,
@@ -54,6 +58,19 @@ function ThemeDraftProviderContent({
     const [storageLoaded, setStorageLoaded] = useState(false);
 
     const draft = history.present;
+
+    // Hver handling merkes med steget den ble gjort i, slik at angring kan
+    // holde seg innenfor det. Steget leses via en ref, så `dispatch` beholder
+    // identiteten sin gjennom navigasjonen og ikke tvinger nye renders.
+    const activeStep = useActiveStep();
+    const activeStepRef = useRef(activeStep);
+    activeStepRef.current = activeStep;
+
+    const dispatch = useCallback(
+        (action: ThemeDraftHistoryAction) =>
+            dispatchToHistory({ ...action, scope: activeStepRef.current }),
+        [],
+    );
 
     // Last inn lagret utkast fra localStorage ved mount når route ikke har et eksplisitt draft
     useEffect(() => {
@@ -67,9 +84,9 @@ function ThemeDraftProviderContent({
             dispatch({ type: "SET_DRAFT", draft: stored });
         }
         setStorageLoaded(true);
-    }, [initialDraft]);
+    }, [initialDraft, dispatch]);
 
-    useUndoRedoShortcuts(history, dispatch);
+    useUndoRedoShortcuts(history, dispatch, activeStep);
 
     useThrottledStorageSync(
         draft,
@@ -79,7 +96,7 @@ function ThemeDraftProviderContent({
 
     const value = useMemo<ThemeDraftContextState>(
         () => ({ draft, dispatch }),
-        [draft],
+        [draft, dispatch],
     );
 
     return (

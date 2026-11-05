@@ -24,8 +24,8 @@ export type ThemeDraftPayload = {
  * Lenka bærer utkastet som spørringsparameter, og en fontfil som base64 er
  * titusener av tegn — mer enn både nettlesere og meldingsklienter tar imot.
  * Opplastede fonter faller derfor ut av lenka, og slotene som pekte på dem
- * faller tilbake til en standardfont. Mottakeren får fontfila separat; se
- * `createHandoverMessage`.
+ * faller tilbake til en standardfont. Fontfilene følger bare med arkivet; se
+ * `createThemeArchive`.
  */
 export function createThemePreviewHref(draft: ThemeDraft): string {
     const params = new URLSearchParams();
@@ -115,8 +115,9 @@ export function parseThemeDraftPayload(
         version: THEME_DRAFT_VERSION,
         draft: {
             ...payload.draft,
+            authorName: payload.draft.authorName ?? "",
+            authorEmail: payload.draft.authorEmail ?? "",
             customFonts: payload.draft.customFonts ?? {},
-            boldTitles: payload.draft.boldTitles ?? false,
             borderRadius:
                 payload.draft.borderRadius ?? DEFAULT_BORDER_RADIUS_SCALE_ID,
         },
@@ -138,8 +139,9 @@ function isThemeDraft(value: unknown): value is ThemeDraft {
         isFontSelectionId(draft.displayFont) &&
         isOptional(draft.customFonts, isCustomFonts) &&
         typeof draft.themeName === "string" &&
+        isOptional(draft.authorName, isString) &&
+        isOptional(draft.authorEmail, isString) &&
         typeof draft.includeDarkMode === "boolean" &&
-        isOptional(draft.boldTitles, (value) => typeof value === "boolean") &&
         isOptional(draft.borderRadius, isBorderRadiusScaleId)
     );
 }
@@ -152,4 +154,8 @@ function isThemeDraft(value: unknown): value is ThemeDraft {
  */
 function isOptional(value: unknown, isValid: (value: unknown) => boolean) {
     return value === undefined || isValid(value);
+}
+
+function isString(value: unknown) {
+    return typeof value === "string";
 }
