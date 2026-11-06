@@ -218,6 +218,18 @@ if (!result.valid) {
 }
 ```
 
+Formatet finnes også som JSON Schema. Legg det inn som `$schema` øverst i en temafil for å få autofullføring og validering i editoren når du redigerer fila for hånd:
+
+```json
+{
+    "$schema": "https://jokul.fremtind.no/schemas/theme-file/v1.json",
+    "version": 1,
+    "name": "mitt-tema"
+}
+```
+
+Adressen er også eksportert som `THEME_FILE_SCHEMA_URL`. Uten nett kan du peke på fila i pakken i stedet: `node_modules/@fremtind/jokul/src/theme/file/theme-file.v1.schema.json` (eller importere `@fremtind/jokul/theme/theme-file.v1.schema.json`). Ukjente felter regnes som feil både i skjemaet og i `validateThemeFile`, med unntak av `$schema`.
+
 For en full liste over funksjoner og typer kan du kikke i [theme-mappa](src/theme/)
 
 ## Tailwind

@@ -21,6 +21,7 @@ export {
     type JokulThemeFonts,
     normalizeHex,
     parseThemeFile,
+    THEME_FILE_SCHEMA_URL,
     THEME_FILE_VERSION,
     type ThemeFileValidationResult,
     validateThemeFile,

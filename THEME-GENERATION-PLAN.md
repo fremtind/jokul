@@ -136,9 +136,13 @@ contract; the portal owns the picker.
 >   Norwegian messages with field paths, such as
 >   `colorTokens.text.default: mangler.`, ready for `jokul theme validate` (step 7).
 >   `parseThemeFile` is a thin wrapper that returns `undefined` on errors.
-> - **Unknown fields are handled.** Unknown top-level and colour-entry fields are dropped.
->   Unknown colour groups and roles are errors, so a file from another Jøkul version
->   fails loudly instead of building an incomplete theme.
+> - **Unknown fields are errors** (`<path>: ukjent felt.`) at every level: top level,
+>   colour groups, roles and entries, `fonts`, `fonts.family`, `fonts.weight` and
+>   `faces[i]`. A typo in a field name therefore fails loudly instead of being ignored,
+>   and a file from another Jøkul version can't build an incomplete theme. The one
+>   exception is a top-level `$schema` string, which is accepted and left out of the
+>   returned theme. (The first version of this step dropped unknown top-level and
+>   colour-entry fields; it was tightened when the JSON Schema was added, before release.)
 > - **CSS safety.** Font values end up raw in generated CSS and SCSS, so `;`, `{`, `}`,
 >   `\` and line breaks are rejected (and `"` in `faces[].family`).
 >   `faces[].fileName` must be a plain `.woff2` file name without folders, which also
@@ -149,6 +153,33 @@ contract; the portal owns the picker.
 > - **Exports:** `isHex`, `normalizeHex` and `isThemeName`. The portal still has its own
 >   `isHex`/`normalizeHex` until the rest of step 8.
 > - The README section from step 8 part 1 now also shows `validateThemeFile`.
+>
+> **Addition: JSON Schema for the theme file.** For people who write or edit theme files
+> (or token values) by hand, so their editor gives autocomplete and validation. It is not
+> used at runtime and is not part of the browser-safe JS.
+>
+> - `src/theme/file/theme-file.v1.schema.json` is hand-written, draft-07, with Norwegian
+>   `title`/`description`/`examples` and `additionalProperties: false` everywhere. It
+>   mirrors `validateThemeFile` rule for rule (hex, `name`, CSS-safe font values,
+>   font weights as integer or numeric string, `.woff2` file names).
+> - Its `$id` is `https://jokul.fremtind.no/schemas/theme-file/v1.json`, exported as
+>   `THEME_FILE_SCHEMA_URL` from `@fremtind/jokul/theme`. The version is part of both the
+>   URL and the file name, so v1 stays available when a v2 format arrives.
+> - **Published** as `@fremtind/jokul/theme/theme-file.v1.schema.json` (new `exports`
+>   entry above `"./*"`, and the file is added to `files`), so it also works offline
+>   from `node_modules/@fremtind/jokul/src/theme/file/`.
+> - **Hosted** by the portal at `/schemas/theme-file/v1.json`
+>   (`portal/src/app/schemas/theme-file/v1.json/route.ts`, `force-static`,
+>   `Content-Type: application/schema+json`, `Access-Control-Allow-Origin: *`). The URL
+>   goes live when the portal is deployed.
+> - **Kept in sync by a test:** `themeFile.schema.test.ts` compiles the schema with ajv
+>   (strict mode, so unknown keywords fail), checks `$id`, `version` and that the
+>   colour groups/roles equal the colour metadata, and asserts that ajv and
+>   `validateThemeFile` agree on ~70 valid and invalid fixtures. `ajv` is a new
+>   devDependency of `packages/jokul` (the lockfile specifier is `^8.18.0` because of the
+>   repo's `ajv@8` override).
+> - Follow-ups: `jokul theme generate` (step 7) and the portal's theme file export
+>   (step 8) should write `"$schema": THEME_FILE_SCHEMA_URL` as the first field.
 
 ## Step 3 — Palette → brand tokens JSON (browser-safe)
 
@@ -273,7 +304,8 @@ output layout as semver-relevant. Extensions for external repos (multi-file buil
 `--index`, `--types`, `validate`) are described in `DISTRIBUTOR-THEMES-REPO-PLAN.md` Part A.
 
 - `jokul theme generate <hex> [--name <name>] [--out <file>] [--method wcag|oklch] [--no-dark]`
-  → writes a `JokulThemeFile` JSON
+  → writes a `JokulThemeFile` JSON, with `"$schema": THEME_FILE_SCHEMA_URL` as the first
+  field (see the JSON Schema note under step 2)
 - `jokul theme build <theme-file> [--out <dir>] [--selector <sel>]`
   → writes tokens JSON + generated SCSS
 
@@ -346,6 +378,8 @@ still uses them (`colorjs.io` is also a portal dependency and may overlap).
 > - `name` is the slugified `themeName` (handle æ/ø/å), and `title` is `themeName`.
 > - Fonts are resolved through `FONT_OPTIONS`.
 > - Run the result through `validateThemeFile` before offering it for download.
+> - Put `"$schema": THEME_FILE_SCHEMA_URL` first in the downloaded file, so it can be
+>   edited by hand with editor support.
 
 ## Step 9 — "Instruksjoner for å bygge tema"
 

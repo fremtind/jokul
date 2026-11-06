@@ -10,6 +10,13 @@ import {
 export const THEME_FILE_VERSION = 1;
 
 /**
+ * Adressen til JSON Schema-et for temafiler. Sett den som `$schema` i en temafil
+ * for å få autofullføring og validering i editoren.
+ */
+export const THEME_FILE_SCHEMA_URL =
+    "https://jokul.fremtind.no/schemas/theme-file/v1.json";
+
+/**
  * Én fontfil som temaet leverer selv. Feltene tilsvarer `brandFontFace`-tokens
  * (`font.face.*` i `typography.<tema>.tokens.json`).
  */
@@ -45,7 +52,8 @@ export type JokulThemeFonts = {
 
 /**
  * Et tema slik det eksporteres fra temabyggeren og leses av `jokul theme build`.
- * Fila er ren JSON og valideres med `validateThemeFile` eller `parseThemeFile`.
+ * Fila er ren JSON og valideres med `validateThemeFile` eller `parseThemeFile`,
+ * eller med JSON Schema-et på `THEME_FILE_SCHEMA_URL`.
  */
 export type JokulThemeFile = {
     version: typeof THEME_FILE_VERSION;
@@ -96,8 +104,10 @@ export const isThemeName = (value: unknown): value is string =>
 /**
  * Validerer at en verdi, typisk resultatet av `JSON.parse`, er en gyldig temafil.
  *
- * Returnerer enten temaet, uten ukjente felter, eller en liste med lesbare
- * feilmeldinger som peker på feltet som er feil.
+ * Returnerer enten temaet eller en liste med lesbare feilmeldinger som peker
+ * på feltet som er feil. Ukjente felter regnes som feil, slik at skrivefeil
+ * i feltnavn ikke blir oversett. Unntaket er `$schema`, som godtas, men ikke
+ * tas med i temaet som returneres.
  */
 export function validateThemeFile(value: unknown): ThemeFileValidationResult {
     if (!isRecord(value)) {
@@ -127,6 +137,10 @@ export function validateThemeFile(value: unknown): ThemeFileValidationResult {
         );
     }
 
+    if (value.$schema !== undefined && typeof value.$schema !== "string") {
+        errors.push(invalid("$schema", value.$schema, "må være en tekst"));
+    }
+
     if (value.title !== undefined && typeof value.title !== "string") {
         errors.push(invalid("title", value.title, "må være en tekst"));
     }
@@ -146,6 +160,8 @@ export function validateThemeFile(value: unknown): ThemeFileValidationResult {
         value.fonts === undefined
             ? undefined
             : validateFonts(value.fonts, errors);
+
+    rejectUnknownKeys(value, THEME_FILE_KEYS, undefined, errors);
 
     if (errors.length > 0 || !colorTokens) {
         return { valid: false, errors };
@@ -238,6 +254,7 @@ function validateColorTokens(
                 }
             }
 
+            rejectUnknownKeys(roleValue, COLOR_SCHEMES, rolePath, errors);
             palette[group][role] = color;
         }
 
@@ -277,6 +294,12 @@ function validateFonts(
         if (family.mono !== undefined) {
             validateCssValue(family.mono, "fonts.family.mono", errors);
         }
+        rejectUnknownKeys(
+            family,
+            ["regular", "display", "mono"],
+            "fonts.family",
+            errors,
+        );
     }
 
     let normalWeight: number | undefined;
@@ -295,6 +318,7 @@ function validateFonts(
             "fonts.weight.bold",
             errors,
         );
+        rejectUnknownKeys(weight, ["normal", "bold"], "fonts.weight", errors);
     }
 
     let validFaces: JokulThemeFontFace[] | undefined;
@@ -308,6 +332,8 @@ function validateFonts(
             );
         }
     }
+
+    rejectUnknownKeys(value, ["family", "weight", "faces"], "fonts", errors);
 
     if (errors.length > errorCount || !isRecord(family)) {
         return undefined;
@@ -340,13 +366,13 @@ function validateFontFace(
     path: string,
     errors: string[],
 ): JokulThemeFontFace {
-    const face = isRecord(value) ? value : {};
-
     if (!isRecord(value)) {
         errors.push(invalid(path, value, "må være et objekt"));
+        // Feilen over gjør at temaet avvises, så returverdien brukes aldri.
+        return {} as JokulThemeFontFace;
     }
 
-    const { family, style, fileName } = face;
+    const { family, style, fileName } = value;
 
     if (
         typeof family !== "string" ||
@@ -362,7 +388,7 @@ function validateFontFace(
         );
     }
 
-    const weight = validateFontWeight(face.weight, `${path}.weight`, errors);
+    const weight = validateFontWeight(value.weight, `${path}.weight`, errors);
 
     if (style !== "normal" && style !== "italic") {
         errors.push(
@@ -382,6 +408,13 @@ function validateFontFace(
             ),
         );
     }
+
+    rejectUnknownKeys(
+        value,
+        ["family", "weight", "style", "fileName"],
+        path,
+        errors,
+    );
 
     return {
         family: family as string,
@@ -429,6 +462,29 @@ function validateFontWeight(
 
     errors.push(invalid(path, value, "må være et heltall fra 1 til 1000"));
     return undefined;
+}
+
+const THEME_FILE_KEYS = [
+    "$schema",
+    "version",
+    "name",
+    "title",
+    "colorTokens",
+    "includeDarkMode",
+    "fonts",
+] as const;
+
+function rejectUnknownKeys(
+    value: Record<string, unknown>,
+    allowedKeys: readonly string[],
+    path: string | undefined,
+    errors: string[],
+) {
+    for (const key of Object.keys(value)) {
+        if (!allowedKeys.includes(key)) {
+            errors.push(`${path ? `${path}.` : ""}${key}: ukjent felt.`);
+        }
+    }
 }
 
 function invalid(path: string, value: unknown, expectation: string): string {

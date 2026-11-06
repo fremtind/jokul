@@ -1,0 +1,186 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://jokul.fremtind.no/schemas/theme-file/v1.json",
+    "title": "Jøkul-temafil (versjon 1)",
+    "description": "Et tema slik det eksporteres fra temabyggeren og leses av `jokul theme build`. Tilsvarer typen `JokulThemeFile` i `@fremtind/jokul/theme`, og valideres på samme måte som `validateThemeFile`.",
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["version", "name", "colorTokens", "includeDarkMode"],
+    "properties": {
+        "$schema": {
+            "description": "Adressen til dette skjemaet, slik at editoren kan gi autofullføring og validering.",
+            "type": "string",
+            "examples": ["https://jokul.fremtind.no/schemas/theme-file/v1.json"]
+        },
+        "version": {
+            "description": "Versjonen av temafilformatet.",
+            "const": 1
+        },
+        "name": {
+            "description": "Maskinlesbart navn på temaet. Brukes i `[data-brand=\"<name>\"]`, i filnavn og i typer. Små bokstaver (a–z), tall og enkle bindestreker, og første tegn må være en bokstav.",
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+            "examples": ["tema-a"]
+        },
+        "title": {
+            "description": "Visningsnavn for temaet.",
+            "type": "string",
+            "examples": ["Tema A"]
+        },
+        "colorTokens": {
+            "description": "Fargene i temaet, med én verdi for lys og én for mørk modus per fargerolle.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["background", "text", "border"],
+            "properties": {
+                "background": {
+                    "description": "Bakgrunnsfarger.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                        "page",
+                        "container",
+                        "container-accent",
+                        "contrast"
+                    ],
+                    "properties": {
+                        "page": { "$ref": "#/definitions/colorPair" },
+                        "container": { "$ref": "#/definitions/colorPair" },
+                        "container-accent": {
+                            "$ref": "#/definitions/colorPair"
+                        },
+                        "contrast": { "$ref": "#/definitions/colorPair" }
+                    }
+                },
+                "text": {
+                    "description": "Tekstfarger.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["default", "subdued", "accent", "on-contrast"],
+                    "properties": {
+                        "default": { "$ref": "#/definitions/colorPair" },
+                        "subdued": { "$ref": "#/definitions/colorPair" },
+                        "accent": { "$ref": "#/definitions/colorPair" },
+                        "on-contrast": { "$ref": "#/definitions/colorPair" }
+                    }
+                },
+                "border": {
+                    "description": "Kantlinjefarger.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["default", "subdued", "strong"],
+                    "properties": {
+                        "default": { "$ref": "#/definitions/colorPair" },
+                        "subdued": { "$ref": "#/definitions/colorPair" },
+                        "strong": { "$ref": "#/definitions/colorPair" }
+                    }
+                }
+            }
+        },
+        "includeDarkMode": {
+            "description": "Om temaet skal støtte mørk modus. Fargene for mørk modus skal være med i `colorTokens` uansett.",
+            "type": "boolean"
+        },
+        "fonts": {
+            "description": "Ferdig oppløste fontverdier. Utelates for å bruke Jøkuls standardfonter.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["family", "weight"],
+            "properties": {
+                "family": {
+                    "description": "CSS-verdier for `font-family`, inkludert fallback-fonter.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["regular", "display"],
+                    "properties": {
+                        "regular": {
+                            "$ref": "#/definitions/cssValue",
+                            "examples": ["'Tema Sans', sans-serif"]
+                        },
+                        "display": {
+                            "$ref": "#/definitions/cssValue",
+                            "examples": ["'Tema Display', sans-serif"]
+                        },
+                        "mono": {
+                            "$ref": "#/definitions/cssValue",
+                            "examples": ["'Tema Mono', monospace"]
+                        }
+                    }
+                },
+                "weight": {
+                    "description": "Verdier for `font-weight` til normal og fet tekst.",
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": ["normal", "bold"],
+                    "properties": {
+                        "normal": {
+                            "$ref": "#/definitions/fontWeight",
+                            "examples": ["400"]
+                        },
+                        "bold": {
+                            "$ref": "#/definitions/fontWeight",
+                            "examples": ["600"]
+                        }
+                    }
+                },
+                "faces": {
+                    "description": "Fontfiler temaet leverer selv. Filene ligger i `fonts/`-mappa ved siden av temafila.",
+                    "type": "array",
+                    "items": { "$ref": "#/definitions/fontFace" }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "hexColor": {
+            "description": "Hex-farge på formen #RRGGBB.",
+            "type": "string",
+            "pattern": "^#[0-9a-fA-F]{6}$",
+            "examples": ["#006F4E"]
+        },
+        "colorPair": {
+            "description": "Fargen i lys og mørk modus.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["light", "dark"],
+            "properties": {
+                "light": { "$ref": "#/definitions/hexColor" },
+                "dark": { "$ref": "#/definitions/hexColor" }
+            }
+        },
+        "cssValue": {
+            "description": "En CSS-verdi uten ; { } \\ eller linjeskift.",
+            "type": "string",
+            "pattern": "^[^;{}\\\\\\n\\r]*[^;{}\\\\\\s][^;{}\\\\\\n\\r]*$"
+        },
+        "fontWeight": {
+            "description": "Et heltall fra 1 til 1000, som tall eller tekst.",
+            "anyOf": [
+                { "type": "integer", "minimum": 1, "maximum": 1000 },
+                { "type": "string", "pattern": "^0*([1-9][0-9]{0,2}|1000)$" }
+            ]
+        },
+        "fontFace": {
+            "description": "Én fontfil som temaet leverer selv.",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["family", "weight", "style", "fileName"],
+            "properties": {
+                "family": {
+                    "description": "Navnet fonten registreres med i `@font-face`, uten \" ; { } \\ eller linjeskift.",
+                    "type": "string",
+                    "pattern": "^[^;{}\\\\\\n\\r\"]*[^;{}\\\\\\s\"][^;{}\\\\\\n\\r\"]*$",
+                    "examples": ["Tema Sans"]
+                },
+                "weight": { "$ref": "#/definitions/fontWeight" },
+                "style": { "enum": ["normal", "italic"] },
+                "fileName": {
+                    "description": "Navnet på en .woff2-fil, uten mappe og bare med bokstavene a–z, tall, mellomrom og _ . + ( ) -",
+                    "type": "string",
+                    "pattern": "^[A-Za-z0-9 _.+()-]+\\.woff2$",
+                    "examples": ["TemaSans-Regular.woff2"]
+                }
+            }
+        }
+    }
+}

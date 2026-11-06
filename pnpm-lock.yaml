@@ -268,6 +268,9 @@ importers:
       '@vitejs/plugin-react-swc':
         specifier: ^4.3.3
         version: 4.3.3(@swc/helpers@0.5.23)(vite@7.3.6(@types/node@26.1.2)(jiti@1.21.7)(lightningcss@1.33.0)(sass-embedded@1.100.0)(sass@1.102.0)(terser@5.44.1)(tsx@4.23.5)(yaml@2.9.1))
+      ajv:
+        specifier: ^8.18.0
+        version: 8.20.0
       autoprefixer:
         specifier: ^10.5.4
         version: 10.5.4(postcss@8.5.25)

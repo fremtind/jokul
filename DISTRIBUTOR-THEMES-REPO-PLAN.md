@@ -127,6 +127,11 @@ if a referenced file is missing.
 > - `validateThemeFile` returns readable errors with field paths, for `jokul theme validate`.
 > - `fileName` must be a plain `.woff2` name without folders. The missing-file check still
 >   belongs in the CLI (step 7).
+> - Unknown fields are errors at every level, except a top-level `$schema`.
+> - There is a JSON Schema for the format, published as
+>   `@fremtind/jokul/theme/theme-file.v1.schema.json` and hosted at
+>   `https://jokul.fremtind.no/schemas/theme-file/v1.json` (`THEME_FILE_SCHEMA_URL`).
+>   Every `themes/<name>/theme.json` in Part B should start with that `$schema`.
 
 **External `_fonts.scss`** (`THEME-GENERATION-PLAN.md` step 5). The in-repo
 `_fonts.scss` does `@use "../../fonts"`, which can't resolve from another repo. For
@@ -144,7 +149,7 @@ font URLs relative to `theme.css`.
 distributor-themes/
 ├─ themes/
 │  └─ <name>/
-│     ├─ theme.json          # JokulThemeFile (exported from the temabygger or generated)
+│     ├─ theme.json          # JokulThemeFile (exported from the temabygger or generated), with "$schema"
 │     └─ fonts/*.woff2       # optional, licensed fonts
 ├─ distributors.json         # distributor → theme mapping
 ├─ schemas/distributors.schema.json

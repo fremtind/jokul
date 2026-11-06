@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { generatePalette } from "../colors/generate.js";
 import {
     type JokulThemeFile,
+    THEME_FILE_SCHEMA_URL,
     THEME_FILE_VERSION,
     isHex,
     isThemeName,
@@ -66,18 +67,44 @@ describe("validateThemeFile", () => {
         expect(result.valid && result.theme).not.toHaveProperty("fonts");
     });
 
-    it("fjerner ukjente felter", () => {
+    it("avviser ukjente felter", () => {
         const theme = createTheme({ extra: true });
         const colorTokens = structuredClone(theme.colorTokens);
-        Object.assign(colorTokens.background.page, { comment: "ignoreres" });
+        Object.assign(colorTokens.background.page, { comment: "skrivefeil" });
 
-        const result = validateThemeFile({ ...theme, colorTokens });
-
-        expect(result.valid).toBe(true);
-        expect(result.valid && result.theme).not.toHaveProperty("extra");
         expect(
-            result.valid && result.theme.colorTokens.background.page,
-        ).toEqual(theme.colorTokens.background.page);
+            errorsFor({
+                ...theme,
+                colorTokens,
+                fonts: {
+                    ...validFonts,
+                    family: { ...validFonts.family, bold: "x" },
+                    weight: { ...validFonts.weight, light: "300" },
+                    faces: [{ ...validFonts.faces[0], url: "x" }],
+                    extra: true,
+                },
+            }),
+        ).toEqual([
+            "colorTokens.background.page.comment: ukjent felt.",
+            "fonts.family.bold: ukjent felt.",
+            "fonts.weight.light: ukjent felt.",
+            "fonts.faces[0].url: ukjent felt.",
+            "fonts.extra: ukjent felt.",
+            "extra: ukjent felt.",
+        ]);
+    });
+
+    it("godtar $schema, men tar det ikke med i temaet", () => {
+        const theme = createTheme();
+        const result = validateThemeFile({
+            $schema: THEME_FILE_SCHEMA_URL,
+            ...theme,
+        });
+
+        expect(result).toEqual({ valid: true, theme });
+        expect(errorsFor({ ...theme, $schema: 1 })).toEqual([
+            "$schema: må være en tekst, fikk 1.",
+        ]);
     });
 
     it.each([null, [], "tema", 42])(
