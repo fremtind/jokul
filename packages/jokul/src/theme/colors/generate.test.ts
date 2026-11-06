@@ -1,18 +1,17 @@
 import { describe, expect, it } from "vitest";
-import expected from "./generate.fixture.json" with { type: "json" };
 import { generatePalette } from "./generate.js";
-import type { HexColor } from "./types.js";
 
 describe("generatePalette", () => {
-    it.each(Object.entries(expected))(
-        "gir samme palett som temabyggeren for %s",
-        (key, palette) => {
-            const [baseColor, method] = key.split("-") as [
-                HexColor,
-                "wcag" | "oklch",
-            ];
-
-            expect(generatePalette(baseColor, method)).toEqual(palette);
+    // Låser fargene som genereres, slik at utilsiktede endringer i algoritmen,
+    // fargemetadataene eller chroma-js blir oppdaget. Ved en tilsiktet endring
+    // oppdaterer du generate.<metode>.fixture.json med:
+    // pnpm --filter @fremtind/jokul test src/theme/colors/generate.test.ts -u
+    it.each(["wcag", "oklch"] as const)(
+        "gir stabil palett for #006F4E med %s",
+        async (method) => {
+            await expect(
+                `${JSON.stringify(generatePalette("#006F4E", method), null, 4)}\n`,
+            ).toMatchFileSnapshot(`./generate.${method}.fixture.json`);
         },
     );
 });
