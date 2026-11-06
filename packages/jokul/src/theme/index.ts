@@ -14,6 +14,18 @@ export {
     type SimplePalette,
 } from "./colors/types.js";
 export {
+    isHex,
+    isThemeName,
+    type JokulThemeFile,
+    type JokulThemeFontFace,
+    type JokulThemeFonts,
+    normalizeHex,
+    parseThemeFile,
+    THEME_FILE_VERSION,
+    type ThemeFileValidationResult,
+    validateThemeFile,
+} from "./file/themeFile.js";
+export {
     generateContrastColor,
     getLightnessFromHex,
     getLuminanceFromLightness,

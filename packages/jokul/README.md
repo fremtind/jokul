@@ -200,6 +200,24 @@ palette.background.page.light; // lys bakgrunnsfarge
 palette.background.page.dark; // mørk bakgrunnsfarge
 ```
 
+Et tema lagres som en temafil (`JokulThemeFile`): JSON med navn, farger og eventuelt fonter. Bruk `validateThemeFile` for å sjekke en fil og få lesbare feilmeldinger, eller `parseThemeFile` hvis du bare trenger temaet:
+
+```ts
+import { generatePalette, validateThemeFile } from "@fremtind/jokul/theme";
+
+const result = validateThemeFile({
+    version: 1,
+    name: "mitt-tema",
+    title: "Mitt tema",
+    colorTokens: generatePalette("#006F4E"),
+    includeDarkMode: true,
+});
+
+if (!result.valid) {
+    console.error(result.errors.join("\n"));
+}
+```
+
 For en full liste over funksjoner og typer kan du kikke i [theme-mappa](src/theme/)
 
 ## Tailwind

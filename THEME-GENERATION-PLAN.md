@@ -112,6 +112,44 @@ Add `src/theme/file/themeFile.ts` exporting:
 the portal maps `FontOptionId` → resolved values when it serializes. jokul owns the file
 contract; the portal owns the picker.
 
+> **Done**, together with the theme file amendment from `DISTRIBUTOR-THEMES-REPO-PLAN.md`
+> Part A. Everything is in `src/theme/file/themeFile.ts` and exported from
+> `src/theme/index.ts`. Deviations and additions:
+>
+> - **`fonts` follows the typography tokens.** The shape is
+>   `{ family: { regular, display, mono? }, weight: { normal, bold }, faces? }` rather
+>   than a separate `{ family, weight }` per font. Jøkul has only one weight pair
+>   (`--jkl-font-weight-normal`/`-bold`), and the portal already uses the regular font's
+>   weights for both fonts in the preview and the mail export. A per-font weight would
+>   have been silently dropped. `mono` and `faces` come from Part A.
+> - **`title` was added** (optional). The portal's `themeName` is free text ("Brukes til
+>   å navngi fila di"), but `name` ends up in `[data-brand="…"]`, folder names, SCSS
+>   variables and types. So `name` must match `isThemeName` (`/^[a-z][a-z0-9]*(-[a-z0-9]+)*$/`),
+>   and the display name goes in `title`, which also feeds the `title` in Part A's
+>   `manifest.json`.
+> - **`colorTokens` is a `SimpleLightDarkPalette`**, not an `EditableLightDarkPalette`.
+>   Every group and role from the colour metadata must be present with a valid `#RRGGBB`
+>   for both `light` and `dark`, even when `includeDarkMode` is `false` (the generator
+>   always produces both). Step 3 decides what to emit without dark mode.
+> - **`validateThemeFile(value)` was added** and returns
+>   `{ valid: true, theme } | { valid: false, errors: string[] }`. The errors are readable
+>   Norwegian messages with field paths, such as
+>   `colorTokens.text.default: mangler.`, ready for `jokul theme validate` (step 7).
+>   `parseThemeFile` is a thin wrapper that returns `undefined` on errors.
+> - **Unknown fields are handled.** Unknown top-level and colour-entry fields are dropped.
+>   Unknown colour groups and roles are errors, so a file from another Jøkul version
+>   fails loudly instead of building an incomplete theme.
+> - **CSS safety.** Font values end up raw in generated CSS and SCSS, so `;`, `{`, `}`,
+>   `\` and line breaks are rejected (and `"` in `faces[].family`).
+>   `faces[].fileName` must be a plain `.woff2` file name without folders, which also
+>   keeps the CLI's font copy inside `fonts/`. Checking that the file exists stays in the
+>   CLI's `validate` (step 7), because this module is browser-safe.
+> - **Font weights** accept both `400` and `"400"`. They are normalised to strings in
+>   `fonts.weight` and to numbers in `faces[].weight`, matching the tokens.
+> - **Exports:** `isHex`, `normalizeHex` and `isThemeName`. The portal still has its own
+>   `isHex`/`normalizeHex` until the rest of step 8.
+> - The README section from step 8 part 1 now also shows `validateThemeFile`.
+
 ## Step 3 — Palette → brand tokens JSON (browser-safe)
 
 This is the diagram's "generere tokens fra fargetema på format brukt i temabyggeren". It is
@@ -292,9 +330,22 @@ still uses them (`colorjs.io` is also a portal dependency and may overlap).
 > - `packages/jokul/README.md` has a short "Temagenerering" section for the new entry
 >   (a first piece of step 9).
 >
-> **Still open (needs step 2):** `isHex`/`normalizeHex` from the package instead of
-> `_shared/utils.ts`, `_shared/themeDraftPayload.ts` wrapping `parseThemeFile`, and the
-> export/download step emitting a `JokulThemeFile`.
+> **Still open (step 2 is now done, so this is unblocked):**
+>
+> - Take `isHex`/`normalizeHex` from the package instead of `_shared/utils.ts`.
+> - Have the export step emit a `JokulThemeFile`. Today the only export is a `mailto:` link
+>   built in `_shared/themeTokenMail.ts`, used from `_steps/AdjustColorsStep.tsx`.
+>
+> **Correction to the plan above:** `_shared/themeDraftPayload.ts` should **not** wrap
+> `parseThemeFile`. That payload is the portal's editable state: localStorage and the
+> `?draft=` preview link. It holds `FontOptionId`s, `hasCustomDisplayFont`, a free-text
+> `themeName` and hex values that may be half-typed. None of these are valid in a theme
+> file. Keep that format as it is, and add a `draftToThemeFile(draft)` mapping in the
+> portal instead:
+>
+> - `name` is the slugified `themeName` (handle æ/ø/å), and `title` is `themeName`.
+> - Fonts are resolved through `FONT_OPTIONS`.
+> - Run the result through `validateThemeFile` before offering it for download.
 
 ## Step 9 — "Instruksjoner for å bygge tema"
 

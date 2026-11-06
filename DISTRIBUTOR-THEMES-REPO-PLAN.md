@@ -112,6 +112,22 @@ fonts?: {
 `fileName` is resolved against the `fonts/` folder next to the theme file. `validate` fails
 if a referenced file is missing.
 
+> **Done in `THEME-GENERATION-PLAN.md` step 2**, with a slightly different shape. `fonts`
+> follows the typography tokens:
+>
+> ```ts
+> fonts?: {
+>   family: { regular: string; display: string; mono?: string };
+>   weight: { normal: string; bold: string };
+>   faces?: Array<{ family: string; weight: number; style: "normal" | "italic"; fileName: string }>;
+> }
+> ```
+>
+> - The theme file also has an optional `title`, the source of `title` in `manifest.json`.
+> - `validateThemeFile` returns readable errors with field paths, for `jokul theme validate`.
+> - `fileName` must be a plain `.woff2` name without folders. The missing-file check still
+>   belongs in the CLI (step 7).
+
 **External `_fonts.scss`** (`THEME-GENERATION-PLAN.md` step 5). The in-repo
 `_fonts.scss` does `@use "../../fonts"`, which can't resolve from another repo. For
 external builds, leave that `@use` out and emit `$webfonts-dir-<name>: "./fonts" !default;`.
