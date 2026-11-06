@@ -1,0 +1,48 @@
+import{j as e}from"./iframe-DY_UNGw3.js";import{B as o}from"./Button-CUHMnuw3.js";import{F as r}from"./Flex-LWgvdm1W.js";import{F as s}from"./FieldGroup-DnwCZlAW.js";import{R as i}from"./RadioPanel-DRAH2WVI.js";import{S as m}from"./Select-Dl0jfGi_.js";import{T as d}from"./TextInput-Cy1n2oHf.js";import"./preload-helper-PPVm8Dsz.js";import"./clsx-B-dksMZM.js";import"./usePreviousValue--GHruUyN.js";import"./Loader-BcJU36QW.js";import"./types-BlFGa32c.js";import"./useDelayedRender-akJ86Vlq.js";import"./SlotComponent-BSWVJxFG.js";import"./mergeRefs-_7lZvp9j.js";import"./useId-We28qqTa.js";import"./Label-D4_PNRYw.js";import"./SupportLabel-DE0XmpU0.js";import"./SuccessIcon-Cjpb78co.js";import"./Icon-BDSlQZXT.js";import"./WarningIcon-Blmm6qnm.js";import"./InputPanel-h_vDeIk-.js";import"./Checkbox-CzSb7nEm.js";import"./RadioButton-D9dX4htn.js";import"./BaseRadioButton-DEzKH1YF.js";import"./InputGroup-Ba8TDnJI.js";import"./Search-DRCqFQml.js";import"./Text-8OigWPUs.js";import"./Title-E5LYu1O3.js";import"./useListNavigation-BfBhxZtg.js";import"./ArrowDownIcon-B0s31txS.js";import"./CloseIcon-CEBlNmbo.js";import"./BaseTextInput-B1oVNvsP.js";import"./IconButton-Be-F784J.js";const w={title:"Skjermbilder/Kjøpsflyt",parameters:{layout:"centered"},args:{labelProps:{variant:"large"}}},n={name:"Når ble boligen bygget?",render:l=>e.jsxs(r,{direction:"column",gap:"l",alignItems:"center",children:[e.jsx(r,{direction:"column",gap:"m",asChild:!0,children:e.jsx(s,{legend:"Når ble boligen bygget?",description:"Her kommer det en hjelpetekst",...l,children:e.jsx(d,{label:"Byggeår",defaultValue:1960})})}),e.jsx(o,{variant:"primary",children:"Fortsett"})]})},t={name:"Hva er boligens adresse?",render:l=>e.jsxs(r,{direction:"column",gap:"l",alignItems:"center",children:[e.jsx(r,{direction:"column",gap:"m",asChild:!0,children:e.jsxs(s,{legend:"Hva er boligens adresse?",description:"Her kommer det en hjelpetekst",...l,children:[e.jsx(d,{label:"Postnummer",placeholder:"Postnummer"}),e.jsx(m,{searchable:!0,label:"Adresse",placeholder:"Velg adresse",items:[{value:"kitterødveien",label:"Kitterødveien"}]}),e.jsx(m,{searchable:!0,label:"Gatenummer",placeholder:"Velg nummer",items:[{value:"10",label:"10"}]})]})}),e.jsx(o,{variant:"primary",children:"Fortsett"})]})},a={name:"Skal du leie ut boligen?",render:l=>e.jsxs(r,{direction:"column",gap:"l",alignItems:"center",children:[e.jsx(r,{direction:"column",gap:"m",asChild:!0,children:e.jsxs(s,{legend:"Skal du leie ut boligen?",...l,children:[e.jsx(i,{name:"boligutleie",label:"Ja, hele boligen",value:"Ja, hele boligen"}),e.jsx(i,{name:"boligutleie",label:"Ja, deler av boligen",value:"Ja, deler av boligen"}),e.jsx(i,{name:"boligutleie",label:"Nei",value:"Nei"})]})}),e.jsx(o,{variant:"primary",children:"Fortsett"})]})},z=["NårBleBoligenBygget","HvaErBoligensAdresse","SkalDuLeieUtBoligen"];n.parameters={...n.parameters,docs:{...n.parameters?.docs,source:{originalSource:`{
+  name: "Når ble boligen bygget?",
+  render: args => {
+    return <Flex direction="column" gap="l" alignItems="center">
+                <Flex direction="column" gap="m" asChild>
+                    <FieldGroup legend="Når ble boligen bygget?" description="Her kommer det en hjelpetekst" {...args}>
+                        <TextInput label="Byggeår" defaultValue={1960} />
+                    </FieldGroup>
+                </Flex>
+                <Button variant="primary">Fortsett</Button>
+            </Flex>;
+  }
+}`,...n.parameters?.docs?.source}}};t.parameters={...t.parameters,docs:{...t.parameters?.docs,source:{originalSource:`{
+  name: "Hva er boligens adresse?",
+  render: args => {
+    return <Flex direction="column" gap="l" alignItems="center">
+                <Flex direction="column" gap="m" asChild>
+                    <FieldGroup legend="Hva er boligens adresse?" description="Her kommer det en hjelpetekst" {...args}>
+                        <TextInput label="Postnummer" placeholder="Postnummer" />
+                        <Select searchable label="Adresse" placeholder="Velg adresse" items={[{
+            value: "kitterødveien",
+            label: "Kitterødveien"
+          }]} />
+                        <Select searchable label="Gatenummer" placeholder="Velg nummer" items={[{
+            value: "10",
+            label: "10"
+          }]} />
+                    </FieldGroup>
+                </Flex>
+                <Button variant="primary">Fortsett</Button>
+            </Flex>;
+  }
+}`,...t.parameters?.docs?.source}}};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  name: "Skal du leie ut boligen?",
+  render: args => {
+    return <Flex direction="column" gap="l" alignItems="center">
+                <Flex direction="column" gap="m" asChild>
+                    <FieldGroup legend="Skal du leie ut boligen?" {...args}>
+                        <RadioPanel name="boligutleie" label="Ja, hele boligen" value="Ja, hele boligen" />
+
+                        <RadioPanel name="boligutleie" label="Ja, deler av boligen" value="Ja, deler av boligen" />
+                        <RadioPanel name="boligutleie" label="Nei" value="Nei" />
+                    </FieldGroup>
+                </Flex>
+                <Button variant="primary">Fortsett</Button>
+            </Flex>;
+  }
+}`,...a.parameters?.docs?.source}}};export{t as HvaErBoligensAdresse,n as NårBleBoligenBygget,a as SkalDuLeieUtBoligen,z as __namedExportsOrder,w as default};
