@@ -27,6 +27,7 @@
     .jkl-help-popover {
         width: max-content;
         max-width: min(40ch, 80vw);
+        white-space: normal;
         padding: var(--jkl-unit-15);
         margin: var(--jkl-unit-05);
         position-anchor: --trigger;
