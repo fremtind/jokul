@@ -28,6 +28,7 @@
         width: max-content;
         max-width: min(40ch, 80vw);
         padding: var(--jkl-unit-30);
+        white-space: normal;
         margin: var(--jkl-unit-05);
         position-anchor: --trigger;
         background-color: var(--jkl-color-background-container-inverted);
