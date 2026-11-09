@@ -69,9 +69,14 @@
     @include jkl.text-style("paragraph-medium");
 }
 
+.details {
+    margin-block-start: var(--jkl-spacing-8);
+
+    @include jkl.text-style("paragraph-medium");
+}
+
 .digest {
     color: var(--jkl-color-text-subdued);
 
     @include jkl.text-style("text-small");
-    @include jkl.use-font-family("Jokul Mono");
 }

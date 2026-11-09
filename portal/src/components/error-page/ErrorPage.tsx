@@ -2,6 +2,9 @@
 
 import { Button } from "@fremtind/jokul/button";
 import { Flex } from "@fremtind/jokul/flex";
+import { List, ListItem } from "@fremtind/jokul/list";
+import { Text } from "@fremtind/jokul/typography";
+import { Title } from "@fremtind/jokul/typography";
 import styles from "./error-page.module.scss";
 import {
     ERROR_PAGE_CONTENT,
@@ -36,7 +39,8 @@ export interface ErrorPageProps {
  * (se `app/global-error.tsx`).
  */
 export const ErrorPage = ({ status, onRetry, digest }: ErrorPageProps) => {
-    const { title, description, tone, actions } = ERROR_PAGE_CONTENT[status];
+    const { title, description, details, tone, actions } =
+        ERROR_PAGE_CONTENT[status];
 
     const renderAction = (action: ErrorAction, isPrimary: boolean) => {
         const variant = isPrimary ? "primary" : "secondary";
@@ -100,11 +104,18 @@ export const ErrorPage = ({ status, onRetry, digest }: ErrorPageProps) => {
             data-tone={tone}
         >
             <div>
-                <h1 className={styles.heading}>
-                    <span className={styles.status}>{status}</span>
-                    <span>{title}</span>
-                </h1>
+                <Flex direction="column" as="hgroup" gap="8">
+                    <Text size="m">{status}</Text>
+                    <Title as="h2">{title}</Title>
+                </Flex>
                 <p className={styles.description}>{description}</p>
+                {details ? (
+                    <List className={styles.details}>
+                        {details.map((detail) => (
+                            <ListItem key={detail}>{detail}</ListItem>
+                        ))}
+                    </List>
+                ) : null}
             </div>
 
             <Flex gap="s" wrap="wrap">
