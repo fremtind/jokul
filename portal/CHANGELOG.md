@@ -1,5 +1,28 @@
 # portal
 
+## 1.11.9
+
+### Patch Changes
+
+- Updated dependencies [6aec753]
+- Updated dependencies [a9b7ee2]
+- Updated dependencies [6d11c49]
+- Updated dependencies [885c3e3]
+- Updated dependencies [6e0f6fb]
+- Updated dependencies [13c4e66]
+- Updated dependencies [bfbdd0e]
+- Updated dependencies [ae1d48c]
+- Updated dependencies [b49ffd8]
+- Updated dependencies [8590628]
+- Updated dependencies [588e89a]
+- Updated dependencies [797b1a7]
+- Updated dependencies [8ec8ae8]
+- Updated dependencies [a3a9f5d]
+- Updated dependencies [aab3c7f]
+- Updated dependencies [83b22ee]
+- Updated dependencies [ea61d93]
+  - @fremtind/jokul@5.6.0
+
 ## 1.11.8
 
 ### Patch Changes
