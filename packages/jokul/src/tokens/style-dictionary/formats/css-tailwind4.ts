@@ -23,20 +23,19 @@ function isTextStyleToken(token: TransformedToken): boolean {
 }
 
 /**
- * Formats color tokens for Tailwind v4 @theme.
- * Uses light-dark() CSS function for color scheme support.
+ * Maps Tailwind colors to Jøkul's theme variables so data-brand and data-theme apply.
  */
 function formatColorVariables(
     tokens: TransformedToken[],
     indentation: string,
+    prefix: string,
 ): string {
     return tokens
         .filter(isColorSchemeToken)
-        .map((token) => {
-            const lightValue = token.value.light;
-            const darkValue = token.value.dark;
-            return `${indentation}--${token.name}: ${lightValue};\n${indentation}--${token.name}: light-dark(${lightValue}, ${darkValue});`;
-        })
+        .map(
+            (token) =>
+                `${indentation}--${token.name}: var(--${prefix}-${token.name});`,
+        )
         .join("\n");
 }
 
@@ -167,15 +166,15 @@ function formatTextUtilities(
  * Format for Tailwind v4 theme CSS.
  *
  * This format generates a Tailwind v4 compatible theme file with:
- * - @theme block containing CSS custom properties for colors, spacing, fonts, etc.
+ * - @theme inline block mapping colors to Jøkul CSS variables, plus spacing, fonts, etc.
  * - @utility rules for responsive typography utilities
  *
  * The output is designed to be imported into a Tailwind v4 CSS file.
  *
  * @example
  * ```css
- * @theme {
- *     --color-background-page: light-dark(#F4F2EF, #1B1917);
+ * @theme inline {
+ *     --color-background-page: var(--jkl-color-background-page);
  *     --spacing-16: 1rem;
  *     --font-weight-bold: 700;
  *     --breakpoint-medium: 680px;
@@ -214,7 +213,11 @@ const cssTailwind4Format: Format = {
         const indentation = "    ";
         const prefix = options.prefix as string;
 
-        const colorVariables = formatColorVariables(allTokens, indentation);
+        const colorVariables = formatColorVariables(
+            allTokens,
+            indentation,
+            prefix,
+        );
         const spacingVariables = formatSpacingVariables(allTokens, indentation);
         const fontWeightVariables = formatFontWeightVariables(
             allTokens,
@@ -264,7 +267,7 @@ const cssTailwind4Format: Format = {
         ].join("\n");
 
         return `${await fileHeader({ file })}
-@theme {
+@theme inline {
     --*: initial;
 
 ${themeContent}
