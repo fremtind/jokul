@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.7.7
+
+### Patch Changes
+
+- 1188ca1: Hjelpetekst i `Help` brytes nå på flere linjer også når komponenten står i en `nowrap`-kontekst, slik at teksten ikke går ut av popoveren på smale skjermer.
+
 ## 4.7.6
 
 ### Patch Changes
