@@ -245,7 +245,7 @@ Preset-en inkluderer også hjelpeklasser for alle tekststilene i Jøkul via en p
 <p class="body">Lorem ipsum…</p>
 ```
 
-I tillegg finnes verdier for fontvekt og -størrelse, og for linjehøyder fra skalaen til Jøkul.
+I tillegg finnes verdier for fontvekt og -størrelse, og for linjehøyder fra skalaen til Jøkul. Linjehøyde-tokenene er `flush` (100 %), `tight` (130 %) og `relaxed` (150 %). `relaxed` brukes blant annet i avsnittstekst (`paragraph`).
 
 ```html
 <p>Dette er <em class="font-bold">veldig</em> viktig</p>
