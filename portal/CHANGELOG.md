@@ -1,5 +1,19 @@
 # portal
 
+## 1.10.0-next.7
+
+### Patch Changes
+
+- Updated dependencies [912e318]
+- Updated dependencies [ccec153]
+- Updated dependencies [ed4156a]
+- Updated dependencies [1a558bb]
+- Updated dependencies [6b0e30f]
+- Updated dependencies [b5938f7]
+- Updated dependencies [577c3e2]
+- Updated dependencies [e5e03ba]
+  - @fremtind/jokul@6.1.0-next.7
+
 ## 1.10.0-next.6
 
 ### Patch Changes
