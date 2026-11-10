@@ -9,6 +9,8 @@
         "portal": "1.9.0"
     },
     "changesets": [
+        "blue-banks-shine",
+        "brave-dogs-dance",
         "brave-fonts-weigh",
         "brave-heads-rise",
         "brave-states-align",
@@ -17,10 +19,13 @@
         "calm-panels-rest",
         "calm-ravens-glow",
         "cyan-spoons-cut",
+        "dirty-knives-press",
         "fruity-bananas-greet",
         "fruity-dolls-beam",
         "fuzzy-cards-pad",
         "gentle-foxes-navigate",
+        "green-banks-theme",
+        "help-text-wraps",
         "khaki-owls-run",
         "locked-labels-hint",
         "lucky-pandas-listen",
@@ -39,8 +44,12 @@
         "slimy-pears-visit",
         "slow-mugs-float",
         "smart-otters-decide",
+        "soft-lines-settle",
+        "sporing-direkte-attributter-vinner",
+        "tame-llamas-smile",
         "tidy-borders-dim",
         "trygge-ugler-lyser",
+        "violet-otters-drift",
         "warm-grapes-dig",
         "wide-kids-flash"
     ]

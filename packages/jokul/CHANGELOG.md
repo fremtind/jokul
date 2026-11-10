@@ -1,5 +1,25 @@
 # Change Log
 
+## 6.1.0-next.7
+
+### Minor Changes
+
+- 912e318: Legger til SpareBank 1 sine fonter og farger som distributørtema, med farger tilpasset både lys og mørk modus.
+- ed4156a: Legger til Eika som merkevare med farger og fonter.
+- b5938f7: `data-track-*`-attributter satt direkte i JSX-en vinner nå over komponentens egne defaults. Tidligere ble de overskrevet – og i komponenter uten tekstkilde for label fjernet helt – fordi attributtene ble satt etter at props ble spredt ut. Det gjør at samme konvensjon gjelder enten komponenten kommer fra Jøkul eller ikke. Feltene i `trackingProps.extra` vinner nå på samme måte.
+- 577c3e2: Legger til `data-track-*`-attributter på alle komponenter, som metadata team kan bruke til å støtte sporing av brukerne. Hver komponent får et `name`- og `label`-attributt som ikke kan endres, og en `trackingProps`-prop med `id` (overskrivbar) og `extra` (helt åpen, for prosjektspesifikke detaljer).
+
+  `CookieConsent` får to nye valgfrie props, `appName` og `team`, for å skille sporingsdata mellom apper og team. Disse blir påkrevd fra Jøkul 7 når `statistics`-samtykke er satt.
+
+  Alt er valgfritt og bakoverkompatibelt. Ingenting er påkrevd i denne versjonen. Se `TRACKING.md` for hvordan du setter opp sporing mot GTM eller Mixpanel, eller leser attributtene med egen kode.
+
+### Patch Changes
+
+- ccec153: Fargeverdiene i funksjonsfargesporene er justert for å oppnå bedre kontrast og legge til rette for flere bruksområder.
+- 1a558bb: Hjelpetekst i `Help` brytes nå på flere linjer også når komponenten står i en `nowrap`-kontekst, slik at teksten ikke går ut av popoveren på smale skjermer.
+- 6b0e30f: Reduserer linjehøyden i typografitokenet `relaxed` fra 160 % til 150 % for å gi avsnittstekst et strammere uttrykk.
+- e5e03ba: Tailwind v4-fargeklasser bruker nå Jøkuls fargevariabler og følger `data-brand` og `data-theme` også når attributtene settes på et element under roten.
+
 ## 6.1.0-next.6
 
 ### Patch Changes
