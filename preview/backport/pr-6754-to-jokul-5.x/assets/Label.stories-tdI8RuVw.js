@@ -1,0 +1,13 @@
+import{j as e}from"./iframe-fpE_04G4.js";import{L as o}from"./Label-DWc_8rlg.js";/* empty css               */import s from"./Help.stories-B3N17BRO.js";import{H as t}from"./Help-CCLvqES_.js";import"./preload-helper-PPVm8Dsz.js";import"./clsx-B-dksMZM.js";import"./Icon-CitTsCpk.js";import"./Button-BTWglbXI.js";import"./usePreviousValue-CQMS_-q2.js";import"./Loader-DyUpJpnn.js";import"./useDelayedRender-DNLqz29g.js";const x={title:"Komponenter/Label",component:o,args:{standAlone:!0,srOnly:!1,children:"Label"}},r={name:"Label"},a={args:{children:e.jsxs(e.Fragment,{children:[e.jsx("span",{style:{whiteSpace:"normal"},children:"Label"})," ",e.jsx(t,{...s.args})]})}},S=["LabelStory","LabelMedHelp"];r.parameters={...r.parameters,docs:{...r.parameters?.docs,source:{originalSource:`{
+  name: "Label"
+}`,...r.parameters?.docs?.source}}};a.parameters={...a.parameters,docs:{...a.parameters?.docs,source:{originalSource:`{
+  args: {
+    children: <>
+                <span style={{
+        whiteSpace: "normal"
+      }}>Label</span>
+                {"\\u00A0"}
+                <Help {...HelpStories.args} />
+            </>
+  }
+}`,...a.parameters?.docs?.source}}};export{a as LabelMedHelp,r as LabelStory,S as __namedExportsOrder,x as default};
