@@ -98,7 +98,7 @@
         "type": "number",
         "flush": { "value": 1 },
         "tight": { "value": 1.3 },
-        "relaxed": { "value": 1.6 }
+        "relaxed": { "value": 1.5 }
     },
     "textStyle": {
         "type": "typography",
