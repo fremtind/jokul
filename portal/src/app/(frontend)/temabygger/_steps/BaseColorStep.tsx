@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@fremtind/jokul/button";
+import { ButtonGroup } from "@fremtind/jokul/button-group";
 import { Checkbox } from "@fremtind/jokul/checkbox";
 import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
@@ -48,9 +49,27 @@ export function BaseColorStep() {
             >
                 Lag tema for mørk modus, også
             </Checkbox>
-            <Button as={Link} href="/temabygger/farger" variant="primary">
-                Lag tema
-            </Button>
+            <Flex direction="column" gap="8">
+                <ButtonGroup
+                    mainAction={{ children: "Lag tema" }}
+                    secondaryAction={{ children: "Tilbake" }}
+                >
+                    <Button
+                        as={Link}
+                        href="/temabygger/farger"
+                        variant="primary"
+                    >
+                        Lag tema
+                    </Button>
+                    <Button
+                        as={Link}
+                        href="/temabygger/identitet"
+                        variant="secondary"
+                    >
+                        Tilbake
+                    </Button>
+                </ButtonGroup>
+            </Flex>
         </StepCard>
     );
 }
