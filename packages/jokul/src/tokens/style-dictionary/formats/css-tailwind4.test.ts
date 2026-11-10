@@ -34,27 +34,28 @@ async function runFormat(tokens: TransformedToken[]): Promise<string> {
 
 describe("css/tailwind4-format", () => {
     describe("fargevariabler (formatColorVariables)", () => {
-        it("bruker token.name (satt av name/kebab) til å bygge variabelnavnet i @theme", async () => {
-            const token = makeToken(
-                ["color", "neutral", "background", "page"],
-                { light: "#F4F2EF", dark: "#1B1917" },
-            );
+        it("kobler Tailwind farger til Jøkul variabler med @theme inline", async () => {
+            const token = makeToken(["color", "background", "page"], {
+                light: "#F3F0ED",
+                dark: "#0E0D0C",
+            });
             const result = await runFormat([token]);
+
+            expect(result).toContain("@theme inline {");
             expect(result).toContain(
-                "--color-neutral-background-page: #F4F2EF;",
-            );
-            expect(result).toContain(
-                "--color-neutral-background-page: light-dark(#F4F2EF, #1B1917);",
+                "--color-background-page: var(--jkl-color-background-page);",
             );
         });
 
-        it("håndterer camelCase path-segmenter korrekt via name/kebab", async () => {
+        it("bruker samme kebab-case-navn for Tailwind og Jøkul", async () => {
             const token = makeToken(["color", "accent", "backgroundAction"], {
                 light: "#aaa",
                 dark: "#333",
             });
             const result = await runFormat([token]);
-            expect(result).toContain("--color-accent-background-action:");
+            expect(result).toContain(
+                "--color-accent-background-action: var(--jkl-color-accent-background-action);",
+            );
         });
     });
 
