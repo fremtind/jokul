@@ -1,0 +1,64 @@
+import{r as a,j as e}from"./iframe-C_KoFO-y.js";import{a as w,T as f}from"./TableCaption-ClO_c9FT.js";import{T as b}from"./TableBody-BIcg7S-f.js";import{a as l,b as o}from"./TableRow-Dz0lGrzZ.js";import{a as h,T as x}from"./TableHeader-CxtKHifz.js";import{f as r}from"./_index-DcsdE9qR.js";/* empty css               *//* empty css               *//* empty css               *//* empty css               *//* empty css               */import{T as k}from"./TextInput-Ctu7yxUF.js";import{S as C}from"./Select-xz7K9bs1.js";import{B as j}from"./Button-CY_RQOl3.js";import{L as v}from"./Link-D2mlZ_Q9.js";import"./preload-helper-PPVm8Dsz.js";import"./clsx-B-dksMZM.js";import"./types-BlFGa32c.js";import"./tableContext-Dm6BFy_F.js";import"./ChevronUpIcon-BKp8kXk7.js";import"./Icon-BmQ9GAAf.js";import"./InputGroup-DDS5Ou9r.js";import"./useId-rOHQTZ2o.js";import"./Label-ByP5sYXK.js";import"./SupportLabel-DlFAd-7O.js";import"./SuccessIcon-Ceaa8f0k.js";import"./WarningIcon-D-PD6uTX.js";import"./BaseTextInput-JSDKhF8z.js";import"./IconButton-DZ4taCnA.js";import"./mergeRefs-_7lZvp9j.js";import"./Flex-B9PS5_ID.js";import"./SlotComponent-BDdbO-Vc.js";import"./Search-Be8wmKcL.js";import"./Text-DHHIOUyg.js";import"./Title-ClKi2nqx.js";import"./useListNavigation-DAow7XUs.js";import"./ArrowDownIcon-CWdZLHW9.js";import"./CloseIcon-CVsQYkyI.js";import"./usePreviousValue-nMH3n8Jy.js";import"./Loader-Bu1_yjNL.js";import"./useDelayedRender-B0v3e8OH.js";const ue={title:"Komponenter/Table",component:f,subcomponents:{TableCaption:w,TableHead:x,TableHeader:h,TableBody:b,TableRow:o,TableCell:l}},n={name:"Filtrering av data",args:{fullWidth:!0,caption:e.jsx(w,{srOnly:!0,children:"Overskrift for skjermlesere"}),children:""},render:T=>{const[s,c]=a.useState(""),[i,d]=a.useState(""),[p,g]=a.useState(r.rows);return a.useEffect(()=>{g(r.rows.filter(t=>t.toString().toLowerCase().includes(s.toLowerCase())).filter(t=>t[3].toString().toLowerCase().includes(i.toLowerCase())))},[s,i]),e.jsxs("div",{style:{width:"90dvw"},children:[e.jsxs("aside",{style:{display:"flex",gap:"24px",alignItems:"end",marginBlockEnd:"24px"},children:[e.jsx(k,{label:"Søk",value:s,placeholder:"Søk",onChange:t=>c(t.target.value)}),e.jsx(C,{items:[{label:"Alle statuser",value:""},"Faktura","Påminnelse","Inkasso"],label:"Status",name:"status",value:i,onChange:t=>d(t.target.value)}),e.jsx(j,{onClick:()=>{c(""),d("")},children:"Fjern filter"})]}),e.jsxs(f,{...T,children:[e.jsx(x,{sticky:!0,children:e.jsx(o,{children:r.columns.slice(0).map((t,m)=>e.jsx(h,{bold:!0,children:t},m))})}),e.jsx(b,{children:p.length!==0?p.map((t,m)=>e.jsxs(o,{children:[e.jsx(l,{children:e.jsx(v,{download:`${t[3]} ${new Date(t[0]).toLocaleDateString()}`,href:"#",children:new Date(t[0]).toLocaleDateString()})}),t.slice(1).map((S,u)=>e.jsx(l,{"data-th":r.columns[u],children:S.toLocaleString()},u))]},m)):e.jsx(o,{children:e.jsx(l,{colSpan:99,children:"Fant ingen fakturaer."})})})]})]})}},we=["TableFiltering"];n.parameters={...n.parameters,docs:{...n.parameters?.docs,source:{originalSource:`{
+  name: "Filtrering av data",
+  args: {
+    fullWidth: true,
+    caption: <TableCaption srOnly>Overskrift for skjermlesere</TableCaption>,
+    children: ""
+  },
+  render: args => {
+    const [search, setSearch] = useState("");
+    const [status, setStatus] = useState("");
+    const [filteredRows, setFilteredRows] = useState(faktura.rows);
+    useEffect(() => {
+      setFilteredRows(faktura.rows.filter(row => row.toString().toLowerCase().includes(search.toLowerCase())).filter(row => row[3].toString().toLowerCase().includes(status.toLowerCase())));
+    }, [search, status]);
+    return <div style={{
+      width: "90dvw"
+    }}>
+                <aside style={{
+        display: "flex",
+        gap: "24px",
+        alignItems: "end",
+        marginBlockEnd: "24px"
+      }}>
+                    <TextInput label={"Søk"} value={search} placeholder={"Søk"} onChange={e => setSearch(e.target.value)} />
+                    <Select items={[{
+          label: "Alle statuser",
+          value: ""
+        }, "Faktura", "Påminnelse", "Inkasso"]} label={"Status"} name={"status"} value={status} onChange={e => setStatus(e.target.value)} />
+
+                    <Button onClick={() => {
+          setSearch("");
+          setStatus("");
+        }}>
+                        Fjern filter
+                    </Button>
+                </aside>
+                <Table {...args}>
+                    <TableHead sticky={true}>
+                        <TableRow>
+                            {faktura.columns.slice(0).map((column, index) => <TableHeader key={index} bold>
+                                    {column}
+                                </TableHeader>)}
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {filteredRows.length !== 0 ? filteredRows.map((row, rowIndex) => <TableRow key={rowIndex}>
+                                    <TableCell>
+                                        <Link download={\`\${row[3]} \${new Date(row[0] as Date).toLocaleDateString()}\`} href={"#"}>
+                                            {new Date(row[0] as Date).toLocaleDateString()}
+                                        </Link>
+                                    </TableCell>
+                                    {row.slice(1).map((cell, cellIndex) => <TableCell key={cellIndex} data-th={faktura.columns[cellIndex]}>
+                                            {cell.toLocaleString()}
+                                        </TableCell>)}
+                                </TableRow>) : <TableRow>
+                                <TableCell colSpan={99}>
+                                    Fant ingen fakturaer.
+                                </TableCell>
+                            </TableRow>}
+                    </TableBody>
+                </Table>
+            </div>;
+  }
+}`,...n.parameters?.docs?.source}}};export{n as TableFiltering,we as __namedExportsOrder,ue as default};
