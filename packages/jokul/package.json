@@ -60,6 +60,36 @@
                 "default": "./build/cjs/utilities/index.cjs"
             }
         },
+        "./metadata": {
+            "import": {
+                "types": "./build/es/components/metadata.d.ts",
+                "default": "./build/es/components/metadata.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/metadata.d.cts",
+                "default": "./build/cjs/components/metadata.cjs"
+            }
+        },
+        "./theme": {
+            "import": {
+                "types": "./build/es/theme/index.d.ts",
+                "default": "./build/es/theme/index.js"
+            },
+            "require": {
+                "types": "./build/cjs/theme/index.d.cts",
+                "default": "./build/cjs/theme/index.cjs"
+            }
+        },
+        "./types": {
+            "import": {
+                "types": "./build/es/components/types.d.ts",
+                "default": "./build/es/components/types.js"
+            },
+            "require": {
+                "types": "./build/cjs/components/types.d.cts",
+                "default": "./build/cjs/components/types.cjs"
+            }
+        },
         "./*": {
             "import": {
                 "types": "./build/es/components/*/index.d.ts",
@@ -83,7 +113,9 @@
         "figma:publish": "figma connect publish"
     },
     "dependencies": {
+        "chroma-js": "^3.2.0",
         "downshift": "^9.4.0",
+        "hsluv": "^1.0.2",
         "match-sorter": "^8.3.0"
     },
     "optionalDependencies": {
@@ -98,6 +130,7 @@
         "@babel/core": "^8.0.1",
         "@babel/preset-react": "^8.0.1",
         "@rollup/plugin-terser": "^1.0.0",
+        "@types/chroma-js": "^3.1.2",
         "@types/react": "18.3.1",
         "@vitejs/plugin-react": "^4.7.0",
         "@vitejs/plugin-react-swc": "^4.3.3",

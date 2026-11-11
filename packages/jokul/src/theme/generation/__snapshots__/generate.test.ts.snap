@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generatePalette > gir stabil palett for #006F4E med oklch 1`] = `
+"{
+    "background": {
+        "page": {
+            "light": "#eef2f0",
+            "dark": "#0c0e0d"
+        },
+        "container": {
+            "light": "#ffffff",
+            "dark": "#202423"
+        },
+        "container-accent": {
+            "light": "#dae2de",
+            "dark": "#313836"
+        },
+        "contrast": {
+            "light": "#006F4E",
+            "dark": "#4f9c85"
+        }
+    },
+    "text": {
+        "default": {
+            "light": "#0c0e0d",
+            "dark": "#ffffff"
+        },
+        "subdued": {
+            "light": "#5f6260",
+            "dark": "#c3c7c5"
+        },
+        "accent": {
+            "light": "#0c0e0d",
+            "dark": "#ffffff"
+        },
+        "on-contrast": {
+            "light": "#ffffff",
+            "dark": "#000000"
+        }
+    },
+    "border": {
+        "default": {
+            "light": "#5f6260",
+            "dark": "#c3c7c5"
+        },
+        "subdued": {
+            "light": "#c3c6c5",
+            "dark": "#5f6261"
+        },
+        "strong": {
+            "light": "#0c0e0d",
+            "dark": "#ffffff"
+        }
+    }
+}
+"
+`;
+
+exports[`generatePalette > gir stabil palett for #006F4E med wcag 1`] = `
+"{
+    "background": {
+        "page": {
+            "light": "#edf1f0",
+            "dark": "#0c0d0d"
+        },
+        "container": {
+            "light": "#ffffff",
+            "dark": "#1f2321"
+        },
+        "container-accent": {
+            "light": "#d8e1de",
+            "dark": "#2f3634"
+        },
+        "contrast": {
+            "light": "#006F4E",
+            "dark": "#4f9c85"
+        }
+    },
+    "text": {
+        "default": {
+            "light": "#0b0d0c",
+            "dark": "#ffffff"
+        },
+        "subdued": {
+            "light": "#5c5e5d",
+            "dark": "#c1c5c4"
+        },
+        "accent": {
+            "light": "#0b0d0c",
+            "dark": "#ffffff"
+        },
+        "on-contrast": {
+            "light": "#ffffff",
+            "dark": "#000000"
+        }
+    },
+    "border": {
+        "default": {
+            "light": "#5c5e5d",
+            "dark": "#c1c5c4"
+        },
+        "subdued": {
+            "light": "#c1c5c4",
+            "dark": "#5c5f5e"
+        },
+        "strong": {
+            "light": "#0b0d0c",
+            "dark": "#ffffff"
+        }
+    }
+}
+"
+`;
