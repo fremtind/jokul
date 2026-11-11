@@ -215,7 +215,7 @@ Dersom du bruker versjon 4 av Tailwind laster du inn vårt theme rett etter impo
 @import "@fremtind/jokul/styles/tailwind";
 ```
 
-Fargeklassene bruker Jøkuls CSS-variabler og følger derfor `data-brand` og `data-theme`. Husk å laste inn `@fremtind/jokul/styles/base.css` (eller tilsvarende SCSS) i applikasjonen, siden det er der variablene defineres.
+Farge- og fontvektklassene bruker Jøkuls CSS-variabler. Fargene følger `data-brand` og `data-theme`, og `font-bold` følger `data-brand`. Husk å laste inn `@fremtind/jokul/styles/base.css` (eller tilsvarende SCSS) i applikasjonen, siden det er der variablene defineres.
 
 ### Farger
 
