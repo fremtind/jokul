@@ -6,6 +6,11 @@ import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
 import { Message } from "@fremtind/jokul/message";
+import {
+    COLOR_SCHEMES,
+    type ColorRole,
+    type ColorScheme,
+} from "@fremtind/jokul/theme";
 import { Title } from "@fremtind/jokul/typography";
 import Link from "next/link";
 import { useState } from "react";
@@ -15,11 +20,6 @@ import {
     type FailingContrastCombination,
     getFailingContrasts,
 } from "../_preview/contrastEvaluation";
-import {
-    COLOR_SCHEMES,
-    type ColorRole,
-    type ColorScheme,
-} from "../generator/types";
 import { StepCard } from "./StepCard";
 import {
     type EditableColorTokenGroup,

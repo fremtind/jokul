@@ -1,5 +1,5 @@
+import type { EditableLightDarkPalette } from "@fremtind/jokul/theme";
 import type { ThemeDraft } from "../_context/types";
-import type { EditableLightDarkPalette } from "../generator/types";
 import { type FontOptionId, getFontOption } from "./fontOptions";
 
 type ThemeTokenMailDraft = Pick<
