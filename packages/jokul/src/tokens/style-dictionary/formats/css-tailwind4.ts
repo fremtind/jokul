@@ -66,6 +66,7 @@ function formatSpacingVariables(
 function formatFontWeightVariables(
     tokens: TransformedToken[],
     indentation: string,
+    prefix: string,
 ): string {
     return tokens
         .filter(
@@ -76,7 +77,7 @@ function formatFontWeightVariables(
         )
         .map((token) => {
             const weight = token.path[2];
-            return `${indentation}--font-weight-${weight}: ${token.value};`;
+            return `${indentation}--font-weight-${weight}: var(--${prefix}-${token.name});`;
         })
         .join("\n");
 }
@@ -176,7 +177,7 @@ function formatTextUtilities(
  * @theme inline {
  *     --color-background-page: var(--jkl-color-background-page);
  *     --spacing-16: 1rem;
- *     --font-weight-bold: 700;
+ *     --font-weight-bold: var(--jkl-font-weight-bold);
  *     --breakpoint-medium: 680px;
  *     --radius-m: 0.75rem;
  * }
@@ -222,6 +223,7 @@ const cssTailwind4Format: Format = {
         const fontWeightVariables = formatFontWeightVariables(
             allTokens,
             indentation,
+            prefix,
         );
         const breakpointVariables = formatBreakpointVariables(
             allTokens,
