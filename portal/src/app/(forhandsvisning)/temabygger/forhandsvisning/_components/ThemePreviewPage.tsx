@@ -1,16 +1,13 @@
 "use client";
 
 import { useThemeDraft } from "@/app/(frontend)/temabygger/_context/ThemeDraftContext";
-import {
-    ThemePreviewProvider,
-    useThemePreview,
-} from "@/app/(frontend)/temabygger/_context/ThemePreviewContext";
 import { ThemePreview } from "@/app/(frontend)/temabygger/_preview/ThemePreview";
 import { buildThemePreviewStyle } from "@/app/(frontend)/temabygger/_shared/previewStyle";
+import type { ColorScheme } from "@/app/(frontend)/temabygger/generator/types";
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import styles from "./theme-preview-page.module.scss";
 
 export function ThemePreviewPage() {
@@ -18,9 +15,7 @@ export function ThemePreviewPage() {
         <div className={styles.page}>
             <Flex as="main" className={styles.main} wrap alignItems="start">
                 <PreviewPageAside />
-                <ThemePreviewProvider>
-                    <PreviewPageContent />
-                </ThemePreviewProvider>
+                <PreviewPageContent />
             </Flex>
         </div>
     );
@@ -49,7 +44,8 @@ function PreviewPageAside() {
 
 function PreviewPageContent() {
     const { draft } = useThemeDraft();
-    const { activeColorScheme } = useThemePreview();
+    const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
+    const activeColorScheme = draft.includeDarkMode ? colorScheme : "light";
     const previewStyle = useMemo(() => {
         return buildThemePreviewStyle({
             tokens: draft.colorTokens,
@@ -84,7 +80,14 @@ function PreviewPageContent() {
             >
                 Forhåndsvisning
             </Title>
-            <ThemePreview />
+            <ThemePreview
+                colorScheme={activeColorScheme}
+                onToggleColorScheme={() =>
+                    setColorScheme((current) =>
+                        current === "light" ? "dark" : "light",
+                    )
+                }
+            />
         </Card>
     );
 }

@@ -5,8 +5,8 @@ import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { type ReactNode, useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import { useThemePreview } from "../_context/ThemePreviewContext";
 import { buildThemePreviewStyle } from "../_shared/previewStyle";
+import type { ColorScheme } from "../generator/types";
 import styles from "./theme-builder-layout.module.scss";
 
 type ThemeBuilderLayoutProps = {
@@ -17,7 +17,9 @@ type ThemeBuilderLayoutSlotProps = {
     children: ReactNode;
 };
 
-type ThemeBuilderLayoutPreviewProps = ThemeBuilderLayoutSlotProps;
+type ThemeBuilderLayoutPreviewProps = ThemeBuilderLayoutSlotProps & {
+    colorScheme: ColorScheme;
+};
 
 const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
     <Flex className={styles.themeBuilder} direction="column" gap="40">
@@ -35,9 +37,9 @@ const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
 
 const ThemeBuilderLayoutPreview = ({
     children,
+    colorScheme,
 }: ThemeBuilderLayoutPreviewProps) => {
     const { draft } = useThemeDraft();
-    const { activeColorScheme } = useThemePreview();
     const previewStyle = useMemo(() => {
         return buildThemePreviewStyle({
             tokens: draft.colorTokens,
@@ -58,7 +60,7 @@ const ThemeBuilderLayoutPreview = ({
             padding="l"
             outlined
             aria-labelledby="theme-builder-preview-title"
-            data-theme={activeColorScheme}
+            data-theme={draft.includeDarkMode ? colorScheme : "light"}
             style={{
                 ...previewStyle,
                 backgroundColor: "var(--jkl-color-background-page)",

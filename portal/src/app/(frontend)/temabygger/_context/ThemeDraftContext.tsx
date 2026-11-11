@@ -63,8 +63,8 @@ export function ThemeDraftProvider({
     );
 
     const value = useMemo<ThemeDraftContextState>(
-        () => ({ draft, dispatch }),
-        [draft],
+        () => ({ draft, dispatch, storageLoaded }),
+        [draft, storageLoaded],
     );
 
     return (
