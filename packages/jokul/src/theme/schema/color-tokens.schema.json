@@ -1,0 +1,42 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://jokul.fremtind.no/schemas/v1/color-tokens.schema.json",
+    "title": "Temafarger",
+    "description": "Alle fargene for et tema til designsystemet Jøkul",
+    "type": "object",
+    "properties": {
+        "version": {
+            "const": "1"
+        },
+        "color": {
+            "type": "object",
+            "properties": {
+                "type": {
+                    "const": "colorScheme"
+                },
+                "@": {
+                    "description": "Merkevarefarger. Disse utgjør hoveddelen av fargene i grensesnittet.",
+                    "$ref": "/schemas/v1/color-palette.schema.json"
+                },
+                "info": {
+                    "description": "Farger for elementer som viser informasjon",
+                    "$ref": "/schemas/v1/color-palette.schema.json"
+                },
+                "warning": {
+                    "description": "Farger for elementer som viser advarsler",
+                    "$ref": "/schemas/v1/color-palette.schema.json"
+                },
+                "success": {
+                    "description": "Farger for elementer som viser suksess",
+                    "$ref": "/schemas/v1/color-palette.schema.json"
+                },
+                "error": {
+                    "description": "Farger for elementer som viser feil",
+                    "$ref": "/schemas/v1/color-palette.schema.json"
+                }
+            },
+            "required": ["@"]
+        }
+    },
+    "required": ["version", "color"]
+}

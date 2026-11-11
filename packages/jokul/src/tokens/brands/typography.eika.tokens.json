@@ -1,4 +1,6 @@
 {
+    "$schema": "https://jokul.fremtind.no/schemas/v1/typography-tokens.schema.json",
+    "version": "1",
     "font": {
         "face": {
             "regular": {
@@ -33,11 +35,11 @@
         "weight": {
             "normal": {
                 "type": "fontWeight",
-                "value": "400"
+                "value": 400
             },
             "bold": {
                 "type": "fontWeight",
-                "value": "600"
+                "value": 600
             }
         }
     }

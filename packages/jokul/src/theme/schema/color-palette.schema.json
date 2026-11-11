@@ -1,0 +1,61 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://jokul.fremtind.no/schemas/v1/color-palette.schema.json",
+    "title": "Fargespor",
+    "description": "Et fargespor med alle fargeroller som brukes i Jøkul",
+    "type": "object",
+    "properties": {
+        "background": {
+            "type": "object",
+            "properties": {
+                "page": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                },
+                "container": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                },
+                "container-accent": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                },
+                "contrast": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                }
+            },
+            "required": ["page", "container", "container-accent", "contrast"]
+        },
+        "text": {
+            "type": "object",
+            "properties": {
+                "default": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                },
+                "subdued": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                },
+                "accent": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                },
+                "on-contrast": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                }
+            },
+            "required": ["default", "subdued", "accent", "on-contrast"]
+        },
+        "border": {
+            "type": "object",
+            "properties": {
+                "default": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                },
+                "subdued": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                },
+                "strong": {
+                    "$ref": "/schemas/v1/color-value.schema.json"
+                }
+            },
+            "required": ["default", "subdued", "strong"]
+        }
+    },
+    "required": ["background", "text", "border"]
+}

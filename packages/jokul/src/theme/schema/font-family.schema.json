@@ -1,0 +1,16 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://jokul.fremtind.no/schemas/v1/font-family.schema.json",
+    "title": "Font-familie",
+    "description": "streng som definerer en font-familie med fallbacks",
+    "type": "object",
+    "properties": {
+        "type": {
+            "const": "fontFamily"
+        },
+        "value": {
+            "type": "string"
+        }
+    },
+    "required": ["type", "value"]
+}

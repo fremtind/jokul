@@ -1,0 +1,87 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://jokul.fremtind.no/schemas/v1/typography-tokens.schema.json",
+    "title": "Typografidefinisjoner",
+    "description": "All typografi for et tema til designsystemet Jøkul",
+    "type": "object",
+    "properties": {
+        "version": {
+            "const": "1"
+        },
+        "font": {
+            "type": "object",
+            "properties": {
+                "face": {
+                    "type": "object",
+                    "properties": {
+                        "regular": {
+                            "$ref": "/schemas/v1/font-face.schema.json"
+                        },
+                        "bold": {
+                            "$ref": "/schemas/v1/font-face.schema.json"
+                        },
+                        "display": {
+                            "$ref": "/schemas/v1/font-face.schema.json"
+                        },
+                        "mono": {
+                            "$ref": "/schemas/v1/font-face.schema.json"
+                        }
+                    },
+                    "required": ["regular", "bold"]
+                },
+                "family": {
+                    "type": "object",
+                    "properties": {
+                        "regular": {
+                            "$ref": "/schemas/v1/font-family.schema.json"
+                        },
+                        "bold": {
+                            "$ref": "/schemas/v1/font-family.schema.json"
+                        },
+                        "display": {
+                            "$ref": "/schemas/v1/font-family.schema.json"
+                        },
+                        "mono": {
+                            "$ref": "/schemas/v1/font-family.schema.json"
+                        }
+                    },
+                    "required": ["regular", "bold"]
+                },
+                "weight": {
+                    "type": "object",
+                    "properties": {
+                        "regular": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "const": "fontWeight"
+                                },
+                                "value": {
+                                    "type": "number",
+                                    "minimum": 100,
+                                    "maximum": 900
+                                }
+                            }
+                        },
+                        "bold": {
+                            "type": "object",
+                            "properties": {
+                                "type": {
+                                    "const": "fontWeight"
+                                },
+                                "value": {
+                                    "type": "number",
+                                    "minimum": 100,
+                                    "maximum": 900
+                                }
+                            }
+                        }
+                    },
+                    "required": ["regular", "bold"]
+                }
+            },
+            "required": ["face", "family", "weight"]
+        }
+    },
+    "required": ["version", "font"]
+}
