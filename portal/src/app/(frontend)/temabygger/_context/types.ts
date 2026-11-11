@@ -17,6 +17,7 @@ export type ThemeDraftColorTokenValue = Record<ColorScheme, string>;
 export type ThemeDraftContextState = {
     draft: ThemeDraft;
     dispatch: Dispatch<ThemeDraftAction>;
+    storageLoaded: boolean;
 };
 
 export type ThemeDraftProviderProps = {

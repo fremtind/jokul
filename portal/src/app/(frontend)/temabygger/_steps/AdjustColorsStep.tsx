@@ -6,6 +6,7 @@ import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
 import { Message } from "@fremtind/jokul/message";
 import { Title } from "@fremtind/jokul/typography";
+import Link from "next/link";
 import { useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
@@ -32,11 +33,14 @@ import {
 
 type ContrastErrorLabelsByRole = Partial<Record<ColorRole, string>>;
 
-export function AdjustColorsStep() {
+export function AdjustColorsStep({
+    colorScheme,
+}: { colorScheme: ColorScheme }) {
     const { draft } = useThemeDraft();
     const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
 
     const { colorTokens, includeDarkMode, themeName } = draft;
+    const isLastStep = colorScheme === "dark" || !includeDarkMode;
 
     const editableColorTokenGroups = getEditableColorTokenGroups(colorTokens);
     const contrastErrors = getFailingContrasts(
@@ -56,34 +60,17 @@ export function AdjustColorsStep() {
         <StepCard>
             <Flex direction="column" gap="32">
                 <Title as="h3" size="m">
-                    {themeName
-                        ? `Tilpass farger for ${themeName}`
-                        : "Tilpass farger"}
+                    {includeDarkMode
+                        ? `Tilpass farger for ${colorScheme === "dark" ? "mørkt" : "lyst"} modus`
+                        : themeName
+                          ? `Tilpass farger for ${themeName}`
+                          : "Tilpass farger"}
                 </Title>
-                <Flex direction="column" gap="40">
-                    {includeDarkMode ? (
-                        <>
-                            <ColorModeAccordion
-                                title="Lyst modus"
-                                colorScheme="light"
-                                groups={editableColorTokenGroups}
-                                failingContrasts={contrastErrors}
-                            />
-                            <ColorModeAccordion
-                                title="Mørk modus"
-                                colorScheme="dark"
-                                groups={editableColorTokenGroups}
-                                failingContrasts={contrastErrors}
-                            />
-                        </>
-                    ) : (
-                        <ColorModeAccordion
-                            colorScheme="light"
-                            groups={editableColorTokenGroups}
-                            failingContrasts={contrastErrors}
-                        />
-                    )}
-                </Flex>
+                <ColorModeAccordion
+                    colorScheme={colorScheme}
+                    groups={editableColorTokenGroups}
+                    failingContrasts={contrastErrors}
+                />
                 {hasTriedToSubmit && hasContrastErrors && (
                     <Message variant="error" title="Kontrastfeil" role="alert">
                         Noen fargekombinasjoner har for lav kontrast. Juster de
@@ -96,20 +83,47 @@ export function AdjustColorsStep() {
                     alignItems="center"
                     wrap="wrap"
                 >
-                    {hasContrastErrors ? (
-                        <Button
-                            type="button"
-                            variant="primary"
-                            onClick={() => setHasTriedToSubmit(true)}
-                        >
-                            Send til Jøkul
-                        </Button>
+                    <Button
+                        as={Link}
+                        href={
+                            colorScheme === "dark"
+                                ? "/temabygger/farger"
+                                : "/temabygger/grunnfarge"
+                        }
+                        variant="secondary"
+                    >
+                        Tilbake
+                    </Button>
+                    {isLastStep ? (
+                        <>
+                            {hasContrastErrors ? (
+                                <Button
+                                    type="button"
+                                    variant="primary"
+                                    onClick={() => setHasTriedToSubmit(true)}
+                                >
+                                    Send til Jøkul
+                                </Button>
+                            ) : (
+                                <Button
+                                    as="a"
+                                    href={submitMailHref}
+                                    variant="primary"
+                                >
+                                    Send til Jøkul
+                                </Button>
+                            )}
+                            <SharePreviewModal previewHref={previewHref} />
+                        </>
                     ) : (
-                        <Button as="a" href={submitMailHref} variant="primary">
-                            Send til Jøkul
+                        <Button
+                            as={Link}
+                            href="/temabygger/farger/morkt"
+                            variant="primary"
+                        >
+                            Fortsett
                         </Button>
                     )}
-                    <SharePreviewModal previewHref={previewHref} />
                 </Flex>
             </Flex>
         </StepCard>
@@ -117,21 +131,17 @@ export function AdjustColorsStep() {
 }
 
 type ColorModeAccordionProps = {
-    title?: string;
     colorScheme: ColorScheme;
     groups: EditableColorTokenGroup[];
     failingContrasts: FailingContrastCombination[];
 };
 
 function ColorModeAccordion({
-    title,
     colorScheme,
     groups,
     failingContrasts,
 }: ColorModeAccordionProps) {
-    const [openGroupId, setOpenGroupId] = useState<string | null>(
-        colorScheme === "light" ? "background" : null,
-    );
+    const [openGroupId, setOpenGroupId] = useState<string | null>("background");
     const contrastErrorLabels = getContrastErrorLabelsForColorScheme(
         failingContrasts,
         colorScheme,
@@ -139,11 +149,6 @@ function ColorModeAccordion({
 
     return (
         <Flex direction="column" gap="16">
-            {title && (
-                <Title as="h4" size="xs">
-                    {title}
-                </Title>
-            )}
             <Accordion outlined>
                 {groups.map((group) => {
                     const groupHasContrastError = group.tokens.some((token) =>

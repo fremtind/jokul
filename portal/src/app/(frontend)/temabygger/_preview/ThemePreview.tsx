@@ -7,16 +7,15 @@ import {
     SegmentedControl,
     SegmentedControlButton,
 } from "@fremtind/jokul/segmented-control";
+import { useState } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import {
-    type ThemePreviewTab,
-    useThemePreview,
-} from "../_context/ThemePreviewContext";
 import type { ColorScheme } from "../generator/types";
 import { ColorCombinations } from "./ColorCombinations";
 import { EmptyView } from "./EmptyView";
 import { ExampleView } from "./ExampleView";
 import styles from "./theme-preview.module.scss";
+
+type ThemePreviewTab = "overview" | "components" | "contrast";
 
 const PREVIEW_TABS: { value: ThemePreviewTab; label: string }[] = [
     { value: "overview", label: "Overblikk" },
@@ -36,16 +35,23 @@ const COLOR_SCHEME_ICONS: Record<ColorScheme, string> = {
 
 type ThemePreviewProps = {
     segment?: string | null;
+    colorScheme: ColorScheme;
+    onToggleColorScheme?: () => void;
 };
 
-export function ThemePreview({ segment }: ThemePreviewProps) {
+export function ThemePreview({
+    segment,
+    colorScheme,
+    onToggleColorScheme,
+}: ThemePreviewProps) {
     const { draft } = useThemeDraft();
-    const { activeColorScheme, activeTab, setActiveTab, toggleColorScheme } =
-        useThemePreview();
+    const [activeTab, setActiveTab] = useState<ThemePreviewTab>("overview");
+    const activeColorScheme = draft.includeDarkMode ? colorScheme : "light";
+    const showColorPreview = segment === "farger" || !segment;
 
     return (
         <Flex direction="column" gap="24">
-            {(segment === "farger" || !segment) && (
+            {showColorPreview && (
                 <Flex
                     justifyContent="space-between"
                     alignItems="center"
@@ -68,7 +74,7 @@ export function ThemePreview({ segment }: ThemePreviewProps) {
                             </SegmentedControlButton>
                         ))}
                     </SegmentedControl>
-                    {draft.includeDarkMode && (
+                    {draft.includeDarkMode && onToggleColorScheme && (
                         <Button
                             type="button"
                             variant="ghost"
@@ -77,7 +83,7 @@ export function ThemePreview({ segment }: ThemePreviewProps) {
                                     {COLOR_SCHEME_ICONS[activeColorScheme]}
                                 </Icon>
                             }
-                            onClick={toggleColorScheme}
+                            onClick={onToggleColorScheme}
                         >
                             {COLOR_SCHEME_LABELS[activeColorScheme]}
                         </Button>
@@ -94,14 +100,14 @@ export function ThemePreview({ segment }: ThemePreviewProps) {
                     <ExampleView story="contrast" />
                 </div>
             )}
-            {(segment === "farger" || !segment) && activeTab === "contrast" && (
+            {showColorPreview && activeTab === "contrast" && (
                 <ColorCombinations
                     includeDarkMode={draft.includeDarkMode}
                     tokens={draft.colorTokens}
                     colorScheme={activeColorScheme}
                 />
             )}
-            {(segment === "farger" || !segment) && activeTab !== "contrast" && (
+            {showColorPreview && activeTab !== "contrast" && (
                 <ExampleView story={activeTab} />
             )}
         </Flex>
