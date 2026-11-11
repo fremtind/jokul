@@ -1,8 +1,8 @@
 import chroma from "chroma-js";
-import colorMetadataDarkFile from "../../tokens/metadata/color.metadata.dark.json" with {
+import colorMetadataDarkFile from "../metadata/color.metadata.dark.json" with {
     type: "json",
 };
-import colorMetadataLightFile from "../../tokens/metadata/color.metadata.light.json" with {
+import colorMetadataLightFile from "../metadata/color.metadata.light.json" with {
     type: "json",
 };
 import type {

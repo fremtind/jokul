@@ -1,5 +1,5 @@
-import type colorMetadataFile from "@fremtind/jokul/tokens/metadata/color.metadata.light.json";
 import type { ColorScheme } from "../../utilities/types.js";
+import type colorMetadataFile from "../metadata/color.metadata.light.json";
 
 type ColorMetadataTree = (typeof colorMetadataFile)["color"];
 

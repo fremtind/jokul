@@ -1,0 +1,31 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://jokul.fremtind.no/schemas/v1/font-face.schema.json",
+    "title": "Font",
+    "description": "En fontvariant til bruk i Jøkul-tema",
+    "type": "object",
+    "properties": {
+        "type": {
+            "const": "brandFontFace"
+        },
+        "value": {
+            "type": "object",
+            "properties": {
+                "family": {
+                    "type": "string"
+                },
+                "weight": {
+                    "type": "number"
+                },
+                "style": {
+                    "enum": ["normal", "italic"]
+                },
+                "fileName": {
+                    "type": "string"
+                }
+            },
+            "required": ["family", "weight", "style", "fileName"]
+        }
+    },
+    "required": ["type", "value"]
+}
