@@ -1,8 +1,8 @@
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
+import type { ColorRole } from "@fremtind/jokul/theme";
 import { Text } from "@fremtind/jokul/typography";
 import type { CSSProperties } from "react";
-import type { ColorRole } from "../generator/types";
 
 import styles from "./color-combination.module.scss";
 

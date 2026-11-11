@@ -1,4 +1,4 @@
-import type { EditableLightDarkPalette } from "../generator/types";
+import type { EditableLightDarkPalette } from "@fremtind/jokul/theme";
 
 export const INITIAL_COLOR_TOKENS = {
     background: {

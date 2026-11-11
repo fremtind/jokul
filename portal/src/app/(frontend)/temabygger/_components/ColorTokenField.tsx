@@ -1,9 +1,8 @@
 "use client";
 
 import { TextInput } from "@fremtind/jokul/text-input";
+import { type ColorScheme, isHex } from "@fremtind/jokul/theme";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import { hexErrorLabel } from "../_shared/utils";
-import type { ColorScheme } from "../generator/types";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
 
 type ColorTokenFieldProps = {
@@ -15,6 +14,9 @@ type ColorTokenFieldProps = {
     contrastErrorLabel?: string;
     onValueChange?: (value: string) => void;
 };
+
+const hexErrorLabel = (value: string): string | undefined =>
+    isHex(value) ? undefined : "Bruk formatet #RRGGBB";
 
 export function ColorTokenField({
     group,

@@ -2,10 +2,10 @@
 
 import { Flex } from "@fremtind/jokul/flex";
 import { Select } from "@fremtind/jokul/select";
+import type { ColorRole } from "@fremtind/jokul/theme";
 import { Title } from "@fremtind/jokul/typography";
 import { useState } from "react";
 import { ColorCombinationCard } from "../_components/ColorCombinationCard";
-import type { ColorRole } from "../generator/types";
 import { CONTRAST_REQUIREMENTS } from "./contrastEvaluation";
 
 import overviewStyles from "../../../../components/overview/overview.module.scss";

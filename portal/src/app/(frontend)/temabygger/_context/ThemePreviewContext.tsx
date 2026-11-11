@@ -1,5 +1,6 @@
 "use client";
 
+import { COLOR_SCHEMES, type ColorScheme } from "@fremtind/jokul/theme";
 import { useSelectedLayoutSegments } from "next/navigation";
 import {
     type ReactNode,
@@ -12,7 +13,6 @@ import {
     type FailingContrastCombination,
     getFailingContrasts,
 } from "../_preview/contrastEvaluation";
-import { COLOR_SCHEMES, type ColorScheme } from "../generator/types";
 import { useThemeDraft } from "./ThemeDraftContext";
 
 export type ThemePreviewTab = "overview" | "components" | "contrast";

@@ -1,5 +1,8 @@
+import type {
+    ColorRole,
+    EditableLightDarkPalette,
+} from "@fremtind/jokul/theme";
 import type { ThemeDraftColorTokenValue } from "../_context/types";
-import type { ColorRole, EditableLightDarkPalette } from "../generator/types";
 
 export type EditableColorToken = {
     colorRole: ColorRole;
