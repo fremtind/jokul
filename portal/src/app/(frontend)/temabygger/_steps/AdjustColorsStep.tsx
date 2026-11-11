@@ -5,6 +5,11 @@ import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
 import { Message } from "@fremtind/jokul/message";
+import {
+    COLOR_SCHEMES,
+    type ColorRole,
+    type ColorScheme,
+} from "@fremtind/jokul/theme";
 import { Title } from "@fremtind/jokul/typography";
 import { useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
@@ -18,11 +23,6 @@ import {
     createThemeTokenMailHref,
     createThemeTokenMailPayload,
 } from "../_shared/themeTokenMail";
-import {
-    COLOR_SCHEMES,
-    type ColorRole,
-    type ColorScheme,
-} from "../generator/types";
 import { SharePreviewModal } from "./SharePreviewModal";
 import { StepCard } from "./StepCard";
 import {
