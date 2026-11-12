@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "@fremtind/jokul/button";
+import type { ButtonProps } from "@fremtind/jokul/button";
 import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
@@ -14,22 +14,17 @@ import {
     type FailingContrastCombination,
     getFailingContrasts,
 } from "../_preview/contrastEvaluation";
-import { createThemePreviewHref } from "../_shared/themeDraftPayload";
-import {
-    createThemeTokenMailHref,
-    createThemeTokenMailPayload,
-} from "../_shared/themeTokenMail";
 import {
     COLOR_SCHEMES,
     type ColorRole,
     type ColorScheme,
 } from "../generator/types";
-import { SharePreviewModal } from "./SharePreviewModal";
 import { StepCard } from "./StepCard";
 import {
     type EditableColorTokenGroup,
     getEditableColorTokenGroups,
 } from "./colorTokenMetadata";
+import { ButtonGroup } from "@fremtind/jokul/button-group";
 
 type ContrastErrorLabelsByRole = Partial<Record<ColorRole, string>>;
 
@@ -40,7 +35,6 @@ export function AdjustColorsStep({
     const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
 
     const { colorTokens, includeDarkMode, themeName } = draft;
-    const isLastStep = colorScheme === "dark" || !includeDarkMode;
 
     const editableColorTokenGroups = getEditableColorTokenGroups(colorTokens);
     const contrastErrors = getFailingContrasts(
@@ -49,12 +43,28 @@ export function AdjustColorsStep({
     );
     const hasContrastErrors = contrastErrors.length > 0;
 
-    const previewHref = createThemePreviewHref(draft);
-    const submitMailPayload = createThemeTokenMailPayload(draft);
-    const submitMailHref = createThemeTokenMailHref({
-        themeName,
-        payload: submitMailPayload,
-    });
+    const previousStepAction: ButtonProps<typeof Link> = {
+        as: Link,
+        href:
+            colorScheme === "dark"
+                ? "/temabygger/farger"
+                : "/temabygger/grunnfarge",
+        children: "Tilbake",
+    };
+
+    const nextStepAction = hasContrastErrors
+        ? {
+              onClick: () => setHasTriedToSubmit(true),
+              children: "Fortsett",
+          }
+        : {
+              as: Link,
+              href:
+                  colorScheme === "dark"
+                      ? "/temabygger/innsending"
+                      : "/temabygger/farger/morkt",
+              children: "Fortsett",
+          };
 
     return (
         <StepCard>
@@ -77,54 +87,12 @@ export function AdjustColorsStep({
                         markerte feltene før du bruker temaet.
                     </Message>
                 )}
-                <Flex
-                    gap="m"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    wrap="wrap"
-                >
-                    <Button
-                        as={Link}
-                        href={
-                            colorScheme === "dark"
-                                ? "/temabygger/farger"
-                                : "/temabygger/grunnfarge"
-                        }
-                        variant="secondary"
-                    >
-                        Tilbake
-                    </Button>
-                    {isLastStep ? (
-                        <>
-                            {hasContrastErrors ? (
-                                <Button
-                                    type="button"
-                                    variant="primary"
-                                    onClick={() => setHasTriedToSubmit(true)}
-                                >
-                                    Send til Jøkul
-                                </Button>
-                            ) : (
-                                <Button
-                                    as="a"
-                                    href={submitMailHref}
-                                    variant="primary"
-                                >
-                                    Send til Jøkul
-                                </Button>
-                            )}
-                            <SharePreviewModal previewHref={previewHref} />
-                        </>
-                    ) : (
-                        <Button
-                            as={Link}
-                            href="/temabygger/farger/morkt"
-                            variant="primary"
-                        >
-                            Fortsett
-                        </Button>
-                    )}
-                </Flex>
+                <ButtonGroup
+                    // @ts-ignore Trenger bedre typer i ButtonGroup
+                    mainAction={nextStepAction}
+                    // @ts-ignore Trenger bedre typer i ButtonGroup
+                    secondaryAction={previousStepAction}
+                />
             </Flex>
         </StepCard>
     );

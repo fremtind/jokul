@@ -47,7 +47,8 @@ export function ThemePreview({
     const { draft } = useThemeDraft();
     const [activeTab, setActiveTab] = useState<ThemePreviewTab>("overview");
     const activeColorScheme = draft.includeDarkMode ? colorScheme : "light";
-    const showColorPreview = segment === "farger" || !segment;
+    const showColorPreview =
+        segment === "farger" || segment === "innsending" || !segment;
 
     return (
         <Flex direction="column" gap="24">

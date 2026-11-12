@@ -2,50 +2,26 @@ import type { ThemeDraft } from "../_context/types";
 import type { EditableLightDarkPalette } from "../generator/types";
 import { type FontOptionId, getFontOption } from "./fontOptions";
 
-const THEME_TOKEN_MAIL_RECIPIENT = "fremtind.designsystem@fremtind.no";
-
 type ThemeTokenMailDraft = Pick<
     ThemeDraft,
     "colorTokens" | "includeDarkMode" | "regularFont" | "displayFont"
 >;
 
-export type ThemeTokenMailPayload = {
-    color: ReturnType<typeof formatColorTokensForMail>;
-    font: ReturnType<typeof formatFontTokensForMail>;
-};
-
-export function createThemeTokenMailPayload({
+export function createThemeBlob({
     colorTokens,
     includeDarkMode,
     regularFont,
     displayFont,
-}: ThemeTokenMailDraft): ThemeTokenMailPayload {
-    return {
-        color: formatColorTokensForMail(colorTokens, includeDarkMode),
-        font: formatFontTokensForMail(regularFont, displayFont),
+}: ThemeTokenMailDraft): string {
+    const data = {
+        color: formatColorTokensForDownload(colorTokens, includeDarkMode),
+        font: formatFontTokensForDownload(regularFont, displayFont),
     };
+
+    return `data:application/json;base64,${btoa(JSON.stringify(data))}`;
 }
 
-type ThemeTokenMailHrefInput = {
-    themeName: string;
-    payload: ThemeTokenMailPayload;
-};
-
-export function createThemeTokenMailHref({
-    themeName,
-    payload,
-}: ThemeTokenMailHrefInput): string {
-    const subject = themeName
-        ? `Tokens for ${themeName}`
-        : "Tokens fra temabygger";
-    const body = JSON.stringify(payload);
-
-    return `mailto:${THEME_TOKEN_MAIL_RECIPIENT}?subject=${encodeURIComponent(
-        subject,
-    )}&body=${encodeURIComponent(body)}`;
-}
-
-function formatColorTokensForMail(
+function formatColorTokensForDownload(
     colorTokens: EditableLightDarkPalette,
     includeDarkMode: boolean,
 ) {
@@ -68,7 +44,7 @@ function formatColorTokensForMail(
     );
 }
 
-function formatFontTokensForMail(
+function formatFontTokensForDownload(
     regularFont: FontOptionId,
     displayFont: FontOptionId,
 ) {
