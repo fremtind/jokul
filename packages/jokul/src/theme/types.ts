@@ -1,17 +1,38 @@
-import type { ColorScheme } from "../../utilities/types.js";
-import type colorMetadataFile from "../metadata/color.metadata.light.json";
+import type { ColorScheme } from "../utilities/types.js";
+import type colorMetadataFile from "./metadata/color.metadata.light.json";
+
+/** En ferdig oppløst font, slik den skrives til `font.family.*` og `font.weight.*` i tokens. */
+export type JokulThemeFont = {
+    label?: string;
+    family: string;
+    weight: {
+        normal: string;
+        bold: string;
+    };
+};
+
+export type JokulThemeFonts = {
+    regular: JokulThemeFont;
+    display?: JokulThemeFont;
+};
+
+/**
+ * Filformatet temabyggeren eksporterer, og som `jokul theme build` leser.
+ *
+ * `name` brukes som `data-brand`-verdi, i filnavn og i Sass-variabler, og må
+ * derfor være på kebab-case (f.eks. `"mitt-tema"`).
+ */
+export type JokulThemeFile = {
+    name: string;
+    colorTokens: EditableLightDarkPalette;
+    includeDarkMode: boolean;
+    fonts?: JokulThemeFonts;
+};
 
 type ColorMetadataTree = (typeof colorMetadataFile)["color"];
 
 /** En hex-fargestreng som starter med `#`, typisk på formen `#rrggbb` eller `#rrggbbaa`. */
 export type HexColor = `#${string}`;
-
-export type { ColorScheme };
-
-export const COLOR_SCHEMES = [
-    "light",
-    "dark",
-] as const satisfies readonly ColorScheme[];
 
 /**
  * En streng på formen `"gruppe.rolle"` som identifiserer én bestemt fargetokens
