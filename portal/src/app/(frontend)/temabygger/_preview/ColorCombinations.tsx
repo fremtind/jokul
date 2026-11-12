@@ -6,10 +6,10 @@ import type { ColorRole } from "@fremtind/jokul/theme";
 import { Title } from "@fremtind/jokul/typography";
 import { useState } from "react";
 import { ColorCombinationCard } from "../_components/ColorCombinationCard";
+import { useThemePreview } from "../_context/ThemePreviewContext";
 import { CONTRAST_REQUIREMENTS } from "./contrastEvaluation";
 
 import overviewStyles from "../../../../components/overview/overview.module.scss";
-import { useThemePreview } from "../_context/ThemePreviewContext";
 
 export function ColorCombinations() {
     const { contrastErrors } = useThemePreview();

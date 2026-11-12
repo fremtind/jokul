@@ -1,29 +1,37 @@
 import {
-    type ColorScheme,
     type EditableLightDarkPalette,
+    type JokulThemeFile,
     generatePalette,
     isHex,
     normalizeHex,
 } from "@fremtind/jokul/theme";
+import type { ColorScheme } from "@fremtind/jokul/utilities";
 import {
     DEFAULT_REGULAR_FONT_OPTION_ID,
+    FONT_OPTIONS,
     type FontOptionId,
 } from "../_shared/fontOptions";
 import { INITIAL_COLOR_TOKENS } from "./initialColorTokens";
-import type { ThemeDraft } from "./types";
 
 // ---------------------------------------------------------------------------
 // Initiell state
 // ---------------------------------------------------------------------------
 
 export const INITIAL_STATE = {
+    name: "",
     colorTokens: INITIAL_COLOR_TOKENS,
-    regularFont: DEFAULT_REGULAR_FONT_OPTION_ID,
-    displayFont: DEFAULT_REGULAR_FONT_OPTION_ID,
-    hasCustomDisplayFont: false,
-    themeName: "",
+    fonts: {
+        regular: {
+            family: FONT_OPTIONS[DEFAULT_REGULAR_FONT_OPTION_ID].family,
+            weight: FONT_OPTIONS[DEFAULT_REGULAR_FONT_OPTION_ID].weight,
+        },
+        display: {
+            family: FONT_OPTIONS[DEFAULT_REGULAR_FONT_OPTION_ID].family,
+            weight: FONT_OPTIONS[DEFAULT_REGULAR_FONT_OPTION_ID].weight,
+        },
+    },
     includeDarkMode: true,
-} as const satisfies ThemeDraft;
+} as const satisfies JokulThemeFile;
 
 // ---------------------------------------------------------------------------
 // Actions
@@ -43,19 +51,19 @@ export type ThemeDraftAction =
           colorScheme: ColorScheme;
           value: string;
       }
-    | { type: "SET_DRAFT"; draft: ThemeDraft };
+    | { type: "SET_DRAFT"; draft: JokulThemeFile };
 
 // ---------------------------------------------------------------------------
 // Reducer
 // ---------------------------------------------------------------------------
 
 export function themeDraftReducer(
-    state: ThemeDraft,
+    state: JokulThemeFile,
     action: ThemeDraftAction,
-): ThemeDraft {
+): JokulThemeFile {
     switch (action.type) {
         case "SET_THEME_NAME":
-            return { ...state, themeName: action.themeName.trim() };
+            return { ...state, name: action.themeName.trim() };
 
         case "SET_INCLUDE_DARK_MODE":
             return { ...state, includeDarkMode: action.includeDarkMode };
@@ -63,17 +71,21 @@ export function themeDraftReducer(
         case "SET_REGULAR_FONT":
             return {
                 ...state,
-                regularFont: action.font,
-                displayFont: state.hasCustomDisplayFont
-                    ? state.displayFont
-                    : action.font,
+                fonts: {
+                    regular: FONT_OPTIONS[action.font],
+                    display: state.fonts?.display,
+                },
             };
 
         case "SET_DISPLAY_FONT":
             return {
                 ...state,
-                displayFont: action.font,
-                hasCustomDisplayFont: true,
+                fonts: {
+                    display: FONT_OPTIONS[action.font],
+                    regular:
+                        state.fonts?.regular ||
+                        FONT_OPTIONS[DEFAULT_REGULAR_FONT_OPTION_ID],
+                },
             };
 
         case "SET_COLOR_TOKENS":
@@ -137,7 +149,7 @@ export function themeDraftReducer(
         case "SET_DRAFT":
             return {
                 ...action.draft,
-                themeName: action.draft.themeName.trim(),
+                name: action.draft.name.trim(),
             };
 
         default:

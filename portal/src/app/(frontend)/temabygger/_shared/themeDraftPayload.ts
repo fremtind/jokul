@@ -1,15 +1,14 @@
-import type { ThemeDraft } from "../_context/types";
-import { isFontOptionId } from "./fontOptions";
+import { type JokulThemeFile, validateThemeFile } from "@fremtind/jokul/theme";
 
 export const THEME_DRAFT_QUERY_PARAM = "draft";
 export const THEME_DRAFT_VERSION = 1;
 
 export type ThemeDraftPayload = {
     version: typeof THEME_DRAFT_VERSION;
-    draft: ThemeDraft;
+    draft: JokulThemeFile;
 };
 
-export function createThemePreviewHref(draft: ThemeDraft): string {
+export function createThemePreviewHref(draft: JokulThemeFile): string {
     const params = new URLSearchParams();
     const payload = {
         version: THEME_DRAFT_VERSION,
@@ -33,30 +32,14 @@ export function parseThemeDraftPayload(
         return undefined;
     }
 
-    if (!isThemeDraft(payload.draft)) {
+    const validatedDraft = validateThemeFile(payload.draft);
+
+    if (!validatedDraft.valid) {
         return undefined;
     }
 
     return {
         version: THEME_DRAFT_VERSION,
-        draft: payload.draft,
+        draft: validatedDraft.theme,
     };
-}
-
-function isThemeDraft(value: unknown): value is ThemeDraft {
-    if (typeof value !== "object" || value === null || Array.isArray(value)) {
-        return false;
-    }
-
-    const draft = value as Partial<ThemeDraft>;
-
-    return (
-        typeof draft.colorTokens === "object" &&
-        draft.colorTokens !== null &&
-        !Array.isArray(draft.colorTokens) &&
-        isFontOptionId(draft.regularFont) &&
-        isFontOptionId(draft.displayFont) &&
-        typeof draft.themeName === "string" &&
-        typeof draft.includeDarkMode === "boolean"
-    );
 }

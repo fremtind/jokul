@@ -1,30 +1,17 @@
-import type {
-    ColorScheme,
-    EditableLightDarkPalette,
-} from "@fremtind/jokul/theme";
+import type { JokulThemeFile } from "@fremtind/jokul/theme";
+import type { ColorScheme } from "@fremtind/jokul/utilities";
 import type { Dispatch, ReactNode } from "react";
-
-import type { FontOptionId } from "../_shared/fontOptions";
 import type { ThemeDraftAction } from "./themeDraftReducer";
-
-export type ThemeDraft = {
-    colorTokens: EditableLightDarkPalette;
-    regularFont: FontOptionId;
-    displayFont: FontOptionId;
-    hasCustomDisplayFont: boolean;
-    themeName: string;
-    includeDarkMode: boolean;
-};
 
 export type ThemeDraftColorTokenValue = Record<ColorScheme, string>;
 
 export type ThemeDraftContextState = {
-    draft: ThemeDraft;
+    draft: JokulThemeFile;
     dispatch: Dispatch<ThemeDraftAction>;
     storageLoaded: boolean;
 };
 
 export type ThemeDraftProviderProps = {
     children: ReactNode;
-    initialDraft?: ThemeDraft;
+    initialDraft?: JokulThemeFile;
 };

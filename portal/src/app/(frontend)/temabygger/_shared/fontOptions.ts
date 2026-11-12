@@ -1,4 +1,6 @@
-export const FONT_OPTIONS = {
+import type { JokulThemeFont } from "@fremtind/jokul/theme";
+
+export const FONT_OPTIONS: Record<string, JokulThemeFont> = {
     "inter-variable": {
         label: "Inter Variable",
         family: "'Jokul', 'Adjusted Arial Fallback', arial, sans-serif",
@@ -47,23 +49,23 @@ export const FONT_OPTIONS = {
             bold: "600",
         },
     },
-} as const;
+} as const satisfies Record<string, JokulThemeFont>;
 
 export const REGULAR_FONT_SELECT_OPTIONS = [
     {
-        label: FONT_OPTIONS["inter-variable"].label,
+        label: FONT_OPTIONS["inter-variable"].label || "Inter Variable",
         value: "inter-variable",
     },
     {
-        label: FONT_OPTIONS.sparebank1.label,
+        label: FONT_OPTIONS.sparebank1.label || "SpareBank 1",
         value: "sparebank1",
     },
     {
-        label: FONT_OPTIONS["dnb-sans"].label,
+        label: FONT_OPTIONS["dnb-sans"].label || "DNB Sans",
         value: "dnb-sans",
     },
     {
-        label: FONT_OPTIONS["open-sans"].label,
+        label: FONT_OPTIONS["open-sans"].label || "Open Sans",
         value: "open-sans",
     },
 ] satisfies Array<{
@@ -89,7 +91,7 @@ export const FONT_SELECT_OPTIONS = Object.entries(FONT_OPTIONS).map(
 
 export const DISPLAY_FONT_SELECT_OPTIONS = Object.entries(FONT_OPTIONS).map(
     ([id, option]) => ({
-        label: option.label,
+        label: option.label || id,
         value: id as FontOptionId,
     }),
 );

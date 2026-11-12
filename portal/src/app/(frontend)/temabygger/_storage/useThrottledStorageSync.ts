@@ -1,5 +1,5 @@
+import type { JokulThemeFile } from "@fremtind/jokul/theme";
 import { useEffect, useRef } from "react";
-import type { ThemeDraft } from "../_context/types";
 import { setStoredThemeDraft } from "./themeDraftStorage";
 
 /**
@@ -11,7 +11,7 @@ import { setStoredThemeDraft } from "./themeDraftStorage";
  * @param throttleMs - Minimum antall millisekunder mellom hver lagring
  */
 export function useThrottledStorageSync(
-    draft: ThemeDraft,
+    draft: JokulThemeFile,
     enabled: boolean,
     throttleMs: number,
 ) {

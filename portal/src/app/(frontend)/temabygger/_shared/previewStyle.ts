@@ -1,25 +1,22 @@
-import type { EditableLightDarkPalette } from "@fremtind/jokul/theme";
+import type {
+    EditableLightDarkPalette,
+    JokulThemeFile,
+} from "@fremtind/jokul/theme";
 import type { CSSProperties } from "react";
-import { type FontOptionId, getFontOption } from "./fontOptions";
-
-type ThemePreviewStyleOptions = {
-    tokens: EditableLightDarkPalette;
-    includeDarkMode: boolean;
-    regularFont: FontOptionId;
-    displayFont: FontOptionId;
-};
+import { DEFAULT_REGULAR_FONT_OPTION_ID, FONT_OPTIONS } from "./fontOptions";
 
 export function buildThemePreviewStyle({
-    tokens,
+    colorTokens,
     includeDarkMode,
-    regularFont,
-    displayFont,
-}: ThemePreviewStyleOptions): CSSProperties {
-    const regularFontOption = getFontOption(regularFont);
-    const displayFontOption = getFontOption(displayFont);
+    fonts,
+}: JokulThemeFile): CSSProperties {
+    const regularFontOption =
+        fonts?.regular || FONT_OPTIONS[DEFAULT_REGULAR_FONT_OPTION_ID];
+    const displayFontOption =
+        fonts?.display || FONT_OPTIONS[DEFAULT_REGULAR_FONT_OPTION_ID];
 
     return {
-        ...buildColorStyle(tokens, includeDarkMode),
+        ...buildColorStyle(colorTokens, includeDarkMode),
         "--jkl-font-family-regular": regularFontOption.family,
         "--jkl-font-family-display": displayFontOption.family,
         "--jkl-font-weight-normal": regularFontOption.weight.normal,
