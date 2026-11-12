@@ -28,7 +28,7 @@ export function IdentityStep() {
                     description="Brukes til å navngi fila di"
                     name="themeName"
                     width="100%"
-                    value={draft.themeName}
+                    value={draft.name}
                     onChange={(event) =>
                         dispatch({
                             type: "SET_THEME_NAME",
@@ -41,7 +41,10 @@ export function IdentityStep() {
                     label="Velg font"
                     items={REGULAR_FONT_SELECT_OPTIONS}
                     width="100%"
-                    value={draft.regularFont}
+                    value={
+                        draft.fonts?.regular.family ||
+                        REGULAR_FONT_SELECT_OPTIONS[0].value
+                    }
                     onChange={(event) =>
                         dispatch({
                             type: "SET_REGULAR_FONT",
@@ -55,7 +58,10 @@ export function IdentityStep() {
                     description="Brukes til store overskrifter"
                     items={DISPLAY_FONT_SELECT_OPTIONS}
                     width="100%"
-                    value={draft.displayFont}
+                    value={
+                        draft.fonts?.display?.family ||
+                        REGULAR_FONT_SELECT_OPTIONS[0].value
+                    }
                     onChange={(event) =>
                         dispatch({
                             type: "SET_DISPLAY_FONT",

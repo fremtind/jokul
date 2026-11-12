@@ -14,7 +14,7 @@ import { StepCard } from "./StepCard";
 
 export function SendThemeStep() {
     const { draft, dispatch } = useThemeDraft();
-    const { themeName, includeDarkMode } = draft;
+    const { name, includeDarkMode } = draft;
     const [shareModalInstance, shareModalConfig] = useModal({
         title: "Del forhåndsvisning",
     });
@@ -23,7 +23,7 @@ export function SendThemeStep() {
 
     const downloadAction = {
         as: "a",
-        download: `${themeName || "tema"}.json`,
+        download: `${name || "tema"}.json`,
         href: createThemeBlob(draft),
         children: "Last ned tema",
     };

@@ -12,14 +12,14 @@ import { StepCard } from "./StepCard";
 
 export function BaseColorStep() {
     const { draft, dispatch } = useThemeDraft();
-    const { themeName } = draft;
+    const { name } = draft;
 
     return (
         <StepCard>
             <Flex direction="column" gap="8">
                 <Title as="h3" size="m">
-                    {themeName
-                        ? `Fyll inn kontrastfargen til ${themeName}`
+                    {name
+                        ? `Fyll inn kontrastfargen til ${name}`
                         : "Fyll inn kontrastfargen"}
                 </Title>
                 <Text>

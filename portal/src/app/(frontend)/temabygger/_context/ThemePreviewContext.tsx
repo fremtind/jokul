@@ -1,6 +1,6 @@
 "use client";
 
-import { COLOR_SCHEMES, type ColorScheme } from "@fremtind/jokul/theme";
+import { COLOR_SCHEMES, type ColorScheme } from "@fremtind/jokul/utilities";
 import { useSelectedLayoutSegments } from "next/navigation";
 import {
     type ReactNode,

@@ -1,10 +1,10 @@
 import {
     type ColorRole,
-    type ColorScheme,
     type EditableLightDarkPalette,
     type Palette,
     isHex,
 } from "@fremtind/jokul/theme";
+import type { ColorScheme } from "@fremtind/jokul/utilities";
 import chroma from "chroma-js";
 import type { ThemeDraftColorTokenValue } from "../_context/types";
 

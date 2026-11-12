@@ -1,5 +1,6 @@
 "use client";
 
+import type { JokulThemeFile } from "@fremtind/jokul/theme";
 import {
     createContext,
     useContext,
@@ -15,11 +16,7 @@ import {
     type ThemeDraftAction,
     themeDraftReducer,
 } from "./themeDraftReducer";
-import type {
-    ThemeDraft,
-    ThemeDraftContextState,
-    ThemeDraftProviderProps,
-} from "./types";
+import type { ThemeDraftContextState, ThemeDraftProviderProps } from "./types";
 
 export type { ThemeDraftAction };
 
@@ -27,7 +24,7 @@ const DRAFT_SAVE_DELAY_MS = 250;
 
 const ThemeDraftContext = createContext<ThemeDraftContextState | null>(null);
 
-function initializeDraft(initialDraft?: ThemeDraft) {
+function initializeDraft(initialDraft?: JokulThemeFile) {
     return initialDraft ?? INITIAL_STATE;
 }
 

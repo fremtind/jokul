@@ -32,7 +32,7 @@ export function ThemePreviewPage() {
 
 function PreviewPageAside() {
     const { draft } = useThemeDraft();
-    const { themeName } = draft;
+    const { name: themeName } = draft;
 
     return (
         <Card as="aside" padding="l">
@@ -55,18 +55,8 @@ function PreviewPageContent() {
     const { draft } = useThemeDraft();
     const { activeColorScheme } = useThemePreview();
     const previewStyle = useMemo(() => {
-        return buildThemePreviewStyle({
-            tokens: draft.colorTokens,
-            includeDarkMode: draft.includeDarkMode,
-            regularFont: draft.regularFont,
-            displayFont: draft.displayFont,
-        });
-    }, [
-        draft.colorTokens,
-        draft.includeDarkMode,
-        draft.displayFont,
-        draft.regularFont,
-    ]);
+        return buildThemePreviewStyle(draft);
+    }, [draft]);
 
     return (
         <Card

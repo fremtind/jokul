@@ -6,13 +6,9 @@ import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
 import { Message } from "@fremtind/jokul/message";
-import {
-    COLOR_SCHEMES,
-    type ColorRole,
-    type ColorScheme,
-} from "@fremtind/jokul/theme";
-import { Title } from "@fremtind/jokul/typography";
-import { Text } from "@fremtind/jokul/typography";
+import type { ColorRole } from "@fremtind/jokul/theme";
+import { Text, Title } from "@fremtind/jokul/typography";
+import { COLOR_SCHEMES, type ColorScheme } from "@fremtind/jokul/utilities";
 import Link from "next/link";
 import { useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
@@ -37,7 +33,7 @@ export function AdjustColorsStep({
     const { draft } = useThemeDraft();
     const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
 
-    const { colorTokens, includeDarkMode, themeName } = draft;
+    const { colorTokens, includeDarkMode, name: themeName } = draft;
 
     const editableColorTokenGroups = getEditableColorTokenGroups(colorTokens);
     const contrastErrors = getFailingContrasts(

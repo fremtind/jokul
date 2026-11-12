@@ -38,17 +38,12 @@ const ThemeBuilderLayoutPreview = ({
     const { activeColorScheme } = useThemePreview();
     const previewStyle = useMemo(() => {
         return buildThemePreviewStyle({
-            tokens: draft.colorTokens,
+            name: draft.name,
+            colorTokens: draft.colorTokens,
             includeDarkMode: draft.includeDarkMode,
-            regularFont: draft.regularFont,
-            displayFont: draft.displayFont,
+            fonts: draft.fonts,
         });
-    }, [
-        draft.colorTokens,
-        draft.includeDarkMode,
-        draft.regularFont,
-        draft.displayFont,
-    ]);
+    }, [draft.colorTokens, draft.includeDarkMode, draft.fonts, draft.name]);
 
     return (
         <Card

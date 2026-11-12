@@ -1,4 +1,4 @@
-import type { ThemeDraft } from "../_context/types";
+import type { JokulThemeFile } from "@fremtind/jokul/theme";
 import {
     THEME_DRAFT_VERSION,
     type ThemeDraftPayload,
@@ -7,7 +7,7 @@ import {
 
 const STORAGE_KEY = "jokul.temabygger.draft";
 
-export function getStoredThemeDraft(): ThemeDraft | undefined {
+export function getStoredThemeDraft(): JokulThemeFile | undefined {
     if (typeof window === "undefined") {
         return undefined;
     }
@@ -30,7 +30,7 @@ export function getStoredThemeDraft(): ThemeDraft | undefined {
     }
 }
 
-export function setStoredThemeDraft(draft: ThemeDraft): void {
+export function setStoredThemeDraft(draft: JokulThemeFile): void {
     if (typeof window === "undefined") {
         return;
     }

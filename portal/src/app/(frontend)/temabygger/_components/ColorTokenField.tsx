@@ -1,7 +1,8 @@
 "use client";
 
 import { TextInput } from "@fremtind/jokul/text-input";
-import { type ColorScheme, isHex } from "@fremtind/jokul/theme";
+import { isHex } from "@fremtind/jokul/theme";
+import type { ColorScheme } from "@fremtind/jokul/utilities";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { ColorPicker } from "./ColorPicker/ColorPicker";
 
