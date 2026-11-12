@@ -116,15 +116,17 @@ export function themeDraftReducer(
                 return state;
             }
 
+            const newTokens = {
+                ...state.colorTokens,
+                [group]: {
+                    ...tokens[group],
+                    [role]: { ...token, [colorScheme]: normalized },
+                },
+            } as EditableLightDarkPalette;
+
             return {
                 ...state,
-                colorTokens: {
-                    ...state.colorTokens,
-                    [group]: {
-                        ...tokens[group],
-                        [role]: { ...token, [colorScheme]: normalized },
-                    },
-                } as EditableLightDarkPalette,
+                colorTokens: newTokens,
             };
         }
 

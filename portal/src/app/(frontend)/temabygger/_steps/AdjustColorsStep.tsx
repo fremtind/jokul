@@ -40,7 +40,7 @@ export function AdjustColorsStep({
     const contrastErrors = getFailingContrasts(
         colorTokens,
         includeDarkMode ? COLOR_SCHEMES : ["light"],
-    );
+    ).filter((combination) => combination.colorScheme === colorScheme);
     const hasContrastErrors = contrastErrors.length > 0;
 
     const previousStepAction: ButtonProps<typeof Link> = {

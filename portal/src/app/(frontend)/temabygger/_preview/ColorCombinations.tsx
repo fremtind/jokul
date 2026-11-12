@@ -5,44 +5,20 @@ import { Select } from "@fremtind/jokul/select";
 import { Title } from "@fremtind/jokul/typography";
 import { useState } from "react";
 import { ColorCombinationCard } from "../_components/ColorCombinationCard";
-import {
-    COLOR_SCHEMES,
-    type ColorRole,
-    type ColorScheme,
-    type EditableLightDarkPalette,
-} from "../generator/types";
-import {
-    CONTRAST_REQUIREMENTS,
-    getFailingContrasts,
-} from "./contrastEvaluation";
+import type { ColorRole } from "../generator/types";
+import { CONTRAST_REQUIREMENTS } from "./contrastEvaluation";
 
 import overviewStyles from "../../../../components/overview/overview.module.scss";
+import { useThemePreview } from "../_context/ThemePreviewContext";
 
-type ColorCombinationsProps = {
-    includeDarkMode: boolean;
-    tokens: EditableLightDarkPalette;
-    colorScheme?: ColorScheme;
-};
-
-const LIGHT_COLOR_SCHEMES = ["light"] as const satisfies readonly ColorScheme[];
-
-export function ColorCombinations({
-    includeDarkMode,
-    tokens,
-    colorScheme = "light",
-}: ColorCombinationsProps) {
-    const colorSchemes = includeDarkMode ? COLOR_SCHEMES : LIGHT_COLOR_SCHEMES;
+export function ColorCombinations() {
+    const { contrastErrors } = useThemePreview();
     const [shownBackground, setShownBackground] =
         useState<keyof typeof CONTRAST_REQUIREMENTS>("page");
 
-    const failingCombinations = getFailingContrasts(
-        tokens,
-        colorSchemes,
-    ).filter((combination) => combination.colorScheme === colorScheme);
-
     return (
         <Flex direction="column" gap="xl">
-            {failingCombinations.length > 0 && (
+            {contrastErrors.length > 0 && (
                 <section>
                     <Title as="h2" className="jkl-spacing-m--bottom">
                         Fargekombinasjoner med for lav kontrast
@@ -51,7 +27,7 @@ export function ColorCombinations({
                         className={overviewStyles.grid}
                         style={{ gap: "var(--jkl-spacing-s)" }}
                     >
-                        {failingCombinations.map((combination) => (
+                        {contrastErrors.map((combination) => (
                             <ColorCombinationCard
                                 key={`${combination.backgroundRole}-${combination.foregroundRole}`}
                                 backgroundRole={combination.backgroundRole}
