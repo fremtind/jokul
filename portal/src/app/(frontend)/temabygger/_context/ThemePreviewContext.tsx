@@ -8,7 +8,11 @@ import {
     useMemo,
     useState,
 } from "react";
-import type { ColorScheme } from "../generator/types";
+import {
+    type FailingContrastCombination,
+    getFailingContrasts,
+} from "../_preview/contrastEvaluation";
+import { COLOR_SCHEMES, type ColorScheme } from "../generator/types";
 import { useThemeDraft } from "./ThemeDraftContext";
 
 export type ThemePreviewTab = "overview" | "components" | "contrast";
@@ -17,6 +21,7 @@ type ThemePreviewContextValue = {
     activeTab: ThemePreviewTab;
     colorScheme: ColorScheme;
     activeColorScheme: ColorScheme;
+    contrastErrors: FailingContrastCombination[];
     isColorSchemeLocked: boolean;
     setActiveTab: (tab: ThemePreviewTab) => void;
     setColorScheme: (colorScheme: ColorScheme) => void;
@@ -49,12 +54,23 @@ export function ThemePreviewProvider({ children }: ThemePreviewProviderProps) {
           : undefined;
     const activeColorScheme = lockedColorScheme ?? colorScheme;
     const isColorSchemeLocked = lockedColorScheme !== undefined;
+    const contrastErrors = useMemo(
+        () =>
+            getFailingContrasts(
+                draft.colorTokens,
+                draft.includeDarkMode ? COLOR_SCHEMES : ["light"],
+            ).filter(
+                (combination) => combination.colorScheme === activeColorScheme,
+            ),
+        [draft.colorTokens, draft.includeDarkMode, activeColorScheme],
+    );
 
     const value = useMemo<ThemePreviewContextValue>(() => {
         return {
             activeTab,
             colorScheme,
             activeColorScheme,
+            contrastErrors,
             isColorSchemeLocked,
             setActiveTab,
             setColorScheme,
@@ -64,7 +80,13 @@ export function ThemePreviewProvider({ children }: ThemePreviewProviderProps) {
                 );
             },
         };
-    }, [activeColorScheme, isColorSchemeLocked, activeTab, colorScheme]);
+    }, [
+        activeColorScheme,
+        contrastErrors,
+        isColorSchemeLocked,
+        activeTab,
+        colorScheme,
+    ]);
 
     return (
         <ThemePreviewContext.Provider value={value}>

@@ -1,7 +1,6 @@
 "use client";
 
 import { Flex } from "@fremtind/jokul/flex";
-import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { useThemePreview } from "../_context/ThemePreviewContext";
 import { ColorCombinations } from "./ColorCombinations";
 import { EmptyView } from "./EmptyView";
@@ -13,8 +12,7 @@ type ThemePreviewProps = {
 };
 
 export function ThemePreview({ segment }: ThemePreviewProps) {
-    const { draft } = useThemeDraft();
-    const { activeColorScheme, activeTab } = useThemePreview();
+    const { activeTab } = useThemePreview();
     const showColorPreview =
         segment === "farger" || segment === "innsending" || !segment;
 
@@ -31,11 +29,7 @@ export function ThemePreview({ segment }: ThemePreviewProps) {
                 </div>
             )}
             {showColorPreview && activeTab === "contrast" && (
-                <ColorCombinations
-                    includeDarkMode={draft.includeDarkMode}
-                    tokens={draft.colorTokens}
-                    colorScheme={activeColorScheme}
-                />
+                <ColorCombinations />
             )}
             {showColorPreview && activeTab !== "contrast" && (
                 <ExampleView story={activeTab} />

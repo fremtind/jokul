@@ -1,6 +1,7 @@
 import { Button } from "@fremtind/jokul/button";
 import { Flex } from "@fremtind/jokul/flex";
 import { Icon } from "@fremtind/jokul/icon";
+import { NotificationBadge } from "@fremtind/jokul/notification-badge";
 import { Tab, TabList, Tabs } from "@fremtind/jokul/tabs";
 import {
     Tooltip,
@@ -8,6 +9,7 @@ import {
     TooltipTrigger,
 } from "@fremtind/jokul/tooltip";
 import type { ColorScheme } from "@fremtind/jokul/utilities";
+import type { ReactNode } from "react";
 import {
     type ThemePreviewTab,
     useThemePreview,
@@ -16,12 +18,6 @@ import {
 type ThemePreviewControlsProps = {
     segment?: string | null;
 };
-
-const PREVIEW_TABS: { value: ThemePreviewTab; label: string }[] = [
-    { value: "overview", label: "Overblikk" },
-    { value: "components", label: "Komponenter" },
-    { value: "contrast", label: "Fargekombinasjoner" },
-];
 
 const COLOR_SCHEME_LABELS: Record<ColorScheme, string> = {
     light: "Bytt til mørk modus",
@@ -39,12 +35,31 @@ export const ThemePreviewControls = ({
     const {
         activeColorScheme,
         activeTab,
+        contrastErrors,
         isColorSchemeLocked,
         setActiveTab,
         toggleColorScheme,
     } = useThemePreview();
 
     if (!segment || !["farger", "innsending"].includes(segment)) return null;
+
+    const PREVIEW_TABS: { value: ThemePreviewTab; label: ReactNode }[] = [
+        { value: "overview", label: "Overblikk" },
+        { value: "components", label: "Komponenter" },
+        {
+            value: "contrast",
+            label: (
+                <>
+                    Fargekombinasjoner{" "}
+                    <NotificationBadge
+                        urgent
+                        count={contrastErrors.length}
+                        label="feil"
+                    />
+                </>
+            ),
+        },
+    ];
 
     return (
         <Flex alignItems="center" justifyContent="space-between" gap="24">
