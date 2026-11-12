@@ -1,7 +1,6 @@
 "use client";
 
 import { Flex } from "@fremtind/jokul/flex";
-
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { useThemePreview } from "../_context/ThemePreviewContext";
 import { ColorCombinations } from "./ColorCombinations";

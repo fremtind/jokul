@@ -5,9 +5,8 @@ import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
 import { type ReactNode, useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import { buildThemePreviewStyle } from "../_shared/previewStyle";
-
 import { useThemePreview } from "../_context/ThemePreviewContext";
+import { buildThemePreviewStyle } from "../_shared/previewStyle";
 import styles from "./theme-builder-layout.module.scss";
 
 type ThemeBuilderLayoutProps = {

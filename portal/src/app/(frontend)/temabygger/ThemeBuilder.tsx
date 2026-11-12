@@ -1,12 +1,10 @@
 "use client";
 
 import { Flex } from "@fremtind/jokul/flex";
-
 import { useSelectedLayoutSegments } from "next/navigation";
 import type { ReactNode } from "react";
 import { ThemeBuilderLayout } from "./_components/ThemeBuilderLayout";
 import { ThemePreviewControls } from "./_components/ThemePreviewControls";
-
 import { ThemePreviewProvider } from "./_context/ThemePreviewContext";
 import { ThemePreview } from "./_preview/ThemePreview";
 
