@@ -6,7 +6,8 @@ import { Text, Title } from "@fremtind/jokul/typography";
 import { type ReactNode, useMemo } from "react";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { buildThemePreviewStyle } from "../_shared/previewStyle";
-import type { ColorScheme } from "../generator/types";
+
+import { useThemePreview } from "../_context/ThemePreviewContext";
 import styles from "./theme-builder-layout.module.scss";
 
 type ThemeBuilderLayoutProps = {
@@ -15,10 +16,6 @@ type ThemeBuilderLayoutProps = {
 
 type ThemeBuilderLayoutSlotProps = {
     children: ReactNode;
-};
-
-type ThemeBuilderLayoutPreviewProps = ThemeBuilderLayoutSlotProps & {
-    colorScheme: ColorScheme;
 };
 
 const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
@@ -37,9 +34,9 @@ const ThemeBuilderLayoutRoot = ({ children }: ThemeBuilderLayoutProps) => (
 
 const ThemeBuilderLayoutPreview = ({
     children,
-    colorScheme,
-}: ThemeBuilderLayoutPreviewProps) => {
+}: ThemeBuilderLayoutSlotProps) => {
     const { draft } = useThemeDraft();
+    const { activeColorScheme } = useThemePreview();
     const previewStyle = useMemo(() => {
         return buildThemePreviewStyle({
             tokens: draft.colorTokens,
@@ -60,7 +57,7 @@ const ThemeBuilderLayoutPreview = ({
             padding="l"
             outlined
             aria-labelledby="theme-builder-preview-title"
-            data-theme={draft.includeDarkMode ? colorScheme : "light"}
+            data-theme={activeColorScheme}
             style={{
                 ...previewStyle,
                 backgroundColor: "var(--jkl-color-background-page)",

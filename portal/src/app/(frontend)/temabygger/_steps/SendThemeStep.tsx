@@ -2,15 +2,15 @@
 
 import { ButtonGroup } from "@fremtind/jokul/button-group";
 import { Flex } from "@fremtind/jokul/flex";
+import { useModal } from "@fremtind/jokul/modal";
+import { NavLink } from "@fremtind/jokul/nav-link";
 import { Text, Title } from "@fremtind/jokul/typography";
 import Link from "next/link";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
-import { StepCard } from "./StepCard";
-import { useModal } from "@fremtind/jokul/modal";
-import { NavLink } from "@fremtind/jokul/nav-link";
-import { SharePreviewModal } from "./SharePreviewModal";
 import { createThemePreviewHref } from "../_shared/themeDraftPayload";
 import { createThemeBlob } from "../_shared/themeTokenMail";
+import { SharePreviewModal } from "./SharePreviewModal";
+import { StepCard } from "./StepCard";
 
 export function SendThemeStep() {
     const { draft, dispatch } = useThemeDraft();

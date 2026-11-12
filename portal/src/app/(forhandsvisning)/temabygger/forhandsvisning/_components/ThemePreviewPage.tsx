@@ -1,23 +1,32 @@
 "use client";
 
+import { ThemePreviewControls } from "@/app/(frontend)/temabygger/_components/ThemePreviewControls";
 import { useThemeDraft } from "@/app/(frontend)/temabygger/_context/ThemeDraftContext";
+import {
+    ThemePreviewProvider,
+    useThemePreview,
+} from "@/app/(frontend)/temabygger/_context/ThemePreviewContext";
 import { ThemePreview } from "@/app/(frontend)/temabygger/_preview/ThemePreview";
 import { buildThemePreviewStyle } from "@/app/(frontend)/temabygger/_shared/previewStyle";
-import type { ColorScheme } from "@/app/(frontend)/temabygger/generator/types";
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
 import { Text, Title } from "@fremtind/jokul/typography";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import styles from "./theme-preview-page.module.scss";
 
 export function ThemePreviewPage() {
     return (
-        <div className={styles.page}>
-            <Flex as="main" className={styles.main} wrap alignItems="start">
-                <PreviewPageAside />
-                <PreviewPageContent />
-            </Flex>
-        </div>
+        <ThemePreviewProvider>
+            <div className={styles.page}>
+                <Flex as="main" className={styles.main} wrap alignItems="start">
+                    <PreviewPageAside />
+                    <Flex as="section" direction="column" gap="12">
+                        <ThemePreviewControls segment={"innsending"} />
+                        <PreviewPageContent />
+                    </Flex>
+                </Flex>
+            </div>
+        </ThemePreviewProvider>
     );
 }
 
@@ -44,8 +53,7 @@ function PreviewPageAside() {
 
 function PreviewPageContent() {
     const { draft } = useThemeDraft();
-    const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
-    const activeColorScheme = draft.includeDarkMode ? colorScheme : "light";
+    const { activeColorScheme } = useThemePreview();
     const previewStyle = useMemo(() => {
         return buildThemePreviewStyle({
             tokens: draft.colorTokens,
@@ -62,7 +70,6 @@ function PreviewPageContent() {
 
     return (
         <Card
-            as="section"
             padding="l"
             outlined
             aria-labelledby="theme-builder-preview-page-title"
@@ -80,14 +87,7 @@ function PreviewPageContent() {
             >
                 Forhåndsvisning
             </Title>
-            <ThemePreview
-                colorScheme={activeColorScheme}
-                onToggleColorScheme={() =>
-                    setColorScheme((current) =>
-                        current === "light" ? "dark" : "light",
-                    )
-                }
-            />
+            <ThemePreview />
         </Card>
     );
 }

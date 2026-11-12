@@ -1,6 +1,7 @@
 "use client";
 
 import type { ButtonProps } from "@fremtind/jokul/button";
+import { ButtonGroup } from "@fremtind/jokul/button-group";
 import { Accordion, ExpandablePanel } from "@fremtind/jokul/expander";
 import { Flex } from "@fremtind/jokul/flex";
 import { ErrorIcon } from "@fremtind/jokul/icon";
@@ -24,7 +25,6 @@ import {
     type EditableColorTokenGroup,
     getEditableColorTokenGroups,
 } from "./colorTokenMetadata";
-import { ButtonGroup } from "@fremtind/jokul/button-group";
 
 type ContrastErrorLabelsByRole = Partial<Record<ColorRole, string>>;
 
@@ -60,7 +60,7 @@ export function AdjustColorsStep({
         : {
               as: Link,
               href:
-                  colorScheme === "dark"
+                  colorScheme === "dark" || !includeDarkMode
                       ? "/temabygger/innsending"
                       : "/temabygger/farger/morkt",
               children: "Fortsett",
