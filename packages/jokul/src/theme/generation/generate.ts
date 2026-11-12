@@ -1,24 +1,22 @@
-import { color as colorMetadataDark } from "@fremtind/jokul/tokens/metadata/color.metadata.dark.json" with {
-    type: "json",
-};
-import { color as colorMetadataLight } from "@fremtind/jokul/tokens/metadata/color.metadata.light.json" with {
-    type: "json",
-};
-
 import chroma from "chroma-js";
+import colorMetadataDarkFile from "../../tokens/metadata/color.metadata.dark.json" with {
+    type: "json",
+};
+import colorMetadataLightFile from "../../tokens/metadata/color.metadata.light.json" with {
+    type: "json",
+};
 import type {
-    ColorGroup,
     ColorMetadata,
     ColorScheme,
     HexColor,
     SimpleLightDarkPalette,
     SimplePalette,
-} from "./types";
+} from "./types.js";
 import {
     generateContrastColor,
     getLightnessFromHex,
     getLuminanceFromLightness,
-} from "./utils";
+} from "./utils.js";
 
 /**
  * Genererer en farge basert på WCAG relativ luminance.
@@ -78,7 +76,9 @@ function generateSinglePalette(
     method: "wcag" | "oklch" = "wcag",
 ): SimplePalette {
     const colorMetadata =
-        colorScheme === "light" ? colorMetadataLight : colorMetadataDark;
+        colorScheme === "light"
+            ? colorMetadataLightFile.color
+            : colorMetadataDarkFile.color;
     const convert =
         method === "wcag" ? generateColorWithLuminance : generateColorWithOklch;
 
@@ -131,7 +131,11 @@ export function generatePalette(
         .hex() as HexColor;
 
     const lightPalette = generateSinglePalette(baseColor, "light", method);
-    const darkPalette = generateSinglePalette(darkBaseColor, "dark", method);
+    const darkPalette = generateSinglePalette(
+        darkBaseColor,
+        "dark",
+        method,
+    ) as Record<string, Record<string, HexColor>>;
 
     return Object.fromEntries(
         Object.entries(lightPalette).map(([group, roles]) => [
@@ -141,7 +145,6 @@ export function generatePalette(
                     role,
                     {
                         light: color,
-                        // @ts-ignore lightPalette og darkPalette har samme form, så dette skal alltid fungere
                         dark: darkPalette[group][role],
                     },
                 ]),

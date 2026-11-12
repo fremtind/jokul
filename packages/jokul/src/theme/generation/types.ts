@@ -1,14 +1,17 @@
-import { color as colorMetadata } from "@fremtind/jokul/tokens/metadata/color.metadata.light.json" with {
-    type: "json",
-};
+import type colorMetadataFile from "@fremtind/jokul/tokens/metadata/color.metadata.light.json";
+import type { ColorScheme } from "../../utilities/types.js";
+
+type ColorMetadataTree = (typeof colorMetadataFile)["color"];
 
 /** En hex-fargestreng som starter med `#`, typisk på formen `#rrggbb` eller `#rrggbbaa`. */
 export type HexColor = `#${string}`;
 
-export const COLOR_SCHEMES = ["light", "dark"] as const;
+export type { ColorScheme };
 
-/** Lys eller mørkt fargetema. */
-export type ColorScheme = (typeof COLOR_SCHEMES)[number];
+export const COLOR_SCHEMES = [
+    "light",
+    "dark",
+] as const satisfies readonly ColorScheme[];
 
 /**
  * En streng på formen `"gruppe.rolle"` som identifiserer én bestemt fargetokens
@@ -17,10 +20,10 @@ export type ColorScheme = (typeof COLOR_SCHEMES)[number];
  * Typen utledes automatisk fra JSON-metadataen, så alle gyldige kombinasjoner
  * av gruppe og rolle er representert — ingen ugyldige strenger er tillatt.
  */
-export type ColorGroup = keyof typeof colorMetadata;
+export type ColorGroup = keyof ColorMetadataTree;
 export type ColorRole = {
-    [Group in keyof typeof colorMetadata]: `${Group}.${keyof (typeof colorMetadata)[Group] & string}`;
-}[keyof typeof colorMetadata];
+    [Group in keyof ColorMetadataTree]: `${Group}.${keyof ColorMetadataTree[Group] & string}`;
+}[keyof ColorMetadataTree];
 
 /**
  * Metadata-objektet for én enkelt fargetoken, slik det er definert i
@@ -31,8 +34,8 @@ export type ColorRole = {
  * og roller i paletten.
  */
 export type ColorMetadata = {
-    [Group in keyof typeof colorMetadata]: (typeof colorMetadata)[Group][keyof (typeof colorMetadata)[Group]];
-}[keyof typeof colorMetadata];
+    [Group in keyof ColorMetadataTree]: ColorMetadataTree[Group][keyof ColorMetadataTree[Group]];
+}[keyof ColorMetadataTree];
 
 /**
  * En ferdig beregnet farge: metadata fra JSON-fila (luminance, lightness,
@@ -52,8 +55,8 @@ export type Color = ColorMetadata & {
  * Brukes som basis for `Palette`, `SimplePalette` og `SimpleLightDarkPalette`.
  */
 type PaletteShaped<T = string> = {
-    [Group in keyof typeof colorMetadata]: {
-        [Role in keyof (typeof colorMetadata)[Group]]: T;
+    [Group in keyof ColorMetadataTree]: {
+        [Role in keyof ColorMetadataTree[Group]]: T;
     };
 };
 

@@ -2,15 +2,15 @@
 
 import { Flex } from "@fremtind/jokul/flex";
 import { Select } from "@fremtind/jokul/select";
-import { Title } from "@fremtind/jokul/typography";
-import { useState } from "react";
-import { ColorCombinationCard } from "../_components/ColorCombinationCard";
 import {
     COLOR_SCHEMES,
     type ColorRole,
     type ColorScheme,
     type EditableLightDarkPalette,
-} from "../generator/types";
+} from "@fremtind/jokul/theme";
+import { Title } from "@fremtind/jokul/typography";
+import { useState } from "react";
+import { ColorCombinationCard } from "../_components/ColorCombinationCard";
 import {
     CONTRAST_REQUIREMENTS,
     getFailingContrasts,

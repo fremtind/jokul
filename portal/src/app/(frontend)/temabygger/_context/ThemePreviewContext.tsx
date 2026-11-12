@@ -1,5 +1,6 @@
 "use client";
 
+import type { ColorScheme } from "@fremtind/jokul/theme";
 import {
     type ReactNode,
     createContext,
@@ -7,7 +8,6 @@ import {
     useMemo,
     useState,
 } from "react";
-import type { ColorScheme } from "../generator/types";
 import { useThemeDraft } from "./ThemeDraftContext";
 
 export type ThemePreviewTab = "overview" | "components" | "contrast";
