@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@fremtind/jokul/button";
 import { Card } from "@fremtind/jokul/card";
 import { Flex } from "@fremtind/jokul/flex";
@@ -8,84 +6,76 @@ import {
     Modal,
     ModalBody,
     ModalCloseButton,
+    type ModalConfig,
     ModalContainer,
     ModalHeader,
+    type ModalInstance,
     ModalOverlay,
     ModalTitle,
-    useModal,
 } from "@fremtind/jokul/modal";
 import { Text } from "@fremtind/jokul/typography";
 import { useEffect, useState } from "react";
 
 type SharePreviewModalProps = {
     previewHref: string;
+    instance: ModalInstance;
+    config: ModalConfig;
 };
 
-export function SharePreviewModal({ previewHref }: SharePreviewModalProps) {
-    const [modalInstance, { title, overlay, container, modal, closeButton }] =
-        useModal({ title: "Del internt" });
+export function SharePreviewModal({
+    previewHref,
+    instance,
+    config,
+}: SharePreviewModalProps) {
+    const { title, overlay, container, modal, closeButton } = config;
 
     return (
-        <>
-            <Button
-                type="button"
-                variant="ghost"
-                onClick={() => modalInstance?.show()}
-            >
-                Del internt
-            </Button>
-            <ModalContainer {...container}>
-                <ModalOverlay
-                    {...overlay}
-                    onClick={() => modalInstance?.hide()}
-                />
-                <Modal {...modal}>
-                    <ModalHeader>
-                        <ModalTitle {...title}>Del internt</ModalTitle>
-                        <ModalCloseButton {...closeButton} />
-                    </ModalHeader>
-                    <ModalBody>
-                        <Flex direction="column" gap="40">
-                            <Text>
-                                Vi anbefaler at forhåndsvisningen deles internt,
-                                slik at uttrykket er forankret og godkjent før
-                                det sendes til Jøkul.
-                            </Text>
-                            <Flex direction="column" gap="8">
-                                <Card padding="s" outlined>
-                                    <Flex
-                                        justifyContent="space-between"
-                                        alignItems="center"
-                                        gap="16"
-                                        wrap="nowrap"
+        <ModalContainer {...container}>
+            <ModalOverlay {...overlay} onClick={() => instance?.hide()} />
+            <Modal {...modal}>
+                <ModalHeader>
+                    <ModalTitle {...title}>Del forhåndsvisning</ModalTitle>
+                    <ModalCloseButton {...closeButton} />
+                </ModalHeader>
+                <ModalBody>
+                    <Flex direction="column" gap="40">
+                        <Text>
+                            Vi anbefaler at forhåndsvisningen deles internt,
+                            slik at uttrykket er forankret og godkjent før det
+                            sendes til Jøkul.
+                        </Text>
+                        <Flex direction="column" gap="8">
+                            <Card padding="s" outlined>
+                                <Flex
+                                    justifyContent="space-between"
+                                    alignItems="center"
+                                    gap="16"
+                                    wrap="nowrap"
+                                >
+                                    <Text
+                                        as="span"
+                                        title={previewHref}
+                                        style={{
+                                            flex: 1,
+                                            overflow: "hidden",
+                                            whiteSpace: "nowrap",
+                                            textOverflow: "ellipsis",
+                                        }}
                                     >
-                                        <Text
-                                            as="span"
-                                            title={previewHref}
-                                            style={{
-                                                flex: 1,
-                                                overflow: "hidden",
-                                                whiteSpace: "nowrap",
-                                                textOverflow: "ellipsis",
-                                            }}
-                                        >
-                                            {previewHref}
-                                        </Text>
-                                        <CopyLinkButton
-                                            previewHref={previewHref}
-                                        />
-                                    </Flex>
-                                </Card>
-                                <Text size="s" subdued>
-                                    De du deler lenken med kan ikke redigere
-                                    farger eller fonter.
-                                </Text>
-                            </Flex>
+                                        {previewHref}
+                                    </Text>
+                                    <CopyLinkButton previewHref={previewHref} />
+                                </Flex>
+                            </Card>
+                            <Text size="s" subdued>
+                                De du deler lenken med kan ikke redigere farger
+                                eller fonter.
+                            </Text>
                         </Flex>
-                    </ModalBody>
-                </Modal>
-            </ModalContainer>
-        </>
+                    </Flex>
+                </ModalBody>
+            </Modal>
+        </ModalContainer>
     );
 }
 
