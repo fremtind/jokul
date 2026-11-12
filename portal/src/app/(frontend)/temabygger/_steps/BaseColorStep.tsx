@@ -51,24 +51,19 @@ export function BaseColorStep() {
             </Checkbox>
             <Flex direction="column" gap="8">
                 <ButtonGroup
-                    mainAction={{ children: "Lag tema" }}
-                    secondaryAction={{ children: "Tilbake" }}
-                >
-                    <Button
-                        as={Link}
-                        href="/temabygger/farger"
-                        variant="primary"
-                    >
-                        Lag tema
-                    </Button>
-                    <Button
-                        as={Link}
-                        href="/temabygger/identitet"
-                        variant="secondary"
-                    >
-                        Tilbake
-                    </Button>
-                </ButtonGroup>
+                    mainAction={{
+                        children: "Lag tema",
+                        // @ts-ignore Må fikses i ButtonGroup!!!
+                        as: Link,
+                        href: "/temabygger/farger",
+                    }}
+                    secondaryAction={{
+                        children: "Tilbake",
+                        // @ts-ignore Må fikses i ButtonGroup!!!
+                        as: Link,
+                        href: "/temabygger/identitet",
+                    }}
+                />
             </Flex>
         </StepCard>
     );
