@@ -1,23 +1,31 @@
-export { generatePalette } from "./generation/generate.js";
-export {
-    COLOR_SCHEMES,
-    type Color,
-    type ColorGroup,
-    type ColorMetadata,
-    type ColorRole,
-    type ColorScheme,
-    type EditableLightDarkPalette,
-    type HexColor,
-    type LightDarkPalette,
-    type Palette,
-    type SimpleLightDarkPalette,
-    type SimplePalette,
-} from "./generation/types.js";
 export {
     generateContrastColor,
+    generatePalette,
     getLightnessFromHex,
     getLuminanceFromLightness,
+} from "./generation/generate.js";
+export type {
+    Color,
+    ColorGroup,
+    ColorMetadata,
+    ColorRole,
+    EditableLightDarkPalette,
+    HexColor,
+    JokulThemeFile,
+    JokulThemeFont,
+    JokulThemeFonts,
+    LightDarkPalette,
+    Palette,
+    SimpleLightDarkPalette,
+    SimplePalette,
+} from "./types.js";
+export {
     isHex,
     isThemeName,
     normalizeHex,
-} from "./generation/utils.js";
+} from "./utils.js";
+export {
+    type ThemeFileValidationResult,
+    parseThemeFile,
+    validateThemeFile,
+} from "./validation/validateThemeFile.js";
