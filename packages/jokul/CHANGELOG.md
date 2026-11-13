@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.6.1
+
+### Patch Changes
+
+- bb43ff8: Lar Tailwind v4-klassen `font-bold` bruke Jøkuls fontvektvariabel slik at den følger `data-brand`.
+
 ## 5.6.0
 
 ### Oversikt
