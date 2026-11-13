@@ -1,5 +1,18 @@
 # portal
 
+## 1.10.0-next.8
+
+### Patch Changes
+
+- 2569d1e: Legger til funksjonalitet for å laste ned tema i temabyggeren.
+
+  Tidligere ble det åpnet en e-post med temaet som innhold, nå blir det lastet ned som en JSON-fil. Deling av forhåndsvisning fungerer som tidligere.
+
+- 832012f: Flytt kontroller for forhåndsvisning av tema i Temabyggeren til utenfor forhåndsvisningen.
+- 358f0d9: Vis antall kontrastpar med feil som `NotificationBadge` på fanen for fargekombinasjoner i temabyggeren.
+- Updated dependencies [7531874]
+  - @fremtind/jokul@6.1.0-next.8
+
 ## 1.10.0-next.7
 
 ### Patch Changes
