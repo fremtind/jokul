@@ -1,0 +1,82 @@
+@use "@fremtind/jokul/styles/jkl";
+
+.errorPage {
+    --error-page-accent: var(--jkl-color-text-accent);
+
+    width: 100%;
+    max-width: 55ch;
+    padding-block: var(--jkl-spacing-40);
+
+    &[data-tone="error"] {
+        --error-page-accent: var(--jkl-color-error-text-accent);
+    }
+
+    &[data-tone="warning"] {
+        --error-page-accent: var(--jkl-color-warning-text-accent);
+    }
+
+    &[data-tone="info"] {
+        --error-page-accent: var(--jkl-color-info-text-accent);
+    }
+
+    @media (width >=940px) {
+        padding-block: var(--jkl-spacing-64);
+    }
+}
+
+/**
+ * Brukt av feilsidene som rendres utenfor portalens vanlige layout, og som
+ * derfor ikke får `main`-stylingen fra `(frontend)/global.scss`.
+ */
+.shell {
+    display: grid;
+    align-content: center;
+    min-height: 100dvh;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    padding: var(--jkl-spacing-16);
+
+    @media (width >=940px) {
+        padding: var(--jkl-spacing-40) var(--jkl-spacing-64);
+    }
+}
+
+.icon {
+    color: var(--error-page-accent);
+    font-size: #{jkl.rem(40px)};
+
+    @media (width >=940px) {
+        font-size: #{jkl.rem(48px)};
+    }
+}
+
+.heading {
+    display: flex;
+    flex-direction: column;
+    gap: var(--jkl-spacing-8);
+
+    @include jkl.text-style("title");
+}
+
+.status {
+    @include jkl.text-style("heading-3");
+    @include jkl.use-font-family("Jokul Mono");
+}
+
+.description {
+    margin-block-start: var(--jkl-spacing-16);
+
+    @include jkl.text-style("paragraph-medium");
+}
+
+.details {
+    margin-block-start: var(--jkl-spacing-8);
+
+    @include jkl.text-style("paragraph-medium");
+}
+
+.digest {
+    color: var(--jkl-color-text-subdued);
+
+    @include jkl.text-style("text-small");
+}
