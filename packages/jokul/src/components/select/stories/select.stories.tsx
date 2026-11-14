@@ -83,7 +83,15 @@ export const SelectStory: Story = {
     name: "Select",
 };
 
-export const SelectInline: Story = {
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+        defaultValue: telefonprodusenter[0]?.value,
+    },
+};
+
+export const ManyOptions: Story = {
+    name: "Select med mange valg",
     args: {
         label: "Hva jobber du som?",
         items: [

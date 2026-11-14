@@ -55,6 +55,27 @@
         }
     }
 
+    // Barnekombinatoren holder hooken unna kontroller som ligger dypere i wrapperen –
+    // kalenderen i DateInput har disabled dag-inputs for datoer utenfor min/max.
+    &:has(> :is(input, textarea):disabled) {
+        @include jkl.disabled-control;
+    }
+
+    // En disabled input er også `:read-only`, så den må ekskluderes eksplisitt.
+    &:has(> :is(input, textarea):read-only:not(:disabled)) {
+        @include jkl.read-only-control;
+
+        &:hover,
+        &:focus-within,
+        &:has([data-focused="true"]) {
+            --border-color: var(--jkl-color-border-subdued);
+            --background-color: transparent;
+
+            box-shadow: inset 0 0 0 jkl.rem(1px) var(--border-color),
+            0 0 0 jkl.rem(1px) transparent;
+        }
+    }
+
     @include jkl.keyboard-navigation {
         &:has(.jkl-text-input__input:focus-visible),
         &:has(.jkl-text-area__text-area:focus-visible) {
