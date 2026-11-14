@@ -238,7 +238,6 @@ describe("NumberInput", () => {
 
         expect(event.defaultPrevented).toBe(true);
     });
-
     it("increments and decrements with the stepper", () => {
         render(<NumberInput label="testing" stepper defaultValue={2} />);
 

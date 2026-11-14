@@ -1,4 +1,5 @@
 import type { ColorMode } from "../../utilities/types.js";
+import type { Tracking } from "../types.js";
 
 export interface MessageProps extends React.ComponentPropsWithoutRef<"div"> {
     fullWidth?: boolean;
@@ -11,6 +12,7 @@ export interface MessageProps extends React.ComponentPropsWithoutRef<"div"> {
      * @default "info"
      */
     variant?: ColorMode;
+    trackingProps?: Tracking;
 }
 
 export interface FormErrorMessageProps {
