@@ -5,6 +5,7 @@ import type { LabelProps } from "./types.js";
 export const Label: FC<LabelProps> = ({
     variant = "small",
     srOnly,
+    pageHeading,
     children,
     standAlone,
     htmlFor,
@@ -12,8 +13,8 @@ export const Label: FC<LabelProps> = ({
     ...rest
 }) => {
     const labelClassNames = clsx("jkl-label", className, {
-        [`jkl-label--${variant}`]: variant,
-        "jkl-label--sr-only": srOnly,
+        [`jkl-label--${variant}`]: variant && !pageHeading,
+        "jkl-label--sr-only": srOnly && !pageHeading,
     });
 
     const C = standAlone ? "label" : "span";
@@ -27,9 +28,15 @@ export const Label: FC<LabelProps> = ({
         }
     }
 
-    return (
+    const label = (
         <C {...rest} className={labelClassNames} htmlFor={htmlFor}>
             {children}
         </C>
     );
+
+    if (pageHeading) {
+        return <h1 className="jkl-label-heading">{label}</h1>;
+    }
+
+    return label;
 };

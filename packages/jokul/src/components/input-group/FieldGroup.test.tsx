@@ -16,6 +16,24 @@ describe("FieldGroup", () => {
         const label = screen.getByText("Hello");
         expect(label).toHaveClass("jkl-label--sr-only");
     });
+    it("renders the legend as a page heading inside the legend", () => {
+        render(
+            <FieldGroup
+                legend="Hva er adressen din?"
+                description="Skriv adressen du bor på."
+                labelProps={{ pageHeading: true }}
+            />,
+        );
+
+        const heading = screen.getByRole("heading", { level: 1 });
+        expect(heading).toHaveTextContent("Hva er adressen din?");
+
+        expect(heading.parentElement?.tagName).toBe("LEGEND");
+        expect(screen.getByText("Skriv adressen du bor på.").tagName).toBe("P");
+        expect(
+            screen.getByRole("group", { name: "Hva er adressen din?" }),
+        ).toBeInTheDocument();
+    });
     it("should render the correct help text", () => {
         render(<FieldGroup legend="Hello" helpLabel="Helpful text" />);
 

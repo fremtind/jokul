@@ -94,6 +94,14 @@ export const FieldGroupRadioPanelGroup: Story = {
     },
 };
 
+export const LegendSomSideoverskrift: Story = {
+    name: "Legend som sideoverskrift",
+    args: {
+        legend: "Hvordan vil du bli kontaktet?",
+        labelProps: { pageHeading: true },
+    },
+};
+
 export const GroupWithTooltip: Story = {
     name: "Field Group med tooltip",
     args: {
