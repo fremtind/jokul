@@ -32,9 +32,12 @@ export function BaseColorStep() {
                 tokenRole="contrast"
                 colorScheme="light"
                 label="Kontrastfarge"
-                onValueChange={(value) =>
-                    dispatch({ type: "APPLY_BASE_COLOR", value })
-                }
+                onValueChange={(value, field) => {
+                    const action = { type: "APPLY_BASE_COLOR" as const, value };
+                    dispatch(
+                        field ? { type: "EDIT_FIELD", field, action } : action,
+                    );
+                }}
             />
             <Checkbox
                 name="includeDarkMode"

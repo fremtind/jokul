@@ -6,6 +6,8 @@ import type { ReactNode } from "react";
 import { ThemeBuilderLayout } from "./_components/ThemeBuilderLayout";
 import { ThemePreviewControls } from "./_components/ThemePreviewControls";
 import { ThemePreviewProvider } from "./_context/ThemePreviewContext";
+import { getHistoryStep } from "./_context/themeDraftHistoryReducer";
+import { useThemeHistoryShortcuts } from "./_context/useThemeHistoryShortcuts";
 import { ThemePreview } from "./_preview/ThemePreview";
 
 type ThemeBuilderProps = {
@@ -13,9 +15,11 @@ type ThemeBuilderProps = {
 };
 
 export function ThemeBuilder({ children }: ThemeBuilderProps) {
-    const [activeSegment] = useSelectedLayoutSegments().filter(
+    const segments = useSelectedLayoutSegments();
+    const [activeSegment] = segments.filter(
         (segment) => !segment.startsWith("("),
     );
+    useThemeHistoryShortcuts(getHistoryStep(segments));
 
     return (
         <ThemeBuilderLayout>
