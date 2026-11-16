@@ -27,6 +27,7 @@ export function IdentityStep() {
                     label="Navngi tema"
                     description="Brukes til å navngi fila di"
                     name="themeName"
+                    data-theme-history
                     width="100%"
                     value={draft.themeName}
                     onChange={(event) =>
@@ -34,6 +35,9 @@ export function IdentityStep() {
                             type: "SET_THEME_NAME",
                             themeName: event.target.value,
                         })
+                    }
+                    onBlur={() =>
+                        dispatch({ type: "END_EDIT", field: "themeName" })
                     }
                 />
                 <Select

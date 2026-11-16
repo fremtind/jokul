@@ -2,19 +2,24 @@
 
 import {
     createContext,
+    useCallback,
     useContext,
     useEffect,
     useMemo,
     useReducer,
+    useRef,
     useState,
 } from "react";
+import { useActiveStep } from "../_hooks/useActiveStep";
+import { useUndoRedoShortcuts } from "../_hooks/useUndoRedoShortcuts";
 import { getStoredThemeDraft } from "../_storage/themeDraftStorage";
 import { useThrottledStorageSync } from "../_storage/useThrottledStorageSync";
 import {
-    INITIAL_STATE,
-    type ThemeDraftAction,
-    themeDraftReducer,
-} from "./themeDraftReducer";
+    type ThemeDraftHistoryAction,
+    initializeHistory,
+    themeDraftHistoryReducer,
+} from "./themeDraftHistory";
+import { INITIAL_STATE, type ThemeDraftAction } from "./themeDraftReducer";
 import type {
     ThemeDraft,
     ThemeDraftContextState,
@@ -24,6 +29,13 @@ import type {
 export type { ThemeDraftAction };
 
 const DRAFT_SAVE_DELAY_MS = 250;
+const STEP_ORDER: Record<string, number> = {
+    identitet: 0,
+    grunnfarge: 1,
+    farger: 2,
+    "farger/morkt": 3,
+    innsending: 4,
+};
 
 const ThemeDraftContext = createContext<ThemeDraftContextState | null>(null);
 
@@ -35,12 +47,36 @@ export function ThemeDraftProvider({
     children,
     initialDraft,
 }: ThemeDraftProviderProps) {
-    const [draft, dispatch] = useReducer(
-        themeDraftReducer,
+    const [history, dispatchToHistory] = useReducer(
+        themeDraftHistoryReducer,
         initialDraft,
-        initializeDraft,
+        (draft) => initializeHistory(initializeDraft(draft)),
     );
+    const draft = history.present;
+    // Hver handling merkes med steget den ble gjort i. En ref lar dispatch
+    // beholde samme identitet når brukeren navigerer mellom steg.
+    const activeStep = useActiveStep();
+    const activeStepRef = useRef(activeStep);
+    activeStepRef.current = activeStep;
+    const dispatch = useCallback(
+        (action: ThemeDraftHistoryAction) =>
+            dispatchToHistory({ ...action, scope: activeStepRef.current }),
+        [],
+    );
+    const [previousStep, setPreviousStep] = useState(activeStep);
     const [storageLoaded, setStorageLoaded] = useState(false);
+
+    // Juster historikken før children rendres med det nye steget.
+    if (activeStep !== previousStep) {
+        setPreviousStep(activeStep);
+        if (
+            activeStep &&
+            previousStep &&
+            STEP_ORDER[activeStep] > STEP_ORDER[previousStep]
+        ) {
+            dispatch({ type: "RESET_HISTORY" });
+        }
+    }
 
     // Last inn lagret utkast fra localStorage ved mount når route ikke har et eksplisitt draft
     useEffect(() => {
@@ -54,7 +90,9 @@ export function ThemeDraftProvider({
             dispatch({ type: "SET_DRAFT", draft: stored });
         }
         setStorageLoaded(true);
-    }, [initialDraft]);
+    }, [initialDraft, dispatch]);
+
+    useUndoRedoShortcuts(history, dispatch, activeStep);
 
     useThrottledStorageSync(
         draft,
@@ -63,8 +101,12 @@ export function ThemeDraftProvider({
     );
 
     const value = useMemo<ThemeDraftContextState>(
-        () => ({ draft, dispatch, storageLoaded }),
-        [draft, storageLoaded],
+        () => ({
+            draft,
+            dispatch,
+            storageLoaded,
+        }),
+        [draft, dispatch, storageLoaded],
     );
 
     return (

@@ -38,6 +38,7 @@ export function BaseColorStep() {
             />
             <Checkbox
                 name="includeDarkMode"
+                data-theme-history
                 value="includeDarkMode"
                 checked={draft.includeDarkMode}
                 onChange={(event) =>

@@ -13,7 +13,8 @@ type ThemeBuilderProps = {
 };
 
 export function ThemeBuilder({ children }: ThemeBuilderProps) {
-    const [activeSegment] = useSelectedLayoutSegments().filter(
+    const segments = useSelectedLayoutSegments();
+    const [activeSegment] = segments.filter(
         (segment) => !segment.startsWith("("),
     );
 

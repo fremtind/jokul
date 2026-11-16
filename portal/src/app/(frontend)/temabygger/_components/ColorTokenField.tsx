@@ -1,5 +1,3 @@
-"use client";
-
 import { TextInput } from "@fremtind/jokul/text-input";
 import { useThemeDraft } from "../_context/ThemeDraftContext";
 import { hexErrorLabel } from "../_shared/utils";
@@ -34,23 +32,31 @@ export function ColorTokenField({
             >
         )[group]?.[tokenRole]?.[colorScheme] ?? "";
     const id = `${group}.${tokenRole}`;
+    const editField = `${id}.${colorScheme}`;
+
     const accessibleLabel = `${label} ${colorScheme}`;
-    const handleValueChange =
-        onValueChange ??
-        ((nextValue: string) =>
-            dispatch({
-                type: "UPDATE_COLOR_TOKEN",
-                group,
-                role: tokenRole,
-                colorScheme,
-                value: nextValue,
-            }));
+
+    function handleValueChange(nextValue: string) {
+        if (onValueChange) {
+            onValueChange(nextValue);
+            return;
+        }
+
+        dispatch({
+            type: "UPDATE_COLOR_TOKEN",
+            group,
+            role: tokenRole,
+            colorScheme,
+            value: nextValue,
+        });
+    }
 
     return (
         <TextInput
             label={label}
             description={description}
             name={id}
+            data-theme-history
             value={value}
             maxLength={7}
             spellCheck={false}
@@ -61,10 +67,14 @@ export function ColorTokenField({
                 <ColorPicker
                     aria-label={`${accessibleLabel} fargevelger`}
                     value={value}
-                    onChange={handleValueChange}
+                    onInput={handleValueChange}
+                    onChange={() =>
+                        dispatch({ type: "END_EDIT", field: editField })
+                    }
                 />
             }
             onChange={(event) => handleValueChange(event.target.value)}
+            onBlur={() => dispatch({ type: "END_EDIT", field: editField })}
         />
     );
 }
