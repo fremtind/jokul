@@ -1,5 +1,6 @@
 "use client";
 
+import { useSelectedLayoutSegments } from "next/navigation";
 import {
     createContext,
     useContext,
@@ -11,10 +12,11 @@ import {
 import { getStoredThemeDraft } from "../_storage/themeDraftStorage";
 import { useThrottledStorageSync } from "../_storage/useThrottledStorageSync";
 import {
-    INITIAL_STATE,
-    type ThemeDraftAction,
-    themeDraftReducer,
-} from "./themeDraftReducer";
+    getHistoryStep,
+    initializeThemeDraftHistory,
+    themeDraftHistoryReducer,
+} from "./themeDraftHistoryReducer";
+import { INITIAL_STATE, type ThemeDraftAction } from "./themeDraftReducer";
 import type {
     ThemeDraft,
     ThemeDraftContextState,
@@ -24,6 +26,13 @@ import type {
 export type { ThemeDraftAction };
 
 const DRAFT_SAVE_DELAY_MS = 250;
+const STEP_ORDER: Record<string, number> = {
+    identitet: 0,
+    grunnfarge: 1,
+    farger: 2,
+    "farger/morkt": 3,
+    innsending: 4,
+};
 
 const ThemeDraftContext = createContext<ThemeDraftContextState | null>(null);
 
@@ -35,12 +44,27 @@ export function ThemeDraftProvider({
     children,
     initialDraft,
 }: ThemeDraftProviderProps) {
-    const [draft, dispatch] = useReducer(
-        themeDraftReducer,
+    const [history, dispatch] = useReducer(
+        themeDraftHistoryReducer,
         initialDraft,
-        initializeDraft,
+        (draft) => initializeThemeDraftHistory(initializeDraft(draft)),
     );
+    const draft = history.present;
+    const activeStep = getHistoryStep(useSelectedLayoutSegments());
+    const [previousStep, setPreviousStep] = useState(activeStep);
     const [storageLoaded, setStorageLoaded] = useState(false);
+
+    // Juster historikken før children rendres med det nye steget.
+    if (activeStep !== previousStep) {
+        setPreviousStep(activeStep);
+        if (
+            activeStep &&
+            previousStep &&
+            STEP_ORDER[activeStep] > STEP_ORDER[previousStep]
+        ) {
+            dispatch({ type: "RESET_HISTORY" });
+        }
+    }
 
     // Last inn lagret utkast fra localStorage ved mount når route ikke har et eksplisitt draft
     useEffect(() => {
@@ -63,8 +87,14 @@ export function ThemeDraftProvider({
     );
 
     const value = useMemo<ThemeDraftContextState>(
-        () => ({ draft, dispatch, storageLoaded }),
-        [draft, storageLoaded],
+        () => ({
+            draft,
+            dispatch,
+            storageLoaded,
+            canUndo: !!activeStep && history.past.at(-1)?.step === activeStep,
+            canRedo: !!activeStep && history.future.at(-1)?.step === activeStep,
+        }),
+        [draft, storageLoaded, history.past, history.future, activeStep],
     );
 
     return (
