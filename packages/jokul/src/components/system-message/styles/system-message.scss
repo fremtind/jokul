@@ -13,7 +13,7 @@ $_dismiss-animation-duration: jkl.timing("lazy");
         --jkl-system-message-dismiss-button-margin: -#{jkl.rem(6.5px)} -#{jkl.rem(18px)} -#{jkl.rem(6.5px)} auto;
         --jkl-system-message-message-margin: 0 var(--jkl-unit-20);
         --icon-color: var(--jkl-color-background-contrast);
-        --background-color: var(--jkl-color-background-container);
+        --background-color: var(--jkl-color-background-container-accent);
         --text-color: var(--jkl-color-text-default);
 
         width: 100%;

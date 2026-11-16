@@ -4,8 +4,8 @@
 .jkl-tag {
     --padding: var(--jkl-unit-02) var(--jkl-unit-10);
     --gap: var(--jkl-unit-05);
-    --background-color: var(--jkl-color-background-container);
-    --text-color: var(--jkl-color-text-default);
+    --background-color: var(--jkl-color-background-container-accent);
+    --text-color: var(--jkl-color-text-accent);
     --border-color: var(--jkl-color-border-subdued);
 
     @include jkl.text-style("text-small") {
