@@ -17,6 +17,8 @@ import {
     isStaticToken,
 } from "./filters.js";
 
+import { inlineColorSchemeReferences } from "./preprocessors.js";
+
 import { PREFIX } from "./config.js";
 
 // Formats
@@ -63,6 +65,9 @@ StyleDictionary.registerTransform({
     transitive: true,
     transform: cssVarReferenceTransform,
 });
+
+// Preprocessors
+StyleDictionary.registerPreprocessor(inlineColorSchemeReferences);
 
 // Filters
 StyleDictionary.registerFilter(isColorSchemeValue);

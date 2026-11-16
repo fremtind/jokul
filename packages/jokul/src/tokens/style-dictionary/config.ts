@@ -10,6 +10,7 @@ export const jokulTokens: Config = {
         warnings: "warn",
     },
     source: ["src/tokens/*.json"],
+    preprocessors: ["jkl/inline-color-scheme-references"],
     platforms: {
         css: {
             transformGroup: "css",
