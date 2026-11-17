@@ -12,6 +12,7 @@ import {
     type ColorScheme,
 } from "@fremtind/jokul/theme";
 import { Title } from "@fremtind/jokul/typography";
+import { Text } from "@fremtind/jokul/typography";
 import Link from "next/link";
 import { useState } from "react";
 import { ColorTokenField } from "../_components/ColorTokenField";
@@ -30,7 +31,9 @@ type ContrastErrorLabelsByRole = Partial<Record<ColorRole, string>>;
 
 export function AdjustColorsStep({
     colorScheme,
-}: { colorScheme: ColorScheme }) {
+}: {
+    colorScheme: ColorScheme;
+}) {
     const { draft } = useThemeDraft();
     const [hasTriedToSubmit, setHasTriedToSubmit] = useState(false);
 
@@ -87,6 +90,11 @@ export function AdjustColorsStep({
                         markerte feltene før du bruker temaet.
                     </Message>
                 )}
+                <Text as="p" size="m">
+                    Foreløpig kan ikke funksjonsfarger tilpasses. Vi bruker
+                    Fremtind sine funksjonsfarger i løsningene våre på tvers av
+                    distributører.
+                </Text>
                 <ButtonGroup
                     // @ts-ignore Trenger bedre typer i ButtonGroup
                     mainAction={nextStepAction}
