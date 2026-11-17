@@ -1,5 +1,20 @@
 # Change Log
 
+## 6.2.1
+
+### Patch Changes
+
+- 650dd1f: (Intern funksjonalitet) Bedre håndtering av fargetokens ved bygg av Jøkul
+
+  Legger til en preprosessor som lar oss referere til andre fargetokens i definisjonsfilene, slik at vi enkelt kan bruke samme verdi flere steder.
+
+- 3233540: Oppdaterte funksjonsfarger
+
+  Funksjonsfargene (info, error, etc) er oppdatert for å gi bedre kontraster og for å fungere mer som de andre fargerollene i systemet.
+
+- 390a6d5: Legger til forhåndsvisning av tema for SpareBank 1 i Storybook
+- cb639b5: Lar Tailwind v4-klassen `font-bold` bruke Jøkuls fontvektvariabel slik at den følger `data-brand`.
+
 ## 6.2.0
 
 ### Oversikt
