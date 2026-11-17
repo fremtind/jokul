@@ -1,8 +1,6 @@
 import fremtindTheme from "@/components/portable-text/code-block/fremtindTheme";
 import fremtindThemeDark from "@/components/portable-text/code-block/fremtindThemeDark";
 import type { Jokul_code } from "@/sanity/types";
-import { trackEvent } from "@/utils/tracking/mixpanel";
-import { Events } from "@/utils/tracking/types";
 import { Button } from "@fremtind/jokul/button";
 import { useBrowserPreferences } from "@fremtind/jokul/hooks";
 import { CheckIcon, CopyIcon } from "@fremtind/jokul/icon";
@@ -53,10 +51,6 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ title, code }) => {
                         try {
                             navigator.clipboard.writeText(code.code || "");
                             setCopied(true);
-                            trackEvent(Events.CLICK, {
-                                element: title || "",
-                                type: "copy button",
-                            });
                             setTimeout(() => {
                                 setCopied(false);
                             }, 2000);
