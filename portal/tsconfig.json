@@ -34,6 +34,9 @@
       ],
       "@jokul-stories/*": [
         "../packages/jokul/stories/*"
+      ],
+      "@jokul-schemas/*": [
+        "../packages/jokul/src/theme/schema/*"
       ]
     },
     "target": "ES2022"
