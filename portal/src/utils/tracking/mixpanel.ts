@@ -68,6 +68,7 @@ export function initMixpanel() {
         debug: process.env.NODE_ENV === "development",
         track_pageview: "url-with-path-and-query-string",
         disable_persistence: true,
+        autocapture: true,
     });
     mixpanel.register({ environment: process.env.NODE_ENV || "unknown" });
 
