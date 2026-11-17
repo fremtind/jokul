@@ -61,6 +61,13 @@ export interface LabelProps extends WithChildren {
     id?: string;
     variant?: LabelVariant;
     srOnly?: boolean;
+    /**
+     * Viser labelen eller legenden som sidens hovedoverskrift (`<h1>`).
+     * Bruk ved ett spørsmål per side. Ikke kombiner med `srOnly`.
+     *
+     * @default false
+     */
+    pageHeading?: boolean;
     standAlone?: boolean;
     htmlFor?: string;
     className?: string;

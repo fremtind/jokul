@@ -52,6 +52,15 @@ export const UgyldigEpost: Story = {
     },
 };
 
+export const LabelSomSideoverskrift: Story = {
+    name: "Label som sideoverskrift",
+    args: {
+        label: "Hva er e-postadressen din?",
+        description: "Vi sender kvitteringen hit.",
+        labelProps: { pageHeading: true },
+    },
+};
+
 export const UnitAlign: Story = {
     name: "Unit + Align",
     args: {
