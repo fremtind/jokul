@@ -47,6 +47,14 @@
         &--auto-expand {
             .jkl-text-area__text-area {
                 overflow: hidden; // Skjul scrollbar når høyden autojusteres
+
+                @supports (field-sizing: content) {
+                    &.jkl-text-area__text-area {
+                        field-sizing: content;
+                        height: auto;
+                        max-height: none;
+                    }
+                }
             }
         }
 
