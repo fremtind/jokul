@@ -653,6 +653,18 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                                 e.preventDefault();
                                                 buttonRef.current?.focus();
                                             }}
+                                            data-track-component-name={
+                                                COMPONENT_NAMES.Select
+                                            }
+                                            data-track-id={
+                                                trackingProps?.id ?? label
+                                            }
+                                            data-track-label={label}
+                                            data-track-searchable={searchable}
+                                            {...getExtraTrackingAttributes(
+                                                trackingProps?.extra,
+                                                rest,
+                                            )}
                                         >
                                             {selectedValueLabel}
                                         </button>

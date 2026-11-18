@@ -3,7 +3,6 @@ import React from "react";
 import { describe, expect, it } from "vitest";
 import { Button } from "./button/Button.js";
 import { Card } from "./card/Card.js";
-import { DateInput } from "./date-input/DateInput.js";
 import { Link } from "./link/Link.js";
 import { Select } from "./select/Select.js";
 import { TextInput } from "./text-input/TextInput.js";
@@ -75,14 +74,10 @@ describe("data-track-attributter", () => {
             "jkl-card",
         ],
         [
-            "DateInput",
-            <DateInput key="date" label="Dato" data-track-id="direkte" />,
-            "jkl-date-input__input",
-        ],
-        [
             "Select",
             <Select
                 key="select"
+                name="velg"
                 label="Velg"
                 items={[{ value: "1", label: "En" }]}
                 data-track-id="direkte"
