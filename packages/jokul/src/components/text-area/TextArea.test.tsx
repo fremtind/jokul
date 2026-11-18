@@ -3,6 +3,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { describe, expect, it } from "vitest";
 import { axe } from "vitest-axe";
+import { BaseTextArea } from "./BaseTextArea.js";
 import { TextArea } from "./TextArea.js";
 
 describe("TextArea", () => {
@@ -10,6 +11,34 @@ describe("TextArea", () => {
         render(<TextArea label="Cool text area" />);
 
         expect(screen.getByLabelText("Cool text area")).toBeInTheDocument();
+    });
+
+    it("marks the textarea itself as auto-expanding, also when BaseTextArea is used directly", () => {
+        render(
+            <>
+                <TextArea label="Med gruppe" autoExpand />
+                <BaseTextArea
+                    label="Uten gruppe"
+                    aria-label="Uten gruppe"
+                    autoExpand
+                />
+            </>,
+        );
+
+        expect(screen.getByLabelText("Med gruppe")).toHaveClass(
+            "jkl-text-area__text-area--auto-expand",
+        );
+        expect(screen.getByLabelText("Uten gruppe")).toHaveClass(
+            "jkl-text-area__text-area--auto-expand",
+        );
+    });
+
+    it("renders with an empty placeholder so CSS can follow the DOM value", () => {
+        render(<TextArea label="Cool text area" />);
+
+        expect(screen.getByRole("textbox").getAttribute("placeholder")).toEqual(
+            " ",
+        );
     });
 
     it("uses the passed class name", () => {
@@ -24,14 +53,6 @@ describe("TextArea", () => {
 
         const label = screen.getByText("testing");
         expect(label).toHaveClass("jkl-label--sr-only");
-    });
-
-    it("renders with an empty placeholder for CSS selector reasons, so expand animation works", () => {
-        const { getByRole } = render(<TextArea label="Cool text area" />);
-
-        const textArea = getByRole("textbox");
-
-        expect(textArea.getAttribute("placeholder")).toEqual(" ");
     });
 
     it("uses character counting by default", () => {
