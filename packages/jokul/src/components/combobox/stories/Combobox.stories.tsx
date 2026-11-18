@@ -210,6 +210,33 @@ export const ComboboxStory: Story = {
     },
 };
 
+export const Disabled: Story = {
+    args: {
+        items: enkleValg,
+        name: "forsikringer-disabled",
+        label: "Velg forsikringer",
+        value: [enkleValg[0]],
+        disabled: true,
+        width: 20,
+    },
+};
+
+/**
+ * Read-only viser valget uten å kunne endre det: menyen kan ikke åpnes og taggene
+ * kan ikke fjernes, men teksten beholder full kontrast.
+ */
+export const ReadOnly: Story = {
+    name: "Read-only",
+    args: {
+        items: enkleValg,
+        name: "forsikringer-readonly",
+        label: "Velg forsikringer",
+        value: [enkleValg[0], enkleValg[2]],
+        readOnly: true,
+        width: 20,
+    },
+};
+
 export const RegeltreffMedTagHover: Story = {
     args: {
         items: personskadeRegeltreff,

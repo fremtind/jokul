@@ -29,6 +29,10 @@
             @include jkl.hover-bg;
         }
 
+        @include jkl.disabled-selectors {
+            @include jkl.disabled-control;
+        }
+
         &[aria-selected="true"]::before {
             --icon-color: var(--jkl-color-background-contrast);
             content: "check" / "";
