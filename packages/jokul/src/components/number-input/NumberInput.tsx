@@ -8,6 +8,8 @@ import React, {
 import { mergeRefs } from "../../utilities/mergeRefs.js";
 import { MinusIcon, PlusIcon } from "../icon/index.js";
 import { InputGroup } from "../input-group/InputGroup.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { NumberInputProps } from "./types.js";
 
 type NumberInputValue = string | number | readonly string[] | undefined;
@@ -79,6 +81,7 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
             description,
             width,
             onChange,
+            trackingProps,
             ...rest
         } = props;
         const internalRef = useRef<HTMLInputElement>(null);
@@ -197,6 +200,21 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInputProps>(
                                 inputClassName,
                             )}
                             data-testautoid={testAutoId}
+                            data-track-component-name={
+                                COMPONENT_NAMES.NumberInput
+                            }
+                            data-track-id={
+                                trackingProps?.id ??
+                                (label ? String(label) : undefined)
+                            }
+                            data-track-label={label ? String(label) : undefined}
+                            data-track-stepper={stepper}
+                            data-track-align={align}
+                            data-track-width={width}
+                            {...getExtraTrackingAttributes(
+                                trackingProps?.extra,
+                                rest,
+                            )}
                         />
                         {stepper && (
                             <StepperButton
