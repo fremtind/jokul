@@ -71,6 +71,12 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
                     return;
                 }
 
+                // Nettleseren håndterer høyden selv via field-sizing, uten å krympe feltet og flytte scroll
+                if (CSS.supports("field-sizing", "content")) {
+                    textAreaElement.style.height = "";
+                    return;
+                }
+
                 if (textAreaFocused || textAreaValue) {
                     textAreaElement.style.height = "auto"; // Sett til auto før scrollhøyden leses, sånn at redusering av høyde ved sletting av tekst fungerer
                     textAreaElement.style.height = `${textAreaElement.scrollHeight}px`;
