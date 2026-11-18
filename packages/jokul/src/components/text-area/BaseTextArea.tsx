@@ -1,6 +1,6 @@
+import clsx from "clsx";
 import React, {
     type ChangeEvent,
-    type FocusEvent,
     forwardRef,
     useEffect,
     useMemo,
@@ -19,10 +19,8 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
             autoExpand,
             counter,
             defaultValue,
-            onBlur,
-            onFocus,
             rows = 7,
-            placeholder = " ", // This space intentionally left blank. Denne + rows trengs for å få den ekspanderende effekten.
+            placeholder = " ", // Mellomrommet er med vilje: :placeholder-shown lar CSS følge DOM-verdien, også ved form.reset()
             startOpen,
             style,
             value,
@@ -39,9 +37,15 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         const [uncontrolledValue, setUncontrolledValue] = useState(
             defaultValue ?? "",
         );
-        const [textAreaFocused, setTextAreaFocused] = useState(false);
         const internalRef = useRef<HTMLTextAreaElement>(null);
         const textAreaRef = useMemo(() => mergeRefs(internalRef, ref), [ref]);
+
+        // Verktøy som react-hook-form kan sette verdien direkte på elementet, så vi leser den ved mount.
+        useEffect(() => {
+            if (!isControlled && internalRef.current) {
+                setUncontrolledValue(internalRef.current.value);
+            }
+        }, [isControlled]);
 
         // Hvis feltet styres utenfra bruker vi `value`, ellers holder vi styr på verdien selv.
         const textAreaValue = isControlled ? value : uncontrolledValue;
@@ -52,53 +56,6 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
         const progressCurrent: number = counterTotal - counterCurrent;
         const isOverLimit = Boolean(counter && counterCurrent > counterTotal);
         const invalid = Boolean(ariaInvalid || isOverLimit);
-
-        useEffect(() => {
-            if (!isControlled && internalRef.current) {
-                const value = internalRef.current.value;
-                setUncontrolledValue((currentValue) =>
-                    currentValue === value ? currentValue : value,
-                );
-            }
-        }, [isControlled]);
-
-        // biome-ignore lint/correctness/useExhaustiveDependencies: counterCurrent trengs for å lytte på tekstendringer i textarea for auto-expand funksjonalitet
-        useEffect(() => {
-            const textAreaElement = internalRef.current;
-            if (textAreaElement) {
-                if (!autoExpand) {
-                    textAreaElement.style.height = "";
-                    return;
-                }
-
-                // Nettleseren håndterer høyden selv via field-sizing, uten å krympe feltet og flytte scroll
-                if (CSS.supports("field-sizing", "content")) {
-                    textAreaElement.style.height = "";
-                    return;
-                }
-
-                if (textAreaFocused || textAreaValue) {
-                    textAreaElement.style.height = "auto"; // Sett til auto før scrollhøyden leses, sånn at redusering av høyde ved sletting av tekst fungerer
-                    textAreaElement.style.height = `${textAreaElement.scrollHeight}px`;
-                } else {
-                    textAreaElement.style.height = "";
-                }
-            }
-        }, [autoExpand, textAreaValue, textAreaFocused, counterCurrent]);
-
-        function handleOnFocus(e: FocusEvent<HTMLTextAreaElement>) {
-            setTextAreaFocused(true);
-            if (onFocus) {
-                onFocus(e);
-            }
-        }
-
-        function handleOnBlur(e: FocusEvent<HTMLTextAreaElement>) {
-            setTextAreaFocused(false);
-            if (onBlur) {
-                onBlur(e);
-            }
-        }
 
         function handleOnChange(e: ChangeEvent<HTMLTextAreaElement>) {
             if (!isControlled) {
@@ -116,10 +73,6 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
             return total === 0 ? 0 : (current * 100) / total;
         }
 
-        const overflowStyle = {
-            overflowX: autoExpand ? "hidden" : undefined, // Must set overflowX hidden for Firefox https://stackoverflow.com/a/22700700
-        } as React.CSSProperties;
-
         return (
             <div
                 className="jkl-text-area-wrapper"
@@ -128,12 +81,12 @@ export const BaseTextArea = forwardRef<HTMLTextAreaElement, BaseTextAreaProps>(
             >
                 <textarea
                     aria-invalid={invalid}
-                    className={`jkl-text-area__text-area jkl-text-area__text-area--${rows}-rows`}
-                    onBlur={handleOnBlur}
-                    onFocus={handleOnFocus}
+                    className={clsx("jkl-text-area__text-area", {
+                        "jkl-text-area__text-area--auto-expand": autoExpand,
+                    })}
                     onChange={handleOnChange}
                     ref={textAreaRef}
-                    style={{ ...style, ...overflowStyle }}
+                    style={{ ["--rows" as string]: rows, ...style }}
                     placeholder={placeholder}
                     {...textAreaValueProps}
                     {...rest}

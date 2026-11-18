@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@use "sass:color";
 @use "../../../styles/jkl";
 @use "../../../shared/input/styles/shared-input-styles" as shared;
 
@@ -14,7 +13,6 @@
         --text-input-height: var(--jkl-unit-60);
         --progress-bar-height: #{jkl.rem(4px)};
 
-        height: auto;
         width: 100%;
 
         &__text-area {
@@ -23,39 +21,35 @@
             resize: none; // Fjern mulighet for resizing av feltet
             width: 100%;
             padding: var(--jkl-text-input-padding);
-            max-height: var(--text-input-height);
-            height: var(--text-input-height);
-            min-height: var(--text-input-height);
+            height: var(--height, var(--text-input-height));
+            min-height: var(--height, var(--text-input-height));
+            max-height: var(--height, var(--text-input-height));
 
             @include jkl.motion;
             transition-property: height, min-height, max-height, padding;
 
             @include shared.input-styles;
+
+            // Åpent felt: ved fokus, når det har innhold, eller når det starter åpent
+            &:not(:placeholder-shown),
+            .jkl-text-area-wrapper:focus-within &,
+            .jkl-text-area--start-open & {
+                --height: calc(var(--rows, 7) * 1lh + var(--jkl-text-input-vertical-padding) * 2);
+            }
+        }
+
+        // Uten støtte for field-sizing beholder feltet fast høyde og vanlig scrolling
+        @supports (field-sizing: content) {
+            &__text-area--auto-expand {
+                field-sizing: content;
+                height: auto;
+                max-height: none;
+                overflow: hidden; // Skjul scrollbar når høyden autojusteres
+            }
         }
 
         .jkl-text-area-wrapper {
-            height: auto;
             max-height: 100%;
-        }
-
-        &--start-open {
-            .jkl-text-area-wrapper {
-                max-height: 100%;
-            }
-        }
-
-        &--auto-expand {
-            .jkl-text-area__text-area {
-                overflow: hidden; // Skjul scrollbar når høyden autojusteres
-
-                @supports (field-sizing: content) {
-                    &.jkl-text-area__text-area {
-                        field-sizing: content;
-                        height: auto;
-                        max-height: none;
-                    }
-                }
-            }
         }
 
         &:has(.jkl-text-area__counter) {
@@ -97,24 +91,6 @@
                     }
                 }
             }
-        }
-    }
-
-    // Nytteklasser for tekstfelt med $num antall rader
-    @for $num from 3 through 10 {
-
-        .jkl-text-area__text-area--#{$num}-rows:focus,
-        .jkl-text-area__text-area--#{$num}-rows:not(:placeholder-shown),
-        .jkl-text-area--start-open .jkl-text-area__text-area--#{$num}-rows {
-            --height: #{$num}lh;
-            --vertical-padding: calc(var(--jkl-text-input-vertical-padding) * 2);
-
-            // (#2751) Ekspanderende får inline style med height auto,
-            //         som gir et "hopp" dersom det er en teller og vi
-            //         ikke har en minimumshøyde.
-            min-height: calc(var(--height) + var(--vertical-padding)); // (#2751)
-            height: calc(var(--height) + var(--vertical-padding));
-            max-height: 100%;
         }
     }
 }
