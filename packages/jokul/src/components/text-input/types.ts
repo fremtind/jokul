@@ -4,14 +4,17 @@ import type {
     MouseEventHandler,
     ReactNode,
 } from "react";
+import type { WithDisabled, WithReadOnly } from "../../utilities/types.js";
 import type { IconProps } from "../icon/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
 
 export interface BaseTextInputProps
     extends Omit<
-        InputHTMLAttributes<HTMLInputElement>,
-        "children" | "maxLength"
-    > {
+            InputHTMLAttributes<HTMLInputElement>,
+            "children" | "maxLength" | "disabled" | "readOnly"
+        >,
+        WithDisabled,
+        WithReadOnly {
     /**
      * Brukes til inputfelter hvor det brukes maskering, for formatering av store tall. Brukes typisk bare til valuta.
      * @default "left"
@@ -52,7 +55,7 @@ export interface TextInputProps
 }
 
 interface ActionBaseProps
-    extends Exclude<HTMLProps<HTMLButtonElement>, "disabled"> {
+    extends Omit<HTMLProps<HTMLButtonElement>, "disabled"> {
     icon: React.ReactElement<IconProps>;
     label: string;
     buttonRef?: React.Ref<HTMLButtonElement>;
