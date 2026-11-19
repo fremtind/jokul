@@ -1,6 +1,7 @@
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import createMDX from "@next/mdx";
+import { rehypeHeadingIds } from "./rehype-heading-ids.mjs";
 
 // portal/ -> workspace root (one level up)
 const workspaceRoot = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -94,6 +95,10 @@ const nextConfig = {
     },
 };
 
-const withMdx = createMDX({});
+const withMdx = createMDX({
+    // Portalen viser også markdown-filer fra repoet, som MIGRATION.md og CHANGELOG.md
+    extension: /\.mdx?$/,
+    options: { rehypePlugins: [rehypeHeadingIds] },
+});
 
 export default withMdx(nextConfig);

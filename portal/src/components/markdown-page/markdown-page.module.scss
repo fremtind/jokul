@@ -1,0 +1,66 @@
+@use "@fremtind/jokul/styles/jkl";
+
+.markdownPage {
+    width: 100%;
+    max-width: 80ch;
+    padding-block: var(--jkl-spacing-40);
+
+    @media (width >=940px) {
+        padding-block: var(--jkl-spacing-64);
+    }
+
+    h1 {
+        @include jkl.text-style("title");
+        margin-block-end: var(--jkl-spacing-24);
+    }
+
+    h2 {
+        @include jkl.text-style("heading-2");
+        margin-block: var(--jkl-spacing-40) var(--jkl-spacing-16);
+    }
+
+    h3 {
+        @include jkl.text-style("heading-3");
+        margin-block: var(--jkl-spacing-24) var(--jkl-spacing-8);
+    }
+
+    h4,
+    h5,
+    h6 {
+        @include jkl.text-style("heading-4");
+        margin-block: var(--jkl-spacing-16) var(--jkl-spacing-8);
+    }
+
+    p,
+    ul,
+    ol,
+    pre,
+    table {
+        @include jkl.text-style("paragraph-medium");
+        margin-block: var(--jkl-spacing-16);
+    }
+
+    ul,
+    ol {
+        padding-inline-start: var(--jkl-spacing-24);
+    }
+
+    li + li {
+        margin-block-start: var(--jkl-spacing-4);
+    }
+
+    a {
+        color: var(--jkl-color-text-accent);
+    }
+
+    code {
+        font-family: monospace;
+        font-size: 0.9em;
+    }
+
+    pre {
+        overflow-x: auto;
+        padding: var(--jkl-spacing-16);
+        background-color: var(--jkl-color-background-container-low);
+    }
+}
