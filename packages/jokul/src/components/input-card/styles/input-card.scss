@@ -1,0 +1,131 @@
+@use "../../../styles/jkl";
+@use "../../checkbox/styles/checkbox";
+@use "../../radio-button/styles/radio-button";
+
+@layer jokul.components {
+    .jkl-input-card-group__cards {
+        display: grid;
+        gap: var(--jkl-unit-20);
+        grid-template-columns: repeat(
+            auto-fit,
+            minmax(min(100%, #{jkl.rem(200px)}), 1fr)
+        );
+
+        &[data-direction="vertical"] {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .jkl-input-card {
+        --outer-border-color: var(--jkl-color-border-default);
+        --outer-border-thickness: #{jkl.rem(1px)};
+        --background-color: transparent;
+        --padding: var(--jkl-unit-25);
+
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: var(--jkl-unit-10);
+        padding: var(--padding);
+        border-radius: var(--jkl-border-radius-s);
+        background-color: var(--background-color);
+        box-shadow: inset 0 0 0 var(--outer-border-thickness)
+            var(--outer-border-color);
+        cursor: pointer;
+
+        @include jkl.motion;
+        transition-property: box-shadow, background-color;
+
+        // Uten illustrasjon ligger ikonet ved siden av tittelen, ikke over bildet
+        &:not(:has(.jkl-input-card__illustration)) {
+            .jkl-radio-button__label,
+            .jkl-checkbox__label {
+                padding-inline-start: 1.55em;
+            }
+
+            .jkl-input-card__description {
+                padding-inline-start: 1.55em;
+            }
+        }
+
+        &__illustration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+
+            img,
+            svg {
+                max-inline-size: 100%;
+                block-size: auto;
+            }
+        }
+
+        // Hele kortet er klikkbart via label. Inputen og ikonet flyttes ut av
+        // flyten og plasseres øverst til venstre i kortet.
+        .jkl-radio-button,
+        .jkl-checkbox {
+            position: static;
+            font-weight: jkl.$font-weight-bold;
+        }
+
+        .jkl-radio-button__input,
+        .jkl-checkbox__input {
+            inset-block-start: var(--padding);
+            inset-inline-start: var(--padding);
+        }
+
+        .jkl-radio-button__label,
+        .jkl-checkbox__label {
+            inline-size: 100%;
+
+            &::before {
+                position: absolute;
+                inset-block-start: var(--padding);
+                inset-inline-start: var(--padding);
+                margin: 0;
+                pointer-events: none;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+            }
+        }
+
+        &__description {
+            @include jkl.text-style("paragraph-medium");
+            color: var(--jkl-color-text-subdued);
+            pointer-events: none;
+            // Tettere mot tittelen enn avstanden til illustrasjonen
+            margin-block-start: calc(var(--jkl-unit-5) - var(--jkl-unit-10));
+        }
+
+        &:has(:focus-visible) {
+            @include jkl.focus-outline;
+        }
+
+        &:has(input:hover) {
+            --outer-border-color: var(--jkl-color-border-strong);
+            --outer-border-thickness: #{jkl.rem(2px)};
+        }
+
+        &:has(input:checked) {
+            --outer-border-color: var(--jkl-color-border-strong);
+            --outer-border-thickness: #{jkl.rem(3px)};
+            --background-color: var(--jkl-color-background-container);
+        }
+
+        &:has(input[aria-invalid="true"]) {
+            --outer-border-color: var(--jkl-color-error-border-default);
+        }
+
+        &:has(input:disabled) {
+            --outer-border-color: var(--jkl-color-border-default);
+            --outer-border-thickness: #{jkl.rem(1px)};
+
+            @include jkl.disabled-control;
+        }
+    }
+}
