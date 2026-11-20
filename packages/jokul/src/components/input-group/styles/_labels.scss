@@ -2,9 +2,7 @@
 @use "../../../styles/jkl";
 @use "../../icon/styles/base-styles" as icon;
 
-$_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.unique-id(
-
-    )};
+$_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.unique-id()};
 
 @layer jokul.components {
     .jkl-dormant-form-support-label {
@@ -14,28 +12,21 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
     }
 
     .jkl-form-support-label {
-        $_icon-size: jkl.rem(20px);
-
         --jkl-form-support-label-margin: var(--jkl-unit-10) 0 0;
-        --jkl-form-support-label-icon-size: #{$_icon-size};
-        --jkl-form-support-label-icon-margin: 0 -#{$_icon-size} -#{jkl.rem(6px)}
-            0;
-        --color: var(--jkl-color-text-subdued);
-
-        @include jkl.text-style("text-small");
-        @include jkl.motion("standard", "lazy");
+        --text-color: var(--jkl-color-text-subdued);
+        --background-color: transparent;
+        --icon-color: var(--jkl-color-background-contrast);
 
         display: flex;
         margin: var(--jkl-form-support-label-margin);
-        color: var(--color);
-        transition-property: color;
-        transition-delay: jkl.timing("productive");
+        color: var(--text-color);
+        background-color: var(--background-color);
 
-        &__icon,
-        &__icon.jkl-icon {
+        @include jkl.motion("standard", "energetic", color, background-color);
+
+        &__icon {
             opacity: 0;
-            height: var(--jkl-form-support-label-icon-size);
-            margin: var(--jkl-form-support-label-icon-margin);
+            color: var(--icon-color);
 
             @include jkl.forced-colors-svg-fallback(
                 $stroke: CanvasText,
@@ -43,33 +34,20 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
             );
         }
 
-        &--error {
-            background-color: var(--jkl-color-error-background-container);
-            padding-block: var(--jkl-unit-05);
-            padding-inline: var(--jkl-unit-05) var(--jkl-unit-10);
+        &[data-color] {
+            --text-color: var(--jkl-color-text-default);
+            --background-color: var(--jkl-color-background-container-accent);
+
+            padding: var(--jkl-unit-05);
+            padding-inline-end: var(--jkl-unit-10);
             border-radius: var(--jkl-border-radius-xs);
-            color: var(--jkl-color-error-text-default);
-
-            .jkl-form-support-label__icon {
-                color: var(--jkl-color-error-background-contrast);
-            }
-        }
-
-        &--error,
-        &--warning,
-        &--success {
-            --color: var(--jkl-color-text-default);
-            display: inline-flex;
+            transition-duration: jkl.timing("expressive");
 
             .jkl-form-support-label__icon {
                 animation: jkl.timing("lazy") cubic-bezier(0, 0, 0.3, 1)
-                    jkl.timing("expressive")
+                    jkl.timing("snappy")
                     $_support-icon-entrance-animation-name forwards;
             }
-        }
-
-        &--sr-only {
-            @include jkl.screenreader-only;
         }
     }
 
@@ -167,14 +145,11 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
         0% {
             margin-right: 0;
             opacity: 0;
-            transform: scale(1);
-        }
-
-        30% {
-            margin-right: jkl.$spacing-8;
+            transform: scale(0);
         }
 
         50% {
+            transform: scale(1);
             opacity: 1;
         }
 
@@ -189,7 +164,7 @@ $_support-icon-entrance-animation-name: jkl-support-icon-entrance-#{string.uniqu
         100% {
             transform: scale(1);
             opacity: 1;
-            margin-right: jkl.$spacing-8;
+            margin-right: var(--jkl-spacing-4);
         }
     }
 }

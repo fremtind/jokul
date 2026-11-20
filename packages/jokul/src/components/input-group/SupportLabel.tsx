@@ -1,9 +1,18 @@
 import clsx from "clsx";
 import React, { type FC } from "react";
+import type { IconComponent } from "../icon/Icon.jsx";
 import { ErrorIcon } from "../icon/icons/ErrorIcon.js";
 import { SuccessIcon } from "../icon/icons/SuccessIcon.js";
 import { WarningIcon } from "../icon/icons/WarningIcon.js";
-import type { SupportLabelProps } from "./types.js";
+import { Text } from "../typography/Text.jsx";
+import type { SupportLabelProps, SupportLabelType } from "./types.js";
+
+const ICON: Record<SupportLabelType, IconComponent | typeof React.Fragment> = {
+    error: ErrorIcon,
+    success: SuccessIcon,
+    warning: WarningIcon,
+    help: React.Fragment,
+};
 
 export const SupportLabel: FC<SupportLabelProps> = ({
     id,
@@ -15,31 +24,31 @@ export const SupportLabel: FC<SupportLabelProps> = ({
     srOnly,
     ...rest
 }) => {
-    const hasLabel = errorLabel || helpLabel || label;
-
+    // Støtte for gamle properties `helpLabel` og `errorLabel`
     const isHelp = labelType === "help" || (helpLabel && !errorLabel);
-    const isWarning = labelType === "warning" || errorLabel;
-    const isError = labelType === "error";
-    const isSuccess = labelType === "success";
+    const hasLabel = errorLabel || helpLabel || label;
 
     const componentClassName = hasLabel
         ? clsx("jkl-form-support-label", className, {
-              "jkl-form-support-label--sr-only": srOnly,
-              "jkl-form-support-label--help": isHelp,
-              "jkl-form-support-label--error": isError,
-              "jkl-form-support-label--warning": isWarning,
-              "jkl-form-support-label--success": isSuccess,
+              "jkl-sr-only": srOnly,
           })
         : "jkl-dormant-form-support-label";
 
     const restProps = hasLabel ? rest : {};
-
-    const Icon = isError ? ErrorIcon : isSuccess ? SuccessIcon : WarningIcon;
+    const Icon = ICON[labelType];
 
     return (
-        <span id={id} className={componentClassName} {...restProps}>
-            <Icon variant="small" className="jkl-form-support-label__icon" />
-            <span>{errorLabel || helpLabel || label}</span>
-        </span>
+        <Text
+            short
+            size="s"
+            subdued={Boolean(isHelp)}
+            id={id}
+            {...restProps}
+            className={componentClassName}
+            data-color={isHelp ? undefined : labelType}
+        >
+            <Icon className="jkl-form-support-label__icon" />
+            {errorLabel || helpLabel || label}
+        </Text>
     );
 };
