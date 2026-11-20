@@ -1,91 +1,48 @@
-import { mkdir, writeFile } from "node:fs/promises";
-import { dirname } from "node:path";
-import { parseArgs } from "node:util";
-
 const THEME_USAGE = `Bruk:
-  jokul theme generate "<hex>" [--name <navn>] [--title <tittel>] [--out <fil>] [--no-dark]`;
+  jokul theme generate <hex> [--name <navn>] [--title <tittel>] [--out <fil>] [--no-dark]
+  jokul theme build <temafil> [--out <mappe>]
 
-function printThemeHelp() {
-    console.log(`Jøkul temaer
+generate  Lag en temafil fra en merkevarefarge. Uten --out skrives JSON til terminalen.
+build     Skriv token-JSON til src/tokens/brands/ og Sass til src/styles/theme/brands/<navn>/.
+          --out erstatter resultatrotens src-mappe.
 
-${THEME_USAGE}
-
-generate  Lager en temafil fra én merkevarefarge. Uten --out skrives temaet til terminalen.
 
 Eksempler:
-  jokul theme generate "#006F4E" --name mitt-tema --out themes/mitt-tema/theme.json
-`);
-}
+  jokul theme generate "#006F4E" --name mitt-tema --out theme.json
+  jokul theme build theme.json`;
 
-async function runGenerate(args) {
-    const { values, positionals } = parseArgs({
-        args,
-        allowPositionals: true,
-        options: {
-            name: { type: "string", default: "mitt-tema" },
-            title: { type: "string" },
-            out: { type: "string" },
-            "no-dark": { type: "boolean", default: false },
-        },
-    });
-    const { generatePalette, isHex, isThemeName, normalizeHex } = await import(
-        "../build/es/theme/index.js"
-    );
-
-    if (positionals.length !== 1) {
-        console.error(`Oppgi nøyaktig én farge.\n\n${THEME_USAGE}`);
-        return 1;
-    }
-
-    const baseColor = normalizeHex(positionals[0]);
-    if (!isHex(baseColor)) {
-        console.error(
-            `Ugyldig farge: ${positionals[0]}. Bruk formatet #RRGGBB.`,
-        );
-        return 1;
-    }
-
-    if (!isThemeName(values.name)) {
-        console.error(
-            `Ugyldig navn: ${values.name}. Bruk kebab-case som starter med en bokstav, f.eks. mitt-tema.`,
-        );
-        return 1;
-    }
-
-    const theme = {
-        version: "1",
-        name: values.name,
-        ...(values.title && { title: values.title }),
-        colorTokens: generatePalette(baseColor),
-        includeDarkMode: !values["no-dark"],
-    };
-
-    if (!values.out) {
-        console.log(JSON.stringify(theme, null, 4));
+export async function runThemeCommand([command, ...args]) {
+    if (
+        !command ||
+        [command, ...args].some((arg) => arg === "--help" || arg === "-h")
+    ) {
+        console.log(THEME_USAGE);
         return 0;
     }
-
-    await mkdir(dirname(values.out), { recursive: true });
-    await writeFile(values.out, `${JSON.stringify(theme, null, 4)}\n`);
-    console.log(`Skrev ${values.out}`);
-    return 0;
-}
-
-export async function runThemeCommand(argv) {
-    const [subcommand, ...rest] = argv;
-
-    if (!subcommand || subcommand === "--help" || subcommand === "-h") {
-        printThemeHelp();
-        return 0;
-    }
-
-    switch (subcommand) {
-        case "generate":
-            return runGenerate(rest);
-        default:
-            console.error(
-                `Ukjent kommando: theme ${subcommand}\n\n${THEME_USAGE}`,
+    try {
+        if (command === "generate") {
+            const { runGenerate } = await import(
+                "../build/es/theme/cli/generate.js"
             );
-            return 1;
+            return await runGenerate(args);
+        }
+        if (command === "build") {
+            const { runBuild } = await import("../build/es/theme/cli/build.js");
+            return await runBuild(args);
+        }
+        console.error(`Ukjent kommando: theme ${command}\n\n${THEME_USAGE}`);
+    } catch (error) {
+        if (
+            command === "build" &&
+            error.code === "ERR_MODULE_NOT_FOUND" &&
+            error.message.includes("Cannot find package 'style-dictionary'")
+        ) {
+            console.error(
+                "Temabygging krever Style Dictionary. Installer med: pnpm add -D style-dictionary@^5.5.0",
+            );
+        } else {
+            console.error(error.message);
+        }
     }
+    return 1;
 }

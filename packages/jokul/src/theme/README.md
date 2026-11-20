@@ -1,6 +1,6 @@
 # Instruksjoner for å bygge tema for Jøkul
 
-Et tema er en temafil (`theme.json`) med farger, og eventuelt fonter, for én merkevare. Den er utgangspunktet for et ferdig tema for Jøul, som aktiveres med `data-brand="<navn>"` på et element som omslutter Jøkul-komponentene.
+Et tema er en temafil (`theme.json`) med farger, og eventuelt fonter, for én merkevare. Den er utgangspunktet for et ferdig tema for Jøkul, som aktiveres med `data-brand="<navn>"` på et element som omslutter Jøkul-komponentene.
 
 ## 1. Lag en temafil
 
@@ -20,53 +20,30 @@ Du kan lage temafilen på to måter:
     | `--out <fil>`      | Hvor temafilen skrives. Uten `--out` skrives den til terminalen. |
     | `--no-dark`        | Temaet bruker de lyse fargene også i mørk modus.                 |
 
-## 2. Bygg tokens og CSS-Sass-filer
+## 2. Bygg tokens og Sass-filer
 
-> [!warning]
-> Denne funksjonaliteten er ikke implementert ennå
-
-Uten `fonts` i temafilen bruker temaet Jøkuls standardfonter. Egne fonter legger du inn under `fonts`, og fontfilene (`.woff2`) i en `fonts/`-mappe ved siden av temafilen:
-
-```text
-themes/mitt-tema/
-├── theme.json
-└── fonts/
-    ├── MittTema-Regular.woff2
-    └── MittTema-Bold.woff2
-```
-
-Legg til følgende i `theme.json`-filen du genererte med temabyggeren eller CLI-et:
-
-```json
-"fonts": {
-    "regular": { "family": "'Mitt Tema', sans-serif", "weight": { "normal": "400", "bold": "700" } },
-    "display": { "family": "'Mitt Tema', sans-serif", "weight": { "normal": "400", "bold": "700" } },
-    "mono": { "family": "'Mitt Tema Mono', monospace" },
-    "faces": [
-        { "family": "Mitt Tema", "weight": 400, "style": "normal", "fileName": "MittTema-Regular.woff2" },
-        { "family": "Mitt Tema", "weight": 700, "style": "normal", "fileName": "MittTema-Bold.woff2" }
-    ]
-}
-```
-
-> [!tip]
-> `build` trenger `style-dictionary` og `sass` installert lokalt
+`build` trenger `style-dictionary` installert lokalt:
 
 ```bash
-pnpm add -D style-dictionary sass
-pnpm exec jokul theme build themes/*/theme.json --out dist/themes
+pnpm add -D style-dictionary@^5.5.0
+pnpm exec jokul theme build themes/mitt-tema/theme.json
 ```
 
-Hvert tema bygges til `<out>/<navn>/`:
+Foreløpig støttes bare fontvalgene i temabyggeren, koblet til filer i [`conversion/fontRegistry.json`](./conversion/fontRegistry.json). Fontfilene legges manuelt i `src/fonts/brands/<navn>/` og må være tilgjengelige på `/fonts/brands/<navn>/` i løsningen som bruker temaet.
 
-| Fil                                                         | Beskrivelse                            |
-| ----------------------------------------------------------- | -------------------------------------- |
-| `_index.scss`                                               | Farger og fonter for temaet.           |
-| `_color-scheme.scss`, `_fonts.scss`                         | Delene som `_index.scss` videresender. |
-| `fonts/`                                                    | Kopi av fontfilene.                    |
-| `theme.css`                                                 | Kompilert CSS.                         |
-| `color.<navn>.tokens.json`, `typography.<navn>.tokens.json` | Tokens temaet er bygget fra.           |
+Resultatet skrives relativt til gjeldende mappe:
 
-| Flagg           | Beskrivelse                  |
-| --------------- | ---------------------------- |
-| `--out <mappe>` | Standard er gjeldende mappe. |
+```text
+src/
+├── tokens/brands/
+│   ├── color.<navn>.tokens.json
+│   └── typography.<navn>.tokens.json
+└── styles/theme/brands/<navn>/
+    ├── _color-scheme.scss
+    ├── _fonts.scss
+    └── _index.scss
+```
+
+`--out <mappe>` erstatter resultatrotens `src`. Generert Sass bruker Jøkuls felles `styles/theme/_fonts.scss` under denne roten. Bygget kopierer ikke fonter og lager ikke kompilert CSS.
+
+Ved testing i Jøkul-repoet: kjør `pnpm compile:scripts` fra `packages/jokul`, og bruk `node bin/jokul.mjs theme …` i stedet for `pnpm exec jokul theme …`.

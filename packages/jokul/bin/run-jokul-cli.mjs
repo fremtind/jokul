@@ -44,6 +44,7 @@ export async function runJokulCli(argv = process.argv.slice(2)) {
 
 Bruk:
   jokul codemod [import-paths] [--dry-run] [--verbose] [sti ...]
+  jokul theme build <temafil> [--out <mappe>]
   jokul theme generate <hex> [--name <navn>] [--title <tittel>] [--out <fil>] [--no-dark]
 
 Eksempler:

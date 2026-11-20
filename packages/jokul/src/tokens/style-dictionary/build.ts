@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import StyleDictionary from "style-dictionary";
 import { BRANDS } from "../../utilities/types.js";
@@ -13,7 +14,17 @@ async function build() {
 
     for (const brand of BRANDS) {
         console.log(`⚙️ Building separate color output for brand "${brand}"`);
-        const brandDictionary = new StyleDictionary(createBrandConfig(brand));
+        const source = [
+            `src/tokens/brands/color.${brand}.tokens.json`,
+            `src/tokens/brands/typography.${brand}.tokens.json`,
+        ].filter((path) => existsSync(path));
+        const brandDictionary = new StyleDictionary(
+            createBrandConfig({
+                brand,
+                source: [...(jokulTokens.source ?? []), ...source],
+                outputDir: `./src/styles/theme/brands/${brand}`,
+            }),
+        );
         await brandDictionary.buildPlatform("css");
     }
 

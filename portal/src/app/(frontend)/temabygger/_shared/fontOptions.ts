@@ -14,7 +14,7 @@ export const FONT_OPTIONS: Record<string, JokulThemeFont> = {
         family: "'Jokul Display', 'Adjusted Arial Display Fallback', arial, sans-serif",
         weight: {
             normal: "400",
-            bold: "600",
+            bold: "400",
         },
     },
     sparebank1: {
@@ -29,7 +29,7 @@ export const FONT_OPTIONS: Record<string, JokulThemeFont> = {
         label: "SpareBank 1 Display",
         family: "'SpareBank 1 Display', sans-serif",
         weight: {
-            normal: "400",
+            normal: "600",
             bold: "600",
         },
     },
