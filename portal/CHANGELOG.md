@@ -1,5 +1,30 @@
 # portal
 
+## 1.10.0-next.8
+
+### Patch Changes
+
+- 2569d1e: Legger til funksjonalitet for å laste ned tema i temabyggeren.
+
+  Tidligere ble det åpnet en e-post med temaet som innhold, nå blir det lastet ned som en JSON-fil. Deling av forhåndsvisning fungerer som tidligere.
+
+- f7f3eec: Eksponer schema for Jøkul-tokens fra portalen
+- 832012f: Flytt kontroller for forhåndsvisning av tema i Temabyggeren til utenfor forhåndsvisningen.
+- 8953bba: Hent funksjonalitet for å generere farger fra Jøkul i stedet for å ha koden i portalen.
+- 358f0d9: Vis antall kontrastpar med feil som `NotificationBadge` på fanen for fargekombinasjoner i temabyggeren.
+- 3ac8e9f: Oppdater Temabyggeren til å bruke formatet definert i Jøkul
+- Updated dependencies [8f8b7e9]
+- Updated dependencies [8371c39]
+- Updated dependencies [7e7752a]
+- Updated dependencies [6bb3b59]
+- Updated dependencies [a65854a]
+- Updated dependencies [3004e73]
+- Updated dependencies [9743f85]
+- Updated dependencies [7531874]
+- Updated dependencies [c1b0764]
+- Updated dependencies [87d3809]
+  - @fremtind/jokul@6.1.0-next.8
+
 ## 1.10.0-next.7
 
 ### Patch Changes
