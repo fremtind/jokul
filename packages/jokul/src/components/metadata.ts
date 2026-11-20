@@ -24,6 +24,7 @@ export const COMPONENT_NAMES = {
     IconButton: "Icon Button",
     Image: "Image",
     InputGroup: "Input Group",
+    InputCard: "Input Card",
     InputPanel: "Input Panel",
     Link: "Link",
     LinkList: "Link List",
