@@ -1,6 +1,5 @@
-import { existsSync } from "node:fs";
+import { join } from "node:path";
 import type { Config } from "style-dictionary/types";
-import type { Brand } from "../../utilities/types.js";
 
 export const PREFIX = "jkl";
 
@@ -85,23 +84,23 @@ export const jokulTokens: Config = {
     },
 };
 
-/**
- * Lager en separat CSS-config per brand for å bygge en egen SCSS-fil med et
- * komplett, brand-spesifikt fargesett basert på base tokens og brand tokens.
- */
-export function createBrandConfig(brand: Brand): Config {
-    const brandSources = [
-        `src/tokens/brands/color.${brand}.tokens.json`,
-        `src/tokens/brands/typography.${brand}.tokens.json`,
-    ].filter((source) => existsSync(source));
-
+/** Setter opp bygging av farger og fonter til Sass for én merkevare. */
+export function createBrandConfig({
+    brand,
+    source,
+    outputDir,
+}: {
+    brand: string;
+    source: string[];
+    outputDir: string;
+}): Config {
     return {
         ...jokulTokens,
-        source: [...(jokulTokens.source ?? []), ...brandSources],
+        source,
         platforms: {
             css: {
                 ...jokulTokens.platforms?.css,
-                buildPath: `./src/styles/theme/brands/${brand}/`,
+                buildPath: join(outputDir, "/"),
                 files: [
                     {
                         filter: "isColorSchemeValue",
