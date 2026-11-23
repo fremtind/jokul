@@ -52,12 +52,12 @@ USER root
 
 # Copy the self-contained deploy directory from the builder stage.
 # This contains node_modules (prod only) and dist – nothing else from the monorepo.
-COPY --from=builder --chown=nobody:nobody /app/deploy ./
+COPY --from=builder --chown=65534:65534 /app/deploy ./
 
 # Run as the built-in nobody user (uid 65534) – no shell, no home directory.
 # This gives the same non-root security guarantee without requiring groupadd/useradd,
 # which fail in runners that lack the necessary /etc/group write permissions.
-USER nobody
+USER 65534
 
 # Runtime environment
 ENV NODE_ENV=production
