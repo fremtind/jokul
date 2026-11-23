@@ -6,7 +6,6 @@ USER root
 # som inneholder organisasjonens CA brukt av byggemiljøets proxy.
 ENV NODE_EXTRA_CA_CERTS=/etc/pki/tls/certs/ca-bundle.crt
 ENV NPM_CONFIG_REGISTRY=https://nexus.intern.sparebank1.no/repository/npmgroup/
-RUN useradd -ms /bin/bash appuser
 
 # -----------------------------------------------------------------------------
 # builder: Installerer pnpm kun for installasjon og bygging av pakker
@@ -53,6 +52,7 @@ ENV HOSTNAME=0.0.0.0
 
 COPY --from=builder /app/portal/.next/standalone ./
 
-USER appuser
+# 1000 er app-brukeren fra base-imaget
+USER 1000
 EXPOSE 3000
 CMD ["node", "portal/server.js"]
