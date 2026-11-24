@@ -7,6 +7,7 @@ import type {
 import type { WithDisabled, WithReadOnly } from "../../utilities/types.js";
 import type { IconProps } from "../icon/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
+import type { Tracking } from "../types.js";
 
 export interface BaseTextInputProps
     extends Omit<
@@ -49,6 +50,7 @@ export interface BaseTextInputProps
 export interface TextInputProps
     extends Omit<InputGroupProps, "children">,
         BaseTextInputProps {
+    trackingProps?: Tracking;
     "data-testautoid"?: string;
     inline?: boolean;
     inputClassName?: string;

@@ -19,7 +19,9 @@ import { Flex } from "../flex/Flex.js";
 import { ArrowDownIcon, CloseIcon } from "../icon/index.js";
 import { InputGroup } from "../input-group/InputGroup.js";
 import type { InputGroupProps } from "../input-group/types.js";
+import { COMPONENT_NAMES } from "../metadata.js";
 import { Search } from "../search/Search.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { Text } from "../typography/Text.js";
 import { Title } from "../typography/Title.js";
 import { Option } from "./Option.js";
@@ -68,6 +70,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             value,
             "data-testautoid": dataTestautoid,
             "data-size": size,
+            trackingProps,
             ...elementProps
         } = props;
 
@@ -202,6 +205,15 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                             onFocus={syncFocus}
                             onBlur={syncFocus}
                             {...inputProps}
+                            data-track-component-name={COMPONENT_NAMES.Select}
+                            data-track-id={trackingProps?.id ?? label}
+                            data-track-label={label}
+                            data-track-multiple={multiple}
+                            data-track-searchable={searchable}
+                            {...getExtraTrackingAttributes(
+                                trackingProps?.extra,
+                                elementProps,
+                            )}
                         >
                             {showPlaceholder ? placeholderText : buttonText}
                             <ArrowDownIcon />

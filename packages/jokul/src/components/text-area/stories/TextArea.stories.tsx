@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
+import { expect, userEvent, waitFor, within } from "storybook/test";
 import { TextArea as TextAreaComponent } from "../TextArea.js";
 import "../styles/_index.scss";
 
@@ -84,5 +85,48 @@ export const ByteCounter: Story = {
 export const _Error: Story = {
     args: {
         errorLabel: "Du må beskrive skaden for å fortsette",
+    },
+};
+
+const lang = Array.from(
+    { length: 12 },
+    (_, i) =>
+        `Linje ${i + 1} i en lang tekst som gjør feltet høyere enn standard.`,
+).join("\n");
+
+/** Reproduserer #6848: scroll-containeren hopper ved fokus, blur og tastetrykk. */
+export const AutoExpandScrollHopp: Story = {
+    args: {
+        autoExpand: true,
+        defaultValue: lang,
+        counter: { maxLength: 2000, hideProgress: false },
+    },
+    render: (args) => (
+        <div
+            data-testid="scroll-container"
+            style={{ height: 520, overflowY: "scroll", border: "1px solid" }}
+        >
+            <div style={{ height: 150 }}>Innhold over feltet</div>
+            <TextAreaComponent {...args} />
+            <div style={{ height: 600 }}>Innhold under feltet</div>
+        </div>
+    ),
+    play: async ({ canvasElement }) => {
+        const canvas = within(canvasElement);
+        const container = canvas.getByTestId("scroll-container");
+        const textarea = canvas.getByRole("textbox");
+
+        container.scrollTop = 120;
+        const before = container.scrollTop;
+        expect(before).toBeGreaterThan(0);
+
+        await userEvent.click(textarea);
+        await waitFor(() => expect(container.scrollTop).toBe(before));
+
+        await userEvent.type(textarea, "a");
+        await waitFor(() => expect(container.scrollTop).toBe(before));
+
+        await userEvent.tab();
+        await waitFor(() => expect(container.scrollTop).toBe(before));
     },
 };
