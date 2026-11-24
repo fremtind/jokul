@@ -1,1 +1,0 @@
-const s=t=>{if(!t)return{};const e=getComputedStyle(t),r=Number.parseInt(e.getPropertyValue("--jkl-background-color").replace("#",""),16)<16777215/2?"dark":"light",o=t.closest("[data-size]")?.getAttribute("data-size");return{theme:r,size:o}};export{s as g};
