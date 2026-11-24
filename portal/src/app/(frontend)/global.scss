@@ -60,11 +60,24 @@ article header {
 }
 
 .prose {
+    // Samme bredde som innholdskolonnen på komponentsidene: halvparten av
+    // innholdsbredden i portal-layouten (max-width minus sidepadding)
+    --prose-max-width: calc((var(--max-width) - 2 * var(--jkl-spacing-64)) / 2);
+
     width: 100%;
     container-type: inline-size;
     box-sizing: border-box;
 
     @include jkl.text-style("paragraph-medium");
+
+    > :not(table) {
+        max-inline-size: var(--prose-max-width);
+    }
+
+    // Tabeller kan bli 20 % bredere enn resten av innholdet
+    > table {
+        max-inline-size: calc(var(--prose-max-width) * 1.2);
+    }
 
     > * + * {
         margin-block-start: 1lh;
@@ -76,6 +89,10 @@ article header {
 
     > * + :is(h1, h2, h3, h4, h5) {
         margin-block-start: 1.5lh;
+    }
+
+    > table + :is(h3, h4) {
+        margin-block-start: 2.5lh;
     }
 
     > :is(h1, h2, h3, h4, h5) + * {
