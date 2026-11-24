@@ -114,7 +114,11 @@
             @include jkl.focus-outline;
         }
 
-        &:hover {
+        &:disabled {
+            @include jkl.disabled-control;
+        }
+
+        &:hover:not(:disabled) {
             @include jkl.hover-bg;
 
             @media (forced-colors: active) {
