@@ -1,5 +1,30 @@
 # Change Log
 
+## 6.3.0
+
+### Minor Changes
+
+- 0975bb8: `data-track-*`-attributter satt direkte i JSX-en vinner nå over komponentens egne defaults. Tidligere ble de overskrevet – og i komponenter uten tekstkilde for label fjernet helt – fordi attributtene ble satt etter at props ble spredt ut. Det gjør at samme konvensjon gjelder enten komponenten kommer fra Jøkul eller ikke. Feltene i `trackingProps.extra` vinner nå på samme måte.
+- 0975bb8: Legger til `data-track-*`-attributter på alle komponenter, som metadata team kan bruke til å støtte sporing av brukerne. Hver komponent får et `name`- og `label`-attributt som ikke kan endres, og en `trackingProps`-prop med `id` (overskrivbar) og `extra` (helt åpen, for prosjektspesifikke detaljer).
+
+  `CookieConsent` får to nye valgfrie props, `appName` og `team`, for å skille sporingsdata mellom apper og team. Disse blir påkrevd fra Jøkul 7 når `statistics`-samtykke er satt.
+
+  Alt er valgfritt og bakoverkompatibelt. Ingenting er påkrevd i denne versjonen. Se `TRACKING.md` for hvordan du setter opp sporing mot GTM eller Mixpanel, eller leser attributtene med egen kode.
+
+### Patch Changes
+
+- 650dd1f: (Intern funksjonalitet) Bedre håndtering av fargetokens ved bygg av Jøkul
+
+  Legger til en preprosessor som lar oss referere til andre fargetokens i definisjonsfilene, slik at vi enkelt kan bruke samme verdi flere steder.
+
+- 3233540: Oppdaterte funksjonsfarger
+
+  Funksjonsfargene (info, error, etc) er oppdatert for å gi bedre kontraster og for å fungere mer som de andre fargerollene i systemet.
+
+- 390a6d5: Legger til forhåndsvisning av tema for SpareBank 1 i Storybook
+- cb639b5: Lar Tailwind v4-klassen `font-bold` bruke Jøkuls fontvektvariabel slik at den følger `data-brand`.
+- 714a19b: Fikser at scroll-containeren hoppet når man fokuserte, skrev i eller forlot en `TextArea` med `autoExpand`. Nettlesere som støtter `field-sizing` lar nå feltet vokse uten at høyden måles i JavaScript.
+
 ## 6.2.0
 
 ### Oversikt
