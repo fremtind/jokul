@@ -3,7 +3,12 @@ import React from "react";
 import { Button } from "../Button.js";
 import "../styles/_index.scss";
 import { Flex } from "../../flex/Flex.js";
-import { CheckIcon, CloseIcon, PlusIcon } from "../../icon/index.js";
+import {
+    CheckIcon,
+    ChevronDownIcon,
+    CloseIcon,
+    PlusIcon,
+} from "../../icon/index.js";
 
 const meta = {
     title: "Komponenter/Button",
@@ -18,6 +23,7 @@ const meta = {
             textDescription: "Laster inn avtaler",
         },
         hidden: false,
+        disabled: false,
         iconPosition: "left",
     },
     argTypes: {
@@ -51,6 +57,25 @@ export const GhostButton: Story = {
     args: {
         variant: "ghost",
     },
+};
+
+export const DisabledButtons: Story = {
+    name: "Deaktiverte knapper",
+    args: {
+        disabled: true,
+        variant: "secondary",
+        children: "Button",
+    },
+    render: (args) => (
+        <Flex gap="xl">
+            <Button {...args} />
+            <Button {...args} icon={<ChevronDownIcon />} iconPosition="left" />
+            <Button {...args} icon={<ChevronDownIcon />} iconPosition="right" />
+            <Button {...args} icon={<ChevronDownIcon />} aria-label="Vis mer">
+                {null}
+            </Button>
+        </Flex>
+    ),
 };
 
 export const ButtonWithIcon: Story = {
