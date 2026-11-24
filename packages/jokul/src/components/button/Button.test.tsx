@@ -77,6 +77,25 @@ describe("Button", () => {
         expect(clickHandler).toHaveBeenCalled();
     });
 
+    it.each(buttonVariants)(
+        "%s er deaktivert og kaller ikke onClick når disabled er satt",
+        async (variant) => {
+            const onClick = vi.fn();
+            render(
+                <Button variant={variant} disabled onClick={onClick}>
+                    Lagre
+                </Button>,
+            );
+
+            const button = screen.getByRole("button", { name: "Lagre" });
+            expect(button).toBeDisabled();
+
+            await userEvent.click(button);
+
+            expect(onClick).not.toHaveBeenCalled();
+        },
+    );
+
     it("applies passed classNames", () => {
         render(
             <Button
