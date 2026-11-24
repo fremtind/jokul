@@ -102,7 +102,6 @@ describe("TextInput", () => {
         const testAutoId = input.getAttribute("data-testautoid");
         expect(testAutoId).toEqual("jkl-textinput__testautoid");
     });
-
     describe("with action", () => {
         it("renders the action-icon", () => {
             render(
