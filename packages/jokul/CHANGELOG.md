@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.7.7
+
+### Patch Changes
+
+- 1188ca1: Hjelpetekst i `Help` brytes nå på flere linjer også når komponenten står i en `nowrap`-kontekst, slik at teksten ikke går ut av popoveren på smale skjermer.
+- 6e32113: Fikser at scroll-containeren hoppet når man fokuserte, skrev i eller forlot en `TextArea` med `autoExpand`. Nettlesere som støtter `field-sizing` lar nå feltet vokse uten at høyden måles i JavaScript.
+
 ## 4.7.6
 
 ### Patch Changes
