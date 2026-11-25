@@ -169,11 +169,9 @@ describe("låseikonet i read-only-felter", () => {
         expect(
             group.querySelectorAll(":scope > .jkl-label > .jkl-label__text"),
         ).toHaveLength(0);
-        expect(
-            group.querySelector(
-                ":scope > .jkl-label:not(:has(> .jkl-label__text))",
-            ),
-        ).not.toBeNull();
+        const label = group.querySelector(":scope > .jkl-label");
+        expect(label).not.toBeNull();
+        expect(label?.querySelector(":scope > .jkl-label__text")).toBeNull();
     });
 
     it("skjuler låsen sammen med labelen når labelen er skjult", () => {
