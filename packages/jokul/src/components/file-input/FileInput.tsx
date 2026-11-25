@@ -1,9 +1,9 @@
 import clsx from "clsx";
-import React, { forwardRef, useId } from "react";
+import React, { forwardRef } from "react";
 import { FieldGroup } from "../../components/input-group/FieldGroup.js";
+import { formatBytes } from "../../utilities/formatters/bytes/formatBytes.js";
 import { Dropzone } from "./internal/Dropzone.js";
 import { Input } from "./internal/Input.js";
-import { MaxSize } from "./internal/MaxSize.js";
 import { FileInputContextProvider } from "./internal/fileInputContext.js";
 import type { FileInputProps } from "./types.js";
 
@@ -21,12 +21,22 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
             variant,
             fileVariant = "list",
             trackingProps,
+            description,
             ...rest
         } = props;
 
         const hasFiles = value.length > 0;
 
-        const maxSizeDescriptionId = useId();
+        const fieldGroupProps = {
+            ...rest,
+            description: [
+                description,
+                maxSizeBytes !== undefined &&
+                    `Maks ${formatBytes(maxSizeBytes)} per fil.`,
+            ]
+                .filter(Boolean)
+                .join(" "),
+        };
 
         if (variant === "small") {
             return (
@@ -49,7 +59,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                 "jkl-file-input--has-files": hasFiles,
                             },
                         )}
-                        {...rest}
+                        {...fieldGroupProps}
                     >
                         <Dropzone
                             trackingProps={trackingProps}
@@ -64,11 +74,9 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                     trackingProps={trackingProps}
                                     variant={variant}
                                     ref={ref}
-                                    aria-describedby={maxSizeDescriptionId}
                                 />
                             </div>
                         </Dropzone>
-                        <MaxSize id={maxSizeDescriptionId} />
                         {value.length > 0 && (
                             <ul className="jkl-file-input__files">
                                 {children}
@@ -98,7 +106,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                             "jkl-file-input--has-files": hasFiles,
                         },
                     )}
-                    {...rest}
+                    {...fieldGroupProps}
                 >
                     <Dropzone
                         trackingProps={trackingProps}
@@ -122,9 +130,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                 trackingProps={trackingProps}
                                 variant={variant}
                                 ref={ref}
-                                aria-describedby={maxSizeDescriptionId}
                             />
-                            <MaxSize id={maxSizeDescriptionId} />
                         </div>
                     </Dropzone>
                 </FieldGroup>
