@@ -20,7 +20,6 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
 
         const defaultId = useId();
 
-        const maxSizeDescriptionId = `${id}-description`;
         const descriptor = multiple ? "filer" : "fil";
 
         const context = useFileInputContext();
@@ -47,9 +46,6 @@ export const Input = forwardRef<HTMLInputElement, FileInputProps>(
                     ref={ref}
                     id={elementId}
                     accept={accept}
-                    aria-describedby={
-                        maxSizeBytes ? maxSizeDescriptionId : undefined
-                    }
                     className="jkl-sr-only"
                     type="file"
                     multiple={multiple}

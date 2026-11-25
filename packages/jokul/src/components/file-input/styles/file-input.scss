@@ -70,12 +70,6 @@
             display: none;
         }
 
-        &__max-size-text {
-            @include jkl.text-style("text-small");
-            color: var(--jkl-color-text-subdued);
-            margin-top: var(--jkl-unit-30);
-        }
-
         &__files {
             list-style: none;
             margin: 0;
@@ -122,11 +116,6 @@
                 gap: #{jkl.$unit-15};
                 flex-direction: row;
                 justify-content: flex-start;
-            }
-
-            .jkl-file-input__max-size-text {
-                margin-top: calc(-1 * var(--jkl-unit-15));
-                margin-bottom: var(--jkl-unit-20);
             }
         }
 
