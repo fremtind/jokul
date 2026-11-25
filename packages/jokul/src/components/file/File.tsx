@@ -25,7 +25,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
         state,
         errorLabel = "Feil",
         onRemove,
-        variant = "list",
+        variant: variantProp,
         trackingProps,
         ...rest
     } = props;
@@ -34,6 +34,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
     const supportId = `${id}-support`;
 
     const context = useFileInputContext();
+    const variant = variantProp ?? context?.fileVariant ?? "list";
 
     const imageSrc =
         fileType.startsWith("image/") &&
