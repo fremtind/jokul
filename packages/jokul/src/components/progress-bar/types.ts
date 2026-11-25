@@ -13,7 +13,11 @@ export interface ProgressBarProps {
      * @default 0
      */
     "aria-valuemin"?: number;
-    "aria-valuenow": number;
+    /**
+     * Hvor langt prosessen har kommet, mellom `aria-valuemin` og `aria-valuemax`.
+     * Utelat verdien når fremdriften er ukjent. Da vises en linje som glir frem og tilbake.
+     */
+    "aria-valuenow"?: number;
     /**
      * @default 100
      */

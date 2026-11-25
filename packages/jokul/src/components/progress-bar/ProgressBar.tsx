@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import React, { type FC } from "react";
 import { COMPONENT_NAMES } from "../metadata.js";
 import { getExtraTrackingAttributes } from "../types.js";
@@ -15,12 +16,16 @@ export const ProgressBar: FC<ProgressBarProps> = ({
     trackingProps,
     ...rest
 }) => {
-    const trackerWidth = `${calculatePercentage(value, max)}%`;
+    const isIndeterminate = value === undefined;
 
     return (
+        // biome-ignore lint/a11y/useFocusableInteractive: En fremdriftsindikator er ikke interaktiv og skal ikke være et tabstopp
         <div
-            tabIndex={0}
-            className={`jkl-progress-bar ${className ?? ""}`}
+            className={clsx(
+                "jkl-progress-bar",
+                { "jkl-progress-bar--indeterminate": isIndeterminate },
+                className,
+            )}
             role="progressbar"
             title={title}
             aria-valuenow={value}
@@ -37,7 +42,11 @@ export const ProgressBar: FC<ProgressBarProps> = ({
         >
             <span
                 className="jkl-progress-bar__tracker"
-                style={{ width: trackerWidth }}
+                style={
+                    isIndeterminate
+                        ? undefined
+                        : { width: `${calculatePercentage(value, max)}%` }
+                }
                 data-testid="jkl-progress-bar__tracker"
             />
         </div>
