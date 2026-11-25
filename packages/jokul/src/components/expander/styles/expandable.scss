@@ -68,16 +68,17 @@
 
             .jkl-expander {
                 padding: var(--jkl-unit-20);
+                margin-inline: 0;
                 width: 100%;
+
+                border-radius: 0;
+
+                &:focus-visible {
+                    outline: none;
+                }
 
                 &__label {
                     flex-grow: 1;
-                }
-
-                @media (hover: hover) {
-                    &:hover {
-                        @include jkl.hover-bg;
-                    }
                 }
             }
         }
@@ -129,5 +130,25 @@
         }
 
         @include jkl.reset-outline;
+
+        border-radius: var(--jkl-border-radius-s);
+
+        // Frittstående: teksten flukter med omkringliggende innhold, mens
+        // hover-bakgrunnen og fokusringen strekker seg utenfor sideveis.
+        // Vertikal padding tar vanlig plass så den ikke overlapper naboer.
+        --jkl-expander-padding: var(--jkl-unit-10);
+        padding: var(--jkl-expander-padding);
+        margin-inline: calc(-1 * var(--jkl-expander-padding));
+
+        @media (hover: hover) {
+            &:hover {
+                @include jkl.hover-bg;
+            }
+        }
+
+        &:focus-visible {
+            @include jkl.focus-outline;
+            outline-offset: 3px;
+        }
     }
 }
