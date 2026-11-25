@@ -94,4 +94,8 @@
             margin-bottom: jkl.$unit-10;
         }
     }
+
+    .jkl-radio-button:has(> .jkl-radio-button__input:disabled) {
+        @include jkl.disabled-control;
+    }
 }

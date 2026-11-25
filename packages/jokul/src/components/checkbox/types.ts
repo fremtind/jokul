@@ -4,12 +4,13 @@ import type {
     InputHTMLAttributes,
     ReactNode,
 } from "react";
-import type { DataTestAutoId } from "../../utilities/types.js";
+import type { DataTestAutoId, WithDisabled } from "../../utilities/types.js";
 import type { Tracking } from "../types.js";
 
 export interface CheckboxProps
     extends DataTestAutoId,
-        InputHTMLAttributes<HTMLInputElement> {
+        Omit<InputHTMLAttributes<HTMLInputElement>, "disabled">,
+        WithDisabled {
     trackingProps?: Tracking;
     trackingComponentName?: string;
     trackingLabel?: ReactNode;

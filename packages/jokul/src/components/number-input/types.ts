@@ -1,11 +1,17 @@
 import type { InputHTMLAttributes } from "react";
+import type { WithDisabled, WithReadOnly } from "../../utilities/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
 
 export type NumberInputProps = Omit<
     InputGroupProps,
     "children" | "inline" | "render"
 > &
-    Omit<InputHTMLAttributes<HTMLInputElement>, "children" | "type"> & {
+    Omit<
+        InputHTMLAttributes<HTMLInputElement>,
+        "children" | "type" | "disabled" | "readOnly"
+    > &
+    WithDisabled &
+    WithReadOnly & {
         /**
          * Justerer teksten i inputfeltet.
          * @default "left"

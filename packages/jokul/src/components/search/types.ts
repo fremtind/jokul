@@ -3,6 +3,7 @@ import type {
     InputHTMLAttributes,
     ReactNode,
 } from "react";
+import type { WithDisabled, WithReadOnly } from "../../utilities/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
 import type { Tracking } from "../types.js";
 
@@ -10,7 +11,9 @@ export type SearchInputProps = Omit<
     InputGroupProps,
     "children" | "inline" | "label"
 > &
-    InputHTMLAttributes<HTMLInputElement> & {
+    Omit<InputHTMLAttributes<HTMLInputElement>, "disabled" | "readOnly"> &
+    WithDisabled &
+    WithReadOnly & {
         /**
          * Label til søket. Bruk {@link LabelProps} for å vise den.
          */

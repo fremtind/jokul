@@ -62,7 +62,11 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                     label={label}
                     data-testid="jkl-search"
                     render={(inputProps) => (
-                        <div className="input-wrapper" data-icon={icon}>
+                        <div
+                            className="jkl-search__wrapper"
+                            data-icon={icon}
+                            data-invalid={inputProps["aria-invalid"]}
+                        >
                             <input
                                 ref={ref}
                                 type="search"
@@ -84,18 +88,19 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                                 )}
                             />
                             <button
-                                className="clear-button"
+                                className="jkl-search__clear-button"
                                 type="button"
                                 onClick={clearInput}
+                                disabled={disabled || readOnly}
                             >
                                 <span className="jkl-sr-only">
                                     Tilbakestill søkefeltet
                                 </span>
                             </button>
+                            {children}
                         </div>
                     )}
                 />
-                {children}
             </div>
         );
     },

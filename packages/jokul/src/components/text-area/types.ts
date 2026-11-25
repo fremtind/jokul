@@ -1,4 +1,5 @@
 import type { ReactNode, TextareaHTMLAttributes } from "react";
+import type { WithDisabled, WithReadOnly } from "../../utilities/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
 import type { Tracking } from "../types.js";
 
@@ -37,7 +38,12 @@ export type Counter = {
 };
 
 export interface BaseTextAreaProps
-    extends Omit<TextareaHTMLAttributes<HTMLTextAreaElement>, "children"> {
+    extends Omit<
+            TextareaHTMLAttributes<HTMLTextAreaElement>,
+            "children" | "disabled" | "readOnly"
+        >,
+        WithDisabled,
+        WithReadOnly {
     /**
      * Viser en teller i tekstfeltet når det har fokus.
      */
