@@ -2,6 +2,7 @@
 
 ## Innhold
 
+- [Migrering til Jøkul 7](#jøkul-70)
 - [Migrering til Jøkul 6](#jøkul-60)
 - [Migrering til Jøkul 5](#jøkul-50)
 - [Migrering til Jøkul 4](#jøkul-40)
@@ -14,6 +15,68 @@ pnpm exec jokul codemod [--dry-run] [--verbose] [sti ...]
 ```
 
 Se [codemods/CODEMODS.md](./codemods/CODEMODS.md) for full oversikt over hva hver codemod fikser automatisk og hva som krever manuell vurdering.
+
+## Jøkul 7.0
+
+### `FileInput` har alltid kompakt visning og bruker nettleserens dra-og-slipp
+
+`FileInput` er forenklet. Filvelgeren dekker nå hele dropsonen, så både klikk og slipp går rett til `<input type="file">`, og komponenten har ikke lenger en egen dra-og-slipp-implementasjon.
+
+#### `variant` er fjernet
+
+Den kompakte visningen (tidligere `variant="small"`) brukes alltid. Fjern `variant` fra `FileInput`. `data-track-variant` settes ikke lenger.
+
+```diff
+- <FileInput variant="small" legend="Vedlegg" value={files} onChange={onChange} />
++ <FileInput legend="Vedlegg" value={files} onChange={onChange} />
+```
+
+#### `onChange` får alltid en `ChangeEvent`
+
+Tidligere kunne første argument til `onChange` være en `DragEvent` når brukeren slapp filer i dropsonen. Nå er det alltid en `ChangeEvent` fra filvelgeren. Typen `HandleFiles` er fjernet.
+
+```diff
+  const onChange = (
+-     event: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>,
++     event: React.ChangeEvent<HTMLInputElement>,
+      files: UploadedFile[],
+  ) => setFiles(files);
+```
+
+#### Klassen `jkl-file-input--has-files` er fjernet
+
+Bruk `:has()` hvis du trenger å style feltet ut fra om det har filer:
+
+```diff
+- .jkl-file-input--has-files { … }
++ .jkl-file-input:has(.jkl-file) { … }
+```
+
+#### Tracking settes bare på filvelgeren
+
+`data-track-*`-attributtene settes nå bare på `<input type="file">`, ikke lenger også på dropsonen. Har du analyse som teller klikk på dropsonen, må den peke på filvelgeren i stedet.
+
+```diff
+- <div class="jkl-file-input__dropzone" data-track-component-name="File Input" …>
+-     <input type="file" data-track-component-name="File Input" … />
++ <div class="jkl-file-input__dropzone">
++     <input type="file" data-track-component-name="File Input" … />
+```
+
+#### `upload()` gir tydeligere feil og tåler svar som ikke er JSON
+
+Svaret tolkes nå av nettleseren med `responseType = "json"`. Et svar som ikke er gyldig JSON gir `null` i stedet for en `SyntaxError`. Feil fra serveren gir en `Error` med HTTP-status i meldingen, og en avbrutt opplasting avvises med `signal.reason`.
+
+```diff
+  try {
+-     const svar = await upload(url, data, setProgress, headers);
++     const svar = await upload(url, data, setProgress, headers, controller.signal);
+  } catch (error) {
+-     // error.message var statusText, f.eks. "Internal Server Error"
++     // error.message er f.eks. "Opplastingen feilet med status 500 Internal Server Error"
++     if (error instanceof DOMException && error.name === "AbortError") return;
+  }
+```
 
 ## Jøkul 6.0
 

@@ -16,7 +16,7 @@ export interface UploadedFile {
 }
 
 export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
-    className?: string;
+    /** Id-en settes på filvelgeren (`<input type="file">`), ikke på fieldset */
     id?: string;
     /**
      * En string som begrenser hvilke filtyper som kan velges.
@@ -26,13 +26,22 @@ export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
      * @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept
      */
     accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
+    /**
+     * Største tillatte filstørrelse i bytes. Vises i beskrivelsen av feltet, og filer som er
+     * større får `validation.type` `"TOO_LARGE"`.
+     */
     maxSizeBytes?: number;
     /**
+     * La brukeren velge flere filer. Når den er `false`, beholdes bare den første filen.
+     *
      * @default true
      */
     multiple?: boolean;
+    /**
+     * Filene som er valgt. Komponenten er kontrollert, så du må selv legge til nye filer fra
+     * `onChange` og fjerne filer med `onRemove` på `File`.
+     */
     value: UploadedFile[];
-    variant?: "flexible" | "small";
     /**
      * Velg hvordan de opplastede filene skal vises. `card` viser filene som et
      * rutenett, side om side. Kan overstyres per fil ved å sette `variant` på
@@ -41,11 +50,14 @@ export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
      * @default "list"
      */
     fileVariant?: FileProps["variant"];
+    /**
+     * Kalles når brukeren velger eller slipper filer. `files` inneholder bare de nye filene,
+     * validert mot `accept` og `maxSizeBytes`.
+     */
     onChange: (
-        e:
-            | React.ChangeEvent<HTMLInputElement>
-            | React.DragEvent<HTMLDivElement>,
+        e: React.ChangeEvent<HTMLInputElement>,
         files: UploadedFile[],
     ) => void;
+    /** Ekstra informasjon som legges på filvelgeren som `data-track-*`-attributter */
     trackingProps?: Tracking;
 }

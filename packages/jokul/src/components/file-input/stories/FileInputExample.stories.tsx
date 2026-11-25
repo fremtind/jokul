@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
+import { fn } from "storybook/test";
 import { Button } from "../../button/index.js";
 import { Flex } from "../../flex/index.js";
 import { FileInput } from "../FileInput.js";
@@ -12,9 +13,8 @@ const meta = {
     title: "Komponenter/File Input/Eksempler",
     component: FileInput,
     args: {
-        variant: "flexible",
         value: [],
-        onChange: console.info,
+        onChange: fn(),
         legend: "Legg til fil",
         labelProps: {
             variant: "medium",
@@ -43,9 +43,10 @@ export const FileInputOgOpplastingsknapp: Story = {
                     id="file-input-upload-example"
                     className="jkl-spacing-16-24--bottom"
                     value={files}
-                    onChange={(_e, newFiles) =>
-                        setFiles((current) => [...current, ...newFiles])
-                    }
+                    onChange={(e, newFiles) => {
+                        args.onChange(e, newFiles);
+                        setFiles((current) => [...current, ...newFiles]);
+                    }}
                 >
                     {renderFiles(
                         files.map((f) => ({

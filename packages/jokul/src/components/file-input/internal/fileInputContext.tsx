@@ -1,34 +1,12 @@
-import React, { createContext, useContext } from "react";
-import type { WithChildren } from "../../../utilities/types.js";
+import { createContext, useContext } from "react";
 import type { FileProps } from "../../file/types.js";
-import type { UploadedFile } from "../types.js";
 
 type FileInputContext = {
-    accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
-    maxSizeBytes?: number;
-    files: UploadedFile[];
-    fileVariant?: FileProps["variant"];
-    onChange: (
-        e:
-            | React.ChangeEvent<HTMLInputElement>
-            | React.DragEvent<HTMLDivElement>,
-        files: UploadedFile[],
-    ) => void;
+    fileVariant: NonNullable<FileProps["variant"]>;
 };
 
-const fileInputContext = createContext<FileInputContext | null>(null);
+/** Lar `File` vite at den ligger i en `FileInput`, og hvilken visning den skal bruke */
+export const FileInputContext = createContext<FileInputContext | null>(null);
 
 export const useFileInputContext = (): FileInputContext | null =>
-    useContext(fileInputContext);
-
-export interface FileInputContextProviderProps extends WithChildren {
-    context: FileInputContext;
-}
-
-export const FileInputContextProvider: React.FC<
-    FileInputContextProviderProps
-> = ({ context, children }) => (
-    <fileInputContext.Provider value={context}>
-        {children}
-    </fileInputContext.Provider>
-);
+    useContext(FileInputContext);

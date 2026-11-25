@@ -1,32 +1,81 @@
 import type { Meta, StoryObj } from "@storybook/nextjs";
 import React, { useState } from "react";
+import { fn } from "storybook/test";
 import { File } from "../../file/File.js";
 import { FileInput } from "../FileInput.js";
-import { Dropzone } from "../internal/Dropzone.js";
 import type { UploadedFile } from "../types.js";
 import { createUploadedFiles, renderFiles } from "./fileInputStoryUtils.js";
 
 import "../styles/_index.scss";
 
+const avansert = { table: { category: "Avansert" } };
+
 const meta = {
     title: "Komponenter/File Input",
     component: FileInput,
-    subcomponents: { File, Dropzone },
+    subcomponents: { File },
     args: {
-        variant: "flexible",
-        fileVariant: "list",
-        value: [],
-        onChange: console.info,
         legend: "Legg til fil",
+        description: "",
+        errorLabel: "",
         labelProps: {
             variant: "medium",
         },
+        value: [],
         accept: "image/*,.pdf",
         maxSizeBytes: 8_000_000,
+        multiple: true,
+        fileVariant: "list",
+        disabled: false,
+        onChange: fn(),
     },
     argTypes: {
-        variant: { control: { type: "inline-radio" } },
-        fileVariant: { control: { type: "inline-radio" } },
+        legend: {
+            description: "Overskriften til feltet. Rendres som `<legend>`.",
+        },
+        description: {
+            description:
+                "Hjelpetekst under overskriften. Maks filstørrelse legges til automatisk når `maxSizeBytes` er satt.",
+        },
+        errorLabel: {
+            description:
+                "Feilmelding for hele feltet, f.eks. når det er påkrevd. Feil på enkeltfiler vises på `File`.",
+        },
+        tooltip: {
+            description: "Tooltip som vises ved siden av overskriften.",
+            control: false,
+        },
+        labelProps: {
+            description:
+                "Props til overskriften, f.eks. `variant` for størrelse.",
+        },
+        helpLabel: {
+            ...avansert,
+            description: "**Deprecated.** Bruk `description` i stedet.",
+            control: false,
+        },
+        value: { control: false },
+        accept: {
+            table: {
+                type: {
+                    summary: '"image/*" | ".pdf" | "image/*,.pdf" | string',
+                },
+            },
+        },
+        fileVariant: {
+            control: { type: "inline-radio" },
+            table: { defaultValue: { summary: '"list"' } },
+        },
+        onChange: { control: false },
+        id: { ...avansert, control: false },
+        className: { ...avansert, control: false },
+        supportLabelProps: {
+            ...avansert,
+            description: "Props til støtteteksten under feltet.",
+            control: false,
+        },
+        trackingProps: { ...avansert, control: false },
+        "data-testautoid": { ...avansert, control: false },
     },
     render: (args) => {
         const [files, setFiles] = useState<UploadedFile[]>(args.value);
@@ -34,12 +83,11 @@ const meta = {
         return (
             <FileInput
                 {...args}
-                id="file-input-example"
-                className="jkl-spacing-16-24--bottom"
                 value={files}
-                onChange={(_e, newFiles) =>
-                    setFiles((current) => [...current, ...newFiles])
-                }
+                onChange={(e, newFiles) => {
+                    args.onChange(e, newFiles);
+                    setFiles((current) => [...current, ...newFiles]);
+                }}
             >
                 {renderFiles(files, (index) =>
                     setFiles((current) =>
@@ -57,11 +105,6 @@ type Story = StoryObj<typeof meta>;
 
 export const FileInputStory: Story = {
     name: "File Input",
-};
-
-export const Small: Story = {
-    name: "Liten",
-    args: { variant: "small" },
 };
 
 export const MedValgteFiler: Story = {
