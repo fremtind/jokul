@@ -117,7 +117,17 @@
         // Rotelementet er et fieldset, så `disabled` slår av filvelgeren nativt. Dropsonen er
         // selve kontrollflaten og skal dempes – legend og støttetekster beholder full kontrast.
         &:disabled &__dropzone {
+            --border-color: var(--jkl-color-border-default);
+
             @include jkl.disabled-control;
+        }
+
+        // Dra-og-slipp finnes ikke på touch-enheter
+        @media (hover: none) and (pointer: coarse) {
+            &__dropzone-hint,
+            &--small &__dropzone-hint {
+                display: none;
+            }
         }
     }
 }

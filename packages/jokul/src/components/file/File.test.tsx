@@ -83,4 +83,48 @@ describe("File", () => {
             container.querySelector(".jkl-file__thumbnail"),
         ).not.toBeInTheDocument();
     });
+
+    it("should create one object URL per file and revoke it on unmount", () => {
+        const createObjectURL = vi.fn(() => "blob:preview");
+        const revokeObjectURL = vi.fn();
+        vi.stubGlobal("URL", { ...URL, createObjectURL, revokeObjectURL });
+
+        const file = new window.File(["a"], "bilde.png", { type: "image/png" });
+        const props = {
+            fileName: "bilde.png",
+            fileType: "image/png",
+            fileSize: 1,
+            file,
+        };
+        const { container, rerender, unmount } = render(<File {...props} />);
+        rerender(<File {...props} />);
+
+        expect(createObjectURL).toHaveBeenCalledOnce();
+        expect(container.querySelector("img")).toHaveAttribute(
+            "src",
+            "blob:preview",
+        );
+
+        unmount();
+        expect(revokeObjectURL).toHaveBeenCalledWith("blob:preview");
+
+        vi.unstubAllGlobals();
+    });
+
+    it("should describe the remove button with the error label", () => {
+        const { getByRole } = setup(
+            <File
+                fileName="test.txt"
+                fileType="text/plain"
+                fileSize={1}
+                state="error"
+                errorLabel="Filen er for stor"
+                onRemove={vi.fn()}
+            />,
+        );
+
+        expect(
+            getByRole("button", { name: "Fjern test.txt" }),
+        ).toHaveAccessibleDescription("Filen er for stor");
+    });
 });

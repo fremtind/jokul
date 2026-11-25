@@ -1,5 +1,11 @@
 import clsx from "clsx";
-import React, { forwardRef, useId } from "react";
+import React, {
+    forwardRef,
+    useEffect,
+    useId,
+    useImperativeHandle,
+    useRef,
+} from "react";
 import { FieldGroup } from "../../components/input-group/FieldGroup.js";
 import { Dropzone } from "./internal/Dropzone.js";
 import { Input } from "./internal/Input.js";
@@ -23,7 +29,32 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
             ...rest
         } = props;
 
+        const inputRef = useRef<HTMLInputElement>(null);
+        useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
+
+        // Når en fil fjernes forsvinner knappen som hadde fokus. Flytt fokus til
+        // filvelgeren så brukeren ikke havner på toppen av siden.
+        const previousFileCount = useRef(value.length);
+        useEffect(() => {
+            const fileWasRemoved = value.length < previousFileCount.current;
+            previousFileCount.current = value.length;
+            const focusWasLost =
+                !document.activeElement ||
+                document.activeElement === document.body;
+            if (fileWasRemoved && focusWasLost) {
+                inputRef.current?.focus();
+            }
+        }, [value.length]);
+
         const hasFiles = value.length > 0;
+        const fileCountText = hasFiles
+            ? `${value.length} ${value.length === 1 ? "fil" : "filer"} valgt`
+            : "Ingen filer valgt";
+        const fileCountAnnouncement = (
+            <p className="jkl-sr-only" aria-live="polite">
+                {fileCountText}
+            </p>
+        );
 
         const maxSizeDescriptionId = useId();
 
@@ -55,17 +86,21 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                     multiple={multiple}
                                     trackingProps={trackingProps}
                                     variant={variant}
-                                    ref={ref}
+                                    ref={inputRef}
                                     aria-describedby={maxSizeDescriptionId}
                                 />
                             </div>
                         </Dropzone>
                         <MaxSize id={maxSizeDescriptionId} />
                         {value.length > 0 && (
-                            <ul className="jkl-file-input__files">
+                            <ul
+                                className="jkl-file-input__files"
+                                aria-label="Valgte filer"
+                            >
                                 {children}
                             </ul>
                         )}
+                        {fileCountAnnouncement}
                     </FieldGroup>
                 </FileInputContextProvider>
             );
@@ -87,7 +122,10 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                         variant={variant}
                     >
                         {value.length > 0 && (
-                            <ul className="jkl-file-input__files">
+                            <ul
+                                className="jkl-file-input__files"
+                                aria-label="Valgte filer"
+                            >
                                 {children}
                             </ul>
                         )}
@@ -102,12 +140,13 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
                                 multiple={multiple}
                                 trackingProps={trackingProps}
                                 variant={variant}
-                                ref={ref}
+                                ref={inputRef}
                                 aria-describedby={maxSizeDescriptionId}
                             />
                             <MaxSize id={maxSizeDescriptionId} />
                         </div>
                     </Dropzone>
+                    {fileCountAnnouncement}
                 </FieldGroup>
             </FileInputContextProvider>
         );

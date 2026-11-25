@@ -1,5 +1,11 @@
 import clsx from "clsx";
-import { type ComponentProps, type FC, useId } from "react";
+import {
+    type ComponentProps,
+    type FC,
+    useEffect,
+    useId,
+    useState,
+} from "react";
 import { formatBytes } from "../../utilities/index.js";
 import { Button } from "../button/index.js";
 import { useFileInputContext } from "../file-input/internal/fileInputContext.js";
@@ -32,12 +38,26 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
 
     const id = `jkl-file-preview-${useId()}`;
     const supportId = `${id}-support`;
+    const describedBy = state === "error" && errorLabel ? supportId : undefined;
 
     const context = useFileInputContext();
 
-    const imageSrc =
-        fileType.startsWith("image/") &&
-        (file ? URL.createObjectURL(file) : path);
+    const isImage = fileType.startsWith("image/");
+    const [objectUrl, setObjectUrl] = useState<string>();
+
+    useEffect(() => {
+        if (!file || !isImage || hideThumbnail) {
+            return;
+        }
+        const url = URL.createObjectURL(file);
+        setObjectUrl(url);
+        return () => {
+            URL.revokeObjectURL(url);
+            setObjectUrl(undefined);
+        };
+    }, [file, isImage, hideThumbnail]);
+
+    const imageSrc = isImage && (file ? objectUrl : path);
 
     const fileComponent = (
         <div
@@ -75,7 +95,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
                 >
                     {path ? (
                         <Text size="s" className="jkl-file__name">
-                            <Link href={path}>
+                            <Link href={path} aria-describedby={describedBy}>
                                 {fileName}{" "}
                                 <span className="jkl-file__size">
                                     ({formatBytes(fileSize)})
@@ -96,6 +116,8 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
                             className="jkl-file__button"
                             onClick={onRemove}
                             title={`Fjern ${fileName}`}
+                            aria-label={`Fjern ${fileName}`}
+                            aria-describedby={describedBy}
                             icon={<TrashCanIcon />}
                         />
                     )}
