@@ -24,6 +24,8 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
             icon = "search",
             children,
             value,
+            disabled,
+            readOnly,
             trackingProps,
             ...rest
         } = props;
@@ -61,7 +63,11 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                     label={label}
                     data-testid="jkl-search"
                     render={(inputProps) => (
-                        <div className="input-wrapper" data-icon={icon}>
+                        <div
+                            className="jkl-search__wrapper"
+                            data-icon={icon}
+                            data-invalid={inputProps["aria-invalid"]}
+                        >
                             <input
                                 ref={ref}
                                 type="search"
@@ -70,6 +76,8 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                                 spellCheck={spellCheck}
                                 {...inputProps}
                                 {...rest}
+                                disabled={disabled}
+                                readOnly={readOnly}
                                 data-track-component-name={
                                     COMPONENT_NAMES.Search
                                 }
@@ -81,18 +89,19 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                                 )}
                             />
                             <button
-                                className="clear-button"
+                                className="jkl-search__clear-button"
                                 type="button"
                                 onClick={handleClick}
+                                disabled={disabled || readOnly}
                             >
                                 <span className="jkl-sr-only">
                                     Tilbakestill søkefeltet
                                 </span>
                             </button>
+                            {children}
                         </div>
                     )}
                 />
-                {children}
             </div>
         );
     },

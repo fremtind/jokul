@@ -56,6 +56,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             style,
             tooltip,
             "data-testautoid": dataTestAutoId,
+            disabled,
             trackingProps,
             ...rest
         } = props;
@@ -473,6 +474,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                     className="jkl-sr-only"
                     aria-hidden
                     ref={unifiedSelectRef}
+                    disabled={disabled}
                     value={selectedValue}
                     onChange={noop} // React complains unless we give an onChange handler. This is technically a read-only field, but readOnly isn't an option here.
                 >
@@ -566,6 +568,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                                 aria-invalid={ariaInvalid}
                                                 id={searchInputId}
                                                 hidden={!showSearchInputField}
+                                                disabled={disabled}
                                                 ref={searchFieldRef}
                                                 placeholder="Søk"
                                                 value={searchValue}
@@ -624,6 +627,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
                                             id={buttonId}
                                             ref={buttonRef}
                                             hidden={showSearchInputField}
+                                            disabled={disabled}
                                             type="button"
                                             name={`${name}-btn`}
                                             className={clsx(

@@ -1,4 +1,5 @@
 import type { ChangeEvent } from "react";
+import type { WithDisabled, WithReadOnly } from "../../utilities/types.js";
 import type { ValuePair } from "../../utilities/valuePair.js";
 import type { InputGroupProps, LabelProps } from "../input-group/types.js";
 import type { Tracking } from "../types.js";
@@ -22,7 +23,10 @@ export type ComboboxChangeEventHandler = (
     event: ComboboxPartialChangeEvent,
 ) => void;
 
-export interface ComboboxProps extends InputGroupProps {
+export interface ComboboxProps
+    extends InputGroupProps,
+        WithDisabled,
+        WithReadOnly {
     id?: string;
     placeholder?: string;
     labelProps?: Omit<LabelProps, "children" | "htmlFor" | "standAlone">;

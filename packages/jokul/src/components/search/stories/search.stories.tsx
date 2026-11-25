@@ -62,6 +62,21 @@ export const _Search: Story = {
     name: "Søk",
 };
 
+export const Disabled: Story = {
+    args: {
+        disabled: true,
+        defaultValue: "Reiseforsikring",
+    },
+};
+
+export const ReadOnly: Story = {
+    name: "Read only",
+    args: {
+        readOnly: true,
+        defaultValue: "Reiseforsikring",
+    },
+};
+
 const categories = ["Layout", "Tekst", "Gruppering", "Alle"].sort();
 const components = [
     "Button",

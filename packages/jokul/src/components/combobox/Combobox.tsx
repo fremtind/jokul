@@ -54,8 +54,12 @@ export const Combobox: FC<ComboboxProps> = (props) => {
         description,
         hasTagHover,
         tooltip,
+        disabled,
+        readOnly,
         trackingProps,
     } = props;
+    // Begge tilstandene låser utvalget: menyen skal ikke kunne åpnes og tagger ikke fjernes.
+    const locked = disabled || readOnly;
     const listId = useId(id || "jkl-combobox", { generateSuffix: !id });
     const labelId = `${listId}_label`;
     const buttonId = `${listId}_button`;
@@ -220,9 +224,11 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                 });
             }
             focusInsideRef.current = true;
-            setShowMenu(true);
+            if (!locked) {
+                setShowMenu(true);
+            }
         }
-    }, [onFocus, selectedValue, name]);
+    }, [onFocus, selectedValue, name, locked]);
 
     const [dropdownRef] = useAnimatedHeight<HTMLDivElement>(showMenu, {
         onFirstVisible: handleFocusPlacement,
@@ -370,6 +376,7 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                     marked && "jkl-combobox__selected-option--marked"
                 }`}
                 variant="input"
+                disabled={locked}
                 onClick={(e) => {
                     if (searchRef.current) {
                         searchRef.current.focus();
@@ -381,7 +388,7 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                 {option.tagLabel ? option.tagLabel : option.label}
             </Chip>
         ),
-        [handleBlur, onTagRemove, marked],
+        [handleBlur, onTagRemove, marked, locked],
     );
 
     return (
@@ -453,6 +460,8 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                                 selectedValue.length > 0 ? "" : placeholder
                             }
                             autoComplete="off"
+                            disabled={disabled}
+                            readOnly={readOnly}
                             data-track-component-name={COMPONENT_NAMES.Combobox}
                             data-track-id={
                                 trackingProps?.id ??
@@ -540,6 +549,7 @@ export const Combobox: FC<ComboboxProps> = (props) => {
                         aria-label="Åpne meny"
                         aria-expanded={showMenu}
                         aria-controls={listId}
+                        disabled={locked}
                         onClick={() => setShowMenu((previous) => !previous)}
                         onMouseDown={(e) => {
                             e.preventDefault();

@@ -1,12 +1,13 @@
 import type { InputHTMLAttributes, ReactNode } from "react";
-import type { JokulModes } from "../../utilities/types.js";
+import type { JokulModes, WithDisabled } from "../../utilities/types.js";
 import type { Tracking } from "../types.js";
 
 export type InputPanelProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    "children"
+    "children" | "disabled"
 > &
-    JokulModes & {
+    JokulModes &
+    WithDisabled & {
         label: string;
         type: "radio" | "checkbox";
         /**

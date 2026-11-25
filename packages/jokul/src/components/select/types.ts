@@ -1,5 +1,5 @@
 import type { ChangeEvent, SelectHTMLAttributes } from "react";
-import type { DataTestAutoId } from "../../utilities/types.js";
+import type { DataTestAutoId, WithDisabled } from "../../utilities/types.js";
 import type { ValuePair } from "../../utilities/valuePair.js";
 import type { LabelProps } from "../input-group/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
@@ -39,7 +39,8 @@ export type SelectChangeEventHandler = (
 
 export interface SelectProps
     extends Omit<InputGroupProps, "children">,
-        DataTestAutoId {
+        DataTestAutoId,
+        WithDisabled {
     id?: string;
     name: string;
     label: string;
