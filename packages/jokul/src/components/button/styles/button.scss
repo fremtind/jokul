@@ -12,7 +12,6 @@
         --jkl-button-padding-icon-button: var(--jkl-unit-10);
         --jkl-button-tertiary-padding-icon: var(--jkl-unit-05);
         --jkl-button-text-ink-offset: 0.1em;
-        --button-min-width: 9ch;
         --jkl-icon-weight: var(--jkl-icon-weight-bold);
         --text-color: var(--jkl-color-text-default);
         --background-color: transparent;
@@ -43,7 +42,7 @@
         @include jkl.motion("standard", "productive", background-color);
 
         &:has(.jkl-button__text) {
-            min-width: var(--button-min-width);
+            min-width: var(--button-min-width, 9ch);
         }
 
         &:has(.jkl-button__text):has(.jkl-icon) {
