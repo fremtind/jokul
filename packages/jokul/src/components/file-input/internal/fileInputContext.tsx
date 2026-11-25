@@ -1,11 +1,13 @@
 import React, { createContext, useContext } from "react";
 import type { WithChildren } from "../../../utilities/types.js";
+import type { FileProps } from "../../file/types.js";
 import type { UploadedFile } from "../types.js";
 
 type FileInputContext = {
     accept?: "image/*" | ".pdf" | "image/*,.pdf" | HTMLInputElement["accept"];
     maxSizeBytes?: number;
     files: UploadedFile[];
+    fileVariant?: FileProps["variant"];
     onChange: (
         e:
             | React.ChangeEvent<HTMLInputElement>
