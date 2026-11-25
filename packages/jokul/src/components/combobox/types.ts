@@ -2,6 +2,7 @@ import type { ChangeEvent } from "react";
 import type { WithDisabled, WithReadOnly } from "../../utilities/types.js";
 import type { ValuePair } from "../../utilities/valuePair.js";
 import type { InputGroupProps, LabelProps } from "../input-group/types.js";
+import type { Tracking } from "../types.js";
 
 export type ComboboxValuePair = ValuePair & {
     tagLabel?: string;
@@ -43,4 +44,5 @@ export interface ComboboxProps
     onChange: ComboboxChangeEventHandler;
     onBlur?: ComboboxChangeEventHandler;
     onFocus?: ComboboxChangeEventHandler;
+    trackingProps?: Tracking;
 }

@@ -1,5 +1,7 @@
 import clsx from "clsx";
 import React, { type FC } from "react";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import type { TagProps } from "./types.js";
 
 function getDisplayName(variant?: TagProps["variant"]) {
@@ -36,9 +38,22 @@ export const Tag = ({
     className,
     variant = "neutral",
     children,
+    trackingProps,
     ...rest
 }: TagProps) => (
-    <span {...rest} className={clsx("jkl-tag", className)} data-color={variant}>
+    <span
+        {...rest}
+        className={clsx("jkl-tag", className)}
+        data-color={variant}
+        data-track-component-name={COMPONENT_NAMES.Tag}
+        data-track-id={
+            trackingProps?.id ??
+            (typeof children === "string" ? children : undefined)
+        }
+        data-track-label={typeof children === "string" ? children : undefined}
+        data-track-variant={variant}
+        {...getExtraTrackingAttributes(trackingProps?.extra, rest)}
+    >
         {children}
     </span>
 );

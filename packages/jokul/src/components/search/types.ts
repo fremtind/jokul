@@ -5,6 +5,7 @@ import type {
 } from "react";
 import type { WithDisabled, WithReadOnly } from "../../utilities/types.js";
 import type { InputGroupProps } from "../input-group/types.js";
+import type { Tracking } from "../types.js";
 
 export type SearchInputProps = Omit<
     InputGroupProps,
@@ -23,6 +24,7 @@ export type SearchInputProps = Omit<
          */
         icon?: "search" | "filter_alt" | "filter_list";
         children?: ReactNode;
+        trackingProps?: Tracking;
     };
 
 export type SearchButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {

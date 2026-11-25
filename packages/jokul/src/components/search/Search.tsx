@@ -2,6 +2,8 @@ import clsx from "clsx";
 import React, { forwardRef, useRef } from "react";
 import { mergeRefs } from "../../utilities/mergeRefs.js";
 import { InputGroup } from "../input-group/index.js";
+import { COMPONENT_NAMES } from "../metadata.js";
+import { getExtraTrackingAttributes } from "../types.js";
 import { SearchButton } from "./SearchButton.js";
 import type { SearchInputProps } from "./types.js";
 
@@ -24,6 +26,7 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
             value,
             disabled,
             readOnly,
+            trackingProps,
             ...rest
         } = props;
 
@@ -75,6 +78,15 @@ export const Search = forwardRef<HTMLInputElement, SearchInputProps>(
                                 {...rest}
                                 disabled={disabled}
                                 readOnly={readOnly}
+                                data-track-component-name={
+                                    COMPONENT_NAMES.Search
+                                }
+                                data-track-id={trackingProps?.id ?? label}
+                                data-track-label={label}
+                                {...getExtraTrackingAttributes(
+                                    trackingProps?.extra,
+                                    rest,
+                                )}
                             />
                             <button
                                 className="jkl-search__clear-button"
