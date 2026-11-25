@@ -36,6 +36,14 @@ type Story = StoryObj<typeof ProgressBarComponent>;
 
 export const ProgressBar: Story = {};
 
+/** Utelat `aria-valuenow` når fremdriften er ukjent. Med redusert bevegelse vises en stiplet linje. */
+export const Ukjent: Story = {
+    name: "Ukjent fremdrift",
+    render: ({ "aria-valuenow": _, ...args }) => (
+        <ProgressBarComponent {...args} title="Laster opp" />
+    ),
+};
+
 export const FileUploading: Story = {
     name: "Progress Bar ved filopplasting ",
     args: {
@@ -148,7 +156,7 @@ export const Flow: Story = {
         "aria-valuetext": "[antall] steg: [navn på steget]",
     },
     render: (args) => {
-        const [value, setValue] = useState(args["aria-valuenow"]);
+        const [value, setValue] = useState(args["aria-valuenow"] ?? 1);
 
         const currentsteg = () => {
             switch (value) {
