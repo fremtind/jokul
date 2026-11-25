@@ -33,6 +33,14 @@ export interface FileInputProps extends Omit<FieldGroupProps, "onChange"> {
     multiple?: boolean;
     value: UploadedFile[];
     variant?: "flexible" | "small";
+    /**
+     * Velg hvordan de opplastede filene skal vises. `card` viser filene som et
+     * rutenett, side om side. Kan overstyres per fil ved å sette `variant` på
+     * hver enkelt `File`.
+     *
+     * @default "list"
+     */
+    fileVariant?: FileProps["variant"];
     onChange: (
         e:
             | React.ChangeEvent<HTMLInputElement>

@@ -85,6 +85,22 @@
             gap: var(--jkl-file-list-gap);
         }
 
+        &--files-card &__files {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(jkl.rem(180px), 1fr));
+            gap: var(--jkl-unit-20);
+            align-items: start;
+
+            > li {
+                min-width: 0;
+            }
+
+            .jkl-file__info {
+                width: 100%;
+            }
+        }
+
         &--small {
             .jkl-file-input__dropzone-hint {
                 margin: 0;

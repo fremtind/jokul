@@ -19,6 +19,7 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
             maxSizeBytes,
             onChange,
             variant,
+            fileVariant = "list",
             trackingProps,
             ...rest
         } = props;
@@ -30,12 +31,19 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
         if (variant === "small") {
             return (
                 <FileInputContextProvider
-                    context={{ accept, onChange, maxSizeBytes, files: value }}
+                    context={{
+                        accept,
+                        onChange,
+                        maxSizeBytes,
+                        files: value,
+                        fileVariant,
+                    }}
                 >
                     <FieldGroup
                         className={clsx(
                             "jkl-file-input",
                             "jkl-file-input--small",
+                            `jkl-file-input--files-${fileVariant}`,
                             className,
                             {
                                 "jkl-file-input--has-files": hasFiles,
@@ -73,12 +81,23 @@ export const FileInput = forwardRef<HTMLInputElement, FileInputProps>(
 
         return (
             <FileInputContextProvider
-                context={{ accept, onChange, maxSizeBytes, files: value }}
+                context={{
+                    accept,
+                    onChange,
+                    maxSizeBytes,
+                    files: value,
+                    fileVariant,
+                }}
             >
                 <FieldGroup
-                    className={clsx("jkl-file-input", className, {
-                        "jkl-file-input--has-files": hasFiles,
-                    })}
+                    className={clsx(
+                        "jkl-file-input",
+                        `jkl-file-input--files-${fileVariant}`,
+                        className,
+                        {
+                            "jkl-file-input--has-files": hasFiles,
+                        },
+                    )}
                     {...rest}
                 >
                     <Dropzone
