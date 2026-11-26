@@ -1006,3 +1006,84 @@ test("warns about removed Select props", () => {
         );
     }
 });
+
+test("removes variant from FileInput, whatever the value", () => {
+    const source = `<FileInput variant="small" legend="Vedlegg" value={files} onChange={onChange} />;
+<FileInput
+    legend="Vedlegg"
+    variant={isSmall ? "small" : "flexible"}
+    fileVariant="card"
+    onChange={(e) => handle(e)}
+/>;
+`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(
+        result.text.includes(
+            '<FileInput legend="Vedlegg" value={files} onChange={onChange} />',
+        ),
+        true,
+    );
+    assert.equal(result.text.includes("isSmall"), false);
+    assert.equal(result.text.includes('fileVariant="card"'), true);
+});
+
+test("does not touch variant on other components", () => {
+    const source = `<Other variant="small" />;
+<File variant="card" />;
+`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(result.text, source);
+});
+
+test("narrows the FileInput onChange event type", () => {
+    const source = `import type { UploadedFile } from "@fremtind/jokul/file-input";
+const a = (e: React.ChangeEvent<HTMLInputElement> | React.DragEvent<HTMLDivElement>, files: UploadedFile[]) => {};
+const b = (e: DragEvent<HTMLDivElement> | ChangeEvent<HTMLInputElement>) => {};
+`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    assert.equal(
+        result.text.includes(
+            "(e: React.ChangeEvent<HTMLInputElement>, files: UploadedFile[])",
+        ),
+        true,
+    );
+    assert.equal(
+        result.text.includes("(e: ChangeEvent<HTMLInputElement>)"),
+        true,
+    );
+    assert.equal(result.text.includes("DragEvent"), false);
+});
+
+test("replaces jkl-file-input--has-files selector with :has()", () => {
+    const source =
+        ".jkl-file-input--has-files .jkl-file-input__files { gap: 1rem; }";
+    const result = transformImportPaths(source, "src/styles.css");
+
+    assert.equal(
+        result.text,
+        ".jkl-file-input:has(.jkl-file) .jkl-file-input__files { gap: 1rem; }",
+    );
+});
+
+test("warns about removed FileInput APIs", () => {
+    const source = `import { upload } from "@fremtind/jokul/file-input";
+import type { HandleFiles } from "somewhere";
+const el = <div className="jkl-file-input--has-files" />;
+`;
+    const result = transformImportPaths(source, "src/App.tsx");
+
+    for (const term of [
+        "HandleFiles",
+        "jkl-file-input--has-files",
+        "upload()",
+    ]) {
+        assert.equal(
+            result.warnings.some((w) => w.includes(term)),
+            true,
+            term,
+        );
+    }
+});

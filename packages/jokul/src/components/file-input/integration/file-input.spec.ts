@@ -27,19 +27,6 @@ test("renders correctly", async () => {
     });
 });
 
-test("renders correctly in small mode", async () => {
-    await helper.open();
-
-    await helper.checkProp("choice-prop-small");
-
-    await helper.snapshots({
-        focusElement: {
-            target: "#file-input-example",
-            outline: "#file-input-example__add-btn",
-        },
-    });
-});
-
 test("axe", async ({ axe }) => {
     await helper.open();
 

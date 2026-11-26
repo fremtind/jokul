@@ -19,19 +19,9 @@ export const fileInputExampleKnobs: ExampleKnobsProps = {
         "Lastet opp",
         "Filer med path",
     ],
-    choiceProps: [
-        {
-            name: "Variant",
-            values: ["flexible", "small"],
-            defaultValue: 0,
-        },
-    ],
 };
 
-export const FileInputExample: FC<ExampleComponentProps> = ({
-    boolValues,
-    choiceValues,
-}) => {
+export const FileInputExample: FC<ExampleComponentProps> = ({ boolValues }) => {
     const [files, setFiles] = useState<UploadedFile[]>([]);
 
     const maxSizeBytes = 8_000_000;
@@ -46,7 +36,6 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
                 accept="image/*,.pdf"
                 maxSizeBytes={maxSizeBytes}
                 value={files}
-                variant={choiceValues?.["Variant"] as "flexible" | "small"}
                 onChange={(e, newFiles) => {
                     setFiles((currentFiles) => [...currentFiles, ...newFiles]);
                 }}
@@ -157,10 +146,7 @@ export const FileInputExample: FC<ExampleComponentProps> = ({
 
 export default FileInputExample;
 
-export const fileInputExampleCode: CodeExample = ({
-    boolValues,
-    choiceValues,
-}) => `
+export const fileInputExampleCode: CodeExample = ({ boolValues }) => `
 // import { File, FileInput, type FileInputFile, upload } from "@fremtind/jkl-file-input-react";
 // import type { SupportLabelType } from "@fremtind/jkl-input-group-react";
 
@@ -176,7 +162,6 @@ return (
             accept="image/*,.pdf"
             maxSizeBytes={maxSizeBytes}
             value={files}
-            variant={${choiceValues?.["Variant"]}}
             onChange={(e, newFiles) => {
                 setFiles((currentFiles) => [...currentFiles, ...newFiles]);
             }}
