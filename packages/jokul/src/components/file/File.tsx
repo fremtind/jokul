@@ -1,5 +1,11 @@
 import clsx from "clsx";
-import { type ComponentProps, type FC, useId } from "react";
+import {
+    type ComponentProps,
+    type FC,
+    useEffect,
+    useId,
+    useState,
+} from "react";
 import { formatBytes } from "../../utilities/index.js";
 import { Button } from "../button/index.js";
 import { useFileInputContext } from "../file-input/internal/fileInputContext.js";
@@ -8,6 +14,7 @@ import { TrashCanIcon } from "../icon/index.js";
 import { SupportLabel } from "../input-group/index.js";
 import { Link } from "../link/index.js";
 import { COMPONENT_NAMES } from "../metadata.js";
+import { ProgressBar } from "../progress-bar/index.js";
 import { getExtraTrackingAttributes } from "../types.js";
 import { Text } from "../typography/index.js";
 import type { FileProps } from "./types.js";
@@ -23,6 +30,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
         path,
         file,
         state,
+        uploadProgress,
         errorLabel = "Feil",
         onRemove,
         variant: variantProp,
@@ -32,13 +40,27 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
 
     const id = `jkl-file-preview-${useId()}`;
     const supportId = `${id}-support`;
+    const describedBy = state === "error" && errorLabel ? supportId : undefined;
 
     const context = useFileInputContext();
     const variant = variantProp ?? context?.fileVariant ?? "list";
 
-    const imageSrc =
-        fileType.startsWith("image/") &&
-        (file ? URL.createObjectURL(file) : path);
+    const isImage = fileType.startsWith("image/");
+    const [objectUrl, setObjectUrl] = useState<string>();
+
+    useEffect(() => {
+        if (!file || !isImage || hideThumbnail) {
+            return;
+        }
+        const url = URL.createObjectURL(file);
+        setObjectUrl(url);
+        return () => {
+            URL.revokeObjectURL(url);
+            setObjectUrl(undefined);
+        };
+    }, [file, isImage, hideThumbnail]);
+
+    const imageSrc = isImage && (file ? objectUrl : path);
 
     const fileComponent = (
         <div
@@ -76,7 +98,7 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
                 >
                     {path ? (
                         <Text size="s" className="jkl-file__name">
-                            <Link href={path}>
+                            <Link href={path} aria-describedby={describedBy}>
                                 {fileName}{" "}
                                 <span className="jkl-file__size">
                                     ({formatBytes(fileSize)})
@@ -97,10 +119,23 @@ export const File: FC<FileProps & ComponentProps<"div">> = (props) => {
                             className="jkl-file__button"
                             onClick={onRemove}
                             title={`Fjern ${fileName}`}
+                            aria-label={`Fjern ${fileName}`}
+                            aria-describedby={describedBy}
                             icon={<TrashCanIcon />}
                         />
                     )}
                 </Flex>
+                {state === "loading" && (
+                    <ProgressBar
+                        className="jkl-file__progress"
+                        title={`Laster opp ${fileName}`}
+                        aria-valuenow={
+                            uploadProgress === undefined
+                                ? undefined
+                                : Math.round(uploadProgress)
+                        }
+                    />
+                )}
             </Flex>
 
             {state === "error" && errorLabel && (

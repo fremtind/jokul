@@ -113,6 +113,19 @@ export const FileLoading: Story = {
     },
 };
 
+export const FileUploadProgress: Story = {
+    name: "Filopplasting med fremdrift",
+    args: {
+        state: "loading",
+        uploadProgress: 40,
+    },
+    argTypes: {
+        uploadProgress: {
+            control: { type: "range", min: 0, max: 100, step: 1 },
+        },
+    },
+};
+
 export const FileError: Story = {
     name: "Fil med feil",
     args: {
