@@ -35,14 +35,26 @@ const meta = {
         },
         as: {
             control: "select",
-            options: ["h1", "h2", "h3", "h4", "h5", "h6", "label", "legend"],
+            options: [
+                "h1",
+                "h2",
+                "h3",
+                "h4",
+                "h5",
+                "h6",
+                "p",
+                "div",
+                "span",
+                "label",
+                "legend",
+            ],
             description:
-                "Semantisk element. Standard er h2. Bruk h1–h6 for dokument-hierarki, eller label/legend for skjema-grupperinger.",
+                "Semantisk element. Standard er h2. Bruk h1–h6 for dokument-hierarki, span/p/div for tittel-uttrykk uten heading-semantikk, eller label/legend for skjema-grupperinger.",
             table: {
                 defaultValue: { summary: "h2" },
                 type: {
                     summary:
-                        '"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "label" | "legend"',
+                        '"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "div" | "span" | "label" | "legend"',
                 },
             },
         },
@@ -323,5 +335,37 @@ export const SemantiskH1MedLavVisuellVekt: Story = {
             </Title>
             <Title size="xs">Kundenummer 12345678</Title>
         </Flex>
+    ),
+};
+
+/**
+ * Bruk `as="span"` for å gi deler av en tittel heading-uttrykket uten
+ * heading-semantikk. Det lar deg kombinere to uttrykk i samme tittel, for
+ * eksempel en liten eyebrow over en stor heading. Heading-nivået settes på
+ * den ytre `Title`-en, så skjermlesere leser det som én overskrift.
+ */
+export const EyebrowOverTittel: Story = {
+    parameters: {
+        controls: { disable: true },
+        docs: {
+            source: {
+                code: `<Title as="h1">
+    <Title as="span" size="xs">Reiseforsikring for</Title>
+    <br />
+    <Title as="span" size="xl">Ole Jørgen Bakken</Title>
+</Title>`,
+            },
+        },
+    },
+    render: () => (
+        <Title as="h1">
+            <Title as="span" size="xs">
+                Reiseforsikring for
+            </Title>
+            <br />
+            <Title as="span" size="xl">
+                Ole Jørgen Bakken
+            </Title>
+        </Title>
     ),
 };

@@ -43,6 +43,45 @@ describe("Title", () => {
         }
     });
 
+    it("rendrer som <span>, <p> og <div> uten heading-semantikk", () => {
+        const { container, queryByRole } = render(
+            <>
+                <Title as="span">Span</Title>
+                <Title as="p">Avsnitt</Title>
+                <Title as="div">Blokk</Title>
+            </>,
+        );
+
+        expect(container.querySelector("span")).toHaveAttribute(
+            "data-text-size",
+            "l",
+        );
+        expect(container.querySelector("p")).toBeInTheDocument();
+        expect(container.querySelector("div")).toBeInTheDocument();
+        expect(queryByRole("heading")).not.toBeInTheDocument();
+    });
+
+    it("støtter eyebrow med nestede Title-er i én overskrift", async () => {
+        const { container, getByRole } = render(
+            <Title as="h1">
+                <Title as="span" size="xs">
+                    Reiseforsikring for
+                </Title>
+                <Title as="span" size="xl">
+                    Ole Jørgen Bakken
+                </Title>
+            </Title>,
+        );
+
+        expect(getByRole("heading", { level: 1 })).toHaveTextContent(
+            "Reiseforsikring forOle Jørgen Bakken",
+        );
+        const spans = container.querySelectorAll("h1 > span");
+        expect(spans[0]).toHaveAttribute("data-text-size", "xs");
+        expect(spans[1]).toHaveAttribute("data-text-size", "xl");
+        expect(await axe(container)).toHaveNoViolations();
+    });
+
     it("rendrer som <label> med videresendt `htmlFor`", () => {
         const { container } = render(
             <Title as="label" htmlFor="epost">

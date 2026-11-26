@@ -20,6 +20,12 @@ describe("Text", () => {
         expect(getByText("Viktig").tagName).toBe("STRONG");
     });
 
+    it("rendrer som <div>", () => {
+        const { getByText } = render(<Text as="div">Blokk</Text>);
+
+        expect(getByText("Blokk").tagName).toBe("DIV");
+    });
+
     it("rendrer som <label> med videresendt `htmlFor`", () => {
         const { container } = render(
             <Text as="label" htmlFor="epost">

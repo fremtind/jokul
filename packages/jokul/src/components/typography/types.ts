@@ -3,6 +3,7 @@ import type { Tracking } from "../types.js";
 
 export type TextElement =
     | "p"
+    | "div"
     | "span"
     | "label"
     | "legend"
@@ -21,6 +22,9 @@ export type TitleElement =
     | "h4"
     | "h5"
     | "h6"
+    | "p"
+    | "div"
+    | "span"
     | "label"
     | "legend";
 

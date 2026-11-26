@@ -13,7 +13,7 @@ $_size-styles: (
 
 @layer jokul.components {
     @each $name, $style in $_size-styles {
-        :is(h1, h2, h3, h4, h5, h6, label, legend)[data-text-size="#{$name}"] {
+        :is(h1, h2, h3, h4, h5, h6, p, div, span, label, legend)[data-text-size="#{$name}"] {
             margin-block: 0;
 
             @include jkl.text-style($style);
@@ -34,7 +34,7 @@ $_size-styles: (
         margin-block-end: var(--jkl-spacing-8);
     }
 
-    :is(h1, h2, h3, h4, h5, h6, label, legend)[data-text-size][data-center] {
+    :is(h1, h2, h3, h4, h5, h6, p, div, span, label, legend)[data-text-size][data-center] {
         text-align: center;
     }
 }

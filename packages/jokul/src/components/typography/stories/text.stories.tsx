@@ -56,6 +56,7 @@ const meta = {
             control: "select",
             options: [
                 "p",
+                "div",
                 "span",
                 "label",
                 "legend",
@@ -68,12 +69,12 @@ const meta = {
                 "var",
             ],
             description:
-                "Hvilket HTML-element Text rendres som. Begrenset til typografisk relevante inline-elementer, <p>, og skjema-elementene <label>/<legend>.",
+                "Hvilket HTML-element Text rendres som. Begrenset til typografisk relevante inline-elementer, <p>, <div>, og skjema-elementene <label>/<legend>.",
             table: {
                 defaultValue: { summary: "p" },
                 type: {
                     summary:
-                        '"p" | "span" | "label" | "legend" | "small" | "strong" | "em" | "code" | "kbd" | "samp" | "var"',
+                        '"p" | "div" | "span" | "label" | "legend" | "small" | "strong" | "em" | "code" | "kbd" | "samp" | "var"',
                 },
             },
         },
