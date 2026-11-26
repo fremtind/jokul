@@ -69,3 +69,22 @@ describe("Expander", () => {
         expect(onPanelOpenChange).not.toHaveBeenCalled();
     });
 });
+
+describe("Expander uten ExpandablePanel", () => {
+    it("rendres som button, nås med Tab og toggles med Enter og Space", async () => {
+        const onClick = vi.fn();
+        const { getByRole } = render(
+            <Expander open={false} onClick={onClick}>
+                Vis mer
+            </Expander>,
+        );
+        const user = userEvent.setup();
+        await user.tab();
+        const button = getByRole("button", { name: "Vis mer" });
+        expect(button).toHaveFocus();
+        expect(button).toHaveAttribute("aria-expanded", "false");
+        await user.keyboard("{Enter}");
+        await user.keyboard(" ");
+        expect(onClick).toHaveBeenCalledTimes(2);
+    });
+});

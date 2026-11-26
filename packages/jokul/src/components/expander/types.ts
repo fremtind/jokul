@@ -60,6 +60,8 @@ export type ExpandableContext = {
         ref: RefObject<HTMLElement | HTMLDetailsElement | null>,
     ) => void;
     setExpanderHeight: (height: number) => void;
+    /** Satt av ExpandablePanel når Expander ligger i en `<details>` */
+    insideDetails?: boolean;
 };
 
 export type AccordionProps = HTMLAttributes<HTMLDivElement> & {

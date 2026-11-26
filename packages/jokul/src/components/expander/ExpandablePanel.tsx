@@ -119,6 +119,7 @@ export const ExpandablePanel = Object.assign(
                             onTransitionEnd: setContentIsVisible,
                             onTransitionStart: setVisibleIfOpening,
                             setExpanderHeight,
+                            insideDetails: as === "details",
                         }}
                     >
                         {children}

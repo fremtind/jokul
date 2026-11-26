@@ -18,11 +18,11 @@ import type {
 } from "./types.js";
 
 export const Expander = React.forwardRef(function Expander<
-    ElementType extends React.ElementType = "summary",
+    ElementType extends React.ElementType = "summary" | "button",
 >(props: ExpanderProps<ElementType>, ref?: PolymorphicRef<ElementType>) {
     const {
         children,
-        as = "summary",
+        as: asProp,
         open: controlledOpen,
         icon,
         className,
@@ -31,13 +31,17 @@ export const Expander = React.forwardRef(function Expander<
         trackingProps,
         ...rest
     } = props;
-    const El = as;
-
     const {
         open: contextOpen,
         onToggle,
         setExpanderHeight,
+        insideDetails,
     } = useContext<ExpandableContext>(ExpanderContext);
+
+    // En <summary> er bare fokuserbar og interaktiv som første barn av en
+    // <details>, så utenfor ExpandablePanel bruker vi <button> som standard.
+    const as = asProp ?? (insideDetails ? "summary" : "button");
+    const El = as;
 
     const internalRef = useRef<HTMLElement>();
     useImperativeHandle(ref, () => internalRef.current, []);
@@ -84,7 +88,13 @@ export const Expander = React.forwardRef(function Expander<
             )}
             // If the consumer uses the Expander as a button but does not
             // supply a type, then we set type to "button"
-            {...(as === "button" ? { type: rest.type || "button" } : {})}
+            {...(as === "button"
+                ? {
+                      type: rest.type || "button",
+                      // <summary> får dette av nettleseren, <button> må ha det eksplisitt
+                      "aria-expanded": isOpen,
+                  }
+                : {})}
             onClick={(e) => {
                 e.preventDefault();
                 if (!isControlled) {
