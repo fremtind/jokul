@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { File } from "../../file/File.js";
 import { FileInput } from "../FileInput.js";
 import { Dropzone } from "../internal/Dropzone.js";
-import { MaxSize } from "../internal/MaxSize.js";
 import type { UploadedFile } from "../types.js";
 import { createUploadedFiles, renderFiles } from "./fileInputStoryUtils.js";
 
@@ -12,7 +11,7 @@ import "../styles/_index.scss";
 const meta = {
     title: "Komponenter/File Input",
     component: FileInput,
-    subcomponents: { File, Dropzone, MaxSize },
+    subcomponents: { File, Dropzone },
     args: {
         variant: "flexible",
         fileVariant: "list",
