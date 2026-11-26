@@ -6,28 +6,43 @@ export function validateFileInputFiles(
     accept = "",
     maxSizeBytes?: number,
 ): UploadedFile["validation"] | undefined {
-    const acceptStrings = accept
+    const fileName = file.name.toLowerCase();
+    const fileType = file.type.toLowerCase();
+    const tokens = accept
         .split(",")
-        .map((s) => s.toLowerCase())
-        .map((s) => s.replaceAll("*", ""))
-        .map((s) => s.trim());
+        .map((token) => token.trim().toLowerCase())
+        .filter(Boolean);
 
-    let isValidFormat = acceptStrings.length === 0;
-
-    isValidFormat = acceptStrings.some(
-        (acceptString) =>
-            file.type.toLowerCase().includes(acceptString) ||
-            file.name.toLowerCase().endsWith(acceptString),
-    );
+    // Samme regler som nettleseren bruker for `accept`, men vi godtar også
+    // filendelser uten punktum (`pdf`) for bakoverkompatibilitet.
+    // https://html.spec.whatwg.org/multipage/input.html#attr-input-accept
+    const isValidFormat =
+        tokens.length === 0 ||
+        tokens.some((token) => {
+            if (token.endsWith("/*")) {
+                return fileType.startsWith(token.slice(0, -1));
+            }
+            if (token.includes("/")) {
+                return fileType === token;
+            }
+            return fileName.endsWith(
+                token.startsWith(".") ? token : `.${token}`,
+            );
+        });
 
     if (!isValidFormat) {
+        const extension = file.name.includes(".")
+            ? file.name.split(".").pop()
+            : undefined;
         return {
             type: "WRONG_TYPE",
-            message: `Filtypen ${file.name?.split(".")[1] || ""} støttes ikke`,
+            message: extension
+                ? `Filtypen ${extension} støttes ikke`
+                : "Filtypen støttes ikke",
         };
     }
 
-    if (typeof maxSizeBytes !== "undefined" && file.size > maxSizeBytes) {
+    if (maxSizeBytes !== undefined && file.size > maxSizeBytes) {
         return {
             type: "TOO_LARGE",
             message: `Filen er ${formatBytes(

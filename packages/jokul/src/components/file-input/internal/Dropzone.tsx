@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { forwardRef, useState } from "react";
+import React, { type DragEvent, forwardRef, useState } from "react";
 import type { WithChildren } from "../../../utilities/types.js";
 import { COMPONENT_NAMES } from "../../metadata.js";
 import { getExtraTrackingAttributes } from "../../types.js";
@@ -29,6 +29,10 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(
         }
         const { maxSizeBytes, accept, onChange } = context;
 
+        // `disabled` på fieldset slår bare av input-elementet nativt, ikke dra-og-slipp
+        const isDisabled = (e: DragEvent<HTMLDivElement>) =>
+            e.currentTarget.closest("fieldset:disabled") !== null;
+
         return (
             <div
                 {...rest}
@@ -40,24 +44,25 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(
                 data-track-multiple={multiple}
                 data-track-variant={variant}
                 {...getExtraTrackingAttributes(trackingProps?.extra, rest)}
-                onDragEnter={(e) => {
-                    setOnDragClassName("jkl-file-input__dropzone--enter");
-                    e.preventDefault();
-                }}
                 onDragOver={(e) => {
-                    /* Prevent browser from opening file in a new tab */
-                    setOnDragClassName("jkl-file-input__dropzone--enter");
+                    // Hindrer nettleseren i å åpne filen i en ny fane
                     e.preventDefault();
+                    if (isDisabled(e)) {
+                        e.dataTransfer.dropEffect = "none";
+                        return;
+                    }
+                    setOnDragClassName("jkl-file-input__dropzone--enter");
                 }}
                 onDrop={(e) => {
                     e.preventDefault();
                     setOnDragClassName("");
 
-                    if (e.dataTransfer.files) {
+                    if (!isDisabled(e) && e.dataTransfer.files.length > 0) {
                         onChange(
                             e,
-                            [...e.dataTransfer.files].map<UploadedFile>(
-                                (file) => ({
+                            [...e.dataTransfer.files]
+                                .slice(0, multiple ? undefined : 1)
+                                .map<UploadedFile>((file) => ({
                                     file,
                                     state: undefined,
                                     validation: validateFileInputFiles(
@@ -66,14 +71,19 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(
                                         maxSizeBytes,
                                     ),
                                     uploadProgress: 0,
-                                }),
-                            ),
+                                })),
                         );
                     }
                 }}
                 onDragLeave={(e) => {
-                    setOnDragClassName("");
-                    e.preventDefault();
+                    // dragleave fyres også når pekeren går inn over et barn av dropsonen
+                    if (
+                        !e.currentTarget.contains(
+                            e.relatedTarget as Node | null,
+                        )
+                    ) {
+                        setOnDragClassName("");
+                    }
                 }}
             >
                 {children}
