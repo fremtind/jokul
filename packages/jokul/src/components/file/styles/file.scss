@@ -12,7 +12,6 @@
         --border: 1px solid var(--jkl-color-border-subdued);
         --border-radius: var(--jkl-border-radius-s);
         --bg: transparent;
-        --transition-time: #{jkl.$motion-timing-expressive};
 
         &__thumbnail {
             flex-shrink: 0;
@@ -27,39 +26,22 @@
             background: var(--jkl-color-background-page);
             border-radius: var(--jkl-border-radius-xs);
             overflow: hidden;
-            anchor-name: --thumb;
-            anchor-scope: all;
             outline: 1px solid color-mix(in srgb, currentColor 3%, transparent);
 
-            &::after {
-                position: absolute;
-                z-index: 1;
-                content: "" / "Laster opp";
-                position-anchor: --thumb;
-                position-area: center;
-                height: 25%;
-                border-radius: 1px;
-                aspect-ratio: 1;
-                scale: 0;
-                background: var(--text-color);
-                animation: spin 5s infinite forwards linear;
-                transition:  display var(--transition-time) allow-discrete ease-in, scale var(--transition-time) ease-in;
-
-                @starting-style {
-                    scale: 0;
-                }
+            img[src] {
+                min-width: 100%;
+                min-height: 100%;
+                object-fit: cover;
+                object-position: center;
             }
 
-            img {
-                opacity: 1;
-                transition:  opacity var(--transition-time) ease-in-out;
+            // Filtypen vises når filen ikke er et bilde
+            &:not(:has(img[src]))::before {
+                @include jkl.text-style("paragraph-small");
+                position: absolute;
+                z-index: 1;
 
-                &[src] {
-                    min-width: 100%;
-                    min-height: 100%;
-                    object-fit: cover;
-                    object-position: center;
-                }
+                content: attr(data-filetype);
             }
         }
 
@@ -78,6 +60,7 @@
             border-radius: var(--border-radius);
             background: var(--bg);
             height: fit-content;
+            position: relative;
 
             &:not(:has(.jkl-file__thumbnail)):has(.jkl-file__button) {
                 --jkl-file-padding: 0 var(--jkl-unit-10);
@@ -104,34 +87,9 @@
 
 
         // Card view
-        &[class*="card"] {
+        &--card {
             --jkl-file-thumbnail-width: 100%;
             --jkl-file-thumbnail-aspect-ratio: 16/10;
-        }
-
-        // If the file is not an image
-        &:not([data-state*="loading"]) {
-            .jkl-file__thumbnail:not(:has(img[src]))::before {
-                @include jkl.text-style("paragraph-small");
-                position: absolute;
-                z-index: 1;
-
-                content: attr(data-filetype);
-            }
-        }
-
-        // Loading state
-        &[data-state="loading"]:not(:has(.jkl-file__support-label)) {
-            .jkl-file__thumbnail {
-                img {
-                    opacity: 0;
-                }
-
-                &::after {
-                    display: block;
-                    scale: 1;
-                }
-            }
         }
 
         // Error state
@@ -150,13 +108,21 @@
         }
     }
 
-    @keyframes spin {
-        from {
-            transform: rotate(0turn);
-        }
+    // Tynn ProgressBar i underkanten av filen mens den lastes opp. Dobbel klasse så den
+    // vinner over ProgressBar-stilene uansett rekkefølge.
+    .jkl-file .jkl-file__progress {
+        --track-color: transparent;
+        --bar-height: var(--jkl-unit-02);
 
-        to {
-            transform: rotate(1turn);
-        }
+        // Overlegget dekker hele innsiden av boksen og klipper linjen etter de runde hjørnene.
+        // Uten det stikker hjørnene på en 2px høy linje utenfor border-radiusen.
+        position: absolute;
+        inset: 0;
+        width: auto;
+        height: auto;
+        display: flex;
+        align-items: flex-end;
+        border-radius: calc(var(--border-radius) - 1px);
+        pointer-events: none;
     }
 }
