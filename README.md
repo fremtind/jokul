@@ -84,8 +84,16 @@ Når vi skal utgi ny major-versjon av Jøkul følger vi følgende oppskrift
     - Oppdater versjoner av pakkene med `pnpm release:version`
     - Lag en PR med disse endringene mot `main`
 2. Merge inn PRen du nettopp laget. **Ny major-versjon vil nå bli publisert**
-3. Lag en ny branch ut fra `main` for versjonen du nettopp publiserte, f.eks. `jokul-7.x` hvis du publiserte versjon `7.0.0`, og push den til GitHub
-4. Oppdater `.github/maintained-versions.json` med den nye major-versjonen, og lag en PR med endringen mot `main`. **Backport endringen til alle brancher som er støttet** (de som er listet opp i filen)
+3. Lag en ny branch for versjonen du nettopp publiserte, f.eks. `jokul-7.x` hvis du publiserte versjon `7.0.0`, og oppdater `.github/maintained-versions.json`. Dette gjør du med scriptet [`scripts/create-backport-branch.mjs`](scripts/create-backport-branch.mjs), kjørt fra en ren branch ut fra `main`:
+
+    ```sh
+    pnpm release:backport-branch
+    ```
+
+    Uten argumenter spørres du om major, `latest`, maks bump-nivå og om branchen skal pushes. Alt kan også gis som argumenter, f.eks. `--major 7 --max-bump minor --latest --push`. `--yes` hopper over spørsmålene.
+
+    Scriptet lager `jokul-7.x` ut fra `origin/main`, markerer `@fremtind/stylelint-config-jkl` som privat på den nye branchen (pakken publiseres kun fra `main`, ellers feiler release når en backportet changeset bumper den), pusher branchen og legger den til i `maintained-versions.json`. Uten `--push` blir branchen bare laget lokalt. `--max-bump` er `patch` som standard. Bruk `--latest` hvis den nye branchen skal publisere med npm-taggen `latest`: da flyttes `"latest": true` fra forrige branch, slik at kun én branch publiserer `latest`.
+4. Lag en PR med endringen i `.github/maintained-versions.json` mot `main`. **Backport endringen til alle brancher som er støttet** (de som er listet opp i filen). Grenbeskyttelse og merge-kø settes opp av GitHub-rulesets som matcher `jokul-[0-9].x`, så det trengs ikke gjøres per branch
 5. Skru på igjen prerelease-modus i `main` med `pnpm release:pre:enter`
 
 ## Bruk av pakkene
