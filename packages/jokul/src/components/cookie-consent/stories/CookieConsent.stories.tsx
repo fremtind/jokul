@@ -16,7 +16,7 @@ import "../styles/_index.scss";
 
 type ExampleProps = Pick<
     CookieConsentProviderProps,
-    "cookieName" | "functional" | "statistics"
+    "cookieName" | "cookiePath" | "cookieDomain" | "functional" | "statistics"
 > &
     Pick<CookieConsentProps, "aboutPage" | "aboutPageLinkText" | "blocking"> & {
         heading: string;
@@ -27,6 +27,8 @@ type ExampleProps = Pick<
 
 function CookieConsentExample({
     cookieName,
+    cookiePath,
+    cookieDomain,
     functional = true,
     statistics = true,
     aboutPage,
@@ -51,6 +53,8 @@ function CookieConsentExample({
         <div style={{ maxWidth: "40rem" }}>
             <CookieConsentProvider
                 cookieName={cookieName}
+                cookiePath={cookiePath}
+                cookieDomain={cookieDomain}
                 functional={functional}
                 statistics={statistics}
             >
@@ -97,6 +101,18 @@ const meta = {
             control: "text",
             table: {
                 defaultValue: { summary: "demo-consent-cookie" },
+            },
+        },
+        cookiePath: {
+            control: "text",
+            table: {
+                defaultValue: { summary: "undefined" },
+            },
+        },
+        cookieDomain: {
+            control: "text",
+            table: {
+                defaultValue: { summary: "undefined" },
             },
         },
         functional: {
@@ -216,6 +232,46 @@ export const TilpassetLenketekst: Story = {
         openLabel: "Åpne personvernvalg",
         aboutPageLinkText:
             "Se hvordan vi bruker informasjons­kapsler i løsningen",
+    },
+    render: (args) => <CookieConsentExample {...args} />,
+};
+
+export const SamtykkeForHeleLosningen: Story = {
+    name: "Samtykke for hele løsningen",
+    args: {
+        heading: "Sett cookiePath for å unngå dobbelt samtykke",
+        body: (
+            <Flex direction="column" gap="m">
+                <p>
+                    Uten <code>cookiePath</code> lar nettleseren seg styre av
+                    sin egen standard, som er <em>mappen</em> til siden der
+                    dialogen ble besvart. Svarer brukeren på{" "}
+                    <code>/innlogging/bankid</code>, får samtykket{" "}
+                    <code>path=/innlogging</code> og følger ikke med videre inn
+                    i løsningen.
+                </p>
+                <p>
+                    Da blir brukeren spurt på nytt etter innlogging, og det
+                    ligger plutselig to samtykke-cookies med samme navn. Sett{" "}
+                    <code>cookiePath=&quot;/&quot;</code> slik at samtykket
+                    gjelder hele løsningen uansett hvor dialogen ble vist.
+                </p>
+                <p>
+                    Skal samtykket deles på tvers av subdomener, kan{" "}
+                    <code>cookieDomain</code> settes i tillegg — men da må alle
+                    appene bruke samme <code>cookieName</code>, og verdien må
+                    settes per miljø: nettleseren forkaster et domene som ikke
+                    matcher vertsnavnet, slik som på localhost.
+                </p>
+                <p>
+                    Merk at effekten ikke er synlig i Storybook, siden stories
+                    kjører på rot-nivå. Sjekk <code>path</code>-kolonnen i
+                    nettleserens cookie-oversikt i din egen app.
+                </p>
+            </Flex>
+        ),
+        openLabel: "Vis samtykkedialog",
+        cookiePath: "/",
     },
     render: (args) => <CookieConsentExample {...args} />,
 };
