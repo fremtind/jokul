@@ -1,5 +1,38 @@
 # Change Log
 
+## 6.1.0-next.8
+
+### Minor Changes
+
+- 7ea45b4: `FileInput` har fått ny prop `fileVariant` ("list" | "card") som styrer hvordan opplastede `File`-komponenter vises. `variant` på den enkelte `File` overstyrer valget.
+- 7e7752a: Forenkler `TextArea`. Høyden styres nå av CSS-variabelen `--rows`, og fokus-state og JavaScript-måling av høyde er fjernet fra `BaseTextArea`. Klassene `jkl-text-area__text-area--N-rows` er fjernet.
+
+  `autoExpand` bruker nå `field-sizing: content` og er en progressiv forbedring. I nettlesere uten støtte for `field-sizing` utvides ikke feltet automatisk. Det beholder høyden fra `rows`, og lang tekst kan scrolles som i et vanlig tekstfelt.
+
+- 6bb3b59: Legger til CLI-verktøy for generering av fargepalett
+- 892ba3b: `ProgressBar` kan vise ukjent fremdrift. Utelat `aria-valuenow`, så glir et stykke av linjen frem og tilbake. Brukere som har slått på redusert bevegelse, ser en stiplet linje i stedet.
+
+  `ProgressBar` er heller ikke lenger et tabstopp. Den er ikke interaktiv, og skjermlesere finner den uten å fokusere den.
+
+- 87d3809: Legger til funksjonalitet for å generere fargepaletter for Jøkul, lik den brukt i temabyggeren i portalen.
+
+### Patch Changes
+
+- 8f8b7e9: (Intern funksjonalitet) Bedre håndtering av fargetokens ved bygg av Jøkul
+
+  Legger til en preprosessor som lar oss referere til andre fargetokens i definisjonsfilene, slik at vi enkelt kan bruke samme verdi flere steder.
+
+- 8371c39: Oppdaterte funksjonsfarger
+
+  Funksjonsfargene (info, error, etc) er oppdatert for å gi bedre kontraster og for å fungere mer som de andre fargerollene i systemet.
+
+- a65854a: Legger til forhåndsvisning av tema for SpareBank 1 i Storybook
+- 3004e73: Legger til definisjon av formatet for overlevering av temainformasjon fra f.eks. temabyggeren.
+- 9743f85: Legg til JSON-schema for tokens brukt i Jøkul-tema
+- 7531874: Lar Tailwind v4-klassen `font-bold` bruke Jøkuls fontvektvariabel slik at den følger `data-brand`.
+- c1b0764: Fikser at scroll-containeren hoppet når man fokuserte, skrev i eller forlot en `TextArea` med `autoExpand`. Nettlesere som støtter `field-sizing` lar nå feltet vokse uten at høyden måles i JavaScript.
+- bfabe10: Legger til disabled-styling for `Button`. Knapper med `disabled` vises nå med 50 % opacity og musepekeren `not-allowed`.
+
 ## 6.1.0-next.7
 
 ### Minor Changes
