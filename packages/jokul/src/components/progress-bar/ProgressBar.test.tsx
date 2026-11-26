@@ -86,6 +86,31 @@ describe("ProgressBar", () => {
     });
 });
 
+describe("ProgressBar med ukjent fremdrift", () => {
+    it("utelater aria-valuenow og bredden på linjen", () => {
+        render(<ProgressBar />);
+
+        const progressBar = screen.getByRole("progressbar");
+        expect(progressBar).not.toHaveAttribute("aria-valuenow");
+        expect(progressBar).toHaveClass("jkl-progress-bar--indeterminate");
+        expect(
+            screen.getByTestId("jkl-progress-bar__tracker"),
+        ).not.toHaveAttribute("style");
+    });
+
+    it("er universelt utformet", async () => {
+        const { container } = render(<ProgressBar title="Laster opp" />);
+
+        expect(await axe(container)).toHaveNoViolations();
+    });
+});
+
+it("er ikke et tabstopp", () => {
+    render(<ProgressBar {...defaultProps} />);
+
+    expect(screen.getByRole("progressbar")).not.toHaveAttribute("tabindex");
+});
+
 describe("calculatePercentage", () => {
     it("should not fail by dividing by 0", () => {
         const res = calculatePercentage(0, 0);
