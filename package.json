@@ -26,6 +26,7 @@
         "release:pre:exit": "changeset pre exit",
         "release:publish": "pnpm build && changeset publish",
         "release": "pnpm release:publish",
+        "release:backport-branch": "node scripts/create-backport-branch.mjs",
         "dev": "run-p dev:portal dev:storybook build:storybook",
         "dev:portal": "pnpm --filter \"portal\" dev",
         "dev:storybook": "storybook dev -p 6007 --no-open",
