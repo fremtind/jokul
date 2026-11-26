@@ -7,6 +7,7 @@ import {
 } from "./transforms/color-tokens.mjs";
 import { applyDateInputTransforms } from "./transforms/date-input.mjs";
 import { applyExpandablePanelTransforms } from "./transforms/expandable-panel.mjs";
+import { applyFileInputTransforms } from "./transforms/file-input.mjs";
 import { applyFontFamilyReplacements } from "./transforms/font-family.mjs";
 import {
     BASE_OR_COMPONENT_CSS_PATTERN,
@@ -78,7 +79,8 @@ export function transformImportPaths(text, filePath = "") {
     const dateInput = applyDateInputTransforms(expandablePanel.text);
     const select = applySelectTransforms(dateInput.text);
     const masks = applyRegisterWithMaskTransforms(select.text);
-    let next = masks.text;
+    const fileInput = applyFileInputTransforms(masks.text);
+    let next = fileInput.text;
     let reordered = false;
 
     if (/\.(sass|scss)$/i.test(filePath)) {
@@ -92,6 +94,7 @@ export function transformImportPaths(text, filePath = "") {
         ...dateInput.warnings,
         ...select.warnings,
         ...masks.warnings,
+        ...fileInput.warnings,
         ...collectManualMigrationWarnings(text),
     ];
 
@@ -117,7 +120,8 @@ export function transformImportPaths(text, filePath = "") {
             expandablePanel.count +
             dateInput.count +
             select.count +
-            masks.count,
+            masks.count +
+            fileInput.count,
         warnings,
         reordered,
     };

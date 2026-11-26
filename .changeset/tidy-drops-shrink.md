@@ -11,4 +11,4 @@ I tillegg:
 - Filvelgeren dekker hele dropsonen og bruker nettleserens dra-og-slipp. `onChange` får derfor alltid en `ChangeEvent`, aldri en `DragEvent`, og typen `HandleFiles` er fjernet.
 - `upload()` gir `null` når svaret ikke er gyldig JSON, og feil fra serveren gir en `Error` med HTTP-status i meldingen.
 
-Se MIGRATION.md for detaljer.
+`variant`, `onChange`-typen og `.jkl-file-input--has-files` kan migreres med `pnpm exec jokul codemod`. Se MIGRATION.md for detaljer.

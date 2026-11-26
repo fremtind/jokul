@@ -20,6 +20,8 @@ Se [codemods/CODEMODS.md](./codemods/CODEMODS.md) for full oversikt over hva hve
 
 ### `FileInput` har alltid kompakt visning og bruker nettleserens dra-og-slipp
 
+> **Codemoden fikser `variant`, `onChange`-typen og `.jkl-file-input--has-files` automatisk**, og varsler om `HandleFiles`, tracking på dropsonen og `upload()`.
+
 `FileInput` er forenklet. Filvelgeren dekker nå hele dropsonen, så både klikk og slipp går rett til `<input type="file">`, og komponenten har ikke lenger en egen dra-og-slipp-implementasjon.
 
 #### `variant` er fjernet

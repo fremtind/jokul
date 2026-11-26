@@ -187,6 +187,27 @@ Disse gir varsel når de finnes i en fil som bruker `Select`, `NativeSelect` ell
 
 ---
 
+#### `FileInput` (Jøkul 7)
+
+`FileInput` har alltid kompakt visning og bruker nettleserens dra-og-slipp. Disse endres automatisk:
+
+| Før                                                                              | Etter                                     |
+| -------------------------------------------------------------------------------- | ----------------------------------------- |
+| `<FileInput variant="small" />` (alle verdier av `variant`)                      | `<FileInput />`                           |
+| `React.ChangeEvent<HTMLInputElement> \| React.DragEvent<HTMLDivElement>`         | `React.ChangeEvent<HTMLInputElement>`     |
+| `.jkl-file-input--has-files` (CSS-selektor)                                      | `.jkl-file-input:has(.jkl-file)`          |
+
+Disse gir varsel:
+
+| Mønster                                                          | Varsel                                                                               |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `HandleFiles`                                                    | Typen er fjernet. `onChange` får alltid en `ChangeEvent`.                            |
+| `jkl-file-input--has-files` utenfor en selektor                  | Klassen er fjernet. Bruk `:has(.jkl-file)` i CSS.                                    |
+| `jkl-file-input__dropzone` i en fil med `data-track`             | `data-track-*` settes nå bare på filvelgeren.                                        |
+| `upload` importert fra `@fremtind/jokul` / `/file-input`         | Gir `null` for svar som ikke er JSON, og `Error` med HTTP-status ved serverfeil.     |
+
+---
+
 #### Fjernede maskefunksjoner
 
 De frittstående, utgåtte maskefunksjonene er fjernet. Kall og importer skrives om
