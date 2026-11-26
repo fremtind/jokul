@@ -57,7 +57,7 @@ export const Dropzone = forwardRef<HTMLDivElement, DropzoneProps>(
                     e.preventDefault();
                     setOnDragClassName("");
 
-                    if (!isDisabled(e) && e.dataTransfer.files) {
+                    if (!isDisabled(e) && e.dataTransfer.files.length > 0) {
                         onChange(
                             e,
                             [...e.dataTransfer.files]

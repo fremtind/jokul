@@ -118,6 +118,20 @@ describe("FileInput", () => {
         expect(onChange).not.toHaveBeenCalled();
     });
 
+    it("should ignore a drop without files", () => {
+        const onChange = vi.fn();
+        const { container } = setup(
+            <FileInput legend="Vedlegg" onChange={onChange} value={files} />,
+        );
+
+        fireEvent.drop(
+            container.querySelector(".jkl-file-input__dropzone") as Element,
+            { dataTransfer: { files: [] } },
+        );
+
+        expect(onChange).not.toHaveBeenCalled();
+    });
+
     it("should announce the number of selected files", () => {
         const onChange = vi.fn();
         const file: UploadedFile = {
