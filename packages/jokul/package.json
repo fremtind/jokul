@@ -12,7 +12,7 @@
     "homepage": "https://github.com/fremtind/jokul/tree/main/packages/jokul",
     "keywords": [],
     "license": "MIT",
-    "sideEffects": ["*.css", "*.scss"],
+    "sideEffects": ["*.css", "*.scss", "**/tokens/style-dictionary/register.*"],
     "files": [
         "./bin",
         "./build",
@@ -163,7 +163,13 @@
     "peerDependencies": {
         "@types/react": "^18.3.1 || ^19.0.0",
         "react": "^18.3.1 || ^19.0.0",
-        "react-dom": "^18.3.1 || ^19.0.0"
+        "react-dom": "^18.3.1 || ^19.0.0",
+        "style-dictionary": "^5.5.0"
+    },
+    "peerDependenciesMeta": {
+        "style-dictionary": {
+            "optional": true
+        }
     },
     "repository": {
         "type": "git",

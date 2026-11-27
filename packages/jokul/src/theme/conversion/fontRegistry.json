@@ -1,0 +1,86 @@
+{
+    "'Jokul', 'Adjusted Arial Fallback', arial, sans-serif": {
+        "regular": {
+            "family": "Jokul",
+            "weight": 400,
+            "style": "normal",
+            "fileName": "InterVariable.woff2"
+        },
+        "bold": {
+            "family": "Jokul",
+            "weight": 600,
+            "style": "normal",
+            "fileName": "InterVariable.woff2"
+        }
+    },
+    "'Jokul Display', 'Adjusted Arial Display Fallback', arial, sans-serif": {
+        "regular": {
+            "family": "Jokul Display",
+            "weight": 400,
+            "style": "normal",
+            "fileName": "InterVariable.woff2"
+        },
+        "bold": {
+            "family": "Jokul Display",
+            "weight": 400,
+            "style": "normal",
+            "fileName": "InterVariable.woff2"
+        }
+    },
+    "'DNB Sans', sans-serif": {
+        "regular": {
+            "family": "DNB Sans",
+            "weight": 400,
+            "style": "normal",
+            "fileName": "DNB-Regular.woff2"
+        },
+        "bold": {
+            "family": "DNB Sans",
+            "weight": 500,
+            "style": "normal",
+            "fileName": "DNB-Medium.woff2"
+        }
+    },
+    "'Open Sans', sans-serif": {
+        "regular": {
+            "family": "Open Sans",
+            "weight": 400,
+            "style": "normal",
+            "fileName": "OpenSans-Regular.woff2"
+        },
+        "bold": {
+            "family": "Open Sans",
+            "weight": 600,
+            "style": "normal",
+            "fileName": "OpenSans-SemiBold.woff2"
+        }
+    },
+    "'SpareBank 1', sans-serif": {
+        "regular": {
+            "family": "SpareBank 1",
+            "weight": 400,
+            "style": "normal",
+            "fileName": "SpareBank1-Regular-Web.woff2"
+        },
+        "bold": {
+            "family": "SpareBank 1",
+            "weight": 600,
+            "style": "normal",
+            "fileName": "SpareBank1-Medium-Web.woff2"
+        }
+    },
+    "'SpareBank 1 Display', sans-serif": {
+        "regular": {
+            "family": "SpareBank 1 Display",
+            "weight": 600,
+            "style": "normal",
+            "fileName": "SpareBank1-Title-Medium-Web.woff2"
+        },
+        "bold": {
+            "family": "SpareBank 1 Display",
+            "weight": 600,
+            "style": "normal",
+            "fileName": "SpareBank1-Title-Medium-Web.woff2"
+        }
+    }
+}
